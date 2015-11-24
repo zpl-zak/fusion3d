@@ -4,7 +4,6 @@ Fusion3D
 Simple 3D Game Engine with dynamic shading, physics and reflected modular programming.
 
 ##Build Dependencies##
-- [CMAKE](http://www.cmake.org/)
 - [GLEW](http://glew.sourceforge.net/)
 - [SDL2](http://www.libsdl.org/)
 - [ASSIMP](http://assimp.sourceforge.net/)
