@@ -1,9 +1,0 @@
-{
-  "firebase": "fusion3d-docs",
-  "public": "html",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ]
-}
