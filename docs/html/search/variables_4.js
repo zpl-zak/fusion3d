@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['eflags',['eflags',['../structstbi__gif__struct.html#aad9790350cb2d775722dc5d55fdfde42',1,'stbi_gif_struct']]],
-  ['eof',['eof',['../structstbi__io__callbacks.html#a319639db2f76e715eed7a7a974136832',1,'stbi_io_callbacks']]],
-  ['expanded',['expanded',['../structpng.html#a474dd0da8ac0347924e68f5de7e68c55',1,'png']]]
+  ['data',['data',['../structjpeg.html#a7aed10946c4fd8ad8c0a1e3ff0cd075a',1,'jpeg']]],
+  ['dc_5fpred',['dc_pred',['../structjpeg.html#ab09c873c011a6cf5f708973697a313a6',1,'jpeg']]],
+  ['delta',['delta',['../structhuffman.html#a04255e3e1c6de74d36a08a1aa4e9537d',1,'huffman']]],
+  ['dequant',['dequant',['../structjpeg.html#aae820981dde2c49bc05b6e1298143d21',1,'jpeg']]]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"decal_renderer_8h_source.html":[2,0,0,0,0],
 "dev_mode_8h.html":[2,0,0,0,1],
 "dev_mode_8h.html#a007cde0bbc6444cd47817107155b1874":[2,0,0,0,1,10],
 "dev_mode_8h.html#a1e0bad02e337b8c4ecace89223ecb887":[2,0,0,0,1,7],
@@ -126,8 +127,8 @@ var NAVTREEINDEX4 =
 "game_8cpp.html":[2,0,0,1,5],
 "game_8h.html":[2,0,0,1,6],
 "game_8h_source.html":[2,0,0,1,6],
-"globals.html":[2,1,0,0],
 "globals.html":[2,1,0],
+"globals.html":[2,1,0,0],
 "globals_a.html":[2,1,0,1],
 "globals_b.html":[2,1,0,2],
 "globals_c.html":[2,1,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "physics_engine_component_8h.html#a296e971ef7851c952c82b940f29f9b5c":[2,0,0,0,9,3],
 "physics_engine_component_8h.html#a67f42368c159571dda293883a513a29d":[2,0,0,0,9,1],
 "physics_engine_component_8h.html#a8ffe801b763b48db62c28fb5b5852fea":[2,0,0,0,9,2],
-"physics_engine_component_8h.html#af2bc2e0dc83ff5539a58877ee0bf580b":[2,0,0,0,9,0],
-"physics_engine_component_8h_source.html":[2,0,0,0,9]
+"physics_engine_component_8h.html#af2bc2e0dc83ff5539a58877ee0bf580b":[2,0,0,0,9,0]
 };

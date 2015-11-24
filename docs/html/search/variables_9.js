@@ -1,10 +1,21 @@
 var searchData=
 [
-  ['length',['length',['../structchunk.html#a0b5cc0c5a9b91945c42373db2a499fb1',1,'chunk']]],
-  ['lflags',['lflags',['../structstbi__gif__struct.html#a01e6981357bbd283177f70f87050a49d',1,'stbi_gif_struct']]],
-  ['line0',['line0',['../structstbi__resample.html#a30c51395efffb663b183d7c64def6db3',1,'stbi_resample']]],
-  ['line1',['line1',['../structstbi__resample.html#ac1165a6da3cf652b951056667f89b1f2',1,'stbi_resample']]],
-  ['line_5fsize',['line_size',['../structstbi__gif__struct.html#a5b7d7625c253025ff5ee4169afbf06b7',1,'stbi_gif_struct']]],
-  ['linebuf',['linebuf',['../structjpeg.html#a5387acb02e74f6a5ba55b2e3492a25ff',1,'jpeg']]],
-  ['lpal',['lpal',['../structstbi__gif__struct.html#af2bf4a7890065ce54b8b59c6fd008e5f',1,'stbi_gif_struct']]]
+  ['id',['id',['../structjpeg.html#a58dd6e440ef7dc1e23087ec27a864ce6',1,'jpeg']]],
+  ['idata',['idata',['../structpng.html#a5cd944fdf0f0417a344bcc538ed98ed6',1,'png']]],
+  ['img_5fbuffer',['img_buffer',['../structstbi.html#aace36d5487a596bea5faa0aef0398ac8',1,'stbi']]],
+  ['img_5fbuffer_5fend',['img_buffer_end',['../structstbi.html#a55f78565e605f1784d47fc9acea475f3',1,'stbi']]],
+  ['img_5fbuffer_5foriginal',['img_buffer_original',['../structstbi.html#a261be6edda817862e623972b21b4f965',1,'stbi']]],
+  ['img_5fcomp',['img_comp',['../structjpeg.html#aa0847f94247c50d6b1f565632148c659',1,'jpeg']]],
+  ['img_5fh_5fmax',['img_h_max',['../structjpeg.html#af4ed1173241e83f1482a276a178ce9e5',1,'jpeg']]],
+  ['img_5fmcu_5fh',['img_mcu_h',['../structjpeg.html#a6e013436253bcf1e5808a1774b96cc38',1,'jpeg']]],
+  ['img_5fmcu_5fw',['img_mcu_w',['../structjpeg.html#a32f06fea63ec2c976092760b21abad72',1,'jpeg']]],
+  ['img_5fmcu_5fx',['img_mcu_x',['../structjpeg.html#a8a7f2486617a69e9b88c9a161560c8a5',1,'jpeg']]],
+  ['img_5fmcu_5fy',['img_mcu_y',['../structjpeg.html#afa9d2c991eff0959c0c8b65ab186243b',1,'jpeg']]],
+  ['img_5fn',['img_n',['../structstbi.html#ae22cfcc23f5ab67bede22942333ecbd7',1,'stbi']]],
+  ['img_5fout_5fn',['img_out_n',['../structstbi.html#a33f6519d8f99b84afbde795dc7a931f2',1,'stbi']]],
+  ['img_5fv_5fmax',['img_v_max',['../structjpeg.html#a50690c7d415968f864f4f1c10b85082d',1,'jpeg']]],
+  ['img_5fx',['img_x',['../structstbi.html#af3b42c257fb0d8896f29ca3921540a42',1,'stbi']]],
+  ['img_5fy',['img_y',['../structstbi.html#a60cb5a630e268b2d12306c6eca246dd1',1,'stbi']]],
+  ['io',['io',['../structstbi.html#a86596e1eb2b0f57a60a18777bd37ff53',1,'stbi']]],
+  ['io_5fuser_5fdata',['io_user_data',['../structstbi.html#a9838a0c89630f283c25a16f4e30f40aa',1,'stbi']]]
 ];

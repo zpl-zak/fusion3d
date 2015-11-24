@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"structjpeg.html#ac0f5240fc472e75239328f51a50f45b6":[1,0,15,22],
 "structjpeg.html#adca2f04da72e50086c77c7070731a679":[1,0,15,26],
 "structjpeg.html#af4ed1173241e83f1482a276a178ce9e5":[1,0,15,13],
 "structjpeg.html#afa9d2c991eff0959c0c8b65ab186243b":[1,0,15,17],

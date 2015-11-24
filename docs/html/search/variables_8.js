@@ -1,21 +1,10 @@
 var searchData=
 [
-  ['id',['id',['../structjpeg.html#a58dd6e440ef7dc1e23087ec27a864ce6',1,'jpeg']]],
-  ['idata',['idata',['../structpng.html#a5cd944fdf0f0417a344bcc538ed98ed6',1,'png']]],
-  ['img_5fbuffer',['img_buffer',['../structstbi.html#aace36d5487a596bea5faa0aef0398ac8',1,'stbi']]],
-  ['img_5fbuffer_5fend',['img_buffer_end',['../structstbi.html#a55f78565e605f1784d47fc9acea475f3',1,'stbi']]],
-  ['img_5fbuffer_5foriginal',['img_buffer_original',['../structstbi.html#a261be6edda817862e623972b21b4f965',1,'stbi']]],
-  ['img_5fcomp',['img_comp',['../structjpeg.html#aa0847f94247c50d6b1f565632148c659',1,'jpeg']]],
-  ['img_5fh_5fmax',['img_h_max',['../structjpeg.html#af4ed1173241e83f1482a276a178ce9e5',1,'jpeg']]],
-  ['img_5fmcu_5fh',['img_mcu_h',['../structjpeg.html#a6e013436253bcf1e5808a1774b96cc38',1,'jpeg']]],
-  ['img_5fmcu_5fw',['img_mcu_w',['../structjpeg.html#a32f06fea63ec2c976092760b21abad72',1,'jpeg']]],
-  ['img_5fmcu_5fx',['img_mcu_x',['../structjpeg.html#a8a7f2486617a69e9b88c9a161560c8a5',1,'jpeg']]],
-  ['img_5fmcu_5fy',['img_mcu_y',['../structjpeg.html#afa9d2c991eff0959c0c8b65ab186243b',1,'jpeg']]],
-  ['img_5fn',['img_n',['../structstbi.html#ae22cfcc23f5ab67bede22942333ecbd7',1,'stbi']]],
-  ['img_5fout_5fn',['img_out_n',['../structstbi.html#a33f6519d8f99b84afbde795dc7a931f2',1,'stbi']]],
-  ['img_5fv_5fmax',['img_v_max',['../structjpeg.html#a50690c7d415968f864f4f1c10b85082d',1,'jpeg']]],
-  ['img_5fx',['img_x',['../structstbi.html#af3b42c257fb0d8896f29ca3921540a42',1,'stbi']]],
-  ['img_5fy',['img_y',['../structstbi.html#a60cb5a630e268b2d12306c6eca246dd1',1,'stbi']]],
-  ['io',['io',['../structstbi.html#a86596e1eb2b0f57a60a18777bd37ff53',1,'stbi']]],
-  ['io_5fuser_5fdata',['io_user_data',['../structstbi.html#a9838a0c89630f283c25a16f4e30f40aa',1,'stbi']]]
+  ['h',['h',['../structjpeg.html#a5234104744a9edef60b6080fadd90ebe',1,'jpeg::h()'],['../structstbi__gif__struct.html#a6ce6b990464cdbbe9a408fe26581b296',1,'stbi_gif_struct::h()']]],
+  ['h2',['h2',['../structjpeg.html#a0da0da6936f4b22681a3b6035b67bc50',1,'jpeg']]],
+  ['ha',['ha',['../structjpeg.html#a1b91deb74bf7b7730abaacc29d85016c',1,'jpeg']]],
+  ['hd',['hd',['../structjpeg.html#a5a14ee72835b815846df7c3eec7bfd21',1,'jpeg']]],
+  ['hs',['hs',['../structstbi__resample.html#a1513390ba0102364169a52ff26d5e0f2',1,'stbi_resample']]],
+  ['huff_5fac',['huff_ac',['../structjpeg.html#a6fab0b2d90425db5d609edbde8bddd92',1,'jpeg']]],
+  ['huff_5fdc',['huff_dc',['../structjpeg.html#aae44f91bafcc73fa70544573458abe33',1,'jpeg']]]
 ];

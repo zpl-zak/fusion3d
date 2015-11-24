@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['once',['once',['../bird__prog_8h.html#ad88994ce17a3f0a9c5b862cc4636f54f',1,'bird_prog.h']]],
-  ['order',['order',['../structjpeg.html#ac0f5240fc472e75239328f51a50f45b6',1,'jpeg']]],
-  ['out',['out',['../structpng.html#ada33c39620ad9a647c088c40d21887f6',1,'png::out()'],['../structstbi__gif__struct.html#a1c2d18ea92a86a416e7458cdaa9f4cc3',1,'stbi_gif_struct::out()']]]
+  ['nomore',['nomore',['../structjpeg.html#a2d114f4d52f50d8d85f43b2a3f161cec',1,'jpeg']]],
+  ['num_5fbits',['num_bits',['../structzbuf.html#acd069cdb4100884a732ad2794edbbdff',1,'zbuf']]],
+  ['num_5fkeys',['NUM_KEYS',['../class_input.html#a593c9d5b6ca0df098a61b683b0b7bbce',1,'Input']]],
+  ['num_5fmousebuttons',['NUM_MOUSEBUTTONS',['../class_input.html#aedaace4ea220bcd41963cf171c102288',1,'Input']]]
 ];

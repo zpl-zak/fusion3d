@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['v',['v',['../structjpeg.html#afd4d012a5d0ba3cd039a579e1c76b383',1,'jpeg']]],
-  ['value',['value',['../structzhuffman.html#acc395b638b700b944c329d71a8b82084',1,'zhuffman']]],
-  ['values',['values',['../structhuffman.html#a313d78cf23f40b314c25681ff2a6224b',1,'huffman']]],
-  ['vs',['vs',['../structstbi__resample.html#a331c717f53239339c0c678f92a7bf4d5',1,'stbi_resample']]]
+  ['todo',['todo',['../structjpeg.html#a6b4a8a352872847d84ea5ef1a4bc245e',1,'jpeg']]],
+  ['tq',['tq',['../structjpeg.html#a881f166abcd414809677939c0b75e6cf',1,'jpeg']]],
+  ['transparent',['transparent',['../structstbi__gif__struct.html#ab46e0fb6ad50c3caeac8800ef07b78a8',1,'stbi_gif_struct']]],
+  ['type',['type',['../structchunk.html#a05d5489f3807bc7ba149c1904241d087',1,'chunk::type()'],['../structpic__packet__t.html#abc346cfdcff43f051830335296f14aaa',1,'pic_packet_t::type()']]]
 ];

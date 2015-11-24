@@ -217,3 +217,4 @@ build/Fusion3D.dir/
 *.map
 !/lib/
 !/lib/glew/lib/
+/docs/latex/
