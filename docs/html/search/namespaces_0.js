@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['copyr',['copyr',['../namespacecopyr.html',1,'']]]
+  ['testing',['Testing',['../namespace_testing.html',1,'']]],
+  ['time',['Time',['../namespace_time.html',1,'']]]
 ];

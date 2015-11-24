@@ -10,8 +10,6 @@ var searchData=
   ['col',['col',['../structmpc__state__t.html#a9a693c1ebea3a4b4f4494c65b7567205',1,'mpc_state_t']]],
   ['color_5ftable',['color_table',['../structstbi__gif__struct.html#aa10fee29a36ac4b9cae98300f839d091',1,'stbi_gif_struct']]],
   ['contents',['contents',['../structmpc__ast__t.html#a9a3f82e99e8dd914e114b0f2b9124a84',1,'mpc_ast_t']]],
-  ['copy',['copy',['../namespacecopyr.html#ac1d72f20da4f0d19acd76cd0efe59c19',1,'copyr']]],
-  ['copy_5ff',['copy_f',['../namespacecopyr.html#a52c5e219f1e1275804ed0227a534cc35',1,'copyr']]],
   ['cur_5fx',['cur_x',['../structstbi__gif__struct.html#adbc7ae7e9ff2e2abdf66eb0e1a4b3ffb',1,'stbi_gif_struct']]],
   ['cur_5fy',['cur_y',['../structstbi__gif__struct.html#ac61865216c4b578c235f5b8170c2036c',1,'stbi_gif_struct']]]
 ];

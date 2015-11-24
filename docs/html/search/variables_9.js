@@ -10,6 +10,5 @@ var searchData=
   ['line1',['line1',['../structstbi__resample.html#ac1165a6da3cf652b951056667f89b1f2',1,'stbi_resample']]],
   ['line_5fsize',['line_size',['../structstbi__gif__struct.html#a5b7d7625c253025ff5ee4169afbf06b7',1,'stbi_gif_struct']]],
   ['linebuf',['linebuf',['../structjpeg.html#a5387acb02e74f6a5ba55b2e3492a25ff',1,'jpeg']]],
-  ['list_5ffile_5fpath',['list_file_path',['../namespacecopyr.html#aae48aec4a4ca238d4bdc8a89d55197d9',1,'copyr']]],
   ['lpal',['lpal',['../structstbi__gif__struct.html#af2bf4a7890065ce54b8b59c6fd008e5f',1,'stbi_gif_struct']]]
 ];

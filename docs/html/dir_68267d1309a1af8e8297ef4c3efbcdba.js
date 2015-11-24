@@ -9,7 +9,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "staticLibs", "dir_a112d73e5c2120cc44c300fbea2576aa.html", "dir_a112d73e5c2120cc44c300fbea2576aa" ],
     [ "utils", "dir_313caf1132e152dd9b58bea13a4052ca.html", "dir_313caf1132e152dd9b58bea13a4052ca" ],
     [ "3DEngine.h", "3_d_engine_8h.html", "3_d_engine_8h" ],
-    [ "copyr.py", "copyr_8py.html", "copyr_8py" ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
     [ "reflection.h", "reflection_8h.html", "reflection_8h" ],
     [ "testing.cpp", "testing_8cpp.html", null ],
