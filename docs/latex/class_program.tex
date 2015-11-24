@@ -1,0 +1,147 @@
+\hypertarget{class_program}{}\section{Program Class Reference}
+\label{class_program}\index{Program@{Program}}
+
+
+{\ttfamily \#include $<$program\+Component.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program} ()
+\item 
+virtual \hyperlink{class_program_a2df844d46504a414498c2140de94bfef}{$\sim$\+Program} ()
+\item 
+virtual int \hyperlink{class_program_adb84adf35f67b0b49e2647a378480e93}{Init} ()
+\item 
+virtual int \hyperlink{class_program_aca3103ac8fc4b4b982b5f7e70df30584}{Process\+Input} (const \hyperlink{class_input}{Input} \&input, float delta)
+\item 
+virtual int \hyperlink{class_program_a0398d9957f8da7fb37ea77acf8bac342}{Update} (float delta)
+\item 
+virtual int \hyperlink{class_program_a79eb729b98fa474234fdbe4404d2f2a9}{Render} (const \hyperlink{class_shader}{Shader} \&shader, const \hyperlink{class_rendering_engine}{Rendering\+Engine} \&rendering\+Engine, const \hyperlink{class_camera}{Camera} \&camera) const 
+\item 
+virtual int \hyperlink{class_program_a29cf518215935cac6db281732f876871}{Render} (const \hyperlink{class_shader}{Shader} \&shader, const \hyperlink{class_rendering_engine}{Rendering\+Engine} \&rendering\+Engine, const \hyperlink{class_camera}{Camera} \&camera)
+\item 
+virtual std\+::string \hyperlink{class_program_aacda59ac678fb196f9d5cf89e9a42885}{Get\+Program\+Name} ()
+\item 
+virtual std\+::string \hyperlink{class_program_a97d6284ddd0a4abec1041b9fca178829}{Get\+Latest\+Error} ()
+\item 
+void \hyperlink{class_program_ad57322336bab7b5ec5b68857ddfe74ee}{Set\+Parent} (\hyperlink{class_entity}{Entity} $\ast$parent)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_program_aee307e293b04d3e47218d30d6871e6f7}{Push\+Error} (std\+::string err)
+\item 
+\hyperlink{class_entity}{Entity} $\ast$ \hyperlink{class_program_a58a5d26f7d63df786edacb2332c9e594}{Get\+Parent} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::set$<$ std\+::string $>$ \hyperlink{class_program_acacd819e20737d226d82e73a733e8c27}{m\+\_\+error}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{}\index{Program@{Program}!Program@{Program}}
+\index{Program@{Program}!Program@{Program}}
+\subsubsection[{Program()}]{\setlength{\rightskip}{0pt plus 5cm}Program\+::\+Program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_program_aaefaa0df08f3484476fc4d61e97acbdc}
+\hypertarget{class_program_a2df844d46504a414498c2140de94bfef}{}\index{Program@{Program}!````~Program@{$\sim$\+Program}}
+\index{````~Program@{$\sim$\+Program}!Program@{Program}}
+\subsubsection[{$\sim$\+Program()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Program\+::$\sim$\+Program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_program_a2df844d46504a414498c2140de94bfef}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_program_a97d6284ddd0a4abec1041b9fca178829}{}\index{Program@{Program}!Get\+Latest\+Error@{Get\+Latest\+Error}}
+\index{Get\+Latest\+Error@{Get\+Latest\+Error}!Program@{Program}}
+\subsubsection[{Get\+Latest\+Error()}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string Program\+::\+Get\+Latest\+Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_program_a97d6284ddd0a4abec1041b9fca178829}
+\hypertarget{class_program_a58a5d26f7d63df786edacb2332c9e594}{}\index{Program@{Program}!Get\+Parent@{Get\+Parent}}
+\index{Get\+Parent@{Get\+Parent}!Program@{Program}}
+\subsubsection[{Get\+Parent()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity}$\ast$ Program\+::\+Get\+Parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{class_program_a58a5d26f7d63df786edacb2332c9e594}
+\hypertarget{class_program_aacda59ac678fb196f9d5cf89e9a42885}{}\index{Program@{Program}!Get\+Program\+Name@{Get\+Program\+Name}}
+\index{Get\+Program\+Name@{Get\+Program\+Name}!Program@{Program}}
+\subsubsection[{Get\+Program\+Name()}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string Program\+::\+Get\+Program\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_program_aacda59ac678fb196f9d5cf89e9a42885}
+\hypertarget{class_program_adb84adf35f67b0b49e2647a378480e93}{}\index{Program@{Program}!Init@{Init}}
+\index{Init@{Init}!Program@{Program}}
+\subsubsection[{Init()}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Program\+::\+Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_program_adb84adf35f67b0b49e2647a378480e93}
+\hypertarget{class_program_aca3103ac8fc4b4b982b5f7e70df30584}{}\index{Program@{Program}!Process\+Input@{Process\+Input}}
+\index{Process\+Input@{Process\+Input}!Program@{Program}}
+\subsubsection[{Process\+Input(const Input \&input, float delta)}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Program\+::\+Process\+Input (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input, }
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_program_aca3103ac8fc4b4b982b5f7e70df30584}
+\hypertarget{class_program_aee307e293b04d3e47218d30d6871e6f7}{}\index{Program@{Program}!Push\+Error@{Push\+Error}}
+\index{Push\+Error@{Push\+Error}!Program@{Program}}
+\subsubsection[{Push\+Error(std\+::string err)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Program\+::\+Push\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{err}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_program_aee307e293b04d3e47218d30d6871e6f7}
+\hypertarget{class_program_a79eb729b98fa474234fdbe4404d2f2a9}{}\index{Program@{Program}!Render@{Render}}
+\index{Render@{Render}!Program@{Program}}
+\subsubsection[{Render(const Shader \&shader, const Rendering\+Engine \&rendering\+Engine, const Camera \&camera) const }]{\setlength{\rightskip}{0pt plus 5cm}virtual int Program\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shader} \&}]{shader, }
+\item[{const {\bf Rendering\+Engine} \&}]{rendering\+Engine, }
+\item[{const {\bf Camera} \&}]{camera}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_program_a79eb729b98fa474234fdbe4404d2f2a9}
+\hypertarget{class_program_a29cf518215935cac6db281732f876871}{}\index{Program@{Program}!Render@{Render}}
+\index{Render@{Render}!Program@{Program}}
+\subsubsection[{Render(const Shader \&shader, const Rendering\+Engine \&rendering\+Engine, const Camera \&camera)}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Program\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shader} \&}]{shader, }
+\item[{const {\bf Rendering\+Engine} \&}]{rendering\+Engine, }
+\item[{const {\bf Camera} \&}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_program_a29cf518215935cac6db281732f876871}
+\hypertarget{class_program_ad57322336bab7b5ec5b68857ddfe74ee}{}\index{Program@{Program}!Set\+Parent@{Set\+Parent}}
+\index{Set\+Parent@{Set\+Parent}!Program@{Program}}
+\subsubsection[{Set\+Parent(\+Entity $\ast$parent)}]{\setlength{\rightskip}{0pt plus 5cm}void Program\+::\+Set\+Parent (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_program_ad57322336bab7b5ec5b68857ddfe74ee}
+\hypertarget{class_program_a0398d9957f8da7fb37ea77acf8bac342}{}\index{Program@{Program}!Update@{Update}}
+\index{Update@{Update}!Program@{Program}}
+\subsubsection[{Update(float delta)}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Program\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_program_a0398d9957f8da7fb37ea77acf8bac342}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_program_acacd819e20737d226d82e73a733e8c27}{}\index{Program@{Program}!m\+\_\+error@{m\+\_\+error}}
+\index{m\+\_\+error@{m\+\_\+error}!Program@{Program}}
+\subsubsection[{m\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}std\+::set$<$std\+::string$>$ Program\+::m\+\_\+error\hspace{0.3cm}{\ttfamily [protected]}}\label{class_program_acacd819e20737d226d82e73a733e8c27}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/components/\hyperlink{program_component_8h}{program\+Component.\+h}\end{DoxyCompactItemize}

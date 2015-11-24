@@ -1,0 +1,72 @@
+.TH "Material" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Material \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <material\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMaterial\fP (const std::string &materialName='')"
+.br
+.ti -1c
+.RI "\fBMaterial\fP (const \fBMaterial\fP &other)"
+.br
+.ti -1c
+.RI "virtual \fB~Material\fP ()"
+.br
+.ti -1c
+.RI "\fBMaterial\fP (const std::string &materialName, const \fBTexture\fP &diffuse, float specularIntensity, float specularPower, const \fBTexture\fP &normalMap=\fBTexture\fP('default_normal\&.jpg'), const \fBTexture\fP &dispMap=\fBTexture\fP('default_disp\&.png'), float dispMapScale=0\&.0f, float dispMapOffset=0\&.0f)"
+.br
+.ti -1c
+.RI "void \fBSetVector3f\fP (const std::string &name, const \fBVector3f\fP &value)"
+.br
+.ti -1c
+.RI "void \fBSetFloat\fP (const std::string &name, float value)"
+.br
+.ti -1c
+.RI "void \fBSetTexture\fP (const std::string &name, const \fBTexture\fP &value)"
+.br
+.ti -1c
+.RI "const \fBVector3f\fP & \fBGetVector3f\fP (const std::string &name) const "
+.br
+.ti -1c
+.RI "float \fBGetFloat\fP (const std::string &name) const "
+.br
+.ti -1c
+.RI "const \fBTexture\fP & \fBGetTexture\fP (const std::string &name) const "
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Material::Material (const std::string & materialName = \fC''\fP)"
+
+.SS "Material::Material (const \fBMaterial\fP & other)"
+
+.SS "Material::~Material ()\fC [virtual]\fP"
+
+.SS "Material::Material (const std::string & materialName, const \fBTexture\fP & diffuse, float specularIntensity, float specularPower, const \fBTexture\fP & normalMap = \fC\fBTexture\fP('default_normal\&.jpg')\fP, const \fBTexture\fP & dispMap = \fC\fBTexture\fP('default_disp\&.png')\fP, float dispMapScale = \fC0\&.0f\fP, float dispMapOffset = \fC0\&.0f\fP)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "float Material::GetFloat (const std::string & name) const\fC [inline]\fP"
+
+.SS "const \fBTexture\fP& Material::GetTexture (const std::string & name) const\fC [inline]\fP"
+
+.SS "const \fBVector3f\fP& Material::GetVector3f (const std::string & name) const\fC [inline]\fP"
+
+.SS "void Material::SetFloat (const std::string & name, float value)\fC [inline]\fP"
+
+.SS "void Material::SetTexture (const std::string & name, const \fBTexture\fP & value)\fC [inline]\fP"
+
+.SS "void Material::SetVector3f (const std::string & name, const \fBVector3f\fP & value)\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

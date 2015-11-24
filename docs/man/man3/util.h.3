@@ -1,0 +1,61 @@
+.TH "F:/Fusion3D_work/src/core/util.h" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/core/util.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <sstream>\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBUtil\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSNPRINTF\fP   snprintf"
+.br
+.ti -1c
+.RI "#define \fBARRAY_SIZE_IN_ELEMENTS\fP(a)   (sizeof(a)/sizeof(a[0]))"
+.br
+.ti -1c
+.RI "#define \fBINVALID_VALUE\fP   0xFFFFFFFF"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBUtil::Sleep\fP (int milliseconds)"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBUtil::Split\fP (const std::string &s, char delim)"
+.br
+.ti -1c
+.RI "template<typename T > std::string \fBUtil::to_string\fP (const T &n)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ARRAY_SIZE_IN_ELEMENTS(a)   (sizeof(a)/sizeof(a[0]))"
+
+.SS "#define INVALID_VALUE   0xFFFFFFFF"
+
+.SS "#define SNPRINTF   snprintf"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

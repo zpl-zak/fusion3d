@@ -1,0 +1,481 @@
+.TH "gtc_quaternion" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtc_quaternion \- GLM_GTC_quaternion
+.PP
+Defines a templated quaternion type and several quaternion operations\&.  
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBglm::tquat< T, P >\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::operator\-\fP (tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::operator+\fP (tquat< T, P > const &q, tquat< T, P > const &p)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::operator*\fP (tquat< T, P > const &q, tquat< T, P > const &p)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::operator*\fP (tquat< T, P > const &q, tvec3< T, P > const &v)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::operator*\fP (tvec3< T, P > const &v, tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< T, P > \fBglm::operator*\fP (tquat< T, P > const &q, tvec4< T, P > const &v)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< T, P > \fBglm::operator*\fP (tvec4< T, P > const &v, tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::operator*\fP (tquat< T, P > const &q, T const &s)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::operator*\fP (T const &s, tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::operator/\fP (tquat< T, P > const &q, T const &s)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL T \fBglm::length\fP (tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::normalize\fP (tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class quatType> GLM_FUNC_DECL T \fBglm::dot\fP (quatType< T, P > const &x, quatType< T, P > const &y)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::mix\fP (tquat< T, P > const &x, tquat< T, P > const &y, T a)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::lerp\fP (tquat< T, P > const &x, tquat< T, P > const &y, T a)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::slerp\fP (tquat< T, P > const &x, tquat< T, P > const &y, T a)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::conjugate\fP (tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::inverse\fP (tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::rotate\fP (tquat< T, P > const &q, T const &angle, tvec3< T, P > const &axis)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::eulerAngles\fP (tquat< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL T \fBglm::roll\fP (tquat< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL T \fBglm::pitch\fP (tquat< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL T \fBglm::yaw\fP (tquat< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat3x3< T, P > \fBglm::mat3_cast\fP (tquat< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat4x4< T, P > \fBglm::mat4_cast\fP (tquat< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::quat_cast\fP (tmat3x3< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::quat_cast\fP (tmat4x4< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL T \fBglm::angle\fP (tquat< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::axis\fP (tquat< T, P > const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > \fBglm::angleAxis\fP (T const &angle, tvec3< T, P > const &axis)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< bool, P > \fBglm::lessThan\fP (tquat< T, P > const &x, tquat< T, P > const &y)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< bool, P > \fBglm::lessThanEqual\fP (tquat< T, P > const &x, tquat< T, P > const &y)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< bool, P > \fBglm::greaterThan\fP (tquat< T, P > const &x, tquat< T, P > const &y)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< bool, P > \fBglm::greaterThanEqual\fP (tquat< T, P > const &x, tquat< T, P > const &y)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< bool, P > \fBglm::equal\fP (tquat< T, P > const &x, tquat< T, P > const &y)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< bool, P > \fBglm::notEqual\fP (tquat< T, P > const &x, tquat< T, P > const &y)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Defines a templated quaternion type and several quaternion operations\&. 
+
+<\fBglm/gtc/quaternion\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , precision P> GLM_FUNC_DECL T glm::angle (\fBtquat\fP< T, P > const & x)"
+Returns the quaternion rotation angle\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::angleAxis (T const & angle, tvec3< T, P > const & axis)"
+Build a quaternion from an angle and a normalized axis\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP Angle expressed in radians\&. 
+.br
+\fIaxis\fP Axis of the quaternion, must be normalized\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3<T, P> glm::axis (\fBtquat\fP< T, P > const & x)"
+Returns the q rotation axis\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::conjugate (\fBtquat\fP< T, P > const & q)"
+Returns the q conjugate\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P, template< typename, precision > class quatType> GLM_FUNC_DECL T glm::dot (quatType< T, P > const & x, quatType< T, P > const & y)"
+Returns dot product of q1 and q2, i\&.e\&., q1[0] * q2[0] + q1[1] * q2[1] + \&.\&.\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<bool, P> glm::equal (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y)"
+Returns the component-wise comparison of result x == y\&.
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIquatType\fP Floating-point quaternion types\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3<T, P> glm::eulerAngles (\fBtquat\fP< T, P > const & x)"
+Returns euler angles, yitch as x, yaw as y, roll as z\&. The result is expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<bool, P> glm::greaterThan (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y)"
+Returns the component-wise comparison of result x > y\&.
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIquatType\fP Floating-point quaternion types\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<bool, P> glm::greaterThanEqual (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y)"
+Returns the component-wise comparison of result x >= y\&.
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIquatType\fP Floating-point quaternion types\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::inverse (\fBtquat\fP< T, P > const & q)"
+Returns the q inverse\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL T glm::length (\fBtquat\fP< T, P > const & q)"
+Returns the length of the quaternion\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::lerp (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y, T a)"
+Linear interpolation of two quaternions\&. The interpolation is oriented\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP A quaternion 
+.br
+\fIy\fP A quaternion 
+.br
+\fIa\fP Interpolation factor\&. The interpolation is defined in the range [0, 1]\&. 
+.RE
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIT\fP Value type used to build the quaternion\&. Supported: half, float or double\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<bool, P> glm::lessThan (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y)"
+Returns the component-wise comparison result of x < y\&.
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIquatType\fP Floating-point quaternion types\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<bool, P> glm::lessThanEqual (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y)"
+Returns the component-wise comparison of result x <= y\&.
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIquatType\fP Floating-point quaternion types\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat3x3<T, P> glm::mat3_cast (\fBtquat\fP< T, P > const & x)"
+Converts a quaternion to a 3 * 3 matrix\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat4x4<T, P> glm::mat4_cast (\fBtquat\fP< T, P > const & x)"
+Converts a quaternion to a 4 * 4 matrix\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::mix (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y, T a)"
+Spherical linear interpolation of two quaternions\&. The interpolation is oriented and the rotation is performed at constant speed\&. For short path spherical linear interpolation, use the slerp function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP A quaternion 
+.br
+\fIy\fP A quaternion 
+.br
+\fIa\fP Interpolation factor\&. The interpolation is defined beyond the range [0, 1]\&. 
+.RE
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIT\fP Value type used to build the quaternion\&. Supported: half, float or double\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.PP
+- slerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a) 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::normalize (\fBtquat\fP< T, P > const & q)"
+Returns the normalized quaternion\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<bool, P> glm::notEqual (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y)"
+Returns the component-wise comparison of result x != y\&.
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIquatType\fP Floating-point quaternion types\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::operator* (\fBtquat\fP< T, P > const & q, \fBtquat\fP< T, P > const & p)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > glm::operator* (\fBtquat\fP< T, P > const & q, tvec3< T, P > const & v)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > glm::operator* (tvec3< T, P > const & v, \fBtquat\fP< T, P > const & q)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4< T, P > glm::operator* (\fBtquat\fP< T, P > const & q, tvec4< T, P > const & v)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4< T, P > glm::operator* (tvec4< T, P > const & v, \fBtquat\fP< T, P > const & q)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::operator* (\fBtquat\fP< T, P > const & q, T const & s)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::operator* (T const & s, \fBtquat\fP< T, P > const & q)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::operator+ (\fBtquat\fP< T, P > const & q, \fBtquat\fP< T, P > const & p)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat< T, P > glm::operator\- (\fBtquat\fP< T, P > const & q)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::operator/ (\fBtquat\fP< T, P > const & q, T const & s)"
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL T glm::pitch (\fBtquat\fP< T, P > const & x)"
+Returns pitch value of euler angles expressed in radians\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::quat_cast (tmat3x3< T, P > const & x)"
+Converts a 3 * 3 matrix to a quaternion\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::quat_cast (tmat4x4< T, P > const & x)"
+Converts a 4 * 4 matrix to a quaternion\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL T glm::roll (\fBtquat\fP< T, P > const & x)"
+Returns roll value of euler angles expressed in radians\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::rotate (\fBtquat\fP< T, P > const & q, T const & angle, tvec3< T, P > const & axis)"
+Rotates a quaternion from a vector of 3 components axis and an angle\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIq\fP Source orientation 
+.br
+\fIangle\fP Angle expressed in radians\&. 
+.br
+\fIaxis\fP Axis of the rotation
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL tquat<T, P> glm::slerp (\fBtquat\fP< T, P > const & x, \fBtquat\fP< T, P > const & y, T a)"
+Spherical linear interpolation of two quaternions\&. The interpolation always take the short path and the rotation is performed at constant speed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP A quaternion 
+.br
+\fIy\fP A quaternion 
+.br
+\fIa\fP Interpolation factor\&. The interpolation is defined beyond the range [0, 1]\&. 
+.RE
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIT\fP Value type used to build the quaternion\&. Supported: half, float or double\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL T glm::yaw (\fBtquat\fP< T, P > const & x)"
+Returns yaw value of euler angles expressed in radians\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_quaternion\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

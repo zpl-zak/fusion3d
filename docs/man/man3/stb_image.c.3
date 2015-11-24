@@ -1,0 +1,511 @@
+.TH "F:/Fusion3D_work/src/staticLibs/stb_image.c" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/staticLibs/stb_image.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stb_image\&.h'\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <memory\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <stdarg\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBstbi\fP"
+.br
+.ti -1c
+.RI "struct \fBhuffman\fP"
+.br
+.ti -1c
+.RI "struct \fBjpeg\fP"
+.br
+.ti -1c
+.RI "struct \fBstbi_resample\fP"
+.br
+.ti -1c
+.RI "struct \fBzhuffman\fP"
+.br
+.ti -1c
+.RI "struct \fBzbuf\fP"
+.br
+.ti -1c
+.RI "struct \fBchunk\fP"
+.br
+.ti -1c
+.RI "struct \fBpng\fP"
+.br
+.ti -1c
+.RI "struct \fBpic_packet_t\fP"
+.br
+.ti -1c
+.RI "struct \fBstbi_gif_lzw_struct\fP"
+.br
+.ti -1c
+.RI "struct \fBstbi_gif_struct\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTBI_INCLUDE_STB_IMAGE_H\fP"
+.br
+.ti -1c
+.RI "#define \fBstbi_inline\fP"
+.br
+.ti -1c
+.RI "#define \fBSTBI_NOTUSED\fP(v)   (void)sizeof(v)"
+.br
+.ti -1c
+.RI "#define \fBstbi_lrot\fP(x,  y)   (((x) << (y)) | ((x) >> (32 \- (y))))"
+.br
+.ti -1c
+.RI "#define \fBe\fP(x,  y)   e(x)"
+.br
+.ti -1c
+.RI "#define \fBepf\fP(x,  y)     ((float *) (\fBe\fP(x,y)?NULL:NULL))"
+.br
+.ti -1c
+.RI "#define \fBepuc\fP(x,  y)   ((unsigned char *) (\fBe\fP(x,y)?NULL:NULL))"
+.br
+.ti -1c
+.RI "#define \fBCOMBO\fP(a,  b)   ((a)*8+(b))"
+.br
+.ti -1c
+.RI "#define \fBCASE\fP(a,  b)     case \fBCOMBO\fP(a,b): for(i=x\-1; i >= 0; \-\-i, src += a, dest += b)"
+.br
+.ti -1c
+.RI "#define \fBfloat2int\fP(x)     ((int) (x))"
+.br
+.ti -1c
+.RI "#define \fBFAST_BITS\fP   9"
+.br
+.ti -1c
+.RI "#define \fBf2f\fP(x)   (int) (((x) * 4096 + 0\&.5))"
+.br
+.ti -1c
+.RI "#define \fBfsh\fP(x)   ((x) << 12)"
+.br
+.ti -1c
+.RI "#define \fBIDCT_1D\fP(s0,  s1,  s2,  s3,  s4,  s5,  s6,  s7)          "
+.br
+.ti -1c
+.RI "#define \fBMARKER_none\fP   0xff"
+.br
+.ti -1c
+.RI "#define \fBRESTART\fP(x)         ((x) >= 0xd0 && (x) <= 0xd7)"
+.br
+.ti -1c
+.RI "#define \fBDNL\fP(x)                 ((x) == 0xdc)"
+.br
+.ti -1c
+.RI "#define \fBSOI\fP(x)                 ((x) == 0xd8)"
+.br
+.ti -1c
+.RI "#define \fBEOI\fP(x)                 ((x) == 0xd9)"
+.br
+.ti -1c
+.RI "#define \fBSOF\fP(x)                 ((x) == 0xc0 || (x) == 0xc1)"
+.br
+.ti -1c
+.RI "#define \fBSOS\fP(x)                 ((x) == 0xda)"
+.br
+.ti -1c
+.RI "#define \fBdiv4\fP(x)   ((\fBuint8\fP) ((x) >> 2))"
+.br
+.ti -1c
+.RI "#define \fBdiv16\fP(x)   ((\fBuint8\fP) ((x) >> 4))"
+.br
+.ti -1c
+.RI "#define \fBfloat2fixed\fP(x)   ((int) ((x) * 65536 + 0\&.5))"
+.br
+.ti -1c
+.RI "#define \fBZFAST_BITS\fP   9"
+.br
+.ti -1c
+.RI "#define \fBZFAST_MASK\fP   ((1 << \fBZFAST_BITS\fP) \- 1)"
+.br
+.ti -1c
+.RI "#define \fBPNG_TYPE\fP(a,  b,  c,  d)   (((a) << 24) + ((b) << 16) + ((c) << 8) + (d))"
+.br
+.ti -1c
+.RI "#define \fBCASE\fP(f)"
+.br
+.ti -1c
+.RI "#define \fBCASE\fP(f)"
+.br
+.ti -1c
+.RI "#define \fBHDR_BUFLEN\fP   1024"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef unsigned char \fBuint8\fP"
+.br
+.ti -1c
+.RI "typedef unsigned short \fBuint16\fP"
+.br
+.ti -1c
+.RI "typedef signed short \fBint16\fP"
+.br
+.ti -1c
+.RI "typedef unsigned int \fBuint32\fP"
+.br
+.ti -1c
+.RI "typedef signed int \fBint32\fP"
+.br
+.ti -1c
+.RI "typedef unsigned int \fBuint\fP"
+.br
+.ti -1c
+.RI "typedef unsigned char \fBvalidate_uint32\fP[sizeof(\fBuint32\fP)==4?1:\-1]"
+.br
+.ti -1c
+.RI "typedef \fBuint8\fP \fBstbi_dequantize_t\fP"
+.br
+.ti -1c
+.RI "typedef \fBuint8\fP *(* \fBresample_row_func\fP) (\fBuint8\fP *out, \fBuint8\fP *in0, \fBuint8\fP *in1, int w, int hs)"
+.br
+.ti -1c
+.RI "typedef struct \fBstbi_gif_lzw_struct\fP \fBstbi_gif_lzw\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBstbi_gif_struct\fP \fBstbi_gif\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBSCAN_load\fP =0, \fBSCAN_type\fP, \fBSCAN_header\fP }"
+.br
+.ti -1c
+.RI "enum { \fBF_none\fP =0, \fBF_sub\fP =1, \fBF_up\fP =2, \fBF_avg\fP =3, \fBF_paeth\fP =4, \fBF_avg_first\fP, \fBF_paeth_first\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBstbi_failure_reason\fP (void)"
+.br
+.ti -1c
+.RI "void \fBstbi_image_free\fP (void *retval_from_stbi_load)"
+.br
+.ti -1c
+.RI "unsigned char * \fBstbi_load\fP (char const *filename, int *x, int *y, int *comp, int req_comp)"
+.br
+.ti -1c
+.RI "unsigned char * \fBstbi_load_from_file\fP (FILE *f, int *x, int *y, int *comp, int req_comp)"
+.br
+.ti -1c
+.RI "unsigned char * \fBstbi_load_from_memory\fP (\fBstbi_uc\fP const *buffer, int len, int *x, int *y, int *comp, int req_comp)"
+.br
+.RI "\fISTBI_NO_STDIO\&. \fP"
+.ti -1c
+.RI "unsigned char * \fBstbi_load_from_callbacks\fP (\fBstbi_io_callbacks\fP const *clbk, void *user, int *x, int *y, int *comp, int req_comp)"
+.br
+.ti -1c
+.RI "float * \fBstbi_loadf_main\fP (\fBstbi\fP *s, int *x, int *y, int *comp, int req_comp)"
+.br
+.ti -1c
+.RI "float * \fBstbi_loadf_from_memory\fP (\fBstbi_uc\fP const *buffer, int len, int *x, int *y, int *comp, int req_comp)"
+.br
+.ti -1c
+.RI "float * \fBstbi_loadf_from_callbacks\fP (\fBstbi_io_callbacks\fP const *clbk, void *user, int *x, int *y, int *comp, int req_comp)"
+.br
+.ti -1c
+.RI "float * \fBstbi_loadf\fP (char const *filename, int *x, int *y, int *comp, int req_comp)"
+.br
+.ti -1c
+.RI "float * \fBstbi_loadf_from_file\fP (FILE *f, int *x, int *y, int *comp, int req_comp)"
+.br
+.ti -1c
+.RI "int \fBstbi_is_hdr_from_memory\fP (\fBstbi_uc\fP const *buffer, int len)"
+.br
+.ti -1c
+.RI "int \fBstbi_is_hdr\fP (char const *filename)"
+.br
+.ti -1c
+.RI "int \fBstbi_is_hdr_from_file\fP (FILE *f)"
+.br
+.ti -1c
+.RI "int \fBstbi_is_hdr_from_callbacks\fP (\fBstbi_io_callbacks\fP const *clbk, void *user)"
+.br
+.ti -1c
+.RI "void \fBstbi_hdr_to_ldr_gamma\fP (float gamma)"
+.br
+.ti -1c
+.RI "void \fBstbi_hdr_to_ldr_scale\fP (float scale)"
+.br
+.ti -1c
+.RI "void \fBstbi_ldr_to_hdr_gamma\fP (float gamma)"
+.br
+.ti -1c
+.RI "void \fBstbi_ldr_to_hdr_scale\fP (float scale)"
+.br
+.ti -1c
+.RI "char * \fBstbi_zlib_decode_malloc_guesssize\fP (const char *buffer, int len, int initial_size, int *outlen)"
+.br
+.ti -1c
+.RI "char * \fBstbi_zlib_decode_malloc\fP (char const *buffer, int len, int *outlen)"
+.br
+.ti -1c
+.RI "char * \fBstbi_zlib_decode_malloc_guesssize_headerflag\fP (const char *buffer, int len, int initial_size, int *outlen, int parse_header)"
+.br
+.ti -1c
+.RI "int \fBstbi_zlib_decode_buffer\fP (char *obuffer, int olen, char const *ibuffer, int ilen)"
+.br
+.ti -1c
+.RI "char * \fBstbi_zlib_decode_noheader_malloc\fP (char const *buffer, int len, int *outlen)"
+.br
+.ti -1c
+.RI "int \fBstbi_zlib_decode_noheader_buffer\fP (char *obuffer, int olen, const char *ibuffer, int ilen)"
+.br
+.ti -1c
+.RI "void \fBstbi_set_unpremultiply_on_load\fP (int flag_true_if_should_unpremultiply)"
+.br
+.ti -1c
+.RI "void \fBstbi_convert_iphone_png_to_rgb\fP (int flag_true_if_should_convert)"
+.br
+.ti -1c
+.RI "int \fBstbi_info\fP (char const *filename, int *x, int *y, int *comp)"
+.br
+.ti -1c
+.RI "int \fBstbi_info_from_file\fP (FILE *f, int *x, int *y, int *comp)"
+.br
+.ti -1c
+.RI "int \fBstbi_info_from_memory\fP (\fBstbi_uc\fP const *buffer, int len, int *x, int *y, int *comp)"
+.br
+.ti -1c
+.RI "int \fBstbi_info_from_callbacks\fP (\fBstbi_io_callbacks\fP const *c, void *user, int *x, int *y, int *comp)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBstbi_png_partial\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CASE(a, b)   case \fBCOMBO\fP(a,b): for(i=x\-1; i >= 0; \-\-i, src += a, dest += b)"
+
+.SS "#define CASE(f)"
+\fBValue:\fP
+.PP
+.nf
+case f:     \
+                for (i=x-1; i >= 1; --i, raw+=img_n,cur+=img_n,prior+=img_n) \
+                   for (k=0; k < img_n; ++k)
+.fi
+.SS "#define CASE(f)"
+\fBValue:\fP
+.PP
+.nf
+case f:     \
+                for (i=x-1; i >= 1; --i, cur[img_n]=255,raw+=img_n,cur+=out_n,prior+=out_n) \
+                   for (k=0; k < img_n; ++k)
+.fi
+.SS "#define COMBO(a, b)   ((a)*8+(b))"
+
+.SS "#define div16(x)   ((\fBuint8\fP) ((x) >> 4))"
+
+.SS "#define div4(x)   ((\fBuint8\fP) ((x) >> 2))"
+
+.SS "#define DNL(x)   ((x) == 0xdc)"
+
+.SS "#define e(x, y)   e(x)"
+
+.SS "#define EOI(x)   ((x) == 0xd9)"
+
+.SS "#define epf(x, y)   ((float *) (\fBe\fP(x,y)?NULL:NULL))"
+
+.SS "#define epuc(x, y)   ((unsigned char *) (\fBe\fP(x,y)?NULL:NULL))"
+
+.SS "#define f2f(x)   (int) (((x) * 4096 + 0\&.5))"
+
+.SS "#define FAST_BITS   9"
+
+.SS "#define float2fixed(x)   ((int) ((x) * 65536 + 0\&.5))"
+
+.SS "#define float2int(x)   ((int) (x))"
+
+.SS "#define fsh(x)   ((x) << 12)"
+
+.SS "#define HDR_BUFLEN   1024"
+
+.SS "#define IDCT_1D(s0, s1, s2, s3, s4, s5, s6, s7)"
+
+.SS "#define MARKER_none   0xff"
+
+.SS "#define PNG_TYPE(a, b, c, d)   (((a) << 24) + ((b) << 16) + ((c) << 8) + (d))"
+
+.SS "#define RESTART(x)   ((x) >= 0xd0 && (x) <= 0xd7)"
+
+.SS "#define SOF(x)   ((x) == 0xc0 || (x) == 0xc1)"
+
+.SS "#define SOI(x)   ((x) == 0xd8)"
+
+.SS "#define SOS(x)   ((x) == 0xda)"
+
+.SS "#define STBI_INCLUDE_STB_IMAGE_H"
+
+.SS "#define stbi_inline"
+
+.SS "#define stbi_lrot(x, y)   (((x) << (y)) | ((x) >> (32 \- (y))))"
+
+.SS "#define STBI_NOTUSED(v)   (void)sizeof(v)"
+
+.SS "#define ZFAST_BITS   9"
+
+.SS "#define ZFAST_MASK   ((1 << \fBZFAST_BITS\fP) \- 1)"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef signed short \fBint16\fP"
+
+.SS "typedef signed int \fBint32\fP"
+
+.SS "typedef \fBuint8\fP*(* resample_row_func) (\fBuint8\fP *out, \fBuint8\fP *in0, \fBuint8\fP *in1, int w, int hs)"
+
+.SS "typedef \fBuint8\fP \fBstbi_dequantize_t\fP"
+
+.SS "typedef struct \fBstbi_gif_struct\fP  \fBstbi_gif\fP"
+
+.SS "typedef struct \fBstbi_gif_lzw_struct\fP  \fBstbi_gif_lzw\fP"
+
+.SS "typedef unsigned int \fBuint\fP"
+
+.SS "typedef unsigned short \fBuint16\fP"
+
+.SS "typedef unsigned int \fBuint32\fP"
+
+.SS "typedef unsigned char \fBuint8\fP"
+
+.SS "typedef unsigned char validate_uint32[sizeof(\fBuint32\fP)==4?1:\-1]"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISCAN_load \fP\fP
+.TP
+\fB\fISCAN_type \fP\fP
+.TP
+\fB\fISCAN_header \fP\fP
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIF_none \fP\fP
+.TP
+\fB\fIF_sub \fP\fP
+.TP
+\fB\fIF_up \fP\fP
+.TP
+\fB\fIF_avg \fP\fP
+.TP
+\fB\fIF_paeth \fP\fP
+.TP
+\fB\fIF_avg_first \fP\fP
+.TP
+\fB\fIF_paeth_first \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "void stbi_convert_iphone_png_to_rgb (int flag_true_if_should_convert)"
+
+.SS "const char* stbi_failure_reason (void)"
+
+.SS "void stbi_hdr_to_ldr_gamma (float gamma)"
+
+.SS "void stbi_hdr_to_ldr_scale (float scale)"
+
+.SS "void stbi_image_free (void * retval_from_stbi_load)"
+
+.SS "int stbi_info (char const * filename, int * x, int * y, int * comp)"
+
+.SS "int stbi_info_from_callbacks (\fBstbi_io_callbacks\fP const * c, void * user, int * x, int * y, int * comp)"
+
+.SS "int stbi_info_from_file (FILE * f, int * x, int * y, int * comp)"
+
+.SS "int stbi_info_from_memory (\fBstbi_uc\fP const * buffer, int len, int * x, int * y, int * comp)"
+
+.SS "int stbi_is_hdr (char const * filename)"
+
+.SS "int stbi_is_hdr_from_callbacks (\fBstbi_io_callbacks\fP const * clbk, void * user)"
+
+.SS "int stbi_is_hdr_from_file (FILE * f)"
+
+.SS "int stbi_is_hdr_from_memory (\fBstbi_uc\fP const * buffer, int len)"
+
+.SS "void stbi_ldr_to_hdr_gamma (float gamma)"
+
+.SS "void stbi_ldr_to_hdr_scale (float scale)"
+
+.SS "unsigned char* stbi_load (char const * filename, int * x, int * y, int * comp, int req_comp)"
+
+.SS "unsigned char* stbi_load_from_callbacks (\fBstbi_io_callbacks\fP const * clbk, void * user, int * x, int * y, int * comp, int req_comp)"
+
+.SS "unsigned char* stbi_load_from_file (FILE * f, int * x, int * y, int * comp, int req_comp)"
+
+.SS "unsigned char* stbi_load_from_memory (\fBstbi_uc\fP const * buffer, int len, int * x, int * y, int * comp, int req_comp)"
+
+.PP
+STBI_NO_STDIO\&. 
+.SS "float* stbi_loadf (char const * filename, int * x, int * y, int * comp, int req_comp)"
+
+.SS "float* stbi_loadf_from_callbacks (\fBstbi_io_callbacks\fP const * clbk, void * user, int * x, int * y, int * comp, int req_comp)"
+
+.SS "float* stbi_loadf_from_file (FILE * f, int * x, int * y, int * comp, int req_comp)"
+
+.SS "float* stbi_loadf_from_memory (\fBstbi_uc\fP const * buffer, int len, int * x, int * y, int * comp, int req_comp)"
+
+.SS "float* stbi_loadf_main (\fBstbi\fP * s, int * x, int * y, int * comp, int req_comp)"
+
+.SS "void stbi_set_unpremultiply_on_load (int flag_true_if_should_unpremultiply)"
+
+.SS "int stbi_zlib_decode_buffer (char * obuffer, int olen, char const * ibuffer, int ilen)"
+
+.SS "char* stbi_zlib_decode_malloc (char const * buffer, int len, int * outlen)"
+
+.SS "char* stbi_zlib_decode_malloc_guesssize (const char * buffer, int len, int initial_size, int * outlen)"
+
+.SS "char* stbi_zlib_decode_malloc_guesssize_headerflag (const char * buffer, int len, int initial_size, int * outlen, int parse_header)"
+
+.SS "int stbi_zlib_decode_noheader_buffer (char * obuffer, int olen, const char * ibuffer, int ilen)"
+
+.SS "char* stbi_zlib_decode_noheader_malloc (char const * buffer, int len, int * outlen)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "int stbi_png_partial"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

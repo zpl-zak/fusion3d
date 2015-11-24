@@ -1,0 +1,145 @@
+.TH "F:/Fusion3D_work/src/staticLibs/glm/gtc/bitfield.hpp" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/staticLibs/glm/gtc/bitfield.hpp \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./detail/setup\&.hpp'\fP
+.br
+\fC#include '\&.\&./detail/precision\&.hpp'\fP
+.br
+\fC#include '\&.\&./detail/type_int\&.hpp'\fP
+.br
+\fC#include '\&.\&./detail/_vectorize\&.hpp'\fP
+.br
+\fC#include <limits>\fP
+.br
+\fC#include 'bitfield\&.inl'\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBglm\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genIUType > GLM_FUNC_DECL genIUType \fBglm::mask\fP (genIUType Bits)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecIUType> GLM_FUNC_DECL vecIUType< T, P > \fBglm::mask\fP (vecIUType< T, P > const &v)"
+.br
+.ti -1c
+.RI "template<typename genIUType > GLM_FUNC_DECL genIUType \fBglm::bitfieldRotateRight\fP (genIUType In, int Shift)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< T, P > \fBglm::bitfieldRotateRight\fP (vecType< T, P > const &In, int Shift)"
+.br
+.ti -1c
+.RI "template<typename genIUType > GLM_FUNC_DECL genIUType \fBglm::bitfieldRotateLeft\fP (genIUType In, int Shift)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< T, P > \fBglm::bitfieldRotateLeft\fP (vecType< T, P > const &In, int Shift)"
+.br
+.ti -1c
+.RI "template<typename genIUType > GLM_FUNC_DECL genIUType \fBglm::bitfieldFillOne\fP (genIUType Value, int FirstBit, int BitCount)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< T, P > \fBglm::bitfieldFillOne\fP (vecType< T, P > const &Value, int FirstBit, int BitCount)"
+.br
+.ti -1c
+.RI "template<typename genIUType > GLM_FUNC_DECL genIUType \fBglm::bitfieldFillZero\fP (genIUType Value, int FirstBit, int BitCount)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< T, P > \fBglm::bitfieldFillZero\fP (vecType< T, P > const &Value, int FirstBit, int BitCount)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBint16\fP \fBglm::bitfieldInterleave\fP (int8 x, int8 y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBuint16\fP \fBglm::bitfieldInterleave\fP (\fBuint8\fP x, \fBuint8\fP y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBint32\fP \fBglm::bitfieldInterleave\fP (\fBint16\fP x, \fBint16\fP y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBuint32\fP \fBglm::bitfieldInterleave\fP (\fBuint16\fP x, \fBuint16\fP y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL int64 \fBglm::bitfieldInterleave\fP (\fBint32\fP x, \fBint32\fP y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL uint64 \fBglm::bitfieldInterleave\fP (\fBuint32\fP x, \fBuint32\fP y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBint32\fP \fBglm::bitfieldInterleave\fP (int8 x, int8 y, int8 z)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBuint32\fP \fBglm::bitfieldInterleave\fP (\fBuint8\fP x, \fBuint8\fP y, \fBuint8\fP z)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL int64 \fBglm::bitfieldInterleave\fP (\fBint16\fP x, \fBint16\fP y, \fBint16\fP z)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL uint64 \fBglm::bitfieldInterleave\fP (\fBuint16\fP x, \fBuint16\fP y, \fBuint16\fP z)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL int64 \fBglm::bitfieldInterleave\fP (\fBint32\fP x, \fBint32\fP y, \fBint32\fP z)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL uint64 \fBglm::bitfieldInterleave\fP (\fBuint32\fP x, \fBuint32\fP y, \fBuint32\fP z)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBint32\fP \fBglm::bitfieldInterleave\fP (int8 x, int8 y, int8 z, int8 w)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBuint32\fP \fBglm::bitfieldInterleave\fP (\fBuint8\fP x, \fBuint8\fP y, \fBuint8\fP z, \fBuint8\fP w)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL int64 \fBglm::bitfieldInterleave\fP (\fBint16\fP x, \fBint16\fP y, \fBint16\fP z, \fBint16\fP w)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL uint64 \fBglm::bitfieldInterleave\fP (\fBuint16\fP x, \fBuint16\fP y, \fBuint16\fP z, \fBuint16\fP w)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+OpenGL Mathematics (glm\&.g-truc\&.net)
+.PP
+Copyright (c) 2005 - 2015 G-Truc Creation (www\&.g-truc\&.net) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+.PP
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software\&.
+.PP
+Restrictions: By making use of the Software for military purposes, you choose to make a Bunny unhappy\&.
+.PP
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\&. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE\&.
+.PP
+\fBGLM_GTC_bitfield\fP
+.PP
+\fBDate:\fP
+.RS 4
+2014-10-25 / 2014-10-25 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Christophe Riccio
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM Core\fP (dependence) 
+.PP
+\fBGLM_GTC_bitfield\fP (dependence) 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

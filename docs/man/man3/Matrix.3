@@ -1,0 +1,75 @@
+.TH "Matrix< T, D >" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Matrix< T, D > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <math3d\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMatrix\fP< T, D > \fBInitIdentity\fP ()"
+.br
+.ti -1c
+.RI "\fBMatrix\fP< T, D > \fBInitScale\fP (const \fBVector\fP< T, D\-1 > &r)"
+.br
+.ti -1c
+.RI "\fBMatrix\fP< T, D > \fBInitTranslation\fP (const \fBVector\fP< T, D\-1 > &r)"
+.br
+.ti -1c
+.RI "\fBMatrix\fP< T, D > \fBTranspose\fP () const "
+.br
+.ti -1c
+.RI "\fBMatrix\fP< T, D > \fBInverse\fP () const "
+.br
+.ti -1c
+.RI "\fBMatrix\fP< T, D > \fBoperator*\fP (const \fBMatrix\fP< T, D > &r) const "
+.br
+.ti -1c
+.RI "\fBVector\fP< T, D > \fBTransform\fP (const \fBVector\fP< T, D > &r) const "
+.br
+.ti -1c
+.RI "\fBVector\fP< T, D\-1 > \fBTransform\fP (const \fBVector\fP< T, D\-1 > &r) const "
+.br
+.ti -1c
+.RI "void \fBSet\fP (unsigned int x, unsigned int y, T val)"
+.br
+.ti -1c
+.RI "const T * \fBoperator[]\fP (int index) const "
+.br
+.ti -1c
+.RI "T * \fBoperator[]\fP (int index)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T, unsigned int D> \fBMatrix\fP<T, D> \fBMatrix\fP< T, D >::InitIdentity ()\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> \fBMatrix\fP<T, D> \fBMatrix\fP< T, D >::InitScale (const \fBVector\fP< T, D\-1 > & r)\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> \fBMatrix\fP<T, D> \fBMatrix\fP< T, D >::InitTranslation (const \fBVector\fP< T, D\-1 > & r)\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> \fBMatrix\fP<T, D> \fBMatrix\fP< T, D >::Inverse () const\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> \fBMatrix\fP<T,D> \fBMatrix\fP< T, D >::operator* (const \fBMatrix\fP< T, D > & r) const\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> const T* \fBMatrix\fP< T, D >::operator[] (int index) const\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> T* \fBMatrix\fP< T, D >::operator[] (int index)\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> void \fBMatrix\fP< T, D >::Set (unsigned int x, unsigned int y, T val)\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> \fBVector\fP<T,D> \fBMatrix\fP< T, D >::\fBTransform\fP (const \fBVector\fP< T, D > & r) const\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> \fBVector\fP<T,D\-1> \fBMatrix\fP< T, D >::\fBTransform\fP (const \fBVector\fP< T, D\-1 > & r) const\fC [inline]\fP"
+
+.SS "template<typename T, unsigned int D> \fBMatrix\fP<T, D> \fBMatrix\fP< T, D >::Transpose () const\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

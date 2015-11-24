@@ -1,0 +1,77 @@
+\hypertarget{reflection_8h}{}\section{F\+:/\+Fusion3\+D\+\_\+work/src/reflection.h File Reference}
+\label{reflection_8h}\index{F\+:/\+Fusion3\+D\+\_\+work/src/reflection.\+h@{F\+:/\+Fusion3\+D\+\_\+work/src/reflection.\+h}}
+{\ttfamily \#include $<$string$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{reflection_8h_a14111ac8f43949172b152e50dc720aba}{N\+A\+M\+E}(x)~\#x
+\item 
+\#define \hyperlink{reflection_8h_a71f98ded3f76e99a4e39fa39156889af}{R\+E\+F\+L\+E\+C\+T}(p)
+\item 
+\#define \hyperlink{reflection_8h_a2014ec2b876bbb96f4f66487835364c5}{C\+L\+A\+S\+S\+T\+Y\+P\+E}~\+\_\+\+Get\+Class\+Name\+\_\+()
+\item 
+\#define \hyperlink{reflection_8h_ac76de1db7d4f0a575aece4096834c5bd}{C\+L\+A\+S\+S}(p)
+\item 
+\#define \hyperlink{reflection_8h_aeb0509a4118ccf8ed7ee586f3e002636}{C\+O\+M\+P\+O\+N\+E\+N\+T}(p)
+\item 
+\#define \hyperlink{reflection_8h_ab70fecdc804dd863c85e410865e27da7}{P\+R\+O\+G\+R\+A\+M}(p)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{reflection_8h_ac76de1db7d4f0a575aece4096834c5bd}{}\index{reflection.\+h@{reflection.\+h}!C\+L\+A\+S\+S@{C\+L\+A\+S\+S}}
+\index{C\+L\+A\+S\+S@{C\+L\+A\+S\+S}!reflection.\+h@{reflection.\+h}}
+\subsubsection[{C\+L\+A\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+A\+S\+S(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)}\label{reflection_8h_ac76de1db7d4f0a575aece4096834c5bd}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }p\(\backslash\)
+\{\(\backslash\)
+    inline \textcolor{keyword}{virtual} std::string \_GetClassName\_() \{ \textcolor{keywordflow}{return} #p; \}\(\backslash\)
+\end{DoxyCode}
+\hypertarget{reflection_8h_a2014ec2b876bbb96f4f66487835364c5}{}\index{reflection.\+h@{reflection.\+h}!C\+L\+A\+S\+S\+T\+Y\+P\+E@{C\+L\+A\+S\+S\+T\+Y\+P\+E}}
+\index{C\+L\+A\+S\+S\+T\+Y\+P\+E@{C\+L\+A\+S\+S\+T\+Y\+P\+E}!reflection.\+h@{reflection.\+h}}
+\subsubsection[{C\+L\+A\+S\+S\+T\+Y\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+A\+S\+S\+T\+Y\+P\+E~\+\_\+\+Get\+Class\+Name\+\_\+()}\label{reflection_8h_a2014ec2b876bbb96f4f66487835364c5}
+\hypertarget{reflection_8h_aeb0509a4118ccf8ed7ee586f3e002636}{}\index{reflection.\+h@{reflection.\+h}!C\+O\+M\+P\+O\+N\+E\+N\+T@{C\+O\+M\+P\+O\+N\+E\+N\+T}}
+\index{C\+O\+M\+P\+O\+N\+E\+N\+T@{C\+O\+M\+P\+O\+N\+E\+N\+T}!reflection.\+h@{reflection.\+h}}
+\subsubsection[{C\+O\+M\+P\+O\+N\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+M\+P\+O\+N\+E\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)}\label{reflection_8h_aeb0509a4118ccf8ed7ee586f3e002636}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }p : \textcolor{keyword}{public} \hyperlink{class_entity_component}{EntityComponent}\(\backslash\)
+\{\(\backslash\)
+    inline \textcolor{keyword}{virtual} std::string \hyperlink{class_entity_component_a145c9da56a1ed62e159514e14e4d8e16}{\_GetClassName\_}() \{ \textcolor{keywordflow}{return} #p; \}\(\backslash\)
+\end{DoxyCode}
+\hypertarget{reflection_8h_a14111ac8f43949172b152e50dc720aba}{}\index{reflection.\+h@{reflection.\+h}!N\+A\+M\+E@{N\+A\+M\+E}}
+\index{N\+A\+M\+E@{N\+A\+M\+E}!reflection.\+h@{reflection.\+h}}
+\subsubsection[{N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+A\+M\+E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~\#x}\label{reflection_8h_a14111ac8f43949172b152e50dc720aba}
+\hypertarget{reflection_8h_ab70fecdc804dd863c85e410865e27da7}{}\index{reflection.\+h@{reflection.\+h}!P\+R\+O\+G\+R\+A\+M@{P\+R\+O\+G\+R\+A\+M}}
+\index{P\+R\+O\+G\+R\+A\+M@{P\+R\+O\+G\+R\+A\+M}!reflection.\+h@{reflection.\+h}}
+\subsubsection[{P\+R\+O\+G\+R\+A\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+O\+G\+R\+A\+M(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)}\label{reflection_8h_ab70fecdc804dd863c85e410865e27da7}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }p : \textcolor{keyword}{public} \hyperlink{class_program}{Program}\(\backslash\)
+\{\(\backslash\)
+    virtual std::string \hyperlink{class_program_aacda59ac678fb196f9d5cf89e9a42885}{GetProgramName}() \{ \textcolor{keywordflow}{return} #p; \}\(\backslash\)
+\end{DoxyCode}
+\hypertarget{reflection_8h_a71f98ded3f76e99a4e39fa39156889af}{}\index{reflection.\+h@{reflection.\+h}!R\+E\+F\+L\+E\+C\+T@{R\+E\+F\+L\+E\+C\+T}}
+\index{R\+E\+F\+L\+E\+C\+T@{R\+E\+F\+L\+E\+C\+T}!reflection.\+h@{reflection.\+h}}
+\subsubsection[{R\+E\+F\+L\+E\+C\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+F\+L\+E\+C\+T(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)}\label{reflection_8h_a71f98ded3f76e99a4e39fa39156889af}

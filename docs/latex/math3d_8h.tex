@@ -1,0 +1,162 @@
+\hypertarget{math3d_8h}{}\section{F\+:/\+Fusion3\+D\+\_\+work/src/core/math3d.h File Reference}
+\label{math3d_8h}\index{F\+:/\+Fusion3\+D\+\_\+work/src/core/math3d.\+h@{F\+:/\+Fusion3\+D\+\_\+work/src/core/math3d.\+h}}
+{\ttfamily \#include \char`\"{}bt\+Bullet\+Dynamics\+Common.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_vector}{Vector$<$ T, D $>$}
+\item 
+class \hyperlink{class_vector2}{Vector2$<$ T $>$}
+\item 
+class \hyperlink{class_vector3}{Vector3$<$ T $>$}
+\item 
+class \hyperlink{class_vector4}{Vector4$<$ T $>$}
+\item 
+class \hyperlink{class_matrix}{Matrix$<$ T, D $>$}
+\item 
+class \hyperlink{class_matrix4}{Matrix4$<$ T $>$}
+\item 
+class \hyperlink{class_matrix3}{Matrix3$<$ T $>$}
+\item 
+class \hyperlink{class_vector3f}{Vector3f}
+\item 
+class \hyperlink{class_quaternion}{Quaternion}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{math3d_8h_ac58cbaeae310f551049f77b7c098599e}{M\+A\+T\+H\+\_\+\+P\+I}~3.\+1415926535897932384626433832795
+\item 
+\#define \hyperlink{math3d_8h_aa0b8681d0390c4a2369c4041788b99da}{To\+Radians}(x)~(float)(((x) $\ast$ \hyperlink{math3d_8h_ac58cbaeae310f551049f77b7c098599e}{M\+A\+T\+H\+\_\+\+P\+I} / 180.\+0f))
+\item 
+\#define \hyperlink{math3d_8h_a315c7e0eddc665704c6514d6ab6515a5}{To\+Degrees}(x)~(float)(((x) $\ast$ 180.\+0f / M\+A\+T\+H\+\_\+\+P\+I))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{class_vector2}{Vector2}$<$ int $>$ \hyperlink{math3d_8h_aa83d444bd6cbecb112158663c2e0c213}{Vector2i}
+\item 
+typedef \hyperlink{class_vector3}{Vector3}$<$ int $>$ \hyperlink{math3d_8h_a6951accbbf6263a1ac8019bf718ae31c}{Vector3i}
+\item 
+typedef \hyperlink{class_vector4}{Vector4}$<$ int $>$ \hyperlink{math3d_8h_a270bbc7b96b874207992bb5456218a48}{Vector4i}
+\item 
+typedef \hyperlink{class_vector2}{Vector2}$<$ float $>$ \hyperlink{math3d_8h_a9f3739462b0605dcb64299fa289b6afe}{Vector2f}
+\item 
+typedef \hyperlink{class_vector4}{Vector4}$<$ float $>$ \hyperlink{math3d_8h_a2e950d4be17eed0a7d6f24353b04c8f5}{Vector4f}
+\item 
+typedef \hyperlink{class_vector2}{Vector2}$<$ double $>$ \hyperlink{math3d_8h_aa24c210e370bbcafa705a5ba97a2f025}{Vector2d}
+\item 
+typedef \hyperlink{class_vector3}{Vector3}$<$ double $>$ \hyperlink{math3d_8h_a1f05093f5ee1a9ecdd54476792e4c206}{Vector3d}
+\item 
+typedef \hyperlink{class_vector4}{Vector4}$<$ double $>$ \hyperlink{math3d_8h_ad0b18996675624521849970fa6bf09c3}{Vector4d}
+\item 
+typedef \hyperlink{class_matrix}{Matrix}$<$ int, 2 $>$ \hyperlink{math3d_8h_a9c53fce080e6b36c6f4938f6e3c0c894}{Matrix2i}
+\item 
+typedef \hyperlink{class_matrix3}{Matrix3}$<$ int $>$ \hyperlink{math3d_8h_a968bc4736fac5af106094c63c24ac6ca}{Matrix3i}
+\item 
+typedef \hyperlink{class_matrix4}{Matrix4}$<$ int $>$ \hyperlink{math3d_8h_a21a14a0a49d405a9014fa9e11af3425e}{Matrix4i}
+\item 
+typedef \hyperlink{class_matrix}{Matrix}$<$ float, 2 $>$ \hyperlink{math3d_8h_ab031f4e5b931c465eac9e3c314f7495e}{Matrix2f}
+\item 
+typedef \hyperlink{class_matrix3}{Matrix3}$<$ float $>$ \hyperlink{math3d_8h_ae5a673b3d27428dc13b294596cc53a5d}{Matrix3f}
+\item 
+typedef \hyperlink{class_matrix4}{Matrix4}$<$ float $>$ \hyperlink{math3d_8h_a5b7721ab7216c91a40538beaa9e6ee1f}{Matrix4f}
+\item 
+typedef \hyperlink{class_matrix}{Matrix}$<$ double, 2 $>$ \hyperlink{math3d_8h_a8611ed5822e8d92740ea2b3f5ce6345b}{Matrix2d}
+\item 
+typedef \hyperlink{class_matrix3}{Matrix3}$<$ double $>$ \hyperlink{math3d_8h_a86e6f4c9798f85f6b09c74b4b60d2376}{Matrix3d}
+\item 
+typedef \hyperlink{class_matrix4}{Matrix4}$<$ double $>$ \hyperlink{math3d_8h_afe7ea008ee9e656fb34621264a42e04a}{Matrix4d}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{math3d_8h_a81dc969b5fe096b6bf91849c0aef5d2e}{Clamp} (const T \&a, const T \&min, const T \&max)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{math3d_8h_ac58cbaeae310f551049f77b7c098599e}{}\index{math3d.\+h@{math3d.\+h}!M\+A\+T\+H\+\_\+\+P\+I@{M\+A\+T\+H\+\_\+\+P\+I}}
+\index{M\+A\+T\+H\+\_\+\+P\+I@{M\+A\+T\+H\+\_\+\+P\+I}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{M\+A\+T\+H\+\_\+\+P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+T\+H\+\_\+\+P\+I~3.\+1415926535897932384626433832795}\label{math3d_8h_ac58cbaeae310f551049f77b7c098599e}
+\hypertarget{math3d_8h_a315c7e0eddc665704c6514d6ab6515a5}{}\index{math3d.\+h@{math3d.\+h}!To\+Degrees@{To\+Degrees}}
+\index{To\+Degrees@{To\+Degrees}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{To\+Degrees}]{\setlength{\rightskip}{0pt plus 5cm}\#define To\+Degrees(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(float)(((x) $\ast$ 180.\+0f / M\+A\+T\+H\+\_\+\+P\+I))}\label{math3d_8h_a315c7e0eddc665704c6514d6ab6515a5}
+\hypertarget{math3d_8h_aa0b8681d0390c4a2369c4041788b99da}{}\index{math3d.\+h@{math3d.\+h}!To\+Radians@{To\+Radians}}
+\index{To\+Radians@{To\+Radians}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{To\+Radians}]{\setlength{\rightskip}{0pt plus 5cm}\#define To\+Radians(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(float)(((x) $\ast$ {\bf M\+A\+T\+H\+\_\+\+P\+I} / 180.\+0f))}\label{math3d_8h_aa0b8681d0390c4a2369c4041788b99da}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{math3d_8h_a8611ed5822e8d92740ea2b3f5ce6345b}{}\index{math3d.\+h@{math3d.\+h}!Matrix2d@{Matrix2d}}
+\index{Matrix2d@{Matrix2d}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix2d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix}$<$double, 2$>$ {\bf Matrix2d}}\label{math3d_8h_a8611ed5822e8d92740ea2b3f5ce6345b}
+\hypertarget{math3d_8h_ab031f4e5b931c465eac9e3c314f7495e}{}\index{math3d.\+h@{math3d.\+h}!Matrix2f@{Matrix2f}}
+\index{Matrix2f@{Matrix2f}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix2f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix}$<$float, 2$>$ {\bf Matrix2f}}\label{math3d_8h_ab031f4e5b931c465eac9e3c314f7495e}
+\hypertarget{math3d_8h_a9c53fce080e6b36c6f4938f6e3c0c894}{}\index{math3d.\+h@{math3d.\+h}!Matrix2i@{Matrix2i}}
+\index{Matrix2i@{Matrix2i}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix2i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix}$<$int, 2$>$ {\bf Matrix2i}}\label{math3d_8h_a9c53fce080e6b36c6f4938f6e3c0c894}
+\hypertarget{math3d_8h_a86e6f4c9798f85f6b09c74b4b60d2376}{}\index{math3d.\+h@{math3d.\+h}!Matrix3d@{Matrix3d}}
+\index{Matrix3d@{Matrix3d}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix3d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix3}$<$double$>$ {\bf Matrix3d}}\label{math3d_8h_a86e6f4c9798f85f6b09c74b4b60d2376}
+\hypertarget{math3d_8h_ae5a673b3d27428dc13b294596cc53a5d}{}\index{math3d.\+h@{math3d.\+h}!Matrix3f@{Matrix3f}}
+\index{Matrix3f@{Matrix3f}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix3f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix3}$<$float$>$ {\bf Matrix3f}}\label{math3d_8h_ae5a673b3d27428dc13b294596cc53a5d}
+\hypertarget{math3d_8h_a968bc4736fac5af106094c63c24ac6ca}{}\index{math3d.\+h@{math3d.\+h}!Matrix3i@{Matrix3i}}
+\index{Matrix3i@{Matrix3i}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix3i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix3}$<$int$>$ {\bf Matrix3i}}\label{math3d_8h_a968bc4736fac5af106094c63c24ac6ca}
+\hypertarget{math3d_8h_afe7ea008ee9e656fb34621264a42e04a}{}\index{math3d.\+h@{math3d.\+h}!Matrix4d@{Matrix4d}}
+\index{Matrix4d@{Matrix4d}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix4d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix4}$<$double$>$ {\bf Matrix4d}}\label{math3d_8h_afe7ea008ee9e656fb34621264a42e04a}
+\hypertarget{math3d_8h_a5b7721ab7216c91a40538beaa9e6ee1f}{}\index{math3d.\+h@{math3d.\+h}!Matrix4f@{Matrix4f}}
+\index{Matrix4f@{Matrix4f}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix4f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix4}$<$float$>$ {\bf Matrix4f}}\label{math3d_8h_a5b7721ab7216c91a40538beaa9e6ee1f}
+\hypertarget{math3d_8h_a21a14a0a49d405a9014fa9e11af3425e}{}\index{math3d.\+h@{math3d.\+h}!Matrix4i@{Matrix4i}}
+\index{Matrix4i@{Matrix4i}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Matrix4i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix4}$<$int$>$ {\bf Matrix4i}}\label{math3d_8h_a21a14a0a49d405a9014fa9e11af3425e}
+\hypertarget{math3d_8h_aa24c210e370bbcafa705a5ba97a2f025}{}\index{math3d.\+h@{math3d.\+h}!Vector2d@{Vector2d}}
+\index{Vector2d@{Vector2d}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Vector2d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector2}$<$double$>$ {\bf Vector2d}}\label{math3d_8h_aa24c210e370bbcafa705a5ba97a2f025}
+\hypertarget{math3d_8h_a9f3739462b0605dcb64299fa289b6afe}{}\index{math3d.\+h@{math3d.\+h}!Vector2f@{Vector2f}}
+\index{Vector2f@{Vector2f}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Vector2f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector2}$<$float$>$ {\bf Vector2f}}\label{math3d_8h_a9f3739462b0605dcb64299fa289b6afe}
+\hypertarget{math3d_8h_aa83d444bd6cbecb112158663c2e0c213}{}\index{math3d.\+h@{math3d.\+h}!Vector2i@{Vector2i}}
+\index{Vector2i@{Vector2i}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Vector2i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector2}$<$int$>$ {\bf Vector2i}}\label{math3d_8h_aa83d444bd6cbecb112158663c2e0c213}
+\hypertarget{math3d_8h_a1f05093f5ee1a9ecdd54476792e4c206}{}\index{math3d.\+h@{math3d.\+h}!Vector3d@{Vector3d}}
+\index{Vector3d@{Vector3d}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Vector3d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector3}$<$double$>$ {\bf Vector3d}}\label{math3d_8h_a1f05093f5ee1a9ecdd54476792e4c206}
+\hypertarget{math3d_8h_a6951accbbf6263a1ac8019bf718ae31c}{}\index{math3d.\+h@{math3d.\+h}!Vector3i@{Vector3i}}
+\index{Vector3i@{Vector3i}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Vector3i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector3}$<$int$>$ {\bf Vector3i}}\label{math3d_8h_a6951accbbf6263a1ac8019bf718ae31c}
+\hypertarget{math3d_8h_ad0b18996675624521849970fa6bf09c3}{}\index{math3d.\+h@{math3d.\+h}!Vector4d@{Vector4d}}
+\index{Vector4d@{Vector4d}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Vector4d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector4}$<$double$>$ {\bf Vector4d}}\label{math3d_8h_ad0b18996675624521849970fa6bf09c3}
+\hypertarget{math3d_8h_a2e950d4be17eed0a7d6f24353b04c8f5}{}\index{math3d.\+h@{math3d.\+h}!Vector4f@{Vector4f}}
+\index{Vector4f@{Vector4f}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Vector4f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector4}$<$float$>$ {\bf Vector4f}}\label{math3d_8h_a2e950d4be17eed0a7d6f24353b04c8f5}
+\hypertarget{math3d_8h_a270bbc7b96b874207992bb5456218a48}{}\index{math3d.\+h@{math3d.\+h}!Vector4i@{Vector4i}}
+\index{Vector4i@{Vector4i}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Vector4i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector4}$<$int$>$ {\bf Vector4i}}\label{math3d_8h_a270bbc7b96b874207992bb5456218a48}
+
+
+\subsection{Function Documentation}
+\hypertarget{math3d_8h_a81dc969b5fe096b6bf91849c0aef5d2e}{}\index{math3d.\+h@{math3d.\+h}!Clamp@{Clamp}}
+\index{Clamp@{Clamp}!math3d.\+h@{math3d.\+h}}
+\subsubsection[{Clamp(const T \&a, const T \&min, const T \&max)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T Clamp (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{a, }
+\item[{const T \&}]{min, }
+\item[{const T \&}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{math3d_8h_a81dc969b5fe096b6bf91849c0aef5d2e}

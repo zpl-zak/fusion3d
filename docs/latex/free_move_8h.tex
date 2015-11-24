@@ -1,0 +1,75 @@
+\hypertarget{free_move_8h}{}\section{F\+:/\+Fusion3\+D\+\_\+work/src/components/free\+Move.h File Reference}
+\label{free_move_8h}\index{F\+:/\+Fusion3\+D\+\_\+work/src/components/free\+Move.\+h@{F\+:/\+Fusion3\+D\+\_\+work/src/components/free\+Move.\+h}}
+{\ttfamily \#include \char`\"{}../core/math3d.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../core/entity\+Component.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{free_move_8h_a1065d771cfadbbd2bec13de6980e3be4}{F\+R\+E\+E\+M\+O\+V\+E\+\_\+\+H}~\char`\"{}Freemove\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{free_move_8h_a3c8fe9a8510300dde8c641d6a2c79075}{Free\+Move} (float \hyperlink{dev_mode_8h_a6dc6e6f3c75c509ce943163afb5dade7}{speed}=10.\+0f, int forward\+Key=\+Input\+::\+K\+E\+Y\+\_\+\+W, int back\+Key=\+Input\+::\+K\+E\+Y\+\_\+\+S, int left\+Key=\+Input\+::\+K\+E\+Y\+\_\+\+A, int right\+Key=\+Input\+::\+K\+E\+Y\+\_\+\+D)
+\item 
+virtual void \hyperlink{free_move_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}{Process\+Input} (const \hyperlink{class_input}{Input} \&input, float delta)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{free_move_8h_a3e1f390fd15a39b237a5908a979c44f2}{m\+\_\+speed}
+\item 
+int \hyperlink{free_move_8h_ab956e0849fc8e8d4c0ac19fe45736219}{m\+\_\+forward\+Key}
+\item 
+int \hyperlink{free_move_8h_a328b8880a5a4792f0f0d3d24bf635eb0}{m\+\_\+back\+Key}
+\item 
+int \hyperlink{free_move_8h_a047779fde64cbd39a4babcf73a012aed}{m\+\_\+left\+Key}
+\item 
+int \hyperlink{free_move_8h_a42b81d8ba0fd46adb376385e8fdd4470}{m\+\_\+right\+Key}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{free_move_8h_a1065d771cfadbbd2bec13de6980e3be4}{}\index{free\+Move.\+h@{free\+Move.\+h}!F\+R\+E\+E\+M\+O\+V\+E\+\_\+\+H@{F\+R\+E\+E\+M\+O\+V\+E\+\_\+\+H}}
+\index{F\+R\+E\+E\+M\+O\+V\+E\+\_\+\+H@{F\+R\+E\+E\+M\+O\+V\+E\+\_\+\+H}!free\+Move.\+h@{free\+Move.\+h}}
+\subsubsection[{F\+R\+E\+E\+M\+O\+V\+E\+\_\+\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+R\+E\+E\+M\+O\+V\+E\+\_\+\+H~\char`\"{}Freemove\char`\"{}}\label{free_move_8h_a1065d771cfadbbd2bec13de6980e3be4}
+
+
+\subsection{Function Documentation}
+\hypertarget{free_move_8h_a3c8fe9a8510300dde8c641d6a2c79075}{}\index{free\+Move.\+h@{free\+Move.\+h}!Free\+Move@{Free\+Move}}
+\index{Free\+Move@{Free\+Move}!free\+Move.\+h@{free\+Move.\+h}}
+\subsubsection[{Free\+Move(float speed=10.\+0f, int forward\+Key=\+Input\+::\+K\+E\+Y\+\_\+\+W, int back\+Key=\+Input\+::\+K\+E\+Y\+\_\+\+S, int left\+Key=\+Input\+::\+K\+E\+Y\+\_\+\+A, int right\+Key=\+Input\+::\+K\+E\+Y\+\_\+\+D)}]{\setlength{\rightskip}{0pt plus 5cm}Free\+Move (
+\begin{DoxyParamCaption}
+\item[{float}]{speed = {\ttfamily 10.0f}, }
+\item[{int}]{forward\+Key = {\ttfamily {\bf Input\+::\+K\+E\+Y\+\_\+\+W}}, }
+\item[{int}]{back\+Key = {\ttfamily {\bf Input\+::\+K\+E\+Y\+\_\+\+S}}, }
+\item[{int}]{left\+Key = {\ttfamily {\bf Input\+::\+K\+E\+Y\+\_\+\+A}}, }
+\item[{int}]{right\+Key = {\ttfamily {\bf Input\+::\+K\+E\+Y\+\_\+\+D}}}
+\end{DoxyParamCaption}
+)}\label{free_move_8h_a3c8fe9a8510300dde8c641d6a2c79075}
+\hypertarget{free_move_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}{}\index{free\+Move.\+h@{free\+Move.\+h}!Process\+Input@{Process\+Input}}
+\index{Process\+Input@{Process\+Input}!free\+Move.\+h@{free\+Move.\+h}}
+\subsubsection[{Process\+Input(const Input \&input, float delta)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Process\+Input (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input, }
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{free_move_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}
+
+
+\subsection{Variable Documentation}
+\hypertarget{free_move_8h_a328b8880a5a4792f0f0d3d24bf635eb0}{}\index{free\+Move.\+h@{free\+Move.\+h}!m\+\_\+back\+Key@{m\+\_\+back\+Key}}
+\index{m\+\_\+back\+Key@{m\+\_\+back\+Key}!free\+Move.\+h@{free\+Move.\+h}}
+\subsubsection[{m\+\_\+back\+Key}]{\setlength{\rightskip}{0pt plus 5cm}int m\+\_\+back\+Key}\label{free_move_8h_a328b8880a5a4792f0f0d3d24bf635eb0}
+\hypertarget{free_move_8h_ab956e0849fc8e8d4c0ac19fe45736219}{}\index{free\+Move.\+h@{free\+Move.\+h}!m\+\_\+forward\+Key@{m\+\_\+forward\+Key}}
+\index{m\+\_\+forward\+Key@{m\+\_\+forward\+Key}!free\+Move.\+h@{free\+Move.\+h}}
+\subsubsection[{m\+\_\+forward\+Key}]{\setlength{\rightskip}{0pt plus 5cm}int m\+\_\+forward\+Key}\label{free_move_8h_ab956e0849fc8e8d4c0ac19fe45736219}
+\hypertarget{free_move_8h_a047779fde64cbd39a4babcf73a012aed}{}\index{free\+Move.\+h@{free\+Move.\+h}!m\+\_\+left\+Key@{m\+\_\+left\+Key}}
+\index{m\+\_\+left\+Key@{m\+\_\+left\+Key}!free\+Move.\+h@{free\+Move.\+h}}
+\subsubsection[{m\+\_\+left\+Key}]{\setlength{\rightskip}{0pt plus 5cm}int m\+\_\+left\+Key}\label{free_move_8h_a047779fde64cbd39a4babcf73a012aed}
+\hypertarget{free_move_8h_a42b81d8ba0fd46adb376385e8fdd4470}{}\index{free\+Move.\+h@{free\+Move.\+h}!m\+\_\+right\+Key@{m\+\_\+right\+Key}}
+\index{m\+\_\+right\+Key@{m\+\_\+right\+Key}!free\+Move.\+h@{free\+Move.\+h}}
+\subsubsection[{m\+\_\+right\+Key}]{\setlength{\rightskip}{0pt plus 5cm}int m\+\_\+right\+Key}\label{free_move_8h_a42b81d8ba0fd46adb376385e8fdd4470}
+\hypertarget{free_move_8h_a3e1f390fd15a39b237a5908a979c44f2}{}\index{free\+Move.\+h@{free\+Move.\+h}!m\+\_\+speed@{m\+\_\+speed}}
+\index{m\+\_\+speed@{m\+\_\+speed}!free\+Move.\+h@{free\+Move.\+h}}
+\subsubsection[{m\+\_\+speed}]{\setlength{\rightskip}{0pt plus 5cm}float m\+\_\+speed}\label{free_move_8h_a3e1f390fd15a39b237a5908a979c44f2}

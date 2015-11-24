@@ -1,0 +1,70 @@
+.TH "AABB" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AABB \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <aabb\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAABB\fP (const \fBVector3f\fP &minExtents, const \fBVector3f\fP &maxExtents)"
+.br
+.ti -1c
+.RI "\fBIntersectData\fP \fBIntersectAABB\fP (const \fBAABB\fP &other) const "
+.br
+.ti -1c
+.RI "const \fBVector3f\fP & \fBGetMinExtents\fP () const "
+.br
+.ti -1c
+.RI "const \fBVector3f\fP & \fBGetMaxExtents\fP () const "
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBTest\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBAABB\fP class represents an Axis Aligned Bounding Box that can be used as a collider in a physics engine\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AABB::AABB (const \fBVector3f\fP & minExtents, const \fBVector3f\fP & maxExtents)\fC [inline]\fP"
+Creates an \fBAABB\fP in a usable state\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIminExtents\fP The corner of the \fBAABB\fP with the smallest coordinates\&. 
+.br
+\fImaxExtents\fP The corner of the \fBAABB\fP with the largest coordinates\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "const \fBVector3f\fP& AABB::GetMaxExtents () const\fC [inline]\fP"
+Basic getter for the max extents 
+.SS "const \fBVector3f\fP& AABB::GetMinExtents () const\fC [inline]\fP"
+Basic getter for the min extents 
+.SS "\fBIntersectData\fP AABB::IntersectAABB (const \fBAABB\fP & other) const"
+Computes information about if this \fBAABB\fP intersects another \fBAABB\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIother\fP The \fBAABB\fP that's being tested for intersection with this \fBAABB\fP\&. 
+.RE
+.PP
+
+.SS "void AABB::Test ()\fC [static]\fP"
+Performs a Unit test of this class 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

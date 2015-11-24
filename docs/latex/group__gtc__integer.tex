@@ -1,0 +1,106 @@
+\hypertarget{group__gtc__integer}{}\section{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}
+\label{group__gtc__integer}\index{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}}
+
+
+Allow to perform bit operations on integer values.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename gen\+I\+U\+Type $>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+C\+L gen\+I\+U\+Type \hyperlink{group__gtc__integer_ga9bd682e74bfacb005c735305207ec417}{glm\+::log2} (gen\+I\+U\+Type x)
+\item 
+{\footnotesize template$<$typename gen\+I\+U\+Type $>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+C\+L gen\+I\+U\+Type \hyperlink{group__gtc__integer_ga75c6fd2a143fc44e5f7b871abad539e0}{glm\+::mod} (gen\+I\+U\+Type x, gen\+I\+U\+Type y)
+\item 
+{\footnotesize template$<$typename T , precision P, template$<$ typename, precision $>$ class vec\+Type$>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+C\+L vec\+Type$<$ T, P $>$ \hyperlink{group__gtc__integer_ga35e7133a920e63775739ebb491e0c2c8}{glm\+::mod} (vec\+Type$<$ T, P $>$ const \&x, T y)
+\item 
+{\footnotesize template$<$typename T , precision P, template$<$ typename, precision $>$ class vec\+Type$>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+C\+L vec\+Type$<$ T, P $>$ \hyperlink{group__gtc__integer_ga09617ccfdc105bc1c3477105d84f2e00}{glm\+::mod} (vec\+Type$<$ T, P $>$ const \&x, vec\+Type$<$ T, P $>$ const \&y)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allow to perform bit operations on integer values. 
+
+$<$\hyperlink{gtc_2integer_8hpp}{glm/gtc/integer.\+hpp}$>$ need to be included to use these functionalities. 
+
+\subsection{Function Documentation}
+\hypertarget{group__gtc__integer_ga9bd682e74bfacb005c735305207ec417}{}\index{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}!log2@{log2}}
+\index{log2@{log2}!G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}}
+\subsubsection[{log2(gen\+I\+U\+Type x)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename gen\+I\+U\+Type $>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+C\+L gen\+I\+U\+Type glm\+::log2 (
+\begin{DoxyParamCaption}
+\item[{gen\+I\+U\+Type}]{x}
+\end{DoxyParamCaption}
+)}\label{group__gtc__integer_ga9bd682e74bfacb005c735305207ec417}
+Returns the log2 of x for integer values. Can be reliably using to compute mipmap count from the texture size. \begin{DoxySeeAlso}{See also}
+\hyperlink{group__gtc__integer}{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer} 
+\end{DoxySeeAlso}
+\hypertarget{group__gtc__integer_ga75c6fd2a143fc44e5f7b871abad539e0}{}\index{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}!mod@{mod}}
+\index{mod@{mod}!G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}}
+\subsubsection[{mod(gen\+I\+U\+Type x, gen\+I\+U\+Type y)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename gen\+I\+U\+Type $>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+C\+L gen\+I\+U\+Type glm\+::mod (
+\begin{DoxyParamCaption}
+\item[{gen\+I\+U\+Type}]{x, }
+\item[{gen\+I\+U\+Type}]{y}
+\end{DoxyParamCaption}
+)}\label{group__gtc__integer_ga75c6fd2a143fc44e5f7b871abad539e0}
+Modulus. Returns x \% y for each component in x using the floating point value y.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em gen\+I\+U\+Type} & Integer-\/point scalar or vector types.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__gtc__integer}{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer} 
+
+\href{http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml}{\tt G\+L\+S\+L mod man page} 
+
+\href{http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf}{\tt G\+L\+S\+L 4.\+20.\+8 specification, section 8.\+3 Common Functions} 
+\end{DoxySeeAlso}
+\hypertarget{group__gtc__integer_ga35e7133a920e63775739ebb491e0c2c8}{}\index{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}!mod@{mod}}
+\index{mod@{mod}!G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}}
+\subsubsection[{mod(vec\+Type$<$ T, P $>$ const \&x, T y)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , precision P, template$<$ typename, precision $>$ class vec\+Type$>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+C\+L vec\+Type$<$T, P$>$ glm\+::mod (
+\begin{DoxyParamCaption}
+\item[{vec\+Type$<$ T, P $>$ const \&}]{x, }
+\item[{T}]{y}
+\end{DoxyParamCaption}
+)}\label{group__gtc__integer_ga35e7133a920e63775739ebb491e0c2c8}
+Modulus. Returns x \% y for each component in x using the floating point value y.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Integer scalar types. \\
+\hline
+{\em vec\+Type} & vector types.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__gtc__integer}{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer} 
+
+\href{http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml}{\tt G\+L\+S\+L mod man page} 
+
+\href{http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf}{\tt G\+L\+S\+L 4.\+20.\+8 specification, section 8.\+3 Common Functions} 
+\end{DoxySeeAlso}
+\hypertarget{group__gtc__integer_ga09617ccfdc105bc1c3477105d84f2e00}{}\index{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}!mod@{mod}}
+\index{mod@{mod}!G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer@{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer}}
+\subsubsection[{mod(vec\+Type$<$ T, P $>$ const \&x, vec\+Type$<$ T, P $>$ const \&y)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , precision P, template$<$ typename, precision $>$ class vec\+Type$>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+C\+L vec\+Type$<$T, P$>$ glm\+::mod (
+\begin{DoxyParamCaption}
+\item[{vec\+Type$<$ T, P $>$ const \&}]{x, }
+\item[{vec\+Type$<$ T, P $>$ const \&}]{y}
+\end{DoxyParamCaption}
+)}\label{group__gtc__integer_ga09617ccfdc105bc1c3477105d84f2e00}
+Modulus. Returns x \% y for each component in x using the floating point value y.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Integer scalar types. \\
+\hline
+{\em vec\+Type} & vector types.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__gtc__integer}{G\+L\+M\+\_\+\+G\+T\+C\+\_\+integer} 
+
+\href{http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml}{\tt G\+L\+S\+L mod man page} 
+
+\href{http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf}{\tt G\+L\+S\+L 4.\+20.\+8 specification, section 8.\+3 Common Functions} 
+\end{DoxySeeAlso}

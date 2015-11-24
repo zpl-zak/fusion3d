@@ -1,0 +1,46 @@
+.TH "gtx_normalize_dot" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_normalize_dot \- GLM_GTX_normalize_dot
+.PP
+Dot product of vectors that need to be normalize with a single square root\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T \fBglm::normalizeDot\fP (vecType< T, P > const &x, vecType< T, P > const &y)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T \fBglm::fastNormalizeDot\fP (vecType< T, P > const &x, vecType< T, P > const &y)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Dot product of vectors that need to be normalize with a single square root\&. 
+
+<glm/gtx/normalized_dot\&.hpp> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T glm::fastNormalizeDot (vecType< T, P > const & x, vecType< T, P > const & y)"
+Normalize parameters and returns the dot product of x and y\&. Faster that dot(fastNormalize(x), fastNormalize(y))\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_normalize_dot\fP extension\&. 
+.RE
+.PP
+
+.SS "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T glm::normalizeDot (vecType< T, P > const & x, vecType< T, P > const & y)"
+Normalize parameters and returns the dot product of x and y\&. It's faster that dot(normalize(x), normalize(y))\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_normalize_dot\fP extension\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

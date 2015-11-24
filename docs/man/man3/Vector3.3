@@ -1,0 +1,128 @@
+.TH "Vector3< T >" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Vector3< T > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <math3d\&.h>\fP
+.PP
+Inherits \fBVector< T, 3 >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVector3\fP ()"
+.br
+.ti -1c
+.RI "\fBVector3\fP (const \fBVector\fP< T, 3 > &r)"
+.br
+.ti -1c
+.RI "\fBVector3\fP (T x, T y, T z)"
+.br
+.ti -1c
+.RI "\fBVector3\fP< T > \fBCross\fP (const \fBVector3\fP< T > &r) const "
+.br
+.ti -1c
+.RI "\fBVector3\fP< T > \fBRotate\fP (T angle, const \fBVector3\fP< T > &axis) const "
+.br
+.ti -1c
+.RI "\fBVector2\fP< T > \fBGetXY\fP () const "
+.br
+.ti -1c
+.RI "\fBVector2\fP< T > \fBGetYZ\fP () const "
+.br
+.ti -1c
+.RI "\fBVector2\fP< T > \fBGetZX\fP () const "
+.br
+.ti -1c
+.RI "\fBVector2\fP< T > \fBGetYX\fP () const "
+.br
+.ti -1c
+.RI "\fBVector2\fP< T > \fBGetZY\fP () const "
+.br
+.ti -1c
+.RI "\fBVector2\fP< T > \fBGetXZ\fP () const "
+.br
+.ti -1c
+.RI "T \fBGetX\fP () const "
+.br
+.ti -1c
+.RI "T \fBGetY\fP () const "
+.br
+.ti -1c
+.RI "T \fBGetZ\fP () const "
+.br
+.ti -1c
+.RI "void \fBSetX\fP (const T &x)"
+.br
+.ti -1c
+.RI "void \fBSetY\fP (const T &y)"
+.br
+.ti -1c
+.RI "void \fBSetZ\fP (const T &z)"
+.br
+.ti -1c
+.RI "void \fBSet\fP (const T &x, const T &y, const T &z)"
+.br
+.ti -1c
+.RI "btVector3 \fBGetBT\fP () const "
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBVector3\fP< T > \fBGetFT\fP (const btVector3 &bt)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> \fBVector3\fP< T >::\fBVector3\fP ()\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector3\fP< T >::\fBVector3\fP (const \fBVector\fP< T, 3 > & r)\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector3\fP< T >::\fBVector3\fP (T x, T y, T z)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> \fBVector3\fP<T> \fBVector3\fP< T >::Cross (const \fBVector3\fP< T > & r) const\fC [inline]\fP"
+
+.SS "template<typename T> btVector3 \fBVector3\fP< T >::GetBT () const\fC [inline]\fP"
+
+.SS "template<typename T> static \fBVector3\fP<T> \fBVector3\fP< T >::GetFT (const btVector3< T > & bt)\fC [inline]\fP, \fC [static]\fP"
+
+.SS "template<typename T> T \fBVector3\fP< T >::GetX () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector2\fP<T> \fBVector3\fP< T >::GetXY () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector2\fP<T> \fBVector3\fP< T >::GetXZ () const\fC [inline]\fP"
+
+.SS "template<typename T> T \fBVector3\fP< T >::GetY () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector2\fP<T> \fBVector3\fP< T >::GetYX () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector2\fP<T> \fBVector3\fP< T >::GetYZ () const\fC [inline]\fP"
+
+.SS "template<typename T> T \fBVector3\fP< T >::GetZ () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector2\fP<T> \fBVector3\fP< T >::GetZX () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector2\fP<T> \fBVector3\fP< T >::GetZY () const\fC [inline]\fP"
+
+.SS "template<typename T> \fBVector3\fP<T> \fBVector3\fP< T >::Rotate (T angle, const \fBVector3\fP< T > & axis) const\fC [inline]\fP"
+
+.SS "template<typename T> void \fBVector3\fP< T >::Set (const T & x, const T & y, const T & z)\fC [inline]\fP"
+
+.SS "template<typename T> void \fBVector3\fP< T >::SetX (const T & x)\fC [inline]\fP"
+
+.SS "template<typename T> void \fBVector3\fP< T >::SetY (const T & y)\fC [inline]\fP"
+
+.SS "template<typename T> void \fBVector3\fP< T >::SetZ (const T & z)\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

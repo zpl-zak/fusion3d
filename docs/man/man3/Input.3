@@ -1,0 +1,701 @@
+.TH "Input" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Input \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <input\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBMOUSE_LEFT_BUTTON\fP = 1, \fBMOUSE_MIDDLE_BUTTON\fP = 2, \fBMOUSE_RIGHT_BUTTON\fP = 3, \fBMOUSE_WHEEL_UP\fP = 4, \fBMOUSE_WHEEL_DOWN\fP = 5 }"
+.br
+.ti -1c
+.RI "enum { \fBKEY_UNKNOWN\fP = 0, \fBKEY_A\fP = 4, \fBKEY_B\fP = 5, \fBKEY_C\fP = 6, \fBKEY_D\fP = 7, \fBKEY_E\fP = 8, \fBKEY_F\fP = 9, \fBKEY_G\fP = 10, \fBKEY_H\fP = 11, \fBKEY_I\fP = 12, \fBKEY_J\fP = 13, \fBKEY_K\fP = 14, \fBKEY_L\fP = 15, \fBKEY_M\fP = 16, \fBKEY_N\fP = 17, \fBKEY_O\fP = 18, \fBKEY_P\fP = 19, \fBKEY_Q\fP = 20, \fBKEY_R\fP = 21, \fBKEY_S\fP = 22, \fBKEY_T\fP = 23, \fBKEY_U\fP = 24, \fBKEY_V\fP = 25, \fBKEY_W\fP = 26, \fBKEY_X\fP = 27, \fBKEY_Y\fP = 28, \fBKEY_Z\fP = 29, \fBKEY_1\fP = 30, \fBKEY_2\fP = 31, \fBKEY_3\fP = 32, \fBKEY_4\fP = 33, \fBKEY_5\fP = 34, \fBKEY_6\fP = 35, \fBKEY_7\fP = 36, \fBKEY_8\fP = 37, \fBKEY_9\fP = 38, \fBKEY_0\fP = 39, \fBKEY_RETURN\fP = 40, \fBKEY_ESCAPE\fP = 41, \fBKEY_BACKSPACE\fP = 42, \fBKEY_TAB\fP = 43, \fBKEY_SPACE\fP = 44, \fBKEY_MINUS\fP = 45, \fBKEY_EQUALS\fP = 46, \fBKEY_LEFTBRACKET\fP = 47, \fBKEY_RIGHTBRACKET\fP = 48, \fBKEY_BACKSLASH\fP = 49, \fBKEY_NONUSHASH\fP = 50, \fBKEY_SEMICOLON\fP = 51, \fBKEY_APOSTROPHE\fP = 52, \fBKEY_GRAVE\fP = 53, \fBKEY_COMMA\fP = 54, \fBKEY_PERIOD\fP = 55, \fBKEY_SLASH\fP = 56, \fBKEY_CAPSLOCK\fP = 57, \fBKEY_F1\fP = 58, \fBKEY_F2\fP = 59, \fBKEY_F3\fP = 60, \fBKEY_F4\fP = 61, \fBKEY_F5\fP = 62, \fBKEY_F6\fP = 63, \fBKEY_F7\fP = 64, \fBKEY_F8\fP = 65, \fBKEY_F9\fP = 66, \fBKEY_F10\fP = 67, \fBKEY_F11\fP = 68, \fBKEY_F12\fP = 69, \fBKEY_PRINTSCREEN\fP = 70, \fBKEY_SCROLLLOCK\fP = 71, \fBKEY_PAUSE\fP = 72, \fBKEY_INSERT\fP = 73, \fBKEY_HOME\fP = 74, \fBKEY_PAGEUP\fP = 75, \fBKEY_DELETE\fP = 76, \fBKEY_END\fP = 77, \fBKEY_PAGEDOWN\fP = 78, \fBKEY_RIGHT\fP = 79, \fBKEY_LEFT\fP = 80, \fBKEY_DOWN\fP = 81, \fBKEY_UP\fP = 82, \fBKEY_NUMLOCKCLEAR\fP = 83, \fBKEY_KP_DIVIDE\fP = 84, \fBKEY_KP_MULTIPLY\fP = 85, \fBKEY_KP_MINUS\fP = 86, \fBKEY_KP_PLUS\fP = 87, \fBKEY_KP_ENTER\fP = 88, \fBKEY_KP_1\fP = 89, \fBKEY_KP_2\fP = 90, \fBKEY_KP_3\fP = 91, \fBKEY_KP_4\fP = 92, \fBKEY_KP_5\fP = 93, \fBKEY_KP_6\fP = 94, \fBKEY_KP_7\fP = 95, \fBKEY_KP_8\fP = 96, \fBKEY_KP_9\fP = 97, \fBKEY_KP_0\fP = 98, \fBKEY_KP_PERIOD\fP = 99, \fBKEY_NONUSBACKSLASH\fP = 100, \fBKEY_APPLICATION\fP = 101, \fBKEY_POWER\fP = 102, \fBKEY_KP_EQUALS\fP = 103, \fBKEY_F13\fP = 104, \fBKEY_F14\fP = 105, \fBKEY_F15\fP = 106, \fBKEY_F16\fP = 107, \fBKEY_F17\fP = 108, \fBKEY_F18\fP = 109, \fBKEY_F19\fP = 110, \fBKEY_F20\fP = 111, \fBKEY_F21\fP = 112, \fBKEY_F22\fP = 113, \fBKEY_F23\fP = 114, \fBKEY_F24\fP = 115, \fBKEY_EXECUTE\fP = 116, \fBKEY_HELP\fP = 117, \fBKEY_MENU\fP = 118, \fBKEY_SELECT\fP = 119, \fBKEY_STOP\fP = 120, \fBKEY_AGAIN\fP = 121, \fBKEY_UNDO\fP = 122, \fBKEY_CUT\fP = 123, \fBKEY_COPY\fP = 124, \fBKEY_PASTE\fP = 125, \fBKEY_FIND\fP = 126, \fBKEY_MUTE\fP = 127, \fBKEY_VOLUMEUP\fP = 128, \fBKEY_VOLUMEDOWN\fP = 129, \fBKEY_KP_COMMA\fP = 133, \fBKEY_KP_EQUALSAS400\fP = 134, \fBKEY_INTERNATIONAL1\fP = 135, \fBKEY_INTERNATIONAL2\fP = 136, \fBKEY_INTERNATIONAL3\fP = 137, \fBKEY_INTERNATIONAL4\fP = 138, \fBKEY_INTERNATIONAL5\fP = 139, \fBKEY_INTERNATIONAL6\fP = 140, \fBKEY_INTERNATIONAL7\fP = 141, \fBKEY_INTERNATIONAL8\fP = 142, \fBKEY_INTERNATIONAL9\fP = 143, \fBKEY_LANG1\fP = 144, \fBKEY_LANG2\fP = 145, \fBKEY_LANG3\fP = 146, \fBKEY_LANG4\fP = 147, \fBKEY_LANG5\fP = 148, \fBKEY_LANG6\fP = 149, \fBKEY_LANG7\fP = 150, \fBKEY_LANG8\fP = 151, \fBKEY_LANG9\fP = 152, \fBKEY_ALTERASE\fP = 153, \fBKEY_SYSREQ\fP = 154, \fBKEY_CANCEL\fP = 155, \fBKEY_CLEAR\fP = 156, \fBKEY_PRIOR\fP = 157, \fBKEY_RETURN2\fP = 158, \fBKEY_SEPARATOR\fP = 159, \fBKEY_OUT\fP = 160, \fBKEY_OPER\fP = 161, \fBKEY_CLEARAGAIN\fP = 162, \fBKEY_CRSEL\fP = 163, \fBKEY_EXSEL\fP = 164, \fBKEY_KP_00\fP = 176, \fBKEY_KP_000\fP = 177, \fBKEY_THOUSANDSSEPARATOR\fP = 178, \fBKEY_DECIMALSEPARATOR\fP = 179, \fBKEY_CURRENCYUNIT\fP = 180, \fBKEY_CURRENCYSUBUNIT\fP = 181, \fBKEY_KP_LEFTPAREN\fP = 182, \fBKEY_KP_RIGHTPAREN\fP = 183, \fBKEY_KP_LEFTBRACE\fP = 184, \fBKEY_KP_RIGHTBRACE\fP = 185, \fBKEY_KP_TAB\fP = 186, \fBKEY_KP_BACKSPACE\fP = 187, \fBKEY_KP_A\fP = 188, \fBKEY_KP_B\fP = 189, \fBKEY_KP_C\fP = 190, \fBKEY_KP_D\fP = 191, \fBKEY_KP_E\fP = 192, \fBKEY_KP_F\fP = 193, \fBKEY_KP_XOR\fP = 194, \fBKEY_KP_POWER\fP = 195, \fBKEY_KP_PERCENT\fP = 196, \fBKEY_KP_LESS\fP = 197, \fBKEY_KP_GREATER\fP = 198, \fBKEY_KP_AMPERSAND\fP = 199, \fBKEY_KP_DBLAMPERSAND\fP = 200, \fBKEY_KP_VERTICALBAR\fP = 201, \fBKEY_KP_DBLVERTICALBAR\fP = 202, \fBKEY_KP_COLON\fP = 203, \fBKEY_KP_HASH\fP = 204, \fBKEY_KP_SPACE\fP = 205, \fBKEY_KP_AT\fP = 206, \fBKEY_KP_EXCLAM\fP = 207, \fBKEY_KP_MEMSTORE\fP = 208, \fBKEY_KP_MEMRECALL\fP = 209, \fBKEY_KP_MEMCLEAR\fP = 210, \fBKEY_KP_MEMADD\fP = 211, \fBKEY_KP_MEMSUBTRACT\fP = 212, \fBKEY_KP_MEMMULTIPLY\fP = 213, \fBKEY_KP_MEMDIVIDE\fP = 214, \fBKEY_KP_PLUSMINUS\fP = 215, \fBKEY_KP_CLEAR\fP = 216, \fBKEY_KP_CLEARENTRY\fP = 217, \fBKEY_KP_BINARY\fP = 218, \fBKEY_KP_OCTAL\fP = 219, \fBKEY_KP_DECIMAL\fP = 220, \fBKEY_KP_HEXADECIMAL\fP = 221, \fBKEY_LCTRL\fP = 224, \fBKEY_LSHIFT\fP = 225, \fBKEY_LALT\fP = 226, \fBKEY_LGUI\fP = 227, \fBKEY_RCTRL\fP = 228, \fBKEY_RSHIFT\fP = 229, \fBKEY_RALT\fP = 230, \fBKEY_RGUI\fP = 231, \fBKEY_MODE\fP = 257, \fBKEY_AUDIONEXT\fP = 258, \fBKEY_AUDIOPREV\fP = 259, \fBKEY_AUDIOSTOP\fP = 260, \fBKEY_AUDIOPLAY\fP = 261, \fBKEY_AUDIOMUTE\fP = 262, \fBKEY_MEDIASELECT\fP = 263, \fBKEY_WWW\fP = 264, \fBKEY_MAIL\fP = 265, \fBKEY_CALCULATOR\fP = 266, \fBKEY_COMPUTER\fP = 267, \fBKEY_AC_SEARCH\fP = 268, \fBKEY_AC_HOME\fP = 269, \fBKEY_AC_BACK\fP = 270, \fBKEY_AC_FORWARD\fP = 271, \fBKEY_AC_STOP\fP = 272, \fBKEY_AC_REFRESH\fP = 273, \fBKEY_AC_BOOKMARKS\fP = 274, \fBKEY_BRIGHTNESSDOWN\fP = 275, \fBKEY_BRIGHTNESSUP\fP = 276, \fBKEY_DISPLAYSWITCH\fP = 277, \fBKEY_KBDILLUMTOGGLE\fP = 278, \fBKEY_KBDILLUMDOWN\fP = 279, \fBKEY_KBDILLUMUP\fP = 280, \fBKEY_EJECT\fP = 281, \fBKEY_SLEEP\fP = 282, \fBKEY_APP1\fP = 283, \fBKEY_APP2\fP = 284 }"
+.br
+.in -1c
+.PP
+.RI "\fBUsage page 0x07\fP"
+.br
+These values are from usage page 0x07 (USB keyboard page)\&. 
+.PP
+.in +1c
+.in -1c
+.PP
+.RI "\fBUsage page 0x0C\fP"
+.br
+These values are mapped from usage page 0x0C (USB consumer page)\&. 
+.PP
+.in +1c
+.in -1c
+.PP
+.RI "\fBWalther keys\fP"
+.br
+These are values that Christian Walther added (for mac keyboard?)\&. 
+.PP
+.in +1c
+.in -1c
+.SS "Miscellaneous function keys"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBNUM_KEYS\fP = 512"
+.br
+.ti -1c
+.RI "static const int \fBNUM_MOUSEBUTTONS\fP = 256"
+.br
+.ti -1c
+.RI "\fBInput\fP (\fBWindow\fP *window)"
+.br
+.ti -1c
+.RI "bool \fBGetKey\fP (int keyCode) const "
+.br
+.ti -1c
+.RI "bool \fBGetKeyDown\fP (int keyCode) const "
+.br
+.ti -1c
+.RI "bool \fBGetKeyUp\fP (int keyCode) const "
+.br
+.ti -1c
+.RI "bool \fBGetMouse\fP (int keyCode) const "
+.br
+.ti -1c
+.RI "bool \fBGetMouseDown\fP (int keyCode) const "
+.br
+.ti -1c
+.RI "bool \fBGetMouseUp\fP (int keyCode) const "
+.br
+.ti -1c
+.RI "int \fBGetLastKey\fP () const "
+.br
+.ti -1c
+.RI "\fBVector2f\fP \fBGetMousePosition\fP () const "
+.br
+.ti -1c
+.RI "void \fBSetCursor\fP (bool value) const "
+.br
+.ti -1c
+.RI "bool \fBGetCursor\fP () const "
+.br
+.ti -1c
+.RI "void \fBSetMousePosition\fP (const \fBVector2f\fP &pos) const "
+.br
+.ti -1c
+.RI "void \fBSetKey\fP (int keyCode, bool value)"
+.br
+.ti -1c
+.RI "void \fBSetKeyDown\fP (int keyCode, bool value)"
+.br
+.ti -1c
+.RI "void \fBSetKeyUp\fP (int keyCode, bool value)"
+.br
+.ti -1c
+.RI "void \fBSetMouse\fP (int keyCode, bool value)"
+.br
+.ti -1c
+.RI "void \fBSetMouseDown\fP (int keyCode, bool value)"
+.br
+.ti -1c
+.RI "void \fBSetMouseUp\fP (int keyCode, bool value)"
+.br
+.ti -1c
+.RI "void \fBSetMouseX\fP (int value)"
+.br
+.ti -1c
+.RI "void \fBSetMouseY\fP (int value)"
+.br
+.ti -1c
+.RI "void \fBClearKey\fP ()"
+.br
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMOUSE_LEFT_BUTTON \fP\fP
+.TP
+\fB\fIMOUSE_MIDDLE_BUTTON \fP\fP
+.TP
+\fB\fIMOUSE_RIGHT_BUTTON \fP\fP
+.TP
+\fB\fIMOUSE_WHEEL_UP \fP\fP
+.TP
+\fB\fIMOUSE_WHEEL_DOWN \fP\fP
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIKEY_UNKNOWN \fP\fP
+.TP
+\fB\fIKEY_A \fP\fP
+.TP
+\fB\fIKEY_B \fP\fP
+.TP
+\fB\fIKEY_C \fP\fP
+.TP
+\fB\fIKEY_D \fP\fP
+.TP
+\fB\fIKEY_E \fP\fP
+.TP
+\fB\fIKEY_F \fP\fP
+.TP
+\fB\fIKEY_G \fP\fP
+.TP
+\fB\fIKEY_H \fP\fP
+.TP
+\fB\fIKEY_I \fP\fP
+.TP
+\fB\fIKEY_J \fP\fP
+.TP
+\fB\fIKEY_K \fP\fP
+.TP
+\fB\fIKEY_L \fP\fP
+.TP
+\fB\fIKEY_M \fP\fP
+.TP
+\fB\fIKEY_N \fP\fP
+.TP
+\fB\fIKEY_O \fP\fP
+.TP
+\fB\fIKEY_P \fP\fP
+.TP
+\fB\fIKEY_Q \fP\fP
+.TP
+\fB\fIKEY_R \fP\fP
+.TP
+\fB\fIKEY_S \fP\fP
+.TP
+\fB\fIKEY_T \fP\fP
+.TP
+\fB\fIKEY_U \fP\fP
+.TP
+\fB\fIKEY_V \fP\fP
+.TP
+\fB\fIKEY_W \fP\fP
+.TP
+\fB\fIKEY_X \fP\fP
+.TP
+\fB\fIKEY_Y \fP\fP
+.TP
+\fB\fIKEY_Z \fP\fP
+.TP
+\fB\fIKEY_1 \fP\fP
+.TP
+\fB\fIKEY_2 \fP\fP
+.TP
+\fB\fIKEY_3 \fP\fP
+.TP
+\fB\fIKEY_4 \fP\fP
+.TP
+\fB\fIKEY_5 \fP\fP
+.TP
+\fB\fIKEY_6 \fP\fP
+.TP
+\fB\fIKEY_7 \fP\fP
+.TP
+\fB\fIKEY_8 \fP\fP
+.TP
+\fB\fIKEY_9 \fP\fP
+.TP
+\fB\fIKEY_0 \fP\fP
+.TP
+\fB\fIKEY_RETURN \fP\fP
+.TP
+\fB\fIKEY_ESCAPE \fP\fP
+.TP
+\fB\fIKEY_BACKSPACE \fP\fP
+.TP
+\fB\fIKEY_TAB \fP\fP
+.TP
+\fB\fIKEY_SPACE \fP\fP
+.TP
+\fB\fIKEY_MINUS \fP\fP
+.TP
+\fB\fIKEY_EQUALS \fP\fP
+.TP
+\fB\fIKEY_LEFTBRACKET \fP\fP
+.TP
+\fB\fIKEY_RIGHTBRACKET \fP\fP
+.TP
+\fB\fIKEY_BACKSLASH \fP\fP
+Located at the lower left of the return key on ISO keyboards and at the right end of the QWERTY row on ANSI keyboards\&. Produces REVERSE SOLIDUS (backslash) and VERTICAL LINE in a US layout, REVERSE SOLIDUS and VERTICAL LINE in a UK Mac layout, NUMBER SIGN and TILDE in a UK Windows layout, DOLLAR SIGN and POUND SIGN in a Swiss German layout, NUMBER SIGN and APOSTROPHE in a German layout, GRAVE ACCENT and POUND SIGN in a French Mac layout, and ASTERISK and MICRO SIGN in a French Windows layout\&. 
+.TP
+\fB\fIKEY_NONUSHASH \fP\fP
+ISO USB keyboards actually use this code instead of 49 for the same key, but all OSes I've seen treat the two codes identically\&. So, as an implementor, unless your keyboard generates both of those codes and your OS treats them differently, you should generate KEY_BACKSLASH instead of this code\&. As a user, you should not rely on this code because SDL will never generate it with most (all?) keyboards\&. 
+.TP
+\fB\fIKEY_SEMICOLON \fP\fP
+.TP
+\fB\fIKEY_APOSTROPHE \fP\fP
+.TP
+\fB\fIKEY_GRAVE \fP\fP
+Located in the top left corner (on both ANSI and ISO keyboards)\&. Produces GRAVE ACCENT and TILDE in a US Windows layout and in US and UK Mac layouts on ANSI keyboards, GRAVE ACCENT and NOT SIGN in a UK Windows layout, SECTION SIGN and PLUS-MINUS SIGN in US and UK Mac layouts on ISO keyboards, SECTION SIGN and DEGREE SIGN in a Swiss German layout (Mac: only on ISO keyboards), CIRCUMFLEX ACCENT and DEGREE SIGN in a German layout (Mac: only on ISO keyboards), SUPERSCRIPT TWO and TILDE in a French Windows layout, COMMERCIAL AT and NUMBER SIGN in a French Mac layout on ISO keyboards, and LESS-THAN SIGN and GREATER-THAN SIGN in a Swiss German, German, or French Mac layout on ANSI keyboards\&. 
+.TP
+\fB\fIKEY_COMMA \fP\fP
+.TP
+\fB\fIKEY_PERIOD \fP\fP
+.TP
+\fB\fIKEY_SLASH \fP\fP
+.TP
+\fB\fIKEY_CAPSLOCK \fP\fP
+.TP
+\fB\fIKEY_F1 \fP\fP
+.TP
+\fB\fIKEY_F2 \fP\fP
+.TP
+\fB\fIKEY_F3 \fP\fP
+.TP
+\fB\fIKEY_F4 \fP\fP
+.TP
+\fB\fIKEY_F5 \fP\fP
+.TP
+\fB\fIKEY_F6 \fP\fP
+.TP
+\fB\fIKEY_F7 \fP\fP
+.TP
+\fB\fIKEY_F8 \fP\fP
+.TP
+\fB\fIKEY_F9 \fP\fP
+.TP
+\fB\fIKEY_F10 \fP\fP
+.TP
+\fB\fIKEY_F11 \fP\fP
+.TP
+\fB\fIKEY_F12 \fP\fP
+.TP
+\fB\fIKEY_PRINTSCREEN \fP\fP
+.TP
+\fB\fIKEY_SCROLLLOCK \fP\fP
+.TP
+\fB\fIKEY_PAUSE \fP\fP
+.TP
+\fB\fIKEY_INSERT \fP\fP
+insert on PC, help on some Mac keyboards (but does send code 73, not 117) 
+.TP
+\fB\fIKEY_HOME \fP\fP
+.TP
+\fB\fIKEY_PAGEUP \fP\fP
+.TP
+\fB\fIKEY_DELETE \fP\fP
+.TP
+\fB\fIKEY_END \fP\fP
+.TP
+\fB\fIKEY_PAGEDOWN \fP\fP
+.TP
+\fB\fIKEY_RIGHT \fP\fP
+.TP
+\fB\fIKEY_LEFT \fP\fP
+.TP
+\fB\fIKEY_DOWN \fP\fP
+.TP
+\fB\fIKEY_UP \fP\fP
+.TP
+\fB\fIKEY_NUMLOCKCLEAR \fP\fP
+num lock on PC, clear on Mac keyboards 
+.TP
+\fB\fIKEY_KP_DIVIDE \fP\fP
+.TP
+\fB\fIKEY_KP_MULTIPLY \fP\fP
+.TP
+\fB\fIKEY_KP_MINUS \fP\fP
+.TP
+\fB\fIKEY_KP_PLUS \fP\fP
+.TP
+\fB\fIKEY_KP_ENTER \fP\fP
+.TP
+\fB\fIKEY_KP_1 \fP\fP
+.TP
+\fB\fIKEY_KP_2 \fP\fP
+.TP
+\fB\fIKEY_KP_3 \fP\fP
+.TP
+\fB\fIKEY_KP_4 \fP\fP
+.TP
+\fB\fIKEY_KP_5 \fP\fP
+.TP
+\fB\fIKEY_KP_6 \fP\fP
+.TP
+\fB\fIKEY_KP_7 \fP\fP
+.TP
+\fB\fIKEY_KP_8 \fP\fP
+.TP
+\fB\fIKEY_KP_9 \fP\fP
+.TP
+\fB\fIKEY_KP_0 \fP\fP
+.TP
+\fB\fIKEY_KP_PERIOD \fP\fP
+.TP
+\fB\fIKEY_NONUSBACKSLASH \fP\fP
+This is the additional key that ISO keyboards have over ANSI ones, located between left shift and Y\&. Produces GRAVE ACCENT and TILDE in a US or UK Mac layout, REVERSE SOLIDUS (backslash) and VERTICAL LINE in a US or UK Windows layout, and LESS-THAN SIGN and GREATER-THAN SIGN in a Swiss German, German, or French layout\&. 
+.TP
+\fB\fIKEY_APPLICATION \fP\fP
+windows contextual menu, compose 
+.TP
+\fB\fIKEY_POWER \fP\fP
+The USB document says this is a status flag, not a physical key - but some Mac keyboards do have a power key\&. 
+.TP
+\fB\fIKEY_KP_EQUALS \fP\fP
+.TP
+\fB\fIKEY_F13 \fP\fP
+.TP
+\fB\fIKEY_F14 \fP\fP
+.TP
+\fB\fIKEY_F15 \fP\fP
+.TP
+\fB\fIKEY_F16 \fP\fP
+.TP
+\fB\fIKEY_F17 \fP\fP
+.TP
+\fB\fIKEY_F18 \fP\fP
+.TP
+\fB\fIKEY_F19 \fP\fP
+.TP
+\fB\fIKEY_F20 \fP\fP
+.TP
+\fB\fIKEY_F21 \fP\fP
+.TP
+\fB\fIKEY_F22 \fP\fP
+.TP
+\fB\fIKEY_F23 \fP\fP
+.TP
+\fB\fIKEY_F24 \fP\fP
+.TP
+\fB\fIKEY_EXECUTE \fP\fP
+.TP
+\fB\fIKEY_HELP \fP\fP
+.TP
+\fB\fIKEY_MENU \fP\fP
+.TP
+\fB\fIKEY_SELECT \fP\fP
+.TP
+\fB\fIKEY_STOP \fP\fP
+.TP
+\fB\fIKEY_AGAIN \fP\fP
+redo 
+.TP
+\fB\fIKEY_UNDO \fP\fP
+.TP
+\fB\fIKEY_CUT \fP\fP
+.TP
+\fB\fIKEY_COPY \fP\fP
+.TP
+\fB\fIKEY_PASTE \fP\fP
+.TP
+\fB\fIKEY_FIND \fP\fP
+.TP
+\fB\fIKEY_MUTE \fP\fP
+.TP
+\fB\fIKEY_VOLUMEUP \fP\fP
+.TP
+\fB\fIKEY_VOLUMEDOWN \fP\fP
+.TP
+\fB\fIKEY_KP_COMMA \fP\fP
+.TP
+\fB\fIKEY_KP_EQUALSAS400 \fP\fP
+.TP
+\fB\fIKEY_INTERNATIONAL1 \fP\fP
+used on Asian keyboards, see footnotes in USB doc 
+.TP
+\fB\fIKEY_INTERNATIONAL2 \fP\fP
+.TP
+\fB\fIKEY_INTERNATIONAL3 \fP\fP
+Yen 
+.TP
+\fB\fIKEY_INTERNATIONAL4 \fP\fP
+.TP
+\fB\fIKEY_INTERNATIONAL5 \fP\fP
+.TP
+\fB\fIKEY_INTERNATIONAL6 \fP\fP
+.TP
+\fB\fIKEY_INTERNATIONAL7 \fP\fP
+.TP
+\fB\fIKEY_INTERNATIONAL8 \fP\fP
+.TP
+\fB\fIKEY_INTERNATIONAL9 \fP\fP
+.TP
+\fB\fIKEY_LANG1 \fP\fP
+Hangul/English toggle 
+.TP
+\fB\fIKEY_LANG2 \fP\fP
+Hanja conversion 
+.TP
+\fB\fIKEY_LANG3 \fP\fP
+Katakana 
+.TP
+\fB\fIKEY_LANG4 \fP\fP
+Hiragana 
+.TP
+\fB\fIKEY_LANG5 \fP\fP
+Zenkaku/Hankaku 
+.TP
+\fB\fIKEY_LANG6 \fP\fP
+reserved 
+.TP
+\fB\fIKEY_LANG7 \fP\fP
+reserved 
+.TP
+\fB\fIKEY_LANG8 \fP\fP
+reserved 
+.TP
+\fB\fIKEY_LANG9 \fP\fP
+reserved 
+.TP
+\fB\fIKEY_ALTERASE \fP\fP
+Erase-Eaze 
+.TP
+\fB\fIKEY_SYSREQ \fP\fP
+.TP
+\fB\fIKEY_CANCEL \fP\fP
+.TP
+\fB\fIKEY_CLEAR \fP\fP
+.TP
+\fB\fIKEY_PRIOR \fP\fP
+.TP
+\fB\fIKEY_RETURN2 \fP\fP
+.TP
+\fB\fIKEY_SEPARATOR \fP\fP
+.TP
+\fB\fIKEY_OUT \fP\fP
+.TP
+\fB\fIKEY_OPER \fP\fP
+.TP
+\fB\fIKEY_CLEARAGAIN \fP\fP
+.TP
+\fB\fIKEY_CRSEL \fP\fP
+.TP
+\fB\fIKEY_EXSEL \fP\fP
+.TP
+\fB\fIKEY_KP_00 \fP\fP
+.TP
+\fB\fIKEY_KP_000 \fP\fP
+.TP
+\fB\fIKEY_THOUSANDSSEPARATOR \fP\fP
+.TP
+\fB\fIKEY_DECIMALSEPARATOR \fP\fP
+.TP
+\fB\fIKEY_CURRENCYUNIT \fP\fP
+.TP
+\fB\fIKEY_CURRENCYSUBUNIT \fP\fP
+.TP
+\fB\fIKEY_KP_LEFTPAREN \fP\fP
+.TP
+\fB\fIKEY_KP_RIGHTPAREN \fP\fP
+.TP
+\fB\fIKEY_KP_LEFTBRACE \fP\fP
+.TP
+\fB\fIKEY_KP_RIGHTBRACE \fP\fP
+.TP
+\fB\fIKEY_KP_TAB \fP\fP
+.TP
+\fB\fIKEY_KP_BACKSPACE \fP\fP
+.TP
+\fB\fIKEY_KP_A \fP\fP
+.TP
+\fB\fIKEY_KP_B \fP\fP
+.TP
+\fB\fIKEY_KP_C \fP\fP
+.TP
+\fB\fIKEY_KP_D \fP\fP
+.TP
+\fB\fIKEY_KP_E \fP\fP
+.TP
+\fB\fIKEY_KP_F \fP\fP
+.TP
+\fB\fIKEY_KP_XOR \fP\fP
+.TP
+\fB\fIKEY_KP_POWER \fP\fP
+.TP
+\fB\fIKEY_KP_PERCENT \fP\fP
+.TP
+\fB\fIKEY_KP_LESS \fP\fP
+.TP
+\fB\fIKEY_KP_GREATER \fP\fP
+.TP
+\fB\fIKEY_KP_AMPERSAND \fP\fP
+.TP
+\fB\fIKEY_KP_DBLAMPERSAND \fP\fP
+.TP
+\fB\fIKEY_KP_VERTICALBAR \fP\fP
+.TP
+\fB\fIKEY_KP_DBLVERTICALBAR \fP\fP
+.TP
+\fB\fIKEY_KP_COLON \fP\fP
+.TP
+\fB\fIKEY_KP_HASH \fP\fP
+.TP
+\fB\fIKEY_KP_SPACE \fP\fP
+.TP
+\fB\fIKEY_KP_AT \fP\fP
+.TP
+\fB\fIKEY_KP_EXCLAM \fP\fP
+.TP
+\fB\fIKEY_KP_MEMSTORE \fP\fP
+.TP
+\fB\fIKEY_KP_MEMRECALL \fP\fP
+.TP
+\fB\fIKEY_KP_MEMCLEAR \fP\fP
+.TP
+\fB\fIKEY_KP_MEMADD \fP\fP
+.TP
+\fB\fIKEY_KP_MEMSUBTRACT \fP\fP
+.TP
+\fB\fIKEY_KP_MEMMULTIPLY \fP\fP
+.TP
+\fB\fIKEY_KP_MEMDIVIDE \fP\fP
+.TP
+\fB\fIKEY_KP_PLUSMINUS \fP\fP
+.TP
+\fB\fIKEY_KP_CLEAR \fP\fP
+.TP
+\fB\fIKEY_KP_CLEARENTRY \fP\fP
+.TP
+\fB\fIKEY_KP_BINARY \fP\fP
+.TP
+\fB\fIKEY_KP_OCTAL \fP\fP
+.TP
+\fB\fIKEY_KP_DECIMAL \fP\fP
+.TP
+\fB\fIKEY_KP_HEXADECIMAL \fP\fP
+.TP
+\fB\fIKEY_LCTRL \fP\fP
+.TP
+\fB\fIKEY_LSHIFT \fP\fP
+.TP
+\fB\fIKEY_LALT \fP\fP
+alt, option 
+.TP
+\fB\fIKEY_LGUI \fP\fP
+windows, command (apple), meta 
+.TP
+\fB\fIKEY_RCTRL \fP\fP
+.TP
+\fB\fIKEY_RSHIFT \fP\fP
+.TP
+\fB\fIKEY_RALT \fP\fP
+alt gr, option 
+.TP
+\fB\fIKEY_RGUI \fP\fP
+windows, command (apple), meta 
+.TP
+\fB\fIKEY_MODE \fP\fP
+I'm not sure if this is really not covered by any of the above, but since there's a special KMOD_MODE for it I'm adding it here 
+.TP
+\fB\fIKEY_AUDIONEXT \fP\fP
+.TP
+\fB\fIKEY_AUDIOPREV \fP\fP
+.TP
+\fB\fIKEY_AUDIOSTOP \fP\fP
+.TP
+\fB\fIKEY_AUDIOPLAY \fP\fP
+.TP
+\fB\fIKEY_AUDIOMUTE \fP\fP
+.TP
+\fB\fIKEY_MEDIASELECT \fP\fP
+.TP
+\fB\fIKEY_WWW \fP\fP
+.TP
+\fB\fIKEY_MAIL \fP\fP
+.TP
+\fB\fIKEY_CALCULATOR \fP\fP
+.TP
+\fB\fIKEY_COMPUTER \fP\fP
+.TP
+\fB\fIKEY_AC_SEARCH \fP\fP
+.TP
+\fB\fIKEY_AC_HOME \fP\fP
+.TP
+\fB\fIKEY_AC_BACK \fP\fP
+.TP
+\fB\fIKEY_AC_FORWARD \fP\fP
+.TP
+\fB\fIKEY_AC_STOP \fP\fP
+.TP
+\fB\fIKEY_AC_REFRESH \fP\fP
+.TP
+\fB\fIKEY_AC_BOOKMARKS \fP\fP
+.TP
+\fB\fIKEY_BRIGHTNESSDOWN \fP\fP
+.TP
+\fB\fIKEY_BRIGHTNESSUP \fP\fP
+.TP
+\fB\fIKEY_DISPLAYSWITCH \fP\fP
+display mirroring/dual display switch, video mode switch 
+.TP
+\fB\fIKEY_KBDILLUMTOGGLE \fP\fP
+.TP
+\fB\fIKEY_KBDILLUMDOWN \fP\fP
+.TP
+\fB\fIKEY_KBDILLUMUP \fP\fP
+.TP
+\fB\fIKEY_EJECT \fP\fP
+.TP
+\fB\fIKEY_SLEEP \fP\fP
+.TP
+\fB\fIKEY_APP1 \fP\fP
+.TP
+\fB\fIKEY_APP2 \fP\fP
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Input::Input (\fBWindow\fP * window)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Input::ClearKey ()\fC [inline]\fP"
+
+.SS "bool Input::GetCursor () const"
+
+.SS "bool Input::GetKey (int keyCode) const\fC [inline]\fP"
+
+.SS "bool Input::GetKeyDown (int keyCode) const\fC [inline]\fP"
+
+.SS "bool Input::GetKeyUp (int keyCode) const\fC [inline]\fP"
+
+.SS "int Input::GetLastKey () const\fC [inline]\fP"
+
+.SS "bool Input::GetMouse (int keyCode) const\fC [inline]\fP"
+
+.SS "bool Input::GetMouseDown (int keyCode) const\fC [inline]\fP"
+
+.SS "\fBVector2f\fP Input::GetMousePosition () const\fC [inline]\fP"
+
+.SS "bool Input::GetMouseUp (int keyCode) const\fC [inline]\fP"
+
+.SS "void Input::SetCursor (bool value) const"
+
+.SS "void Input::SetKey (int keyCode, bool value)\fC [inline]\fP"
+
+.SS "void Input::SetKeyDown (int keyCode, bool value)\fC [inline]\fP"
+
+.SS "void Input::SetKeyUp (int keyCode, bool value)\fC [inline]\fP"
+
+.SS "void Input::SetMouse (int keyCode, bool value)\fC [inline]\fP"
+
+.SS "void Input::SetMouseDown (int keyCode, bool value)\fC [inline]\fP"
+
+.SS "void Input::SetMousePosition (const \fBVector2f\fP & pos) const"
+
+.SS "void Input::SetMouseUp (int keyCode, bool value)\fC [inline]\fP"
+
+.SS "void Input::SetMouseX (int value)\fC [inline]\fP"
+
+.SS "void Input::SetMouseY (int value)\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "const int Input::NUM_KEYS = 512\fC [static]\fP"
+
+.SS "const int Input::NUM_MOUSEBUTTONS = 256\fC [static]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

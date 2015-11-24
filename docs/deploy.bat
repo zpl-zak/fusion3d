@@ -1,0 +1,2 @@
+firebase login
+firebase deploy

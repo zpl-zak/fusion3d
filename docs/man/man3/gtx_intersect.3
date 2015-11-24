@@ -1,0 +1,52 @@
+.TH "gtx_intersect" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_intersect \- GLM_GTX_intersect
+.PP
+Add intersection functions\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL bool \fBglm::intersectRayPlane\fP (genType const &orig, genType const &dir, genType const &planeOrig, genType const &planeNormal, typename genType::value_type &intersectionDistance)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL bool \fBglm::intersectRayTriangle\fP (genType const &orig, genType const &dir, genType const &vert0, genType const &vert1, genType const &vert2, genType &baryPosition)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL bool \fBglm::intersectLineTriangle\fP (genType const &orig, genType const &dir, genType const &vert0, genType const &vert1, genType const &vert2, genType &position)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL bool \fBglm::intersectRaySphere\fP (genType const &rayStarting, genType const &rayNormalizedDirection, genType const &sphereCenter, typename genType::value_type const sphereRadiusSquered, typename genType::value_type &intersectionDistance)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL bool \fBglm::intersectRaySphere\fP (genType const &rayStarting, genType const &rayNormalizedDirection, genType const &sphereCenter, const typename genType::value_type sphereRadius, genType &intersectionPosition, genType &intersectionNormal)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL bool \fBglm::intersectLineSphere\fP (genType const &point0, genType const &point1, genType const &sphereCenter, typename genType::value_type sphereRadius, genType &intersectionPosition1, genType &intersectionNormal1, genType &intersectionPosition2=genType(), genType &intersectionNormal2=genType())"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Add intersection functions\&. 
+
+<\fBglm/gtx/intersect\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename genType > GLM_FUNC_DECL bool glm::intersectLineSphere (genType const & point0, genType const & point1, genType const & sphereCenter, typename genType::value_type sphereRadius, genType & intersectionPosition1, genType & intersectionNormal1, genType & intersectionPosition2 = \fCgenType()\fP, genType & intersectionNormal2 = \fCgenType()\fP)"
+Compute the intersection of a line and a sphere\&. From GLM_GTX_intersect extension 
+.SS "template<typename genType > GLM_FUNC_DECL bool glm::intersectLineTriangle (genType const & orig, genType const & dir, genType const & vert0, genType const & vert1, genType const & vert2, genType & position)"
+Compute the intersection of a line and a triangle\&. From GLM_GTX_intersect extension\&. 
+.SS "template<typename genType > GLM_FUNC_DECL bool glm::intersectRayPlane (genType const & orig, genType const & dir, genType const & planeOrig, genType const & planeNormal, typename genType::value_type & intersectionDistance)"
+Compute the intersection of a ray and a plane\&. Ray direction and plane normal must be unit length\&. From GLM_GTX_intersect extension\&. 
+.SS "template<typename genType > GLM_FUNC_DECL bool glm::intersectRaySphere (genType const & rayStarting, genType const & rayNormalizedDirection, genType const & sphereCenter, typename genType::value_type const sphereRadiusSquered, typename genType::value_type & intersectionDistance)"
+Compute the intersection distance of a ray and a sphere\&. The ray direction vector is unit length\&. From GLM_GTX_intersect extension\&. 
+.SS "template<typename genType > GLM_FUNC_DECL bool glm::intersectRaySphere (genType const & rayStarting, genType const & rayNormalizedDirection, genType const & sphereCenter, const typename genType::value_type sphereRadius, genType & intersectionPosition, genType & intersectionNormal)"
+Compute the intersection of a ray and a sphere\&. From GLM_GTX_intersect extension\&. 
+.SS "template<typename genType > GLM_FUNC_DECL bool glm::intersectRayTriangle (genType const & orig, genType const & dir, genType const & vert0, genType const & vert1, genType const & vert2, genType & baryPosition)"
+Compute the intersection of a ray and a triangle\&. From GLM_GTX_intersect extension\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

@@ -1,0 +1,134 @@
+\hypertarget{class_texture}{}\section{Texture Class Reference}
+\label{class_texture}\index{Texture@{Texture}}
+
+
+{\ttfamily \#include $<$texture.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_texture_a211502d1cdd7812326479b1e72b09480}{Texture} (const std\+::string \&file\+Name, G\+Lenum texture\+Target=G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+2\+D, G\+Lfloat filter=G\+L\+\_\+\+L\+I\+N\+E\+A\+R\+\_\+\+M\+I\+P\+M\+A\+P\+\_\+\+L\+I\+N\+E\+A\+R, G\+Lenum internal\+Format=G\+L\+\_\+\+R\+G\+B\+A, G\+Lenum format=G\+L\+\_\+\+R\+G\+B\+A, bool clamp=false, G\+Lenum attachment=G\+L\+\_\+\+N\+O\+N\+E)
+\item 
+\hyperlink{class_texture_a05bec6390054493eb8780da55cc98ffb}{Texture} (int width=0, int height=0, unsigned char $\ast$data=0, G\+Lenum texture\+Target=G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+2\+D, G\+Lfloat filter=G\+L\+\_\+\+L\+I\+N\+E\+A\+R\+\_\+\+M\+I\+P\+M\+A\+P\+\_\+\+L\+I\+N\+E\+A\+R, G\+Lenum internal\+Format=G\+L\+\_\+\+R\+G\+B\+A, G\+Lenum format=G\+L\+\_\+\+R\+G\+B\+A, bool clamp=false, G\+Lenum attachment=G\+L\+\_\+\+N\+O\+N\+E)
+\item 
+\hyperlink{class_texture_a21822d3a487c6a803f706869fe46faa2}{Texture} (const \hyperlink{class_texture}{Texture} \&texture)
+\item 
+void \hyperlink{class_texture_ac8d4a47a87bb660ecd37b7ec7a70705b}{operator=} (\hyperlink{class_texture}{Texture} texture)
+\item 
+virtual \hyperlink{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}{$\sim$\+Texture} ()
+\item 
+void \hyperlink{class_texture_a6f54dde94704d5f2b90c63f33c67793c}{Bind} (unsigned int unit=0) const 
+\item 
+void \hyperlink{class_texture_a4e8799fb199b39f37e6f2cd33891ecfd}{Bind\+As\+Render\+Target} () const 
+\item 
+int \hyperlink{class_texture_a1add92fc879f766aed5d39a3ef41c7cb}{Get\+Width} () const 
+\item 
+int \hyperlink{class_texture_adea6f153fb9fa3ac1558f4d96641e47d}{Get\+Height} () const 
+\item 
+bool \hyperlink{class_texture_aca3540da8292ba7dd02e6f1dbda781cc}{operator==} (const \hyperlink{class_texture}{Texture} \&texture) const 
+\item 
+bool \hyperlink{class_texture_abdd611487e4502e4cda4a41551bbb6f8}{operator!=} (const \hyperlink{class_texture}{Texture} \&texture) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_texture_a211502d1cdd7812326479b1e72b09480}{}\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\subsubsection[{Texture(const std\+::string \&file\+Name, G\+Lenum texture\+Target=\+G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+2\+D, G\+Lfloat filter=\+G\+L\+\_\+\+L\+I\+N\+E\+A\+R\+\_\+\+M\+I\+P\+M\+A\+P\+\_\+\+L\+I\+N\+E\+A\+R, G\+Lenum internal\+Format=\+G\+L\+\_\+\+R\+G\+B\+A, G\+Lenum format=\+G\+L\+\_\+\+R\+G\+B\+A, bool clamp=false, G\+Lenum attachment=\+G\+L\+\_\+\+N\+O\+N\+E)}]{\setlength{\rightskip}{0pt plus 5cm}Texture\+::\+Texture (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{file\+Name, }
+\item[{G\+Lenum}]{texture\+Target = {\ttfamily GL\+\_\+TEXTURE\+\_\+2D}, }
+\item[{G\+Lfloat}]{filter = {\ttfamily GL\+\_\+LINEAR\+\_\+MIPMAP\+\_\+LINEAR}, }
+\item[{G\+Lenum}]{internal\+Format = {\ttfamily GL\+\_\+RGBA}, }
+\item[{G\+Lenum}]{format = {\ttfamily GL\+\_\+RGBA}, }
+\item[{bool}]{clamp = {\ttfamily false}, }
+\item[{G\+Lenum}]{attachment = {\ttfamily GL\+\_\+NONE}}
+\end{DoxyParamCaption}
+)}\label{class_texture_a211502d1cdd7812326479b1e72b09480}
+\hypertarget{class_texture_a05bec6390054493eb8780da55cc98ffb}{}\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\subsubsection[{Texture(int width=0, int height=0, unsigned char $\ast$data=0, G\+Lenum texture\+Target=\+G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+2\+D, G\+Lfloat filter=\+G\+L\+\_\+\+L\+I\+N\+E\+A\+R\+\_\+\+M\+I\+P\+M\+A\+P\+\_\+\+L\+I\+N\+E\+A\+R, G\+Lenum internal\+Format=\+G\+L\+\_\+\+R\+G\+B\+A, G\+Lenum format=\+G\+L\+\_\+\+R\+G\+B\+A, bool clamp=false, G\+Lenum attachment=\+G\+L\+\_\+\+N\+O\+N\+E)}]{\setlength{\rightskip}{0pt plus 5cm}Texture\+::\+Texture (
+\begin{DoxyParamCaption}
+\item[{int}]{width = {\ttfamily 0}, }
+\item[{int}]{height = {\ttfamily 0}, }
+\item[{unsigned char $\ast$}]{data = {\ttfamily 0}, }
+\item[{G\+Lenum}]{texture\+Target = {\ttfamily GL\+\_\+TEXTURE\+\_\+2D}, }
+\item[{G\+Lfloat}]{filter = {\ttfamily GL\+\_\+LINEAR\+\_\+MIPMAP\+\_\+LINEAR}, }
+\item[{G\+Lenum}]{internal\+Format = {\ttfamily GL\+\_\+RGBA}, }
+\item[{G\+Lenum}]{format = {\ttfamily GL\+\_\+RGBA}, }
+\item[{bool}]{clamp = {\ttfamily false}, }
+\item[{G\+Lenum}]{attachment = {\ttfamily GL\+\_\+NONE}}
+\end{DoxyParamCaption}
+)}\label{class_texture_a05bec6390054493eb8780da55cc98ffb}
+\hypertarget{class_texture_a21822d3a487c6a803f706869fe46faa2}{}\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\subsubsection[{Texture(const Texture \&texture)}]{\setlength{\rightskip}{0pt plus 5cm}Texture\+::\+Texture (
+\begin{DoxyParamCaption}
+\item[{const {\bf Texture} \&}]{texture}
+\end{DoxyParamCaption}
+)}\label{class_texture_a21822d3a487c6a803f706869fe46faa2}
+\hypertarget{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}{}\index{Texture@{Texture}!````~Texture@{$\sim$\+Texture}}
+\index{````~Texture@{$\sim$\+Texture}!Texture@{Texture}}
+\subsubsection[{$\sim$\+Texture()}]{\setlength{\rightskip}{0pt plus 5cm}Texture\+::$\sim$\+Texture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_texture_a6f54dde94704d5f2b90c63f33c67793c}{}\index{Texture@{Texture}!Bind@{Bind}}
+\index{Bind@{Bind}!Texture@{Texture}}
+\subsubsection[{Bind(unsigned int unit=0) const }]{\setlength{\rightskip}{0pt plus 5cm}void Texture\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{unit = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}\label{class_texture_a6f54dde94704d5f2b90c63f33c67793c}
+\hypertarget{class_texture_a4e8799fb199b39f37e6f2cd33891ecfd}{}\index{Texture@{Texture}!Bind\+As\+Render\+Target@{Bind\+As\+Render\+Target}}
+\index{Bind\+As\+Render\+Target@{Bind\+As\+Render\+Target}!Texture@{Texture}}
+\subsubsection[{Bind\+As\+Render\+Target() const }]{\setlength{\rightskip}{0pt plus 5cm}void Texture\+::\+Bind\+As\+Render\+Target (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_texture_a4e8799fb199b39f37e6f2cd33891ecfd}
+\hypertarget{class_texture_adea6f153fb9fa3ac1558f4d96641e47d}{}\index{Texture@{Texture}!Get\+Height@{Get\+Height}}
+\index{Get\+Height@{Get\+Height}!Texture@{Texture}}
+\subsubsection[{Get\+Height() const }]{\setlength{\rightskip}{0pt plus 5cm}int Texture\+::\+Get\+Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_texture_adea6f153fb9fa3ac1558f4d96641e47d}
+\hypertarget{class_texture_a1add92fc879f766aed5d39a3ef41c7cb}{}\index{Texture@{Texture}!Get\+Width@{Get\+Width}}
+\index{Get\+Width@{Get\+Width}!Texture@{Texture}}
+\subsubsection[{Get\+Width() const }]{\setlength{\rightskip}{0pt plus 5cm}int Texture\+::\+Get\+Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_texture_a1add92fc879f766aed5d39a3ef41c7cb}
+\hypertarget{class_texture_abdd611487e4502e4cda4a41551bbb6f8}{}\index{Texture@{Texture}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Texture@{Texture}}
+\subsubsection[{operator"!=(const Texture \&texture) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Texture\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Texture} \&}]{texture}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_texture_abdd611487e4502e4cda4a41551bbb6f8}
+\hypertarget{class_texture_ac8d4a47a87bb660ecd37b7ec7a70705b}{}\index{Texture@{Texture}!operator=@{operator=}}
+\index{operator=@{operator=}!Texture@{Texture}}
+\subsubsection[{operator=(\+Texture texture)}]{\setlength{\rightskip}{0pt plus 5cm}void Texture\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Texture}}]{texture}
+\end{DoxyParamCaption}
+)}\label{class_texture_ac8d4a47a87bb660ecd37b7ec7a70705b}
+\hypertarget{class_texture_aca3540da8292ba7dd02e6f1dbda781cc}{}\index{Texture@{Texture}!operator==@{operator==}}
+\index{operator==@{operator==}!Texture@{Texture}}
+\subsubsection[{operator==(const Texture \&texture) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Texture\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Texture} \&}]{texture}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_texture_aca3540da8292ba7dd02e6f1dbda781cc}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{texture_8h}{texture.\+h}\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{texture_8cpp}{texture.\+cpp}\end{DoxyCompactItemize}

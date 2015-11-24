@@ -1,0 +1,47 @@
+.TH "F:/Fusion3D_work/src/staticLibs/glm/gtx/intersect.inl" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/staticLibs/glm/gtx/intersect.inl \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./geometric\&.hpp'\fP
+.br
+\fC#include <cfloat>\fP
+.br
+\fC#include <limits>\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBglm\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_QUALIFIER bool \fBglm::intersectRayPlane\fP (genType const &orig, genType const &dir, genType const &planeOrig, genType const &planeNormal, typename genType::value_type &intersectionDistance)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_QUALIFIER bool \fBglm::intersectRayTriangle\fP (genType const &orig, genType const &dir, genType const &v0, genType const &v1, genType const &v2, genType &baryPosition)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_QUALIFIER bool \fBglm::intersectLineTriangle\fP (genType const &orig, genType const &dir, genType const &vert0, genType const &vert1, genType const &vert2, genType &position)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_QUALIFIER bool \fBglm::intersectRaySphere\fP (genType const &rayStarting, genType const &rayNormalizedDirection, genType const &sphereCenter, const typename genType::value_type sphereRadiusSquered, typename genType::value_type &intersectionDistance)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_QUALIFIER bool \fBglm::intersectRaySphere\fP (genType const &rayStarting, genType const &rayNormalizedDirection, genType const &sphereCenter, const typename genType::value_type sphereRadius, genType &intersectionPosition, genType &intersectionNormal)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_QUALIFIER bool \fBglm::intersectLineSphere\fP (genType const &point0, genType const &point1, genType const &sphereCenter, typename genType::value_type sphereRadius, genType &intersectionPoint1, genType &intersectionNormal1, genType &intersectionPoint2, genType &intersectionNormal2)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

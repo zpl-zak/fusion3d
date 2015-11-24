@@ -1,0 +1,45 @@
+.TH "PhysicsEngine" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PhysicsEngine \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <physicsEngine\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPhysicsEngine\fP ()"
+.br
+.ti -1c
+.RI "virtual \fB~PhysicsEngine\fP ()"
+.br
+.ti -1c
+.RI "void \fBSimulate\fP (float delta)"
+.br
+.ti -1c
+.RI "btDiscreteDynamicsWorld * \fBGetWorld\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBPhysicsEngine\fP encapsulates all the functions and information necessary to perform a physics simulation\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PhysicsEngine::PhysicsEngine ()\fC [inline]\fP"
+Creates a \fBPhysicsEngine\fP in a usable state\&. 
+.SS "virtual PhysicsEngine::~PhysicsEngine ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "btDiscreteDynamicsWorld* PhysicsEngine::GetWorld ()\fC [inline]\fP"
+
+.SS "void PhysicsEngine::Simulate (float delta)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

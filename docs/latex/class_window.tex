@@ -1,0 +1,149 @@
+\hypertarget{class_window}{}\section{Window Class Reference}
+\label{class_window}\index{Window@{Window}}
+
+
+{\ttfamily \#include $<$window.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_window_a2bf7954f0cf38a7fc4c4742e4a91a190}{Window} (int width, int height, const std\+::string \&title)
+\item 
+virtual \hyperlink{class_window_a245d821e6016fa1f6970ccbbedd635f6}{$\sim$\+Window} ()
+\item 
+void \hyperlink{class_window_ab8d28dce3166c70eb5744466460795df}{Update} ()
+\item 
+void \hyperlink{class_window_abe1b83eda6980f2b9964aab08b5310ed}{Swap\+Buffers} ()
+\item 
+void \hyperlink{class_window_a7b9db9583287699589b2cd8414eb8ca3}{Bind\+As\+Render\+Target} () const 
+\item 
+bool \hyperlink{class_window_ad8d9c297161e3221fdfe8e1b22d82d16}{Is\+Close\+Requested} () const 
+\item 
+int \hyperlink{class_window_a002e19bc6ca085926d13cf7b97bb3cd3}{Get\+Width} () const 
+\item 
+int \hyperlink{class_window_a75f6cc315ae3ea6794e640e610d0fb44}{Get\+Height} () const 
+\item 
+float \hyperlink{class_window_a8cbbffba60d9268b485e713726290c84}{Get\+Aspect} () const 
+\item 
+const std\+::string \& \hyperlink{class_window_ab6279d2fd6158716efa5b75fed4670d2}{Get\+Title} () const 
+\item 
+\hyperlink{math3d_8h_a9f3739462b0605dcb64299fa289b6afe}{Vector2f} \hyperlink{class_window_a0f4737f348e84b915dfdbcbba19876c7}{Get\+Center} () const 
+\item 
+S\+D\+L\+\_\+\+Window $\ast$ \hyperlink{class_window_ae9b9dadb24a237aa3b6ce43e03d0f592}{Get\+S\+D\+L\+Window} ()
+\item 
+const \hyperlink{class_input}{Input} \& \hyperlink{class_window_a0e893bddb6d546a8f2966df21e44249c}{Get\+Input} () const 
+\item 
+void \hyperlink{class_window_a5aca5526280a2f95f42c732a407a6129}{Set\+Full\+Screen} (bool value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_window_a2bf7954f0cf38a7fc4c4742e4a91a190}{}\index{Window@{Window}!Window@{Window}}
+\index{Window@{Window}!Window@{Window}}
+\subsubsection[{Window(int width, int height, const std\+::string \&title)}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::\+Window (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{const std\+::string \&}]{title}
+\end{DoxyParamCaption}
+)}\label{class_window_a2bf7954f0cf38a7fc4c4742e4a91a190}
+\hypertarget{class_window_a245d821e6016fa1f6970ccbbedd635f6}{}\index{Window@{Window}!````~Window@{$\sim$\+Window}}
+\index{````~Window@{$\sim$\+Window}!Window@{Window}}
+\subsubsection[{$\sim$\+Window()}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::$\sim$\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_window_a245d821e6016fa1f6970ccbbedd635f6}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_window_a7b9db9583287699589b2cd8414eb8ca3}{}\index{Window@{Window}!Bind\+As\+Render\+Target@{Bind\+As\+Render\+Target}}
+\index{Bind\+As\+Render\+Target@{Bind\+As\+Render\+Target}!Window@{Window}}
+\subsubsection[{Bind\+As\+Render\+Target() const }]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Bind\+As\+Render\+Target (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_window_a7b9db9583287699589b2cd8414eb8ca3}
+\hypertarget{class_window_a8cbbffba60d9268b485e713726290c84}{}\index{Window@{Window}!Get\+Aspect@{Get\+Aspect}}
+\index{Get\+Aspect@{Get\+Aspect}!Window@{Window}}
+\subsubsection[{Get\+Aspect() const }]{\setlength{\rightskip}{0pt plus 5cm}float Window\+::\+Get\+Aspect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a8cbbffba60d9268b485e713726290c84}
+\hypertarget{class_window_a0f4737f348e84b915dfdbcbba19876c7}{}\index{Window@{Window}!Get\+Center@{Get\+Center}}
+\index{Get\+Center@{Get\+Center}!Window@{Window}}
+\subsubsection[{Get\+Center() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector2f} Window\+::\+Get\+Center (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a0f4737f348e84b915dfdbcbba19876c7}
+\hypertarget{class_window_a75f6cc315ae3ea6794e640e610d0fb44}{}\index{Window@{Window}!Get\+Height@{Get\+Height}}
+\index{Get\+Height@{Get\+Height}!Window@{Window}}
+\subsubsection[{Get\+Height() const }]{\setlength{\rightskip}{0pt plus 5cm}int Window\+::\+Get\+Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a75f6cc315ae3ea6794e640e610d0fb44}
+\hypertarget{class_window_a0e893bddb6d546a8f2966df21e44249c}{}\index{Window@{Window}!Get\+Input@{Get\+Input}}
+\index{Get\+Input@{Get\+Input}!Window@{Window}}
+\subsubsection[{Get\+Input() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Input}\& Window\+::\+Get\+Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a0e893bddb6d546a8f2966df21e44249c}
+\hypertarget{class_window_ae9b9dadb24a237aa3b6ce43e03d0f592}{}\index{Window@{Window}!Get\+S\+D\+L\+Window@{Get\+S\+D\+L\+Window}}
+\index{Get\+S\+D\+L\+Window@{Get\+S\+D\+L\+Window}!Window@{Window}}
+\subsubsection[{Get\+S\+D\+L\+Window()}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Window$\ast$ Window\+::\+Get\+S\+D\+L\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_ae9b9dadb24a237aa3b6ce43e03d0f592}
+\hypertarget{class_window_ab6279d2fd6158716efa5b75fed4670d2}{}\index{Window@{Window}!Get\+Title@{Get\+Title}}
+\index{Get\+Title@{Get\+Title}!Window@{Window}}
+\subsubsection[{Get\+Title() const }]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string\& Window\+::\+Get\+Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_ab6279d2fd6158716efa5b75fed4670d2}
+\hypertarget{class_window_a002e19bc6ca085926d13cf7b97bb3cd3}{}\index{Window@{Window}!Get\+Width@{Get\+Width}}
+\index{Get\+Width@{Get\+Width}!Window@{Window}}
+\subsubsection[{Get\+Width() const }]{\setlength{\rightskip}{0pt plus 5cm}int Window\+::\+Get\+Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a002e19bc6ca085926d13cf7b97bb3cd3}
+\hypertarget{class_window_ad8d9c297161e3221fdfe8e1b22d82d16}{}\index{Window@{Window}!Is\+Close\+Requested@{Is\+Close\+Requested}}
+\index{Is\+Close\+Requested@{Is\+Close\+Requested}!Window@{Window}}
+\subsubsection[{Is\+Close\+Requested() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Window\+::\+Is\+Close\+Requested (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_ad8d9c297161e3221fdfe8e1b22d82d16}
+\hypertarget{class_window_a5aca5526280a2f95f42c732a407a6129}{}\index{Window@{Window}!Set\+Full\+Screen@{Set\+Full\+Screen}}
+\index{Set\+Full\+Screen@{Set\+Full\+Screen}!Window@{Window}}
+\subsubsection[{Set\+Full\+Screen(bool value)}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Set\+Full\+Screen (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)}\label{class_window_a5aca5526280a2f95f42c732a407a6129}
+\hypertarget{class_window_abe1b83eda6980f2b9964aab08b5310ed}{}\index{Window@{Window}!Swap\+Buffers@{Swap\+Buffers}}
+\index{Swap\+Buffers@{Swap\+Buffers}!Window@{Window}}
+\subsubsection[{Swap\+Buffers()}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Swap\+Buffers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_window_abe1b83eda6980f2b9964aab08b5310ed}
+\hypertarget{class_window_ab8d28dce3166c70eb5744466460795df}{}\index{Window@{Window}!Update@{Update}}
+\index{Update@{Update}!Window@{Window}}
+\subsubsection[{Update()}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_window_ab8d28dce3166c70eb5744466460795df}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{window_8h}{window.\+h}\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{window_8cpp}{window.\+cpp}\end{DoxyCompactItemize}

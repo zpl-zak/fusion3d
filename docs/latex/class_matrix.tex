@@ -1,0 +1,118 @@
+\hypertarget{class_matrix}{}\section{Matrix$<$ T, D $>$ Class Template Reference}
+\label{class_matrix}\index{Matrix$<$ T, D $>$@{Matrix$<$ T, D $>$}}
+
+
+{\ttfamily \#include $<$math3d.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_matrix}{Matrix}$<$ T, D $>$ \hyperlink{class_matrix_aa6653ba9d81668d11bfafae3df9d7e36}{Init\+Identity} ()
+\item 
+\hyperlink{class_matrix}{Matrix}$<$ T, D $>$ \hyperlink{class_matrix_a669ac3058ca94ee6bcb0bb6d65693942}{Init\+Scale} (const \hyperlink{class_vector}{Vector}$<$ T, D-\/1 $>$ \&r)
+\item 
+\hyperlink{class_matrix}{Matrix}$<$ T, D $>$ \hyperlink{class_matrix_a085e7210b168aaa55c2c9c5932d33fd7}{Init\+Translation} (const \hyperlink{class_vector}{Vector}$<$ T, D-\/1 $>$ \&r)
+\item 
+\hyperlink{class_matrix}{Matrix}$<$ T, D $>$ \hyperlink{class_matrix_ada41ba03c5fd295ce9fccfaee4fcc8c9}{Transpose} () const 
+\item 
+\hyperlink{class_matrix}{Matrix}$<$ T, D $>$ \hyperlink{class_matrix_a5f645b7f8f35938348ededc07e2f689c}{Inverse} () const 
+\item 
+\hyperlink{class_matrix}{Matrix}$<$ T, D $>$ \hyperlink{class_matrix_a4e4a905d09213282c802a90d44d693c6}{operator$\ast$} (const \hyperlink{class_matrix}{Matrix}$<$ T, D $>$ \&r) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_matrix_af57977803e2ec19bfbc9ab56b9afaed1}{Transform} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D-\/1 $>$ \hyperlink{class_matrix_af9c8c3f95c7f4d5af195695c552d88da}{Transform} (const \hyperlink{class_vector}{Vector}$<$ T, D-\/1 $>$ \&r) const 
+\item 
+void \hyperlink{class_matrix_a24005a942d94e7dae6a6c6d076d9b6fa}{Set} (unsigned int x, unsigned int y, T val)
+\item 
+const T $\ast$ \hyperlink{class_matrix_af32d2322ab44e083492cfd91b80d5418}{operator\mbox{[}$\,$\mbox{]}} (int index) const 
+\item 
+T $\ast$ \hyperlink{class_matrix_ae5706ecdcc918c8b0c4e94d3360d629e}{operator\mbox{[}$\,$\mbox{]}} (int index)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_matrix_aa6653ba9d81668d11bfafae3df9d7e36}{}\index{Matrix@{Matrix}!Init\+Identity@{Init\+Identity}}
+\index{Init\+Identity@{Init\+Identity}!Matrix@{Matrix}}
+\subsubsection[{Init\+Identity()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Matrix}$<$T, D$>$ {\bf Matrix}$<$ T, D $>$\+::Init\+Identity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_aa6653ba9d81668d11bfafae3df9d7e36}
+\hypertarget{class_matrix_a669ac3058ca94ee6bcb0bb6d65693942}{}\index{Matrix@{Matrix}!Init\+Scale@{Init\+Scale}}
+\index{Init\+Scale@{Init\+Scale}!Matrix@{Matrix}}
+\subsubsection[{Init\+Scale(const Vector$<$ T, D-\/1 $>$ \&r)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Matrix}$<$T, D$>$ {\bf Matrix}$<$ T, D $>$\+::Init\+Scale (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D-\/1 $>$ \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_a669ac3058ca94ee6bcb0bb6d65693942}
+\hypertarget{class_matrix_a085e7210b168aaa55c2c9c5932d33fd7}{}\index{Matrix@{Matrix}!Init\+Translation@{Init\+Translation}}
+\index{Init\+Translation@{Init\+Translation}!Matrix@{Matrix}}
+\subsubsection[{Init\+Translation(const Vector$<$ T, D-\/1 $>$ \&r)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Matrix}$<$T, D$>$ {\bf Matrix}$<$ T, D $>$\+::Init\+Translation (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D-\/1 $>$ \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_a085e7210b168aaa55c2c9c5932d33fd7}
+\hypertarget{class_matrix_a5f645b7f8f35938348ededc07e2f689c}{}\index{Matrix@{Matrix}!Inverse@{Inverse}}
+\index{Inverse@{Inverse}!Matrix@{Matrix}}
+\subsubsection[{Inverse() const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Matrix}$<$T, D$>$ {\bf Matrix}$<$ T, D $>$\+::Inverse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_a5f645b7f8f35938348ededc07e2f689c}
+\hypertarget{class_matrix_a4e4a905d09213282c802a90d44d693c6}{}\index{Matrix@{Matrix}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix@{Matrix}}
+\subsubsection[{operator$\ast$(const Matrix$<$ T, D $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Matrix}$<$T,D$>$ {\bf Matrix}$<$ T, D $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_a4e4a905d09213282c802a90d44d693c6}
+\hypertarget{class_matrix_af32d2322ab44e083492cfd91b80d5418}{}\index{Matrix@{Matrix}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Matrix@{Matrix}}
+\subsubsection[{operator[](int index) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ const T$\ast$ {\bf Matrix}$<$ T, D $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_af32d2322ab44e083492cfd91b80d5418}
+\hypertarget{class_matrix_ae5706ecdcc918c8b0c4e94d3360d629e}{}\index{Matrix@{Matrix}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Matrix@{Matrix}}
+\subsubsection[{operator[](int index)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ T$\ast$ {\bf Matrix}$<$ T, D $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_ae5706ecdcc918c8b0c4e94d3360d629e}
+\hypertarget{class_matrix_a24005a942d94e7dae6a6c6d076d9b6fa}{}\index{Matrix@{Matrix}!Set@{Set}}
+\index{Set@{Set}!Matrix@{Matrix}}
+\subsubsection[{Set(unsigned int x, unsigned int y, T val)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ void {\bf Matrix}$<$ T, D $>$\+::Set (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x, }
+\item[{unsigned int}]{y, }
+\item[{T}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_a24005a942d94e7dae6a6c6d076d9b6fa}
+\hypertarget{class_matrix_af57977803e2ec19bfbc9ab56b9afaed1}{}\index{Matrix@{Matrix}!Transform@{Transform}}
+\index{Transform@{Transform}!Matrix@{Matrix}}
+\subsubsection[{Transform(const Vector$<$ T, D $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T,D$>$ {\bf Matrix}$<$ T, D $>$\+::{\bf Transform} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_af57977803e2ec19bfbc9ab56b9afaed1}
+\hypertarget{class_matrix_af9c8c3f95c7f4d5af195695c552d88da}{}\index{Matrix@{Matrix}!Transform@{Transform}}
+\index{Transform@{Transform}!Matrix@{Matrix}}
+\subsubsection[{Transform(const Vector$<$ T, D-\/1 $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T,D-\/1$>$ {\bf Matrix}$<$ T, D $>$\+::{\bf Transform} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D-\/1 $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_af9c8c3f95c7f4d5af195695c552d88da}
+\hypertarget{class_matrix_ada41ba03c5fd295ce9fccfaee4fcc8c9}{}\index{Matrix@{Matrix}!Transpose@{Transpose}}
+\index{Transpose@{Transpose}!Matrix@{Matrix}}
+\subsubsection[{Transpose() const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Matrix}$<$T, D$>$ {\bf Matrix}$<$ T, D $>$\+::Transpose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_matrix_ada41ba03c5fd295ce9fccfaee4fcc8c9}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/core/\hyperlink{math3d_8h}{math3d.\+h}\end{DoxyCompactItemize}

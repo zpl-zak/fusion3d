@@ -1,0 +1,42 @@
+.TH "gtx_range" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_range \- GLM_GTX_range
+.PP
+Defines begin and end for vectors and matrices\&. Useful for range-based for loop\&. The range is defined over the elements, not over columns or rows (e\&.g\&. mat4 has 16 elements)\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genType > const genType::value_type * \fBglm::begin\fP (genType const &v)"
+.br
+.ti -1c
+.RI "template<typename genType > const genType::value_type * \fBglm::end\fP (genType const &v)"
+.br
+.ti -1c
+.RI "template<typename genType > genType::value_type * \fBglm::begin\fP (genType &v)"
+.br
+.ti -1c
+.RI "template<typename genType > genType::value_type * \fBglm::end\fP (genType &v)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Defines begin and end for vectors and matrices\&. Useful for range-based for loop\&. The range is defined over the elements, not over columns or rows (e\&.g\&. mat4 has 16 elements)\&. 
+
+<\fBglm/gtx/range\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename genType > const genType::value_type* glm::begin (genType const & v)"
+
+.SS "template<typename genType > genType::value_type* glm::begin (genType & v)"
+
+.SS "template<typename genType > const genType::value_type* glm::end (genType const & v)"
+
+.SS "template<typename genType > genType::value_type* glm::end (genType & v)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

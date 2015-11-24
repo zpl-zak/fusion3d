@@ -1,0 +1,206 @@
+.TH "F:/Fusion3D_work/src/staticLibs/glm/gtx/simd_vec4.inl" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/staticLibs/glm/gtx/simd_vec4.inl \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBglm::detail::shuffle_mask< Value >\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBglm\fP"
+.br
+.ti -1c
+.RI " \fBglm::detail\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator+\fP (fvec4SIMD const &v, float s)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator+\fP (float s, fvec4SIMD const &v)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator+\fP (fvec4SIMD const &v1, fvec4SIMD const &v2)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator\-\fP (fvec4SIMD const &v, float s)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator\-\fP (float s, fvec4SIMD const &v)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator\-\fP (fvec4SIMD const &v1, fvec4SIMD const &v2)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator*\fP (fvec4SIMD const &v, float s)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator*\fP (float s, fvec4SIMD const &v)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator*\fP (fvec4SIMD const &v1, fvec4SIMD const &v2)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator/\fP (fvec4SIMD const &v, float s)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator/\fP (float s, fvec4SIMD const &v)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator/\fP (fvec4SIMD const &v1, fvec4SIMD const &v2)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator\-\fP (fvec4SIMD const &v)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator++\fP (fvec4SIMD const &v, int)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER fvec4SIMD \fBglm::detail::operator\-\-\fP (fvec4SIMD const &v, int)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER vec4 \fBglm::vec4_cast\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::abs\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::sign\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::floor\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::trunc\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::round\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::ceil\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::fract\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::mod\fP (detail::fvec4SIMD const &x, detail::fvec4SIMD const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::mod\fP (detail::fvec4SIMD const &x, float const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::min\fP (detail::fvec4SIMD const &x, detail::fvec4SIMD const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::min\fP (detail::fvec4SIMD const &x, float const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::max\fP (detail::fvec4SIMD const &x, detail::fvec4SIMD const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::max\fP (detail::fvec4SIMD const &x, float const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::clamp\fP (detail::fvec4SIMD const &x, detail::fvec4SIMD const &minVal, detail::fvec4SIMD const &maxVal)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::clamp\fP (detail::fvec4SIMD const &x, float const &minVal, float const &maxVal)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::mix\fP (detail::fvec4SIMD const &x, detail::fvec4SIMD const &y, detail::fvec4SIMD const &a)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::step\fP (detail::fvec4SIMD const &edge, detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::step\fP (float const &edge, detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::smoothstep\fP (detail::fvec4SIMD const &edge0, detail::fvec4SIMD const &edge1, detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::smoothstep\fP (float const &edge0, float const &edge1, detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::fma\fP (detail::fvec4SIMD const &a, detail::fvec4SIMD const &b, detail::fvec4SIMD const &c)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER float \fBglm::length\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER float \fBglm::fastLength\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER float \fBglm::niceLength\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::length4\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::fastLength4\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::niceLength4\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER float \fBglm::distance\fP (detail::fvec4SIMD const &p0, detail::fvec4SIMD const &p1)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::distance4\fP (detail::fvec4SIMD const &p0, detail::fvec4SIMD const &p1)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER float \fBglm::dot\fP (detail::fvec4SIMD const &x, detail::fvec4SIMD const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::dot4\fP (detail::fvec4SIMD const &x, detail::fvec4SIMD const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::cross\fP (detail::fvec4SIMD const &x, detail::fvec4SIMD const &y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::normalize\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::fastNormalize\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::faceforward\fP (detail::fvec4SIMD const &N, detail::fvec4SIMD const &I, detail::fvec4SIMD const &Nref)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::reflect\fP (detail::fvec4SIMD const &I, detail::fvec4SIMD const &N)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::refract\fP (detail::fvec4SIMD const &I, detail::fvec4SIMD const &N, float const &eta)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::sqrt\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::niceSqrt\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::fastSqrt\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::inversesqrt\fP (detail::fvec4SIMD const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_QUALIFIER detail::fvec4SIMD \fBglm::fastInversesqrt\fP (detail::fvec4SIMD const &x)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

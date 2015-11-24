@@ -1,0 +1,286 @@
+.TH "gtx_associated_min_max" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_associated_min_max \- GLM_GTX_associated_min_max
+.PP
+Min and max functions that return associated values not the compared onces\&. <\fBglm/gtx/associated_min_max\&.hpp\fP> need to be included to use these functionalities\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , typename U , precision P> GLM_FUNC_DECL U \fBglm::associatedMin\fP (T x, U a, T y, U b)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL tvec2< U, P > \fBglm::associatedMin\fP (vecType< T, P > const &x, vecType< U, P > const &a, vecType< T, P > const &y, vecType< U, P > const &b)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMin\fP (T x, const vecType< U, P > &a, T y, const vecType< U, P > &b)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMin\fP (vecType< T, P > const &x, U a, vecType< T, P > const &y, U b)"
+.br
+.ti -1c
+.RI "template<typename T , typename U > GLM_FUNC_DECL U \fBglm::associatedMin\fP (T x, U a, T y, U b, T z, U c)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMin\fP (vecType< T, P > const &x, vecType< U, P > const &a, vecType< T, P > const &y, vecType< U, P > const &b, vecType< T, P > const &z, vecType< U, P > const &c)"
+.br
+.ti -1c
+.RI "template<typename T , typename U > GLM_FUNC_DECL U \fBglm::associatedMin\fP (T x, U a, T y, U b, T z, U c, T w, U d)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMin\fP (vecType< T, P > const &x, vecType< U, P > const &a, vecType< T, P > const &y, vecType< U, P > const &b, vecType< T, P > const &z, vecType< U, P > const &c, vecType< T, P > const &w, vecType< U, P > const &d)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMin\fP (T x, vecType< U, P > const &a, T y, vecType< U, P > const &b, T z, vecType< U, P > const &c, T w, vecType< U, P > const &d)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMin\fP (vecType< T, P > const &x, U a, vecType< T, P > const &y, U b, vecType< T, P > const &z, U c, vecType< T, P > const &w, U d)"
+.br
+.ti -1c
+.RI "template<typename T , typename U > GLM_FUNC_DECL U \fBglm::associatedMax\fP (T x, U a, T y, U b)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL tvec2< U, P > \fBglm::associatedMax\fP (vecType< T, P > const &x, vecType< U, P > const &a, vecType< T, P > const &y, vecType< U, P > const &b)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< T, P > \fBglm::associatedMax\fP (T x, vecType< U, P > const &a, T y, vecType< U, P > const &b)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMax\fP (vecType< T, P > const &x, U a, vecType< T, P > const &y, U b)"
+.br
+.ti -1c
+.RI "template<typename T , typename U > GLM_FUNC_DECL U \fBglm::associatedMax\fP (T x, U a, T y, U b, T z, U c)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMax\fP (vecType< T, P > const &x, vecType< U, P > const &a, vecType< T, P > const &y, vecType< U, P > const &b, vecType< T, P > const &z, vecType< U, P > const &c)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< T, P > \fBglm::associatedMax\fP (T x, vecType< U, P > const &a, T y, vecType< U, P > const &b, T z, vecType< U, P > const &c)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMax\fP (vecType< T, P > const &x, U a, vecType< T, P > const &y, U b, vecType< T, P > const &z, U c)"
+.br
+.ti -1c
+.RI "template<typename T , typename U > GLM_FUNC_DECL U \fBglm::associatedMax\fP (T x, U a, T y, U b, T z, U c, T w, U d)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMax\fP (vecType< T, P > const &x, vecType< U, P > const &a, vecType< T, P > const &y, vecType< U, P > const &b, vecType< T, P > const &z, vecType< U, P > const &c, vecType< T, P > const &w, vecType< U, P > const &d)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMax\fP (T x, vecType< U, P > const &a, T y, vecType< U, P > const &b, T z, vecType< U, P > const &c, T w, vecType< U, P > const &d)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< U, P > \fBglm::associatedMax\fP (vecType< T, P > const &x, U a, vecType< T, P > const &y, U b, vecType< T, P > const &z, U c, vecType< T, P > const &w, U d)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Min and max functions that return associated values not the compared onces\&. <\fBglm/gtx/associated_min_max\&.hpp\fP> need to be included to use these functionalities\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , typename U > GLM_FUNC_DECL U glm::associatedMax (T x, U a, T y, U b)"
+Maximum comparison between 2 variables and returns 2 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL tvec2<U, P> glm::associatedMax (vecType< T, P > const & x, vecType< U, P > const & a, vecType< T, P > const & y, vecType< U, P > const & b)"
+Maximum comparison between 2 variables and returns 2 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<T, P> glm::associatedMax (T x, vecType< U, P > const & a, T y, vecType< U, P > const & b)"
+Maximum comparison between 2 variables and returns 2 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMax (vecType< T, P > const & x, U a, vecType< T, P > const & y, U b)"
+Maximum comparison between 2 variables and returns 2 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U > GLM_FUNC_DECL U glm::associatedMax (T x, U a, T y, U b, T z, U c)"
+Maximum comparison between 3 variables and returns 3 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMax (vecType< T, P > const & x, vecType< U, P > const & a, vecType< T, P > const & y, vecType< U, P > const & b, vecType< T, P > const & z, vecType< U, P > const & c)"
+Maximum comparison between 3 variables and returns 3 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<T, P> glm::associatedMax (T x, vecType< U, P > const & a, T y, vecType< U, P > const & b, T z, vecType< U, P > const & c)"
+Maximum comparison between 3 variables and returns 3 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMax (vecType< T, P > const & x, U a, vecType< T, P > const & y, U b, vecType< T, P > const & z, U c)"
+Maximum comparison between 3 variables and returns 3 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U > GLM_FUNC_DECL U glm::associatedMax (T x, U a, T y, U b, T z, U c, T w, U d)"
+Maximum comparison between 4 variables and returns 4 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMax (vecType< T, P > const & x, vecType< U, P > const & a, vecType< T, P > const & y, vecType< U, P > const & b, vecType< T, P > const & z, vecType< U, P > const & c, vecType< T, P > const & w, vecType< U, P > const & d)"
+Maximum comparison between 4 variables and returns 4 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMax (T x, vecType< U, P > const & a, T y, vecType< U, P > const & b, T z, vecType< U, P > const & c, T w, vecType< U, P > const & d)"
+Maximum comparison between 4 variables and returns 4 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMax (vecType< T, P > const & x, U a, vecType< T, P > const & y, U b, vecType< T, P > const & z, U c, vecType< T, P > const & w, U d)"
+Maximum comparison between 4 variables and returns 4 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P> GLM_FUNC_DECL U glm::associatedMin (T x, U a, T y, U b)"
+Minimum comparison between 2 variables and returns 2 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL tvec2<U, P> glm::associatedMin (vecType< T, P > const & x, vecType< U, P > const & a, vecType< T, P > const & y, vecType< U, P > const & b)"
+Minimum comparison between 2 variables and returns 2 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMin (T x, const vecType< U, P > & a, T y, const vecType< U, P > & b)"
+Minimum comparison between 2 variables and returns 2 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMin (vecType< T, P > const & x, U a, vecType< T, P > const & y, U b)"
+Minimum comparison between 2 variables and returns 2 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U > GLM_FUNC_DECL U glm::associatedMin (T x, U a, T y, U b, T z, U c)"
+Minimum comparison between 3 variables and returns 3 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMin (vecType< T, P > const & x, vecType< U, P > const & a, vecType< T, P > const & y, vecType< U, P > const & b, vecType< T, P > const & z, vecType< U, P > const & c)"
+Minimum comparison between 3 variables and returns 3 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U > GLM_FUNC_DECL U glm::associatedMin (T x, U a, T y, U b, T z, U c, T w, U d)"
+Minimum comparison between 4 variables and returns 4 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMin (vecType< T, P > const & x, vecType< U, P > const & a, vecType< T, P > const & y, vecType< U, P > const & b, vecType< T, P > const & z, vecType< U, P > const & c, vecType< T, P > const & w, vecType< U, P > const & d)"
+Minimum comparison between 4 variables and returns 4 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMin (T x, vecType< U, P > const & a, T y, vecType< U, P > const & b, T z, vecType< U, P > const & c, T w, vecType< U, P > const & d)"
+Minimum comparison between 4 variables and returns 4 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SS "template<typename T , typename U , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<U, P> glm::associatedMin (vecType< T, P > const & x, U a, vecType< T, P > const & y, U b, vecType< T, P > const & z, U c, vecType< T, P > const & w, U d)"
+Minimum comparison between 4 variables and returns 4 associated variable values 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_associated_min_max\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

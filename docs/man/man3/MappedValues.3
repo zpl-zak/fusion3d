@@ -1,0 +1,59 @@
+.TH "MappedValues" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MappedValues \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mappedValues\&.h>\fP
+.PP
+Inherited by \fBMaterialData\fP, and \fBRenderingEngine\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMappedValues\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetVector3f\fP (const std::string &name, const \fBVector3f\fP &value)"
+.br
+.ti -1c
+.RI "void \fBSetFloat\fP (const std::string &name, float value)"
+.br
+.ti -1c
+.RI "void \fBSetTexture\fP (const std::string &name, const \fBTexture\fP &value)"
+.br
+.ti -1c
+.RI "const \fBVector3f\fP & \fBGetVector3f\fP (const std::string &name) const "
+.br
+.ti -1c
+.RI "float \fBGetFloat\fP (const std::string &name) const "
+.br
+.ti -1c
+.RI "const \fBTexture\fP & \fBGetTexture\fP (const std::string &name) const "
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MappedValues::MappedValues ()\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "float MappedValues::GetFloat (const std::string & name) const"
+
+.SS "const \fBTexture\fP & MappedValues::GetTexture (const std::string & name) const"
+
+.SS "const \fBVector3f\fP & MappedValues::GetVector3f (const std::string & name) const"
+
+.SS "void MappedValues::SetFloat (const std::string & name, float value)\fC [inline]\fP"
+
+.SS "void MappedValues::SetTexture (const std::string & name, const \fBTexture\fP & value)\fC [inline]\fP"
+
+.SS "void MappedValues::SetVector3f (const std::string & name, const \fBVector3f\fP & value)\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

@@ -1,0 +1,115 @@
+.TH "F:/Fusion3D_work/src/rendering/lighting.h" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/rendering/lighting.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'shader\&.h'\fP
+.br
+\fC#include '\&.\&./core/math3d\&.h'\fP
+.br
+\fC#include '\&.\&./core/entityComponent\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBShadowCameraTransform\fP"
+.br
+.ti -1c
+.RI "class \fBShadowInfo\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBaseLight\fP (const \fBVector3f\fP &color, float intensity, const \fBShader\fP &shader)"
+.br
+.ti -1c
+.RI "virtual \fBShadowCameraTransform\fP \fBCalcShadowCameraTransform\fP (const \fBVector3f\fP &mainCameraPos, const \fBQuaternion\fP &mainCameraRot) const "
+.br
+.ti -1c
+.RI "virtual void \fBAddToEngine\fP (\fBCoreEngine\fP *engine)"
+.br
+.ti -1c
+.RI "const \fBVector3f\fP & \fBGetColor\fP () const "
+.br
+.ti -1c
+.RI "const float \fBGetIntensity\fP () const "
+.br
+.ti -1c
+.RI "const \fBShader\fP & \fBGetShader\fP () const "
+.br
+.ti -1c
+.RI "const \fBShadowInfo\fP & \fBGetShadowInfo\fP () const "
+.br
+.ti -1c
+.RI "const \fBMaterial\fP * \fBGetMaterial\fP ()"
+.br
+.ti -1c
+.RI "\fBBaseLight\fP * \fBSetColor\fP (\fBVector3f\fP color)"
+.br
+.ti -1c
+.RI "\fBBaseLight\fP * \fBSetIntensity\fP (float intensity)"
+.br
+.ti -1c
+.RI "void \fBSetShadowInfo\fP (const \fBShadowInfo\fP &shadowInfo)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBVector3f\fP \fBm_color\fP"
+.br
+.ti -1c
+.RI "float \fBm_intensity\fP"
+.br
+.ti -1c
+.RI "\fBShader\fP \fBm_shader\fP"
+.br
+.ti -1c
+.RI "\fBShadowInfo\fP \fBm_shadowInfo\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "virtual void AddToEngine (\fBCoreEngine\fP * engine)\fC [virtual]\fP"
+
+.SS "BaseLight (const \fBVector3f\fP & color, float intensity, const \fBShader\fP & shader)"
+
+.SS "virtual \fBShadowCameraTransform\fP CalcShadowCameraTransform (const \fBVector3f\fP & mainCameraPos, const \fBQuaternion\fP & mainCameraRot) const\fC [virtual]\fP"
+
+.SS "const \fBVector3f\fP& GetColor () const\fC [inline]\fP"
+
+.SS "const float GetIntensity () const\fC [inline]\fP"
+
+.SS "const \fBMaterial\fP* GetMaterial ()\fC [inline]\fP"
+
+.SS "const \fBShader\fP& GetShader () const\fC [inline]\fP"
+
+.SS "const \fBShadowInfo\fP& GetShadowInfo () const\fC [inline]\fP"
+
+.SS "\fBBaseLight\fP* SetColor (\fBVector3f\fP color)\fC [inline]\fP"
+
+.SS "\fBBaseLight\fP* SetIntensity (float intensity)\fC [inline]\fP"
+
+.SS "void SetShadowInfo (const \fBShadowInfo\fP & shadowInfo)\fC [inline]\fP, \fC [protected]\fP"
+
+.SH "Variable Documentation"
+.PP 
+.SS "\fBVector3f\fP m_color"
+
+.SS "float m_intensity"
+
+.SS "\fBShader\fP m_shader"
+
+.SS "\fBShadowInfo\fP m_shadowInfo"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

@@ -1,0 +1,210 @@
+\hypertarget{class_vector}{}\section{Vector$<$ T, D $>$ Class Template Reference}
+\label{class_vector}\index{Vector$<$ T, D $>$@{Vector$<$ T, D $>$}}
+
+
+{\ttfamily \#include $<$math3d.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vector_a3c785a9866bb20fc79b19196fe9b3a5b}{Vector} ()
+\item 
+T \hyperlink{class_vector_a70c3348b3fcab9e06f120b8e7a9b0a40}{Dot} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_vector_adb18e41faad27d9cef7a4629b6fe53b9}{Max} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r) const 
+\item 
+T \hyperlink{class_vector_a428af4a05c03660f55cddb78696c2d38}{Max} () const 
+\item 
+T \hyperlink{class_vector_a197762230f85ba8e0ce7460dfa0000df}{Length\+Sq} () const 
+\item 
+T \hyperlink{class_vector_a68702092267c728db02f67c518c9583f}{Length} () const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_vector_a42dc6fba30ea0f61e3dbf1031876d539}{Normalized} () const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_vector_aa78265179b17460e314b8931f498974c}{Lerp} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r, T lerp\+Factor) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_vector_a4a4933d141bf4bf006f12738538fa0c9}{Reflect} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&normal) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_vector_a26e7de8248521c9c943901ab197e0382}{operator+} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_vector_af24d7aceedbf168d05e692d88d46fae1}{operator-\/} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_vector_a954ad102eae0acb0eeca7b9cc1e5a4fe}{operator$\ast$} (const T \&r) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \hyperlink{class_vector_aaee4aa213a1cc7d8994654dd97f19b18}{operator/} (const T \&r) const 
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \& \hyperlink{class_vector_ae1fa7e41ff5a0203a2cca31a490c3938}{operator+=} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r)
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \& \hyperlink{class_vector_a4b8dacc089cf007bd03df1d0c7850a45}{operator-\/=} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r)
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \& \hyperlink{class_vector_a707fb8da27e69f86c8f159b2bedd77f2}{operator$\ast$=} (const T \&r)
+\item 
+\hyperlink{class_vector}{Vector}$<$ T, D $>$ \& \hyperlink{class_vector_a0903cfeaa393ae932f42db553e41565d}{operator/=} (const T \&r)
+\item 
+T \& \hyperlink{class_vector_a8f0c8fbf73a5863e3cb73908876490c1}{operator\mbox{[}$\,$\mbox{]}} (unsigned int i)
+\item 
+T \hyperlink{class_vector_a31a62f16c97ea15a32944549b61027ef}{operator\mbox{[}$\,$\mbox{]}} (unsigned int i) const 
+\item 
+bool \hyperlink{class_vector_a62b7ae1dc75c2f8cb365e1927a6d2ed0}{operator==} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r) const 
+\item 
+bool \hyperlink{class_vector_a5cf05408812e111be67d7625aee50834}{operator!=} (const \hyperlink{class_vector}{Vector}$<$ T, D $>$ \&r) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_vector_a3c785a9866bb20fc79b19196fe9b3a5b}{}\index{Vector@{Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector@{Vector}}
+\subsubsection[{Vector()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$ T, D $>$\+::{\bf Vector} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a3c785a9866bb20fc79b19196fe9b3a5b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_vector_a70c3348b3fcab9e06f120b8e7a9b0a40}{}\index{Vector@{Vector}!Dot@{Dot}}
+\index{Dot@{Dot}!Vector@{Vector}}
+\subsubsection[{Dot(const Vector$<$ T, D $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ T {\bf Vector}$<$ T, D $>$\+::Dot (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a70c3348b3fcab9e06f120b8e7a9b0a40}
+\hypertarget{class_vector_a68702092267c728db02f67c518c9583f}{}\index{Vector@{Vector}!Length@{Length}}
+\index{Length@{Length}!Vector@{Vector}}
+\subsubsection[{Length() const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ T {\bf Vector}$<$ T, D $>$\+::Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a68702092267c728db02f67c518c9583f}
+\hypertarget{class_vector_a197762230f85ba8e0ce7460dfa0000df}{}\index{Vector@{Vector}!Length\+Sq@{Length\+Sq}}
+\index{Length\+Sq@{Length\+Sq}!Vector@{Vector}}
+\subsubsection[{Length\+Sq() const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ T {\bf Vector}$<$ T, D $>$\+::Length\+Sq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a197762230f85ba8e0ce7460dfa0000df}
+\hypertarget{class_vector_aa78265179b17460e314b8931f498974c}{}\index{Vector@{Vector}!Lerp@{Lerp}}
+\index{Lerp@{Lerp}!Vector@{Vector}}
+\subsubsection[{Lerp(const Vector$<$ T, D $>$ \&r, T lerp\+Factor) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T,D$>$ {\bf Vector}$<$ T, D $>$\+::Lerp (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r, }
+\item[{T}]{lerp\+Factor}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_aa78265179b17460e314b8931f498974c}
+\hypertarget{class_vector_adb18e41faad27d9cef7a4629b6fe53b9}{}\index{Vector@{Vector}!Max@{Max}}
+\index{Max@{Max}!Vector@{Vector}}
+\subsubsection[{Max(const Vector$<$ T, D $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T,D$>$ {\bf Vector}$<$ T, D $>$\+::Max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_adb18e41faad27d9cef7a4629b6fe53b9}
+\hypertarget{class_vector_a428af4a05c03660f55cddb78696c2d38}{}\index{Vector@{Vector}!Max@{Max}}
+\index{Max@{Max}!Vector@{Vector}}
+\subsubsection[{Max() const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ T {\bf Vector}$<$ T, D $>$\+::Max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a428af4a05c03660f55cddb78696c2d38}
+\hypertarget{class_vector_a42dc6fba30ea0f61e3dbf1031876d539}{}\index{Vector@{Vector}!Normalized@{Normalized}}
+\index{Normalized@{Normalized}!Vector@{Vector}}
+\subsubsection[{Normalized() const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T,D$>$ {\bf Vector}$<$ T, D $>$\+::Normalized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a42dc6fba30ea0f61e3dbf1031876d539}
+\hypertarget{class_vector_a5cf05408812e111be67d7625aee50834}{}\index{Vector@{Vector}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Vector@{Vector}}
+\subsubsection[{operator"!=(const Vector$<$ T, D $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ bool {\bf Vector}$<$ T, D $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a5cf05408812e111be67d7625aee50834}
+\hypertarget{class_vector_a954ad102eae0acb0eeca7b9cc1e5a4fe}{}\index{Vector@{Vector}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector@{Vector}}
+\subsubsection[{operator$\ast$(const T \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T, D$>$ {\bf Vector}$<$ T, D $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a954ad102eae0acb0eeca7b9cc1e5a4fe}
+\hypertarget{class_vector_a707fb8da27e69f86c8f159b2bedd77f2}{}\index{Vector@{Vector}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Vector@{Vector}}
+\subsubsection[{operator$\ast$=(const T \&r)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T, D$>$\& {\bf Vector}$<$ T, D $>$\+::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a707fb8da27e69f86c8f159b2bedd77f2}
+\hypertarget{class_vector_a26e7de8248521c9c943901ab197e0382}{}\index{Vector@{Vector}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector@{Vector}}
+\subsubsection[{operator+(const Vector$<$ T, D $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T, D$>$ {\bf Vector}$<$ T, D $>$\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a26e7de8248521c9c943901ab197e0382}
+\hypertarget{class_vector_ae1fa7e41ff5a0203a2cca31a490c3938}{}\index{Vector@{Vector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vector@{Vector}}
+\subsubsection[{operator+=(const Vector$<$ T, D $>$ \&r)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T, D$>$\& {\bf Vector}$<$ T, D $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_ae1fa7e41ff5a0203a2cca31a490c3938}
+\hypertarget{class_vector_af24d7aceedbf168d05e692d88d46fae1}{}\index{Vector@{Vector}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector@{Vector}}
+\subsubsection[{operator-\/(const Vector$<$ T, D $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T, D$>$ {\bf Vector}$<$ T, D $>$\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_af24d7aceedbf168d05e692d88d46fae1}
+\hypertarget{class_vector_a4b8dacc089cf007bd03df1d0c7850a45}{}\index{Vector@{Vector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Vector@{Vector}}
+\subsubsection[{operator-\/=(const Vector$<$ T, D $>$ \&r)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T, D$>$\& {\bf Vector}$<$ T, D $>$\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a4b8dacc089cf007bd03df1d0c7850a45}
+\hypertarget{class_vector_aaee4aa213a1cc7d8994654dd97f19b18}{}\index{Vector@{Vector}!operator/@{operator/}}
+\index{operator/@{operator/}!Vector@{Vector}}
+\subsubsection[{operator/(const T \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T, D$>$ {\bf Vector}$<$ T, D $>$\+::operator/ (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_aaee4aa213a1cc7d8994654dd97f19b18}
+\hypertarget{class_vector_a0903cfeaa393ae932f42db553e41565d}{}\index{Vector@{Vector}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Vector@{Vector}}
+\subsubsection[{operator/=(const T \&r)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T, D$>$\& {\bf Vector}$<$ T, D $>$\+::operator/= (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a0903cfeaa393ae932f42db553e41565d}
+\hypertarget{class_vector_a62b7ae1dc75c2f8cb365e1927a6d2ed0}{}\index{Vector@{Vector}!operator==@{operator==}}
+\index{operator==@{operator==}!Vector@{Vector}}
+\subsubsection[{operator==(const Vector$<$ T, D $>$ \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ bool {\bf Vector}$<$ T, D $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a62b7ae1dc75c2f8cb365e1927a6d2ed0}
+\hypertarget{class_vector_a8f0c8fbf73a5863e3cb73908876490c1}{}\index{Vector@{Vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Vector@{Vector}}
+\subsubsection[{operator[](unsigned int i)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ T\& {\bf Vector}$<$ T, D $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a8f0c8fbf73a5863e3cb73908876490c1}
+\hypertarget{class_vector_a31a62f16c97ea15a32944549b61027ef}{}\index{Vector@{Vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Vector@{Vector}}
+\subsubsection[{operator[](unsigned int i) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ T {\bf Vector}$<$ T, D $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a31a62f16c97ea15a32944549b61027ef}
+\hypertarget{class_vector_a4a4933d141bf4bf006f12738538fa0c9}{}\index{Vector@{Vector}!Reflect@{Reflect}}
+\index{Reflect@{Reflect}!Vector@{Vector}}
+\subsubsection[{Reflect(const Vector$<$ T, D $>$ \&normal) const }]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, unsigned int D$>$ {\bf Vector}$<$T,D$>$ {\bf Vector}$<$ T, D $>$\+::Reflect (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ T, D $>$ \&}]{normal}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector_a4a4933d141bf4bf006f12738538fa0c9}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/core/\hyperlink{math3d_8h}{math3d.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,121 @@
+\hypertarget{class_material}{}\section{Material Class Reference}
+\label{class_material}\index{Material@{Material}}
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_material_a9d10a10cc924f93d0ba35b9ada36760b}{Material} (const std\+::string \&material\+Name=\char`\"{}\char`\"{})
+\item 
+\hyperlink{class_material_ac9b027e9c501776e7d08589a52e9d795}{Material} (const \hyperlink{class_material}{Material} \&other)
+\item 
+virtual \hyperlink{class_material_a2c19452d71f54075df8f5405b03129f4}{$\sim$\+Material} ()
+\item 
+\hyperlink{class_material_a7ff625f38afbe0aeab9b9194848fd414}{Material} (const std\+::string \&material\+Name, const \hyperlink{class_texture}{Texture} \&diffuse, float specular\+Intensity, float specular\+Power, const \hyperlink{class_texture}{Texture} \&normal\+Map=\hyperlink{class_texture}{Texture}(\char`\"{}default\+\_\+normal.\+jpg\char`\"{}), const \hyperlink{class_texture}{Texture} \&disp\+Map=\hyperlink{class_texture}{Texture}(\char`\"{}default\+\_\+disp.\+png\char`\"{}), float disp\+Map\+Scale=0.\+0f, float disp\+Map\+Offset=0.\+0f)
+\item 
+void \hyperlink{class_material_a1d9130a097b656a99432d9374c887628}{Set\+Vector3f} (const std\+::string \&name, const \hyperlink{class_vector3f}{Vector3f} \&value)
+\item 
+void \hyperlink{class_material_a3384bed1fe3b09c204f152fb87fcd07f}{Set\+Float} (const std\+::string \&name, float value)
+\item 
+void \hyperlink{class_material_aa893cae3c708567d40b66af16a2b23d9}{Set\+Texture} (const std\+::string \&name, const \hyperlink{class_texture}{Texture} \&value)
+\item 
+const \hyperlink{class_vector3f}{Vector3f} \& \hyperlink{class_material_adbb92ca797733a8b462cda22e2483ea8}{Get\+Vector3f} (const std\+::string \&name) const 
+\item 
+float \hyperlink{class_material_a6460a48e7a6b759e8252d4a45e724496}{Get\+Float} (const std\+::string \&name) const 
+\item 
+const \hyperlink{class_texture}{Texture} \& \hyperlink{class_material_a9e100e2394f55299d8cb0556387deab3}{Get\+Texture} (const std\+::string \&name) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_material_a9d10a10cc924f93d0ba35b9ada36760b}{}\index{Material@{Material}!Material@{Material}}
+\index{Material@{Material}!Material@{Material}}
+\subsubsection[{Material(const std\+::string \&material\+Name="""")}]{\setlength{\rightskip}{0pt plus 5cm}Material\+::\+Material (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{material\+Name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\label{class_material_a9d10a10cc924f93d0ba35b9ada36760b}
+\hypertarget{class_material_ac9b027e9c501776e7d08589a52e9d795}{}\index{Material@{Material}!Material@{Material}}
+\index{Material@{Material}!Material@{Material}}
+\subsubsection[{Material(const Material \&other)}]{\setlength{\rightskip}{0pt plus 5cm}Material\+::\+Material (
+\begin{DoxyParamCaption}
+\item[{const {\bf Material} \&}]{other}
+\end{DoxyParamCaption}
+)}\label{class_material_ac9b027e9c501776e7d08589a52e9d795}
+\hypertarget{class_material_a2c19452d71f54075df8f5405b03129f4}{}\index{Material@{Material}!````~Material@{$\sim$\+Material}}
+\index{````~Material@{$\sim$\+Material}!Material@{Material}}
+\subsubsection[{$\sim$\+Material()}]{\setlength{\rightskip}{0pt plus 5cm}Material\+::$\sim$\+Material (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_material_a2c19452d71f54075df8f5405b03129f4}
+\hypertarget{class_material_a7ff625f38afbe0aeab9b9194848fd414}{}\index{Material@{Material}!Material@{Material}}
+\index{Material@{Material}!Material@{Material}}
+\subsubsection[{Material(const std\+::string \&material\+Name, const Texture \&diffuse, float specular\+Intensity, float specular\+Power, const Texture \&normal\+Map=\+Texture(""default\+\_\+normal.\+jpg""), const Texture \&disp\+Map=\+Texture(""default\+\_\+disp.\+png""), float disp\+Map\+Scale=0.\+0f, float disp\+Map\+Offset=0.\+0f)}]{\setlength{\rightskip}{0pt plus 5cm}Material\+::\+Material (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{material\+Name, }
+\item[{const {\bf Texture} \&}]{diffuse, }
+\item[{float}]{specular\+Intensity, }
+\item[{float}]{specular\+Power, }
+\item[{const {\bf Texture} \&}]{normal\+Map = {\ttfamily {\bf Texture}(\char`\"{}default\+\_\+normal.jpg\char`\"{})}, }
+\item[{const {\bf Texture} \&}]{disp\+Map = {\ttfamily {\bf Texture}(\char`\"{}default\+\_\+disp.png\char`\"{})}, }
+\item[{float}]{disp\+Map\+Scale = {\ttfamily 0.0f}, }
+\item[{float}]{disp\+Map\+Offset = {\ttfamily 0.0f}}
+\end{DoxyParamCaption}
+)}\label{class_material_a7ff625f38afbe0aeab9b9194848fd414}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_material_a6460a48e7a6b759e8252d4a45e724496}{}\index{Material@{Material}!Get\+Float@{Get\+Float}}
+\index{Get\+Float@{Get\+Float}!Material@{Material}}
+\subsubsection[{Get\+Float(const std\+::string \&name) const }]{\setlength{\rightskip}{0pt plus 5cm}float Material\+::\+Get\+Float (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_a6460a48e7a6b759e8252d4a45e724496}
+\hypertarget{class_material_a9e100e2394f55299d8cb0556387deab3}{}\index{Material@{Material}!Get\+Texture@{Get\+Texture}}
+\index{Get\+Texture@{Get\+Texture}!Material@{Material}}
+\subsubsection[{Get\+Texture(const std\+::string \&name) const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Texture}\& Material\+::\+Get\+Texture (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_a9e100e2394f55299d8cb0556387deab3}
+\hypertarget{class_material_adbb92ca797733a8b462cda22e2483ea8}{}\index{Material@{Material}!Get\+Vector3f@{Get\+Vector3f}}
+\index{Get\+Vector3f@{Get\+Vector3f}!Material@{Material}}
+\subsubsection[{Get\+Vector3f(const std\+::string \&name) const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vector3f}\& Material\+::\+Get\+Vector3f (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_adbb92ca797733a8b462cda22e2483ea8}
+\hypertarget{class_material_a3384bed1fe3b09c204f152fb87fcd07f}{}\index{Material@{Material}!Set\+Float@{Set\+Float}}
+\index{Set\+Float@{Set\+Float}!Material@{Material}}
+\subsubsection[{Set\+Float(const std\+::string \&name, float value)}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Set\+Float (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{float}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_a3384bed1fe3b09c204f152fb87fcd07f}
+\hypertarget{class_material_aa893cae3c708567d40b66af16a2b23d9}{}\index{Material@{Material}!Set\+Texture@{Set\+Texture}}
+\index{Set\+Texture@{Set\+Texture}!Material@{Material}}
+\subsubsection[{Set\+Texture(const std\+::string \&name, const Texture \&value)}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Set\+Texture (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{const {\bf Texture} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_aa893cae3c708567d40b66af16a2b23d9}
+\hypertarget{class_material_a1d9130a097b656a99432d9374c887628}{}\index{Material@{Material}!Set\+Vector3f@{Set\+Vector3f}}
+\index{Set\+Vector3f@{Set\+Vector3f}!Material@{Material}}
+\subsubsection[{Set\+Vector3f(const std\+::string \&name, const Vector3f \&value)}]{\setlength{\rightskip}{0pt plus 5cm}void Material\+::\+Set\+Vector3f (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{const {\bf Vector3f} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_material_a1d9130a097b656a99432d9374c887628}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{material_8h}{material.\+h}\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{material_8cpp}{material.\+cpp}\end{DoxyCompactItemize}

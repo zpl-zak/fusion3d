@@ -1,0 +1,119 @@
+\hypertarget{world_component_8h}{}\section{F\+:/\+Fusion3\+D\+\_\+work/src/components/world\+Component.h File Reference}
+\label{world_component_8h}\index{F\+:/\+Fusion3\+D\+\_\+work/src/components/world\+Component.\+h@{F\+:/\+Fusion3\+D\+\_\+work/src/components/world\+Component.\+h}}
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include \char`\"{}mesh\+Renderer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../rendering/lighting.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}program\+Component.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{world_component_8h_a64df37f373ec4818369ab29fe208ac09}{W\+O\+R\+L\+D\+C\+O\+M\+P\+O\+N\+E\+N\+T\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D}~\char`\"{}World\+Component\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{world_component_8h_a4b17318241800c3ea164a0715d828e95}{World\+Component} ()
+\item 
+virtual void \hyperlink{world_component_8h_a3e0b39e1326de703012f81ac2be7feba}{Init} ()
+\item 
+virtual void \hyperlink{world_component_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}{Process\+Input} (const \hyperlink{class_input}{Input} \&input, float delta)
+\item 
+virtual void \hyperlink{world_component_8h_a8ffe801b763b48db62c28fb5b5852fea}{Update} (float delta)
+\item 
+virtual void \hyperlink{world_component_8h_a0800e8d38574f7f4a6bc5634bbe01a10}{Render} (const \hyperlink{class_shader}{Shader} \&shader, const \hyperlink{class_rendering_engine}{Rendering\+Engine} \&rendering\+Engine, const \hyperlink{class_camera}{Camera} \&camera) const 
+\item 
+\hyperlink{world_component_8h_a4b17318241800c3ea164a0715d828e95}{World\+Component} $\ast$ \hyperlink{world_component_8h_a9cd2a1cb19e6ea5f22507aa26225d6c3}{Set\+Up\+Model} (\hyperlink{mesh_renderer_8h_ac96f2b1fd7bff3d9a1c7f437ac5dabc9}{Mesh\+Renderer} $\ast$model)
+\item 
+\hyperlink{world_component_8h_a4b17318241800c3ea164a0715d828e95}{World\+Component} $\ast$ \hyperlink{world_component_8h_a5dbe0be12eb989e18e67aa90b7b4e15d}{Set\+Up\+Lights} (\hyperlink{class_entity}{Entity} $\ast$lights)
+\item 
+\hyperlink{world_component_8h_a4b17318241800c3ea164a0715d828e95}{World\+Component} $\ast$ \hyperlink{world_component_8h_a4ef92b06ac4b307ed529e6d536f00594}{Add\+Program} (\hyperlink{program_component_8h_a5723cb033823bc2d6d32d35686273c15}{Program\+Component} $\ast$prog)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mesh_renderer_8h_ac96f2b1fd7bff3d9a1c7f437ac5dabc9}{Mesh\+Renderer} $\ast$ \hyperlink{world_component_8h_a21390e495cdb82f4834c4efcf5db0541}{m\+\_\+model}
+\item 
+\hyperlink{class_entity}{Entity} $\ast$ \hyperlink{world_component_8h_ae931a5aeae6e2dc50ce1bf465af323c6}{m\+\_\+lights}
+\item 
+std\+::vector$<$ \hyperlink{program_component_8h_a5723cb033823bc2d6d32d35686273c15}{Program\+Component} $\ast$ $>$ \hyperlink{world_component_8h_a637bd2c4263d96b69cf156aa702aca27}{m\+\_\+progs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{world_component_8h_a64df37f373ec4818369ab29fe208ac09}{}\index{world\+Component.\+h@{world\+Component.\+h}!W\+O\+R\+L\+D\+C\+O\+M\+P\+O\+N\+E\+N\+T\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D@{W\+O\+R\+L\+D\+C\+O\+M\+P\+O\+N\+E\+N\+T\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D}}
+\index{W\+O\+R\+L\+D\+C\+O\+M\+P\+O\+N\+E\+N\+T\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D@{W\+O\+R\+L\+D\+C\+O\+M\+P\+O\+N\+E\+N\+T\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{W\+O\+R\+L\+D\+C\+O\+M\+P\+O\+N\+E\+N\+T\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+O\+R\+L\+D\+C\+O\+M\+P\+O\+N\+E\+N\+T\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D~\char`\"{}World\+Component\char`\"{}}\label{world_component_8h_a64df37f373ec4818369ab29fe208ac09}
+
+
+\subsection{Function Documentation}
+\hypertarget{world_component_8h_a4ef92b06ac4b307ed529e6d536f00594}{}\index{world\+Component.\+h@{world\+Component.\+h}!Add\+Program@{Add\+Program}}
+\index{Add\+Program@{Add\+Program}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{Add\+Program(\+Program\+Component $\ast$prog)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World\+Component}$\ast$ Add\+Program (
+\begin{DoxyParamCaption}
+\item[{{\bf Program\+Component} $\ast$}]{prog}
+\end{DoxyParamCaption}
+)}\label{world_component_8h_a4ef92b06ac4b307ed529e6d536f00594}
+\hypertarget{world_component_8h_a3e0b39e1326de703012f81ac2be7feba}{}\index{world\+Component.\+h@{world\+Component.\+h}!Init@{Init}}
+\index{Init@{Init}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{Init()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{world_component_8h_a3e0b39e1326de703012f81ac2be7feba}
+\hypertarget{world_component_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}{}\index{world\+Component.\+h@{world\+Component.\+h}!Process\+Input@{Process\+Input}}
+\index{Process\+Input@{Process\+Input}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{Process\+Input(const Input \&input, float delta)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Process\+Input (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input, }
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{world_component_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}
+\hypertarget{world_component_8h_a0800e8d38574f7f4a6bc5634bbe01a10}{}\index{world\+Component.\+h@{world\+Component.\+h}!Render@{Render}}
+\index{Render@{Render}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{Render(const Shader \&shader, const Rendering\+Engine \&rendering\+Engine, const Camera \&camera) const }]{\setlength{\rightskip}{0pt plus 5cm}virtual void Render (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shader} \&}]{shader, }
+\item[{const {\bf Rendering\+Engine} \&}]{rendering\+Engine, }
+\item[{const {\bf Camera} \&}]{camera}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{world_component_8h_a0800e8d38574f7f4a6bc5634bbe01a10}
+\hypertarget{world_component_8h_a5dbe0be12eb989e18e67aa90b7b4e15d}{}\index{world\+Component.\+h@{world\+Component.\+h}!Set\+Up\+Lights@{Set\+Up\+Lights}}
+\index{Set\+Up\+Lights@{Set\+Up\+Lights}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{Set\+Up\+Lights(\+Entity $\ast$lights)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World\+Component}$\ast$ Set\+Up\+Lights (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity} $\ast$}]{lights}
+\end{DoxyParamCaption}
+)}\label{world_component_8h_a5dbe0be12eb989e18e67aa90b7b4e15d}
+\hypertarget{world_component_8h_a9cd2a1cb19e6ea5f22507aa26225d6c3}{}\index{world\+Component.\+h@{world\+Component.\+h}!Set\+Up\+Model@{Set\+Up\+Model}}
+\index{Set\+Up\+Model@{Set\+Up\+Model}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{Set\+Up\+Model(\+Mesh\+Renderer $\ast$model)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World\+Component}$\ast$ Set\+Up\+Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Mesh\+Renderer} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{world_component_8h_a9cd2a1cb19e6ea5f22507aa26225d6c3}
+\hypertarget{world_component_8h_a8ffe801b763b48db62c28fb5b5852fea}{}\index{world\+Component.\+h@{world\+Component.\+h}!Update@{Update}}
+\index{Update@{Update}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{Update(float delta)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Update (
+\begin{DoxyParamCaption}
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{world_component_8h_a8ffe801b763b48db62c28fb5b5852fea}
+\hypertarget{world_component_8h_a4b17318241800c3ea164a0715d828e95}{}\index{world\+Component.\+h@{world\+Component.\+h}!World\+Component@{World\+Component}}
+\index{World\+Component@{World\+Component}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{World\+Component()}]{\setlength{\rightskip}{0pt plus 5cm}World\+Component (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{world_component_8h_a4b17318241800c3ea164a0715d828e95}
+
+
+\subsection{Variable Documentation}
+\hypertarget{world_component_8h_ae931a5aeae6e2dc50ce1bf465af323c6}{}\index{world\+Component.\+h@{world\+Component.\+h}!m\+\_\+lights@{m\+\_\+lights}}
+\index{m\+\_\+lights@{m\+\_\+lights}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{m\+\_\+lights}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity}$\ast$ m\+\_\+lights}\label{world_component_8h_ae931a5aeae6e2dc50ce1bf465af323c6}
+\hypertarget{world_component_8h_a21390e495cdb82f4834c4efcf5db0541}{}\index{world\+Component.\+h@{world\+Component.\+h}!m\+\_\+model@{m\+\_\+model}}
+\index{m\+\_\+model@{m\+\_\+model}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{m\+\_\+model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh\+Renderer}$\ast$ m\+\_\+model}\label{world_component_8h_a21390e495cdb82f4834c4efcf5db0541}
+\hypertarget{world_component_8h_a637bd2c4263d96b69cf156aa702aca27}{}\index{world\+Component.\+h@{world\+Component.\+h}!m\+\_\+progs@{m\+\_\+progs}}
+\index{m\+\_\+progs@{m\+\_\+progs}!world\+Component.\+h@{world\+Component.\+h}}
+\subsubsection[{m\+\_\+progs}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Program\+Component}$\ast$$>$ m\+\_\+progs}\label{world_component_8h_a637bd2c4263d96b69cf156aa702aca27}

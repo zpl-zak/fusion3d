@@ -1,0 +1,133 @@
+\hypertarget{_g_u_i_window_8h}{}\section{F\+:/\+Fusion3\+D\+\_\+work/src/components/\+G\+U\+I\+Window.h File Reference}
+\label{_g_u_i_window_8h}\index{F\+:/\+Fusion3\+D\+\_\+work/src/components/\+G\+U\+I\+Window.\+h@{F\+:/\+Fusion3\+D\+\_\+work/src/components/\+G\+U\+I\+Window.\+h}}
+{\ttfamily \#include \char`\"{}../core/entity\+Component.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../rendering/mesh.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../rendering/shader.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_g_u_i_window_8h_a7d43f41978abddfeb4236a3d8fb87fa4}{G\+U\+I\+W\+I\+N\+D\+O\+W\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D}~\char`\"{}Entity\+Component\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_g_u_i_window_8h_a2aca86edd5e106c513a4c3e5b80f01b4}{G\+U\+I\+Window} (std\+::vector$<$ \hyperlink{class_mesh}{Mesh} $\ast$ $>$ meshes, std\+::vector$<$ \hyperlink{class_material}{Material} $\ast$ $>$ materials)
+\item 
+\hyperlink{_g_u_i_window_8h_a2077b96c6843c378b115ed5ab18d8289}{G\+U\+I\+Window} (const std\+::string \&gui)
+\item 
+virtual \hyperlink{_g_u_i_window_8h_a850652083d59e5fe4406d538b15bd9f3}{$\sim$\+G\+U\+I\+Window} ()
+\item 
+virtual void \hyperlink{_g_u_i_window_8h_a3e0b39e1326de703012f81ac2be7feba}{Init} ()
+\item 
+virtual void \hyperlink{_g_u_i_window_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}{Process\+Input} (const \hyperlink{class_input}{Input} \&input, float delta)
+\item 
+virtual void \hyperlink{_g_u_i_window_8h_a8ffe801b763b48db62c28fb5b5852fea}{Update} (float delta)
+\item 
+virtual void \hyperlink{_g_u_i_window_8h_a0800e8d38574f7f4a6bc5634bbe01a10}{Render} (const \hyperlink{class_shader}{Shader} \&shader, const \hyperlink{class_rendering_engine}{Rendering\+Engine} \&rendering\+Engine, const \hyperlink{class_camera}{Camera} \&camera) const 
+\item 
+\hyperlink{class_entity_component}{Entity\+Component} $\ast$ \hyperlink{_g_u_i_window_8h_ab61d70f8e65639b1757dcea484e1678d}{Set\+Visible} (bool visible)
+\item 
+bool \hyperlink{_g_u_i_window_8h_afcd62a638f43f1f9c3a507b923a2dffd}{Is\+Visible} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{class_mesh}{Mesh} $>$ \hyperlink{_g_u_i_window_8h_a832e159d582238ff41d5819ce7a11f7b}{m\+\_\+mesh}
+\item 
+std\+::vector$<$ \hyperlink{class_material}{Material} $>$ \hyperlink{_g_u_i_window_8h_a38ebf82e731a18a4c4e5fc8b4a29658a}{m\+\_\+material}
+\item 
+bool \hyperlink{_g_u_i_window_8h_adf7ad65deb2fca5eab8d0674602fe3c4}{m\+\_\+visible}
+\item 
+\hyperlink{class_transform}{Transform} \hyperlink{_g_u_i_window_8h_a1f0b6d9f8d3818be01208c042d204e91}{m\+\_\+t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_g_u_i_window_8h_a7d43f41978abddfeb4236a3d8fb87fa4}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!G\+U\+I\+W\+I\+N\+D\+O\+W\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D@{G\+U\+I\+W\+I\+N\+D\+O\+W\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D}}
+\index{G\+U\+I\+W\+I\+N\+D\+O\+W\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D@{G\+U\+I\+W\+I\+N\+D\+O\+W\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{G\+U\+I\+W\+I\+N\+D\+O\+W\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+U\+I\+W\+I\+N\+D\+O\+W\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D~\char`\"{}Entity\+Component\char`\"{}}\label{_g_u_i_window_8h_a7d43f41978abddfeb4236a3d8fb87fa4}
+
+
+\subsection{Function Documentation}
+\hypertarget{_g_u_i_window_8h_a2aca86edd5e106c513a4c3e5b80f01b4}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!G\+U\+I\+Window@{G\+U\+I\+Window}}
+\index{G\+U\+I\+Window@{G\+U\+I\+Window}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{G\+U\+I\+Window(std\+::vector$<$ Mesh $\ast$ $>$ meshes, std\+::vector$<$ Material $\ast$ $>$ materials)}]{\setlength{\rightskip}{0pt plus 5cm}G\+U\+I\+Window (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Mesh} $\ast$ $>$}]{meshes, }
+\item[{std\+::vector$<$ {\bf Material} $\ast$ $>$}]{materials}
+\end{DoxyParamCaption}
+)}\label{_g_u_i_window_8h_a2aca86edd5e106c513a4c3e5b80f01b4}
+\hypertarget{_g_u_i_window_8h_a2077b96c6843c378b115ed5ab18d8289}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!G\+U\+I\+Window@{G\+U\+I\+Window}}
+\index{G\+U\+I\+Window@{G\+U\+I\+Window}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{G\+U\+I\+Window(const std\+::string \&gui)}]{\setlength{\rightskip}{0pt plus 5cm}G\+U\+I\+Window (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{gui}
+\end{DoxyParamCaption}
+)}\label{_g_u_i_window_8h_a2077b96c6843c378b115ed5ab18d8289}
+\hypertarget{_g_u_i_window_8h_a3e0b39e1326de703012f81ac2be7feba}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!Init@{Init}}
+\index{Init@{Init}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{Init()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{_g_u_i_window_8h_a3e0b39e1326de703012f81ac2be7feba}
+\hypertarget{_g_u_i_window_8h_afcd62a638f43f1f9c3a507b923a2dffd}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!Is\+Visible@{Is\+Visible}}
+\index{Is\+Visible@{Is\+Visible}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{Is\+Visible()}]{\setlength{\rightskip}{0pt plus 5cm}bool Is\+Visible (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_g_u_i_window_8h_afcd62a638f43f1f9c3a507b923a2dffd}
+\hypertarget{_g_u_i_window_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!Process\+Input@{Process\+Input}}
+\index{Process\+Input@{Process\+Input}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{Process\+Input(const Input \&input, float delta)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Process\+Input (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input, }
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{_g_u_i_window_8h_a6d7cb32ac0dde33a6c8d5728c895d70f}
+\hypertarget{_g_u_i_window_8h_a0800e8d38574f7f4a6bc5634bbe01a10}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!Render@{Render}}
+\index{Render@{Render}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{Render(const Shader \&shader, const Rendering\+Engine \&rendering\+Engine, const Camera \&camera) const }]{\setlength{\rightskip}{0pt plus 5cm}virtual void Render (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shader} \&}]{shader, }
+\item[{const {\bf Rendering\+Engine} \&}]{rendering\+Engine, }
+\item[{const {\bf Camera} \&}]{camera}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{_g_u_i_window_8h_a0800e8d38574f7f4a6bc5634bbe01a10}
+\hypertarget{_g_u_i_window_8h_ab61d70f8e65639b1757dcea484e1678d}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!Set\+Visible@{Set\+Visible}}
+\index{Set\+Visible@{Set\+Visible}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{Set\+Visible(bool visible)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity\+Component}$\ast$ Set\+Visible (
+\begin{DoxyParamCaption}
+\item[{bool}]{visible}
+\end{DoxyParamCaption}
+)}\label{_g_u_i_window_8h_ab61d70f8e65639b1757dcea484e1678d}
+\hypertarget{_g_u_i_window_8h_a8ffe801b763b48db62c28fb5b5852fea}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!Update@{Update}}
+\index{Update@{Update}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{Update(float delta)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Update (
+\begin{DoxyParamCaption}
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{_g_u_i_window_8h_a8ffe801b763b48db62c28fb5b5852fea}
+\hypertarget{_g_u_i_window_8h_a850652083d59e5fe4406d538b15bd9f3}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!````~G\+U\+I\+Window@{$\sim$\+G\+U\+I\+Window}}
+\index{````~G\+U\+I\+Window@{$\sim$\+G\+U\+I\+Window}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{$\sim$\+G\+U\+I\+Window()}]{\setlength{\rightskip}{0pt plus 5cm}virtual $\sim${\bf G\+U\+I\+Window} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{_g_u_i_window_8h_a850652083d59e5fe4406d538b15bd9f3}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_g_u_i_window_8h_a38ebf82e731a18a4c4e5fc8b4a29658a}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!m\+\_\+material@{m\+\_\+material}}
+\index{m\+\_\+material@{m\+\_\+material}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{m\+\_\+material}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Material}$>$ m\+\_\+material}\label{_g_u_i_window_8h_a38ebf82e731a18a4c4e5fc8b4a29658a}
+\hypertarget{_g_u_i_window_8h_a832e159d582238ff41d5819ce7a11f7b}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!m\+\_\+mesh@{m\+\_\+mesh}}
+\index{m\+\_\+mesh@{m\+\_\+mesh}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{m\+\_\+mesh}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Mesh}$>$ m\+\_\+mesh}\label{_g_u_i_window_8h_a832e159d582238ff41d5819ce7a11f7b}
+\hypertarget{_g_u_i_window_8h_a1f0b6d9f8d3818be01208c042d204e91}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!m\+\_\+t@{m\+\_\+t}}
+\index{m\+\_\+t@{m\+\_\+t}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{m\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Transform} m\+\_\+t}\label{_g_u_i_window_8h_a1f0b6d9f8d3818be01208c042d204e91}
+\hypertarget{_g_u_i_window_8h_adf7ad65deb2fca5eab8d0674602fe3c4}{}\index{G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}!m\+\_\+visible@{m\+\_\+visible}}
+\index{m\+\_\+visible@{m\+\_\+visible}!G\+U\+I\+Window.\+h@{G\+U\+I\+Window.\+h}}
+\subsubsection[{m\+\_\+visible}]{\setlength{\rightskip}{0pt plus 5cm}bool m\+\_\+visible}\label{_g_u_i_window_8h_adf7ad65deb2fca5eab8d0674602fe3c4}

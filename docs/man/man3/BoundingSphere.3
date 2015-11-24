@@ -1,0 +1,89 @@
+.TH "BoundingSphere" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BoundingSphere \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <boundingSphere\&.h>\fP
+.PP
+Inherits \fBCollider\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBoundingSphere\fP (const \fBVector3f\fP &center, float radius)"
+.br
+.ti -1c
+.RI "\fBIntersectData\fP \fBIntersectBoundingSphere\fP (const \fBBoundingSphere\fP &other) const "
+.br
+.ti -1c
+.RI "virtual void \fBTransform\fP (const \fBVector3f\fP &translation)"
+.br
+.ti -1c
+.RI "virtual \fBVector3f\fP \fBGetCenter\fP () const "
+.br
+.ti -1c
+.RI "float \fBGetRadius\fP () const "
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBTest\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fBBoundingSphere\fP class represents an sphere that can be used as a collider in a physics engine\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BoundingSphere::BoundingSphere (const \fBVector3f\fP & center, float radius)\fC [inline]\fP"
+Creates a \fBBoundingSphere\fP in a usable state\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcenter\fP The center point of the sphere\&. 
+.br
+\fIradius\fP The distance from any point on the sphere to the center\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBVector3f\fP BoundingSphere::GetCenter () const\fC [inline]\fP, \fC [virtual]\fP"
+Returns the center position of the collider\&. Should be overriden by subclasses\&. 
+.PP
+Reimplemented from \fBCollider\fP\&.
+.SS "float BoundingSphere::GetRadius () const\fC [inline]\fP"
+Basic getter for the radius 
+.SS "\fBIntersectData\fP BoundingSphere::IntersectBoundingSphere (const \fBBoundingSphere\fP & other) const"
+Computes information about if this sphere intersects another aphere\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIother\fP The sphere that's being tested for intersection with this sphere\&. 
+.RE
+.PP
+
+.SS "void BoundingSphere::Test ()\fC [static]\fP"
+Performs a Unit Test of this class 
+.SS "void BoundingSphere::Transform (const \fBVector3f\fP & translation)\fC [virtual]\fP"
+Moves the entire collider by translation distance\&. Should be overriden by subclasses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItranslation\fP Distance to move the collider 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBCollider\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

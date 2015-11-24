@@ -1,0 +1,853 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033
+{\fonttbl {\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}
+}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet
+{\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}
+{\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid \sbasedon0 \snext0 heading 1;}
+{\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid \sbasedon0 \snext0 heading 2;}
+{\s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 3;}
+{\s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 4;}{\*\cs10 \additive Default Paragraph Font;}
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 5;}{\*\cs10 \additive Default Paragraph Font;}
+{\s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid \sbasedon0 \snext15 Title;}
+{\s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid \sbasedon0 \snext16 Subtitle;}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid \sbasedon0 \snext17 BodyText;}
+{\s18\widctlpar\fs22\cgrid \sbasedon0 \snext18 DenseText;}
+{\s28\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext28 header;}
+{\s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid \sbasedon0 \snext29 footer;}
+{\s30\li360\sa60\sb120\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext30 GroupHeader;}
+{\s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext41 Code Example 0;}
+{\s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext42 Code Example 1;}
+{\s42\li720\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext43 Code Example 2;}
+{\s43\li1080\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext44 Code Example 3;}
+{\s44\li1440\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext45 Code Example 4;}
+{\s45\li1800\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext46 Code Example 5;}
+{\s46\li2160\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext47 Code Example 6;}
+{\s47\li2520\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext48 Code Example 7;}
+{\s48\li2880\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 8;}
+{\s49\li3240\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 9;}
+{\s50\li0\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext51 List Continue 0;}
+{\s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext52 List Continue 1;}
+{\s52\li720\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext53 List Continue 2;}
+{\s53\li1080\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext54 List Continue 3;}
+{\s54\li1440\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext55 List Continue 4;}
+{\s55\li1800\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext56 List Continue 5;}
+{\s56\li2160\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext57 List Continue 6;}
+{\s57\li2520\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext58 List Continue 7;}
+{\s58\li2880\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext59 List Continue 8;}
+{\s59\li3240\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext59 List Continue 9;}
+{\s60\li0\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext61 DescContinue 0;}
+{\s61\li360\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext62 DescContinue 1;}
+{\s62\li720\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext63 DescContinue 2;}
+{\s63\li1080\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext64 DescContinue 3;}
+{\s64\li1440\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext65 DescContinue 4;}
+{\s65\li1800\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext66 DescContinue 5;}
+{\s66\li2160\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext67 DescContinue 6;}
+{\s67\li2520\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext68 DescContinue 7;}
+{\s68\li2880\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext69 DescContinue 8;}
+{\s69\li3240\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext69 DescContinue 9;}
+{\s70\li0\sa30\sb30\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext81 LatexTOC 0;}
+{\s71\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext82 LatexTOC 1;}
+{\s72\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext83 LatexTOC 2;}
+{\s73\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext84 LatexTOC 3;}
+{\s74\li1440\sa18\sb18\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext85 LatexTOC 4;}
+{\s75\li1800\sa15\sb15\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext86 LatexTOC 5;}
+{\s76\li2160\sa12\sb12\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext87 LatexTOC 6;}
+{\s77\li2520\sa9\sb9\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext88 LatexTOC 7;}
+{\s78\li2880\sa6\sb6\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext89 LatexTOC 8;}
+{\s79\li3240\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext89 LatexTOC 9;}
+{\s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext81 \sautoupd List Bullet 0;}
+{\s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid \sbasedon0 \snext82 \sautoupd List Bullet 1;}
+{\s82\fi-360\li1080\widctlpar\jclisttab\tx1080{\*\pn \pnlvlbody\ilvl0\ls3\pnrnot0\pndec }\ls3\adjustright \fs20\cgrid \sbasedon0 \snext83 \sautoupd List Bullet 2;}
+{\s83\fi-360\li1440\widctlpar\jclisttab\tx1440{\*\pn \pnlvlbody\ilvl0\ls4\pnrnot0\pndec }\ls4\adjustright \fs20\cgrid \sbasedon0 \snext84 \sautoupd List Bullet 3;}
+{\s84\fi-360\li1800\widctlpar\jclisttab\tx1800{\*\pn \pnlvlbody\ilvl0\ls5\pnrnot0\pndec }\ls5\adjustright \fs20\cgrid \sbasedon0 \snext85 \sautoupd List Bullet 4;}
+{\s85\fi-360\li2160\widctlpar\jclisttab\tx2160{\*\pn \pnlvlbody\ilvl0\ls6\pnrnot0\pndec }\ls6\adjustright \fs20\cgrid \sbasedon0 \snext86 \sautoupd List Bullet 5;}
+{\s86\fi-360\li2520\widctlpar\jclisttab\tx2520{\*\pn \pnlvlbody\ilvl0\ls7\pnrnot0\pndec }\ls7\adjustright \fs20\cgrid \sbasedon0 \snext87 \sautoupd List Bullet 6;}
+{\s87\fi-360\li2880\widctlpar\jclisttab\tx2880{\*\pn \pnlvlbody\ilvl0\ls8\pnrnot0\pndec }\ls8\adjustright \fs20\cgrid \sbasedon0 \snext88 \sautoupd List Bullet 7;}
+{\s88\fi-360\li3240\widctlpar\jclisttab\tx3240{\*\pn \pnlvlbody\ilvl0\ls9\pnrnot0\pndec }\ls9\adjustright \fs20\cgrid \sbasedon0 \snext89 \sautoupd List Bullet 8;}
+{\s89\fi-360\li3600\widctlpar\jclisttab\tx3600{\*\pn \pnlvlbody\ilvl0\ls10\pnrnot0\pndec }\ls10\adjustright \fs20\cgrid \sbasedon0 \snext89 \sautoupd List Bullet 9;}
+{\s90\fi-360\li360\widctlpar\fs20\cgrid \sbasedon0 \snext91 \sautoupd List Enum 0;}
+{\s91\fi-360\li720\widctlpar\fs20\cgrid \sbasedon0 \snext92 \sautoupd List Enum 1;}
+{\s92\fi-360\li1080\widctlpar\fs20\cgrid \sbasedon0 \snext93 \sautoupd List Enum 2;}
+{\s93\fi-360\li1440\widctlpar\fs20\cgrid \sbasedon0 \snext94 \sautoupd List Enum 3;}
+{\s94\fi-360\li1800\widctlpar\fs20\cgrid \sbasedon0 \snext95 \sautoupd List Enum 4;}
+{\s95\fi-360\li2160\widctlpar\fs20\cgrid \sbasedon0 \snext96 \sautoupd List Enum 5;}
+{\s96\fi-360\li2520\widctlpar\fs20\cgrid \sbasedon0 \snext96 \sautoupd List Enum 5;}
+{\s97\fi-360\li2880\widctlpar\fs20\cgrid \sbasedon0 \snext98 \sautoupd List Enum 7;}
+{\s98\fi-360\li3240\widctlpar\fs20\cgrid \sbasedon0 \snext99 \sautoupd List Enum 8;}
+{\s99\fi-360\li3600\widctlpar\fs20\cgrid \sbasedon0 \snext99 \sautoupd List Enum 9;}
+}
+{\comment begin body}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+GLM_GTC_type_ptr\par \pard\plain 
+{\tc\tcl2 \v GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr}
+{\bkmkstart AAAAAAACES}
+{\bkmkend AAAAAAACES}
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Handles the interaction between pointers and vector, matrix types. }}\par
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Functions\par
+\pard\plain 
+
+{
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename genType > GLM_FUNC_DECL genType::value_type const * {\b glm::value_ptr} (genType const &vec)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tvec2< T, defaultp > {\b glm::make_vec2} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tvec3< T, defaultp > {\b glm::make_vec3} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tvec4< T, defaultp > {\b glm::make_vec4} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat2x2< T, defaultp > {\b glm::make_mat2x2} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat2x3< T, defaultp > {\b glm::make_mat2x3} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat2x4< T, defaultp > {\b glm::make_mat2x4} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat3x2< T, defaultp > {\b glm::make_mat3x2} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat3x3< T, defaultp > {\b glm::make_mat3x3} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat3x4< T, defaultp > {\b glm::make_mat3x4} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat4x2< T, defaultp > {\b glm::make_mat4x2} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat4x3< T, defaultp > {\b glm::make_mat4x3} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat4x4< T, defaultp > {\b glm::make_mat4x4} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat2x2< T, defaultp > {\b glm::make_mat2} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat3x3< T, defaultp > {\b glm::make_mat3} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tmat4x4< T, defaultp > {\b glm::make_mat4} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T > GLM_FUNC_DECL tquat< T, defaultp > {\b glm::make_quat} (T const *const ptr)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tvec2< T, P > const &vec)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tvec2< T, P > &vec)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tvec3< T, P > const &vec)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tvec3< T, P > &vec)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tvec4< T, P > const &vec)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tvec4< T, P > &vec)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat2x2< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat2x2< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat3x3< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat3x3< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat4x4< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat4x4< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat2x3< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat2x3< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat3x2< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat3x2< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat2x4< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat2x4< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat4x2< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat4x2< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat3x4< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat3x4< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tmat4x3< T, P > const &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tmat4x3< T, P > &mat)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const * {\b glm::value_ptr} (tquat< T, P > const &q)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T * {\b glm::value_ptr} (tquat< T, P > &q)\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Handles the interaction between pointers and vector, matrix types. \par
+}{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+This extension defines an overloaded function, {\b glm::value_ptr}, which takes any of the {\b core template types}. It returns a pointer to the memory layout of the object. {\b Matrix} types store their values in column-major order.\par
+This is useful for uploading data to matrices or copying data to buffer objects.\par
+Example: {
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid #include <glm/glm.hpp>\par
+#include <glm/gtc/type_ptr.hpp>\par
+\par
+glm::vec3 aVector(3);\par
+glm::mat4 someMatrix(1.0);\par
+\par
+glUniform3fv(uniformLoc, 1, glm::value_ptr(aVector));\par
+glUniformMatrix4fv(uniformMatrixLoc, 1, GL_FALSE, glm::value_ptr(someMatrix));\par
+}
+\par
+<{\b glm/gtc/type_ptr.hpp}> need to be included to use these functionalities. \par
+}{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Function Documentation\par
+\pard\plain 
+{\xe \v make_mat2\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat2x2<T, defaultp> glm::make_mat2 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACET}
+{\bkmkend AAAAAAACET}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat2x2\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat2x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat2x2<T, defaultp> glm::make_mat2x2 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACEU}
+{\bkmkend AAAAAAACEU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat2x3\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat2x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat2x3<T, defaultp> glm::make_mat2x3 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACEV}
+{\bkmkend AAAAAAACEV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat2x4\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat2x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat2x4<T, defaultp> glm::make_mat2x4 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACEW}
+{\bkmkend AAAAAAACEW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat3\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat3x3<T, defaultp> glm::make_mat3 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACEX}
+{\bkmkend AAAAAAACEX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat3x2\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat3x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat3x2<T, defaultp> glm::make_mat3x2 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACEY}
+{\bkmkend AAAAAAACEY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat3x3\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat3x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat3x3<T, defaultp> glm::make_mat3x3 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACEZ}
+{\bkmkend AAAAAAACEZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat3x4\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat3x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat3x4<T, defaultp> glm::make_mat3x4 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFA}
+{\bkmkend AAAAAAACFA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat4\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat4x4<T, defaultp> glm::make_mat4 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFB}
+{\bkmkend AAAAAAACFB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat4x2\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat4x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat4x2<T, defaultp> glm::make_mat4x2 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFC}
+{\bkmkend AAAAAAACFC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat4x3\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat4x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat4x3<T, defaultp> glm::make_mat4x3 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFD}
+{\bkmkend AAAAAAACFD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_mat4x4\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_mat4x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tmat4x4<T, defaultp> glm::make_mat4x4 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFE}
+{\bkmkend AAAAAAACFE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a matrix from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_quat\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_quat}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tquat<T, defaultp> glm::make_quat (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFF}
+{\bkmkend AAAAAAACFF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a quaternion from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_vec2\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tvec2<T, defaultp> glm::make_vec2 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFG}
+{\bkmkend AAAAAAACFG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a vector from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_vec3\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tvec3<T, defaultp> glm::make_vec3 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFH}
+{\bkmkend AAAAAAACFH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a vector from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v make_vec4\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:make_vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T > GLM_FUNC_DECL tvec4<T, defaultp> glm::make_vec4 (T const *const  {\i ptr})}}
+\par
+{\bkmkstart AAAAAAACFI}
+{\bkmkend AAAAAAACFI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build a vector from a pointer. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tvec2< T, P > const &  {\i vec})}}
+\par
+{\bkmkstart AAAAAAACFJ}
+{\bkmkend AAAAAAACFJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the vector input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tvec2< T, P > &  {\i vec})}}
+\par
+{\bkmkstart AAAAAAACFK}
+{\bkmkend AAAAAAACFK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the vector input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tvec3< T, P > const &  {\i vec})}}
+\par
+{\bkmkstart AAAAAAACFL}
+{\bkmkend AAAAAAACFL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the vector input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tvec3< T, P > &  {\i vec})}}
+\par
+{\bkmkstart AAAAAAACFM}
+{\bkmkend AAAAAAACFM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the vector input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tvec4< T, P > const &  {\i vec})}}
+\par
+{\bkmkstart AAAAAAACFN}
+{\bkmkend AAAAAAACFN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the vector input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename genType > GLM_FUNC_DECL genType::value_type const* glm::value_ptr (genType const &  {\i vec})}}
+\par
+{\bkmkstart AAAAAAACFO}
+{\bkmkend AAAAAAACFO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the input parameter. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tvec4< T, P > &  {\i vec})}}
+\par
+{\bkmkstart AAAAAAACFP}
+{\bkmkend AAAAAAACFP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the vector input. From GLM_GTC_type_ptr extension. \par
+}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat2x2< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFQ}
+{\bkmkend AAAAAAACFQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat2x2< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFR}
+{\bkmkend AAAAAAACFR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat3x3< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFS}
+{\bkmkend AAAAAAACFS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat3x3< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFT}
+{\bkmkend AAAAAAACFT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat4x4< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFU}
+{\bkmkend AAAAAAACFU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat4x4< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFV}
+{\bkmkend AAAAAAACFV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. From GLM_GTC_type_ptr extension. \par
+}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat2x3< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFW}
+{\bkmkend AAAAAAACFW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat2x3< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFX}
+{\bkmkend AAAAAAACFX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat3x2< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFY}
+{\bkmkend AAAAAAACFY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat3x2< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACFZ}
+{\bkmkend AAAAAAACFZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat2x4< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACGA}
+{\bkmkend AAAAAAACGA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat2x4< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACGB}
+{\bkmkend AAAAAAACGB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat4x2< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACGC}
+{\bkmkend AAAAAAACGC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat4x2< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACGD}
+{\bkmkend AAAAAAACGD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat3x4< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACGE}
+{\bkmkend AAAAAAACGE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat3x4< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACGF}
+{\bkmkend AAAAAAACGF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat4x3< T, P > const &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACGG}
+{\bkmkend AAAAAAACGG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat4x3< T, P > &  {\i mat})}}
+\par
+{\bkmkstart AAAAAAACGH}
+{\bkmkend AAAAAAACGH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the matrix input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr ({\b tquat}< T, P > const &  {\i q})}}
+\par
+{\bkmkstart AAAAAAACGI}
+{\bkmkend AAAAAAACGI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the constant address to the data of the input parameter. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+{\xe \v value_ptr\:GLM_GTC_type_ptr}
+{\xe \v GLM_GTC_type_ptr\:value_ptr}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr ({\b tquat}< T, P > &  {\i q})}}
+\par
+{\bkmkstart AAAAAAACGJ}
+{\bkmkend AAAAAAACGJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Return the address to the data of the quaternion input. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_ptr} \par
+}}}
+}

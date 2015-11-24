@@ -1,0 +1,130 @@
+.TH "F:/Fusion3D_work/src/components/programComponent.h" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/components/programComponent.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <iostream>\fP
+.br
+\fC#include <set>\fP
+.br
+\fC#include <cassert>\fP
+.br
+\fC#include '\&.\&./core/entityComponent\&.h'\fP
+.br
+\fC#include '\&.\&./core/profiling\&.h'\fP
+.br
+\fC#include '\&.\&./core/timing\&.h'\fP
+.br
+\fC#include '\&.\&./reflection\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBProgram\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProgramComponent\fP (\fBProgram\fP *program, int verbose=0)"
+.br
+.ti -1c
+.RI "\fB~ProgramComponent\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBInit\fP ()"
+.br
+.ti -1c
+.RI "void \fBInitProgram\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBProcessInput\fP (const \fBInput\fP &input, float delta)"
+.br
+.ti -1c
+.RI "virtual void \fBUpdate\fP (float delta)"
+.br
+.ti -1c
+.RI "virtual void \fBRender\fP (const \fBShader\fP &shader, const \fBRenderingEngine\fP &renderingEngine, const \fBCamera\fP &camera)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBm_input\fP"
+.br
+.ti -1c
+.RI "int \fBm_update\fP"
+.br
+.ti -1c
+.RI "int \fBm_render\fP"
+.br
+.ti -1c
+.RI "int \fBm_verbose\fP"
+.br
+.ti -1c
+.RI "\fBProgram\fP * \fBm_program\fP"
+.br
+.ti -1c
+.RI "\fBProfileTimer\fP \fBm_updateTimer\fP"
+.br
+.ti -1c
+.RI "\fBProfileTimer\fP \fBm_renderTimer\fP"
+.br
+.ti -1c
+.RI "\fBProfileTimer\fP \fBm_inputTimer\fP"
+.br
+.ti -1c
+.RI "bool \fBm_delayedInit\fP"
+.br
+.ti -1c
+.RI "bool \fBm_loaded\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "virtual void Init ()\fC [virtual]\fP"
+
+.SS "void InitProgram ()"
+
+.SS "virtual void ProcessInput (const \fBInput\fP & input, float delta)\fC [virtual]\fP"
+
+.SS "ProgramComponent (\fBProgram\fP * program, int verbose = \fC0\fP)"
+
+.SS "virtual void Render (const \fBShader\fP & shader, const \fBRenderingEngine\fP & renderingEngine, const \fBCamera\fP & camera)\fC [virtual]\fP"
+
+.SS "virtual void Update (float delta)\fC [virtual]\fP"
+
+.SS "~\fBProgramComponent\fP ()"
+
+.SH "Variable Documentation"
+.PP 
+.SS "bool m_delayedInit"
+
+.SS "int m_input"
+
+.SS "\fBProfileTimer\fP m_inputTimer"
+
+.SS "bool m_loaded"
+
+.SS "\fBProgram\fP* m_program"
+
+.SS "int m_render"
+
+.SS "\fBProfileTimer\fP m_renderTimer"
+
+.SS "int m_update"
+
+.SS "\fBProfileTimer\fP m_updateTimer"
+
+.SS "int m_verbose"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

@@ -1,0 +1,46 @@
+.TH "gtx_gradient_paint" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_gradient_paint \- GLM_GTX_gradient_paint
+.PP
+Functions that return the color of procedural gradient for specific coordinates\&. <\fBglm/gtx/gradient_paint\&.hpp\fP> need to be included to use these functionalities\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL T \fBglm::radialGradient\fP (tvec2< T, P > const &Center, T const &Radius, tvec2< T, P > const &Focal, tvec2< T, P > const &Position)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL T \fBglm::linearGradient\fP (tvec2< T, P > const &Point0, tvec2< T, P > const &Point1, tvec2< T, P > const &Position)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions that return the color of procedural gradient for specific coordinates\&. <\fBglm/gtx/gradient_paint\&.hpp\fP> need to be included to use these functionalities\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , precision P> GLM_FUNC_DECL T glm::linearGradient (tvec2< T, P > const & Point0, tvec2< T, P > const & Point1, tvec2< T, P > const & Position)"
+Return a color from a linear gradient\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+- \fBGLM_GTX_gradient_paint\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_DECL T glm::radialGradient (tvec2< T, P > const & Center, T const & Radius, tvec2< T, P > const & Focal, tvec2< T, P > const & Position)"
+Return a color from a radial gradient\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+- \fBGLM_GTX_gradient_paint\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

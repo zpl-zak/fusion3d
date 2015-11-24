@@ -1,0 +1,65 @@
+.TH "gtc_matrix_access" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtc_matrix_access \- GLM_GTC_matrix_access
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType::row_type \fBglm::row\fP (genType const &m, length_t index)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::row\fP (genType const &m, length_t index, typename genType::row_type const &x)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType::col_type \fBglm::column\fP (genType const &m, length_t index)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::column\fP (genType const &m, length_t index, typename genType::col_type const &x)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Defines functions to access rows or columns of a matrix easily\&. <\fBglm/gtc/matrix_access\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename genType > GLM_FUNC_DECL genType::col_type glm::column (genType const & m, length_t index)"
+Get a specific column of a matrix\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_matrix_access\fP 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::column (genType const & m, length_t index, typename genType::col_type const & x)"
+Set a specific column to a matrix\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_matrix_access\fP 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType::row_type glm::row (genType const & m, length_t index)"
+Get a specific row of a matrix\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_matrix_access\fP 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::row (genType const & m, length_t index, typename genType::row_type const & x)"
+Set a specific row to a matrix\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_matrix_access\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

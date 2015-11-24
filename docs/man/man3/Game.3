@@ -1,0 +1,80 @@
+.TH "Game" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Game \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <game\&.h>\fP
+.PP
+Inherited by \fBTestGame\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGame\fP ()"
+.br
+.ti -1c
+.RI "virtual \fB~Game\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBInit\fP (const \fBWindow\fP &window)"
+.br
+.ti -1c
+.RI "void \fBProcessInput\fP (const \fBInput\fP &input, float delta)"
+.br
+.ti -1c
+.RI "void \fBUpdate\fP (float delta)"
+.br
+.ti -1c
+.RI "void \fBRender\fP (\fBRenderingEngine\fP *renderingEngine)"
+.br
+.ti -1c
+.RI "double \fBDisplayInputTime\fP (double dividend)"
+.br
+.ti -1c
+.RI "double \fBDisplayUpdateTime\fP (double dividend)"
+.br
+.ti -1c
+.RI "void \fBSetEngine\fP (\fBCoreEngine\fP *engine)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP * \fBAddToScene\fP (\fBEntity\fP *child)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Game::Game ()\fC [inline]\fP"
+
+.SS "virtual Game::~Game ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBEntity\fP* Game::AddToScene (\fBEntity\fP * child)\fC [inline]\fP, \fC [protected]\fP"
+
+.SS "double Game::DisplayInputTime (double dividend)\fC [inline]\fP"
+
+.SS "double Game::DisplayUpdateTime (double dividend)\fC [inline]\fP"
+
+.SS "virtual void Game::Init (const \fBWindow\fP & window)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBTestGame\fP\&.
+.SS "void Game::ProcessInput (const \fBInput\fP & input, float delta)"
+
+.SS "void Game::Render (\fBRenderingEngine\fP * renderingEngine)"
+
+.SS "void Game::SetEngine (\fBCoreEngine\fP * engine)\fC [inline]\fP"
+
+.SS "void Game::Update (float delta)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

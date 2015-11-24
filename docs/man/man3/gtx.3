@@ -1,0 +1,249 @@
+.TH "gtx" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx \- GTX Extensions (Experimental)
+.PP
+Functions and types that the GLSL specification doesn't define, but useful to have for a C++ program\&.  
+
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBGLM_GTX_associated_min_max\fP"
+.br
+.RI "\fIMin and max functions that return associated values not the compared onces\&. <\fBglm/gtx/associated_min_max\&.hpp\fP> need to be included to use these functionalities\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_bit\fP"
+.br
+.RI "\fIAllow to perform bit operations on integer values\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_closest_point\fP"
+.br
+.RI "\fIFind the point on a straight line which is the closet of a point\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_color_space\fP"
+.br
+.RI "\fIRelated to RGB to HSV conversions and operations\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_color_space_YCoCg\fP"
+.br
+.RI "\fIRGB to YCoCg conversions and operations\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_common\fP"
+.br
+.RI "\fIProvide functions to increase the compatibility with Cg and HLSL languages\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_compatibility\fP"
+.br
+.RI "\fIProvide functions to increase the compatibility with Cg and HLSL languages\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_component_wise\fP"
+.br
+.RI "\fIOperations between components of a type\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_dual_quaternion\fP"
+.br
+.RI "\fIDefines a templated dual-quaternion type and several dual-quaternion operations\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_euler_angles\fP"
+.br
+.RI "\fIBuild matrices from Euler angles\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_extend\fP"
+.br
+.RI "\fIExtend a position from a source to a position at a defined length\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_extented_min_max\fP"
+.br
+.ti -1c
+.RI "\fBGLM_GTX_fast_exponential\fP"
+.br
+.RI "\fIFast but less accurate implementations of exponential based functions\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_fast_square_root\fP"
+.br
+.RI "\fIFast but less accurate implementations of square root based functions\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_fast_trigonometry\fP"
+.br
+.RI "\fIFast but less accurate implementations of trigonometric functions\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_gradient_paint\fP"
+.br
+.RI "\fIFunctions that return the color of procedural gradient for specific coordinates\&. <\fBglm/gtx/gradient_paint\&.hpp\fP> need to be included to use these functionalities\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_handed_coordinate_space\fP"
+.br
+.RI "\fITo know if a set of three basis vectors defines a right or left-handed coordinate system\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_hash\fP"
+.br
+.RI "\fIAdd std::hash support for glm types\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_integer\fP"
+.br
+.RI "\fIAdd support for integer for core functions\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_intersect\fP"
+.br
+.RI "\fIAdd intersection functions\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_io\fP"
+.br
+.RI "\fIstd::[w]ostream support for glm types \fP"
+.ti -1c
+.RI "\fBGLM_GTX_log_base\fP"
+.br
+.RI "\fILogarithm for any base\&. base can be a vector or a scalar\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_matrix_cross_product\fP"
+.br
+.RI "\fIBuild cross product matrices\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_matrix_decompose\fP"
+.br
+.RI "\fIDecomposes a model matrix to translations, rotation and scale components\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_matrix_interpolation\fP"
+.br
+.RI "\fIAllows to directly interpolate two exiciting matrices\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_matrix_major_storage\fP"
+.br
+.RI "\fIBuild matrices with specific matrix order, row or column\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_matrix_operation\fP"
+.br
+.RI "\fIBuild diagonal matrices from vectors\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_matrix_query\fP"
+.br
+.RI "\fIQuery to evaluate matrix properties\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_matrix_transform_2d\fP"
+.br
+.RI "\fIDefines functions that generate common 2d transformation matrices\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_mixed_producte\fP"
+.br
+.RI "\fIMixed product of 3 vectors\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_norm\fP"
+.br
+.RI "\fIVarious ways to compute vector norms\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_normal\fP"
+.br
+.RI "\fICompute the normal of a triangle\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_normalize_dot\fP"
+.br
+.RI "\fIDot product of vectors that need to be normalize with a single square root\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_number_precision\fP"
+.br
+.RI "\fIDefined size types\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_optimum_pow\fP"
+.br
+.RI "\fIInteger exponentiation of power functions\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_orthonormalize\fP"
+.br
+.RI "\fIOrthonormalize matrices\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_perpendicular\fP"
+.br
+.RI "\fIPerpendicular of a vector from other one\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_polar_coordinates\fP"
+.br
+.RI "\fIConversion from Euclidean space to polar space and revert\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_projection\fP"
+.br
+.RI "\fIProjection of a vector to other one\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_quaternion\fP"
+.br
+.RI "\fIExtented quaternion types and functions\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_range\fP"
+.br
+.RI "\fIDefines begin and end for vectors and matrices\&. Useful for range-based for loop\&. The range is defined over the elements, not over columns or rows (e\&.g\&. mat4 has 16 elements)\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_raw_data\fP"
+.br
+.RI "\fIProjection of a vector to other one\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_rotate_normalized_axis\fP"
+.br
+.RI "\fIQuaternions and matrices rotations around normalized axis\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_rotate_vector\fP"
+.br
+.RI "\fIFunction to directly rotate a vector\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_scalar_relational\fP"
+.br
+.RI "\fIExtend a position from a source to a position at a defined length\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_simd_mat4\fP"
+.br
+.RI "\fISIMD implementation of mat4 type\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_simd_quat\fP"
+.br
+.RI "\fISIMD implementation of quat type\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_simd_vec4\fP"
+.br
+.RI "\fISIMD implementation of vec4 type\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_spline\fP"
+.br
+.RI "\fISpline functions\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_std_based_type\fP"
+.br
+.RI "\fIAdds vector types based on STL value types\&. <\fBglm/gtx/std_based_type\&.hpp\fP> need to be included to use these functionalities\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_string_cast\fP"
+.br
+.RI "\fISetup strings for GLM type values\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_transform\fP"
+.br
+.RI "\fIAdd transformation matrices\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_transform2\fP"
+.br
+.RI "\fIAdd extra transformation matrices\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_type_aligned\fP"
+.br
+.RI "\fIDefines aligned types\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_vector_angle\fP"
+.br
+.RI "\fICompute angle between vectors\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_vector_query\fP"
+.br
+.RI "\fIQuery informations of vector types\&. \fP"
+.ti -1c
+.RI "\fBGLM_GTX_wrap\fP"
+.br
+.RI "\fIWrapping mode of texture coordinates\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions and types that the GLSL specification doesn't define, but useful to have for a C++ program\&. 
+
+Experimental extensions are useful functions and types, but the development of their API and functionality is not necessarily stable\&. They can change substantially between versions\&. Backwards compatibility is not much of an issue for them\&.
+.PP
+Even if it's highly unrecommended, it's possible to include all the extensions at once by including <\fBglm/ext\&.hpp\fP>\&. Otherwise, each extension needs to be included a specific file\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

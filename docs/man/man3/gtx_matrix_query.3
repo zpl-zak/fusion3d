@@ -1,0 +1,62 @@
+.TH "gtx_matrix_query" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_matrix_query \- GLM_GTX_matrix_query
+.PP
+Query to evaluate matrix properties\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL bool \fBglm::isNull\fP (tmat2x2< T, P > const &m, T const &epsilon)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL bool \fBglm::isNull\fP (tmat3x3< T, P > const &m, T const &epsilon)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL bool \fBglm::isNull\fP (tmat4x4< T, P > const &m, T const &epsilon)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class matType> GLM_FUNC_DECL bool \fBglm::isIdentity\fP (matType< T, P > const &m, T const &epsilon)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL bool \fBglm::isNormalized\fP (tmat2x2< T, P > const &m, T const &epsilon)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL bool \fBglm::isNormalized\fP (tmat3x3< T, P > const &m, T const &epsilon)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL bool \fBglm::isNormalized\fP (tmat4x4< T, P > const &m, T const &epsilon)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class matType> GLM_FUNC_DECL bool \fBglm::isOrthogonal\fP (matType< T, P > const &m, T const &epsilon)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Query to evaluate matrix properties\&. 
+
+<\fBglm/gtx/matrix_query\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , precision P, template< typename, precision > class matType> GLM_FUNC_DECL bool glm::isIdentity (matType< T, P > const & m, T const & epsilon)"
+Return whether a matrix is an identity matrix\&. From GLM_GTX_matrix_query extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL bool glm::isNormalized (tmat2x2< T, P > const & m, T const & epsilon)"
+Return whether a matrix is a normalized matrix\&. From GLM_GTX_matrix_query extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL bool glm::isNormalized (tmat3x3< T, P > const & m, T const & epsilon)"
+Return whether a matrix is a normalized matrix\&. From GLM_GTX_matrix_query extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL bool glm::isNormalized (tmat4x4< T, P > const & m, T const & epsilon)"
+Return whether a matrix is a normalized matrix\&. From GLM_GTX_matrix_query extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL bool glm::isNull (tmat2x2< T, P > const & m, T const & epsilon)"
+Return whether a matrix a null matrix\&. From GLM_GTX_matrix_query extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL bool glm::isNull (tmat3x3< T, P > const & m, T const & epsilon)"
+Return whether a matrix a null matrix\&. From GLM_GTX_matrix_query extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL bool glm::isNull (tmat4x4< T, P > const & m, T const & epsilon)"
+Return whether a matrix is a null matrix\&. From GLM_GTX_matrix_query extension\&. 
+.SS "template<typename T , precision P, template< typename, precision > class matType> GLM_FUNC_DECL bool glm::isOrthogonal (matType< T, P > const & m, T const & epsilon)"
+Return whether a matrix is an orthonormalized matrix\&. From GLM_GTX_matrix_query extension\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

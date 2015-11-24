@@ -1,0 +1,82 @@
+\hypertarget{camera_8h}{}\section{F\+:/\+Fusion3\+D\+\_\+work/src/rendering/camera.h File Reference}
+\label{camera_8h}\index{F\+:/\+Fusion3\+D\+\_\+work/src/rendering/camera.\+h@{F\+:/\+Fusion3\+D\+\_\+work/src/rendering/camera.\+h}}
+{\ttfamily \#include \char`\"{}../core/math3d.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../core/entity\+Component.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_camera}{Camera}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{camera_8h_ad1e8009af56472a7a1972883b0cca62a}{C\+A\+M\+E\+R\+A\+\_\+\+H}~\char`\"{}Camera\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{camera_8h_a9ae635f0d04ea56fb456dc8b49f3b680}{Camera\+Component} (const \hyperlink{math3d_8h_a5b7721ab7216c91a40538beaa9e6ee1f}{Matrix4f} \&projection)
+\item 
+virtual void \hyperlink{camera_8h_a6c33c606c052c1c566d5d16b785304a2}{Add\+To\+Engine} (\hyperlink{class_core_engine}{Core\+Engine} $\ast$engine)
+\item 
+\hyperlink{math3d_8h_a5b7721ab7216c91a40538beaa9e6ee1f}{Matrix4f} \hyperlink{camera_8h_a8acc77c4a559efc76a023a04c0c71700}{Get\+View\+Projection} () const 
+\item 
+void \hyperlink{camera_8h_a8938ef2160cf580d3391a846ff6f7a22}{Set\+Projection} (const \hyperlink{math3d_8h_a5b7721ab7216c91a40538beaa9e6ee1f}{Matrix4f} \&projection)
+\item 
+virtual void \hyperlink{camera_8h_a99584075cee0ed9fce3807e636aa01f9}{Set\+Parent} (\hyperlink{class_entity}{Entity} $\ast$parent)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_camera}{Camera} \hyperlink{camera_8h_ac4d3b11d4db49f855852a2546ea0eeb9}{m\+\_\+camera}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{camera_8h_ad1e8009af56472a7a1972883b0cca62a}{}\index{camera.\+h@{camera.\+h}!C\+A\+M\+E\+R\+A\+\_\+\+H@{C\+A\+M\+E\+R\+A\+\_\+\+H}}
+\index{C\+A\+M\+E\+R\+A\+\_\+\+H@{C\+A\+M\+E\+R\+A\+\_\+\+H}!camera.\+h@{camera.\+h}}
+\subsubsection[{C\+A\+M\+E\+R\+A\+\_\+\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+M\+E\+R\+A\+\_\+\+H~\char`\"{}Camera\char`\"{}}\label{camera_8h_ad1e8009af56472a7a1972883b0cca62a}
+
+
+\subsection{Function Documentation}
+\hypertarget{camera_8h_a6c33c606c052c1c566d5d16b785304a2}{}\index{camera.\+h@{camera.\+h}!Add\+To\+Engine@{Add\+To\+Engine}}
+\index{Add\+To\+Engine@{Add\+To\+Engine}!camera.\+h@{camera.\+h}}
+\subsubsection[{Add\+To\+Engine(\+Core\+Engine $\ast$engine)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Add\+To\+Engine (
+\begin{DoxyParamCaption}
+\item[{{\bf Core\+Engine} $\ast$}]{engine}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{camera_8h_a6c33c606c052c1c566d5d16b785304a2}
+\hypertarget{camera_8h_a9ae635f0d04ea56fb456dc8b49f3b680}{}\index{camera.\+h@{camera.\+h}!Camera\+Component@{Camera\+Component}}
+\index{Camera\+Component@{Camera\+Component}!camera.\+h@{camera.\+h}}
+\subsubsection[{Camera\+Component(const Matrix4f \&projection)}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+Component (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix4f} \&}]{projection}
+\end{DoxyParamCaption}
+)}\label{camera_8h_a9ae635f0d04ea56fb456dc8b49f3b680}
+\hypertarget{camera_8h_a8acc77c4a559efc76a023a04c0c71700}{}\index{camera.\+h@{camera.\+h}!Get\+View\+Projection@{Get\+View\+Projection}}
+\index{Get\+View\+Projection@{Get\+View\+Projection}!camera.\+h@{camera.\+h}}
+\subsubsection[{Get\+View\+Projection() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix4f} Get\+View\+Projection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{camera_8h_a8acc77c4a559efc76a023a04c0c71700}
+\hypertarget{camera_8h_a99584075cee0ed9fce3807e636aa01f9}{}\index{camera.\+h@{camera.\+h}!Set\+Parent@{Set\+Parent}}
+\index{Set\+Parent@{Set\+Parent}!camera.\+h@{camera.\+h}}
+\subsubsection[{Set\+Parent(\+Entity $\ast$parent)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Set\+Parent (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{camera_8h_a99584075cee0ed9fce3807e636aa01f9}
+\hypertarget{camera_8h_a8938ef2160cf580d3391a846ff6f7a22}{}\index{camera.\+h@{camera.\+h}!Set\+Projection@{Set\+Projection}}
+\index{Set\+Projection@{Set\+Projection}!camera.\+h@{camera.\+h}}
+\subsubsection[{Set\+Projection(const Matrix4f \&projection)}]{\setlength{\rightskip}{0pt plus 5cm}void Set\+Projection (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix4f} \&}]{projection}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{camera_8h_a8938ef2160cf580d3391a846ff6f7a22}
+
+
+\subsection{Variable Documentation}
+\hypertarget{camera_8h_ac4d3b11d4db49f855852a2546ea0eeb9}{}\index{camera.\+h@{camera.\+h}!m\+\_\+camera@{m\+\_\+camera}}
+\index{m\+\_\+camera@{m\+\_\+camera}!camera.\+h@{camera.\+h}}
+\subsubsection[{m\+\_\+camera}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Camera} m\+\_\+camera}\label{camera_8h_ac4d3b11d4db49f855852a2546ea0eeb9}

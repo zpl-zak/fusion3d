@@ -1,0 +1,146 @@
+\hypertarget{lighting_8h}{}\section{F\+:/\+Fusion3\+D\+\_\+work/src/rendering/lighting.h File Reference}
+\label{lighting_8h}\index{F\+:/\+Fusion3\+D\+\_\+work/src/rendering/lighting.\+h@{F\+:/\+Fusion3\+D\+\_\+work/src/rendering/lighting.\+h}}
+{\ttfamily \#include \char`\"{}shader.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../core/math3d.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../core/entity\+Component.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_shadow_camera_transform}{Shadow\+Camera\+Transform}
+\item 
+class \hyperlink{class_shadow_info}{Shadow\+Info}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lighting_8h_a5796f1b946d6b585e607c4d0df3a0d8f}{Base\+Light} (const \hyperlink{class_vector3f}{Vector3f} \&color, float intensity, const \hyperlink{class_shader}{Shader} \&shader)
+\item 
+virtual \hyperlink{class_shadow_camera_transform}{Shadow\+Camera\+Transform} \hyperlink{lighting_8h_afaaa2a9ca72e6c848b0b23418d0fd0c0}{Calc\+Shadow\+Camera\+Transform} (const \hyperlink{class_vector3f}{Vector3f} \&main\+Camera\+Pos, const \hyperlink{class_quaternion}{Quaternion} \&main\+Camera\+Rot) const 
+\item 
+virtual void \hyperlink{lighting_8h_a6c33c606c052c1c566d5d16b785304a2}{Add\+To\+Engine} (\hyperlink{class_core_engine}{Core\+Engine} $\ast$engine)
+\item 
+const \hyperlink{class_vector3f}{Vector3f} \& \hyperlink{lighting_8h_a09a17475d3d3fec0640eab75d6b2b74b}{Get\+Color} () const 
+\item 
+const float \hyperlink{lighting_8h_aacb3f9068e85d4a75dfdd22a7617b6c7}{Get\+Intensity} () const 
+\item 
+const \hyperlink{class_shader}{Shader} \& \hyperlink{lighting_8h_a02ef1d2f4fc2c1dacb87521edc7d3deb}{Get\+Shader} () const 
+\item 
+const \hyperlink{class_shadow_info}{Shadow\+Info} \& \hyperlink{lighting_8h_a9acb66da1e69e60a28356255ea4eaae3}{Get\+Shadow\+Info} () const 
+\item 
+const \hyperlink{class_material}{Material} $\ast$ \hyperlink{lighting_8h_a5de4cde84707734ac9687259a514969b}{Get\+Material} ()
+\item 
+\hyperlink{lighting_8h_a5796f1b946d6b585e607c4d0df3a0d8f}{Base\+Light} $\ast$ \hyperlink{lighting_8h_a7a1228cea57ef4f35cdfd73965bd67a9}{Set\+Color} (\hyperlink{class_vector3f}{Vector3f} color)
+\item 
+\hyperlink{lighting_8h_a5796f1b946d6b585e607c4d0df3a0d8f}{Base\+Light} $\ast$ \hyperlink{lighting_8h_af3aa559a1bd0104f7aecc52f926e24db}{Set\+Intensity} (float intensity)
+\item 
+void \hyperlink{lighting_8h_acbdf25ea1f0106cdee3faaa6d8fd1b92}{Set\+Shadow\+Info} (const \hyperlink{class_shadow_info}{Shadow\+Info} \&shadow\+Info)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{lighting_8h_a6552c932bf68168e336417c5bfbe1182}{m\+\_\+color}
+\item 
+float \hyperlink{lighting_8h_a11b3bb7d78640f38bc0807670e5a5095}{m\+\_\+intensity}
+\item 
+\hyperlink{class_shader}{Shader} \hyperlink{lighting_8h_a34932f07e180142c6b4f6926d2b9cf6c}{m\+\_\+shader}
+\item 
+\hyperlink{class_shadow_info}{Shadow\+Info} \hyperlink{lighting_8h_aba58c34121bc6bed7faabf0d0f3be3fb}{m\+\_\+shadow\+Info}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{lighting_8h_a6c33c606c052c1c566d5d16b785304a2}{}\index{lighting.\+h@{lighting.\+h}!Add\+To\+Engine@{Add\+To\+Engine}}
+\index{Add\+To\+Engine@{Add\+To\+Engine}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Add\+To\+Engine(\+Core\+Engine $\ast$engine)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Add\+To\+Engine (
+\begin{DoxyParamCaption}
+\item[{{\bf Core\+Engine} $\ast$}]{engine}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{lighting_8h_a6c33c606c052c1c566d5d16b785304a2}
+\hypertarget{lighting_8h_a5796f1b946d6b585e607c4d0df3a0d8f}{}\index{lighting.\+h@{lighting.\+h}!Base\+Light@{Base\+Light}}
+\index{Base\+Light@{Base\+Light}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Base\+Light(const Vector3f \&color, float intensity, const Shader \&shader)}]{\setlength{\rightskip}{0pt plus 5cm}Base\+Light (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{color, }
+\item[{float}]{intensity, }
+\item[{const {\bf Shader} \&}]{shader}
+\end{DoxyParamCaption}
+)}\label{lighting_8h_a5796f1b946d6b585e607c4d0df3a0d8f}
+\hypertarget{lighting_8h_afaaa2a9ca72e6c848b0b23418d0fd0c0}{}\index{lighting.\+h@{lighting.\+h}!Calc\+Shadow\+Camera\+Transform@{Calc\+Shadow\+Camera\+Transform}}
+\index{Calc\+Shadow\+Camera\+Transform@{Calc\+Shadow\+Camera\+Transform}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Calc\+Shadow\+Camera\+Transform(const Vector3f \&main\+Camera\+Pos, const Quaternion \&main\+Camera\+Rot) const }]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Shadow\+Camera\+Transform} Calc\+Shadow\+Camera\+Transform (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{main\+Camera\+Pos, }
+\item[{const {\bf Quaternion} \&}]{main\+Camera\+Rot}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{lighting_8h_afaaa2a9ca72e6c848b0b23418d0fd0c0}
+\hypertarget{lighting_8h_a09a17475d3d3fec0640eab75d6b2b74b}{}\index{lighting.\+h@{lighting.\+h}!Get\+Color@{Get\+Color}}
+\index{Get\+Color@{Get\+Color}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Get\+Color() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vector3f}\& Get\+Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{lighting_8h_a09a17475d3d3fec0640eab75d6b2b74b}
+\hypertarget{lighting_8h_aacb3f9068e85d4a75dfdd22a7617b6c7}{}\index{lighting.\+h@{lighting.\+h}!Get\+Intensity@{Get\+Intensity}}
+\index{Get\+Intensity@{Get\+Intensity}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Get\+Intensity() const }]{\setlength{\rightskip}{0pt plus 5cm}const float Get\+Intensity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{lighting_8h_aacb3f9068e85d4a75dfdd22a7617b6c7}
+\hypertarget{lighting_8h_a5de4cde84707734ac9687259a514969b}{}\index{lighting.\+h@{lighting.\+h}!Get\+Material@{Get\+Material}}
+\index{Get\+Material@{Get\+Material}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Get\+Material()}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Material}$\ast$ Get\+Material (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{lighting_8h_a5de4cde84707734ac9687259a514969b}
+\hypertarget{lighting_8h_a02ef1d2f4fc2c1dacb87521edc7d3deb}{}\index{lighting.\+h@{lighting.\+h}!Get\+Shader@{Get\+Shader}}
+\index{Get\+Shader@{Get\+Shader}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Get\+Shader() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Shader}\& Get\+Shader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{lighting_8h_a02ef1d2f4fc2c1dacb87521edc7d3deb}
+\hypertarget{lighting_8h_a9acb66da1e69e60a28356255ea4eaae3}{}\index{lighting.\+h@{lighting.\+h}!Get\+Shadow\+Info@{Get\+Shadow\+Info}}
+\index{Get\+Shadow\+Info@{Get\+Shadow\+Info}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Get\+Shadow\+Info() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Shadow\+Info}\& Get\+Shadow\+Info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{lighting_8h_a9acb66da1e69e60a28356255ea4eaae3}
+\hypertarget{lighting_8h_a7a1228cea57ef4f35cdfd73965bd67a9}{}\index{lighting.\+h@{lighting.\+h}!Set\+Color@{Set\+Color}}
+\index{Set\+Color@{Set\+Color}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Set\+Color(\+Vector3f color)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Light}$\ast$ Set\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector3f}}]{color}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{lighting_8h_a7a1228cea57ef4f35cdfd73965bd67a9}
+\hypertarget{lighting_8h_af3aa559a1bd0104f7aecc52f926e24db}{}\index{lighting.\+h@{lighting.\+h}!Set\+Intensity@{Set\+Intensity}}
+\index{Set\+Intensity@{Set\+Intensity}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Set\+Intensity(float intensity)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Light}$\ast$ Set\+Intensity (
+\begin{DoxyParamCaption}
+\item[{float}]{intensity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{lighting_8h_af3aa559a1bd0104f7aecc52f926e24db}
+\hypertarget{lighting_8h_acbdf25ea1f0106cdee3faaa6d8fd1b92}{}\index{lighting.\+h@{lighting.\+h}!Set\+Shadow\+Info@{Set\+Shadow\+Info}}
+\index{Set\+Shadow\+Info@{Set\+Shadow\+Info}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{Set\+Shadow\+Info(const Shadow\+Info \&shadow\+Info)}]{\setlength{\rightskip}{0pt plus 5cm}void Set\+Shadow\+Info (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shadow\+Info} \&}]{shadow\+Info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{lighting_8h_acbdf25ea1f0106cdee3faaa6d8fd1b92}
+
+
+\subsection{Variable Documentation}
+\hypertarget{lighting_8h_a6552c932bf68168e336417c5bfbe1182}{}\index{lighting.\+h@{lighting.\+h}!m\+\_\+color@{m\+\_\+color}}
+\index{m\+\_\+color@{m\+\_\+color}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{m\+\_\+color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} m\+\_\+color}\label{lighting_8h_a6552c932bf68168e336417c5bfbe1182}
+\hypertarget{lighting_8h_a11b3bb7d78640f38bc0807670e5a5095}{}\index{lighting.\+h@{lighting.\+h}!m\+\_\+intensity@{m\+\_\+intensity}}
+\index{m\+\_\+intensity@{m\+\_\+intensity}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{m\+\_\+intensity}]{\setlength{\rightskip}{0pt plus 5cm}float m\+\_\+intensity}\label{lighting_8h_a11b3bb7d78640f38bc0807670e5a5095}
+\hypertarget{lighting_8h_a34932f07e180142c6b4f6926d2b9cf6c}{}\index{lighting.\+h@{lighting.\+h}!m\+\_\+shader@{m\+\_\+shader}}
+\index{m\+\_\+shader@{m\+\_\+shader}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{m\+\_\+shader}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shader} m\+\_\+shader}\label{lighting_8h_a34932f07e180142c6b4f6926d2b9cf6c}
+\hypertarget{lighting_8h_aba58c34121bc6bed7faabf0d0f3be3fb}{}\index{lighting.\+h@{lighting.\+h}!m\+\_\+shadow\+Info@{m\+\_\+shadow\+Info}}
+\index{m\+\_\+shadow\+Info@{m\+\_\+shadow\+Info}!lighting.\+h@{lighting.\+h}}
+\subsubsection[{m\+\_\+shadow\+Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shadow\+Info} m\+\_\+shadow\+Info}\label{lighting_8h_aba58c34121bc6bed7faabf0d0f3be3fb}

@@ -1,0 +1,55 @@
+.TH "gtx_common" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_common \- GLM_GTX_common
+.PP
+Provide functions to increase the compatibility with Cg and HLSL languages\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType::bool_type \fBglm::isdenormal\fP (genType const &x)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType< T, P > \fBglm::fmod\fP (vecType< T, P > const &v)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provide functions to increase the compatibility with Cg and HLSL languages\&. 
+
+<\fBglm/gtx/common\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL vecType<T, P> glm::fmod (vecType< T, P > const & v)"
+Similiar to 'mod' but with a different rounding and integer support\&. Returns 'x - y * trunc(x/y)' instead of 'x - y * floor(x/y)'
+.PP
+\fBSee also:\fP
+.RS 4
+\fCGLSL mod vs HLSL fmod\fP 
+.PP
+\fCGLSL mod man page\fP 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType::bool_type glm::isdenormal (genType const & x)"
+Returns true if x is a denormalized number Numbers whose absolute value is too small to be represented in the normal format are represented in an alternate, denormalized format\&. This format is less precise but can represent values closer to zero\&.
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIgenType\fP Floating-point scalar or vector types\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fCGLSL isnan man page\fP 
+.PP
+\fCGLSL 4\&.20\&.8 specification, section 8\&.3 Common Functions\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

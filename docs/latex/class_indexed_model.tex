@@ -1,0 +1,214 @@
+\hypertarget{class_indexed_model}{}\section{Indexed\+Model Class Reference}
+\label{class_indexed_model}\index{Indexed\+Model@{Indexed\+Model}}
+
+
+{\ttfamily \#include $<$mesh.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_indexed_model_a1e547725f750214d5d4478ae5dda27fd}{Indexed\+Model} ()
+\item 
+\hyperlink{class_indexed_model_ad3927c4cd998510c27b6d78d453eed8c}{Indexed\+Model} (const std\+::vector$<$ unsigned int $>$ indices, const std\+::vector$<$ \hyperlink{class_vector3f}{Vector3f} $>$ \&positions, const std\+::vector$<$ \hyperlink{math3d_8h_a9f3739462b0605dcb64299fa289b6afe}{Vector2f} $>$ \&tex\+Coords, const std\+::vector$<$ \hyperlink{class_vector3f}{Vector3f} $>$ \&normals=std\+::vector$<$ \hyperlink{class_vector3f}{Vector3f} $>$(), const std\+::vector$<$ \hyperlink{class_vector3f}{Vector3f} $>$ \&tangents=std\+::vector$<$ \hyperlink{class_vector3f}{Vector3f} $>$())
+\item 
+bool \hyperlink{class_indexed_model_adbca8c4691184cfaff137d228ddd885c}{Is\+Valid} () const 
+\item 
+void \hyperlink{class_indexed_model_ad7c6f8680a079108e64d463b34dca802}{Calc\+Normals} ()
+\item 
+void \hyperlink{class_indexed_model_a5d9194a38c4c18cf5159d7fe5dbd1e14}{Calc\+Tangents} ()
+\item 
+\hyperlink{class_indexed_model}{Indexed\+Model} \hyperlink{class_indexed_model_a8f39e2fa52afdcfc5637487a37625a36}{Finalize} ()
+\item 
+void \hyperlink{class_indexed_model_a12ffb5465a583451ae594741a7151503}{Add\+Vertex} (const \hyperlink{class_vector3f}{Vector3f} \&vert)
+\item 
+void \hyperlink{class_indexed_model_af9e4cf11a7382e12d0d190f68f2a0549}{Add\+Vertex} (float x, float y, float z)
+\item 
+void \hyperlink{class_indexed_model_a8e64a560d6421b5208426e82bca89bc2}{Add\+Tex\+Coord} (const \hyperlink{math3d_8h_a9f3739462b0605dcb64299fa289b6afe}{Vector2f} \&tex\+Coord)
+\item 
+void \hyperlink{class_indexed_model_a21da70d87dce12969ef9f4ececc1f457}{Add\+Tex\+Coord} (float x, float y)
+\item 
+void \hyperlink{class_indexed_model_a5234351972aff54068ccda7054005529}{Add\+Normal} (const \hyperlink{class_vector3f}{Vector3f} \&normal)
+\item 
+void \hyperlink{class_indexed_model_adffa79edb321e84b2c73cd85d65369a8}{Add\+Normal} (float x, float y, float z)
+\item 
+void \hyperlink{class_indexed_model_ac409f2c18136e1c5669de9782c50a452}{Add\+Tangent} (const \hyperlink{class_vector3f}{Vector3f} \&tangent)
+\item 
+void \hyperlink{class_indexed_model_a6a2c1ce5e751a824ba962189332bf79c}{Add\+Tangent} (float x, float y, float z)
+\item 
+void \hyperlink{class_indexed_model_a76422df31bb87d55fadbd5baff70c331}{Add\+Face} (unsigned int vert\+Index0, unsigned int vert\+Index1, unsigned int vert\+Index2)
+\item 
+const std\+::vector$<$ unsigned int $>$ \& \hyperlink{class_indexed_model_a95bc43f2719df501d635987a3ffbbbca}{Get\+Indices} () const 
+\item 
+const std\+::vector$<$ \hyperlink{class_vector3f}{Vector3f} $>$ \& \hyperlink{class_indexed_model_a82cdd0a943892e1dea0657c1c58f1ee2}{Get\+Positions} () const 
+\item 
+const std\+::vector$<$ \hyperlink{math3d_8h_a9f3739462b0605dcb64299fa289b6afe}{Vector2f} $>$ \& \hyperlink{class_indexed_model_abf332c063e230c66895129fe7b8f7d8a}{Get\+Tex\+Coords} () const 
+\item 
+const std\+::vector$<$ \hyperlink{class_vector3f}{Vector3f} $>$ \& \hyperlink{class_indexed_model_a01877af59d10674f69517745d9fc04bf}{Get\+Normals} () const 
+\item 
+const std\+::vector$<$ \hyperlink{class_vector3f}{Vector3f} $>$ \& \hyperlink{class_indexed_model_a03d5a41eec38962b9eb3a34cbe7732ab}{Get\+Tangents} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_indexed_model_a1e547725f750214d5d4478ae5dda27fd}{}\index{Indexed\+Model@{Indexed\+Model}!Indexed\+Model@{Indexed\+Model}}
+\index{Indexed\+Model@{Indexed\+Model}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Indexed\+Model()}]{\setlength{\rightskip}{0pt plus 5cm}Indexed\+Model\+::\+Indexed\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_a1e547725f750214d5d4478ae5dda27fd}
+\hypertarget{class_indexed_model_ad3927c4cd998510c27b6d78d453eed8c}{}\index{Indexed\+Model@{Indexed\+Model}!Indexed\+Model@{Indexed\+Model}}
+\index{Indexed\+Model@{Indexed\+Model}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Indexed\+Model(const std\+::vector$<$ unsigned int $>$ indices, const std\+::vector$<$ Vector3f $>$ \&positions, const std\+::vector$<$ Vector2f $>$ \&tex\+Coords, const std\+::vector$<$ Vector3f $>$ \&normals=std\+::vector$<$ Vector3f $>$(), const std\+::vector$<$ Vector3f $>$ \&tangents=std\+::vector$<$ Vector3f $>$())}]{\setlength{\rightskip}{0pt plus 5cm}Indexed\+Model\+::\+Indexed\+Model (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ unsigned int $>$}]{indices, }
+\item[{const std\+::vector$<$ {\bf Vector3f} $>$ \&}]{positions, }
+\item[{const std\+::vector$<$ {\bf Vector2f} $>$ \&}]{tex\+Coords, }
+\item[{const std\+::vector$<$ {\bf Vector3f} $>$ \&}]{normals = {\ttfamily std\+:\+:vector$<${\bf Vector3f}$>$()}, }
+\item[{const std\+::vector$<$ {\bf Vector3f} $>$ \&}]{tangents = {\ttfamily std\+:\+:vector$<${\bf Vector3f}$>$()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_ad3927c4cd998510c27b6d78d453eed8c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_indexed_model_a76422df31bb87d55fadbd5baff70c331}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Face@{Add\+Face}}
+\index{Add\+Face@{Add\+Face}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Face(unsigned int vert\+Index0, unsigned int vert\+Index1, unsigned int vert\+Index2)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Face (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{vert\+Index0, }
+\item[{unsigned int}]{vert\+Index1, }
+\item[{unsigned int}]{vert\+Index2}
+\end{DoxyParamCaption}
+)}\label{class_indexed_model_a76422df31bb87d55fadbd5baff70c331}
+\hypertarget{class_indexed_model_a5234351972aff54068ccda7054005529}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Normal@{Add\+Normal}}
+\index{Add\+Normal@{Add\+Normal}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Normal(const Vector3f \&normal)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Normal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{normal}
+\end{DoxyParamCaption}
+)}\label{class_indexed_model_a5234351972aff54068ccda7054005529}
+\hypertarget{class_indexed_model_adffa79edb321e84b2c73cd85d65369a8}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Normal@{Add\+Normal}}
+\index{Add\+Normal@{Add\+Normal}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Normal(float x, float y, float z)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Normal (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_adffa79edb321e84b2c73cd85d65369a8}
+\hypertarget{class_indexed_model_ac409f2c18136e1c5669de9782c50a452}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Tangent@{Add\+Tangent}}
+\index{Add\+Tangent@{Add\+Tangent}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Tangent(const Vector3f \&tangent)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Tangent (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{tangent}
+\end{DoxyParamCaption}
+)}\label{class_indexed_model_ac409f2c18136e1c5669de9782c50a452}
+\hypertarget{class_indexed_model_a6a2c1ce5e751a824ba962189332bf79c}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Tangent@{Add\+Tangent}}
+\index{Add\+Tangent@{Add\+Tangent}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Tangent(float x, float y, float z)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Tangent (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_a6a2c1ce5e751a824ba962189332bf79c}
+\hypertarget{class_indexed_model_a8e64a560d6421b5208426e82bca89bc2}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Tex\+Coord@{Add\+Tex\+Coord}}
+\index{Add\+Tex\+Coord@{Add\+Tex\+Coord}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Tex\+Coord(const Vector2f \&tex\+Coord)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Tex\+Coord (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2f} \&}]{tex\+Coord}
+\end{DoxyParamCaption}
+)}\label{class_indexed_model_a8e64a560d6421b5208426e82bca89bc2}
+\hypertarget{class_indexed_model_a21da70d87dce12969ef9f4ececc1f457}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Tex\+Coord@{Add\+Tex\+Coord}}
+\index{Add\+Tex\+Coord@{Add\+Tex\+Coord}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Tex\+Coord(float x, float y)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Tex\+Coord (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_a21da70d87dce12969ef9f4ececc1f457}
+\hypertarget{class_indexed_model_a12ffb5465a583451ae594741a7151503}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Vertex@{Add\+Vertex}}
+\index{Add\+Vertex@{Add\+Vertex}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Vertex(const Vector3f \&vert)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Vertex (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{vert}
+\end{DoxyParamCaption}
+)}\label{class_indexed_model_a12ffb5465a583451ae594741a7151503}
+\hypertarget{class_indexed_model_af9e4cf11a7382e12d0d190f68f2a0549}{}\index{Indexed\+Model@{Indexed\+Model}!Add\+Vertex@{Add\+Vertex}}
+\index{Add\+Vertex@{Add\+Vertex}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Add\+Vertex(float x, float y, float z)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Add\+Vertex (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_af9e4cf11a7382e12d0d190f68f2a0549}
+\hypertarget{class_indexed_model_ad7c6f8680a079108e64d463b34dca802}{}\index{Indexed\+Model@{Indexed\+Model}!Calc\+Normals@{Calc\+Normals}}
+\index{Calc\+Normals@{Calc\+Normals}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Calc\+Normals()}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Calc\+Normals (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_indexed_model_ad7c6f8680a079108e64d463b34dca802}
+\hypertarget{class_indexed_model_a5d9194a38c4c18cf5159d7fe5dbd1e14}{}\index{Indexed\+Model@{Indexed\+Model}!Calc\+Tangents@{Calc\+Tangents}}
+\index{Calc\+Tangents@{Calc\+Tangents}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Calc\+Tangents()}]{\setlength{\rightskip}{0pt plus 5cm}void Indexed\+Model\+::\+Calc\+Tangents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_indexed_model_a5d9194a38c4c18cf5159d7fe5dbd1e14}
+\hypertarget{class_indexed_model_a8f39e2fa52afdcfc5637487a37625a36}{}\index{Indexed\+Model@{Indexed\+Model}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Finalize()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Indexed\+Model} Indexed\+Model\+::\+Finalize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_indexed_model_a8f39e2fa52afdcfc5637487a37625a36}
+\hypertarget{class_indexed_model_a95bc43f2719df501d635987a3ffbbbca}{}\index{Indexed\+Model@{Indexed\+Model}!Get\+Indices@{Get\+Indices}}
+\index{Get\+Indices@{Get\+Indices}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Get\+Indices() const }]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<$unsigned int$>$\& Indexed\+Model\+::\+Get\+Indices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_a95bc43f2719df501d635987a3ffbbbca}
+\hypertarget{class_indexed_model_a01877af59d10674f69517745d9fc04bf}{}\index{Indexed\+Model@{Indexed\+Model}!Get\+Normals@{Get\+Normals}}
+\index{Get\+Normals@{Get\+Normals}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Get\+Normals() const }]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<${\bf Vector3f}$>$\& Indexed\+Model\+::\+Get\+Normals (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_a01877af59d10674f69517745d9fc04bf}
+\hypertarget{class_indexed_model_a82cdd0a943892e1dea0657c1c58f1ee2}{}\index{Indexed\+Model@{Indexed\+Model}!Get\+Positions@{Get\+Positions}}
+\index{Get\+Positions@{Get\+Positions}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Get\+Positions() const }]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<${\bf Vector3f}$>$\& Indexed\+Model\+::\+Get\+Positions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_a82cdd0a943892e1dea0657c1c58f1ee2}
+\hypertarget{class_indexed_model_a03d5a41eec38962b9eb3a34cbe7732ab}{}\index{Indexed\+Model@{Indexed\+Model}!Get\+Tangents@{Get\+Tangents}}
+\index{Get\+Tangents@{Get\+Tangents}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Get\+Tangents() const }]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<${\bf Vector3f}$>$\& Indexed\+Model\+::\+Get\+Tangents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_a03d5a41eec38962b9eb3a34cbe7732ab}
+\hypertarget{class_indexed_model_abf332c063e230c66895129fe7b8f7d8a}{}\index{Indexed\+Model@{Indexed\+Model}!Get\+Tex\+Coords@{Get\+Tex\+Coords}}
+\index{Get\+Tex\+Coords@{Get\+Tex\+Coords}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Get\+Tex\+Coords() const }]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<${\bf Vector2f}$>$\& Indexed\+Model\+::\+Get\+Tex\+Coords (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_indexed_model_abf332c063e230c66895129fe7b8f7d8a}
+\hypertarget{class_indexed_model_adbca8c4691184cfaff137d228ddd885c}{}\index{Indexed\+Model@{Indexed\+Model}!Is\+Valid@{Is\+Valid}}
+\index{Is\+Valid@{Is\+Valid}!Indexed\+Model@{Indexed\+Model}}
+\subsubsection[{Is\+Valid() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Indexed\+Model\+::\+Is\+Valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_indexed_model_adbca8c4691184cfaff137d228ddd885c}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{mesh_8h}{mesh.\+h}\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{mesh_8cpp}{mesh.\+cpp}\end{DoxyCompactItemize}

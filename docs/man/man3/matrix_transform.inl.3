@@ -1,0 +1,123 @@
+.TH "F:/Fusion3D_work/src/staticLibs/glm/gtc/matrix_transform.inl" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/staticLibs/glm/gtc/matrix_transform.inl \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./geometric\&.hpp'\fP
+.br
+\fC#include '\&.\&./trigonometric\&.hpp'\fP
+.br
+\fC#include '\&.\&./matrix\&.hpp'\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBglm\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::translate\fP (tmat4x4< T, P > const &m, tvec3< T, P > const &v)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::rotate\fP (tmat4x4< T, P > const &m, T angle, tvec3< T, P > const &v)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::rotate_slow\fP (tmat4x4< T, P > const &m, T angle, tvec3< T, P > const &v)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::scale\fP (tmat4x4< T, P > const &m, tvec3< T, P > const &v)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::scale_slow\fP (tmat4x4< T, P > const &m, tvec3< T, P > const &v)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::ortho\fP (T left, T right, T bottom, T top, T zNear, T zFar)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::ortho\fP (T left, T right, T bottom, T top)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::frustum\fP (T left, T right, T bottom, T top, T nearVal, T farVal)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::perspective\fP (T fovy, T aspect, T zNear, T zFar)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::perspectiveRH\fP (T fovy, T aspect, T zNear, T zFar)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::perspectiveLH\fP (T fovy, T aspect, T zNear, T zFar)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::perspectiveFov\fP (T fov, T width, T height, T zNear, T zFar)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::perspectiveFovRH\fP (T fov, T width, T height, T zNear, T zFar)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::perspectiveFovLH\fP (T fov, T width, T height, T zNear, T zFar)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::infinitePerspective\fP (T fovy, T aspect, T zNear)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::tweakedInfinitePerspective\fP (T fovy, T aspect, T zNear, T ep)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_QUALIFIER tmat4x4< T, defaultp > \fBglm::tweakedInfinitePerspective\fP (T fovy, T aspect, T zNear)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P> GLM_FUNC_QUALIFIER tvec3< T, P > \fBglm::project\fP (tvec3< T, P > const &obj, tmat4x4< T, P > const &model, tmat4x4< T, P > const &proj, tvec4< U, P > const &viewport)"
+.br
+.ti -1c
+.RI "template<typename T , typename U , precision P> GLM_FUNC_QUALIFIER tvec3< T, P > \fBglm::unProject\fP (tvec3< T, P > const &win, tmat4x4< T, P > const &model, tmat4x4< T, P > const &proj, tvec4< U, P > const &viewport)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, typename U > GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::pickMatrix\fP (tvec2< T, P > const &center, tvec2< T, P > const &delta, tvec4< U, P > const &viewport)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::lookAt\fP (tvec3< T, P > const &eye, tvec3< T, P > const &center, tvec3< T, P > const &up)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::lookAtRH\fP (tvec3< T, P > const &eye, tvec3< T, P > const &center, tvec3< T, P > const &up)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER tmat4x4< T, P > \fBglm::lookAtLH\fP (tvec3< T, P > const &eye, tvec3< T, P > const &center, tvec3< T, P > const &up)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+OpenGL Mathematics (glm\&.g-truc\&.net)
+.PP
+Copyright (c) 2005 - 2015 G-Truc Creation (www\&.g-truc\&.net) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+.PP
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software\&.
+.PP
+Restrictions: By making use of the Software for military purposes, you choose to make a Bunny unhappy\&.
+.PP
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\&. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE\&.
+.PP
+\fBGLM_GTC_matrix_transform\fP
+.PP
+\fBDate:\fP
+.RS 4
+2009-04-29 / 2011-06-15 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Christophe Riccio 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

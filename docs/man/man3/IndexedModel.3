@@ -1,0 +1,122 @@
+.TH "IndexedModel" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+IndexedModel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mesh\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIndexedModel\fP ()"
+.br
+.ti -1c
+.RI "\fBIndexedModel\fP (const std::vector< unsigned int > indices, const std::vector< \fBVector3f\fP > &positions, const std::vector< \fBVector2f\fP > &texCoords, const std::vector< \fBVector3f\fP > &normals=std::vector< \fBVector3f\fP >(), const std::vector< \fBVector3f\fP > &tangents=std::vector< \fBVector3f\fP >())"
+.br
+.ti -1c
+.RI "bool \fBIsValid\fP () const "
+.br
+.ti -1c
+.RI "void \fBCalcNormals\fP ()"
+.br
+.ti -1c
+.RI "void \fBCalcTangents\fP ()"
+.br
+.ti -1c
+.RI "\fBIndexedModel\fP \fBFinalize\fP ()"
+.br
+.ti -1c
+.RI "void \fBAddVertex\fP (const \fBVector3f\fP &vert)"
+.br
+.ti -1c
+.RI "void \fBAddVertex\fP (float x, float y, float z)"
+.br
+.ti -1c
+.RI "void \fBAddTexCoord\fP (const \fBVector2f\fP &texCoord)"
+.br
+.ti -1c
+.RI "void \fBAddTexCoord\fP (float x, float y)"
+.br
+.ti -1c
+.RI "void \fBAddNormal\fP (const \fBVector3f\fP &normal)"
+.br
+.ti -1c
+.RI "void \fBAddNormal\fP (float x, float y, float z)"
+.br
+.ti -1c
+.RI "void \fBAddTangent\fP (const \fBVector3f\fP &tangent)"
+.br
+.ti -1c
+.RI "void \fBAddTangent\fP (float x, float y, float z)"
+.br
+.ti -1c
+.RI "void \fBAddFace\fP (unsigned int vertIndex0, unsigned int vertIndex1, unsigned int vertIndex2)"
+.br
+.ti -1c
+.RI "const std::vector< unsigned int > & \fBGetIndices\fP () const "
+.br
+.ti -1c
+.RI "const std::vector< \fBVector3f\fP > & \fBGetPositions\fP () const "
+.br
+.ti -1c
+.RI "const std::vector< \fBVector2f\fP > & \fBGetTexCoords\fP () const "
+.br
+.ti -1c
+.RI "const std::vector< \fBVector3f\fP > & \fBGetNormals\fP () const "
+.br
+.ti -1c
+.RI "const std::vector< \fBVector3f\fP > & \fBGetTangents\fP () const "
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "IndexedModel::IndexedModel ()\fC [inline]\fP"
+
+.SS "IndexedModel::IndexedModel (const std::vector< unsigned int > indices, const std::vector< \fBVector3f\fP > & positions, const std::vector< \fBVector2f\fP > & texCoords, const std::vector< \fBVector3f\fP > & normals = \fCstd::vector<\fBVector3f\fP>()\fP, const std::vector< \fBVector3f\fP > & tangents = \fCstd::vector<\fBVector3f\fP>()\fP)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void IndexedModel::AddFace (unsigned int vertIndex0, unsigned int vertIndex1, unsigned int vertIndex2)"
+
+.SS "void IndexedModel::AddNormal (const \fBVector3f\fP & normal)"
+
+.SS "void IndexedModel::AddNormal (float x, float y, float z)\fC [inline]\fP"
+
+.SS "void IndexedModel::AddTangent (const \fBVector3f\fP & tangent)"
+
+.SS "void IndexedModel::AddTangent (float x, float y, float z)\fC [inline]\fP"
+
+.SS "void IndexedModel::AddTexCoord (const \fBVector2f\fP & texCoord)"
+
+.SS "void IndexedModel::AddTexCoord (float x, float y)\fC [inline]\fP"
+
+.SS "void IndexedModel::AddVertex (const \fBVector3f\fP & vert)"
+
+.SS "void IndexedModel::AddVertex (float x, float y, float z)\fC [inline]\fP"
+
+.SS "void IndexedModel::CalcNormals ()"
+
+.SS "void IndexedModel::CalcTangents ()"
+
+.SS "\fBIndexedModel\fP IndexedModel::Finalize ()"
+
+.SS "const std::vector<unsigned int>& IndexedModel::GetIndices () const\fC [inline]\fP"
+
+.SS "const std::vector<\fBVector3f\fP>& IndexedModel::GetNormals () const\fC [inline]\fP"
+
+.SS "const std::vector<\fBVector3f\fP>& IndexedModel::GetPositions () const\fC [inline]\fP"
+
+.SS "const std::vector<\fBVector3f\fP>& IndexedModel::GetTangents () const\fC [inline]\fP"
+
+.SS "const std::vector<\fBVector2f\fP>& IndexedModel::GetTexCoords () const\fC [inline]\fP"
+
+.SS "bool IndexedModel::IsValid () const"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

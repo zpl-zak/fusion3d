@@ -1,0 +1,93 @@
+.TH "F:/Fusion3D_work/src/components/meshRenderer.h" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/components/meshRenderer.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./core/entityComponent\&.h'\fP
+.br
+\fC#include '\&.\&./rendering/mesh\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMeshRenderer\fP (std::vector< \fBMesh\fP * > meshes, std::vector< \fBMaterial\fP * > materials)"
+.br
+.ti -1c
+.RI "\fBMeshRenderer\fP (const std::string &fileName)"
+.br
+.ti -1c
+.RI "\fBMeshRenderer\fP (\fBMesh\fP mesh, const \fBMaterial\fP &material)"
+.br
+.ti -1c
+.RI "virtual void \fBInit\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBRender\fP (const \fBShader\fP &shader, const \fBRenderingEngine\fP &renderingEngine, const \fBCamera\fP &camera) const "
+.br
+.ti -1c
+.RI "\fBEntityComponent\fP * \fBSetVisible\fP (bool visible)"
+.br
+.ti -1c
+.RI "bool \fBIsVisible\fP ()"
+.br
+.ti -1c
+.RI "\fBEntityComponent\fP * \fBSetShadows\fP (bool shadows)"
+.br
+.ti -1c
+.RI "bool \fBHasShadows\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "std::vector< \fBMesh\fP > \fBm_mesh\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBMaterial\fP > \fBm_material\fP"
+.br
+.ti -1c
+.RI "bool \fBm_visible\fP"
+.br
+.ti -1c
+.RI "bool \fBm_shadows\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool HasShadows ()"
+
+.SS "virtual void Init ()\fC [virtual]\fP"
+
+.SS "bool IsVisible ()"
+
+.SS "MeshRenderer (std::vector< \fBMesh\fP * > meshes, std::vector< \fBMaterial\fP * > materials)"
+
+.SS "MeshRenderer (const std::string & fileName)"
+
+.SS "MeshRenderer (\fBMesh\fP mesh, const \fBMaterial\fP & material)"
+
+.SS "virtual void Render (const \fBShader\fP & shader, const \fBRenderingEngine\fP & renderingEngine, const \fBCamera\fP & camera) const\fC [virtual]\fP"
+
+.SS "\fBEntityComponent\fP* SetShadows (bool shadows)"
+
+.SS "\fBEntityComponent\fP* SetVisible (bool visible)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "std::vector<\fBMaterial\fP> m_material"
+
+.SS "std::vector<\fBMesh\fP> m_mesh"
+
+.SS "bool m_shadows"
+
+.SS "bool m_visible"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

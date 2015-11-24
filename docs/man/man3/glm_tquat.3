@@ -1,0 +1,235 @@
+.TH "glm::tquat< T, P >" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+glm::tquat< T, P > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <fwd\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBtquat\fP< T, P > \fBtype\fP"
+.br
+.ti -1c
+.RI "typedef T \fBvalue_type\fP"
+.br
+.ti -1c
+.RI "typedef length_t \fBlength_type\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "GLM_FUNC_DECL GLM_CONSTEXPR \fBlength_type\fP \fBlength\fP () const "
+.br
+.RI "\fIReturn the count of components of a quaternion\&. \fP"
+.ti -1c
+.RI "GLM_FUNC_DECL T & \fBoperator[]\fP (\fBlength_type\fP i)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL T const & \fBoperator[]\fP (\fBlength_type\fP i) const "
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP () GLM_DEFAULT_CTOR"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP (\fBtquat\fP< T, P > const &q) GLM_DEFAULT"
+.br
+.ti -1c
+.RI "template<precision Q> GLM_FUNC_DECL \fBtquat\fP (\fBtquat\fP< T, Q > const &q)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP (ctor)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP (T const &s, tvec3< T, P > const &v)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP (T const &\fBw\fP, T const &\fBx\fP, T const &\fBy\fP, T const &\fBz\fP)"
+.br
+.ti -1c
+.RI "template<typename U , precision Q> GLM_FUNC_DECL GLM_EXPLICIT \fBtquat\fP (\fBtquat\fP< U, Q > const &q)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP (tvec3< T, P > const &u, tvec3< T, P > const &v)"
+.br
+.RI "\fIExplicit conversion operators\&. \fP"
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP (tvec3< T, P > const &\fBeulerAngles\fP)"
+.br
+.RI "\fIBuild a quaternion from euler angles (pitch, yaw, roll), in radians\&. \fP"
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP (tmat3x3< T, P > const &m)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP (tmat4x4< T, P > const &m)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBtquat\fP< T, P > & \fBoperator=\fP (\fBtquat\fP< T, P > const &m) GLM_DEFAULT"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_DECL \fBtquat\fP< T, P > & \fBoperator=\fP (\fBtquat\fP< U, P > const &m)"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_DECL \fBtquat\fP< T, P > & \fBoperator+=\fP (\fBtquat\fP< U, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_DECL \fBtquat\fP< T, P > & \fBoperator*=\fP (\fBtquat\fP< U, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_DECL \fBtquat\fP< T, P > & \fBoperator*=\fP (U s)"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_DECL \fBtquat\fP< T, P > & \fBoperator/=\fP (U s)"
+.br
+.ti -1c
+.RI "template<precision Q> GLM_FUNC_QUALIFIER \fBtquat\fP (\fBtquat\fP< T, Q > const &q)"
+.br
+.RI "\fIGLM_HAS_DEFAULTED_FUNCTIONS\&. \fP"
+.ti -1c
+.RI "template<typename U, precision Q> GLM_FUNC_QUALIFIER \fBtquat\fP (\fBtquat\fP< U, Q > const &q)"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP< T, P > & \fBoperator=\fP (\fBtquat\fP< U, P > const &q)"
+.br
+.RI "\fIGLM_HAS_DEFAULTED_FUNCTIONS\&. \fP"
+.ti -1c
+.RI "template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP< T, P > & \fBoperator+=\fP (\fBtquat\fP< U, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP< T, P > & \fBoperator*=\fP (\fBtquat\fP< U, P > const &r)"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP< T, P > & \fBoperator*=\fP (U s)"
+.br
+.ti -1c
+.RI "template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP< T, P > & \fBoperator/=\fP (U s)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "T \fBx\fP"
+.br
+.ti -1c
+.RI "T \fBy\fP"
+.br
+.ti -1c
+.RI "T \fBz\fP"
+.br
+.ti -1c
+.RI "T \fBw\fP"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T, precision P = defaultp> typedef length_t \fBglm::tquat\fP< T, P >::\fBlength_type\fP"
+
+.SS "template<typename T, precision P = defaultp> typedef \fBtquat\fP<T, P> \fBglm::tquat\fP< T, P >::\fBtype\fP"
+
+.SS "template<typename T, precision P = defaultp> typedef T \fBglm::tquat\fP< T, P >::\fBvalue_type\fP"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP ()"
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (\fBtquat\fP< T, P > const & q)"
+
+.SS "template<typename T, precision P = defaultp> template<precision Q> GLM_FUNC_DECL \fBglm::tquat\fP< T, P >::\fBtquat\fP (\fBtquat\fP< T, Q > const & q)"
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (ctor)\fC [explicit]\fP"
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (T const & s, tvec3< T, P > const & v)\fC [explicit]\fP"
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (T const & w, T const & x, T const & y, T const & z)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U , precision Q> GLM_FUNC_DECL GLM_EXPLICIT \fBglm::tquat\fP< T, P >::\fBtquat\fP (\fBtquat\fP< U, Q > const & q)"
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (tvec3< T, P > const & u, tvec3< T, P > const & v)\fC [explicit]\fP"
+
+.PP
+Explicit conversion operators\&. Create a quaternion from two normalized axis
+.PP
+\fBParameters:\fP
+.RS 4
+\fIu\fP A first normalized axis 
+.br
+\fIv\fP A second normalized axis 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_quaternion\fP 
+.PP
+http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (tvec3< T, P > const & eulerAngles)\fC [explicit]\fP"
+
+.PP
+Build a quaternion from euler angles (pitch, yaw, roll), in radians\&. 
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (tmat3x3< T, P > const & m)\fC [explicit]\fP"
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (tmat4x4< T, P > const & m)\fC [explicit]\fP"
+
+.SS "template<typename T, precision P = defaultp> template<precision Q> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (\fBtquat\fP< T, Q > const & q)"
+
+.PP
+GLM_HAS_DEFAULTED_FUNCTIONS\&. 
+.SS "template<typename T, precision P = defaultp> template<typename U, precision Q> GLM_FUNC_QUALIFIER \fBglm::tquat\fP< T, P >::\fBtquat\fP (\fBtquat\fP< U, Q > const & q)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER GLM_CONSTEXPR \fBtquat\fP< T, P >::\fBlength_type\fP \fBglm::tquat\fP< T, P >::length () const"
+
+.PP
+Return the count of components of a quaternion\&. 
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_DECL \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator*= (\fBtquat\fP< U, P > const & q)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_DECL \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator*= (U s)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator*= (\fBtquat\fP< U, P > const & r)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator*= (U s)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_DECL \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator+= (\fBtquat\fP< U, P > const & q)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator+= (\fBtquat\fP< U, P > const & q)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_DECL \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator/= (U s)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator/= (U s)"
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER \fBtquat\fP< T, P > & \fBglm::tquat\fP< T, P >::operator= (\fBtquat\fP< T, P > const & m)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_DECL \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator= (\fBtquat\fP< U, P > const & m)"
+
+.SS "template<typename T, precision P = defaultp> template<typename U > GLM_FUNC_QUALIFIER \fBtquat\fP<T, P>& \fBglm::tquat\fP< T, P >::operator= (\fBtquat\fP< U, P > const & q)"
+
+.PP
+GLM_HAS_DEFAULTED_FUNCTIONS\&. 
+.SS "template<typename T, precision P = defaultp> GLM_FUNC_DECL T& \fBglm::tquat\fP< T, P >::operator[] (\fBlength_type\fP i)"
+
+.SS "template<typename T, precision P = defaultp> GLM_FUNC_DECL T const& \fBglm::tquat\fP< T, P >::operator[] (\fBlength_type\fP i) const"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T, precision P = defaultp> T \fBglm::tquat\fP< T, P >::w"
+
+.SS "template<typename T, precision P = defaultp> T \fBglm::tquat\fP< T, P >::x"
+
+.SS "template<typename T, precision P = defaultp> T \fBglm::tquat\fP< T, P >::y"
+
+.SS "template<typename T, precision P = defaultp> T \fBglm::tquat\fP< T, P >::z"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

@@ -1,0 +1,93 @@
+.TH "gtx_rotate_vector" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_rotate_vector \- GLM_GTX_rotate_vector
+.PP
+Function to directly rotate a vector\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::slerp\fP (tvec3< T, P > const &x, tvec3< T, P > const &y, T const &a)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec2< T, P > \fBglm::rotate\fP (tvec2< T, P > const &v, T const &angle)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::rotate\fP (tvec3< T, P > const &v, T const &angle, tvec3< T, P > const &normal)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< T, P > \fBglm::rotate\fP (tvec4< T, P > const &v, T const &angle, tvec3< T, P > const &normal)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::rotateX\fP (tvec3< T, P > const &v, T const &angle)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::rotateY\fP (tvec3< T, P > const &v, T const &angle)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec3< T, P > \fBglm::rotateZ\fP (tvec3< T, P > const &v, T const &angle)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< T, P > \fBglm::rotateX\fP (tvec4< T, P > const &v, T const &angle)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< T, P > \fBglm::rotateY\fP (tvec4< T, P > const &v, T const &angle)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tvec4< T, P > \fBglm::rotateZ\fP (tvec4< T, P > const &v, T const &angle)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat4x4< T, P > \fBglm::orientation\fP (tvec3< T, P > const &Normal, tvec3< T, P > const &Up)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Function to directly rotate a vector\&. 
+
+<\fBglm/gtx/rotate_vector\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat4x4<T, P> glm::orientation (tvec3< T, P > const & Normal, tvec3< T, P > const & Up)"
+Build a rotation matrix from a normal and a up vector\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec2<T, P> glm::rotate (tvec2< T, P > const & v, T const & angle)"
+Rotate a two dimensional vector\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3<T, P> glm::rotate (tvec3< T, P > const & v, T const & angle, tvec3< T, P > const & normal)"
+Rotate a three dimensional vector around an axis\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<T, P> glm::rotate (tvec4< T, P > const & v, T const & angle, tvec3< T, P > const & normal)"
+Rotate a four dimensional vector around an axis\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3<T, P> glm::rotateX (tvec3< T, P > const & v, T const & angle)"
+Rotate a three dimensional vector around the X axis\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<T, P> glm::rotateX (tvec4< T, P > const & v, T const & angle)"
+Rotate a four dimentionnals vector around the X axis\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3<T, P> glm::rotateY (tvec3< T, P > const & v, T const & angle)"
+Rotate a three dimensional vector around the Y axis\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<T, P> glm::rotateY (tvec4< T, P > const & v, T const & angle)"
+Rotate a four dimensional vector around the X axis\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3<T, P> glm::rotateZ (tvec3< T, P > const & v, T const & angle)"
+Rotate a three dimensional vector around the Z axis\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec4<T, P> glm::rotateZ (tvec4< T, P > const & v, T const & angle)"
+Rotate a four dimensional vector around the X axis\&. From GLM_GTX_rotate_vector extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tvec3<T, P> glm::slerp (tvec3< T, P > const & x, tvec3< T, P > const & y, T const & a)"
+Returns Spherical interpolation between two vectors
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP A first vector 
+.br
+\fIy\fP A second vector 
+.br
+\fIa\fP Interpolation factor\&. The interpolation is defined beyond the range [0, 1]\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_rotate_vector\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

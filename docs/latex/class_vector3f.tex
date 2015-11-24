@@ -1,0 +1,258 @@
+\hypertarget{class_vector3f}{}\section{Vector3f Class Reference}
+\label{class_vector3f}\index{Vector3f@{Vector3f}}
+
+
+{\ttfamily \#include $<$math3d.\+h$>$}
+
+Inheritance diagram for Vector3f\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_vector3f}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vector3f_a83ea28e272c27ddaa8c0d2c703850bcb}{Vector3f} (float x=0.\+0f, float y=0.\+0f, float z=0.\+0f)
+\item 
+\hyperlink{class_vector3f_adf12e9520dbe1870db90f61da7c7e439}{Vector3f} (const \hyperlink{class_vector3}{Vector3}$<$ float $>$ \&r)
+\item 
+float \hyperlink{class_vector3f_a355e21a71ae0d55ae26ccf2a3739a4e1}{Length} () const 
+\item 
+float \hyperlink{class_vector3f_a971a55e8f4724edcad60f5b14f953906}{Dot} (const \hyperlink{class_vector3f}{Vector3f} \&v) const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{class_vector3f_aa08a1a02eb2e991f26231edeb0811acf}{Cross} (const \hyperlink{class_vector3f}{Vector3f} \&v) const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{class_vector3f_a64cb066d442f06446d34790fbee18423}{Rotate} (float angle, const \hyperlink{class_vector3f}{Vector3f} \&axis) const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{class_vector3f_a352f95e22f448bb5ba17d44077db0a92}{Rotate} (const \hyperlink{class_quaternion}{Quaternion} \&rotation) const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{class_vector3f_a96d4153d8f724afc0da1ad0d9a78b358}{Normalized} () const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{class_vector3f_af045d6419eba34fecf0a06d5f05950ec}{operator+} (const \hyperlink{class_vector3f}{Vector3f} \&r) const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{class_vector3f_a2fdf46c83defdd5de1286aeda25cdbcb}{operator-\/} (const \hyperlink{class_vector3f}{Vector3f} \&r) const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{class_vector3f_a7e7fe965ab6b026df5494fff5d8f5080}{operator$\ast$} (float f) const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \hyperlink{class_vector3f_aa57991e73045b5f57216e1020bda021a}{operator/} (float f) const 
+\item 
+bool \hyperlink{class_vector3f_acfee43096f6cdfa042fab3defe7c253b}{operator==} (const \hyperlink{class_vector3f}{Vector3f} \&r) const 
+\item 
+bool \hyperlink{class_vector3f_ab41ff6fe5ca06f605499dfa7668c3eb8}{operator!=} (const \hyperlink{class_vector3f}{Vector3f} \&r) const 
+\item 
+\hyperlink{class_vector3f}{Vector3f} \& \hyperlink{class_vector3f_abb9089cd5b410ea28b1d1db63fc550f8}{operator+=} (const \hyperlink{class_vector3f}{Vector3f} \&r)
+\item 
+\hyperlink{class_vector3f}{Vector3f} \& \hyperlink{class_vector3f_a63ec561fd67ea011aa973c0549d48a26}{operator-\/=} (const \hyperlink{class_vector3f}{Vector3f} \&r)
+\item 
+\hyperlink{class_vector3f}{Vector3f} \& \hyperlink{class_vector3f_a0449c07194a079d3eb57961e374e96ee}{operator$\ast$=} (float f)
+\item 
+\hyperlink{class_vector3f}{Vector3f} \& \hyperlink{class_vector3f_a7586bd129a4aa5326d4663323760958f}{operator/=} (float f)
+\item 
+float \hyperlink{class_vector3f_af5a97e51e8e1db09c7381a9d15e8f176}{Get\+X} () const 
+\item 
+float \hyperlink{class_vector3f_a468098deabbe5e8bef23e555a974b3af}{Get\+Y} () const 
+\item 
+float \hyperlink{class_vector3f_a5e6d015d4cf9fa85eeb51e0e53225d84}{Get\+Z} () const 
+\item 
+void \hyperlink{class_vector3f_aaa6791fa256647707bcf41017f498bcf}{Set\+X} (float x)
+\item 
+void \hyperlink{class_vector3f_a260bcd7eb6bebb43f79a29421d254f2b}{Set\+Y} (float y)
+\item 
+void \hyperlink{class_vector3f_afb24d616af2e75cce9af632c870141ac}{Set\+Z} (float z)
+\item 
+void \hyperlink{class_vector3f_abbbcad97c6edc42ad313482fbb4eb3dd}{Set} (float x, float y, float z)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_vector3f_a83ea28e272c27ddaa8c0d2c703850bcb}{}\index{Vector3f@{Vector3f}!Vector3f@{Vector3f}}
+\index{Vector3f@{Vector3f}!Vector3f@{Vector3f}}
+\subsubsection[{Vector3f(float x=0.\+0f, float y=0.\+0f, float z=0.\+0f)}]{\setlength{\rightskip}{0pt plus 5cm}Vector3f\+::\+Vector3f (
+\begin{DoxyParamCaption}
+\item[{float}]{x = {\ttfamily 0.0f}, }
+\item[{float}]{y = {\ttfamily 0.0f}, }
+\item[{float}]{z = {\ttfamily 0.0f}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a83ea28e272c27ddaa8c0d2c703850bcb}
+\hypertarget{class_vector3f_adf12e9520dbe1870db90f61da7c7e439}{}\index{Vector3f@{Vector3f}!Vector3f@{Vector3f}}
+\index{Vector3f@{Vector3f}!Vector3f@{Vector3f}}
+\subsubsection[{Vector3f(const Vector3$<$ float $>$ \&r)}]{\setlength{\rightskip}{0pt plus 5cm}Vector3f\+::\+Vector3f (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3}$<$ float $>$ \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_adf12e9520dbe1870db90f61da7c7e439}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_vector3f_aa08a1a02eb2e991f26231edeb0811acf}{}\index{Vector3f@{Vector3f}!Cross@{Cross}}
+\index{Cross@{Cross}!Vector3f@{Vector3f}}
+\subsubsection[{Cross(const Vector3f \&v) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} Vector3f\+::\+Cross (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_aa08a1a02eb2e991f26231edeb0811acf}
+\hypertarget{class_vector3f_a971a55e8f4724edcad60f5b14f953906}{}\index{Vector3f@{Vector3f}!Dot@{Dot}}
+\index{Dot@{Dot}!Vector3f@{Vector3f}}
+\subsubsection[{Dot(const Vector3f \&v) const }]{\setlength{\rightskip}{0pt plus 5cm}float Vector3f\+::\+Dot (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a971a55e8f4724edcad60f5b14f953906}
+\hypertarget{class_vector3f_af5a97e51e8e1db09c7381a9d15e8f176}{}\index{Vector3f@{Vector3f}!Get\+X@{Get\+X}}
+\index{Get\+X@{Get\+X}!Vector3f@{Vector3f}}
+\subsubsection[{Get\+X() const }]{\setlength{\rightskip}{0pt plus 5cm}float Vector3f\+::\+Get\+X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_af5a97e51e8e1db09c7381a9d15e8f176}
+\hypertarget{class_vector3f_a468098deabbe5e8bef23e555a974b3af}{}\index{Vector3f@{Vector3f}!Get\+Y@{Get\+Y}}
+\index{Get\+Y@{Get\+Y}!Vector3f@{Vector3f}}
+\subsubsection[{Get\+Y() const }]{\setlength{\rightskip}{0pt plus 5cm}float Vector3f\+::\+Get\+Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a468098deabbe5e8bef23e555a974b3af}
+\hypertarget{class_vector3f_a5e6d015d4cf9fa85eeb51e0e53225d84}{}\index{Vector3f@{Vector3f}!Get\+Z@{Get\+Z}}
+\index{Get\+Z@{Get\+Z}!Vector3f@{Vector3f}}
+\subsubsection[{Get\+Z() const }]{\setlength{\rightskip}{0pt plus 5cm}float Vector3f\+::\+Get\+Z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a5e6d015d4cf9fa85eeb51e0e53225d84}
+\hypertarget{class_vector3f_a355e21a71ae0d55ae26ccf2a3739a4e1}{}\index{Vector3f@{Vector3f}!Length@{Length}}
+\index{Length@{Length}!Vector3f@{Vector3f}}
+\subsubsection[{Length() const }]{\setlength{\rightskip}{0pt plus 5cm}float Vector3f\+::\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a355e21a71ae0d55ae26ccf2a3739a4e1}
+\hypertarget{class_vector3f_a96d4153d8f724afc0da1ad0d9a78b358}{}\index{Vector3f@{Vector3f}!Normalized@{Normalized}}
+\index{Normalized@{Normalized}!Vector3f@{Vector3f}}
+\subsubsection[{Normalized() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} Vector3f\+::\+Normalized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a96d4153d8f724afc0da1ad0d9a78b358}
+\hypertarget{class_vector3f_ab41ff6fe5ca06f605499dfa7668c3eb8}{}\index{Vector3f@{Vector3f}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Vector3f@{Vector3f}}
+\subsubsection[{operator"!=(const Vector3f \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Vector3f\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_ab41ff6fe5ca06f605499dfa7668c3eb8}
+\hypertarget{class_vector3f_a7e7fe965ab6b026df5494fff5d8f5080}{}\index{Vector3f@{Vector3f}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector3f@{Vector3f}}
+\subsubsection[{operator$\ast$(float f) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} Vector3f\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{float}]{f}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a7e7fe965ab6b026df5494fff5d8f5080}
+\hypertarget{class_vector3f_a0449c07194a079d3eb57961e374e96ee}{}\index{Vector3f@{Vector3f}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Vector3f@{Vector3f}}
+\subsubsection[{operator$\ast$=(float f)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f}\& Vector3f\+::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{float}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a0449c07194a079d3eb57961e374e96ee}
+\hypertarget{class_vector3f_af045d6419eba34fecf0a06d5f05950ec}{}\index{Vector3f@{Vector3f}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector3f@{Vector3f}}
+\subsubsection[{operator+(const Vector3f \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} Vector3f\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_af045d6419eba34fecf0a06d5f05950ec}
+\hypertarget{class_vector3f_abb9089cd5b410ea28b1d1db63fc550f8}{}\index{Vector3f@{Vector3f}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vector3f@{Vector3f}}
+\subsubsection[{operator+=(const Vector3f \&r)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f}\& Vector3f\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_abb9089cd5b410ea28b1d1db63fc550f8}
+\hypertarget{class_vector3f_a2fdf46c83defdd5de1286aeda25cdbcb}{}\index{Vector3f@{Vector3f}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector3f@{Vector3f}}
+\subsubsection[{operator-\/(const Vector3f \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} Vector3f\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a2fdf46c83defdd5de1286aeda25cdbcb}
+\hypertarget{class_vector3f_a63ec561fd67ea011aa973c0549d48a26}{}\index{Vector3f@{Vector3f}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Vector3f@{Vector3f}}
+\subsubsection[{operator-\/=(const Vector3f \&r)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f}\& Vector3f\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a63ec561fd67ea011aa973c0549d48a26}
+\hypertarget{class_vector3f_aa57991e73045b5f57216e1020bda021a}{}\index{Vector3f@{Vector3f}!operator/@{operator/}}
+\index{operator/@{operator/}!Vector3f@{Vector3f}}
+\subsubsection[{operator/(float f) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} Vector3f\+::operator/ (
+\begin{DoxyParamCaption}
+\item[{float}]{f}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_aa57991e73045b5f57216e1020bda021a}
+\hypertarget{class_vector3f_a7586bd129a4aa5326d4663323760958f}{}\index{Vector3f@{Vector3f}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Vector3f@{Vector3f}}
+\subsubsection[{operator/=(float f)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f}\& Vector3f\+::operator/= (
+\begin{DoxyParamCaption}
+\item[{float}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a7586bd129a4aa5326d4663323760958f}
+\hypertarget{class_vector3f_acfee43096f6cdfa042fab3defe7c253b}{}\index{Vector3f@{Vector3f}!operator==@{operator==}}
+\index{operator==@{operator==}!Vector3f@{Vector3f}}
+\subsubsection[{operator==(const Vector3f \&r) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Vector3f\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_acfee43096f6cdfa042fab3defe7c253b}
+\hypertarget{class_vector3f_a64cb066d442f06446d34790fbee18423}{}\index{Vector3f@{Vector3f}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Vector3f@{Vector3f}}
+\subsubsection[{Rotate(float angle, const Vector3f \&axis) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} Vector3f\+::\+Rotate (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{const {\bf Vector3f} \&}]{axis}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a64cb066d442f06446d34790fbee18423}
+\hypertarget{class_vector3f_a352f95e22f448bb5ba17d44077db0a92}{}\index{Vector3f@{Vector3f}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Vector3f@{Vector3f}}
+\subsubsection[{Rotate(const Quaternion \&rotation) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3f} Vector3f\+::\+Rotate (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion} \&}]{rotation}
+\end{DoxyParamCaption}
+) const}\label{class_vector3f_a352f95e22f448bb5ba17d44077db0a92}
+\hypertarget{class_vector3f_abbbcad97c6edc42ad313482fbb4eb3dd}{}\index{Vector3f@{Vector3f}!Set@{Set}}
+\index{Set@{Set}!Vector3f@{Vector3f}}
+\subsubsection[{Set(float x, float y, float z)}]{\setlength{\rightskip}{0pt plus 5cm}void Vector3f\+::\+Set (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_abbbcad97c6edc42ad313482fbb4eb3dd}
+\hypertarget{class_vector3f_aaa6791fa256647707bcf41017f498bcf}{}\index{Vector3f@{Vector3f}!Set\+X@{Set\+X}}
+\index{Set\+X@{Set\+X}!Vector3f@{Vector3f}}
+\subsubsection[{Set\+X(float x)}]{\setlength{\rightskip}{0pt plus 5cm}void Vector3f\+::\+Set\+X (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_aaa6791fa256647707bcf41017f498bcf}
+\hypertarget{class_vector3f_a260bcd7eb6bebb43f79a29421d254f2b}{}\index{Vector3f@{Vector3f}!Set\+Y@{Set\+Y}}
+\index{Set\+Y@{Set\+Y}!Vector3f@{Vector3f}}
+\subsubsection[{Set\+Y(float y)}]{\setlength{\rightskip}{0pt plus 5cm}void Vector3f\+::\+Set\+Y (
+\begin{DoxyParamCaption}
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_a260bcd7eb6bebb43f79a29421d254f2b}
+\hypertarget{class_vector3f_afb24d616af2e75cce9af632c870141ac}{}\index{Vector3f@{Vector3f}!Set\+Z@{Set\+Z}}
+\index{Set\+Z@{Set\+Z}!Vector3f@{Vector3f}}
+\subsubsection[{Set\+Z(float z)}]{\setlength{\rightskip}{0pt plus 5cm}void Vector3f\+::\+Set\+Z (
+\begin{DoxyParamCaption}
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_vector3f_afb24d616af2e75cce9af632c870141ac}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/core/\hyperlink{math3d_8h}{math3d.\+h}\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/core/\hyperlink{math3d_8cpp}{math3d.\+cpp}\end{DoxyCompactItemize}

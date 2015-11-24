@@ -1,0 +1,125 @@
+\hypertarget{class_game}{}\section{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game} ()
+\item 
+virtual \hyperlink{class_game_a72772b628443c3675976d6b5e6c9ec2a}{$\sim$\+Game} ()
+\item 
+virtual void \hyperlink{class_game_ad47d16f9908f7b9304bcd31db0717e0b}{Init} (const \hyperlink{class_window}{Window} \&window)
+\item 
+void \hyperlink{class_game_ab64891eae2c4eb4f3bf7d161c6d5e37a}{Process\+Input} (const \hyperlink{class_input}{Input} \&input, float delta)
+\item 
+void \hyperlink{class_game_a6ad207394e4ce91f909d49c87802da08}{Update} (float delta)
+\item 
+void \hyperlink{class_game_a5fae2de88740658b07d98972d4b4ed26}{Render} (\hyperlink{class_rendering_engine}{Rendering\+Engine} $\ast$rendering\+Engine)
+\item 
+double \hyperlink{class_game_a18483e75040298401c19befdce191aa5}{Display\+Input\+Time} (double dividend)
+\item 
+double \hyperlink{class_game_aec51184864470a1554fd22a47e25a0e2}{Display\+Update\+Time} (double dividend)
+\item 
+void \hyperlink{class_game_ab7ee30cf8ff9dd65e527b6fd1a2bd333}{Set\+Engine} (\hyperlink{class_core_engine}{Core\+Engine} $\ast$engine)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_entity}{Entity} $\ast$ \hyperlink{class_game_a0b605ce1406e2afc17184221022d2075}{Add\+To\+Scene} (\hyperlink{class_entity}{Entity} $\ast$child)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}{}\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection[{Game()}]{\setlength{\rightskip}{0pt plus 5cm}Game\+::\+Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_game_ad59df6562a58a614fda24622d3715b65}
+\hypertarget{class_game_a72772b628443c3675976d6b5e6c9ec2a}{}\index{Game@{Game}!````~Game@{$\sim$\+Game}}
+\index{````~Game@{$\sim$\+Game}!Game@{Game}}
+\subsubsection[{$\sim$\+Game()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Game\+::$\sim$\+Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_game_a72772b628443c3675976d6b5e6c9ec2a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_game_a0b605ce1406e2afc17184221022d2075}{}\index{Game@{Game}!Add\+To\+Scene@{Add\+To\+Scene}}
+\index{Add\+To\+Scene@{Add\+To\+Scene}!Game@{Game}}
+\subsubsection[{Add\+To\+Scene(\+Entity $\ast$child)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity}$\ast$ Game\+::\+Add\+To\+Scene (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity} $\ast$}]{child}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{class_game_a0b605ce1406e2afc17184221022d2075}
+\hypertarget{class_game_a18483e75040298401c19befdce191aa5}{}\index{Game@{Game}!Display\+Input\+Time@{Display\+Input\+Time}}
+\index{Display\+Input\+Time@{Display\+Input\+Time}!Game@{Game}}
+\subsubsection[{Display\+Input\+Time(double dividend)}]{\setlength{\rightskip}{0pt plus 5cm}double Game\+::\+Display\+Input\+Time (
+\begin{DoxyParamCaption}
+\item[{double}]{dividend}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_game_a18483e75040298401c19befdce191aa5}
+\hypertarget{class_game_aec51184864470a1554fd22a47e25a0e2}{}\index{Game@{Game}!Display\+Update\+Time@{Display\+Update\+Time}}
+\index{Display\+Update\+Time@{Display\+Update\+Time}!Game@{Game}}
+\subsubsection[{Display\+Update\+Time(double dividend)}]{\setlength{\rightskip}{0pt plus 5cm}double Game\+::\+Display\+Update\+Time (
+\begin{DoxyParamCaption}
+\item[{double}]{dividend}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_game_aec51184864470a1554fd22a47e25a0e2}
+\hypertarget{class_game_ad47d16f9908f7b9304bcd31db0717e0b}{}\index{Game@{Game}!Init@{Init}}
+\index{Init@{Init}!Game@{Game}}
+\subsubsection[{Init(const Window \&window)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\+::\+Init (
+\begin{DoxyParamCaption}
+\item[{const {\bf Window} \&}]{window}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_game_ad47d16f9908f7b9304bcd31db0717e0b}
+
+
+Reimplemented in \hyperlink{class_test_game_a989e3de46c3f2b0a6ff5a3fee2741489}{Test\+Game}.
+
+\hypertarget{class_game_ab64891eae2c4eb4f3bf7d161c6d5e37a}{}\index{Game@{Game}!Process\+Input@{Process\+Input}}
+\index{Process\+Input@{Process\+Input}!Game@{Game}}
+\subsubsection[{Process\+Input(const Input \&input, float delta)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::\+Process\+Input (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input, }
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)}\label{class_game_ab64891eae2c4eb4f3bf7d161c6d5e37a}
+\hypertarget{class_game_a5fae2de88740658b07d98972d4b4ed26}{}\index{Game@{Game}!Render@{Render}}
+\index{Render@{Render}!Game@{Game}}
+\subsubsection[{Render(\+Rendering\+Engine $\ast$rendering\+Engine)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{{\bf Rendering\+Engine} $\ast$}]{rendering\+Engine}
+\end{DoxyParamCaption}
+)}\label{class_game_a5fae2de88740658b07d98972d4b4ed26}
+\hypertarget{class_game_ab7ee30cf8ff9dd65e527b6fd1a2bd333}{}\index{Game@{Game}!Set\+Engine@{Set\+Engine}}
+\index{Set\+Engine@{Set\+Engine}!Game@{Game}}
+\subsubsection[{Set\+Engine(\+Core\+Engine $\ast$engine)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::\+Set\+Engine (
+\begin{DoxyParamCaption}
+\item[{{\bf Core\+Engine} $\ast$}]{engine}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_game_ab7ee30cf8ff9dd65e527b6fd1a2bd333}
+\hypertarget{class_game_a6ad207394e4ce91f909d49c87802da08}{}\index{Game@{Game}!Update@{Update}}
+\index{Update@{Update}!Game@{Game}}
+\subsubsection[{Update(float delta)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)}\label{class_game_a6ad207394e4ce91f909d49c87802da08}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/core/\hyperlink{game_8h}{game.\+h}\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/core/\hyperlink{game_8cpp}{game.\+cpp}\end{DoxyCompactItemize}

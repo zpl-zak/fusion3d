@@ -1,0 +1,68 @@
+.TH "F:/Fusion3D_work/src/reflection.h" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F:/Fusion3D_work/src/reflection.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNAME\fP(x)   #x"
+.br
+.ti -1c
+.RI "#define \fBREFLECT\fP(p)"
+.br
+.ti -1c
+.RI "#define \fBCLASSTYPE\fP   _GetClassName_()"
+.br
+.ti -1c
+.RI "#define \fBCLASS\fP(p)"
+.br
+.ti -1c
+.RI "#define \fBCOMPONENT\fP(p)"
+.br
+.ti -1c
+.RI "#define \fBPROGRAM\fP(p)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CLASS(p)"
+\fBValue:\fP
+.PP
+.nf
+class p\
+{\
+    inline virtual std::string _GetClassName_() { return #p; }\
+.fi
+.SS "#define CLASSTYPE   _GetClassName_()"
+
+.SS "#define COMPONENT(p)"
+\fBValue:\fP
+.PP
+.nf
+class p : public EntityComponent\
+{\
+    inline virtual std::string _GetClassName_() { return #p; }\
+.fi
+.SS "#define NAME(x)   #x"
+
+.SS "#define PROGRAM(p)"
+\fBValue:\fP
+.PP
+.nf
+class p : public Program\
+{\
+    virtual std::string GetProgramName() { return #p; }\
+.fi
+.SS "#define REFLECT(p)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

@@ -1,0 +1,78 @@
+.TH "gtx_integer" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_integer \- GLM_GTX_integer
+.PP
+Add support for integer for core functions\&.  
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef signed int \fBglm::sint\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "GLM_FUNC_DECL int \fBglm::pow\fP (int x, int y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL int \fBglm::sqrt\fP (int x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL unsigned int \fBglm::floor_log2\fP (unsigned int x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL int \fBglm::mod\fP (int x, int y)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::factorial\fP (genType const &x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBuint\fP \fBglm::pow\fP (\fBuint\fP x, \fBuint\fP y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBuint\fP \fBglm::sqrt\fP (\fBuint\fP x)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBuint\fP \fBglm::mod\fP (\fBuint\fP x, \fBuint\fP y)"
+.br
+.ti -1c
+.RI "GLM_FUNC_DECL \fBuint\fP \fBglm::nlz\fP (\fBuint\fP x)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Add support for integer for core functions\&. 
+
+<\fBglm/gtx/integer\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef signed int \fBglm::sint\fP"
+32bit signed integer\&. From GLM_GTX_integer extension\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::factorial (genType const & x)"
+Return the factorial value of a number (!12 max, integer only) From GLM_GTX_integer extension\&. 
+.SS "GLM_FUNC_DECL unsigned int glm::floor_log2 (unsigned int x)"
+Returns the floor log2 of x\&. From GLM_GTX_integer extension\&. 
+.SS "GLM_FUNC_QUALIFIER int glm::mod (int x, int y)"
+Modulus\&. Returns x - y * floor(x / y) for each component in x using the floating point value y\&. From GLM_GTX_integer extension\&. 
+.SS "GLM_FUNC_QUALIFIER \fBuint\fP glm::mod (\fBuint\fP x, \fBuint\fP y)"
+Modulus\&. Returns x - y * floor(x / y) for each component in x using the floating point value y\&. From GLM_GTX_integer extension\&. 
+.SS "GLM_FUNC_QUALIFIER unsigned int glm::nlz (\fBuint\fP x)"
+Returns the number of leading zeros\&. From GLM_GTX_integer extension\&. 
+.SS "GLM_FUNC_QUALIFIER int glm::pow (int x, int y)"
+Returns x raised to the y power\&. From GLM_GTX_integer extension\&. 
+.SS "GLM_FUNC_QUALIFIER \fBuint\fP glm::pow (\fBuint\fP x, \fBuint\fP y)"
+Returns x raised to the y power\&. From GLM_GTX_integer extension\&. 
+.SS "GLM_FUNC_QUALIFIER int glm::sqrt (int x)"
+Returns the positive square root of x\&. From GLM_GTX_integer extension\&. 
+.SS "GLM_FUNC_QUALIFIER \fBuint\fP glm::sqrt (\fBuint\fP x)"
+Returns the positive square root of x\&. From GLM_GTX_integer extension\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

@@ -1,0 +1,53 @@
+.TH "gtc_noise" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtc_noise \- GLM_GTC_noise
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T \fBglm::perlin\fP (vecType< T, P > const &p)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T \fBglm::perlin\fP (vecType< T, P > const &p, vecType< T, P > const &rep)"
+.br
+.ti -1c
+.RI "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T \fBglm::simplex\fP (vecType< T, P > const &p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Defines 2D, 3D and 4D procedural noise functions Based on the work of Stefan Gustavson and Ashima Arts on 'webgl-noise': https://github.com/ashima/webgl-noise Following Stefan Gustavson's paper 'Simplex noise demystified': http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf <\fBglm/gtc/noise\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T glm::perlin (vecType< T, P > const & p)"
+Classic perlin noise\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_noise\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T glm::perlin (vecType< T, P > const & p, vecType< T, P > const & rep)"
+Periodic perlin noise\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_noise\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P, template< typename, precision > class vecType> GLM_FUNC_DECL T glm::simplex (vecType< T, P > const & p)"
+Simplex noise\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_noise\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

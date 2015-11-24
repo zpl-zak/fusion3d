@@ -1,0 +1,174 @@
+\hypertarget{class_rendering_engine}{}\section{Rendering\+Engine Class Reference}
+\label{class_rendering_engine}\index{Rendering\+Engine@{Rendering\+Engine}}
+
+
+{\ttfamily \#include $<$rendering\+Engine.\+h$>$}
+
+Inheritance diagram for Rendering\+Engine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_rendering_engine}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_rendering_engine_a0e21c88e8062f84c4ac72eaeee7589b7}{Rendering\+Engine} (\hyperlink{class_window}{Window} $\ast$window)
+\item 
+virtual \hyperlink{class_rendering_engine_a88d03066dde2aff01969125ec4cad81d}{$\sim$\+Rendering\+Engine} ()
+\item 
+virtual void \hyperlink{class_rendering_engine_a38ac5d7f0ed4b4933c232ca00a3adde5}{Render} (const \hyperlink{class_entity}{Entity} \&object)
+\item 
+void \hyperlink{class_rendering_engine_abdb38492f5b6ce91faf67be45a4f8398}{Add\+Light} (\hyperlink{lighting_8h_a5796f1b946d6b585e607c4d0df3a0d8f}{Base\+Light} $\ast$light)
+\item 
+void \hyperlink{class_rendering_engine_ab4129c1f16613cf99a42af5e9a25a94d}{Set\+Main\+Camera} (const \hyperlink{class_camera}{Camera} \&camera)
+\item 
+const \hyperlink{class_camera}{Camera} $\ast$ \hyperlink{class_rendering_engine_a82df5730a81c8dcc7396db4faea0475b}{Get\+Main\+Camera} ()
+\item 
+virtual void \hyperlink{class_rendering_engine_ad585884dd7d40bc347b729985edd214e}{Update\+Uniform\+Struct} (const \hyperlink{class_transform}{Transform} \&transform, const \hyperlink{class_material}{Material} \&material, const \hyperlink{class_shader}{Shader} \&shader, const std\+::string \&uniform\+Name, const std\+::string \&uniform\+Type) const 
+\item 
+double \hyperlink{class_rendering_engine_a9207fd39818ffb3522e5450cd5303b15}{Display\+Render\+Time} (double dividend)
+\item 
+double \hyperlink{class_rendering_engine_a552848b25ff08e2c6961570504291eaa}{Display\+Window\+Sync\+Time} (double dividend)
+\item 
+void \hyperlink{class_rendering_engine_ac7087d3f4ace79e7c1671549959c3bcd}{Set\+Shader} (const std\+::string \&file\+Name)
+\item 
+void \hyperlink{class_rendering_engine_ab00fce20ca35e752481114e05ef1eab1}{Set\+Full\+Bright} (bool state)
+\item 
+const \hyperlink{lighting_8h_a5796f1b946d6b585e607c4d0df3a0d8f}{Base\+Light} \& \hyperlink{class_rendering_engine_a8fcd0abd0d6d85938daab3e2a53586c3}{Get\+Active\+Light} () const 
+\item 
+unsigned int \hyperlink{class_rendering_engine_a61b5cf1c219f9a2514e9c44818dd25a8}{Get\+Sampler\+Slot} (const std\+::string \&sampler\+Name) const 
+\item 
+const \hyperlink{math3d_8h_a5b7721ab7216c91a40538beaa9e6ee1f}{Matrix4f} \& \hyperlink{class_rendering_engine_a0765f39bf7970cb6cb9f2de446f86671}{Get\+Light\+Matrix} () const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_rendering_engine_a5b6784d215f8ed44ac5fabaa9457811c}{Set\+Sampler\+Slot} (const std\+::string \&name, unsigned int value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_rendering_engine_a0e21c88e8062f84c4ac72eaeee7589b7}{}\index{Rendering\+Engine@{Rendering\+Engine}!Rendering\+Engine@{Rendering\+Engine}}
+\index{Rendering\+Engine@{Rendering\+Engine}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Rendering\+Engine(\+Window $\ast$window)}]{\setlength{\rightskip}{0pt plus 5cm}Rendering\+Engine\+::\+Rendering\+Engine (
+\begin{DoxyParamCaption}
+\item[{{\bf Window} $\ast$}]{window}
+\end{DoxyParamCaption}
+)}\label{class_rendering_engine_a0e21c88e8062f84c4ac72eaeee7589b7}
+\hypertarget{class_rendering_engine_a88d03066dde2aff01969125ec4cad81d}{}\index{Rendering\+Engine@{Rendering\+Engine}!````~Rendering\+Engine@{$\sim$\+Rendering\+Engine}}
+\index{````~Rendering\+Engine@{$\sim$\+Rendering\+Engine}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{$\sim$\+Rendering\+Engine()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Rendering\+Engine\+::$\sim$\+Rendering\+Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_rendering_engine_a88d03066dde2aff01969125ec4cad81d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_rendering_engine_abdb38492f5b6ce91faf67be45a4f8398}{}\index{Rendering\+Engine@{Rendering\+Engine}!Add\+Light@{Add\+Light}}
+\index{Add\+Light@{Add\+Light}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Add\+Light(\+Base\+Light $\ast$light)}]{\setlength{\rightskip}{0pt plus 5cm}void Rendering\+Engine\+::\+Add\+Light (
+\begin{DoxyParamCaption}
+\item[{{\bf Base\+Light} $\ast$}]{light}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_abdb38492f5b6ce91faf67be45a4f8398}
+\hypertarget{class_rendering_engine_a9207fd39818ffb3522e5450cd5303b15}{}\index{Rendering\+Engine@{Rendering\+Engine}!Display\+Render\+Time@{Display\+Render\+Time}}
+\index{Display\+Render\+Time@{Display\+Render\+Time}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Display\+Render\+Time(double dividend)}]{\setlength{\rightskip}{0pt plus 5cm}double Rendering\+Engine\+::\+Display\+Render\+Time (
+\begin{DoxyParamCaption}
+\item[{double}]{dividend}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_a9207fd39818ffb3522e5450cd5303b15}
+\hypertarget{class_rendering_engine_a552848b25ff08e2c6961570504291eaa}{}\index{Rendering\+Engine@{Rendering\+Engine}!Display\+Window\+Sync\+Time@{Display\+Window\+Sync\+Time}}
+\index{Display\+Window\+Sync\+Time@{Display\+Window\+Sync\+Time}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Display\+Window\+Sync\+Time(double dividend)}]{\setlength{\rightskip}{0pt plus 5cm}double Rendering\+Engine\+::\+Display\+Window\+Sync\+Time (
+\begin{DoxyParamCaption}
+\item[{double}]{dividend}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_a552848b25ff08e2c6961570504291eaa}
+\hypertarget{class_rendering_engine_a8fcd0abd0d6d85938daab3e2a53586c3}{}\index{Rendering\+Engine@{Rendering\+Engine}!Get\+Active\+Light@{Get\+Active\+Light}}
+\index{Get\+Active\+Light@{Get\+Active\+Light}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Get\+Active\+Light() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Base\+Light}\& Rendering\+Engine\+::\+Get\+Active\+Light (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_a8fcd0abd0d6d85938daab3e2a53586c3}
+\hypertarget{class_rendering_engine_a0765f39bf7970cb6cb9f2de446f86671}{}\index{Rendering\+Engine@{Rendering\+Engine}!Get\+Light\+Matrix@{Get\+Light\+Matrix}}
+\index{Get\+Light\+Matrix@{Get\+Light\+Matrix}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Get\+Light\+Matrix() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Matrix4f}\& Rendering\+Engine\+::\+Get\+Light\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_a0765f39bf7970cb6cb9f2de446f86671}
+\hypertarget{class_rendering_engine_a82df5730a81c8dcc7396db4faea0475b}{}\index{Rendering\+Engine@{Rendering\+Engine}!Get\+Main\+Camera@{Get\+Main\+Camera}}
+\index{Get\+Main\+Camera@{Get\+Main\+Camera}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Get\+Main\+Camera()}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Camera}$\ast$ Rendering\+Engine\+::\+Get\+Main\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_a82df5730a81c8dcc7396db4faea0475b}
+\hypertarget{class_rendering_engine_a61b5cf1c219f9a2514e9c44818dd25a8}{}\index{Rendering\+Engine@{Rendering\+Engine}!Get\+Sampler\+Slot@{Get\+Sampler\+Slot}}
+\index{Get\+Sampler\+Slot@{Get\+Sampler\+Slot}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Get\+Sampler\+Slot(const std\+::string \&sampler\+Name) const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Rendering\+Engine\+::\+Get\+Sampler\+Slot (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{sampler\+Name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_a61b5cf1c219f9a2514e9c44818dd25a8}
+\hypertarget{class_rendering_engine_a38ac5d7f0ed4b4933c232ca00a3adde5}{}\index{Rendering\+Engine@{Rendering\+Engine}!Render@{Render}}
+\index{Render@{Render}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Render(const Entity \&object)}]{\setlength{\rightskip}{0pt plus 5cm}void Rendering\+Engine\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{const {\bf Entity} \&}]{object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_rendering_engine_a38ac5d7f0ed4b4933c232ca00a3adde5}
+
+
+Reimplemented in \hyperlink{class_test_renderer_abe86af4ad1aa4d3d68a08468ebab8f9e}{Test\+Renderer}.
+
+\hypertarget{class_rendering_engine_ab00fce20ca35e752481114e05ef1eab1}{}\index{Rendering\+Engine@{Rendering\+Engine}!Set\+Full\+Bright@{Set\+Full\+Bright}}
+\index{Set\+Full\+Bright@{Set\+Full\+Bright}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Set\+Full\+Bright(bool state)}]{\setlength{\rightskip}{0pt plus 5cm}void Rendering\+Engine\+::\+Set\+Full\+Bright (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_ab00fce20ca35e752481114e05ef1eab1}
+\hypertarget{class_rendering_engine_ab4129c1f16613cf99a42af5e9a25a94d}{}\index{Rendering\+Engine@{Rendering\+Engine}!Set\+Main\+Camera@{Set\+Main\+Camera}}
+\index{Set\+Main\+Camera@{Set\+Main\+Camera}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Set\+Main\+Camera(const Camera \&camera)}]{\setlength{\rightskip}{0pt plus 5cm}void Rendering\+Engine\+::\+Set\+Main\+Camera (
+\begin{DoxyParamCaption}
+\item[{const {\bf Camera} \&}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_ab4129c1f16613cf99a42af5e9a25a94d}
+\hypertarget{class_rendering_engine_a5b6784d215f8ed44ac5fabaa9457811c}{}\index{Rendering\+Engine@{Rendering\+Engine}!Set\+Sampler\+Slot@{Set\+Sampler\+Slot}}
+\index{Set\+Sampler\+Slot@{Set\+Sampler\+Slot}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Set\+Sampler\+Slot(const std\+::string \&name, unsigned int value)}]{\setlength{\rightskip}{0pt plus 5cm}void Rendering\+Engine\+::\+Set\+Sampler\+Slot (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{unsigned int}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{class_rendering_engine_a5b6784d215f8ed44ac5fabaa9457811c}
+\hypertarget{class_rendering_engine_ac7087d3f4ace79e7c1671549959c3bcd}{}\index{Rendering\+Engine@{Rendering\+Engine}!Set\+Shader@{Set\+Shader}}
+\index{Set\+Shader@{Set\+Shader}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Set\+Shader(const std\+::string \&file\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}void Rendering\+Engine\+::\+Set\+Shader (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{file\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_rendering_engine_ac7087d3f4ace79e7c1671549959c3bcd}
+\hypertarget{class_rendering_engine_ad585884dd7d40bc347b729985edd214e}{}\index{Rendering\+Engine@{Rendering\+Engine}!Update\+Uniform\+Struct@{Update\+Uniform\+Struct}}
+\index{Update\+Uniform\+Struct@{Update\+Uniform\+Struct}!Rendering\+Engine@{Rendering\+Engine}}
+\subsubsection[{Update\+Uniform\+Struct(const Transform \&transform, const Material \&material, const Shader \&shader, const std\+::string \&uniform\+Name, const std\+::string \&uniform\+Type) const }]{\setlength{\rightskip}{0pt plus 5cm}virtual void Rendering\+Engine\+::\+Update\+Uniform\+Struct (
+\begin{DoxyParamCaption}
+\item[{const {\bf Transform} \&}]{transform, }
+\item[{const {\bf Material} \&}]{material, }
+\item[{const {\bf Shader} \&}]{shader, }
+\item[{const std\+::string \&}]{uniform\+Name, }
+\item[{const std\+::string \&}]{uniform\+Type}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_rendering_engine_ad585884dd7d40bc347b729985edd214e}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{rendering_engine_8h}{rendering\+Engine.\+h}\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/rendering/\hyperlink{rendering_engine_8cpp}{rendering\+Engine.\+cpp}\end{DoxyCompactItemize}

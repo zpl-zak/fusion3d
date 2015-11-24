@@ -1,0 +1,65 @@
+\hypertarget{3_d_engine_8h}{}\section{F\+:/\+Fusion3\+D\+\_\+work/src/3\+D\+Engine.h File Reference}
+\label{3_d_engine_8h}\index{F\+:/\+Fusion3\+D\+\_\+work/src/3\+D\+Engine.\+h@{F\+:/\+Fusion3\+D\+\_\+work/src/3\+D\+Engine.\+h}}
+{\ttfamily \#include \char`\"{}bt\+Bullet\+Dynamics\+Common.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rendering/mesh.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rendering/shader.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}core/transform.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rendering/camera.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rendering/lighting.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}core/entity.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}components/mesh\+Renderer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}components/program\+Component.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rendering/window.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}core/core\+Engine.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}core/game.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{3_d_engine_8h_a75c828ed6c02fcd44084e67a032e422c}{F\+O\+R\+E\+V\+E\+R}~for (;;)
+\item 
+\#define \hyperlink{3_d_engine_8h_abfc4fe4d7e71ae79cd50152d0f286333}{F\+O\+R}(p,  q,  z)~for (size\+\_\+t z = p; z $<$ q; ++z)
+\item 
+\#define \hyperlink{3_d_engine_8h_ab76d198e4b62f15516638896c1f9dfa8}{D\+F\+O\+R}(p,  q,  z)~for (size\+\_\+t z = q; z $>$ p; -\/-\/z)
+\item 
+\#define \hyperlink{3_d_engine_8h_aac699a3288732fdc5f67c48c6cea8aa9}{P\+R\+I\+N\+T}(p)~std\+::cout $<$$<$ p $<$$<$ std\+::endl
+\item 
+\#define \hyperlink{3_d_engine_8h_a8f7bd5242b15da973671df869db5fe85}{S\+T\+R\+I\+N\+G}(s)~\#s
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{3_d_engine_8h_ab76d198e4b62f15516638896c1f9dfa8}{}\index{3\+D\+Engine.\+h@{3\+D\+Engine.\+h}!D\+F\+O\+R@{D\+F\+O\+R}}
+\index{D\+F\+O\+R@{D\+F\+O\+R}!3\+D\+Engine.\+h@{3\+D\+Engine.\+h}}
+\subsubsection[{D\+F\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+F\+O\+R(
+\begin{DoxyParamCaption}
+\item[{}]{p, }
+\item[{}]{q, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~for (size\+\_\+t z = q; z $>$ p; -\/-\/z)}\label{3_d_engine_8h_ab76d198e4b62f15516638896c1f9dfa8}
+\hypertarget{3_d_engine_8h_abfc4fe4d7e71ae79cd50152d0f286333}{}\index{3\+D\+Engine.\+h@{3\+D\+Engine.\+h}!F\+O\+R@{F\+O\+R}}
+\index{F\+O\+R@{F\+O\+R}!3\+D\+Engine.\+h@{3\+D\+Engine.\+h}}
+\subsubsection[{F\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R(
+\begin{DoxyParamCaption}
+\item[{}]{p, }
+\item[{}]{q, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~for (size\+\_\+t z = p; z $<$ q; ++z)}\label{3_d_engine_8h_abfc4fe4d7e71ae79cd50152d0f286333}
+\hypertarget{3_d_engine_8h_a75c828ed6c02fcd44084e67a032e422c}{}\index{3\+D\+Engine.\+h@{3\+D\+Engine.\+h}!F\+O\+R\+E\+V\+E\+R@{F\+O\+R\+E\+V\+E\+R}}
+\index{F\+O\+R\+E\+V\+E\+R@{F\+O\+R\+E\+V\+E\+R}!3\+D\+Engine.\+h@{3\+D\+Engine.\+h}}
+\subsubsection[{F\+O\+R\+E\+V\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+V\+E\+R~for (;;)}\label{3_d_engine_8h_a75c828ed6c02fcd44084e67a032e422c}
+\hypertarget{3_d_engine_8h_aac699a3288732fdc5f67c48c6cea8aa9}{}\index{3\+D\+Engine.\+h@{3\+D\+Engine.\+h}!P\+R\+I\+N\+T@{P\+R\+I\+N\+T}}
+\index{P\+R\+I\+N\+T@{P\+R\+I\+N\+T}!3\+D\+Engine.\+h@{3\+D\+Engine.\+h}}
+\subsubsection[{P\+R\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)~std\+::cout $<$$<$ p $<$$<$ std\+::endl}\label{3_d_engine_8h_aac699a3288732fdc5f67c48c6cea8aa9}
+\hypertarget{3_d_engine_8h_a8f7bd5242b15da973671df869db5fe85}{}\index{3\+D\+Engine.\+h@{3\+D\+Engine.\+h}!S\+T\+R\+I\+N\+G@{S\+T\+R\+I\+N\+G}}
+\index{S\+T\+R\+I\+N\+G@{S\+T\+R\+I\+N\+G}!3\+D\+Engine.\+h@{3\+D\+Engine.\+h}}
+\subsubsection[{S\+T\+R\+I\+N\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+R\+I\+N\+G(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~\#s}\label{3_d_engine_8h_a8f7bd5242b15da973671df869db5fe85}

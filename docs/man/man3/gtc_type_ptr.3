@@ -1,0 +1,543 @@
+.TH "gtc_type_ptr" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtc_type_ptr \- GLM_GTC_type_ptr
+.PP
+Handles the interaction between pointers and vector, matrix types\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType::value_type const * \fBglm::value_ptr\fP (genType const &vec)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tvec2< T, defaultp > \fBglm::make_vec2\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tvec3< T, defaultp > \fBglm::make_vec3\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tvec4< T, defaultp > \fBglm::make_vec4\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat2x2< T, defaultp > \fBglm::make_mat2x2\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat2x3< T, defaultp > \fBglm::make_mat2x3\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat2x4< T, defaultp > \fBglm::make_mat2x4\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat3x2< T, defaultp > \fBglm::make_mat3x2\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat3x3< T, defaultp > \fBglm::make_mat3x3\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat3x4< T, defaultp > \fBglm::make_mat3x4\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat4x2< T, defaultp > \fBglm::make_mat4x2\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat4x3< T, defaultp > \fBglm::make_mat4x3\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat4x4< T, defaultp > \fBglm::make_mat4x4\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat2x2< T, defaultp > \fBglm::make_mat2\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat3x3< T, defaultp > \fBglm::make_mat3\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tmat4x4< T, defaultp > \fBglm::make_mat4\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL tquat< T, defaultp > \fBglm::make_quat\fP (T const *const ptr)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tvec2< T, P > const &vec)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tvec2< T, P > &vec)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tvec3< T, P > const &vec)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tvec3< T, P > &vec)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tvec4< T, P > const &vec)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tvec4< T, P > &vec)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat2x2< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat2x2< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat3x3< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat3x3< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat4x4< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat4x4< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat2x3< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat2x3< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat3x2< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat3x2< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat2x4< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat2x4< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat4x2< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat4x2< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat3x4< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat3x4< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tmat4x3< T, P > const &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tmat4x3< T, P > &mat)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T const * \fBglm::value_ptr\fP (tquat< T, P > const &q)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_QUALIFIER T * \fBglm::value_ptr\fP (tquat< T, P > &q)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Handles the interaction between pointers and vector, matrix types\&. 
+
+This extension defines an overloaded function, \fBglm::value_ptr\fP, which takes any of the \fBcore template types\fP\&. It returns a pointer to the memory layout of the object\&. \fBMatrix\fP types store their values in column-major order\&.
+.PP
+This is useful for uploading data to matrices or copying data to buffer objects\&.
+.PP
+Example: 
+.PP
+.nf
+#include <glm/glm\&.hpp>
+#include <glm/gtc/type_ptr\&.hpp>
+
+glm::vec3 aVector(3);
+glm::mat4 someMatrix(1\&.0);
+
+glUniform3fv(uniformLoc, 1, glm::value_ptr(aVector));
+glUniformMatrix4fv(uniformMatrixLoc, 1, GL_FALSE, glm::value_ptr(someMatrix));
+
+.fi
+.PP
+.PP
+<\fBglm/gtc/type_ptr\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T > GLM_FUNC_DECL tmat2x2<T, defaultp> glm::make_mat2 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat2x2<T, defaultp> glm::make_mat2x2 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat2x3<T, defaultp> glm::make_mat2x3 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat2x4<T, defaultp> glm::make_mat2x4 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat3x3<T, defaultp> glm::make_mat3 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat3x2<T, defaultp> glm::make_mat3x2 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat3x3<T, defaultp> glm::make_mat3x3 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat3x4<T, defaultp> glm::make_mat3x4 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat4x4<T, defaultp> glm::make_mat4 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat4x2<T, defaultp> glm::make_mat4x2 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat4x3<T, defaultp> glm::make_mat4x3 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tmat4x4<T, defaultp> glm::make_mat4x4 (T const *const ptr)"
+Build a matrix from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tquat<T, defaultp> glm::make_quat (T const *const ptr)"
+Build a quaternion from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tvec2<T, defaultp> glm::make_vec2 (T const *const ptr)"
+Build a vector from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tvec3<T, defaultp> glm::make_vec3 (T const *const ptr)"
+Build a vector from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T > GLM_FUNC_DECL tvec4<T, defaultp> glm::make_vec4 (T const *const ptr)"
+Build a vector from a pointer\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tvec2< T, P > const & vec)"
+Return the constant address to the data of the vector input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tvec2< T, P > & vec)"
+Return the address to the data of the vector input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tvec3< T, P > const & vec)"
+Return the constant address to the data of the vector input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tvec3< T, P > & vec)"
+Return the address to the data of the vector input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tvec4< T, P > const & vec)"
+Return the constant address to the data of the vector input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType::value_type const* glm::value_ptr (genType const & vec)"
+Return the constant address to the data of the input parameter\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tvec4< T, P > & vec)"
+Return the address to the data of the vector input\&. From GLM_GTC_type_ptr extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat2x2< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat2x2< T, P > & mat)"
+Return the address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat3x3< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat3x3< T, P > & mat)"
+Return the address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat4x4< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat4x4< T, P > & mat)"
+Return the address to the data of the matrix input\&. From GLM_GTC_type_ptr extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat2x3< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat2x3< T, P > & mat)"
+Return the address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat3x2< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat3x2< T, P > & mat)"
+Return the address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat2x4< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat2x4< T, P > & mat)"
+Return the address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat4x2< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat4x2< T, P > & mat)"
+Return the address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat3x4< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat3x4< T, P > & mat)"
+Return the address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (tmat4x3< T, P > const & mat)"
+Return the constant address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (tmat4x3< T, P > & mat)"
+Return the address to the data of the matrix input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T const* glm::value_ptr (\fBtquat\fP< T, P > const & q)"
+Return the constant address to the data of the input parameter\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SS "template<typename T , precision P> GLM_FUNC_QUALIFIER T* glm::value_ptr (\fBtquat\fP< T, P > & q)"
+Return the address to the data of the quaternion input\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTC_type_ptr\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

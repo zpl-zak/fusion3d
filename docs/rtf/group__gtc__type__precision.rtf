@@ -1,0 +1,3535 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033
+{\fonttbl {\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}
+}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet
+{\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}
+{\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid \sbasedon0 \snext0 heading 1;}
+{\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid \sbasedon0 \snext0 heading 2;}
+{\s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 3;}
+{\s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 4;}{\*\cs10 \additive Default Paragraph Font;}
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 5;}{\*\cs10 \additive Default Paragraph Font;}
+{\s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid \sbasedon0 \snext15 Title;}
+{\s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid \sbasedon0 \snext16 Subtitle;}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid \sbasedon0 \snext17 BodyText;}
+{\s18\widctlpar\fs22\cgrid \sbasedon0 \snext18 DenseText;}
+{\s28\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext28 header;}
+{\s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid \sbasedon0 \snext29 footer;}
+{\s30\li360\sa60\sb120\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext30 GroupHeader;}
+{\s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext41 Code Example 0;}
+{\s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext42 Code Example 1;}
+{\s42\li720\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext43 Code Example 2;}
+{\s43\li1080\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext44 Code Example 3;}
+{\s44\li1440\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext45 Code Example 4;}
+{\s45\li1800\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext46 Code Example 5;}
+{\s46\li2160\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext47 Code Example 6;}
+{\s47\li2520\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext48 Code Example 7;}
+{\s48\li2880\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 8;}
+{\s49\li3240\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 9;}
+{\s50\li0\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext51 List Continue 0;}
+{\s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext52 List Continue 1;}
+{\s52\li720\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext53 List Continue 2;}
+{\s53\li1080\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext54 List Continue 3;}
+{\s54\li1440\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext55 List Continue 4;}
+{\s55\li1800\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext56 List Continue 5;}
+{\s56\li2160\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext57 List Continue 6;}
+{\s57\li2520\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext58 List Continue 7;}
+{\s58\li2880\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext59 List Continue 8;}
+{\s59\li3240\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext59 List Continue 9;}
+{\s60\li0\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext61 DescContinue 0;}
+{\s61\li360\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext62 DescContinue 1;}
+{\s62\li720\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext63 DescContinue 2;}
+{\s63\li1080\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext64 DescContinue 3;}
+{\s64\li1440\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext65 DescContinue 4;}
+{\s65\li1800\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext66 DescContinue 5;}
+{\s66\li2160\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext67 DescContinue 6;}
+{\s67\li2520\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext68 DescContinue 7;}
+{\s68\li2880\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext69 DescContinue 8;}
+{\s69\li3240\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext69 DescContinue 9;}
+{\s70\li0\sa30\sb30\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext81 LatexTOC 0;}
+{\s71\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext82 LatexTOC 1;}
+{\s72\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext83 LatexTOC 2;}
+{\s73\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext84 LatexTOC 3;}
+{\s74\li1440\sa18\sb18\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext85 LatexTOC 4;}
+{\s75\li1800\sa15\sb15\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext86 LatexTOC 5;}
+{\s76\li2160\sa12\sb12\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext87 LatexTOC 6;}
+{\s77\li2520\sa9\sb9\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext88 LatexTOC 7;}
+{\s78\li2880\sa6\sb6\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext89 LatexTOC 8;}
+{\s79\li3240\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext89 LatexTOC 9;}
+{\s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext81 \sautoupd List Bullet 0;}
+{\s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid \sbasedon0 \snext82 \sautoupd List Bullet 1;}
+{\s82\fi-360\li1080\widctlpar\jclisttab\tx1080{\*\pn \pnlvlbody\ilvl0\ls3\pnrnot0\pndec }\ls3\adjustright \fs20\cgrid \sbasedon0 \snext83 \sautoupd List Bullet 2;}
+{\s83\fi-360\li1440\widctlpar\jclisttab\tx1440{\*\pn \pnlvlbody\ilvl0\ls4\pnrnot0\pndec }\ls4\adjustright \fs20\cgrid \sbasedon0 \snext84 \sautoupd List Bullet 3;}
+{\s84\fi-360\li1800\widctlpar\jclisttab\tx1800{\*\pn \pnlvlbody\ilvl0\ls5\pnrnot0\pndec }\ls5\adjustright \fs20\cgrid \sbasedon0 \snext85 \sautoupd List Bullet 4;}
+{\s85\fi-360\li2160\widctlpar\jclisttab\tx2160{\*\pn \pnlvlbody\ilvl0\ls6\pnrnot0\pndec }\ls6\adjustright \fs20\cgrid \sbasedon0 \snext86 \sautoupd List Bullet 5;}
+{\s86\fi-360\li2520\widctlpar\jclisttab\tx2520{\*\pn \pnlvlbody\ilvl0\ls7\pnrnot0\pndec }\ls7\adjustright \fs20\cgrid \sbasedon0 \snext87 \sautoupd List Bullet 6;}
+{\s87\fi-360\li2880\widctlpar\jclisttab\tx2880{\*\pn \pnlvlbody\ilvl0\ls8\pnrnot0\pndec }\ls8\adjustright \fs20\cgrid \sbasedon0 \snext88 \sautoupd List Bullet 7;}
+{\s88\fi-360\li3240\widctlpar\jclisttab\tx3240{\*\pn \pnlvlbody\ilvl0\ls9\pnrnot0\pndec }\ls9\adjustright \fs20\cgrid \sbasedon0 \snext89 \sautoupd List Bullet 8;}
+{\s89\fi-360\li3600\widctlpar\jclisttab\tx3600{\*\pn \pnlvlbody\ilvl0\ls10\pnrnot0\pndec }\ls10\adjustright \fs20\cgrid \sbasedon0 \snext89 \sautoupd List Bullet 9;}
+{\s90\fi-360\li360\widctlpar\fs20\cgrid \sbasedon0 \snext91 \sautoupd List Enum 0;}
+{\s91\fi-360\li720\widctlpar\fs20\cgrid \sbasedon0 \snext92 \sautoupd List Enum 1;}
+{\s92\fi-360\li1080\widctlpar\fs20\cgrid \sbasedon0 \snext93 \sautoupd List Enum 2;}
+{\s93\fi-360\li1440\widctlpar\fs20\cgrid \sbasedon0 \snext94 \sautoupd List Enum 3;}
+{\s94\fi-360\li1800\widctlpar\fs20\cgrid \sbasedon0 \snext95 \sautoupd List Enum 4;}
+{\s95\fi-360\li2160\widctlpar\fs20\cgrid \sbasedon0 \snext96 \sautoupd List Enum 5;}
+{\s96\fi-360\li2520\widctlpar\fs20\cgrid \sbasedon0 \snext96 \sautoupd List Enum 5;}
+{\s97\fi-360\li2880\widctlpar\fs20\cgrid \sbasedon0 \snext98 \sautoupd List Enum 7;}
+{\s98\fi-360\li3240\widctlpar\fs20\cgrid \sbasedon0 \snext99 \sautoupd List Enum 8;}
+{\s99\fi-360\li3600\widctlpar\fs20\cgrid \sbasedon0 \snext99 \sautoupd List Enum 9;}
+}
+{\comment begin body}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+GLM_GTC_type_precision\par \pard\plain 
+{\tc\tcl2 \v GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision}
+{\bkmkstart AAAAAAABXP}
+{\bkmkend AAAAAAABXP}
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Defines specific C++-based precision types. }}\par
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Typedefs\par
+\pard\plain 
+
+{
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::lowp_int8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::lowp_int16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::lowp_int32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::lowp_int64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::lowp_int8_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::lowp_int16_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::lowp_int32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::lowp_int64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::lowp_i8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::lowp_i16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::lowp_i32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::lowp_i64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::mediump_int8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::mediump_int16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::mediump_int32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::mediump_int64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::mediump_int8_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::mediump_int16_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::mediump_int32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::mediump_int64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::mediump_i8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::mediump_i16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::mediump_i32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::mediump_i64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::highp_int8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::highp_int16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::highp_int32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::highp_int64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::highp_int8_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::highp_int16_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::highp_int32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::highp_int64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::highp_i8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::highp_i16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::highp_i32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::highp_i64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::int8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int16 {\b glm::int16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int32 {\b glm::int32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::int64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::int8_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::int16_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::int32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::int64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int8 {\b glm::i8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int16} {\b glm::i16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::int32} {\b glm::i32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::int64 {\b glm::i64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i8vec1 {\b glm::i8vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i8vec2 {\b glm::i8vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i8vec3 {\b glm::i8vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i8vec4 {\b glm::i8vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i16vec1 {\b glm::i16vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i16vec2 {\b glm::i16vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i16vec3 {\b glm::i16vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i16vec4 {\b glm::i16vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i32vec1 {\b glm::i32vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i32vec2 {\b glm::i32vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i32vec3 {\b glm::i32vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i32vec4 {\b glm::i32vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i64vec1 {\b glm::i64vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i64vec2 {\b glm::i64vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i64vec3 {\b glm::i64vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_i64vec4 {\b glm::i64vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::lowp_uint8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::lowp_uint16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::lowp_uint32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::lowp_uint64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::lowp_uint8_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::lowp_uint16_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::lowp_uint32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::lowp_uint64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::lowp_u8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::lowp_u16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::lowp_u32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::lowp_u64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::mediump_uint8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::mediump_uint16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::mediump_uint32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::mediump_uint64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::mediump_uint8_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::mediump_uint16_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::mediump_uint32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::mediump_uint64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::mediump_u8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::mediump_u16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::mediump_u32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::mediump_u64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::highp_uint8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::highp_uint16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::highp_uint32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::highp_uint64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::highp_uint8_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::highp_uint16_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::highp_uint32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::highp_uint64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::highp_u8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::highp_u16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::highp_u32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::highp_u64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint8 {\b glm::uint8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint16 {\b glm::uint16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint32 {\b glm::uint32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::uint64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::uint8_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::uint16_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::uint32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::uint64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint8} {\b glm::u8}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint16} {\b glm::u16}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef {\b detail::uint32} {\b glm::u32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef detail::uint64 {\b glm::u64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u8vec1 {\b glm::u8vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u8vec2 {\b glm::u8vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u8vec3 {\b glm::u8vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u8vec4 {\b glm::u8vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u16vec1 {\b glm::u16vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u16vec2 {\b glm::u16vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u16vec3 {\b glm::u16vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u16vec4 {\b glm::u16vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u32vec1 {\b glm::u32vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u32vec2 {\b glm::u32vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u32vec3 {\b glm::u32vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u32vec4 {\b glm::u32vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u64vec1 {\b glm::u64vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u64vec2 {\b glm::u64vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u64vec3 {\b glm::u64vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_u64vec4 {\b glm::u64vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_float32 {\b glm::float32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_float64 {\b glm::float64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_float32_t {\b glm::float32_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_float64_t {\b glm::float64_t}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_float32_t {\b glm::f32}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_float64_t {\b glm::f64}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32vec1 {\b glm::fvec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32vec2 {\b glm::fvec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32vec3 {\b glm::fvec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32vec4 {\b glm::fvec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32vec1 {\b glm::f32vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32vec2 {\b glm::f32vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32vec3 {\b glm::f32vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32vec4 {\b glm::f32vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64vec1 {\b glm::f64vec1}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64vec2 {\b glm::f64vec2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64vec3 {\b glm::f64vec3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64vec4 {\b glm::f64vec4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef fmat2x2 {\b glm::fmat2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef fmat3x3 {\b glm::fmat3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef fmat4x4 {\b glm::fmat4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat2x2 {\b glm::fmat2x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat2x3 {\b glm::fmat2x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat2x4 {\b glm::fmat2x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat3x2 {\b glm::fmat3x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat3x3 {\b glm::fmat3x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat3x4 {\b glm::fmat3x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat4x2 {\b glm::fmat4x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat4x3 {\b glm::fmat4x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat4x4 {\b glm::fmat4x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef f32mat2x2 {\b glm::f32mat2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef f32mat3x3 {\b glm::f32mat3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef f32mat4x4 {\b glm::f32mat4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat2x2 {\b glm::f32mat2x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat2x3 {\b glm::f32mat2x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat2x4 {\b glm::f32mat2x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat3x2 {\b glm::f32mat3x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat3x3 {\b glm::f32mat3x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat3x4 {\b glm::f32mat3x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat4x2 {\b glm::f32mat4x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat4x3 {\b glm::f32mat4x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32mat4x4 {\b glm::f32mat4x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef f64mat2x2 {\b glm::f64mat2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef f64mat3x3 {\b glm::f64mat3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef f64mat4x4 {\b glm::f64mat4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat2x2 {\b glm::f64mat2x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat2x3 {\b glm::f64mat2x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat2x4 {\b glm::f64mat2x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat3x2 {\b glm::f64mat3x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat3x3 {\b glm::f64mat3x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat3x4 {\b glm::f64mat3x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat4x2 {\b glm::f64mat4x2}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat4x3 {\b glm::f64mat4x3}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64mat4x4 {\b glm::f64mat4x4}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f32quat {\b glm::f32quat}\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+typedef highp_f64quat {\b glm::f64quat}\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Defines specific C++-based precision types. \par
+}{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b Precision types} defines types based on GLSL's precision qualifiers. This extension defines types based on explicitly-sized C++ data types.\par
+<{\b glm/gtc/type_precision.hpp}> need to be included to use these functionalities. \par
+}{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Typedef Documentation\par
+\pard\plain 
+{\xe \v f32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef float32 {\b glm::f32}}}
+\par
+{\bkmkstart AAAAAAABXQ}
+{\bkmkend AAAAAAABXQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default 32 bit single-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}32 bit single-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x2< f32, defaultp > {\b glm::f32mat2}}}
+\par
+{\bkmkstart AAAAAAABXR}
+{\bkmkend AAAAAAABXR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 2x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 1x1 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} Single-precision floating-point 2x2 matrix. \par
+{\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat2x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat2x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x2< f32, defaultp > {\b glm::f32mat2x2}}}
+\par
+{\bkmkstart AAAAAAABXS}
+{\bkmkend AAAAAAABXS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 2x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 1x1 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} Single-precision floating-point 2x2 matrix. \par
+{\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat2x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat2x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x3< f32, defaultp > {\b glm::f32mat2x3}}}
+\par
+{\bkmkstart AAAAAAABXT}
+{\bkmkend AAAAAAABXT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 2x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 2x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat2x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat2x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x4< f32, defaultp > {\b glm::f32mat2x4}}}
+\par
+{\bkmkstart AAAAAAABXU}
+{\bkmkend AAAAAAABXU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 2x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 2x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x3< f32, defaultp > {\b glm::f32mat3}}}
+\par
+{\bkmkstart AAAAAAABXV}
+{\bkmkend AAAAAAABXV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat3x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat3x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x2< f32, defaultp > {\b glm::f32mat3x2}}}
+\par
+{\bkmkstart AAAAAAABXW}
+{\bkmkend AAAAAAABXW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 3x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 3x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat3x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat3x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x3< f32, defaultp > {\b glm::f32mat3x3}}}
+\par
+{\bkmkstart AAAAAAABXX}
+{\bkmkend AAAAAAABXX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat3x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat3x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x4< f32, defaultp > {\b glm::f32mat3x4}}}
+\par
+{\bkmkstart AAAAAAABXY}
+{\bkmkend AAAAAAABXY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 3x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 3x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x4< f32, defaultp > {\b glm::f32mat4}}}
+\par
+{\bkmkstart AAAAAAABXZ}
+{\bkmkend AAAAAAABXZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat4x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat4x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x2< f32, defaultp > {\b glm::f32mat4x2}}}
+\par
+{\bkmkstart AAAAAAABYA}
+{\bkmkend AAAAAAABYA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 4x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 4x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat4x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat4x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x3< f32, defaultp > {\b glm::f32mat4x3}}}
+\par
+{\bkmkstart AAAAAAABYB}
+{\bkmkend AAAAAAABYB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 4x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 4x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32mat4x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32mat4x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x4< f32, defaultp > {\b glm::f32mat4x4}}}
+\par
+{\bkmkstart AAAAAAABYC}
+{\bkmkend AAAAAAABYC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32quat\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32quat}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tquat< f32, defaultp > {\b glm::f32quat}}}
+\par
+{\bkmkstart AAAAAAABYD}
+{\bkmkend AAAAAAABYD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point quaternion. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point quaternion. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< f32, defaultp > {\b glm::f32vec1}}}
+\par
+{\bkmkstart AAAAAAABYE}
+{\bkmkend AAAAAAABYE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point vector of 1 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point vector of 1 component. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< f32, defaultp > {\b glm::f32vec2}}}
+\par
+{\bkmkstart AAAAAAABYF}
+{\bkmkend AAAAAAABYF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point vector of 2 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point vector of 2 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< f32, defaultp > {\b glm::f32vec3}}}
+\par
+{\bkmkstart AAAAAAABYG}
+{\bkmkend AAAAAAABYG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point vector of 3 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point vector of 3 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f32vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f32vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< f32, defaultp > {\b glm::f32vec4}}}
+\par
+{\bkmkstart AAAAAAABYH}
+{\bkmkend AAAAAAABYH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point vector of 4 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point vector of 4 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef float64 {\b glm::f64}}}
+\par
+{\bkmkstart AAAAAAABYI}
+{\bkmkend AAAAAAABYI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default 64 bit double-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}64 bit double-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x2< f64, defaultp > {\b glm::f64mat2}}}
+\par
+{\bkmkstart AAAAAAABYJ}
+{\bkmkend AAAAAAABYJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 2x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 1x1 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} Double-precision floating-point 2x2 matrix. \par
+{\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat2x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat2x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x2< f64, defaultp > {\b glm::f64mat2x2}}}
+\par
+{\bkmkstart AAAAAAABYK}
+{\bkmkend AAAAAAABYK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 2x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 1x1 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} Double-precision floating-point 2x2 matrix. \par
+{\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat2x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat2x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x3< f64, defaultp > {\b glm::f64mat2x3}}}
+\par
+{\bkmkstart AAAAAAABYL}
+{\bkmkend AAAAAAABYL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 2x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 2x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat2x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat2x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x4< f64, defaultp > {\b glm::f64mat2x4}}}
+\par
+{\bkmkstart AAAAAAABYM}
+{\bkmkend AAAAAAABYM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 2x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 2x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x3< f64, defaultp > {\b glm::f64mat3}}}
+\par
+{\bkmkstart AAAAAAABYN}
+{\bkmkend AAAAAAABYN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat3x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat3x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x2< f64, defaultp > {\b glm::f64mat3x2}}}
+\par
+{\bkmkstart AAAAAAABYO}
+{\bkmkend AAAAAAABYO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 3x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 3x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat3x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat3x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x3< f64, defaultp > {\b glm::f64mat3x3}}}
+\par
+{\bkmkstart AAAAAAABYP}
+{\bkmkend AAAAAAABYP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat3x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat3x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x4< f64, defaultp > {\b glm::f64mat3x4}}}
+\par
+{\bkmkstart AAAAAAABYQ}
+{\bkmkend AAAAAAABYQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 3x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 3x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x4< f64, defaultp > {\b glm::f64mat4}}}
+\par
+{\bkmkstart AAAAAAABYR}
+{\bkmkend AAAAAAABYR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat4x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat4x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x2< f64, defaultp > {\b glm::f64mat4x2}}}
+\par
+{\bkmkstart AAAAAAABYS}
+{\bkmkend AAAAAAABYS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 4x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 4x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat4x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat4x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x3< f64, defaultp > {\b glm::f64mat4x3}}}
+\par
+{\bkmkstart AAAAAAABYT}
+{\bkmkend AAAAAAABYT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 4x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 4x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64mat4x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64mat4x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x4< f64, defaultp > {\b glm::f64mat4x4}}}
+\par
+{\bkmkstart AAAAAAABYU}
+{\bkmkend AAAAAAABYU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64quat\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64quat}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tquat< f64, defaultp > {\b glm::f64quat}}}
+\par
+{\bkmkstart AAAAAAABYV}
+{\bkmkend AAAAAAABYV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point quaternion. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point quaternion. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< f64, defaultp > {\b glm::f64vec1}}}
+\par
+{\bkmkstart AAAAAAABYW}
+{\bkmkend AAAAAAABYW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point vector of 1 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point vector of 1 component. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< f64, defaultp > {\b glm::f64vec2}}}
+\par
+{\bkmkstart AAAAAAABYX}
+{\bkmkend AAAAAAABYX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point vector of 2 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point vector of 2 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< f64, defaultp > {\b glm::f64vec3}}}
+\par
+{\bkmkstart AAAAAAABYY}
+{\bkmkend AAAAAAABYY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point vector of 3 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point vector of 3 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v f64vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:f64vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< f64, defaultp > {\b glm::f64vec4}}}
+\par
+{\bkmkstart AAAAAAABYZ}
+{\bkmkend AAAAAAABYZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default double-precision floating-point vector of 4 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Double-precision floating-point vector of 4 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v float32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:float32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::float32 {\b glm::float32}}}
+\par
+{\bkmkstart AAAAAAABZA}
+{\bkmkend AAAAAAABZA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default 32 bit single-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}32 bit single-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v float32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:float32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::float32 {\b glm::float32_t}}}
+\par
+{\bkmkstart AAAAAAABZB}
+{\bkmkend AAAAAAABZB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default 32 bit single-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}32 bit single-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v float64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:float64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::float64 {\b glm::float64}}}
+\par
+{\bkmkstart AAAAAAABZC}
+{\bkmkend AAAAAAABZC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default 64 bit double-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}64 bit double-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v float64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:float64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::float64 {\b glm::float64_t}}}
+\par
+{\bkmkstart AAAAAAABZD}
+{\bkmkend AAAAAAABZD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default 64 bit double-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}64 bit double-precision floating-point scalar. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x2< f32, defaultp > {\b glm::fmat2}}}
+\par
+{\bkmkstart AAAAAAABZE}
+{\bkmkend AAAAAAABZE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 2x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 1x1 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} Single-precision floating-point 2x2 matrix. \par
+{\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat2x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat2x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x2< f32, defaultp > {\b glm::fmat2x2}}}
+\par
+{\bkmkstart AAAAAAABZF}
+{\bkmkend AAAAAAABZF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 2x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 1x1 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} Single-precision floating-point 2x2 matrix. \par
+{\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat2x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat2x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x3< f32, defaultp > {\b glm::fmat2x3}}}
+\par
+{\bkmkstart AAAAAAABZG}
+{\bkmkend AAAAAAABZG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 2x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 2x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat2x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat2x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat2x4< f32, defaultp > {\b glm::fmat2x4}}}
+\par
+{\bkmkstart AAAAAAABZH}
+{\bkmkend AAAAAAABZH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 2x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 2x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x3< f32, defaultp > {\b glm::fmat3}}}
+\par
+{\bkmkstart AAAAAAABZI}
+{\bkmkend AAAAAAABZI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat3x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat3x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x2< f32, defaultp > {\b glm::fmat3x2}}}
+\par
+{\bkmkstart AAAAAAABZJ}
+{\bkmkend AAAAAAABZJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 3x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 3x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat3x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat3x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x3< f32, defaultp > {\b glm::fmat3x3}}}
+\par
+{\bkmkstart AAAAAAABZK}
+{\bkmkend AAAAAAABZK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 3x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat3x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat3x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat3x4< f32, defaultp > {\b glm::fmat3x4}}}
+\par
+{\bkmkstart AAAAAAABZL}
+{\bkmkend AAAAAAABZL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 3x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 3x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x4< f32, defaultp > {\b glm::fmat4}}}
+\par
+{\bkmkstart AAAAAAABZM}
+{\bkmkend AAAAAAABZM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat4x2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat4x2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x2< f32, defaultp > {\b glm::fmat4x2}}}
+\par
+{\bkmkstart AAAAAAABZN}
+{\bkmkend AAAAAAABZN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 4x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 4x2 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat4x3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat4x3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x3< f32, defaultp > {\b glm::fmat4x3}}}
+\par
+{\bkmkstart AAAAAAABZO}
+{\bkmkend AAAAAAABZO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 4x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 4x3 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fmat4x4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fmat4x4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tmat4x4< f32, defaultp > {\b glm::fmat4x4}}}
+\par
+{\bkmkstart AAAAAAABZP}
+{\bkmkend AAAAAAABZP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point 4x4 matrix. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fvec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fvec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< float, defaultp > {\b glm::fvec1}}}
+\par
+{\bkmkstart AAAAAAABZQ}
+{\bkmkend AAAAAAABZQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point vector of 1 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point vector of 1 component. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fvec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fvec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< float, defaultp > {\b glm::fvec2}}}
+\par
+{\bkmkstart AAAAAAABZR}
+{\bkmkend AAAAAAABZR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point vector of 2 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point vector of 2 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fvec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fvec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< float, defaultp > {\b glm::fvec3}}}
+\par
+{\bkmkstart AAAAAAABZS}
+{\bkmkend AAAAAAABZS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point vector of 3 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point vector of 3 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v fvec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:fvec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< float, defaultp > {\b glm::fvec4}}}
+\par
+{\bkmkstart AAAAAAABZT}
+{\bkmkend AAAAAAABZT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default single-precision floating-point vector of 4 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Single-precision floating-point vector of 4 components. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_i16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_i16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::highp_i16}}}
+\par
+{\bkmkstart AAAAAAABZU}
+{\bkmkend AAAAAAABZU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_i32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_i32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::highp_i32}}}
+\par
+{\bkmkstart AAAAAAABZV}
+{\bkmkend AAAAAAABZV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_i64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_i64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::highp_i64}}}
+\par
+{\bkmkstart AAAAAAABZW}
+{\bkmkend AAAAAAABZW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_i8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_i8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::highp_i8}}}
+\par
+{\bkmkstart AAAAAAABZX}
+{\bkmkend AAAAAAABZX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_int16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_int16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::highp_int16}}}
+\par
+{\bkmkstart AAAAAAABZY}
+{\bkmkend AAAAAAABZY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_int16_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_int16_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::highp_int16_t}}}
+\par
+{\bkmkstart AAAAAAABZZ}
+{\bkmkend AAAAAAABZZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_int32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_int32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::highp_int32}}}
+\par
+{\bkmkstart AAAAAAACAA}
+{\bkmkend AAAAAAACAA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_int32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_int32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::highp_int32_t}}}
+\par
+{\bkmkstart AAAAAAACAB}
+{\bkmkend AAAAAAACAB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_int64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_int64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::highp_int64}}}
+\par
+{\bkmkstart AAAAAAACAC}
+{\bkmkend AAAAAAACAC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_int64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_int64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::highp_int64_t}}}
+\par
+{\bkmkstart AAAAAAACAD}
+{\bkmkend AAAAAAACAD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_int8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_int8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::highp_int8}}}
+\par
+{\bkmkstart AAAAAAACAE}
+{\bkmkend AAAAAAACAE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_int8_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_int8_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::highp_int8_t}}}
+\par
+{\bkmkstart AAAAAAACAF}
+{\bkmkend AAAAAAACAF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+High precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_u16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_u16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::highp_u16}}}
+\par
+{\bkmkstart AAAAAAACAG}
+{\bkmkend AAAAAAACAG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_u32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_u32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::highp_u32}}}
+\par
+{\bkmkstart AAAAAAACAH}
+{\bkmkend AAAAAAACAH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_u64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_u64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::highp_u64}}}
+\par
+{\bkmkstart AAAAAAACAI}
+{\bkmkend AAAAAAACAI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_u8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_u8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::highp_u8}}}
+\par
+{\bkmkstart AAAAAAACAJ}
+{\bkmkend AAAAAAACAJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_uint16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_uint16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::highp_uint16}}}
+\par
+{\bkmkstart AAAAAAACAK}
+{\bkmkend AAAAAAACAK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_uint16_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_uint16_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::highp_uint16_t}}}
+\par
+{\bkmkstart AAAAAAACAL}
+{\bkmkend AAAAAAACAL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_uint32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_uint32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::highp_uint32}}}
+\par
+{\bkmkstart AAAAAAACAM}
+{\bkmkend AAAAAAACAM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_uint32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_uint32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::highp_uint32_t}}}
+\par
+{\bkmkstart AAAAAAACAN}
+{\bkmkend AAAAAAACAN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_uint64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_uint64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::highp_uint64}}}
+\par
+{\bkmkstart AAAAAAACAO}
+{\bkmkend AAAAAAACAO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_uint64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_uint64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::highp_uint64_t}}}
+\par
+{\bkmkstart AAAAAAACAP}
+{\bkmkend AAAAAAACAP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_uint8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_uint8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::highp_uint8}}}
+\par
+{\bkmkstart AAAAAAACAQ}
+{\bkmkend AAAAAAACAQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v highp_uint8_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:highp_uint8_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::highp_uint8_t}}}
+\par
+{\bkmkstart AAAAAAACAR}
+{\bkmkend AAAAAAACAR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}High precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::i16}}}
+\par
+{\bkmkstart AAAAAAACAS}
+{\bkmkend AAAAAAACAS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i16vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i16vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< i16, defaultp > {\b glm::i16vec1}}}
+\par
+{\bkmkstart AAAAAAACAT}
+{\bkmkend AAAAAAACAT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 16 bit signed integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}16 bit signed integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i16vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i16vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< i16, defaultp > {\b glm::i16vec2}}}
+\par
+{\bkmkstart AAAAAAACAU}
+{\bkmkend AAAAAAACAU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 16 bit signed integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}16 bit signed integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i16vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i16vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< i16, defaultp > {\b glm::i16vec3}}}
+\par
+{\bkmkstart AAAAAAACAV}
+{\bkmkend AAAAAAACAV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 16 bit signed integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}16 bit signed integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i16vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i16vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< i16, defaultp > {\b glm::i16vec4}}}
+\par
+{\bkmkstart AAAAAAACAW}
+{\bkmkend AAAAAAACAW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 16 bit signed integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}16 bit signed integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::i32}}}
+\par
+{\bkmkstart AAAAAAACAX}
+{\bkmkend AAAAAAACAX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i32vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i32vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< i32, defaultp > {\b glm::i32vec1}}}
+\par
+{\bkmkstart AAAAAAACAY}
+{\bkmkend AAAAAAACAY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 32 bit signed integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}32 bit signed integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i32vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i32vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< i32, defaultp > {\b glm::i32vec2}}}
+\par
+{\bkmkstart AAAAAAACAZ}
+{\bkmkend AAAAAAACAZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 32 bit signed integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}32 bit signed integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i32vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i32vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< i32, defaultp > {\b glm::i32vec3}}}
+\par
+{\bkmkstart AAAAAAACBA}
+{\bkmkend AAAAAAACBA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 32 bit signed integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}32 bit signed integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i32vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i32vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< i32, defaultp > {\b glm::i32vec4}}}
+\par
+{\bkmkstart AAAAAAACBB}
+{\bkmkend AAAAAAACBB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 32 bit signed integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}32 bit signed integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::i64}}}
+\par
+{\bkmkstart AAAAAAACBC}
+{\bkmkend AAAAAAACBC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i64vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i64vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< i64, defaultp > {\b glm::i64vec1}}}
+\par
+{\bkmkstart AAAAAAACBD}
+{\bkmkend AAAAAAACBD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 64 bit signed integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}64 bit signed integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i64vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i64vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< i64, defaultp > {\b glm::i64vec2}}}
+\par
+{\bkmkstart AAAAAAACBE}
+{\bkmkend AAAAAAACBE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 64 bit signed integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}64 bit signed integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i64vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i64vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< i64, defaultp > {\b glm::i64vec3}}}
+\par
+{\bkmkstart AAAAAAACBF}
+{\bkmkend AAAAAAACBF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 64 bit signed integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}64 bit signed integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i64vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i64vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< i64, defaultp > {\b glm::i64vec4}}}
+\par
+{\bkmkstart AAAAAAACBG}
+{\bkmkend AAAAAAACBG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 64 bit signed integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}64 bit signed integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::i8}}}
+\par
+{\bkmkstart AAAAAAACBH}
+{\bkmkend AAAAAAACBH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i8vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i8vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< i8, defaultp > {\b glm::i8vec1}}}
+\par
+{\bkmkstart AAAAAAACBI}
+{\bkmkend AAAAAAACBI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 8 bit signed integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}8 bit signed integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i8vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i8vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< i8, defaultp > {\b glm::i8vec2}}}
+\par
+{\bkmkstart AAAAAAACBJ}
+{\bkmkend AAAAAAACBJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 8 bit signed integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}8 bit signed integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i8vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i8vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< i8, defaultp > {\b glm::i8vec3}}}
+\par
+{\bkmkstart AAAAAAACBK}
+{\bkmkend AAAAAAACBK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 8 bit signed integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}8 bit signed integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v i8vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:i8vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< i8, defaultp > {\b glm::i8vec4}}}
+\par
+{\bkmkstart AAAAAAACBL}
+{\bkmkend AAAAAAACBL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 8 bit signed integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}8 bit signed integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v int16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:int16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int16 {\b glm::int16}}}
+\par
+{\bkmkstart AAAAAAACBM}
+{\bkmkend AAAAAAACBM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v int16_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:int16_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::int16_t}}}
+\par
+{\bkmkstart AAAAAAACBN}
+{\bkmkend AAAAAAACBN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v int32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:int32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int32 {\b glm::int32}}}
+\par
+{\bkmkstart AAAAAAACBO}
+{\bkmkend AAAAAAACBO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v int32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:int32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::int32_t}}}
+\par
+{\bkmkstart AAAAAAACBP}
+{\bkmkend AAAAAAACBP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v int64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:int64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::int64}}}
+\par
+{\bkmkstart AAAAAAACBQ}
+{\bkmkend AAAAAAACBQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v int64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:int64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::int64_t}}}
+\par
+{\bkmkstart AAAAAAACBR}
+{\bkmkend AAAAAAACBR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v int8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:int8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::int8}}}
+\par
+{\bkmkstart AAAAAAACBS}
+{\bkmkend AAAAAAACBS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v int8_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:int8_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::int8_t}}}
+\par
+{\bkmkstart AAAAAAACBT}
+{\bkmkend AAAAAAACBT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_i16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_i16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::lowp_i16}}}
+\par
+{\bkmkstart AAAAAAACBU}
+{\bkmkend AAAAAAACBU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_i32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_i32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::lowp_i32}}}
+\par
+{\bkmkstart AAAAAAACBV}
+{\bkmkend AAAAAAACBV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_i64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_i64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::lowp_i64}}}
+\par
+{\bkmkstart AAAAAAACBW}
+{\bkmkend AAAAAAACBW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_i8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_i8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::lowp_i8}}}
+\par
+{\bkmkstart AAAAAAACBX}
+{\bkmkend AAAAAAACBX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_int16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_int16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::lowp_int16}}}
+\par
+{\bkmkstart AAAAAAACBY}
+{\bkmkend AAAAAAACBY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_int16_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_int16_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::lowp_int16_t}}}
+\par
+{\bkmkstart AAAAAAACBZ}
+{\bkmkend AAAAAAACBZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_int32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_int32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::lowp_int32}}}
+\par
+{\bkmkstart AAAAAAACCA}
+{\bkmkend AAAAAAACCA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_int32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_int32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::lowp_int32_t}}}
+\par
+{\bkmkstart AAAAAAACCB}
+{\bkmkend AAAAAAACCB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_int64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_int64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::lowp_int64}}}
+\par
+{\bkmkstart AAAAAAACCC}
+{\bkmkend AAAAAAACCC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_int64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_int64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::lowp_int64_t}}}
+\par
+{\bkmkstart AAAAAAACCD}
+{\bkmkend AAAAAAACCD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_int8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_int8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::lowp_int8}}}
+\par
+{\bkmkstart AAAAAAACCE}
+{\bkmkend AAAAAAACCE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_int8_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_int8_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::lowp_int8_t}}}
+\par
+{\bkmkstart AAAAAAACCF}
+{\bkmkend AAAAAAACCF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_u16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_u16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::lowp_u16}}}
+\par
+{\bkmkstart AAAAAAACCG}
+{\bkmkend AAAAAAACCG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_u32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_u32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::lowp_u32}}}
+\par
+{\bkmkstart AAAAAAACCH}
+{\bkmkend AAAAAAACCH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_u64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_u64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::lowp_u64}}}
+\par
+{\bkmkstart AAAAAAACCI}
+{\bkmkend AAAAAAACCI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_u8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_u8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::lowp_u8}}}
+\par
+{\bkmkstart AAAAAAACCJ}
+{\bkmkend AAAAAAACCJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_uint16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_uint16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::lowp_uint16}}}
+\par
+{\bkmkstart AAAAAAACCK}
+{\bkmkend AAAAAAACCK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_uint16_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_uint16_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::lowp_uint16_t}}}
+\par
+{\bkmkstart AAAAAAACCL}
+{\bkmkend AAAAAAACCL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_uint32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_uint32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::lowp_uint32}}}
+\par
+{\bkmkstart AAAAAAACCM}
+{\bkmkend AAAAAAACCM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_uint32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_uint32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::lowp_uint32_t}}}
+\par
+{\bkmkstart AAAAAAACCN}
+{\bkmkend AAAAAAACCN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_uint64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_uint64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::lowp_uint64}}}
+\par
+{\bkmkstart AAAAAAACCO}
+{\bkmkend AAAAAAACCO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_uint64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_uint64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::lowp_uint64_t}}}
+\par
+{\bkmkstart AAAAAAACCP}
+{\bkmkend AAAAAAACCP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_uint8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_uint8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::lowp_uint8}}}
+\par
+{\bkmkstart AAAAAAACCQ}
+{\bkmkend AAAAAAACCQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v lowp_uint8_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:lowp_uint8_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::lowp_uint8_t}}}
+\par
+{\bkmkstart AAAAAAACCR}
+{\bkmkend AAAAAAACCR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Low precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_i16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_i16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::mediump_i16}}}
+\par
+{\bkmkstart AAAAAAACCS}
+{\bkmkend AAAAAAACCS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_i32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_i32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::mediump_i32}}}
+\par
+{\bkmkstart AAAAAAACCT}
+{\bkmkend AAAAAAACCT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_i64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_i64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::mediump_i64}}}
+\par
+{\bkmkstart AAAAAAACCU}
+{\bkmkend AAAAAAACCU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_i8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_i8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::mediump_i8}}}
+\par
+{\bkmkstart AAAAAAACCV}
+{\bkmkend AAAAAAACCV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_int16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_int16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::mediump_int16}}}
+\par
+{\bkmkstart AAAAAAACCW}
+{\bkmkend AAAAAAACCW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_int16_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_int16_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int16} {\b glm::mediump_int16_t}}}
+\par
+{\bkmkstart AAAAAAACCX}
+{\bkmkend AAAAAAACCX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_int32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_int32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::mediump_int32}}}
+\par
+{\bkmkstart AAAAAAACCY}
+{\bkmkend AAAAAAACCY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_int32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_int32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::int32} {\b glm::mediump_int32_t}}}
+\par
+{\bkmkstart AAAAAAACCZ}
+{\bkmkend AAAAAAACCZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_int64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_int64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::mediump_int64}}}
+\par
+{\bkmkstart AAAAAAACDA}
+{\bkmkend AAAAAAACDA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_int64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_int64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int64 {\b glm::mediump_int64_t}}}
+\par
+{\bkmkstart AAAAAAACDB}
+{\bkmkend AAAAAAACDB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_int8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_int8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::mediump_int8}}}
+\par
+{\bkmkstart AAAAAAACDC}
+{\bkmkend AAAAAAACDC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_int8_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_int8_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::int8 {\b glm::mediump_int8_t}}}
+\par
+{\bkmkstart AAAAAAACDD}
+{\bkmkend AAAAAAACDD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit signed integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_u16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_u16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::mediump_u16}}}
+\par
+{\bkmkstart AAAAAAACDE}
+{\bkmkend AAAAAAACDE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_u32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_u32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::mediump_u32}}}
+\par
+{\bkmkstart AAAAAAACDF}
+{\bkmkend AAAAAAACDF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_u64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_u64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::mediump_u64}}}
+\par
+{\bkmkstart AAAAAAACDG}
+{\bkmkend AAAAAAACDG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_u8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_u8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::mediump_u8}}}
+\par
+{\bkmkstart AAAAAAACDH}
+{\bkmkend AAAAAAACDH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_uint16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_uint16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::mediump_uint16}}}
+\par
+{\bkmkstart AAAAAAACDI}
+{\bkmkend AAAAAAACDI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_uint16_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_uint16_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::mediump_uint16_t}}}
+\par
+{\bkmkstart AAAAAAACDJ}
+{\bkmkend AAAAAAACDJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_uint32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_uint32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::mediump_uint32}}}
+\par
+{\bkmkstart AAAAAAACDK}
+{\bkmkend AAAAAAACDK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_uint32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_uint32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::mediump_uint32_t}}}
+\par
+{\bkmkstart AAAAAAACDL}
+{\bkmkend AAAAAAACDL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_uint64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_uint64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::mediump_uint64}}}
+\par
+{\bkmkstart AAAAAAACDM}
+{\bkmkend AAAAAAACDM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_uint64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_uint64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::mediump_uint64_t}}}
+\par
+{\bkmkstart AAAAAAACDN}
+{\bkmkend AAAAAAACDN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_uint8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_uint8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::mediump_uint8}}}
+\par
+{\bkmkstart AAAAAAACDO}
+{\bkmkend AAAAAAACDO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v mediump_uint8_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:mediump_uint8_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::mediump_uint8_t}}}
+\par
+{\bkmkstart AAAAAAACDP}
+{\bkmkend AAAAAAACDP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Medium precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::u16}}}
+\par
+{\bkmkstart AAAAAAACDQ}
+{\bkmkend AAAAAAACDQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u16vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u16vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< u16, defaultp > {\b glm::u16vec1}}}
+\par
+{\bkmkstart AAAAAAACDR}
+{\bkmkend AAAAAAACDR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 16 bit unsigned integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u16vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u16vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< u16, defaultp > {\b glm::u16vec2}}}
+\par
+{\bkmkstart AAAAAAACDS}
+{\bkmkend AAAAAAACDS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 16 bit unsigned integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u16vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u16vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< u16, defaultp > {\b glm::u16vec3}}}
+\par
+{\bkmkstart AAAAAAACDT}
+{\bkmkend AAAAAAACDT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 16 bit unsigned integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u16vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u16vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< u16, defaultp > {\b glm::u16vec4}}}
+\par
+{\bkmkstart AAAAAAACDU}
+{\bkmkend AAAAAAACDU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 16 bit unsigned integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::u32}}}
+\par
+{\bkmkstart AAAAAAACDV}
+{\bkmkend AAAAAAACDV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u32vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u32vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< u32, defaultp > {\b glm::u32vec1}}}
+\par
+{\bkmkstart AAAAAAACDW}
+{\bkmkend AAAAAAACDW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 32 bit unsigned integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u32vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u32vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< u32, defaultp > {\b glm::u32vec2}}}
+\par
+{\bkmkstart AAAAAAACDX}
+{\bkmkend AAAAAAACDX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 32 bit unsigned integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u32vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u32vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< u32, defaultp > {\b glm::u32vec3}}}
+\par
+{\bkmkstart AAAAAAACDY}
+{\bkmkend AAAAAAACDY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 32 bit unsigned integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u32vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u32vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< u32, defaultp > {\b glm::u32vec4}}}
+\par
+{\bkmkstart AAAAAAACDZ}
+{\bkmkend AAAAAAACDZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 32 bit unsigned integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::u64}}}
+\par
+{\bkmkstart AAAAAAACEA}
+{\bkmkend AAAAAAACEA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u64vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u64vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< u64, defaultp > {\b glm::u64vec1}}}
+\par
+{\bkmkstart AAAAAAACEB}
+{\bkmkend AAAAAAACEB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 64 bit unsigned integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u64vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u64vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< u64, defaultp > {\b glm::u64vec2}}}
+\par
+{\bkmkstart AAAAAAACEC}
+{\bkmkend AAAAAAACEC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 64 bit unsigned integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u64vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u64vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< u64, defaultp > {\b glm::u64vec3}}}
+\par
+{\bkmkstart AAAAAAACED}
+{\bkmkend AAAAAAACED}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 64 bit unsigned integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u64vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u64vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< u64, defaultp > {\b glm::u64vec4}}}
+\par
+{\bkmkstart AAAAAAACEE}
+{\bkmkend AAAAAAACEE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 64 bit unsigned integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::u8}}}
+\par
+{\bkmkstart AAAAAAACEF}
+{\bkmkend AAAAAAACEF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u8vec1\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u8vec1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec1< u8, defaultp > {\b glm::u8vec1}}}
+\par
+{\bkmkstart AAAAAAACEG}
+{\bkmkend AAAAAAACEG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 8 bit unsigned integer scalar type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u8vec2\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u8vec2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec2< u8, defaultp > {\b glm::u8vec2}}}
+\par
+{\bkmkstart AAAAAAACEH}
+{\bkmkend AAAAAAACEH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 8 bit unsigned integer vector of 2 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u8vec3\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u8vec3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec3< u8, defaultp > {\b glm::u8vec3}}}
+\par
+{\bkmkstart AAAAAAACEI}
+{\bkmkend AAAAAAACEI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 8 bit unsigned integer vector of 3 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v u8vec4\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:u8vec4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef tvec4< u8, defaultp > {\b glm::u8vec4}}}
+\par
+{\bkmkstart AAAAAAACEJ}
+{\bkmkend AAAAAAACEJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default precision 8 bit unsigned integer vector of 4 components type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v uint16\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:uint16}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint16 {\b glm::uint16}}}
+\par
+{\bkmkstart AAAAAAACEK}
+{\bkmkend AAAAAAACEK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v uint16_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:uint16_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint16} {\b glm::uint16_t}}}
+\par
+{\bkmkstart AAAAAAACEL}
+{\bkmkend AAAAAAACEL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 16 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v uint32\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:uint32}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint32 {\b glm::uint32}}}
+\par
+{\bkmkstart AAAAAAACEM}
+{\bkmkend AAAAAAACEM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v uint32_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:uint32_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint32} {\b glm::uint32_t}}}
+\par
+{\bkmkstart AAAAAAACEN}
+{\bkmkend AAAAAAACEN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 32 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v uint64\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:uint64}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::uint64}}}
+\par
+{\bkmkstart AAAAAAACEO}
+{\bkmkend AAAAAAACEO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v uint64_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:uint64_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint64 {\b glm::uint64_t}}}
+\par
+{\bkmkstart AAAAAAACEP}
+{\bkmkend AAAAAAACEP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 64 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v uint8\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:uint8}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef detail::uint8 {\b glm::uint8}}}
+\par
+{\bkmkstart AAAAAAACEQ}
+{\bkmkend AAAAAAACEQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+{\xe \v uint8_t\:GLM_GTC_type_precision}
+{\xe \v GLM_GTC_type_precision\:uint8_t}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+typedef {\b detail::uint8} {\b glm::uint8_t}}}
+\par
+{\bkmkstart AAAAAAACER}
+{\bkmkend AAAAAAACER}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision}\par
+}Default precision 8 bit unsigned integer type. \par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+See also:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b GLM_GTC_type_precision} \par
+}}}
+}

@@ -23,6 +23,9 @@
 #include "../components/freeLook.h"
 #include <vector>
 
+/*
+This is the built-in editor in engine.
+*/
 COMPONENT(DevMode)
 public:
 	DevMode(const Window& window, bool isDev = true)

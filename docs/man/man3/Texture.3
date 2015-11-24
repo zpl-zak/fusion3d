@@ -1,0 +1,77 @@
+.TH "Texture" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Texture \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <texture\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTexture\fP (const std::string &fileName, GLenum textureTarget=GL_TEXTURE_2D, GLfloat filter=GL_LINEAR_MIPMAP_LINEAR, GLenum internalFormat=GL_RGBA, GLenum format=GL_RGBA, bool clamp=false, GLenum attachment=GL_NONE)"
+.br
+.ti -1c
+.RI "\fBTexture\fP (int width=0, int height=0, unsigned char *data=0, GLenum textureTarget=GL_TEXTURE_2D, GLfloat filter=GL_LINEAR_MIPMAP_LINEAR, GLenum internalFormat=GL_RGBA, GLenum format=GL_RGBA, bool clamp=false, GLenum attachment=GL_NONE)"
+.br
+.ti -1c
+.RI "\fBTexture\fP (const \fBTexture\fP &texture)"
+.br
+.ti -1c
+.RI "void \fBoperator=\fP (\fBTexture\fP texture)"
+.br
+.ti -1c
+.RI "virtual \fB~Texture\fP ()"
+.br
+.ti -1c
+.RI "void \fBBind\fP (unsigned int unit=0) const "
+.br
+.ti -1c
+.RI "void \fBBindAsRenderTarget\fP () const "
+.br
+.ti -1c
+.RI "int \fBGetWidth\fP () const "
+.br
+.ti -1c
+.RI "int \fBGetHeight\fP () const "
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBTexture\fP &texture) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBTexture\fP &texture) const "
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Texture::Texture (const std::string & fileName, GLenum textureTarget = \fCGL_TEXTURE_2D\fP, GLfloat filter = \fCGL_LINEAR_MIPMAP_LINEAR\fP, GLenum internalFormat = \fCGL_RGBA\fP, GLenum format = \fCGL_RGBA\fP, bool clamp = \fCfalse\fP, GLenum attachment = \fCGL_NONE\fP)"
+
+.SS "Texture::Texture (int width = \fC0\fP, int height = \fC0\fP, unsigned char * data = \fC0\fP, GLenum textureTarget = \fCGL_TEXTURE_2D\fP, GLfloat filter = \fCGL_LINEAR_MIPMAP_LINEAR\fP, GLenum internalFormat = \fCGL_RGBA\fP, GLenum format = \fCGL_RGBA\fP, bool clamp = \fCfalse\fP, GLenum attachment = \fCGL_NONE\fP)"
+
+.SS "Texture::Texture (const \fBTexture\fP & texture)"
+
+.SS "Texture::~Texture ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Texture::Bind (unsigned int unit = \fC0\fP) const"
+
+.SS "void Texture::BindAsRenderTarget () const"
+
+.SS "int Texture::GetHeight () const\fC [inline]\fP"
+
+.SS "int Texture::GetWidth () const\fC [inline]\fP"
+
+.SS "bool Texture::operator!= (const \fBTexture\fP & texture) const\fC [inline]\fP"
+
+.SS "void Texture::operator= (\fBTexture\fP texture)"
+
+.SS "bool Texture::operator== (const \fBTexture\fP & texture) const\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

@@ -1,0 +1,62 @@
+.TH "gtx_fast_trigonometry" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_fast_trigonometry \- GLM_GTX_fast_trigonometry
+.PP
+Fast but less accurate implementations of trigonometric functions\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL T \fBglm::wrapAngle\fP (T angle)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL T \fBglm::fastSin\fP (T angle)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL T \fBglm::fastCos\fP (T angle)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL T \fBglm::fastTan\fP (T angle)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL T \fBglm::fastAsin\fP (T angle)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL T \fBglm::fastAcos\fP (T angle)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL T \fBglm::fastAtan\fP (T y, T x)"
+.br
+.ti -1c
+.RI "template<typename T > GLM_FUNC_DECL T \fBglm::fastAtan\fP (T angle)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Fast but less accurate implementations of trigonometric functions\&. 
+
+<\fBglm/gtx/fast_trigonometry\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T > GLM_FUNC_DECL T glm::fastAcos (T angle)"
+Faster than the common acos function but less accurate\&. Defined between -2pi and 2pi\&. From GLM_GTX_fast_trigonometry extension\&. 
+.SS "template<typename T > GLM_FUNC_DECL T glm::fastAsin (T angle)"
+Faster than the common asin function but less accurate\&. Defined between -2pi and 2pi\&. From GLM_GTX_fast_trigonometry extension\&. 
+.SS "template<typename T > GLM_FUNC_DECL T glm::fastAtan (T y, T x)"
+Faster than the common atan function but less accurate\&. Defined between -2pi and 2pi\&. From GLM_GTX_fast_trigonometry extension\&. 
+.SS "template<typename T > GLM_FUNC_DECL T glm::fastAtan (T angle)"
+Faster than the common atan function but less accurate\&. Defined between -2pi and 2pi\&. From GLM_GTX_fast_trigonometry extension\&. 
+.SS "template<typename T > GLM_FUNC_DECL T glm::fastCos (T angle)"
+Faster than the common cos function but less accurate\&. From GLM_GTX_fast_trigonometry extension\&. 
+.SS "template<typename T > GLM_FUNC_DECL T glm::fastSin (T angle)"
+Faster than the common sin function but less accurate\&. From GLM_GTX_fast_trigonometry extension\&. 
+.SS "template<typename T > GLM_FUNC_DECL T glm::fastTan (T angle)"
+Faster than the common tan function but less accurate\&. Defined between -2pi and 2pi\&. From GLM_GTX_fast_trigonometry extension\&. 
+.SS "template<typename T > GLM_FUNC_DECL T glm::wrapAngle (T angle)"
+Wrap an angle to [0 2pi[ From GLM_GTX_fast_trigonometry extension\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

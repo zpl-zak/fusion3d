@@ -1,0 +1,71 @@
+.TH "CoreEngine" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CoreEngine \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <coreEngine\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCoreEngine\fP (double frameRate, \fBWindow\fP *window, \fBRenderingEngine\fP *renderingEngine, \fBPhysicsEngine\fP *physicsEngine, \fBGame\fP *game)"
+.br
+.ti -1c
+.RI "void \fBStart\fP ()"
+.br
+.ti -1c
+.RI "void \fBStop\fP ()"
+.br
+.ti -1c
+.RI "\fBRenderingEngine\fP * \fBGetRenderingEngine\fP ()"
+.br
+.ti -1c
+.RI "\fBPhysicsEngine\fP * \fBGetPhysicsEngine\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetSimulation\fP (bool state)"
+.br
+.ti -1c
+.RI "bool \fBGetSimulation\fP () const "
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBCoreEngine\fP * \fBGetCoreEngine\fP ()"
+.br
+.ti -1c
+.RI "static void \fBSetCoreEngine\fP (\fBCoreEngine\fP *coreEngine)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "CoreEngine::CoreEngine (double frameRate, \fBWindow\fP * window, \fBRenderingEngine\fP * renderingEngine, \fBPhysicsEngine\fP * physicsEngine, \fBGame\fP * game)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBCoreEngine\fP* CoreEngine::GetCoreEngine ()\fC [inline]\fP, \fC [static]\fP"
+
+.SS "\fBPhysicsEngine\fP* CoreEngine::GetPhysicsEngine ()\fC [inline]\fP"
+
+.SS "\fBRenderingEngine\fP* CoreEngine::GetRenderingEngine ()\fC [inline]\fP"
+
+.SS "bool CoreEngine::GetSimulation () const\fC [inline]\fP"
+
+.SS "static void CoreEngine::SetCoreEngine (\fBCoreEngine\fP * coreEngine)\fC [inline]\fP, \fC [static]\fP"
+
+.SS "void CoreEngine::SetSimulation (bool state)\fC [inline]\fP"
+
+.SS "void CoreEngine::Start ()"
+
+.SS "void CoreEngine::Stop ()"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

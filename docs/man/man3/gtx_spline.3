@@ -1,0 +1,58 @@
+.TH "gtx_spline" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_spline \- GLM_GTX_spline
+.PP
+Spline functions\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::catmullRom\fP (genType const &v1, genType const &v2, genType const &v3, genType const &v4, typename genType::value_type const &s)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::hermite\fP (genType const &v1, genType const &t1, genType const &v2, genType const &t2, typename genType::value_type const &s)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::cubic\fP (genType const &v1, genType const &v2, genType const &v3, genType const &v4, typename genType::value_type const &s)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Spline functions\&. 
+
+<\fBglm/gtx/spline\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::catmullRom (genType const & v1, genType const & v2, genType const & v3, genType const & v4, typename genType::value_type const & s)"
+Return a point from a catmull rom curve\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_spline\fP extension\&. 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::cubic (genType const & v1, genType const & v2, genType const & v3, genType const & v4, typename genType::value_type const & s)"
+Return a point from a cubic curve\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_spline\fP extension\&. 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::hermite (genType const & v1, genType const & t1, genType const & v2, genType const & t2, typename genType::value_type const & s)"
+Return a point from a hermite curve\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_spline\fP extension\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

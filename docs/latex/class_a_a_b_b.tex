@@ -1,0 +1,89 @@
+\hypertarget{class_a_a_b_b}{}\section{A\+A\+B\+B Class Reference}
+\label{class_a_a_b_b}\index{A\+A\+B\+B@{A\+A\+B\+B}}
+
+
+{\ttfamily \#include $<$aabb.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_a_a_b_b_a8d02c9a2bdd8a46125fc8209b1aa4518}{A\+A\+B\+B} (const \hyperlink{class_vector3f}{Vector3f} \&min\+Extents, const \hyperlink{class_vector3f}{Vector3f} \&max\+Extents)
+\item 
+\hyperlink{class_intersect_data}{Intersect\+Data} \hyperlink{class_a_a_b_b_ac813b88bd2fc7eaa2410cc9f227d8b7f}{Intersect\+A\+A\+B\+B} (const \hyperlink{class_a_a_b_b}{A\+A\+B\+B} \&other) const 
+\item 
+const \hyperlink{class_vector3f}{Vector3f} \& \hyperlink{class_a_a_b_b_a01c73769173c70809683dda9a5e96a4f}{Get\+Min\+Extents} () const 
+\item 
+const \hyperlink{class_vector3f}{Vector3f} \& \hyperlink{class_a_a_b_b_a6ae2bfff769bee5c66d6f59bcfc00829}{Get\+Max\+Extents} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_a_a_b_b_a846b829dbe39041ef31723da4d3b9002}{Test} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_a_a_b_b}{A\+A\+B\+B} class represents an Axis Aligned Bounding Box that can be used as a collider in a physics engine. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_a_a_b_b_a8d02c9a2bdd8a46125fc8209b1aa4518}{}\index{A\+A\+B\+B@{A\+A\+B\+B}!A\+A\+B\+B@{A\+A\+B\+B}}
+\index{A\+A\+B\+B@{A\+A\+B\+B}!A\+A\+B\+B@{A\+A\+B\+B}}
+\subsubsection[{A\+A\+B\+B(const Vector3f \&min\+Extents, const Vector3f \&max\+Extents)}]{\setlength{\rightskip}{0pt plus 5cm}A\+A\+B\+B\+::\+A\+A\+B\+B (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{min\+Extents, }
+\item[{const {\bf Vector3f} \&}]{max\+Extents}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_a_a_b_b_a8d02c9a2bdd8a46125fc8209b1aa4518}
+Creates an \hyperlink{class_a_a_b_b}{A\+A\+B\+B} in a usable state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Extents} & The corner of the \hyperlink{class_a_a_b_b}{A\+A\+B\+B} with the smallest coordinates. \\
+\hline
+{\em max\+Extents} & The corner of the \hyperlink{class_a_a_b_b}{A\+A\+B\+B} with the largest coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_a_a_b_b_a6ae2bfff769bee5c66d6f59bcfc00829}{}\index{A\+A\+B\+B@{A\+A\+B\+B}!Get\+Max\+Extents@{Get\+Max\+Extents}}
+\index{Get\+Max\+Extents@{Get\+Max\+Extents}!A\+A\+B\+B@{A\+A\+B\+B}}
+\subsubsection[{Get\+Max\+Extents() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vector3f}\& A\+A\+B\+B\+::\+Get\+Max\+Extents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_a_a_b_b_a6ae2bfff769bee5c66d6f59bcfc00829}
+Basic getter for the max extents \hypertarget{class_a_a_b_b_a01c73769173c70809683dda9a5e96a4f}{}\index{A\+A\+B\+B@{A\+A\+B\+B}!Get\+Min\+Extents@{Get\+Min\+Extents}}
+\index{Get\+Min\+Extents@{Get\+Min\+Extents}!A\+A\+B\+B@{A\+A\+B\+B}}
+\subsubsection[{Get\+Min\+Extents() const }]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vector3f}\& A\+A\+B\+B\+::\+Get\+Min\+Extents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_a_a_b_b_a01c73769173c70809683dda9a5e96a4f}
+Basic getter for the min extents \hypertarget{class_a_a_b_b_ac813b88bd2fc7eaa2410cc9f227d8b7f}{}\index{A\+A\+B\+B@{A\+A\+B\+B}!Intersect\+A\+A\+B\+B@{Intersect\+A\+A\+B\+B}}
+\index{Intersect\+A\+A\+B\+B@{Intersect\+A\+A\+B\+B}!A\+A\+B\+B@{A\+A\+B\+B}}
+\subsubsection[{Intersect\+A\+A\+B\+B(const A\+A\+B\+B \&other) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Intersect\+Data} A\+A\+B\+B\+::\+Intersect\+A\+A\+B\+B (
+\begin{DoxyParamCaption}
+\item[{const {\bf A\+A\+B\+B} \&}]{other}
+\end{DoxyParamCaption}
+) const}\label{class_a_a_b_b_ac813b88bd2fc7eaa2410cc9f227d8b7f}
+Computes information about if this \hyperlink{class_a_a_b_b}{A\+A\+B\+B} intersects another \hyperlink{class_a_a_b_b}{A\+A\+B\+B}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \hyperlink{class_a_a_b_b}{A\+A\+B\+B} that\textquotesingle{}s being tested for intersection with this \hyperlink{class_a_a_b_b}{A\+A\+B\+B}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_a_a_b_b_a846b829dbe39041ef31723da4d3b9002}{}\index{A\+A\+B\+B@{A\+A\+B\+B}!Test@{Test}}
+\index{Test@{Test}!A\+A\+B\+B@{A\+A\+B\+B}}
+\subsubsection[{Test()}]{\setlength{\rightskip}{0pt plus 5cm}void A\+A\+B\+B\+::\+Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_a_a_b_b_a846b829dbe39041ef31723da4d3b9002}
+Performs a Unit test of this class 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/physics/\hyperlink{aabb_8h}{aabb.\+h}\item 
+F\+:/\+Fusion3\+D\+\_\+work/src/physics/\hyperlink{aabb_8cpp}{aabb.\+cpp}\end{DoxyCompactItemize}

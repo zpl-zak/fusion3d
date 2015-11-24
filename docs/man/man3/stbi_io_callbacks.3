@@ -1,0 +1,35 @@
+.TH "stbi_io_callbacks" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+stbi_io_callbacks \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <stb_image\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int(* \fBread\fP )(void *user, char *data, int size)"
+.br
+.ti -1c
+.RI "void(* \fBskip\fP )(void *user, unsigned n)"
+.br
+.ti -1c
+.RI "int(* \fBeof\fP )(void *user)"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "int(* stbi_io_callbacks::eof) (void *user)"
+
+.SS "int(* stbi_io_callbacks::read) (void *user, char *data, int size)"
+
+.SS "void(* stbi_io_callbacks::skip) (void *user, unsigned n)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

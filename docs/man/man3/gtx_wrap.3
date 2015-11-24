@@ -1,0 +1,70 @@
+.TH "gtx_wrap" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_wrap \- GLM_GTX_wrap
+.PP
+Wrapping mode of texture coordinates\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::clamp\fP (genType const &Texcoord)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::repeat\fP (genType const &Texcoord)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::mirrorClamp\fP (genType const &Texcoord)"
+.br
+.ti -1c
+.RI "template<typename genType > GLM_FUNC_DECL genType \fBglm::mirrorRepeat\fP (genType const &Texcoord)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Wrapping mode of texture coordinates\&. 
+
+<\fBglm/gtx/wrap\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::clamp (genType const & Texcoord)"
+Simulate GL_CLAMP OpenGL wrap mode 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_wrap\fP extension\&. 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::mirrorClamp (genType const & Texcoord)"
+Simulate GL_MIRRORED_REPEAT OpenGL wrap mode 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_wrap\fP extension\&. 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::mirrorRepeat (genType const & Texcoord)"
+Simulate GL_MIRROR_REPEAT OpenGL wrap mode 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_wrap\fP extension\&. 
+.RE
+.PP
+
+.SS "template<typename genType > GLM_FUNC_DECL genType glm::repeat (genType const & Texcoord)"
+Simulate GL_REPEAT OpenGL wrap mode 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGLM_GTX_wrap\fP extension\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

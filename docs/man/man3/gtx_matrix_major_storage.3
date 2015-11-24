@@ -1,0 +1,82 @@
+.TH "gtx_matrix_major_storage" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gtx_matrix_major_storage \- GLM_GTX_matrix_major_storage
+.PP
+Build matrices with specific matrix order, row or column\&.  
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat2x2< T, P > \fBglm::rowMajor2\fP (tvec2< T, P > const &v1, tvec2< T, P > const &v2)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat2x2< T, P > \fBglm::rowMajor2\fP (tmat2x2< T, P > const &m)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat3x3< T, P > \fBglm::rowMajor3\fP (tvec3< T, P > const &v1, tvec3< T, P > const &v2, tvec3< T, P > const &v3)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat3x3< T, P > \fBglm::rowMajor3\fP (tmat3x3< T, P > const &m)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat4x4< T, P > \fBglm::rowMajor4\fP (tvec4< T, P > const &v1, tvec4< T, P > const &v2, tvec4< T, P > const &v3, tvec4< T, P > const &v4)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat4x4< T, P > \fBglm::rowMajor4\fP (tmat4x4< T, P > const &m)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat2x2< T, P > \fBglm::colMajor2\fP (tvec2< T, P > const &v1, tvec2< T, P > const &v2)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat2x2< T, P > \fBglm::colMajor2\fP (tmat2x2< T, P > const &m)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat3x3< T, P > \fBglm::colMajor3\fP (tvec3< T, P > const &v1, tvec3< T, P > const &v2, tvec3< T, P > const &v3)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat3x3< T, P > \fBglm::colMajor3\fP (tmat3x3< T, P > const &m)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat4x4< T, P > \fBglm::colMajor4\fP (tvec4< T, P > const &v1, tvec4< T, P > const &v2, tvec4< T, P > const &v3, tvec4< T, P > const &v4)"
+.br
+.ti -1c
+.RI "template<typename T , precision P> GLM_FUNC_DECL tmat4x4< T, P > \fBglm::colMajor4\fP (tmat4x4< T, P > const &m)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Build matrices with specific matrix order, row or column\&. 
+
+<\fBglm/gtx/matrix_major_storage\&.hpp\fP> need to be included to use these functionalities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat2x2<T, P> glm::colMajor2 (tvec2< T, P > const & v1, tvec2< T, P > const & v2)"
+Build a column major matrix from column vectors\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat2x2<T, P> glm::colMajor2 (tmat2x2< T, P > const & m)"
+Build a column major matrix from other matrix\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat3x3<T, P> glm::colMajor3 (tvec3< T, P > const & v1, tvec3< T, P > const & v2, tvec3< T, P > const & v3)"
+Build a column major matrix from column vectors\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat3x3<T, P> glm::colMajor3 (tmat3x3< T, P > const & m)"
+Build a column major matrix from other matrix\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat4x4<T, P> glm::colMajor4 (tvec4< T, P > const & v1, tvec4< T, P > const & v2, tvec4< T, P > const & v3, tvec4< T, P > const & v4)"
+Build a column major matrix from column vectors\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat4x4<T, P> glm::colMajor4 (tmat4x4< T, P > const & m)"
+Build a column major matrix from other matrix\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat2x2<T, P> glm::rowMajor2 (tvec2< T, P > const & v1, tvec2< T, P > const & v2)"
+Build a row major matrix from row vectors\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat2x2<T, P> glm::rowMajor2 (tmat2x2< T, P > const & m)"
+Build a row major matrix from other matrix\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat3x3<T, P> glm::rowMajor3 (tvec3< T, P > const & v1, tvec3< T, P > const & v2, tvec3< T, P > const & v3)"
+Build a row major matrix from row vectors\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat3x3<T, P> glm::rowMajor3 (tmat3x3< T, P > const & m)"
+Build a row major matrix from other matrix\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat4x4<T, P> glm::rowMajor4 (tvec4< T, P > const & v1, tvec4< T, P > const & v2, tvec4< T, P > const & v3, tvec4< T, P > const & v4)"
+Build a row major matrix from row vectors\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SS "template<typename T , precision P> GLM_FUNC_DECL tmat4x4<T, P> glm::rowMajor4 (tmat4x4< T, P > const & m)"
+Build a row major matrix from other matrix\&. From GLM_GTX_matrix_major_storage extension\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.

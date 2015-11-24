@@ -1,0 +1,59 @@
+.TH "GLDebugDrawer" 3 "Tue Nov 24 2015" "Version 0.0.0.1" "Fusion3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GLDebugDrawer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <renderingEngine\&.h>\fP
+.PP
+Inherits btIDebugDraw\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGLDebugDrawer\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBdrawLine\fP (const btVector3 &from, const btVector3 &to, const btVector3 &color)"
+.br
+.ti -1c
+.RI "virtual void \fBdrawContactPoint\fP (const btVector3 &PointOnB, const btVector3 &normalOnB, btScalar distance, int lifeTime, const btVector3 &color)"
+.br
+.ti -1c
+.RI "virtual void \fBreportErrorWarning\fP (const char *warningString)"
+.br
+.ti -1c
+.RI "virtual void \fBdraw3dText\fP (const btVector3 &location, const char *textString)"
+.br
+.ti -1c
+.RI "virtual void \fBsetDebugMode\fP (int debugMode)"
+.br
+.ti -1c
+.RI "virtual int \fBgetDebugMode\fP () const "
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "GLDebugDrawer::GLDebugDrawer ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void GLDebugDrawer::draw3dText (const btVector3 & location, const char * textString)\fC [virtual]\fP"
+
+.SS "void GLDebugDrawer::drawContactPoint (const btVector3 & PointOnB, const btVector3 & normalOnB, btScalar distance, int lifeTime, const btVector3 & color)\fC [virtual]\fP"
+
+.SS "void GLDebugDrawer::drawLine (const btVector3 & from, const btVector3 & to, const btVector3 & color)\fC [virtual]\fP"
+
+.SS "virtual int GLDebugDrawer::getDebugMode () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.SS "void GLDebugDrawer::reportErrorWarning (const char * warningString)\fC [virtual]\fP"
+
+.SS "void GLDebugDrawer::setDebugMode (int debugMode)\fC [virtual]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Fusion3D from the source code\&.
