@@ -8,11 +8,8 @@ var searchData=
   ['bird',['Bird',['../bird__prog_8h.html#a6ba97334e718651f4a091a142eed40bc',1,'bird_prog.h']]],
   ['bird_5fprog_2eh',['bird_prog.h',['../bird__prog_8h.html',1,'']]],
   ['birdcubemap',['BirdCubemap',['../bird__prog_8h.html#aa57d28b0ccd609394e3c727598e55df6',1,'bird_prog.h']]],
-  ['black',['black',['../colors_8h.html#abc5c98fcc1211af2b80116dd6e0a035da775364fe1f3fffe99686bf6d572a7370',1,'colors.h']]],
+  ['black',['black',['../colors_8h.html#a385c44f6fb256e5716a2302a5b940388a775364fe1f3fffe99686bf6d572a7370',1,'colors.h']]],
   ['bmask',['bmask',['../rendering_engine_8cpp.html#a14b0866344628e753ba7670a11b780b4',1,'renderingEngine.cpp']]],
-  ['boundingsphere',['BoundingSphere',['../class_bounding_sphere.html',1,'BoundingSphere'],['../class_bounding_sphere.html#a6139e246a2611b6479073746dbb35cbd',1,'BoundingSphere::BoundingSphere()']]],
-  ['boundingsphere_2ecpp',['boundingSphere.cpp',['../bounding_sphere_8cpp.html',1,'']]],
-  ['boundingsphere_2eh',['boundingSphere.h',['../bounding_sphere_8h.html',1,'']]],
   ['buffer',['buffer',['../structmpc__input__t.html#a351c2ee3e5bde692018d3e0a1089d395',1,'mpc_input_t']]],
   ['buffer_5fstart',['buffer_start',['../structstbi.html#af99edda496281a6ca1b58271cabdbc69',1,'stbi']]],
   ['buflen',['buflen',['../structstbi.html#a76d6f761529ecff7f02469b19371af0e',1,'stbi']]]

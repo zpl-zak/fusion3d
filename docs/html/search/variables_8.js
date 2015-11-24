@@ -6,7 +6,7 @@ var searchData=
   ['img_5fbuffer',['img_buffer',['../structstbi.html#aace36d5487a596bea5faa0aef0398ac8',1,'stbi']]],
   ['img_5fbuffer_5fend',['img_buffer_end',['../structstbi.html#a55f78565e605f1784d47fc9acea475f3',1,'stbi']]],
   ['img_5fbuffer_5foriginal',['img_buffer_original',['../structstbi.html#a261be6edda817862e623972b21b4f965',1,'stbi']]],
-  ['img_5fcomp',['img_comp',['../structjpeg.html#a9ca5d276fe243a5bde363e7c2ce6bc4e',1,'jpeg']]],
+  ['img_5fcomp',['img_comp',['../structjpeg.html#aa71c5b6151b640a35c1eabd230919cd2',1,'jpeg']]],
   ['img_5fh_5fmax',['img_h_max',['../structjpeg.html#af4ed1173241e83f1482a276a178ce9e5',1,'jpeg']]],
   ['img_5fmcu_5fh',['img_mcu_h',['../structjpeg.html#a6e013436253bcf1e5808a1774b96cc38',1,'jpeg']]],
   ['img_5fmcu_5fw',['img_mcu_w',['../structjpeg.html#a32f06fea63ec2c976092760b21abad72',1,'jpeg']]],

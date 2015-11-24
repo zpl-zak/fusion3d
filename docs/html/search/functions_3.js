@@ -7,7 +7,6 @@ var searchData=
   ['cameracomponent',['CameraComponent',['../camera_8h.html#a9ae635f0d04ea56fb456dc8b49f3b680',1,'camera.h']]],
   ['clamp',['Clamp',['../math3d_8h.html#a81dc969b5fe096b6bf91849c0aef5d2e',1,'math3d.h']]],
   ['clearkey',['ClearKey',['../class_input.html#ad6f85521d7e38ed652edf01f3d666c14',1,'Input']]],
-  ['collider',['Collider',['../class_collider.html#a3fed523e82fb51e73bf97c7690163afe',1,'Collider']]],
   ['concatcolors',['concatcolors',['../colors_8h.html#ae9d1acd9e9bbfd587434e7f1d0dd8566',1,'colors.h']]],
   ['conjugate',['Conjugate',['../class_quaternion.html#a0ee64800ff331f0a7d2572c86f98b83b',1,'Quaternion']]],
   ['coreengine',['CoreEngine',['../class_core_engine.html#ad828ebdde32d2b749c2e6d5c6ea9460a',1,'CoreEngine']]],

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
   ['mappedvalues',['MappedValues',['../class_mapped_values.html#a2f2b64544872889cf6403206f970bb7a',1,'MappedValues']]],
   ['material',['Material',['../class_material.html#a9d10a10cc924f93d0ba35b9ada36760b',1,'Material::Material(const std::string &amp;materialName=&quot;&quot;)'],['../class_material.html#ac9b027e9c501776e7d08589a52e9d795',1,'Material::Material(const Material &amp;other)'],['../class_material.html#a7ff625f38afbe0aeab9b9194848fd414',1,'Material::Material(const std::string &amp;materialName, const Texture &amp;diffuse, float specularIntensity, float specularPower, const Texture &amp;normalMap=Texture(&quot;default_normal.jpg&quot;), const Texture &amp;dispMap=Texture(&quot;default_disp.png&quot;), float dispMapScale=0.0f, float dispMapOffset=0.0f)']]],
   ['matrix3',['Matrix3',['../class_matrix3.html#afbc8b655540e4b5b04d8439b606303b0',1,'Matrix3::Matrix3()'],['../class_matrix3.html#ac47eddcab53aef5812f04cb5ee2f4f0a',1,'Matrix3::Matrix3(const Matrix&lt; T, D &gt; &amp;r)']]],

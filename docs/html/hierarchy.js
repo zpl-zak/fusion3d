@@ -1,6 +1,5 @@
 var hierarchy =
 [
-    [ "AABB", "class_a_a_b_b.html", null ],
     [ "btIDebugDraw", null, [
       [ "GLDebugDrawer", "class_g_l_debug_drawer.html", null ]
     ] ],
@@ -12,19 +11,14 @@ var hierarchy =
     [ "EntityComponent", "class_entity_component.html", [
       [ "PhysicsObjectComponent", "class_physics_object_component.html", null ]
     ] ],
-    [ "Game", "class_game.html", [
-      [ "TestGame", "class_test_game.html", null ]
-    ] ],
+    [ "Game", "class_game.html", null ],
     [ "huffman", "structhuffman.html", null ],
     [ "IndexedModel", "class_indexed_model.html", null ],
     [ "Input", "class_input.html", null ],
-    [ "IntersectData", "class_intersect_data.html", null ],
     [ "jpeg", "structjpeg.html", null ],
     [ "MappedValues", "class_mapped_values.html", [
       [ "MaterialData", "class_material_data.html", null ],
-      [ "RenderingEngine", "class_rendering_engine.html", [
-        [ "TestRenderer", "class_test_renderer.html", null ]
-      ] ]
+      [ "RenderingEngine", "class_rendering_engine.html", null ]
     ] ],
     [ "Material", "class_material.html", null ],
     [ "Matrix< T, D >", "class_matrix.html", null ],
@@ -64,16 +58,11 @@ var hierarchy =
     [ "mpca_grammar_st_t", "structmpca__grammar__st__t.html", null ],
     [ "mpca_stmt_t", "structmpca__stmt__t.html", null ],
     [ "PhysicsEngine", "class_physics_engine.html", null ],
-    [ "PhysicsObject", "class_physics_object.html", null ],
     [ "pic_packet_t", "structpic__packet__t.html", null ],
-    [ "Plane", "class_plane.html", null ],
     [ "png", "structpng.html", null ],
     [ "ProfileTimer", "class_profile_timer.html", null ],
     [ "Program", "class_program.html", null ],
     [ "ReferenceCounter", "class_reference_counter.html", [
-      [ "Collider", "class_collider.html", [
-        [ "BoundingSphere", "class_bounding_sphere.html", null ]
-      ] ],
       [ "MaterialData", "class_material_data.html", null ],
       [ "MeshData", "class_mesh_data.html", null ],
       [ "ShaderData", "class_shader_data.html", null ],

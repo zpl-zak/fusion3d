@@ -9,7 +9,7 @@ var searchData=
   ['operator_2d_3d',['operator-=',['../class_vector.html#a4b8dacc089cf007bd03df1d0c7850a45',1,'Vector::operator-=()'],['../class_vector3f.html#a63ec561fd67ea011aa973c0549d48a26',1,'Vector3f::operator-=()']]],
   ['operator_2f',['operator/',['../class_vector.html#aaee4aa213a1cc7d8994654dd97f19b18',1,'Vector::operator/()'],['../class_vector3f.html#aa57991e73045b5f57216e1020bda021a',1,'Vector3f::operator/()']]],
   ['operator_2f_3d',['operator/=',['../class_vector.html#a0903cfeaa393ae932f42db553e41565d',1,'Vector::operator/=()'],['../class_vector3f.html#a7586bd129a4aa5326d4663323760958f',1,'Vector3f::operator/=()']]],
-  ['operator_3d',['operator=',['../class_physics_object.html#a6bdada2302b80562103a7b5e5e61e700',1,'PhysicsObject::operator=()'],['../class_texture.html#ac8d4a47a87bb660ecd37b7ec7a70705b',1,'Texture::operator=()']]],
+  ['operator_3d',['operator=',['../class_texture.html#ac8d4a47a87bb660ecd37b7ec7a70705b',1,'Texture']]],
   ['operator_3d_3d',['operator==',['../class_vector.html#a62b7ae1dc75c2f8cb365e1927a6d2ed0',1,'Vector::operator==()'],['../class_vector3f.html#acfee43096f6cdfa042fab3defe7c253b',1,'Vector3f::operator==()'],['../class_texture.html#aca3540da8292ba7dd02e6f1dbda781cc',1,'Texture::operator==()']]],
   ['operator_5b_5d',['operator[]',['../class_vector.html#a8f0c8fbf73a5863e3cb73908876490c1',1,'Vector::operator[](unsigned int i)'],['../class_vector.html#a31a62f16c97ea15a32944549b61027ef',1,'Vector::operator[](unsigned int i) const '],['../class_matrix.html#af32d2322ab44e083492cfd91b80d5418',1,'Matrix::operator[](int index) const '],['../class_matrix.html#ae5706ecdcc918c8b0c4e94d3360d629e',1,'Matrix::operator[](int index)']]]
 ];

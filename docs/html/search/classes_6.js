@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['huffman',['huffman',['../structhuffman.html',1,'']]]
+  ['jpeg',['jpeg',['../structjpeg.html',1,'']]]
 ];

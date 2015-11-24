@@ -41,7 +41,6 @@ var searchData=
   ['setuplights',['SetUpLights',['../world_component_8h.html#a5dbe0be12eb989e18e67aa90b7b4e15d',1,'worldComponent.h']]],
   ['setupmodel',['SetUpModel',['../world_component_8h.html#a9cd2a1cb19e6ea5f22507aa26225d6c3',1,'worldComponent.h']]],
   ['setvector3f',['SetVector3f',['../class_mapped_values.html#aea6513980de91dc70e84a858cd470b51',1,'MappedValues::SetVector3f()'],['../class_material.html#a1d9130a097b656a99432d9374c887628',1,'Material::SetVector3f()']]],
-  ['setvelocity',['SetVelocity',['../class_physics_object.html#a19d90029d890abd4e4f5f69bd48cf0aa',1,'PhysicsObject']]],
   ['setvisible',['SetVisible',['../decal_renderer_8h.html#ab61d70f8e65639b1757dcea484e1678d',1,'SetVisible(bool visible):&#160;decalRenderer.h'],['../_g_u_i_window_8h.html#ab61d70f8e65639b1757dcea484e1678d',1,'SetVisible(bool visible):&#160;GUIWindow.h'],['../mesh_renderer_8h.html#ab61d70f8e65639b1757dcea484e1678d',1,'SetVisible(bool visible):&#160;meshRenderer.h']]],
   ['setw',['SetW',['../class_vector4.html#a8fb9f197a3ff3d9c2f46ccac6795ac5c',1,'Vector4']]],
   ['setx',['SetX',['../class_vector2.html#a40af8778aa3d4094a7849389984460a8',1,'Vector2::SetX()'],['../class_vector3.html#ab447da00bb0176f3160edb743a7a0a19',1,'Vector3::SetX()'],['../class_vector4.html#a4ac9438f9f5464db3dff215c773a7290',1,'Vector4::SetX()'],['../class_vector3f.html#aaa6791fa256647707bcf41017f498bcf',1,'Vector3f::SetX()']]],

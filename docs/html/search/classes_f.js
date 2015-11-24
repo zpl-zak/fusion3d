@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uniformstruct',['UniformStruct',['../class_uniform_struct.html',1,'']]]
+  ['window',['Window',['../class_window.html',1,'']]]
 ];
