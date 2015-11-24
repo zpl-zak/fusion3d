@@ -215,4 +215,5 @@ build/Fusion3D.dir/
 *.sdf
 *.obj
 *.map
-!lib/
+!/lib/
+!/lib/glew/lib/
