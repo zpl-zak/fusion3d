@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\Fusion3D\engine\src\testing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\physics\aabb.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\physics\boundingSphere.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\physics\collider.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\physics\physicsEngine.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\physics\physicsObject.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\physics\plane.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\staticLibs\stb_image.c">
+      <Filter>Source Files\staticLibs</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\rendering\camera.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\rendering\lighting.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\mappedValues.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\rendering\material.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\rendering\mesh.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\rendering\window.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\rendering\texture.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\rendering\shader.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\coreEngine.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\entity.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\game.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\input.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\math3d.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\profiling.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\timing.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\transform.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\core\util.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\components\freeLook.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\components\freeMove.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\components\physicsEngineComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\components\physicsObjectComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\components\programComponent.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Fusion3D\engine\src\rendering\renderingEngine.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\Fusion3D\engine\src\reflection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\testing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\components\meshRenderer.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\components\physicsEngineComponent.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\components\physicsObjectComponent.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\components\freeLook.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\components\freeMove.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\components\programComponent.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\components\worldComponent.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\entity.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\entityComponent.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\game.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\input.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\coreEngine.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\mappedValues.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\math3d.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\timing.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\transform.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\util.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\profiling.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\core\referenceCounter.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\rendering\camera.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\rendering\lighting.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\rendering\material.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\rendering\mesh.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\rendering\shader.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\rendering\window.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\rendering\texture.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\rendering\renderingEngine.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\physics\aabb.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\physics\boundingSphere.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\physics\collider.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\physics\plane.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\progs\fibonacci_prog.h">
+      <Filter>Header Files\progs</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\progs\meshArray_prog.h">
+      <Filter>Header Files\progs</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\simdaccel.h">
+      <Filter>Header Files\staticLibs</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\simddefines.h">
+      <Filter>Header Files\staticLibs</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\simdemulator.h">
+      <Filter>Header Files\staticLibs</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\stb_image.h">
+      <Filter>Header Files\staticLibs</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\x86simdaccel.h">
+      <Filter>Header Files\staticLibs</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\physics\intersectData.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\3DEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\physics\physicsObject.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Fusion3D\engine\src\physics\physicsEngine.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\components\GUIWindow.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\components\devMode.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\colors.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\pos.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\components\decalRenderer.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\Fusion3D\engine\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D11113A0-746B-3A5A-A916-1AA2FA0AF6E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2F524103-E6DB-309C-9916-4E8A70783825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\components">
+      <UniqueIdentifier>{adbace06-a96f-4b5a-9e52-d48b24f5af32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{a07007fa-3080-404c-8e7e-d79db3e8536e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\rendering">
+      <UniqueIdentifier>{2d1b10d7-3470-4948-b30a-613ace375a34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\physics">
+      <UniqueIdentifier>{9826ba23-41f9-4d80-b014-eb85f66dbd66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\progs">
+      <UniqueIdentifier>{6b8e24c4-1264-4570-9cd4-0767fc6fb5ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\staticLibs">
+      <UniqueIdentifier>{86ae6d3e-1ad9-444e-b7f3-ab98e90740e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{2426a634-bea6-4787-93a1-39e3f8430064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rendering">
+      <UniqueIdentifier>{7ad55a93-5a29-4dd7-8d63-6cd67173708a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\progs">
+      <UniqueIdentifier>{141f60a3-be49-4ef9-b303-831ac4f87d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\physics">
+      <UniqueIdentifier>{41785c0e-e0a6-4191-953c-498d493d56d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\components">
+      <UniqueIdentifier>{f96eb4d3-9cf1-46bb-b2a8-88463559357e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\staticLibs">
+      <UniqueIdentifier>{0093ab82-f62f-4e32-90fa-f752220f17c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scripting">
+      <UniqueIdentifier>{5f1e559b-10bf-4047-ab67-fbbc7665a6df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\scripting">
+      <UniqueIdentifier>{428f8481-ce98-49a2-a28c-c32245318561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{2aa0b656-56dd-47a5-9bc3-2069a98425a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
