@@ -64,6 +64,14 @@ void TestGame::Init(const Window& window)
 			))
 		);
 
+	AddToScene((new Entity(Vector3f(2, 5, 0)))
+		->AddComponent(new MeshRenderer("sphere.obj"))
+		->AddComponent(new PhysicsObjectComponent(
+			new btConvexTriangleMeshShape(Mesh::ImportCollision("sphere.obj"), true),
+			2
+			))
+		);
+
 	AddToScene((new Entity(Vector3f(0, 2, 0), Quaternion(Vector3f(1,0,0), ToRadians(90))))
 		//->AddComponent(new Decal(new Material("super", Texture("super.jpg"), 0.0, 0.0), Vector3f(1,1,1), 1))
 		);
@@ -73,10 +81,12 @@ void TestGame::Init(const Window& window)
 			, 10, 80.0f, 1, 0)));
 	
 	AddToScene((new Entity())
-		->AddComponent(new DevMode(window, true))
+		->AddComponent(new DevMode(window, false))
 		);
 
 	CoreEngine::GetCoreEngine()->SetSimulation(true);
+
+	std::cout << "Press F4 to enable Dev Mode." << std::endl;
 }
 
 #include <iostream>
