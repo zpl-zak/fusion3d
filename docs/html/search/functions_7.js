@@ -1,14 +1,12 @@
 var searchData=
 [
   ['game',['Game',['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game']]],
-  ['get',['Get',['../class_s_i_m_d4i.html#a7f212da9b94db04c3f146af7a139d9ba',1,'SIMD4i::Get()'],['../class_s_i_m_d4f.html#a8cd99451df52ad40c4dfdd79a63364bd',1,'SIMD4f::Get()'],['../class_s_i_m_d4i.html#a7f212da9b94db04c3f146af7a139d9ba',1,'SIMD4i::Get()'],['../class_s_i_m_d4f.html#a8cd99451df52ad40c4dfdd79a63364bd',1,'SIMD4f::Get()']]],
   ['getactivelight',['GetActiveLight',['../class_rendering_engine.html#a8fcd0abd0d6d85938daab3e2a53586c3',1,'RenderingEngine']]],
   ['getallattached',['GetAllAttached',['../class_entity.html#a77b7d12e1014fa2a128c8e3aa6d39ea3',1,'Entity']]],
   ['getaspect',['GetAspect',['../class_window.html#a8cbbffba60d9268b485e713726290c84',1,'Window']]],
   ['getback',['GetBack',['../class_quaternion.html#a3a3c05d15a7fe1247de0eaff29c6152a',1,'Quaternion']]],
   ['getbody',['GetBody',['../class_physics_object_component.html#af9a3bf0a2ea6aaf4c69a6c5e7dca5a73',1,'PhysicsObjectComponent']]],
   ['getbt',['GetBT',['../class_vector2.html#a580ec50e199edca4b6ba2db0782367f1',1,'Vector2::GetBT()'],['../class_vector3.html#a95fadde3d5f34be5d64d1fee74d657fc',1,'Vector3::GetBT()'],['../class_quaternion.html#a933a2ca26bf9794299bad74a4c6d6841',1,'Quaternion::GetBT()'],['../class_transform.html#a91e991cd5e0e3bf4429dff1a582e2d81',1,'Transform::GetBT()']]],
-  ['getbytes',['GetBytes',['../class_s_i_m_d4i.html#a5ae9dad273cdb5a7a63ba7c83880c314',1,'SIMD4i::GetBytes()'],['../class_s_i_m_d4f.html#ab22b61011c8d8fa4007025018a97ef17',1,'SIMD4f::GetBytes()'],['../class_s_i_m_d4i.html#a5ae9dad273cdb5a7a63ba7c83880c314',1,'SIMD4i::GetBytes()'],['../class_s_i_m_d4f.html#ab22b61011c8d8fa4007025018a97ef17',1,'SIMD4f::GetBytes()']]],
   ['getcenter',['GetCenter',['../class_bounding_sphere.html#aa060fdf09876145ec3cebe80c769eceb',1,'BoundingSphere::GetCenter()'],['../class_collider.html#ae707f012a5f8263d5262897b4a3d9ee5',1,'Collider::GetCenter()'],['../class_window.html#a0f4737f348e84b915dfdbcbba19876c7',1,'Window::GetCenter()']]],
   ['getchildbyname',['GetChildByName',['../class_entity.html#aa70bc19f38ec105785d27df0134284fb',1,'Entity']]],
   ['getcollider',['GetCollider',['../class_physics_object.html#a05ad38aeee61daebf754530bb41500bb',1,'PhysicsObject']]],

@@ -8,7 +8,6 @@ var searchData=
   ['hasshadows',['HasShadows',['../mesh_renderer_8h.html#adfdb6eda8dc9d837a3422a73e351848e',1,'meshRenderer.h']]],
   ['hd',['hd',['../structjpeg.html#a5a14ee72835b815846df7c3eec7bfd21',1,'jpeg']]],
   ['hdr_5fbuflen',['HDR_BUFLEN',['../stb__image_8c.html#a05382fb60839c0f242ac7f9f24d8adf0',1,'stb_image.c']]],
-  ['horizontaladd',['HorizontalAdd',['../class_s_i_m_d4i.html#a91c7784a2928c70413ea2138d3cc2e60',1,'SIMD4i::HorizontalAdd()'],['../class_s_i_m_d4f.html#a817d0e6bbe46b7dd609188ee73448218',1,'SIMD4f::HorizontalAdd()'],['../class_s_i_m_d4i.html#a91c7784a2928c70413ea2138d3cc2e60',1,'SIMD4i::HorizontalAdd()'],['../class_s_i_m_d4f.html#a817d0e6bbe46b7dd609188ee73448218',1,'SIMD4f::HorizontalAdd()']]],
   ['hs',['hs',['../structstbi__resample.html#a1513390ba0102364169a52ff26d5e0f2',1,'stbi_resample']]],
   ['huff_5fac',['huff_ac',['../structjpeg.html#a6fab0b2d90425db5d609edbde8bddd92',1,'jpeg']]],
   ['huff_5fdc',['huff_dc',['../structjpeg.html#aae44f91bafcc73fa70544573458abe33',1,'jpeg']]],

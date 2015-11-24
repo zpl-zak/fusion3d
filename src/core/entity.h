@@ -28,6 +28,9 @@ class EntityComponent;
 class Shader;
 class RenderingEngine;
 
+/**
+ * Represents game object with it's components and transformation. This is the base unit of scene graph.
+ */
 class Entity
 {
 public:
@@ -45,6 +48,7 @@ public:
 	void RenderAll(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
 	void PostRenderAll(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
 	
+	/// Returns all components attached to entity.
 	std::vector<Entity*> GetAllAttached();
 	
 	inline Transform* GetTransform() { return &m_transform; }
@@ -54,6 +58,8 @@ public:
 	inline const std::string& GetDisplayName() const { return m_displayName; }
 	inline Entity* SetDisplayName(const std::string& displayName) { m_displayName = displayName; return this; }
 	inline void Destroy() { m_destroy = true; }
+	
+	/// Retrieves our scene graph.
 	inline Entity* GetScene() 
 	{
 		Entity* parent = m_parent;

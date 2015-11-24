@@ -15,10 +15,10 @@
  */
 
 #include "window.h"
+#include "../core/util.h"
 #include "../core/profiling.h"
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
-#include "../../lib/atb/include/AntTweakBar.h"
 
 Window::Window(int width, int height, const std::string& title) :
 	m_width(width),
@@ -44,7 +44,7 @@ Window::Window(int width, int height, const std::string& title) :
 	SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 3 );
 	SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 3 );*/
 
-	m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_BORDERLESS);
+	m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
 	m_glContext = SDL_GL_CreateContext(m_window);
 
 	SDL_SetHint(SDL_HINT_RENDER_VSYNC, "0");
@@ -56,8 +56,10 @@ Window::Window(int width, int height, const std::string& title) :
 	GLenum res = glewInit();
 	if(res != GLEW_OK)
 	{
-//		fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
+		fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
 	}
+
+	Util::Init("");
 }
 
 Window::~Window()

@@ -4,8 +4,6 @@ var searchData=
   ['shaderdata',['ShaderData',['../class_shader_data.html',1,'']]],
   ['shadowcameratransform',['ShadowCameraTransform',['../class_shadow_camera_transform.html',1,'']]],
   ['shadowinfo',['ShadowInfo',['../class_shadow_info.html',1,'']]],
-  ['simd4f',['SIMD4f',['../class_s_i_m_d4f.html',1,'']]],
-  ['simd4i',['SIMD4i',['../class_s_i_m_d4i.html',1,'']]],
   ['stbi',['stbi',['../structstbi.html',1,'']]],
   ['stbi_5fgif_5flzw_5fstruct',['stbi_gif_lzw_struct',['../structstbi__gif__lzw__struct.html',1,'']]],
   ['stbi_5fgif_5fstruct',['stbi_gif_struct',['../structstbi__gif__struct.html',1,'']]],

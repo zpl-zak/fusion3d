@@ -17,9 +17,29 @@
 #include "util.h"
 #include <SDL2/SDL.h>
 
+std::string s_ResourcePath = "./data/";
+
+void Util::Init(const char *app, const char *org)
+{
+	if (SDL_strcmp(app, "") != 0)
+	{
+		char *base_path = SDL_GetPrefPath(org, app);
+
+		if (base_path) {
+			s_ResourcePath = SDL_strdup(base_path);
+
+			SDL_free(base_path);
+		}
+	}
+}
 void Util::Sleep(int milliseconds)
 {
 	SDL_Delay(milliseconds);
+}
+
+std::string Util::ResourcePath(void)
+{
+	return s_ResourcePath;
 }
 
 std::vector<std::string> Util::Split(const std::string& s, char delim)

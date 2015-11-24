@@ -7,8 +7,7 @@ var searchData=
   ['renderall',['RenderAll',['../class_entity.html#a6c13950fc02c20544f273b51f93f657b',1,'Entity']]],
   ['renderingengine',['RenderingEngine',['../class_rendering_engine.html#a0e21c88e8062f84c4ac72eaeee7589b7',1,'RenderingEngine']]],
   ['reporterrorwarning',['reportErrorWarning',['../class_g_l_debug_drawer.html#a4bd03c9b18d0359dfd6d3e9450e327f8',1,'GLDebugDrawer']]],
+  ['resourcepath',['ResourcePath',['../namespace_util.html#a61c97dd4b940f698790e9f5a79c52c97',1,'Util']]],
   ['rotate',['Rotate',['../class_vector3.html#a6d9ae17426f8721e5918003d9af027a7',1,'Vector3::Rotate()'],['../class_vector3f.html#a64cb066d442f06446d34790fbee18423',1,'Vector3f::Rotate(float angle, const Vector3f &amp;axis) const '],['../class_vector3f.html#a352f95e22f448bb5ba17d44077db0a92',1,'Vector3f::Rotate(const Quaternion &amp;rotation) const '],['../class_transform.html#a98a622bae4565181d7648600d9a074fc',1,'Transform::Rotate(const Vector3f &amp;axis, float angle)'],['../class_transform.html#aa44afbfad3eb5ad0506cea367ea94979',1,'Transform::Rotate(const Quaternion &amp;rotation)']]],
-  ['round',['Round',['../class_s_i_m_d4f.html#a6aae2c276b8194b8d3c8ff4c9f6c619e',1,'SIMD4f::Round(int roundingMode=0) const '],['../class_s_i_m_d4f.html#a6aae2c276b8194b8d3c8ff4c9f6c619e',1,'SIMD4f::Round(int roundingMode=0) const ']]],
-  ['roundtoint',['RoundToInt',['../class_s_i_m_d4f.html#afdead05a92f34598d362975c7ec1661c',1,'SIMD4f::RoundToInt() const '],['../class_s_i_m_d4f.html#afdead05a92f34598d362975c7ec1661c',1,'SIMD4f::RoundToInt() const ']]],
   ['runalltests',['RunAllTests',['../namespace_testing.html#a3f83eca8a6ba9b7e31054d871556bee2',1,'Testing']]]
 ];

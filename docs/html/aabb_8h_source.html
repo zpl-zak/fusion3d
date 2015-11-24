@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
-   &#160;<span id="projectnumber">0.0.0.1</span>
+   &#160;<span id="projectnumber">Internal</span>
    </div>
   </td>
  </tr>
@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -149,34 +150,34 @@ $(document).ready(function(){initNavTree('aabb_8h_source.html','');});
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;../core/math3d.h&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="intersect_data_8h.html">intersectData.h</a>&quot;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_a_a_b_b.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_a_b_b.html">AABB</a></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_a_a_b_b.html#a8d02c9a2bdd8a46125fc8209b1aa4518">   55</a></span>&#160;    <a class="code" href="class_a_a_b_b.html#a8d02c9a2bdd8a46125fc8209b1aa4518">AABB</a>(<span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a>&amp; minExtents, <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a>&amp; maxExtents) :</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        m_minExtents(minExtents),</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        m_maxExtents(maxExtents) {}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_intersect_data.html">IntersectData</a> <a class="code" href="class_a_a_b_b.html#ac813b88bd2fc7eaa2410cc9f227d8b7f">IntersectAABB</a>(<span class="keyword">const</span> <a class="code" href="class_a_a_b_b.html">AABB</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_a_a_b_b.html#a01c73769173c70809683dda9a5e96a4f">   68</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a>&amp; <a class="code" href="class_a_a_b_b.html#a01c73769173c70809683dda9a5e96a4f">GetMinExtents</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_minExtents; }</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_a_a_b_b.html#a6ae2bfff769bee5c66d6f59bcfc00829">   70</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a>&amp; <a class="code" href="class_a_a_b_b.html#a6ae2bfff769bee5c66d6f59bcfc00829">GetMaxExtents</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_maxExtents; }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_a_a_b_b.html#a846b829dbe39041ef31723da4d3b9002">Test</a>();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a> m_minExtents;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a> m_maxExtents;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_a_a_b_b.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_a_b_b.html">AABB</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_a_a_b_b.html#a8d02c9a2bdd8a46125fc8209b1aa4518">   54</a></span>&#160;    <a class="code" href="class_a_a_b_b.html#a8d02c9a2bdd8a46125fc8209b1aa4518">AABB</a>(<span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a>&amp; minExtents, <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a>&amp; maxExtents) :</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        m_minExtents(minExtents),</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        m_maxExtents(maxExtents) {}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_intersect_data.html">IntersectData</a> <a class="code" href="class_a_a_b_b.html#ac813b88bd2fc7eaa2410cc9f227d8b7f">IntersectAABB</a>(<span class="keyword">const</span> <a class="code" href="class_a_a_b_b.html">AABB</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_a_a_b_b.html#a01c73769173c70809683dda9a5e96a4f">   67</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a>&amp; <a class="code" href="class_a_a_b_b.html#a01c73769173c70809683dda9a5e96a4f">GetMinExtents</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_minExtents; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_a_a_b_b.html#a6ae2bfff769bee5c66d6f59bcfc00829">   69</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a>&amp; <a class="code" href="class_a_a_b_b.html#a6ae2bfff769bee5c66d6f59bcfc00829">GetMaxExtents</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_maxExtents; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_a_a_b_b.html#a846b829dbe39041ef31723da4d3b9002">Test</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a> m_minExtents;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_vector3f.html">Vector3f</a> m_maxExtents;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="intersect_data_8h_html"><div class="ttname"><a href="intersect_data_8h.html">intersectData.h</a></div></div>
-<div class="ttc" id="class_a_a_b_b_html_a6ae2bfff769bee5c66d6f59bcfc00829"><div class="ttname"><a href="class_a_a_b_b.html#a6ae2bfff769bee5c66d6f59bcfc00829">AABB::GetMaxExtents</a></div><div class="ttdeci">const Vector3f &amp; GetMaxExtents() const </div><div class="ttdef"><b>Definition:</b> aabb.h:70</div></div>
+<div class="ttc" id="class_a_a_b_b_html_a6ae2bfff769bee5c66d6f59bcfc00829"><div class="ttname"><a href="class_a_a_b_b.html#a6ae2bfff769bee5c66d6f59bcfc00829">AABB::GetMaxExtents</a></div><div class="ttdeci">const Vector3f &amp; GetMaxExtents() const </div><div class="ttdef"><b>Definition:</b> aabb.h:69</div></div>
 <div class="ttc" id="class_intersect_data_html"><div class="ttname"><a href="class_intersect_data.html">IntersectData</a></div><div class="ttdef"><b>Definition:</b> intersectData.h:44</div></div>
-<div class="ttc" id="class_a_a_b_b_html"><div class="ttname"><a href="class_a_a_b_b.html">AABB</a></div><div class="ttdef"><b>Definition:</b> aabb.h:46</div></div>
+<div class="ttc" id="class_a_a_b_b_html"><div class="ttname"><a href="class_a_a_b_b.html">AABB</a></div><div class="ttdef"><b>Definition:</b> aabb.h:45</div></div>
 <div class="ttc" id="class_a_a_b_b_html_ac813b88bd2fc7eaa2410cc9f227d8b7f"><div class="ttname"><a href="class_a_a_b_b.html#ac813b88bd2fc7eaa2410cc9f227d8b7f">AABB::IntersectAABB</a></div><div class="ttdeci">IntersectData IntersectAABB(const AABB &amp;other) const </div><div class="ttdef"><b>Definition:</b> aabb.cpp:39</div></div>
 <div class="ttc" id="class_vector3f_html"><div class="ttname"><a href="class_vector3f.html">Vector3f</a></div><div class="ttdef"><b>Definition:</b> math3d.h:681</div></div>
 <div class="ttc" id="class_a_a_b_b_html_a846b829dbe39041ef31723da4d3b9002"><div class="ttname"><a href="class_a_a_b_b.html#a846b829dbe39041ef31723da4d3b9002">AABB::Test</a></div><div class="ttdeci">static void Test()</div><div class="ttdef"><b>Definition:</b> aabb.cpp:67</div></div>
-<div class="ttc" id="class_a_a_b_b_html_a01c73769173c70809683dda9a5e96a4f"><div class="ttname"><a href="class_a_a_b_b.html#a01c73769173c70809683dda9a5e96a4f">AABB::GetMinExtents</a></div><div class="ttdeci">const Vector3f &amp; GetMinExtents() const </div><div class="ttdef"><b>Definition:</b> aabb.h:68</div></div>
-<div class="ttc" id="class_a_a_b_b_html_a8d02c9a2bdd8a46125fc8209b1aa4518"><div class="ttname"><a href="class_a_a_b_b.html#a8d02c9a2bdd8a46125fc8209b1aa4518">AABB::AABB</a></div><div class="ttdeci">AABB(const Vector3f &amp;minExtents, const Vector3f &amp;maxExtents)</div><div class="ttdef"><b>Definition:</b> aabb.h:55</div></div>
+<div class="ttc" id="class_a_a_b_b_html_a01c73769173c70809683dda9a5e96a4f"><div class="ttname"><a href="class_a_a_b_b.html#a01c73769173c70809683dda9a5e96a4f">AABB::GetMinExtents</a></div><div class="ttdeci">const Vector3f &amp; GetMinExtents() const </div><div class="ttdef"><b>Definition:</b> aabb.h:67</div></div>
+<div class="ttc" id="class_a_a_b_b_html_a8d02c9a2bdd8a46125fc8209b1aa4518"><div class="ttname"><a href="class_a_a_b_b.html#a8d02c9a2bdd8a46125fc8209b1aa4518">AABB::AABB</a></div><div class="ttdeci">AABB(const Vector3f &amp;minExtents, const Vector3f &amp;maxExtents)</div><div class="ttdef"><b>Definition:</b> aabb.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

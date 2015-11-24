@@ -12,7 +12,7 @@ var structjpeg =
     [ "huff_ac", "structjpeg.html#a6fab0b2d90425db5d609edbde8bddd92", null ],
     [ "huff_dc", "structjpeg.html#aae44f91bafcc73fa70544573458abe33", null ],
     [ "id", "structjpeg.html#a58dd6e440ef7dc1e23087ec27a864ce6", null ],
-    [ "img_comp", "structjpeg.html#aa0847f94247c50d6b1f565632148c659", null ],
+    [ "img_comp", "structjpeg.html#a9ca5d276fe243a5bde363e7c2ce6bc4e", null ],
     [ "img_h_max", "structjpeg.html#af4ed1173241e83f1482a276a178ce9e5", null ],
     [ "img_mcu_h", "structjpeg.html#a6e013436253bcf1e5808a1774b96cc38", null ],
     [ "img_mcu_w", "structjpeg.html#a32f06fea63ec2c976092760b21abad72", null ],

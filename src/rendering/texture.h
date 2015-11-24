@@ -51,6 +51,10 @@ private:
 	int m_height;
 };
 
+
+/**
+ * Represents map used in material.
+ */
 class Texture
 {
 public:

@@ -1,7 +1,6 @@
 var searchData=
 [
   ['aabb',['AABB',['../class_a_a_b_b.html#a8d02c9a2bdd8a46125fc8209b1aa4518',1,'AABB']]],
-  ['abs',['Abs',['../class_s_i_m_d4i.html#a1a0afd69d518d97eb5b4e4dd111e9de1',1,'SIMD4i::Abs()'],['../class_s_i_m_d4f.html#a57b0c4d2e3dee7a7463040c76f9d34bd',1,'SIMD4f::Abs()'],['../class_s_i_m_d4i.html#a1a0afd69d518d97eb5b4e4dd111e9de1',1,'SIMD4i::Abs()'],['../class_s_i_m_d4f.html#a57b0c4d2e3dee7a7463040c76f9d34bd',1,'SIMD4f::Abs()']]],
   ['addchild',['AddChild',['../class_entity.html#a82adda07e5a8db0a7e5d0ff703a1541b',1,'Entity']]],
   ['addcomponent',['AddComponent',['../class_entity.html#af95f1fb0432827cf12d397bbe4c6480c',1,'Entity']]],
   ['addcomponents',['AddComponents',['../class_entity.html#a884f4b6c8de84250682f7dfaa97a34d4',1,'Entity']]],
@@ -14,6 +13,5 @@ var searchData=
   ['addtexcoord',['AddTexCoord',['../class_indexed_model.html#a8e64a560d6421b5208426e82bca89bc2',1,'IndexedModel::AddTexCoord(const Vector2f &amp;texCoord)'],['../class_indexed_model.html#a21da70d87dce12969ef9f4ececc1f457',1,'IndexedModel::AddTexCoord(float x, float y)']]],
   ['addtoengine',['AddToEngine',['../class_entity_component.html#a70083a6d43cc3330ee2914b446db1cf6',1,'EntityComponent::AddToEngine()'],['../camera_8h.html#a6c33c606c052c1c566d5d16b785304a2',1,'AddToEngine(CoreEngine *engine):&#160;camera.h'],['../lighting_8h.html#a6c33c606c052c1c566d5d16b785304a2',1,'AddToEngine(CoreEngine *engine):&#160;lighting.h']]],
   ['addtoscene',['AddToScene',['../class_game.html#a0b605ce1406e2afc17184221022d2075',1,'Game']]],
-  ['addvertex',['AddVertex',['../class_indexed_model.html#a12ffb5465a583451ae594741a7151503',1,'IndexedModel::AddVertex(const Vector3f &amp;vert)'],['../class_indexed_model.html#af9e4cf11a7382e12d0d190f68f2a0549',1,'IndexedModel::AddVertex(float x, float y, float z)']]],
-  ['andnot',['AndNot',['../class_s_i_m_d4i.html#a0f1acd42f98dec47823cd81745bfc19d',1,'SIMD4i::AndNot()'],['../class_s_i_m_d4f.html#a08c9afbd07340f8f094c7337683fdc9f',1,'SIMD4f::AndNot()'],['../class_s_i_m_d4i.html#a0f1acd42f98dec47823cd81745bfc19d',1,'SIMD4i::AndNot()'],['../class_s_i_m_d4f.html#a08c9afbd07340f8f094c7337683fdc9f',1,'SIMD4f::AndNot()']]]
+  ['addvertex',['AddVertex',['../class_indexed_model.html#a12ffb5465a583451ae594741a7151503',1,'IndexedModel::AddVertex(const Vector3f &amp;vert)'],['../class_indexed_model.html#af9e4cf11a7382e12d0d190f68f2a0549',1,'IndexedModel::AddVertex(float x, float y, float z)']]]
 ];

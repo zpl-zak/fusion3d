@@ -49,10 +49,15 @@
 #include <sstream>
 #include <string>
 
+/**
+ * Various functions that didn't make it to actual classes but are still useful in general uses.
+ */ 
 namespace Util
 {
+	void Init(const char *app, const char *org = "Fusion3D");
 	void Sleep(int milliseconds);
 	std::vector<std::string> Split(const std::string &s, char delim);
+	std::string ResourcePath(void);
 
     template < typename T > std::string to_string(const T& n)
     {
@@ -60,6 +65,8 @@ namespace Util
         stm << n;
         return stm.str();
     }
+
+	
 };
 
 #endif

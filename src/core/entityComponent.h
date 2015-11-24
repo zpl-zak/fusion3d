@@ -25,6 +25,9 @@
 class RenderingEngine;
 class Shader;
 
+/**
+ * Represents functional component attached to entity.
+*/
 class EntityComponent{
 public:
 	EntityComponent() :

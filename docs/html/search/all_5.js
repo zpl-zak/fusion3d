@@ -1,18 +1,20 @@
 var searchData=
 [
-  ['dark_5fblue',['dark_blue',['../colors_8h.html#abed82baf7f470b522273a3e37c24c600ab0ec9bd8fb774f9e018f3a5d21be705c',1,'colors.h']]],
-  ['dark_5fcyan',['dark_cyan',['../colors_8h.html#abed82baf7f470b522273a3e37c24c600ae7251341cb100ba0ef386c3ca2ae26d2',1,'colors.h']]],
-  ['dark_5fgray',['dark_gray',['../colors_8h.html#abed82baf7f470b522273a3e37c24c600ac6e159c67c53071a495d8c0e14014e5e',1,'colors.h']]],
-  ['dark_5fgreen',['dark_green',['../colors_8h.html#abed82baf7f470b522273a3e37c24c600ad5fd7df6a015f753f4020dce0af46087',1,'colors.h']]],
-  ['dark_5fmagenta',['dark_magenta',['../colors_8h.html#abed82baf7f470b522273a3e37c24c600a5a78a30845b7b09dd6ef3d5858411633',1,'colors.h']]],
-  ['dark_5fred',['dark_red',['../colors_8h.html#abed82baf7f470b522273a3e37c24c600aff8f04dc127dd173711669cecc07257b',1,'colors.h']]],
-  ['dark_5fyellow',['dark_yellow',['../colors_8h.html#abed82baf7f470b522273a3e37c24c600a4560e094e2a12656a8a01caa113a1575',1,'colors.h']]],
-  ['data',['data',['../structjpeg.html#a7aed10946c4fd8ad8c0a1e3ff0cd075a',1,'jpeg']]],
+  ['d',['d',['../structmpc__pdata__apply__to__t.html#a434fc5ca7825e20809fad30fd698adc2',1,'mpc_pdata_apply_to_t']]],
+  ['dark_5fblue',['dark_blue',['../colors_8h.html#abc5c98fcc1211af2b80116dd6e0a035dab0ec9bd8fb774f9e018f3a5d21be705c',1,'colors.h']]],
+  ['dark_5fcyan',['dark_cyan',['../colors_8h.html#abc5c98fcc1211af2b80116dd6e0a035dae7251341cb100ba0ef386c3ca2ae26d2',1,'colors.h']]],
+  ['dark_5fgray',['dark_gray',['../colors_8h.html#abc5c98fcc1211af2b80116dd6e0a035dac6e159c67c53071a495d8c0e14014e5e',1,'colors.h']]],
+  ['dark_5fgreen',['dark_green',['../colors_8h.html#abc5c98fcc1211af2b80116dd6e0a035dad5fd7df6a015f753f4020dce0af46087',1,'colors.h']]],
+  ['dark_5fmagenta',['dark_magenta',['../colors_8h.html#abc5c98fcc1211af2b80116dd6e0a035da5a78a30845b7b09dd6ef3d5858411633',1,'colors.h']]],
+  ['dark_5fred',['dark_red',['../colors_8h.html#abc5c98fcc1211af2b80116dd6e0a035daff8f04dc127dd173711669cecc07257b',1,'colors.h']]],
+  ['dark_5fyellow',['dark_yellow',['../colors_8h.html#abc5c98fcc1211af2b80116dd6e0a035da4560e094e2a12656a8a01caa113a1575',1,'colors.h']]],
+  ['data',['data',['../structmpc__parser__t.html#a74e4d73d35d64f05ac2c4e1546237c6d',1,'mpc_parser_t::data()'],['../structjpeg.html#a7aed10946c4fd8ad8c0a1e3ff0cd075a',1,'jpeg::data()']]],
   ['dc_5fpred',['dc_pred',['../structjpeg.html#ab09c873c011a6cf5f708973697a313a6',1,'jpeg']]],
   ['decalrenderer',['DecalRenderer',['../decal_renderer_8h.html#abcbacd8ba60968b6b629407fa4b6a5c8',1,'decalRenderer.h']]],
   ['decalrenderer_2eh',['decalRenderer.h',['../decal_renderer_8h.html',1,'']]],
   ['delaytimer',['DelayTimer',['../class_delay_timer.html',1,'DelayTimer'],['../class_delay_timer.html#ae59950e288b417f361d4c987e52fad6b',1,'DelayTimer::DelayTimer()'],['../class_delay_timer.html#a1fdf91396e5375017999cd419125d5fe',1,'DelayTimer::DelayTimer(double delay)']]],
   ['delta',['delta',['../structhuffman.html#a04255e3e1c6de74d36a08a1aa4e9537d',1,'huffman']]],
+  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]],
   ['dequant',['dequant',['../structjpeg.html#aae820981dde2c49bc05b6e1298143d21',1,'jpeg']]],
   ['destroy',['Destroy',['../class_entity.html#aa75151fc607686b42d27f8c3ba73143d',1,'Entity']]],
   ['devmode',['DevMode',['../dev_mode_8h.html#a345ca71d3a8358415bbdd61e3ddfa73b',1,'devMode.h']]],
@@ -30,5 +32,7 @@ var searchData=
   ['draw',['Draw',['../class_mesh_data.html#ae25e7415585357672e370ab74e73dcff',1,'MeshData::Draw()'],['../class_mesh.html#a295f283d6a6a2ca8e8e46e2fc2fbe727',1,'Mesh::Draw()']]],
   ['draw3dtext',['draw3dText',['../class_g_l_debug_drawer.html#a6325861596594c1f8df946cef3d14194',1,'GLDebugDrawer']]],
   ['drawcontactpoint',['drawContactPoint',['../class_g_l_debug_drawer.html#aa2373d114bd57438ae3eb7319d6052f2',1,'GLDebugDrawer']]],
-  ['drawline',['drawLine',['../class_g_l_debug_drawer.html#a4f37715bd5fbec4eae17285bcd3024ad',1,'GLDebugDrawer']]]
+  ['drawline',['drawLine',['../class_g_l_debug_drawer.html#a4f37715bd5fbec4eae17285bcd3024ad',1,'GLDebugDrawer']]],
+  ['dx',['dx',['../structmpc__pdata__not__t.html#a000411de5ef39db4541e3bd348401734',1,'mpc_pdata_not_t::dx()'],['../structmpc__pdata__repeat__t.html#aa17c7f4e5f246f5fda506f6462b9ef5d',1,'mpc_pdata_repeat_t::dx()']]],
+  ['dxs',['dxs',['../structmpc__pdata__and__t.html#affcc0d07b4aeaa8916cafbef9993d042',1,'mpc_pdata_and_t']]]
 ];

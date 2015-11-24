@@ -19,6 +19,9 @@
 
 #include "math3d.h"
 
+/**
+ * Holds information about current world-offset.
+ */
 class Transform
 {
 public:

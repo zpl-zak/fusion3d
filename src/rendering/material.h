@@ -28,6 +28,9 @@ public:
 private:
 };
 
+/**
+ * Contains information about various maps used in rendering pipeline.
+*/
 class Material
 {
 public:

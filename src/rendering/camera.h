@@ -20,8 +20,10 @@
 #include "../core/math3d.h"
 #include "../core/entityComponent.h"
 
-//Cameras represent a location, orientation, and projection from
-//which the scene can be rendered.
+/**
+ * Cameras represent a location, orientation, and projection from
+ * which the scene can be rendered.
+ */
 class Camera
 {
 public:

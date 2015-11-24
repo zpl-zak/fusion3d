@@ -27,6 +27,9 @@
 #include <map>
 #include <GL/glew.h>
 
+/**
+ * Represents engine-compatible model used by renderer.
+ */
 class IndexedModel
 {
 public:
@@ -72,6 +75,9 @@ private:
     std::vector<Vector3f> m_tangents;  
 };
 
+/**
+ * Contains pointers for various vertex information inside renderer.
+ */
 class MeshData : public ReferenceCounter
 {
 public:

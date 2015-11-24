@@ -16,6 +16,7 @@
 
 #include "texture.h"
 
+#include "../core/util.h"
 #include "../core/math3d.h"
 #include "../core/profiling.h"
 
@@ -168,7 +169,7 @@ Texture::Texture(const std::string& fileName, GLenum textureTarget, GLfloat filt
 {
     std::string filePath = fileName;
     if (filePath.find(":") == std::string::npos)
-        filePath = "./res/textures/" + fileName;
+        filePath = Util::ResourcePath() + "textures/" + fileName;
  	m_fileName = filePath;
 
 	std::map<std::string, TextureData*>::const_iterator it = s_resourceMap.find(filePath);

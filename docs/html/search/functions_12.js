@@ -10,7 +10,5 @@ var searchData=
   ['torotationmatrix',['ToRotationMatrix',['../class_quaternion.html#aa5d6a6752bb54dffe8eba74d4828313e',1,'Quaternion']]],
   ['transform',['Transform',['../class_matrix.html#af57977803e2ec19bfbc9ab56b9afaed1',1,'Matrix::Transform(const Vector&lt; T, D &gt; &amp;r) const '],['../class_matrix.html#af9c8c3f95c7f4d5af195695c552d88da',1,'Matrix::Transform(const Vector&lt; T, D-1 &gt; &amp;r) const '],['../class_transform.html#a5a7c897577867bcc5be0b0f5da5a325a',1,'Transform::Transform()'],['../class_bounding_sphere.html#a272125f529f43fb07ef026afb115ce56',1,'BoundingSphere::Transform()'],['../class_collider.html#af15ebbef03988c4c0dffdf1fa65eb72f',1,'Collider::Transform()']]],
   ['transpose',['Transpose',['../class_matrix.html#ada41ba03c5fd295ce9fccfaee4fcc8c9',1,'Matrix']]],
-  ['truncate',['Truncate',['../class_s_i_m_d4f.html#a80d9698aefb6ddcefde55b077ee22e2e',1,'SIMD4f::Truncate() const '],['../class_s_i_m_d4f.html#a80d9698aefb6ddcefde55b077ee22e2e',1,'SIMD4f::Truncate() const ']]],
-  ['truncatetoint',['TruncateToInt',['../class_s_i_m_d4f.html#af3630cd24a3be6ca8485d858a1306440',1,'SIMD4f::TruncateToInt() const '],['../class_s_i_m_d4f.html#af3630cd24a3be6ca8485d858a1306440',1,'SIMD4f::TruncateToInt() const ']]],
   ['typeddata',['TypedData',['../class_typed_data.html#a75648dfe5f728a060c644b42510734e1',1,'TypedData']]]
 ];

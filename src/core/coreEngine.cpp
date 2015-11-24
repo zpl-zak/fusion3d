@@ -23,7 +23,6 @@
 #include <iostream>
 #include "../utils/pos.h"
 #include "../utils/colors.h"
-#include "../../lib/atb/include/AntTweakBar.h"
 
 #include <stdio.h>
 
@@ -227,5 +226,6 @@ void CoreEngine::Stop()
 	m_isRunning = false;
 }
 
+// Following lines make sure game runs on your dedicated mobile GPU rather than integrated one. (Applies only to mobile devices with integrated and dedicated GPU)
 _declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
 _declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;

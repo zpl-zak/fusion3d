@@ -1,6 +1,7 @@
 var searchData=
 [
   ['v',['v',['../structjpeg.html#afd4d012a5d0ba3cd039a579e1c76b383',1,'jpeg']]],
+  ['va',['va',['../structmpca__grammar__st__t.html#a08c5f07414915aaa72c44022dd134a4b',1,'mpca_grammar_st_t']]],
   ['validate_5fuint32',['validate_uint32',['../stb__image_8c.html#a186bc72f501174469970f28b5b411381',1,'stb_image.c']]],
   ['value',['value',['../structzhuffman.html#acc395b638b700b944c329d71a8b82084',1,'zhuffman']]],
   ['values',['values',['../structhuffman.html#a313d78cf23f40b314c25681ff2a6224b',1,'huffman']]],

@@ -40,8 +40,7 @@
 #include "intersectData.h"
 
 /**
- * The AABB class represents an Axis Aligned Bounding Box that can be used as
- * a collider in a physics engine.
+ * \deprecated
  */
 class AABB
 {

@@ -30,6 +30,10 @@
 #include <map>
 class Entity;
 
+/**
+ * The RenderingEngine encapsulates all the functions and information necessary
+ * to perform a rendering.
+ */
 class RenderingEngine : public MappedValues
 {
 public:

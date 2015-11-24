@@ -20,6 +20,9 @@
 
 class Window;
 
+/**
+ * Input handler for various peripherals.
+ */
 class Input
 {
 public:

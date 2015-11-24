@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Release</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Fusion3D.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Fusion3D</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Release</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Fusion3D.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Fusion3D</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)Release</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Fusion3D.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Fusion3D</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)Release</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Fusion3D.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Fusion3D</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
@@ -409,13 +409,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="F:\Fusion3D\engine\src\core\timing.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\core\transform.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\core\util.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\physics\aabb.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\physics\boundingSphere.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\physics\collider.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\physics\intersectData.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\physics\physicsEngine.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\physics\physicsObject.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\physics\plane.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\progs\fibonacci_prog.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\progs\meshArray_prog.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\reflection.h" />
@@ -427,11 +421,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="F:\Fusion3D\engine\src\rendering\shader.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\rendering\texture.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\rendering\window.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\simdaccel.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\simddefines.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\simdemulator.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\stb_image.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\x86simdaccel.h" />
     <ClInclude Include="F:\Fusion3D\engine\src\testing.h" />
     <ClCompile Include="F:\Fusion3D\engine\src\components\freeLook.cpp" />
     <ClCompile Include="F:\Fusion3D\engine\src\components\freeMove.cpp" />
@@ -448,12 +438,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="F:\Fusion3D\engine\src\core\timing.cpp" />
     <ClCompile Include="F:\Fusion3D\engine\src\core\transform.cpp" />
     <ClCompile Include="F:\Fusion3D\engine\src\core\util.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\physics\aabb.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\physics\boundingSphere.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\physics\collider.cpp" />
     <ClCompile Include="F:\Fusion3D\engine\src\physics\physicsEngine.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\physics\physicsObject.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\physics\plane.cpp" />
     <ClCompile Include="F:\Fusion3D\engine\src\rendering\camera.cpp" />
     <ClCompile Include="F:\Fusion3D\engine\src\rendering\lighting.cpp" />
     <ClCompile Include="F:\Fusion3D\engine\src\rendering\material.cpp" />

@@ -27,8 +27,10 @@ class Game;
 
 using namespace Awesomium;
 
-//This is the central part of the game engine. It's purpose is to manage interaction 
-//between the various sub-engines (such as the rendering and physics engines) and the game itself.
+/**
+ * This is the central part of the game engine. It's purpose is to manage interaction 
+ * between the various sub-engines (such as the rendering and physics engines) and the game itself.
+ */
 class CoreEngine
 {
 public:

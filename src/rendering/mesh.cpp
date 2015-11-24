@@ -296,7 +296,7 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 {
     Assimp::Importer importer;
 
-    const aiScene* scene = importer.ReadFile(("./res/models/" + fileName).c_str(),
+    const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
         aiProcess_Triangulate |
         aiProcess_GenSmoothNormals |
         aiProcess_FlipUVs |
@@ -312,7 +312,7 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
     if (!scene)
     {
         std::cout << "Mesh load failed!: " << fileName << std::endl;
-		scene = importer.ReadFile("./res/models/error.obj",
+		scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
 			aiProcess_Triangulate |
 			aiProcess_GenSmoothNormals |
 			aiProcess_FlipUVs |
@@ -381,7 +381,7 @@ btTriangleMesh* Mesh::ImportColData(const std::string & fileName)
 {
 	Assimp::Importer importer;
 
-	const aiScene* scene = importer.ReadFile(("./res/models/" + fileName).c_str(),
+	const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
 		aiProcess_Triangulate |
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs |
@@ -398,7 +398,7 @@ btTriangleMesh* Mesh::ImportColData(const std::string & fileName)
 	if (!scene)
 	{
 		std::cout << "Mesh load failed!: " << fileName << std::endl;
-		scene = importer.ReadFile("./res/models/error.obj",
+		scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
 			aiProcess_Triangulate |
 			aiProcess_GenSmoothNormals |
 			aiProcess_FlipUVs |
@@ -444,7 +444,7 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 {
     Assimp::Importer importer;
 
-    const aiScene* scene = importer.ReadFile(("./res/models/" + fileName).c_str(),
+    const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
         aiProcess_Triangulate |
         aiProcess_GenSmoothNormals |
         aiProcess_FlipUVs |
@@ -460,7 +460,7 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
     if (!scene)
     {
         std::cout << "Mesh load failed!: " << fileName << std::endl;
-        scene = importer.ReadFile("./res/models/error.obj",
+        scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
 			aiProcess_Triangulate |
 			aiProcess_GenSmoothNormals |
 			aiProcess_FlipUVs |

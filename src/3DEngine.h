@@ -20,10 +20,6 @@
 #pragma warning( disable : 4305)
 #pragma warning( disable : 4996)
 #pragma warning( disable : 4258)
-#pragma warning( disable : 4635)
-
-//Test
-int ___testc___ = 0x42;
 
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS

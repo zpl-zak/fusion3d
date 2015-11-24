@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>LostHeaven.dir\Release</IntDir>
-    <OutDir>$(SolutionDir)Release</OutDir>
+    <IntDir>LostHeaven.dir\Release\</IntDir>
+    <OutDir>$(SolutionDir)Release\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>LostHeaven.dir\Release</IntDir>
-    <OutDir>$(SolutionDir)Release</OutDir>
+    <IntDir>LostHeaven.dir\Release\</IntDir>
+    <OutDir>$(SolutionDir)Release\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -21,6 +21,9 @@
 #include "coreEngine.h"
 #include "profiling.h"
 
+/*
+ * This is our game, which also contains our scene graph.
+ */
 class Game
 {
 public:

@@ -91,6 +91,9 @@ private:
 	std::map<std::string, unsigned int> m_uniformMap;
 };
 
+/**
+ * Represents shader program used by GPU.
+ */
 class Shader
 {
 public:

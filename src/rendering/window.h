@@ -21,6 +21,9 @@
 #include <string>
 #include "../core/input.h"
 
+/**
+ * Window encapsulates various routines to manage our engine's window.
+ */
 class Window
 {
 public:

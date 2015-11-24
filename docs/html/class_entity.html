@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
-   &#160;<span id="projectnumber">0.0.0.1</span>
+   &#160;<span id="projectnumber">Internal</span>
    </div>
   </td>
  </tr>
@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -139,6 +140,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a01754307786d6d6891ccec895d7c26fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a01754307786d6d6891ccec895d7c26fa">PostRenderAll</a> (const <a class="el" href="class_shader.html">Shader</a> &amp;shader, const <a class="el" href="class_rendering_engine.html">RenderingEngine</a> &amp;renderingEngine, const <a class="el" href="class_camera.html">Camera</a> &amp;camera) const </td></tr>
 <tr class="separator:a01754307786d6d6891ccec895d7c26fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77b7d12e1014fa2a128c8e3aa6d39ea3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity.html">Entity</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a77b7d12e1014fa2a128c8e3aa6d39ea3">GetAllAttached</a> ()</td></tr>
+<tr class="memdesc:a77b7d12e1014fa2a128c8e3aa6d39ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all components attached to entity.  <a href="#a77b7d12e1014fa2a128c8e3aa6d39ea3">More...</a><br /></td></tr>
 <tr class="separator:a77b7d12e1014fa2a128c8e3aa6d39ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ea21fddf63008658e00854465480034"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transform.html">Transform</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a5ea21fddf63008658e00854465480034">GetTransform</a> ()</td></tr>
 <tr class="separator:a5ea21fddf63008658e00854465480034"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,13 +157,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa75151fc607686b42d27f8c3ba73143d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa75151fc607686b42d27f8c3ba73143d">Destroy</a> ()</td></tr>
 <tr class="separator:aa75151fc607686b42d27f8c3ba73143d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab09ef7808570f70f07e18cbc1d231d39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ab09ef7808570f70f07e18cbc1d231d39">GetScene</a> ()</td></tr>
+<tr class="memdesc:ab09ef7808570f70f07e18cbc1d231d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves our scene graph.  <a href="#ab09ef7808570f70f07e18cbc1d231d39">More...</a><br /></td></tr>
 <tr class="separator:ab09ef7808570f70f07e18cbc1d231d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa70bc19f38ec105785d27df0134284fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa70bc19f38ec105785d27df0134284fb">GetChildByName</a> (const std::string &amp;name)</td></tr>
 <tr class="separator:aa70bc19f38ec105785d27df0134284fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e23b43bf0b76ba6ef427154eb8eea9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity_component.html">EntityComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a1e23b43bf0b76ba6ef427154eb8eea9e">GetComponentByType</a> (const std::string &amp;name)</td></tr>
 <tr class="separator:a1e23b43bf0b76ba6ef427154eb8eea9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents game object with it's components and transformation. This is the base unit of scene graph. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0ff4aa25e3f7d68cee620ee473d0801c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -302,6 +307,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns all components attached to entity. </p>
+
 </div>
 </div>
 <a class="anchor" id="aa70bc19f38ec105785d27df0134284fb"></a>
@@ -410,6 +417,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Retrieves our scene graph. </p>
 
 </div>
 </div>
