@@ -149,6 +149,9 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
       <Command>
       </Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -203,6 +206,9 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
       <Command>
       </Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
@@ -257,6 +263,9 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
       <Command>
       </Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
@@ -310,6 +319,9 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
       <Command>
       </Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="F:\Fusion3D\engine\CMakeLists.txt">

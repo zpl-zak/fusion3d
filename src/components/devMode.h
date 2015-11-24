@@ -22,7 +22,6 @@
 #include "../components/freeMove.h"
 #include "../components/freeLook.h"
 #include <vector>
-#include "../../lib/atb/include/AntTweakbar.h"
 
 COMPONENT(DevMode)
 public:

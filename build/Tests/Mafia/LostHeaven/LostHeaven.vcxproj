@@ -85,7 +85,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;$(Solutiondir)..\lib\atb\lib\AntTweakBar.lib;awesomium.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(AWE_DIR)build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -112,7 +112,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;$(Solutiondir)..\lib\atb\lib\AntTweakBar.lib;awesomium.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(AWE_DIR)build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
