@@ -12,10 +12,5 @@ var searchData=
   ['eoi',['EOI',['../stb__image_8c.html#a89e7a573678ede0e3e751446134bf250',1,'stb_image.c']]],
   ['epf',['epf',['../stb__image_8c.html#a6d57c065a710cc1193f984d137a0a76d',1,'stb_image.c']]],
   ['epuc',['epuc',['../stb__image_8c.html#a561c4b95e46ce2bbb293646527b41b5c',1,'stb_image.c']]],
-  ['err',['err',['../structmpc__stack__t.html#a20d8a695c42360536a9fc0611446088f',1,'mpc_stack_t']]],
-  ['error',['error',['../unionmpc__result__t.html#a754b4d29750f22ba378e9cbd88ac4935',1,'mpc_result_t']]],
-  ['expanded',['expanded',['../structpng.html#a474dd0da8ac0347924e68f5de7e68c55',1,'png']]],
-  ['expect',['expect',['../unionmpc__pdata__t.html#ab39a59366837f6fa5f6bfc8d449a922f',1,'mpc_pdata_t']]],
-  ['expected',['expected',['../structmpc__err__t.html#acb5d0005a58f2ed13d22d3a45d69f0ae',1,'mpc_err_t']]],
-  ['expected_5fnum',['expected_num',['../structmpc__err__t.html#ae577756565dd7a3cbc734ef8257d529c',1,'mpc_err_t']]]
+  ['expanded',['expanded',['../structpng.html#a474dd0da8ac0347924e68f5de7e68c55',1,'png']]]
 ];

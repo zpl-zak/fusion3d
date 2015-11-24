@@ -5,7 +5,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "physics", "dir_8250e12e5a19acb8ece30f1703b6dc16.html", "dir_8250e12e5a19acb8ece30f1703b6dc16" ],
     [ "progs", "dir_f5e6e8303c3542df9bff14cab4ae3bcc.html", "dir_f5e6e8303c3542df9bff14cab4ae3bcc" ],
     [ "rendering", "dir_1243271318b2b38807a3b1d2ca08dd72.html", "dir_1243271318b2b38807a3b1d2ca08dd72" ],
-    [ "scripting", "dir_b49f11675e92293ffa7ceeef744893f4.html", "dir_b49f11675e92293ffa7ceeef744893f4" ],
     [ "staticLibs", "dir_a112d73e5c2120cc44c300fbea2576aa.html", "dir_a112d73e5c2120cc44c300fbea2576aa" ],
     [ "utils", "dir_313caf1132e152dd9b58bea13a4052ca.html", "dir_313caf1132e152dd9b58bea13a4052ca" ],
     [ "3DEngine.h", "3_d_engine_8h.html", "3_d_engine_8h" ],

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['m',['m',['../structmpc__pdata__fail__t.html#aba79b912d1296263d6e9f1ef5907c3b0',1,'mpc_pdata_fail_t::m()'],['../structmpc__pdata__expect__t.html#a4eeb33efecf3ec9ac7e92c356e24f894',1,'mpc_pdata_expect_t::m()']]],
   ['m_5fbackkey',['m_backKey',['../free_move_8h.html#a328b8880a5a4792f0f0d3d24bf635eb0',1,'freeMove.h']]],
   ['m_5fbody',['m_body',['../bird__prog_8h.html#ac84e141f856f0f33bade78361679d454',1,'bird_prog.h']]],
   ['m_5fcamera',['m_camera',['../camera_8h.html#ac4d3b11d4db49f855852a2546ea0eeb9',1,'camera.h']]],
@@ -53,8 +52,6 @@ var searchData=
   ['m_5fwindow',['m_window',['../dev_mode_8h.html#aa53372596559bdfbf5d1b09ed9109c80',1,'devMode.h']]],
   ['m_5fwindowcenter',['m_windowCenter',['../free_look_8h.html#a1915880d554346273624da115dd73fd0',1,'freeLook.h']]],
   ['marker',['marker',['../structjpeg.html#a9a5cd40790fd432795fb19477c921f8c',1,'jpeg']]],
-  ['marks',['marks',['../structmpc__input__t.html#ace523453efb8a2042b8920a237991ab9',1,'mpc_input_t']]],
-  ['marks_5fnum',['marks_num',['../structmpc__input__t.html#adbdd1889942e95d169f5410c224dc092',1,'mpc_input_t']]],
   ['max_5fx',['max_x',['../structstbi__gif__struct.html#a02391438194b161d16bdf95878be6a66',1,'stbi_gif_struct']]],
   ['max_5fy',['max_y',['../structstbi__gif__struct.html#aff3410e0fff097d4719e54096f6da69b',1,'stbi_gif_struct']]],
   ['maxcode',['maxcode',['../structhuffman.html#aeb78aca6c7377faaad8123566d54fc98',1,'huffman::maxcode()'],['../structzhuffman.html#ac7dd4a2bf01a6e27933dd1cf6b0cc762',1,'zhuffman::maxcode()']]]

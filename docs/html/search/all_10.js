@@ -13,9 +13,7 @@ var searchData=
   ['operator_3d',['operator=',['../class_texture.html#ac8d4a47a87bb660ecd37b7ec7a70705b',1,'Texture']]],
   ['operator_3d_3d',['operator==',['../class_vector.html#a62b7ae1dc75c2f8cb365e1927a6d2ed0',1,'Vector::operator==()'],['../class_vector3f.html#acfee43096f6cdfa042fab3defe7c253b',1,'Vector3f::operator==()'],['../class_texture.html#aca3540da8292ba7dd02e6f1dbda781cc',1,'Texture::operator==()']]],
   ['operator_5b_5d',['operator[]',['../class_vector.html#a8f0c8fbf73a5863e3cb73908876490c1',1,'Vector::operator[](unsigned int i)'],['../class_vector.html#a31a62f16c97ea15a32944549b61027ef',1,'Vector::operator[](unsigned int i) const '],['../class_matrix.html#af32d2322ab44e083492cfd91b80d5418',1,'Matrix::operator[](int index) const '],['../class_matrix.html#ae5706ecdcc918c8b0c4e94d3360d629e',1,'Matrix::operator[](int index)']]],
-  ['or',['or',['../unionmpc__pdata__t.html#afd52852dd436370c1c4973988a17d500',1,'mpc_pdata_t']]],
   ['order',['order',['../structjpeg.html#ac0f5240fc472e75239328f51a50f45b6',1,'jpeg']]],
   ['os_5fother',['OS_OTHER',['../timing_8cpp.html#a1277689418845e202f7783dc1d21e8f3',1,'timing.cpp']]],
-  ['out',['out',['../structpng.html#ada33c39620ad9a647c088c40d21887f6',1,'png::out()'],['../structstbi__gif__struct.html#a1c2d18ea92a86a416e7458cdaa9f4cc3',1,'stbi_gif_struct::out()']]],
-  ['output',['output',['../unionmpc__result__t.html#ab0cbd12be2f7de04fae2b9e1bdc4a75f',1,'mpc_result_t']]]
+  ['out',['out',['../structpng.html#ada33c39620ad9a647c088c40d21887f6',1,'png::out()'],['../structstbi__gif__struct.html#a1c2d18ea92a86a416e7458cdaa9f4cc3',1,'stbi_gif_struct::out()']]]
 ];
