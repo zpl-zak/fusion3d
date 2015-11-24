@@ -17,18 +17,10 @@
 #include "3DEngine.h"
 #include "testing.h"
 
-#include "components/freeLook.h"
-#include "components/freeMove.h"
-#include "components/physicsEngineComponent.h"
 #include "components/physicsObjectComponent.h"
-#include "components/worldComponent.h"
-#include "physics/boundingSphere.h"
-#include "physics/plane.h"
 #include "progs/fibonacci_prog.h"
 #include "components/devMode.h"
 #include "../build/Tests/Mafia/LostHeaven/fpswalker_prog.h"
-#include "progs/bird_prog.h"
-#include "components/GUIWindow.h"
 
 #include <fstream>
 #include <vector>
@@ -61,14 +53,6 @@ void TestGame::Init(const Window& window)
 		->AddComponent(new MeshRenderer("playground.obj"))
 		->AddComponent(new PhysicsObjectComponent(
 			new btBvhTriangleMeshShape(Mesh::ImportCollision("playground_col.obj"), true)
-			))
-		);
-
-	AddToScene((new Entity(Vector3f(2, 5, 0)))
-		->AddComponent(new MeshRenderer("sphere.obj"))
-		->AddComponent(new PhysicsObjectComponent(
-			new btConvexTriangleMeshShape(Mesh::ImportCollision("sphere.obj"), true),
-			2
 			))
 		);
 

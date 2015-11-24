@@ -35,7 +35,6 @@
 #ifndef PHYSICS_ENGINE_INCLUDED_H
 #define PHYSICS_ENGINE_INCLUDED_H
 
-#include "physicsObject.h"
 #include "btBulletDynamicsCommon.h"
 #include "../rendering/renderingEngine.h"
 #include <vector>

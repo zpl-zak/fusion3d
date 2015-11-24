@@ -25,6 +25,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
+#define RUNTIME_TESTS
+
 #define FOREVER for (;;)
 #define FOR(p, q, z) for (size_t z = p; z < q; ++z)
 #define DFOR(p, q, z) for (size_t z = q; z > p; --z)

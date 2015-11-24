@@ -136,30 +136,32 @@ $(document).ready(function(){initNavTree('3_d_engine_8h_source.html','');});
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define _CRT_SECURE_NO_WARNINGS</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#a75c828ed6c02fcd44084e67a032e422c">   28</a></span>&#160;<span class="preprocessor">#define FOREVER for (;;)</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#abfc4fe4d7e71ae79cd50152d0f286333">   29</a></span>&#160;<span class="preprocessor">#define FOR(p, q, z) for (size_t z = p; z &lt; q; ++z)</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#ab76d198e4b62f15516638896c1f9dfa8">   30</a></span>&#160;<span class="preprocessor">#define DFOR(p, q, z) for (size_t z = q; z &gt; p; --z)</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#aac699a3288732fdc5f67c48c6cea8aa9">   31</a></span>&#160;<span class="preprocessor">#define PRINT(p) std::cout &lt;&lt; p &lt;&lt; std::endl</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#a8f7bd5242b15da973671df869db5fe85">   32</a></span>&#160;<span class="preprocessor">#define STRING(s) #s</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;btBulletDynamicsCommon.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#a52e8128e691021c75f0a2ef6b1a24b8f">   28</a></span>&#160;<span class="preprocessor">#define RUNTIME_TESTS</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#a75c828ed6c02fcd44084e67a032e422c">   30</a></span>&#160;<span class="preprocessor">#define FOREVER for (;;)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#abfc4fe4d7e71ae79cd50152d0f286333">   31</a></span>&#160;<span class="preprocessor">#define FOR(p, q, z) for (size_t z = p; z &lt; q; ++z)</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#ab76d198e4b62f15516638896c1f9dfa8">   32</a></span>&#160;<span class="preprocessor">#define DFOR(p, q, z) for (size_t z = q; z &gt; p; --z)</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#aac699a3288732fdc5f67c48c6cea8aa9">   33</a></span>&#160;<span class="preprocessor">#define PRINT(p) std::cout &lt;&lt; p &lt;&lt; std::endl</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="3_d_engine_8h.html#a8f7bd5242b15da973671df869db5fe85">   34</a></span>&#160;<span class="preprocessor">#define STRING(s) #s</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mesh_8h.html">rendering/mesh.h</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8h.html">rendering/shader.h</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transform_8h.html">core/transform.h</a>&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="camera_8h.html">rendering/camera.h</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lighting_8h.html">rendering/lighting.h</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entity_8h.html">core/entity.h</a>&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mesh_renderer_8h.html">components/meshRenderer.h</a>&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="program_component_8h.html">components/programComponent.h</a>&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8h.html">rendering/window.h</a>&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="core_engine_8h.html">core/coreEngine.h</a>&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="game_8h.html">core/game.h</a>&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//SDL2 defines a main macro, which can prevent certain compilers from finding the main function.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#undef main</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif // 3DENGINE_H_INCLUDED</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;btBulletDynamicsCommon.h&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mesh_8h.html">rendering/mesh.h</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8h.html">rendering/shader.h</a>&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transform_8h.html">core/transform.h</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="camera_8h.html">rendering/camera.h</a>&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lighting_8h.html">rendering/lighting.h</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entity_8h.html">core/entity.h</a>&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mesh_renderer_8h.html">components/meshRenderer.h</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="program_component_8h.html">components/programComponent.h</a>&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8h.html">rendering/window.h</a>&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="core_engine_8h.html">core/coreEngine.h</a>&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="game_8h.html">core/game.h</a>&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//SDL2 defines a main macro, which can prevent certain compilers from finding the main function.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#undef main</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // 3DENGINE_H_INCLUDED</span></div>
 <div class="ttc" id="entity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div></div>
 <div class="ttc" id="program_component_8h_html"><div class="ttname"><a href="program_component_8h.html">programComponent.h</a></div></div>
 <div class="ttc" id="window_8h_html"><div class="ttname"><a href="window_8h.html">window.h</a></div></div>

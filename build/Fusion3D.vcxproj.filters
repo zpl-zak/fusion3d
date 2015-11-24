@@ -200,9 +200,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="F:\Fusion3D\engine\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{D11113A0-746B-3A5A-A916-1AA2FA0AF6E0}</UniqueIdentifier>
     </Filter>

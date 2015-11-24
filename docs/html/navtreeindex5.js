@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"structstbi.html#af99edda496281a6ca1b58271cabdbc69":[1,0,33,0],
 "structstbi__gif__lzw__struct.html":[1,0,34],
 "structstbi__gif__lzw__struct.html#a08129c445d56c0983285d6e0e71b83bd":[1,0,34,0],
 "structstbi__gif__lzw__struct.html#a0e5142cb4117b905eb9efd73c436525c":[1,0,34,1],

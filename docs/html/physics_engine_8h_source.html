@@ -146,56 +146,55 @@ $(document).ready(function(){initNavTree('physics_engine_8h_source.html','');});
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#ifndef PHYSICS_ENGINE_INCLUDED_H</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#define PHYSICS_ENGINE_INCLUDED_H</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;physicsObject.h&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;btBulletDynamicsCommon.h&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;../rendering/renderingEngine.h&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_physics_engine.html">   47</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_engine.html">PhysicsEngine</a></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">   53</a></span>&#160;    <a class="code" href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">PhysicsEngine</a>() </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        m_broadphase = <span class="keyword">new</span> btDbvtBroadphase();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        m_configuration = <span class="keyword">new</span> btDefaultCollisionConfiguration();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        m_dispatcher = <span class="keyword">new</span> btCollisionDispatcher(m_configuration);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        m_solver = <span class="keyword">new</span> btSequentialImpulseConstraintSolver;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        m_world = <span class="keyword">new</span> btDiscreteDynamicsWorld(m_dispatcher, m_broadphase, m_solver, m_configuration);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        m_world-&gt;setGravity(btVector3(0, -9.81f, 0));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">//m_world-&gt;setDebugDrawer(new GLDebugDrawer());</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_physics_engine.html#ade5d084ae76413f23601afde9f38ed61">   64</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_physics_engine.html#ade5d084ae76413f23601afde9f38ed61">~PhysicsEngine</a>()</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">delete</span> m_world;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">delete</span> m_solver;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">delete</span> m_dispatcher;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">delete</span> m_configuration;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">delete</span> m_broadphase;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_engine.html#a0eef5ab7f12076bd0e065cdd352761bf">Simulate</a>(<span class="keywordtype">float</span> delta);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_physics_engine.html#a3055a9cec9a476cd463c6ef1ecd55ec1">   76</a></span>&#160;    <span class="keyword">inline</span> btDiscreteDynamicsWorld* <a class="code" href="class_physics_engine.html#a3055a9cec9a476cd463c6ef1ecd55ec1">GetWorld</a>()</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> m_world;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    btBroadphaseInterface* m_broadphase;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    btDefaultCollisionConfiguration* m_configuration;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    btCollisionDispatcher* m_dispatcher;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    btSequentialImpulseConstraintSolver* m_solver;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    btDiscreteDynamicsWorld* m_world;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_physics_engine_html"><div class="ttname"><a href="class_physics_engine.html">PhysicsEngine</a></div><div class="ttdef"><b>Definition:</b> physicsEngine.h:47</div></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;btBulletDynamicsCommon.h&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;../rendering/renderingEngine.h&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_physics_engine.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_physics_engine.html">PhysicsEngine</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">   52</a></span>&#160;    <a class="code" href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">PhysicsEngine</a>() </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        m_broadphase = <span class="keyword">new</span> btDbvtBroadphase();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        m_configuration = <span class="keyword">new</span> btDefaultCollisionConfiguration();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        m_dispatcher = <span class="keyword">new</span> btCollisionDispatcher(m_configuration);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        m_solver = <span class="keyword">new</span> btSequentialImpulseConstraintSolver;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        m_world = <span class="keyword">new</span> btDiscreteDynamicsWorld(m_dispatcher, m_broadphase, m_solver, m_configuration);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        m_world-&gt;setGravity(btVector3(0, -9.81f, 0));</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">//m_world-&gt;setDebugDrawer(new GLDebugDrawer());</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_physics_engine.html#ade5d084ae76413f23601afde9f38ed61">   63</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_physics_engine.html#ade5d084ae76413f23601afde9f38ed61">~PhysicsEngine</a>()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">delete</span> m_world;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">delete</span> m_solver;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">delete</span> m_dispatcher;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">delete</span> m_configuration;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">delete</span> m_broadphase;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_physics_engine.html#a0eef5ab7f12076bd0e065cdd352761bf">Simulate</a>(<span class="keywordtype">float</span> delta);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_physics_engine.html#a3055a9cec9a476cd463c6ef1ecd55ec1">   75</a></span>&#160;    <span class="keyword">inline</span> btDiscreteDynamicsWorld* <a class="code" href="class_physics_engine.html#a3055a9cec9a476cd463c6ef1ecd55ec1">GetWorld</a>()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> m_world;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    btBroadphaseInterface* m_broadphase;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    btDefaultCollisionConfiguration* m_configuration;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    btCollisionDispatcher* m_dispatcher;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    btSequentialImpulseConstraintSolver* m_solver;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    btDiscreteDynamicsWorld* m_world;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_physics_engine_html"><div class="ttname"><a href="class_physics_engine.html">PhysicsEngine</a></div><div class="ttdef"><b>Definition:</b> physicsEngine.h:46</div></div>
 <div class="ttc" id="class_physics_engine_html_a0eef5ab7f12076bd0e065cdd352761bf"><div class="ttname"><a href="class_physics_engine.html#a0eef5ab7f12076bd0e065cdd352761bf">PhysicsEngine::Simulate</a></div><div class="ttdeci">void Simulate(float delta)</div><div class="ttdef"><b>Definition:</b> physicsEngine.cpp:21</div></div>
-<div class="ttc" id="class_physics_engine_html_ade5d084ae76413f23601afde9f38ed61"><div class="ttname"><a href="class_physics_engine.html#ade5d084ae76413f23601afde9f38ed61">PhysicsEngine::~PhysicsEngine</a></div><div class="ttdeci">virtual ~PhysicsEngine()</div><div class="ttdef"><b>Definition:</b> physicsEngine.h:64</div></div>
-<div class="ttc" id="class_physics_engine_html_a3055a9cec9a476cd463c6ef1ecd55ec1"><div class="ttname"><a href="class_physics_engine.html#a3055a9cec9a476cd463c6ef1ecd55ec1">PhysicsEngine::GetWorld</a></div><div class="ttdeci">btDiscreteDynamicsWorld * GetWorld()</div><div class="ttdef"><b>Definition:</b> physicsEngine.h:76</div></div>
-<div class="ttc" id="class_physics_engine_html_a7fc9180ea453680df0b863fa157c5b92"><div class="ttname"><a href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">PhysicsEngine::PhysicsEngine</a></div><div class="ttdeci">PhysicsEngine()</div><div class="ttdef"><b>Definition:</b> physicsEngine.h:53</div></div>
+<div class="ttc" id="class_physics_engine_html_ade5d084ae76413f23601afde9f38ed61"><div class="ttname"><a href="class_physics_engine.html#ade5d084ae76413f23601afde9f38ed61">PhysicsEngine::~PhysicsEngine</a></div><div class="ttdeci">virtual ~PhysicsEngine()</div><div class="ttdef"><b>Definition:</b> physicsEngine.h:63</div></div>
+<div class="ttc" id="class_physics_engine_html_a3055a9cec9a476cd463c6ef1ecd55ec1"><div class="ttname"><a href="class_physics_engine.html#a3055a9cec9a476cd463c6ef1ecd55ec1">PhysicsEngine::GetWorld</a></div><div class="ttdeci">btDiscreteDynamicsWorld * GetWorld()</div><div class="ttdef"><b>Definition:</b> physicsEngine.h:75</div></div>
+<div class="ttc" id="class_physics_engine_html_a7fc9180ea453680df0b863fa157c5b92"><div class="ttname"><a href="class_physics_engine.html#a7fc9180ea453680df0b863fa157c5b92">PhysicsEngine::PhysicsEngine</a></div><div class="ttdeci">PhysicsEngine()</div><div class="ttdef"><b>Definition:</b> physicsEngine.h:52</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
