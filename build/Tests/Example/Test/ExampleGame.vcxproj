@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1EFD0E18-C383-4C8D-8FE3-F15C653E0755}</ProjectGuid>
+    <ProjectGuid>{B71A6C2A-5F27-4C62-A6FB-D8FFA43C61E2}</ProjectGuid>
     <RootNamespace>LostHeaven</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -131,19 +131,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Fusion3D.vcxproj">
       <Project>{b097c253-0d52-3d60-b0d7-3ed1bf5098ed}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\src\progs\bird_prog.h" />
-    <ClInclude Include="fpswalker_prog.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

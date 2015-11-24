@@ -209,6 +209,7 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 build/Release/
+build/Debug/
 build/ipch/
 build/Fusion3D.dir/
 *.sdf
