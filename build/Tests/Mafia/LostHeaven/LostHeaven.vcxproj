@@ -89,8 +89,8 @@
       <AdditionalLibraryDirectories>$(AWE_DIR)build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy  /D /y /s /r $(SolutionDir)..\lib\_bin $(SolutionDir)Release
-xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -120,8 +120,8 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
       <AdditionalLibraryDirectories>$(AWE_DIR)build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy  /D /y /s /r $(SolutionDir)..\lib\_bin $(SolutionDir)Release
-xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -101,7 +101,7 @@ int main()
 	Testing::RunAllTests();
 
 	TestGame game;
-	Window window(1920, 1080, "Fusion3D");
+	Window window(800, 600, "Fusion3D");
 	//window.SetFullScreen(1);
 	TestRenderer renderer(&window);
 	PhysicsEngine physics;

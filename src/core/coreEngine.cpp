@@ -134,6 +134,7 @@ void CoreEngine::Start()
 
 			GotoXY(1, 0);
 			CPRINT(concatcolors(dark_red, white), concatcolors(dark_red, 7), (int)1000.0f / (int)totalTime << " FPS");
+			//CPRINT(concatcolors(dark_red, white), concatcolors(dark_red, 7), "  Version " << ENGINE_VERSION << " Build " << std::string(_DATE_));
 
 			GotoXY(pos.X, pos.Y);
 			frames = 0;
