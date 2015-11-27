@@ -18,6 +18,76 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\components\freeLook.cpp" />
+    <ClCompile Include="..\src\components\freeMove.cpp" />
+    <ClCompile Include="..\src\components\physicsEngineComponent.cpp" />
+    <ClCompile Include="..\src\components\physicsObjectComponent.cpp" />
+    <ClCompile Include="..\src\components\programComponent.cpp" />
+    <ClCompile Include="..\src\core\coreEngine.cpp" />
+    <ClCompile Include="..\src\core\entity.cpp" />
+    <ClCompile Include="..\src\core\game.cpp" />
+    <ClCompile Include="..\src\core\input.cpp" />
+    <ClCompile Include="..\src\core\mappedValues.cpp" />
+    <ClCompile Include="..\src\core\math3d.cpp" />
+    <ClCompile Include="..\src\core\profiling.cpp" />
+    <ClCompile Include="..\src\core\timing.cpp" />
+    <ClCompile Include="..\src\core\transform.cpp" />
+    <ClCompile Include="..\src\core\util.cpp" />
+    <ClCompile Include="..\src\physics\physicsEngine.cpp" />
+    <ClCompile Include="..\src\rendering\camera.cpp" />
+    <ClCompile Include="..\src\rendering\lighting.cpp" />
+    <ClCompile Include="..\src\rendering\material.cpp" />
+    <ClCompile Include="..\src\rendering\mesh.cpp" />
+    <ClCompile Include="..\src\rendering\renderingEngine.cpp" />
+    <ClCompile Include="..\src\rendering\shader.cpp" />
+    <ClCompile Include="..\src\rendering\texture.cpp" />
+    <ClCompile Include="..\src\rendering\window.cpp" />
+    <ClCompile Include="..\src\staticLibs\stb_image.c" />
+    <ClCompile Include="..\src\testing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\3DEngine.h" />
+    <ClInclude Include="..\src\components\decalRenderer.h" />
+    <ClInclude Include="..\src\components\devMode.h" />
+    <ClInclude Include="..\src\components\freeLook.h" />
+    <ClInclude Include="..\src\components\freeMove.h" />
+    <ClInclude Include="..\src\components\GUIWindow.h" />
+    <ClInclude Include="..\src\components\meshRenderer.h" />
+    <ClInclude Include="..\src\components\physicsEngineComponent.h" />
+    <ClInclude Include="..\src\components\physicsObjectComponent.h" />
+    <ClInclude Include="..\src\components\programComponent.h" />
+    <ClInclude Include="..\src\components\worldComponent.h" />
+    <ClInclude Include="..\src\core\coreEngine.h" />
+    <ClInclude Include="..\src\core\entity.h" />
+    <ClInclude Include="..\src\core\entityComponent.h" />
+    <ClInclude Include="..\src\core\game.h" />
+    <ClInclude Include="..\src\core\input.h" />
+    <ClInclude Include="..\src\core\mappedValues.h" />
+    <ClInclude Include="..\src\core\math3d.h" />
+    <ClInclude Include="..\src\core\profiling.h" />
+    <ClInclude Include="..\src\core\referenceCounter.h" />
+    <ClInclude Include="..\src\core\timing.h" />
+    <ClInclude Include="..\src\core\transform.h" />
+    <ClInclude Include="..\src\core\util.h" />
+    <ClInclude Include="..\src\physics\physicsEngine.h" />
+    <ClInclude Include="..\src\progs\bird_prog.h" />
+    <ClInclude Include="..\src\progs\fibonacci_prog.h" />
+    <ClInclude Include="..\src\progs\meshArray_prog.h" />
+    <ClInclude Include="..\src\reflection.h" />
+    <ClInclude Include="..\src\rendering\camera.h" />
+    <ClInclude Include="..\src\rendering\lighting.h" />
+    <ClInclude Include="..\src\rendering\material.h" />
+    <ClInclude Include="..\src\rendering\mesh.h" />
+    <ClInclude Include="..\src\rendering\renderingEngine.h" />
+    <ClInclude Include="..\src\rendering\shader.h" />
+    <ClInclude Include="..\src\rendering\texture.h" />
+    <ClInclude Include="..\src\rendering\window.h" />
+    <ClInclude Include="..\src\staticLibs\stb_image.h" />
+    <ClInclude Include="..\src\testing.h" />
+    <ClInclude Include="..\src\utils\colors.h" />
+    <ClInclude Include="..\src\utils\pos.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGUID>{B097C253-0D52-3D60-B0D7-3ED1BF5098ED}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
@@ -327,78 +397,6 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\3DEngine.h" />
-    <ClInclude Include="..\src\components\decalRenderer.h" />
-    <ClInclude Include="..\src\components\devMode.h" />
-    <ClInclude Include="..\src\components\GUIWindow.h" />
-    <ClInclude Include="..\src\utils\colors.h" />
-    <ClInclude Include="..\src\utils\pos.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\components\freeLook.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\components\freeMove.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\components\meshRenderer.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\components\physicsEngineComponent.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\components\physicsObjectComponent.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\components\programComponent.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\components\worldComponent.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\coreEngine.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\entity.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\entityComponent.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\game.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\input.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\mappedValues.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\math3d.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\profiling.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\referenceCounter.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\timing.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\transform.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\core\util.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\physics\physicsEngine.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\progs\fibonacci_prog.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\progs\meshArray_prog.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\reflection.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\rendering\camera.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\rendering\lighting.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\rendering\material.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\rendering\mesh.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\rendering\renderingEngine.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\rendering\shader.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\rendering\texture.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\rendering\window.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\staticLibs\stb_image.h" />
-    <ClInclude Include="F:\Fusion3D\engine\src\testing.h" />
-    <ClCompile Include="F:\Fusion3D\engine\src\components\freeLook.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\components\freeMove.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\components\physicsEngineComponent.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\components\physicsObjectComponent.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\components\programComponent.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\coreEngine.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\entity.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\game.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\input.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\mappedValues.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\math3d.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\profiling.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\timing.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\transform.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\core\util.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\physics\physicsEngine.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\rendering\camera.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\rendering\lighting.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\rendering\material.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\rendering\mesh.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\rendering\renderingEngine.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\rendering\shader.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\rendering\texture.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\rendering\window.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\testing.cpp" />
-    <ClCompile Include="F:\Fusion3D\engine\src\staticLibs\stb_image.c">
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CompileAsC</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CompileAsC</CompileAs>
-    </ClCompile>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -15,7 +15,6 @@
  */
 
 #include "physicsEngine.h"
-#include "boundingSphere.h"
 
 
 void PhysicsEngine::Simulate(float delta)

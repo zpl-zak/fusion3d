@@ -218,3 +218,6 @@ build/Fusion3D.dir/
 !/lib/
 !/lib/glew/lib/
 /docs/latex/
+
+.tlog
+.idb
