@@ -1,1 +1,1 @@
-doxygen ../doxygen/DoxyFile > doxygen.log
+doxygen DoxyFile > doxygen.log

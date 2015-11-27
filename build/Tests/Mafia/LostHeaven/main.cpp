@@ -51,21 +51,27 @@ void TestGame::Init(const Window& window)
 
 	AddToScene((new Entity())
 		->AddComponent(new MeshRenderer("playground.obj"))
-		->AddComponent(new PhysicsObjectComponent(
-			new btBvhTriangleMeshShape(Mesh::ImportCollision("playground_col.obj"), true)
-			))
+		/*->AddComponent(new PhysicsObjectComponent(
+			new btBvhTriangleMeshShape(Mesh::ImportCollision("factory_BSW_col.obj"), true)
+			))*/
 		);
 
 	AddToScene((new Entity(Vector3f(0, 2, 0), Quaternion(Vector3f(1,0,0), ToRadians(90))))
 		//->AddComponent(new Decal(new Material("super", Texture("super.jpg"), 0.0, 0.0), Vector3f(1,1,1), 1))
 		);
 
+	AddToScene((new Entity(Vector3f(7, 1, 7)))
+		->AddComponent(new PointLight(Vector3f(0,1,0), 0.4f, Attenuation(0,0,0.4), 2.967f, 10)));
+
+	AddToScene((new Entity(Vector3f(4, 4, 0)))
+		->AddComponent(new PointLight(Vector3f(1, 1, 1), 6.f, Attenuation(0, 0, 0.4), 2.967f, 10)));
+
 	AddToScene((new Entity(Vector3f(), Quaternion(Vector3f(1, 0, 0), ToRadians(-45))))
-		->AddComponent(new DirectionalLight(Vector3f(1.0, 0.49, 0.31),3
+		->AddComponent(new DirectionalLight(Vector3f(1.0, 0.49, 0.31),0.3
 			, 10, 80.0f, 1, 0)));
-	
+
 	AddToScene((new Entity())
-		->AddComponent(new DevMode(window, false))
+		->AddComponent(new DevMode(window, true))
 		);
 
 	CoreEngine::GetCoreEngine()->SetSimulation(true);
@@ -81,7 +87,7 @@ public:
     TestRenderer(Window* window) :
         RenderingEngine(window)
     {
-        SetVector3f("ambient", Vector3f(0.2, 0.4,0.6));
+        SetVector3f("ambient", Vector3f(0,0,0));
     }
 
     void Render(const Entity& object) override
@@ -95,7 +101,7 @@ int main()
 	Testing::RunAllTests();
 
 	TestGame game;
-	Window window(800, 600, "Fusion3D");
+	Window window(1920, 1080, "Fusion3D");
 	//window.SetFullScreen(1);
 	TestRenderer renderer(&window);
 	PhysicsEngine physics;
