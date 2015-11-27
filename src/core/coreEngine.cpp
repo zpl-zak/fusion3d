@@ -23,6 +23,7 @@
 #include <iostream>
 #include "../utils/pos.h"
 #include "../utils/colors.h"
+#include "../3DEngine.h"
 
 #include <stdio.h>
 
@@ -134,7 +135,7 @@ void CoreEngine::Start()
 
 			GotoXY(1, 0);
 			CPRINT(concatcolors(dark_red, white), concatcolors(dark_red, 7), (int)1000.0f / (int)totalTime << " FPS");
-			//CPRINT(concatcolors(dark_red, white), concatcolors(dark_red, 7), "  Version " << ENGINE_VERSION << " Build " << std::string(_DATE_));
+			CPRINT(concatcolors(dark_red, white), concatcolors(dark_red, 7), "  Version " << ENGINE_VERSION << " Build " << std::string(__DATE__) << " " << std::string(__TIME__));
 
 			GotoXY(pos.X, pos.Y);
 			frames = 0;

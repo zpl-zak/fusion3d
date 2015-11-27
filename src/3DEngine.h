@@ -26,6 +26,7 @@
 #endif
 
 #define RUNTIME_TESTS
+#define ENGINE_VERSION 1
 
 #define FOREVER for (;;)
 #define FOR(p, q, z) for (size_t z = p; z < q; ++z)
