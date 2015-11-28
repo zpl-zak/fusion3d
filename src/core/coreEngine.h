@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2014 Dominik Madarasz
+/**
+ * Copyright (C) 2015 Dominik Madarasz
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #include <string>
 class Game;
 
-using namespace Awesomium;
+
 
 /**
  * This is the central part of the game engine. It's purpose is to manage interaction 
