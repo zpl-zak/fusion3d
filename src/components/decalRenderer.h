@@ -20,7 +20,8 @@
 #include "../core/entityComponent.h"
 #include "../rendering/mesh.h"
 
-COMPONENT(DecalRenderer)
+class DecalRenderer : public EntityComponent
+{
 public:
 	
 	DecalRenderer(Material* material)

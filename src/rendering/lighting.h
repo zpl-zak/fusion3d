@@ -65,8 +65,10 @@ private:
 	float m_minVariance;
 };
 
-COMPONENT(BaseLight)
+class BaseLight : public EntityComponent
+{
 public:
+	BaseLight() {}
 	BaseLight(const Vector3f& color, float intensity, const Shader& shader) :
 		m_color(color),
 		m_intensity(intensity),

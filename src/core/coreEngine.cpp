@@ -38,14 +38,6 @@ CoreEngine::CoreEngine(double frameRate, Window* window, RenderingEngine* render
 	m_physicsEngine(physicsEngine)
 {
 	CoreEngine::SetCoreEngine(this);
-
-	//We're factoring our components to be able to use them in runtime.
-	RegisterNatives();
-
-	//We'll do the same for game-wise components.
-	RegisterUserspace();
-
-//	std::cout << "Reflected classes: " << g_factory.m_classes.size() << std::endl;
 }
 
 void CoreEngine::Start()
@@ -61,11 +53,15 @@ void CoreEngine::Start()
 		return;
 	}
 
-	
+	//We're factoring our components to be able to use them in runtime.
+	RegisterNatives();
 
-	//WebURL url(WSLit("http://www.google.sk/"));
-	//m_view->LoadURL(url);
-		
+	//We'll do the same for game-wise components.
+	RegisterUserspace();
+
+	m_game->SetEngine(this);
+	m_game->Init(*m_window);
+	
 	m_isRunning = true;
 
 	double lastTime = Time::GetTime(); //Current time at the start of the last frame
@@ -231,8 +227,6 @@ void CoreEngine::Stop()
 void CoreEngine::LoadGame(Game * game)
 {
 	m_game = game;
-	m_game->SetEngine(this);
-	m_game->Init(*m_window);
 }
 
 void CoreEngine::RegisterNatives()
@@ -241,11 +235,11 @@ void CoreEngine::RegisterNatives()
 	REGISTER_CLASS(CameraComponent);
 	REGISTER_CLASS(MeshRenderer);
 	REGISTER_CLASS(BaseLight);
-	REGISTER_CLASS(ProgramComponent);
+	REGISTER_CLASS(ProgramHoster);
 	REGISTER_CLASS(DevMode);
 	REGISTER_CLASS(FreeLook);
 	REGISTER_CLASS(FreeMove);
-	REGISTER_CLASS(PhysicsObjectComponent);
+	REGISTER_CLASS(RigidBody);
 }
 
 void CoreEngine::RegisterUserspace()

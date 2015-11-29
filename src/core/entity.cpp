@@ -235,15 +235,5 @@ std::vector<Entity*> Entity::GetAllAttached()
 
 EntityComponent* Entity::GetComponentByType(const std::string& name)
 {
-	EntityComponent* result = 0;
-
-	for (size_t i = 0; i < m_components.size(); i++)
-	{
-		if (m_components.at(i)->CLASSTYPE == name)
-		{
-			return m_components.at(i);
-		}
-	}
-
-	return result;
+	return (EntityComponent*)g_factory.m_classes[name];
 }

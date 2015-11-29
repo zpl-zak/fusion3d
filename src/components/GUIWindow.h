@@ -22,7 +22,8 @@
 #include "../rendering/mesh.h"
 #include "../rendering/shader.h"
 
-COMPONENT(GUIWindow)
+class GUIWindow : public EntityComponent
+{
 public:
 	GUIWindow(std::vector<Mesh*> meshes, std::vector<Material*> materials)
 	{

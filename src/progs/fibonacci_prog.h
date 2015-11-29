@@ -19,7 +19,8 @@
 
 #include "../components/programComponent.h"
 
-PROGRAM(FibonacciProgram)
+class FibonacciProgram : public Program
+{
 public:
 	FibonacciProgram(int in)
 	{

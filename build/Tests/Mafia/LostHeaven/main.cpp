@@ -33,7 +33,6 @@ public:
 	TestGame()
 	{
 		m_map = new MapLoader(Util::ResourcePath() + "maps/test.xml");
-		m_map->LoadEntities(&m_root);
 	}
 	virtual ~TestGame() 
 	{
@@ -50,8 +49,10 @@ private:
 
 void TestGame::Init(const Window& window)
 {
+	m_map->LoadEntities(&m_root);
+
 	AddToScene((new Entity(Vector3f(1, 5, 0)))
-		->AddComponent(new ProgramComponent(new FPSWalker(window.GetAspect(), window.GetCenter(), 1)))
+		->AddComponent(new ProgramHoster(new FPSWalker(window.GetAspect(), window.GetCenter(), 1)))
 	//	->AddComponent(new DirectionalLight(Vector3f(0.8, 0.9, 0.7), 10, 2.96, 10))
 		);
 
@@ -111,6 +112,10 @@ int main()
 	PhysicsEngine physics;
 	
 	CoreEngine engine(60, &window, &renderer, &physics);
+	engine.SetUserspace([]() 
+	{
+		//You can register custom classes and programs here.
+	});
 	TestGame game;
 	engine.LoadGame(&game);
 	engine.Start();

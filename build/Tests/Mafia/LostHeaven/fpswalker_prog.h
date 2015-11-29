@@ -6,11 +6,12 @@
 #include "rendering/camera.h"
 #include "components/freeLook.h"
 
-PROGRAM(FPSWalker)
+class FPSWalker : public Program
+{
 public:
 	FPSWalker(float aspect, Vector2f center, float sensitivity)
 	{
-		m_body = new PhysicsObjectComponent(
+		m_body = new RigidBody(
 			new btCapsuleShape(1, 2),
 			2,
 			false
@@ -92,7 +93,7 @@ public:
 	}
 
 private:
-	PhysicsObjectComponent* m_body;
+	RigidBody* m_body;
 	CameraComponent* m_camera;
 	FreeLook* m_look;
 };

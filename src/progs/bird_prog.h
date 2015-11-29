@@ -6,7 +6,7 @@
 #include "rendering/camera.h"
 #include "components/freeLook.h"
 
-PROGRAM(Pipe)
+class Pipe : public Program
 public:
 	Pipe()
 	{

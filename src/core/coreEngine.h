@@ -47,11 +47,10 @@ public:
 	inline void SetSimulation(bool state) { m_isSimulating = state; }
 	inline bool GetSimulation() const { return m_isSimulating; }
 	void LoadGame(Game* game);
+	void SetUserspace(std::function<void()> userspace);
 protected:
 	void RegisterNatives();
 	void RegisterUserspace();
-	void SetUserspace(std::function<void()> userspace);
-
 private:
 	static CoreEngine*	m_coreEngine;
 	bool             m_isRunning;       //Whether or not the engine is running

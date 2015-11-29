@@ -16,6 +16,6 @@
 
 #include "programComponent.h"
 
-double ProgramComponent::lastTime = 0;
-double ProgramComponent::timeCounter = 0;
-bool ProgramComponent::isUpdating = true;
+double ProgramHoster::lastTime = 0;
+double ProgramHoster::timeCounter = 0;
+bool ProgramHoster::isUpdating = true;

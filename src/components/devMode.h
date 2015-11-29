@@ -18,13 +18,15 @@
 #define DEBUG_PROG_H
 
 #include "../core/coreEngine.h"
-#include "../components/programComponent.h"
+#include "../components/ProgramComponent.h"
 #include "../components/freeMove.h"
 #include "../components/freeLook.h"
 #include <vector>
 
-COMPONENT(DevMode)
+class DevMode : public EntityComponent
+{
 public:
+	DevMode() {}
 	DevMode(const Window& window, bool isDev = true)
 		:
 		m_window(&window),
@@ -40,7 +42,7 @@ public:
 		m_look = new FreeLook(window.GetCenter());
 
 		m_engine->SetSimulation(m_isUpdating);
-		ProgramComponent::SetActive(m_isUpdating);
+		ProgramHoster::SetActive(m_isUpdating);
 
 	}
 
@@ -69,7 +71,7 @@ public:
 		}
 
 		m_engine->SetSimulation(m_isUpdating);
-		ProgramComponent::SetActive(m_isUpdating);
+		ProgramHoster::SetActive(m_isUpdating);
 	}
 
 	virtual void ProcessInput(const Input& input, float delta)
@@ -165,7 +167,7 @@ public:
 				m_engine->GetRenderingEngine()->SetMainCamera(m_devCamera);
 
 				m_engine->SetSimulation(false);
-				ProgramComponent::SetActive(false);
+				ProgramHoster::SetActive(false);
 			}
 			else
 			{
@@ -174,7 +176,7 @@ public:
 				m_engine->GetRenderingEngine()->SetMainCamera(*m_lastCamera);
 
 				m_engine->SetSimulation(true);
-				ProgramComponent::SetActive(true);
+				ProgramHoster::SetActive(true);
 			}
 
 			

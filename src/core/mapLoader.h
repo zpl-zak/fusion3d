@@ -118,10 +118,15 @@ public:
 
 			while (component != nullptr)
 			{
-//				std::cout << CoreEngine::GetCoreEngine()->GetFactory()->m_classes.size();
 				std::string type = component->Attribute("type");
 				EntityComponent* comp = (EntityComponent*)g_factory.construct(type);
 				
+				if (comp == nullptr)
+				{
+					std::cerr << "Component isn't registered in engine! Are you sure you registered it?" << std::endl;
+					assert(1 == 0);
+				}
+
 				comp->DataDeploy(component);
 				entity->AddComponent(comp);
 

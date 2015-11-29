@@ -53,8 +53,10 @@ private:
 
 //CameraComponents are an easy way to use a camera as a component
 //on a game object.
-COMPONENT(CameraComponent)
+class CameraComponent : public EntityComponent
+{
 public:
+	CameraComponent() {}
 	CameraComponent(const Matrix4f& projection) :
 		m_camera(projection, 0) {}
 	

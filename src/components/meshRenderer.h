@@ -20,8 +20,10 @@
 #include "../core/entityComponent.h"
 #include "../rendering/mesh.h"
 
-COMPONENT(MeshRenderer)
+class MeshRenderer : public EntityComponent
+{
 public:
+	MeshRenderer(){}
     MeshRenderer(std::vector<Mesh*> meshes, std::vector<Material*> materials)
     {
         for (size_t i = 0; i < meshes.size(); i++)

@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef PROGRAMCOMPONENT_H_INCLUDED
-#define PROGRAMCOMPONENT_H_INCLUDED
+#ifndef ProgramHoster_H_INCLUDED
+#define ProgramHoster_H_INCLUDED
 
 #include <iostream>
 #include <set>
@@ -106,9 +106,11 @@ private:
 	Entity* m_parent;
 };
 
-COMPONENT(ProgramComponent)
+class ProgramHoster : public EntityComponent
+{
 public:
-	ProgramComponent(Program* program, int verbose = 0)
+	ProgramHoster() {}
+	ProgramHoster(Program* program, int verbose = 0)
 		:
 		m_delayedInit((!isUpdating)),
 		m_loaded(false)
@@ -118,7 +120,7 @@ public:
 		m_loaded = false;
 	}
 
-	~ProgramComponent()
+	~ProgramHoster()
 	{
 		delete m_program;
 	}
@@ -183,7 +185,7 @@ public:
 
 		m_renderTimer.StopInvocation();
 
-		ProgramComponent::Display(this);
+		ProgramHoster::Display(this);
 	}
 	
 	static void SetActive(bool state) { isUpdating = state; };
@@ -201,34 +203,34 @@ private:
 	static double timeCounter;
 	static bool isUpdating;
 
-	static void ProgramComponent::Display(ProgramComponent* programComponent)
+	static void ProgramHoster::Display(ProgramHoster* ProgramHoster)
 	{
 		timeCounter += Time::GetTime() - lastTime;
 
 		if (timeCounter >= 1)
 		{
-			if (!programComponent->m_update)
+			if (!ProgramHoster->m_update)
 			{
-				std::cerr << "Update() failed for Program Name: " << programComponent->m_program->GetProgramName() << std::endl;
+				std::cerr << "Update() failed for Program Name: " << ProgramHoster->m_program->GetProgramName() << std::endl;
 			}
 
-			if (!programComponent->m_input)
+			if (!ProgramHoster->m_input)
 			{
-				std::cerr << "ProcessInput() failed for Program Name: " << programComponent->m_program->GetProgramName() << std::endl;
+				std::cerr << "ProcessInput() failed for Program Name: " << ProgramHoster->m_program->GetProgramName() << std::endl;
 			}
 
-			if (!programComponent->m_render)
+			if (!ProgramHoster->m_render)
 			{
-				std::cerr << "Render() failed for Program Name: " << programComponent->m_program->GetProgramName() << std::endl;
+				std::cerr << "Render() failed for Program Name: " << ProgramHoster->m_program->GetProgramName() << std::endl;
 			}
 
-			std::cerr << programComponent->m_program->GetLatestError();
+			std::cerr << ProgramHoster->m_program->GetLatestError();
 
-			if (programComponent->m_verbose)
+			if (ProgramHoster->m_verbose)
 			{
-				programComponent->m_inputTimer.DisplayAndReset("Program Name: " + programComponent->m_program->GetProgramName() + " (ProcessInput)");
-				programComponent->m_updateTimer.DisplayAndReset("Program Name: " + programComponent->m_program->GetProgramName() + " (Update)");
-				programComponent->m_renderTimer.DisplayAndReset("Program Name: " + programComponent->m_program->GetProgramName() + " (Render)");
+				ProgramHoster->m_inputTimer.DisplayAndReset("Program Name: " + ProgramHoster->m_program->GetProgramName() + " (ProcessInput)");
+				ProgramHoster->m_updateTimer.DisplayAndReset("Program Name: " + ProgramHoster->m_program->GetProgramName() + " (Update)");
+				ProgramHoster->m_renderTimer.DisplayAndReset("Program Name: " + ProgramHoster->m_program->GetProgramName() + " (Render)");
 			}
 			timeCounter = 0;
 		}
@@ -237,4 +239,4 @@ private:
 	}
 };
 
-#endif // PROGRAMCOMPONENT_H_INCLUDED
+#endif // ProgramHoster_H_INCLUDED

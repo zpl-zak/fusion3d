@@ -38,7 +38,8 @@
 #include "../core/entityComponent.h"
 #include "../physics/physicsEngine.h"
 
-COMPONENT(PhysicsEngineComponent)
+class PhysicsEngineComponent : public EntityComponent
+{
 public:
 	PhysicsEngineComponent(PhysicsEngine * engine) :
 		m_physicsEngine(engine) {}

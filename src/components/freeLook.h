@@ -20,8 +20,10 @@
 #include "../core/math3d.h"
 #include "../core/entityComponent.h"
 
-COMPONENT(FreeLook)
+class FreeLook : public EntityComponent
+{
 public:
+	FreeLook() {}
 	FreeLook(const Vector2f& windowCenter, float sensitivity = 0.5f) :
 		m_sensitivity(sensitivity),
 		m_mouseLocked(true),

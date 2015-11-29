@@ -41,9 +41,11 @@
 #include "btBulletDynamicsCommon.h"
 
 
-COMPONENT(PhysicsObjectComponent)
+class RigidBody : public EntityComponent
+{
 public:
-	PhysicsObjectComponent(btCollisionShape* shape, float mass = 0.0f, bool calcInertia = true, Vector3f inertia = Vector3f(0,0,0)) :
+	RigidBody() {}
+	RigidBody(btCollisionShape* shape, float mass = 0.0f, bool calcInertia = true, Vector3f inertia = Vector3f(0,0,0)) :
 		m_shape(shape),
 		m_mass(mass)
 	{
@@ -55,7 +57,7 @@ public:
 		CoreEngine::GetCoreEngine()->SetSimulation(true);
 	}
 
-	virtual ~PhysicsObjectComponent()
+	virtual ~RigidBody()
 	{
 		delete m_body;
 		delete m_state;
