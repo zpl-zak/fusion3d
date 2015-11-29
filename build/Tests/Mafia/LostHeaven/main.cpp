@@ -21,6 +21,8 @@
 #include "progs/fibonacci_prog.h"
 #include "components/devMode.h"
 #include "../build/Tests/Mafia/LostHeaven/fpswalker_prog.h"
+#include "core/util.h"
+#include "core/mapLoader.h"
 
 #include <fstream>
 #include <vector>
@@ -28,16 +30,20 @@
 class TestGame : public Game
 {
 public:
-	TestGame() 
+	TestGame()
 	{
+		m_map = new MapLoader(Util::ResourcePath() + "maps/test.xml");
+		m_map->LoadEntities(&m_root);
 	}
 	virtual ~TestGame() 
 	{
+		delete m_map;
 	}
 
 	virtual void Init(const Window& window);
 protected:
 private:
+	MapLoader*		m_map;
 	TestGame(const TestGame& other) {}
 	void operator=(const TestGame& other) {}
 };
@@ -49,12 +55,12 @@ void TestGame::Init(const Window& window)
 	//	->AddComponent(new DirectionalLight(Vector3f(0.8, 0.9, 0.7), 10, 2.96, 10))
 		);
 
-	AddToScene((new Entity())
-		->AddComponent(new MeshRenderer("playground.obj"))
-		/*->AddComponent(new PhysicsObjectComponent(
-			new btBvhTriangleMeshShape(Mesh::ImportCollision("factory_BSW_col.obj"), true)
-			))*/
-		);
+	//AddToScene((new Entity())
+	//	->AddComponent(new MeshRenderer("playground.obj"))
+	//	/*->AddComponent(new PhysicsObjectComponent(
+	//		new btBvhTriangleMeshShape(Mesh::ImportCollision("factory_BSW_col.obj"), true)
+	//		))*/
+	//	);
 
 	AddToScene((new Entity(Vector3f(0, 2, 0), Quaternion(Vector3f(1,0,0), ToRadians(90))))
 		//->AddComponent(new Decal(new Material("super", Texture("super.jpg"), 0.0, 0.0), Vector3f(1,1,1), 1))
@@ -75,8 +81,6 @@ void TestGame::Init(const Window& window)
 		);
 
 	CoreEngine::GetCoreEngine()->SetSimulation(true);
-
-	std::cout << "Press F4 to enable Dev Mode." << std::endl;
 }
 
 #include <iostream>
@@ -88,6 +92,7 @@ public:
         RenderingEngine(window)
     {
         SetVector3f("ambient", Vector3f(0,0,0));
+		
     }
 
     void Render(const Entity& object) override
@@ -100,13 +105,14 @@ int main()
 {
 	Testing::RunAllTests();
 
-	TestGame game;
 	Window window(800, 600, "Fusion3D");
 	//window.SetFullScreen(1);
 	TestRenderer renderer(&window);
 	PhysicsEngine physics;
 	
-	CoreEngine engine(60, &window, &renderer, &physics, &game);
+	CoreEngine engine(60, &window, &renderer, &physics);
+	TestGame game;
+	engine.LoadGame(&game);
 	engine.Start();
 
 	return 0;

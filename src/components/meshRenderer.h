@@ -63,6 +63,21 @@ public:
         }
 	}
 
+	virtual void DataDeploy(tinyxml2::XMLElement* data)
+	{
+		std::vector<Mesh*> meshes = Mesh::ImportMesh(data->GetText());
+		for (size_t i = 0; i < meshes.size(); i++)
+		{
+			m_mesh.push_back(*(meshes.at(i)));
+		}
+
+		std::vector<Material*> materials = Mesh::ImportMeshMaterial(data->GetText());
+		for (size_t i = 0; i < materials.size(); i++)
+		{
+			m_material.push_back(*(materials.at(i)));
+		}
+	}
+
 	EntityComponent* SetVisible(bool visible)
 	{
 		m_visible = visible;

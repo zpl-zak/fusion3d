@@ -18,6 +18,7 @@
 #define ENTITYCOMPONENT_H_INCLUDED "EntityComponent"
 
 #include "../reflection.h"
+#include "../staticLibs/tinyxml2.h"
 
 #include "transform.h"
 #include "entity.h"
@@ -31,7 +32,10 @@ class Shader;
 class EntityComponent{
 public:
 	EntityComponent() :
-		m_parent(0) {}
+		m_parent(0) 
+	{
+		//Mapper::RegisterComponent("EntityComponent", &fCreate<EntityComponent>);
+	}
 	virtual ~EntityComponent() {}
 
 	virtual std::string _GetClassName_() { return "EntityComponent"; }
@@ -40,7 +44,7 @@ public:
 	virtual void Update(float delta) {}
 	virtual void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const {}
 	virtual void PostRender(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const {}
-	
+	virtual void DataDeploy(tinyxml2::XMLElement* data) {}
 	virtual void AddToEngine(CoreEngine* engine) { }
 	
 	inline Transform* GetTransform()             { return m_parent->GetTransform(); }

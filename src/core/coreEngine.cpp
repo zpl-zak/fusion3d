@@ -29,33 +29,33 @@
 
 CoreEngine* CoreEngine::m_coreEngine = NULL;
 
-CoreEngine::CoreEngine(double frameRate, Window* window, RenderingEngine* renderingEngine, PhysicsEngine* physicsEngine, Game* game) :
+CoreEngine::CoreEngine(double frameRate, Window* window, RenderingEngine* renderingEngine, PhysicsEngine* physicsEngine) :
 	m_isRunning(false),
 	m_isSimulating(false),
 	m_frameTime(1.0/frameRate),
 	m_window(window),
 	m_renderingEngine(renderingEngine),
-	m_physicsEngine(physicsEngine),
-	m_game(game)
+	m_physicsEngine(physicsEngine)
 {
 	CoreEngine::SetCoreEngine(this);
 
-	//We're telling the game about this engine so it can send the engine any information it needs
-	//to the various subsystems.
-	m_game->SetEngine(this);
-	
-	//Game is initialized here because this is the point where all rendering systems
-	//are initialized, and so creating meshes/textures/etc. will not fail due
-	//to missing context.
-	m_game->Init(*m_window);
+	//We're factoring our components to be able to use them in runtime.
+	RegisterNatives();
 
-	//m_web = WebCore::Initialize(config);
-	//m_session = m_web->CreateWebSession(WSLit("session"), WebPreferences());
-	//m_view = m_web->CreateWebView(window->GetWidth(), window->GetHeight());
+	//We'll do the same for game-wise components.
+	RegisterUserspace();
+
+//	std::cout << "Reflected classes: " << g_factory.m_classes.size() << std::endl;
 }
 
 void CoreEngine::Start()
 {
+	if (m_game == nullptr)
+	{
+		printf("Game is not loaded!");
+		assert(1 == 0);
+	}
+
 	if(m_isRunning)
 	{
 		return;
@@ -226,6 +226,37 @@ void CoreEngine::Start()
 void CoreEngine::Stop()
 {
 	m_isRunning = false;
+}
+
+void CoreEngine::LoadGame(Game * game)
+{
+	m_game = game;
+	m_game->SetEngine(this);
+	m_game->Init(*m_window);
+}
+
+void CoreEngine::RegisterNatives()
+{
+	REGISTER_CLASS(EntityComponent);
+	REGISTER_CLASS(CameraComponent);
+	REGISTER_CLASS(MeshRenderer);
+	REGISTER_CLASS(BaseLight);
+	REGISTER_CLASS(ProgramComponent);
+	REGISTER_CLASS(DevMode);
+	REGISTER_CLASS(FreeLook);
+	REGISTER_CLASS(FreeMove);
+	REGISTER_CLASS(PhysicsObjectComponent);
+}
+
+void CoreEngine::RegisterUserspace()
+{
+	if (m_userspace != nullptr)
+		m_userspace();
+}
+
+void CoreEngine::SetUserspace(std::function<void()> userspace)
+{
+	m_userspace = userspace;
 }
 
 // Following lines make sure game runs on your dedicated mobile GPU rather than integrated one. (Applies only to mobile devices with integrated and dedicated GPU)

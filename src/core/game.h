@@ -41,13 +41,14 @@ public:
 	inline void SetEngine(CoreEngine* engine) { m_root.SetEngine(engine); }
 protected:
 	inline Entity* AddToScene(Entity* child) { m_root.AddChild(child); child->InitAll(); return child; }
+
+	Entity       m_root;
 private:
 	Game(Game& game) {}
 	void operator=(Game& game) {}
 	
 	ProfileTimer m_updateTimer;
 	ProfileTimer m_inputTimer;
-	Entity       m_root;
 };
 
 #endif

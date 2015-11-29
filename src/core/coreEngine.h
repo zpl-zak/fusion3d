@@ -19,10 +19,9 @@
 
 #include "../rendering/renderingEngine.h"
 #include "../physics/physicsEngine.h"
-#include <Awesomium/WebCore.h>
-#include <Awesomium/STLHelpers.h>
-#include <Awesomium/BitmapSurface.h>
 #include <string>
+#include <functional>
+
 class Game;
 
 
@@ -34,10 +33,12 @@ class Game;
 class CoreEngine
 {
 public:
-	CoreEngine(double frameRate, Window* window, RenderingEngine* renderingEngine, PhysicsEngine* physicsEngine, Game* game);
+	CoreEngine(double frameRate, Window* window, RenderingEngine* renderingEngine, PhysicsEngine* physicsEngine);
 
 	void Start(); //Starts running the game; contains central game loop.
 	void Stop();  //Stops running the game, and disables all subsystems.
+
+	
 	
 	inline RenderingEngine* GetRenderingEngine() { return m_renderingEngine; }
 	inline PhysicsEngine* GetPhysicsEngine() { return m_physicsEngine; }
@@ -45,7 +46,12 @@ public:
 	inline static void SetCoreEngine(CoreEngine* coreEngine) { m_coreEngine = coreEngine; }
 	inline void SetSimulation(bool state) { m_isSimulating = state; }
 	inline bool GetSimulation() const { return m_isSimulating; }
+	void LoadGame(Game* game);
 protected:
+	void RegisterNatives();
+	void RegisterUserspace();
+	void SetUserspace(std::function<void()> userspace);
+
 private:
 	static CoreEngine*	m_coreEngine;
 	bool             m_isRunning;       //Whether or not the engine is running
@@ -55,9 +61,7 @@ private:
 	RenderingEngine* m_renderingEngine; //Used to render the game. Stored as pointer so the user can pass in a derived class.
 	PhysicsEngine*	 m_physicsEngine;	//Used to represent game physics.
 	Game*            m_game;            //The game itself. Stored as pointer so the user can pass in a derived class.
-	WebCore*		 m_web;
-	WebSession*		 m_session;
-	WebView*		 m_view;
+	std::function<void()> m_userspace;
 };
 
 #endif // COREENGINE_H

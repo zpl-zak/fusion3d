@@ -10,7 +10,7 @@
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
+ * See the License for THE SPECIFIC LANGUAGE GOVERNING PERMISSIONS ANd
  * limitations under the License.
  */
 
@@ -30,7 +30,6 @@
 //} while (0)
 
 #ifndef WIN32
-#include <unistd.h>
 #endif
 
 #ifdef WIN32
@@ -66,6 +65,21 @@ namespace Util
         return stm.str();
     }
 
+	inline std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
+		std::stringstream ss(s);
+		std::string item;
+		while (std::getline(ss, item, delim)) {
+			elems.push_back(item);
+		}
+		return elems;
+	}
+
+
+	inline std::vector<std::string> split(const std::string &s, char delim) {
+		std::vector<std::string> elems;
+		split(s, delim, elems);
+		return elems;
+	}
 	
 };
 

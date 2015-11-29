@@ -36,7 +36,7 @@ public:
 			ToRadians(70.0f), window.GetAspect(), 0.1f, 1000.0f), 0)
 	{
 		m_engine = CoreEngine::GetCoreEngine();
-		m_move = new FreeMove();
+		m_move = new FreeMove(10.0f);
 		m_look = new FreeLook(window.GetCenter());
 
 		m_engine->SetSimulation(m_isUpdating);

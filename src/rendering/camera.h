@@ -27,6 +27,7 @@
 class Camera
 {
 public:
+	Camera() {}
 	//Transform is passed in so the Camera doesn't need to be attached to a game object.
 	//That's useful for places such as the rendering engine which can use cameras
 	//without creating placeholder game objects.

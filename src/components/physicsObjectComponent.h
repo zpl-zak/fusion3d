@@ -41,8 +41,7 @@
 #include "btBulletDynamicsCommon.h"
 
 
-class PhysicsObjectComponent : public EntityComponent
-{
+COMPONENT(PhysicsObjectComponent)
 public:
 	PhysicsObjectComponent(btCollisionShape* shape, float mass = 0.0f, bool calcInertia = true, Vector3f inertia = Vector3f(0,0,0)) :
 		m_shape(shape),

@@ -34,6 +34,7 @@
     <ClCompile Include="..\src\core\timing.cpp" />
     <ClCompile Include="..\src\core\transform.cpp" />
     <ClCompile Include="..\src\core\util.cpp" />
+    <ClCompile Include="..\src\factory.cpp" />
     <ClCompile Include="..\src\physics\physicsEngine.cpp" />
     <ClCompile Include="..\src\rendering\camera.cpp" />
     <ClCompile Include="..\src\rendering\lighting.cpp" />
@@ -44,6 +45,7 @@
     <ClCompile Include="..\src\rendering\texture.cpp" />
     <ClCompile Include="..\src\rendering\window.cpp" />
     <ClCompile Include="..\src\staticLibs\stb_image.c" />
+    <ClCompile Include="..\src\staticLibs\tinyxml2.cpp" />
     <ClCompile Include="..\src\testing.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +65,7 @@
     <ClInclude Include="..\src\core\entityComponent.h" />
     <ClInclude Include="..\src\core\game.h" />
     <ClInclude Include="..\src\core\input.h" />
+    <ClInclude Include="..\src\core\mapLoader.h" />
     <ClInclude Include="..\src\core\mappedValues.h" />
     <ClInclude Include="..\src\core\math3d.h" />
     <ClInclude Include="..\src\core\profiling.h" />
@@ -70,6 +73,7 @@
     <ClInclude Include="..\src\core\timing.h" />
     <ClInclude Include="..\src\core\transform.h" />
     <ClInclude Include="..\src\core\util.h" />
+    <ClInclude Include="..\src\factory.hpp" />
     <ClInclude Include="..\src\physics\physicsEngine.h" />
     <ClInclude Include="..\src\progs\bird_prog.h" />
     <ClInclude Include="..\src\progs\fibonacci_prog.h" />
@@ -84,9 +88,11 @@
     <ClInclude Include="..\src\rendering\texture.h" />
     <ClInclude Include="..\src\rendering\window.h" />
     <ClInclude Include="..\src\staticLibs\stb_image.h" />
+    <ClInclude Include="..\src\staticLibs\tinyxml2.h" />
     <ClInclude Include="..\src\testing.h" />
     <ClInclude Include="..\src\utils\colors.h" />
     <ClInclude Include="..\src\utils\pos.h" />
+    <ClInclude Include="..\src\utils\xmlLoader.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGUID>{B097C253-0D52-3D60-B0D7-3ED1BF5098ED}</ProjectGUID>

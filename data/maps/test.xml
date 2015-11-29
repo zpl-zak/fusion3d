@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<map>
+	<meta>
+		<name>Test Map</name>
+		<author>ZaKlaus</author>
+		<version>1.0</version>
+	</meta>
+	
+	<entities>
+		<entity name="Map" position="0;0;0" rotation="0;0;0;0" scale="1">
+			<component type="MeshRenderer">
+				playground.obj
+			</component>
+		</entity>
+		<entity name="AwesomeManager">
+			
+		</entity>
+	</entities>
+	
+	<data>
+		<player name="Doom Guy"></player>
+	</data>
+</map>

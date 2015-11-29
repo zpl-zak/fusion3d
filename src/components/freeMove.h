@@ -22,7 +22,7 @@
 
 COMPONENT(FreeMove)
 public:
-	FreeMove(float speed = 10.0f, int forwardKey = Input::KEY_W, int backKey = Input::KEY_S, int leftKey = Input::KEY_A, int rightKey = Input::KEY_D)  :
+	FreeMove(float speed, int forwardKey = Input::KEY_W, int backKey = Input::KEY_S, int leftKey = Input::KEY_A, int rightKey = Input::KEY_D)  :
 		m_speed(speed),
 		m_forwardKey(forwardKey),
 		m_backKey(backKey),

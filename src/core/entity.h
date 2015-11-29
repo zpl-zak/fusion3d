@@ -58,6 +58,7 @@ public:
 	inline const std::string& GetDisplayName() const { return m_displayName; }
 	inline Entity* SetDisplayName(const std::string& displayName) { m_displayName = displayName; return this; }
 	inline void Destroy() { m_destroy = true; }
+	inline void SetTransform(Transform transform) { m_transform = transform; }
 	
 	/// Retrieves our scene graph.
 	inline Entity* GetScene() 
@@ -93,6 +94,13 @@ public:
 		}
 
 		return result;
+	}
+
+	inline Entity* GetChildByIndex(unsigned int ID)
+	{
+		if (ID < 0 || ID > m_children.size()) return nullptr;
+
+		return m_children.at(ID);
 	}
 
 	EntityComponent* GetComponentByType(const std::string& name);

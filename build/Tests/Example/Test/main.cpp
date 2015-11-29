@@ -65,12 +65,14 @@ int main()
 {
 	Testing::RunAllTests();
 
-	TestGame game;
 	Window window(800, 600, "Fusion3D");
+	//window.SetFullScreen(1);
 	TestRenderer renderer(&window);
 	PhysicsEngine physics;
 
-	CoreEngine engine(60, &window, &renderer, &physics, &game);
+	CoreEngine engine(60, &window, &renderer, &physics);
+	TestGame game;
+	engine.LoadGame(&game);
 	engine.Start();
 
 	return 0;
