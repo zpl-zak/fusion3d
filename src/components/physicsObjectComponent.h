@@ -35,6 +35,9 @@
 #ifndef PHYSICS_OBJECT_COMPONENT_INCLUDED_H
 #define PHYSICS_OBJECT_COMPONENT_INCLUDED_H
 
+#include <iostream>
+#include <cassert>
+
 #include "../core/coreEngine.h"
 #include "../core/timing.h"
 #include "../core/entityComponent.h"
@@ -64,8 +67,83 @@ public:
 		delete m_shape;
 	}
 
+	virtual void DataDeploy(tinyxml2::XMLElement* data)
+	{
+		btCollisionShape* shape = nullptr;
+		float mass = 0.0f;
+		bool calcInertia = true;
+		Vector3f inertia = Vector3f(0, 0, 0);
+
+		if (data->Attribute("shape"))
+		{
+			std::string s = data->Attribute("shape");
+
+			if (s == "bvh")
+			{
+				shape = new btBvhTriangleMeshShape(Mesh::ImportCollision(data->GetText()), true);
+			}
+			else if (s == "convex")
+			{
+				shape = new btConvexTriangleMeshShape(Mesh::ImportCollision(data->GetText()), true);
+			}
+			else if (s == "box")
+			{
+				shape = new btBoxShape(Util::ParseVector3(data->GetText()).GetBT());
+			}
+			else if (s == "sphere")
+			{
+				shape = new btSphereShape(atof(data->GetText()));
+			}
+			else if (s == "capsule")
+			{
+				std::vector<std::string> p = Util::Split(data->GetText(), ';');
+				shape = new btCapsuleShape(atof(p[0].c_str()), atof(p[1].c_str()));
+			}
+			else if (s == "cylinder")
+			{
+				shape = new btCylinderShape(Util::ParseVector3(data->GetText()).GetBT());
+			}
+			else
+			{
+				std::cerr << "Unsupported collision shape! " << s << std::endl;
+				assert(1 == 0);
+			}
+		}
+		else
+		{
+			std::cerr << "Unspecified collision shape! " << std::endl;
+			assert(1 == 0);
+		}
+
+		if (data->Attribute("mass"))
+		{
+			mass = atof(data->Attribute("mass"));
+		}
+
+		if (data->Attribute("calcInertia"))
+		{
+			calcInertia = (!strcmp(data->Attribute("calcInertia"), "0")) ? false : true;
+		}
+
+		if (data->Attribute("inertia"))
+		{
+			inertia = Util::ParseVector3(data->Attribute("inertia"));
+		}
+
+		if (calcInertia)
+		{
+			shape->calculateLocalInertia(m_mass, m_inertia);
+		}
+
+		m_shape = shape;
+		m_mass = mass;
+
+		CoreEngine::GetCoreEngine()->SetSimulation(true);
+	}
+
 	virtual void Init()
 	{
+		if (m_shape == nullptr) return;
 		m_state = new btDefaultMotionState(GetTransform()->GetBT());
 
 		btRigidBody::btRigidBodyConstructionInfo CI

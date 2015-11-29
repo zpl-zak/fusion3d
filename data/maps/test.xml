@@ -11,6 +11,9 @@
 			<component type="MeshRenderer">
 				playground.obj
 			</component>
+			<component type="RigidBody" shape="bvh" mass="0">
+				playground_col.obj
+			</component>
 		</entity>
 		<entity name="GreenLight" position="7;1;7">
 			<component type="PointLight" color="0;1;0" intensity="0.4" attenuation="0;0;0.4" shadowMapSize="10">

@@ -71,4 +71,5 @@ private:
 	Camera m_camera; //The camera that's being used like a component.
 };
 
+
 #endif

@@ -51,7 +51,7 @@ void TestGame::Init(const Window& window)
 {
 	m_map->LoadEntities(&m_root);
 
-	AddToScene((new Entity(Vector3f(1, 5, 0)))
+	AddToScene((new Entity(Vector3f(1, 7, 0)))
 		->AddComponent(new ProgramHoster(new FPSWalker(window.GetAspect(), window.GetCenter(), 1)))
 	//	->AddComponent(new DirectionalLight(Vector3f(0.8, 0.9, 0.7), 10, 2.96, 10))
 		);
