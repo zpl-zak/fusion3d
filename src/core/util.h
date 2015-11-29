@@ -47,6 +47,7 @@
 #include <string>
 #include <sstream>
 #include <string>
+#include "math3d.h"
 
 /**
  * Various functions that didn't make it to actual classes but are still useful in general uses.
@@ -80,6 +81,9 @@ namespace Util
 		split(s, delim, elems);
 		return elems;
 	}
+
+	Vector3f ParseVector3(std::string n);
+	
 	
 };
 

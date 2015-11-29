@@ -42,6 +42,12 @@ std::string Util::ResourcePath(void)
 	return s_ResourcePath;
 }
 
+Vector3f Util::ParseVector3(std::string n)
+{
+	std::vector<std::string> vec = Util::Split(n, ';');
+	return Vector3f(atof(vec[0].c_str()), atof(vec[1].c_str()), atof(vec[2].c_str()));
+}
+
 std::vector<std::string> Util::Split(const std::string& s, char delim)
 {
 	std::vector<std::string> elems;

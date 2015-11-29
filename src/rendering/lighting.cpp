@@ -18,8 +18,6 @@
 #include "renderingEngine.h"
 #include "../core/coreEngine.h"
 
-#define COLOR_DEPTH 256
-
 void BaseLight::AddToEngine(CoreEngine* engine)
 {
 	engine->GetRenderingEngine()->AddLight(this);

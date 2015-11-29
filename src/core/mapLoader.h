@@ -123,7 +123,7 @@ public:
 				
 				if (comp == nullptr)
 				{
-					std::cerr << "Component isn't registered in engine! Are you sure you registered it?" << std::endl;
+					std::cerr << "Component isn't registered in engine! Are you sure you registered it? " << type << std::endl;
 					assert(1 == 0);
 				}
 

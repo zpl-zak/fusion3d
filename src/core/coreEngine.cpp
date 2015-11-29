@@ -235,6 +235,10 @@ void CoreEngine::RegisterNatives()
 	REGISTER_CLASS(CameraComponent);
 	REGISTER_CLASS(MeshRenderer);
 	REGISTER_CLASS(BaseLight);
+	REGISTER_CLASS(PointLight);
+	REGISTER_CLASS(DirectionalLight);
+	REGISTER_CLASS(SpotLight);
+
 	REGISTER_CLASS(ProgramHoster);
 	REGISTER_CLASS(DevMode);
 	REGISTER_CLASS(FreeLook);

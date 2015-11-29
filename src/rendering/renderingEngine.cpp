@@ -32,7 +32,7 @@ const Matrix4f RenderingEngine::BIAS_MATRIX = Matrix4f().InitScale(Vector3f(0.5,
 //y [ 0.0 0.5 0.0 0.5 ]
 //z [ 0.0 0.0 0.5 0.5 ]
 //w [ 0.0 0.0 0.0 1.0 ]
-//
+
 //Note the 'w' column in this representation should be
 //the translation column!
 //
@@ -101,7 +101,8 @@ RenderingEngine::RenderingEngine(Window* window) :
 	
 	for(int i = 0; i < NUM_SHADOW_MAPS; i++)
 	{
-		int shadowMapSize = 1 << (i + 1);
+		int shadowMapSize = 2048;//1 << (i + 1);
+
 		m_shadowMaps[i] = Texture(shadowMapSize, shadowMapSize, 0, GL_TEXTURE_2D, GL_LINEAR, GL_RG32F, GL_RGBA, true, GL_COLOR_ATTACHMENT0);
 		m_shadowMapTempTargets[i] = Texture(shadowMapSize, shadowMapSize, 0, GL_TEXTURE_2D, GL_LINEAR, GL_RG32F, GL_RGBA, true, GL_COLOR_ATTACHMENT0);
 	}

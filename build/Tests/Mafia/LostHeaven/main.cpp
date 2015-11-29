@@ -60,22 +60,22 @@ void TestGame::Init(const Window& window)
 	//	->AddComponent(new MeshRenderer("playground.obj"))
 	//	/*->AddComponent(new PhysicsObjectComponent(
 	//		new btBvhTriangleMeshShape(Mesh::ImportCollision("factory_BSW_col.obj"), true)
-	//		))*/
+	//		))*/lal
 	//	);
 
-	AddToScene((new Entity(Vector3f(0, 2, 0), Quaternion(Vector3f(1,0,0), ToRadians(90))))
-		//->AddComponent(new Decal(new Material("super", Texture("super.jpg"), 0.0, 0.0), Vector3f(1,1,1), 1))
-		);
+	//AddToScene((new Entity(Vector3f(0, 2, 0), Quaternion(Vector3f(1,0,0), ToRadians(90))))
+	//	//->AddComponent(new Decal(new Material("super", Texture("super.jpg"), 0.0, 0.0), Vector3f(1,1,1), 1))
+	//	);
 
-	AddToScene((new Entity(Vector3f(7, 1, 7)))
-		->AddComponent(new PointLight(Vector3f(0,1,0), 0.4f, Attenuation(0,0,0.4), 2.967f, 10)));
+	//AddToScene((new Entity(Vector3f(7, 1, 7)))
+	//	->AddComponent(new PointLight(Vector3f(0,1,0), 0.4f, Attenuation(0,0,0.4), 2.967f, 10)));
 
-	AddToScene((new Entity(Vector3f(4, 4, 0)))
-		->AddComponent(new PointLight(Vector3f(1, 1, 1), 6.f, Attenuation(0, 0, 0.4), 2.967f, 10)));
+	//AddToScene((new Entity(Vector3f(4, 4, 0)))
+	//	->AddComponent(new PointLight(Vector3f(1, 1, 1), 6.f, Attenuation(0, 0, 0.4), 2.967f, 10)));
 
-	AddToScene((new Entity(Vector3f(), Quaternion(Vector3f(1, 0, 0), ToRadians(-45))))
+	/*AddToScene((new Entity(Vector3f(), Quaternion(Vector3f(1, 0, 0), ToRadians(-45))))
 		->AddComponent(new DirectionalLight(Vector3f(1.0, 0.49, 0.31),0.3
-			, 10, 80.0f, 1, 0)));
+			, 10, 80.0f, 1, 0)));*/
 
 	AddToScene((new Entity())
 		->AddComponent(new DevMode(window, true))
