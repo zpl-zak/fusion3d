@@ -7,6 +7,7 @@ var class_entity =
     [ "AddComponents", "class_entity.html#a884f4b6c8de84250682f7dfaa97a34d4", null ],
     [ "Destroy", "class_entity.html#aa75151fc607686b42d27f8c3ba73143d", null ],
     [ "GetAllAttached", "class_entity.html#a77b7d12e1014fa2a128c8e3aa6d39ea3", null ],
+    [ "GetChildByIndex", "class_entity.html#a60c1541e17b870d3d90bbe59c03e1be9", null ],
     [ "GetChildByName", "class_entity.html#aa70bc19f38ec105785d27df0134284fb", null ],
     [ "GetComponentByType", "class_entity.html#a1e23b43bf0b76ba6ef427154eb8eea9e", null ],
     [ "GetDisplayName", "class_entity.html#a332f7c70751b38fd8613b869769bfc9f", null ],
@@ -20,5 +21,6 @@ var class_entity =
     [ "SetDisplayName", "class_entity.html#a82d3a29a088de0e03ca7efec31616b44", null ],
     [ "SetEngine", "class_entity.html#ae57c283bdba04e4d806115ff96931e94", null ],
     [ "SetParent", "class_entity.html#a9868d4eec27cce13c9c70d8682f82dcd", null ],
+    [ "SetTransform", "class_entity.html#af8c927d8a301161cf7a79854ff9c7a7e", null ],
     [ "UpdateAll", "class_entity.html#acfca1006fafab6577cee3c3d3af417a6", null ]
 ];

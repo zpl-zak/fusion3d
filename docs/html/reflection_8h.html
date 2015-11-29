@@ -105,137 +105,15 @@ $(document).ready(function(){initNavTree('reflection_8h.html','');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">reflection.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &quot;<a class="el" href="factory_8hpp_source.html">factory.hpp</a>&quot;</code><br />
 </div>
 <p><a href="reflection_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a14111ac8f43949172b152e50dc720aba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="reflection_8h.html#a14111ac8f43949172b152e50dc720aba">NAME</a>(x)&#160;&#160;&#160;#x</td></tr>
-<tr class="separator:a14111ac8f43949172b152e50dc720aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71f98ded3f76e99a4e39fa39156889af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="reflection_8h.html#a71f98ded3f76e99a4e39fa39156889af">REFLECT</a>(p)</td></tr>
-<tr class="separator:a71f98ded3f76e99a4e39fa39156889af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2014ec2b876bbb96f4f66487835364c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="reflection_8h.html#a2014ec2b876bbb96f4f66487835364c5">CLASSTYPE</a>&#160;&#160;&#160;_GetClassName_()</td></tr>
-<tr class="separator:a2014ec2b876bbb96f4f66487835364c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac76de1db7d4f0a575aece4096834c5bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="reflection_8h.html#ac76de1db7d4f0a575aece4096834c5bd">CLASS</a>(p)</td></tr>
-<tr class="separator:ac76de1db7d4f0a575aece4096834c5bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb0509a4118ccf8ed7ee586f3e002636"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="reflection_8h.html#aeb0509a4118ccf8ed7ee586f3e002636">COMPONENT</a>(p)</td></tr>
-<tr class="separator:aeb0509a4118ccf8ed7ee586f3e002636"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab70fecdc804dd863c85e410865e27da7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="reflection_8h.html#ab70fecdc804dd863c85e410865e27da7">PROGRAM</a>(p)</td></tr>
-<tr class="separator:ab70fecdc804dd863c85e410865e27da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ac76de1db7d4f0a575aece4096834c5bd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CLASS</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">p</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">class </span>p\</div>
-<div class="line">{\</div>
-<div class="line">    inline <span class="keyword">virtual</span> std::string _GetClassName_() { <span class="keywordflow">return</span> #p; }\</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="a2014ec2b876bbb96f4f66487835364c5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CLASSTYPE&#160;&#160;&#160;_GetClassName_()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aeb0509a4118ccf8ed7ee586f3e002636"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMPONENT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">p</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">class </span>p : <span class="keyword">public</span> <a class="code" href="class_entity_component.html">EntityComponent</a>\</div>
-<div class="line">{\</div>
-<div class="line">    inline <span class="keyword">virtual</span> std::string <a class="code" href="class_entity_component.html#a145c9da56a1ed62e159514e14e4d8e16">_GetClassName_</a>() { <span class="keywordflow">return</span> #p; }\</div>
-<div class="ttc" id="class_entity_component_html_a145c9da56a1ed62e159514e14e4d8e16"><div class="ttname"><a href="class_entity_component.html#a145c9da56a1ed62e159514e14e4d8e16">EntityComponent::_GetClassName_</a></div><div class="ttdeci">virtual std::string _GetClassName_()</div><div class="ttdef"><b>Definition:</b> entityComponent.h:37</div></div>
-<div class="ttc" id="class_entity_component_html"><div class="ttname"><a href="class_entity_component.html">EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entityComponent.h:31</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="a14111ac8f43949172b152e50dc720aba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NAME</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;#x</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab70fecdc804dd863c85e410865e27da7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PROGRAM</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">p</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">class </span>p : <span class="keyword">public</span> <a class="code" href="class_program.html">Program</a>\</div>
-<div class="line">{\</div>
-<div class="line">    virtual std::string <a class="code" href="class_program.html#aacda59ac678fb196f9d5cf89e9a42885">GetProgramName</a>() { <span class="keywordflow">return</span> #p; }\</div>
-<div class="ttc" id="class_program_html_aacda59ac678fb196f9d5cf89e9a42885"><div class="ttname"><a href="class_program.html#aacda59ac678fb196f9d5cf89e9a42885">Program::GetProgramName</a></div><div class="ttdeci">virtual std::string GetProgramName()</div><div class="ttdef"><b>Definition:</b> programComponent.h:61</div></div>
-<div class="ttc" id="class_program_html"><div class="ttname"><a href="class_program.html">Program</a></div><div class="ttdef"><b>Definition:</b> programComponent.h:29</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="a71f98ded3f76e99a4e39fa39156889af"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define REFLECT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">p</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

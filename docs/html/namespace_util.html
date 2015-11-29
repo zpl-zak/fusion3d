@@ -125,6 +125,12 @@ Functions</h2></td></tr>
 <tr class="memitem:acc05a2b03fef93489a4dfa0c249888f5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:acc05a2b03fef93489a4dfa0c249888f5"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_util.html#acc05a2b03fef93489a4dfa0c249888f5">to_string</a> (const T &amp;n)</td></tr>
 <tr class="separator:acc05a2b03fef93489a4dfa0c249888f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa885c785af3ad7b88d49831b6df76165"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_util.html#aa885c785af3ad7b88d49831b6df76165">split</a> (const std::string &amp;s, char delim, std::vector&lt; std::string &gt; &amp;elems)</td></tr>
+<tr class="separator:aa885c785af3ad7b88d49831b6df76165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa68ed49daaa9bf2bd1f1b09901615320"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_util.html#aa68ed49daaa9bf2bd1f1b09901615320">split</a> (const std::string &amp;s, char delim)</td></tr>
+<tr class="separator:aa68ed49daaa9bf2bd1f1b09901615320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a515e55a91d8f9f9ef760f8a00ad58f8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3f.html">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_util.html#a515e55a91d8f9f9ef760f8a00ad58f8e">ParseVector3</a> (std::string n)</td></tr>
+<tr class="separator:a515e55a91d8f9f9ef760f8a00ad58f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Various functions that didn't make it to actual classes but are still useful in general uses. </p>
@@ -149,6 +155,22 @@ Functions</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a515e55a91d8f9f9ef760f8a00ad58f8e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector3f.html">Vector3f</a> Util::ParseVector3 </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -209,6 +231,80 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa885c785af3ad7b88d49831b6df76165"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt;&amp; Util::split </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>delim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>elems</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa68ed49daaa9bf2bd1f1b09901615320"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; Util::split </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>delim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

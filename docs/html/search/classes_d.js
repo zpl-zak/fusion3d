@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uniformstruct',['UniformStruct',['../class_uniform_struct.html',1,'']]]
+  ['quaternion',['Quaternion',['../class_quaternion.html',1,'']]]
 ];

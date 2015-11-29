@@ -2,7 +2,7 @@ var dir_1243271318b2b38807a3b1d2ca08dd72 =
 [
     [ "camera.cpp", "camera_8cpp.html", null ],
     [ "camera.h", "camera_8h.html", "camera_8h" ],
-    [ "lighting.cpp", "lighting_8cpp.html", "lighting_8cpp" ],
+    [ "lighting.cpp", "lighting_8cpp.html", null ],
     [ "lighting.h", "lighting_8h.html", "lighting_8h" ],
     [ "material.cpp", "material_8cpp.html", null ],
     [ "material.h", "material_8h.html", [

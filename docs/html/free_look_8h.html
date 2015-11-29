@@ -106,9 +106,8 @@ $(document).ready(function(){initNavTree('free_look_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">freeLook.h File Reference</div>  </div>
 </div><!--header-->
@@ -118,26 +117,15 @@ $(document).ready(function(){initNavTree('free_look_8h.html','');});
 </div>
 <p><a href="free_look_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_free_look.html">FreeLook</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a86732173d7d6a01e94709f29f383f459"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="free_look_8h.html#a86732173d7d6a01e94709f29f383f459">FREELOOK_H</a>&#160;&#160;&#160;&quot;Freelook&quot;</td></tr>
 <tr class="separator:a86732173d7d6a01e94709f29f383f459"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a1af640e90f77bcc13b465f9e9466f9ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="free_look_8h.html#a1af640e90f77bcc13b465f9e9466f9ed">FreeLook</a> (const <a class="el" href="math3d_8h.html#a9f3739462b0605dcb64299fa289b6afe">Vector2f</a> &amp;windowCenter, float sensitivity=0.5f)</td></tr>
-<tr class="separator:a1af640e90f77bcc13b465f9e9466f9ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d7cb32ac0dde33a6c8d5728c895d70f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="free_look_8h.html#a6d7cb32ac0dde33a6c8d5728c895d70f">ProcessInput</a> (const <a class="el" href="class_input.html">Input</a> &amp;input, float delta)</td></tr>
-<tr class="separator:a6d7cb32ac0dde33a6c8d5728c895d70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aa3bc2a7fd82370e4ced0de0c90db31b6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="free_look_8h.html#aa3bc2a7fd82370e4ced0de0c90db31b6">m_sensitivity</a></td></tr>
-<tr class="separator:aa3bc2a7fd82370e4ced0de0c90db31b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac10215652d00c31bec755bc5faf1e2cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="free_look_8h.html#ac10215652d00c31bec755bc5faf1e2cb">m_mouseLocked</a></td></tr>
-<tr class="separator:ac10215652d00c31bec755bc5faf1e2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1915880d554346273624da115dd73fd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="math3d_8h.html#a9f3739462b0605dcb64299fa289b6afe">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="free_look_8h.html#a1915880d554346273624da115dd73fd0">m_windowCenter</a></td></tr>
-<tr class="separator:a1915880d554346273624da115dd73fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a86732173d7d6a01e94709f29f383f459"></a>
@@ -146,104 +134,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define FREELOOK_H&#160;&#160;&#160;&quot;Freelook&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a1af640e90f77bcc13b465f9e9466f9ed"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FreeLook </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="math3d_8h.html#a9f3739462b0605dcb64299fa289b6afe">Vector2f</a> &amp;&#160;</td>
-          <td class="paramname"><em>windowCenter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>sensitivity</em> = <code>0.5f</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6d7cb32ac0dde33a6c8d5728c895d70f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void ProcessInput </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_input.html">Input</a> &amp;&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>delta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="ac10215652d00c31bec755bc5faf1e2cb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool m_mouseLocked</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa3bc2a7fd82370e4ced0de0c90db31b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float m_sensitivity</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1915880d554346273624da115dd73fd0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="math3d_8h.html#a9f3739462b0605dcb64299fa289b6afe">Vector2f</a> m_windowCenter</td>
         </tr>
       </table>
 </div><div class="memdoc">

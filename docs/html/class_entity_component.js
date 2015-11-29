@@ -4,6 +4,7 @@ var class_entity_component =
     [ "~EntityComponent", "class_entity_component.html#a242864ddd9852130396e445386ae123f", null ],
     [ "_GetClassName_", "class_entity_component.html#a145c9da56a1ed62e159514e14e4d8e16", null ],
     [ "AddToEngine", "class_entity_component.html#a70083a6d43cc3330ee2914b446db1cf6", null ],
+    [ "DataDeploy", "class_entity_component.html#a017e67a2a15d49b8e8b1262f04bae3e7", null ],
     [ "GetParent", "class_entity_component.html#a1f7f2527931a1ee880178e1587e997b5", null ],
     [ "GetTransform", "class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566", null ],
     [ "GetTransform", "class_entity_component.html#a53dffd62a15933b387a919fe4d56c9bc", null ],

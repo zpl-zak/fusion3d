@@ -131,103 +131,125 @@ $(document).ready(function(){initNavTree('mesh_renderer_8h_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../core/entityComponent.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../rendering/mesh.h&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<a class="code" href="reflection_8h.html#aeb0509a4118ccf8ed7ee586f3e002636">COMPONENT</a>(<a class="code" href="mesh_renderer_8h.html#ad79584be033f1f38e745781dc0cd4ee2">MeshRenderer</a>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;public:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#ad79584be033f1f38e745781dc0cd4ee2">   25</a></span>&#160;    <a class="code" href="mesh_renderer_8h.html#ad79584be033f1f38e745781dc0cd4ee2">MeshRenderer</a>(std::vector&lt;<a class="code" href="class_mesh.html">Mesh</a>*&gt; meshes, std::vector&lt;<a class="code" href="class_material.html">Material</a>*&gt; materials)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; meshes.size(); i++)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="mesh_renderer_8h.html#a832e159d582238ff41d5819ce7a11f7b">m_mesh</a>.push_back(*(meshes.at(i)));</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; materials.size(); i++)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="mesh_renderer_8h.html#a38ebf82e731a18a4c4e5fc8b4a29658a">m_material</a>.push_back(*(materials.at(i)));</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#a446758d3aef58aadea5a78561a4cad88">   38</a></span>&#160;    <a class="code" href="mesh_renderer_8h.html#ad79584be033f1f38e745781dc0cd4ee2">MeshRenderer</a>(<span class="keyword">const</span> std::string&amp; fileName) :</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="mesh_renderer_8h.html#ad79584be033f1f38e745781dc0cd4ee2">MeshRenderer</a>(<a class="code" href="class_mesh.html">Mesh</a>::ImportMesh(fileName), <a class="code" href="class_mesh.html">Mesh</a>::ImportMeshMaterial(fileName))</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#ac96f2b1fd7bff3d9a1c7f437ac5dabc9">   42</a></span>&#160;    <a class="code" href="mesh_renderer_8h.html#ad79584be033f1f38e745781dc0cd4ee2">MeshRenderer</a>(<a class="code" href="class_mesh.html">Mesh</a> mesh, <span class="keyword">const</span> <a class="code" href="class_material.html">Material</a>&amp; material)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="mesh_renderer_8h.html#a832e159d582238ff41d5819ce7a11f7b">m_mesh</a>.push_back(mesh);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="mesh_renderer_8h.html#a38ebf82e731a18a4c4e5fc8b4a29658a">m_material</a>.push_back(material);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#a3e0b39e1326de703012f81ac2be7feba">   48</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="mesh_renderer_8h.html#a3e0b39e1326de703012f81ac2be7feba">Init</a>()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="mesh_renderer_8h.html#adf7ad65deb2fca5eab8d0674602fe3c4">m_visible</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="mesh_renderer_8h.html#a8e56a39bbabd31df22b788f95b89f6b4">m_shadows</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#a0800e8d38574f7f4a6bc5634bbe01a10">   54</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="mesh_renderer_8h.html#a0800e8d38574f7f4a6bc5634bbe01a10">Render</a>(<span class="keyword">const</span> <a class="code" href="class_shader.html">Shader</a>&amp; shader, <span class="keyword">const</span> <a class="code" href="class_rendering_engine.html">RenderingEngine</a>&amp; renderingEngine, <span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>&amp; camera)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">if</span> (shader.<a class="code" href="class_shader.html#a809d60fe373e488a764dc80ac8158330">GetName</a>() == <span class="stringliteral">&quot;shadowMapGenerator&quot;</span> &amp;&amp; !<a class="code" href="mesh_renderer_8h.html#a8e56a39bbabd31df22b788f95b89f6b4">m_shadows</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="mesh_renderer_8h.html#adf7ad65deb2fca5eab8d0674602fe3c4">m_visible</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="mesh_renderer_8h.html#a832e159d582238ff41d5819ce7a11f7b">m_mesh</a>.size(); i++)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            shader.<a class="code" href="class_shader.html#a80b52feb71b870447cd0f2a20ca68400">Bind</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            shader.<a class="code" href="class_shader.html#a0a6b91d25a352e72624a26cb05f21962">UpdateUniforms</a>(GetTransform(), <a class="code" href="mesh_renderer_8h.html#a38ebf82e731a18a4c4e5fc8b4a29658a">m_material</a>.at(<a class="code" href="mesh_renderer_8h.html#a832e159d582238ff41d5819ce7a11f7b">m_mesh</a>.at(i).GetMeshData()-&gt;GetMaterialIndex()), renderingEngine, camera);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="mesh_renderer_8h.html#a832e159d582238ff41d5819ce7a11f7b">m_mesh</a>.at(i).Draw();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#ab61d70f8e65639b1757dcea484e1678d">   66</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="mesh_renderer_8h.html#ab61d70f8e65639b1757dcea484e1678d">SetVisible</a>(<span class="keywordtype">bool</span> visible)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="mesh_renderer_8h.html#adf7ad65deb2fca5eab8d0674602fe3c4">m_visible</a> = visible;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#afcd62a638f43f1f9c3a507b923a2dffd">   73</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="mesh_renderer_8h.html#afcd62a638f43f1f9c3a507b923a2dffd">IsVisible</a>()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="mesh_renderer_8h.html#adf7ad65deb2fca5eab8d0674602fe3c4">m_visible</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#aa1b999b6ff2459ef68d685a235ac0a29">   78</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="mesh_renderer_8h.html#aa1b999b6ff2459ef68d685a235ac0a29">SetShadows</a>(<span class="keywordtype">bool</span> shadows)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="mesh_renderer_8h.html#a8e56a39bbabd31df22b788f95b89f6b4">m_shadows</a> = shadows;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#adfdb6eda8dc9d837a3422a73e351848e">   85</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="mesh_renderer_8h.html#adfdb6eda8dc9d837a3422a73e351848e">HasShadows</a>()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="mesh_renderer_8h.html#a8e56a39bbabd31df22b788f95b89f6b4">m_shadows</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_mesh_renderer.html">MeshRenderer</a> : <span class="keyword">public</span> <a class="code" href="class_entity_component.html">EntityComponent</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">   26</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">MeshRenderer</a>(){}</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">   27</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">MeshRenderer</a>(std::vector&lt;Mesh*&gt; meshes, std::vector&lt;Material*&gt; materials)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; meshes.size(); i++)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            m_mesh.push_back(*(meshes.at(i)));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; materials.size(); i++)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            m_material.push_back(*(materials.at(i)));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">   40</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">MeshRenderer</a>(<span class="keyword">const</span> std::string&amp; fileName) :</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_mesh_renderer.html">MeshRenderer</a>(<a class="code" href="class_mesh.html">Mesh</a>::ImportMesh(fileName), <a class="code" href="class_mesh.html">Mesh</a>::ImportMeshMaterial(fileName))</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">   44</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">MeshRenderer</a>(<a class="code" href="class_mesh.html">Mesh</a> mesh, <span class="keyword">const</span> <a class="code" href="class_material.html">Material</a>&amp; material)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        m_mesh.push_back(mesh);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        m_material.push_back(material);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">   50</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">Init</a>()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        m_visible = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        m_shadows = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">   56</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">Render</a>(<span class="keyword">const</span> <a class="code" href="class_shader.html">Shader</a>&amp; shader, <span class="keyword">const</span> <a class="code" href="class_rendering_engine.html">RenderingEngine</a>&amp; renderingEngine, <span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>&amp; camera)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> (shader.<a class="code" href="class_shader.html#a809d60fe373e488a764dc80ac8158330">GetName</a>() == <span class="stringliteral">&quot;shadowMapGenerator&quot;</span> &amp;&amp; !m_shadows) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (!m_visible) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; m_mesh.size(); i++)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            shader.<a class="code" href="class_shader.html#a80b52feb71b870447cd0f2a20ca68400">Bind</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            shader.<a class="code" href="class_shader.html#a0a6b91d25a352e72624a26cb05f21962">UpdateUniforms</a>(<a class="code" href="class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566">GetTransform</a>(), m_material.at(m_mesh.at(i).GetMeshData()-&gt;GetMaterialIndex()), renderingEngine, camera);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            m_mesh.at(i).Draw();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">   68</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">DataDeploy</a>(<a class="code" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a>* data)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        std::vector&lt;Mesh*&gt; meshes = <a class="code" href="class_mesh.html#af11b125a96697494a80c864e3d7c1864">Mesh::ImportMesh</a>(data-&gt;<a class="code" href="classtinyxml2_1_1_x_m_l_element.html#a56cc727044dad002b978256754d43a4b">GetText</a>());</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; meshes.size(); i++)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            m_mesh.push_back(*(meshes.at(i)));</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        std::vector&lt;Material*&gt; materials = <a class="code" href="class_mesh.html#ad1a6c1004ac4e073852989a3d68538d1">Mesh::ImportMeshMaterial</a>(data-&gt;<a class="code" href="classtinyxml2_1_1_x_m_l_element.html#a56cc727044dad002b978256754d43a4b">GetText</a>());</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; materials.size(); i++)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            m_material.push_back(*(materials.at(i)));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">   83</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">SetVisible</a>(<span class="keywordtype">bool</span> visible)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        m_visible = visible;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#a832e159d582238ff41d5819ce7a11f7b">   92</a></span>&#160;    std::vector&lt;Mesh&gt; <a class="code" href="mesh_renderer_8h.html#a832e159d582238ff41d5819ce7a11f7b">m_mesh</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#a38ebf82e731a18a4c4e5fc8b4a29658a">   93</a></span>&#160;    std::vector&lt;Material&gt; <a class="code" href="mesh_renderer_8h.html#a38ebf82e731a18a4c4e5fc8b4a29658a">m_material</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#adf7ad65deb2fca5eab8d0674602fe3c4">   94</a></span>&#160;    <span class="keywordtype">bool</span>            <a class="code" href="mesh_renderer_8h.html#adf7ad65deb2fca5eab8d0674602fe3c4">m_visible</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="mesh_renderer_8h.html#a8e56a39bbabd31df22b788f95b89f6b4">   95</a></span>&#160;    <span class="keywordtype">bool</span>            <a class="code" href="mesh_renderer_8h.html#a8e56a39bbabd31df22b788f95b89f6b4">m_shadows</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif // MESHRENDERER_H_INCLUDED</span></div>
-<div class="ttc" id="mesh_renderer_8h_html_a38ebf82e731a18a4c4e5fc8b4a29658a"><div class="ttname"><a href="mesh_renderer_8h.html#a38ebf82e731a18a4c4e5fc8b4a29658a">m_material</a></div><div class="ttdeci">std::vector&lt; Material &gt; m_material</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:93</div></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">   90</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">IsVisible</a>()</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> m_visible;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">   95</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">SetShadows</a>(<span class="keywordtype">bool</span> shadows)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        m_shadows = shadows;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">  102</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">HasShadows</a>()</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> m_shadows;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    std::vector&lt;Mesh&gt; m_mesh;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    std::vector&lt;Material&gt; m_material;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">bool</span>            m_visible;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span>            m_shadows;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif // MESHRENDERER_H_INCLUDED</span></div>
+<div class="ttc" id="class_mesh_renderer_html_add306f84dfe0842074bd14d9fdd4ef7b"><div class="ttname"><a href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">MeshRenderer::DataDeploy</a></div><div class="ttdeci">virtual void DataDeploy(tinyxml2::XMLElement *data)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:68</div></div>
+<div class="ttc" id="class_entity_component_html_a59e8c59a5f0eda12e4702d8767757566"><div class="ttname"><a href="class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566">EntityComponent::GetTransform</a></div><div class="ttdeci">Transform * GetTransform()</div><div class="ttdef"><b>Definition:</b> entityComponent.h:50</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a502c0e36a2bb4e6b34c42d5381998b4f"><div class="ttname"><a href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">MeshRenderer::Init</a></div><div class="ttdeci">virtual void Init()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:50</div></div>
 <div class="ttc" id="class_mesh_html"><div class="ttname"><a href="class_mesh.html">Mesh</a></div><div class="ttdef"><b>Definition:</b> mesh.h:112</div></div>
 <div class="ttc" id="class_shader_html_a809d60fe373e488a764dc80ac8158330"><div class="ttname"><a href="class_shader.html#a809d60fe373e488a764dc80ac8158330">Shader::GetName</a></div><div class="ttdeci">const std::string &amp; GetName() const </div><div class="ttdef"><b>Definition:</b> shader.h:112</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_a8e56a39bbabd31df22b788f95b89f6b4"><div class="ttname"><a href="mesh_renderer_8h.html#a8e56a39bbabd31df22b788f95b89f6b4">m_shadows</a></div><div class="ttdeci">bool m_shadows</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:95</div></div>
+<div class="ttc" id="class_mesh_html_ad1a6c1004ac4e073852989a3d68538d1"><div class="ttname"><a href="class_mesh.html#ad1a6c1004ac4e073852989a3d68538d1">Mesh::ImportMeshMaterial</a></div><div class="ttdeci">static std::vector&lt; Material * &gt; ImportMeshMaterial(const std::string &amp;fileName)</div><div class="ttdef"><b>Definition:</b> mesh.cpp:443</div></div>
+<div class="ttc" id="class_mesh_renderer_html_acae5946539f6d5e2eebd8876cdb7f2c4"><div class="ttname"><a href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(const std::string &amp;fileName)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:40</div></div>
+<div class="ttc" id="class_mesh_renderer_html"><div class="ttname"><a href="class_mesh_renderer.html">MeshRenderer</a></div><div class="ttdef"><b>Definition:</b> meshRenderer.h:23</div></div>
+<div class="ttc" id="class_mesh_renderer_html_aa928cebc7dc3602f61bf676761476fb2"><div class="ttname"><a href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:26</div></div>
 <div class="ttc" id="class_rendering_engine_html"><div class="ttname"><a href="class_rendering_engine.html">RenderingEngine</a></div><div class="ttdef"><b>Definition:</b> renderingEngine.h:37</div></div>
 <div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.h:27</div></div>
+<div class="ttc" id="classtinyxml2_1_1_x_m_l_element_html"><div class="ttname"><a href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a></div><div class="ttdef"><b>Definition:</b> tinyxml2.h:1143</div></div>
 <div class="ttc" id="class_material_html"><div class="ttname"><a href="class_material.html">Material</a></div><div class="ttdef"><b>Definition:</b> material.h:34</div></div>
 <div class="ttc" id="class_shader_html_a80b52feb71b870447cd0f2a20ca68400"><div class="ttname"><a href="class_shader.html#a80b52feb71b870447cd0f2a20ca68400">Shader::Bind</a></div><div class="ttdeci">void Bind() const </div><div class="ttdef"><b>Definition:</b> shader.cpp:174</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_adfdb6eda8dc9d837a3422a73e351848e"><div class="ttname"><a href="mesh_renderer_8h.html#adfdb6eda8dc9d837a3422a73e351848e">HasShadows</a></div><div class="ttdeci">bool HasShadows()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:85</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_afcd62a638f43f1f9c3a507b923a2dffd"><div class="ttname"><a href="mesh_renderer_8h.html#afcd62a638f43f1f9c3a507b923a2dffd">IsVisible</a></div><div class="ttdeci">bool IsVisible()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:73</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a76b5c0c52f09ab34655d88c3012ebc4b"><div class="ttname"><a href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">MeshRenderer::Render</a></div><div class="ttdeci">virtual void Render(const Shader &amp;shader, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera) const </div><div class="ttdef"><b>Definition:</b> meshRenderer.h:56</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a56d102c002082a4ff3d226bd2dc800e2"><div class="ttname"><a href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">MeshRenderer::SetShadows</a></div><div class="ttdeci">EntityComponent * SetShadows(bool shadows)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:95</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a1cafde215f33ac92bd9a07bf87678d23"><div class="ttname"><a href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(std::vector&lt; Mesh * &gt; meshes, std::vector&lt; Material * &gt; materials)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:27</div></div>
 <div class="ttc" id="class_shader_html_a0a6b91d25a352e72624a26cb05f21962"><div class="ttname"><a href="class_shader.html#a0a6b91d25a352e72624a26cb05f21962">Shader::UpdateUniforms</a></div><div class="ttdeci">virtual void UpdateUniforms(const Transform &amp;transform, const Material &amp;material, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera) const </div><div class="ttdef"><b>Definition:</b> shader.cpp:179</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_ab61d70f8e65639b1757dcea484e1678d"><div class="ttname"><a href="mesh_renderer_8h.html#ab61d70f8e65639b1757dcea484e1678d">SetVisible</a></div><div class="ttdeci">EntityComponent * SetVisible(bool visible)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:66</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_aa1b999b6ff2459ef68d685a235ac0a29"><div class="ttname"><a href="mesh_renderer_8h.html#aa1b999b6ff2459ef68d685a235ac0a29">SetShadows</a></div><div class="ttdeci">EntityComponent * SetShadows(bool shadows)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:78</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a21f3a640710d3dfefbb170fd942461b0"><div class="ttname"><a href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">MeshRenderer::SetVisible</a></div><div class="ttdeci">EntityComponent * SetVisible(bool visible)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:83</div></div>
+<div class="ttc" id="class_mesh_html_af11b125a96697494a80c864e3d7c1864"><div class="ttname"><a href="class_mesh.html#af11b125a96697494a80c864e3d7c1864">Mesh::ImportMesh</a></div><div class="ttdeci">static std::vector&lt; Mesh * &gt; ImportMesh(const std::string &amp;fileName)</div><div class="ttdef"><b>Definition:</b> mesh.cpp:521</div></div>
+<div class="ttc" id="classtinyxml2_1_1_x_m_l_element_html_a56cc727044dad002b978256754d43a4b"><div class="ttname"><a href="classtinyxml2_1_1_x_m_l_element.html#a56cc727044dad002b978256754d43a4b">tinyxml2::XMLElement::GetText</a></div><div class="ttdeci">const char * GetText() const </div><div class="ttdef"><b>Definition:</b> tinyxml2.cpp:1415</div></div>
+<div class="ttc" id="class_mesh_renderer_html_adc28b7069d8d9e739da14233cc8fcd72"><div class="ttname"><a href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">MeshRenderer::HasShadows</a></div><div class="ttdeci">bool HasShadows()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:102</div></div>
 <div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> shader.h:97</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_adf7ad65deb2fca5eab8d0674602fe3c4"><div class="ttname"><a href="mesh_renderer_8h.html#adf7ad65deb2fca5eab8d0674602fe3c4">m_visible</a></div><div class="ttdeci">bool m_visible</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:94</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_a3e0b39e1326de703012f81ac2be7feba"><div class="ttname"><a href="mesh_renderer_8h.html#a3e0b39e1326de703012f81ac2be7feba">Init</a></div><div class="ttdeci">virtual void Init()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:48</div></div>
-<div class="ttc" id="class_entity_component_html"><div class="ttname"><a href="class_entity_component.html">EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entityComponent.h:31</div></div>
-<div class="ttc" id="reflection_8h_html_aeb0509a4118ccf8ed7ee586f3e002636"><div class="ttname"><a href="reflection_8h.html#aeb0509a4118ccf8ed7ee586f3e002636">COMPONENT</a></div><div class="ttdeci">#define COMPONENT(p)</div><div class="ttdef"><b>Definition:</b> reflection.h:14</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_ad79584be033f1f38e745781dc0cd4ee2"><div class="ttname"><a href="mesh_renderer_8h.html#ad79584be033f1f38e745781dc0cd4ee2">MeshRenderer</a></div><div class="ttdeci">MeshRenderer(std::vector&lt; Mesh * &gt; meshes, std::vector&lt; Material * &gt; materials)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:25</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_a0800e8d38574f7f4a6bc5634bbe01a10"><div class="ttname"><a href="mesh_renderer_8h.html#a0800e8d38574f7f4a6bc5634bbe01a10">Render</a></div><div class="ttdeci">virtual void Render(const Shader &amp;shader, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera) const </div><div class="ttdef"><b>Definition:</b> meshRenderer.h:54</div></div>
-<div class="ttc" id="mesh_renderer_8h_html_a832e159d582238ff41d5819ce7a11f7b"><div class="ttname"><a href="mesh_renderer_8h.html#a832e159d582238ff41d5819ce7a11f7b">m_mesh</a></div><div class="ttdeci">std::vector&lt; Mesh &gt; m_mesh</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:92</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a3adb394d50133e5a82873c66bdb2923c"><div class="ttname"><a href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(Mesh mesh, const Material &amp;material)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:44</div></div>
+<div class="ttc" id="class_entity_component_html"><div class="ttname"><a href="class_entity_component.html">EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entityComponent.h:32</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a031444bc736eba5b2e43f3067bff2add"><div class="ttname"><a href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">MeshRenderer::IsVisible</a></div><div class="ttdeci">bool IsVisible()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:90</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

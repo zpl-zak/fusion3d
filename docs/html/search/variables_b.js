@@ -1,7 +1,19 @@
 var searchData=
 [
-  ['nomore',['nomore',['../structjpeg.html#a2d114f4d52f50d8d85f43b2a3f161cec',1,'jpeg']]],
-  ['num_5fbits',['num_bits',['../structzbuf.html#acd069cdb4100884a732ad2794edbbdff',1,'zbuf']]],
-  ['num_5fkeys',['NUM_KEYS',['../class_input.html#a593c9d5b6ca0df098a61b683b0b7bbce',1,'Input']]],
-  ['num_5fmousebuttons',['NUM_MOUSEBUTTONS',['../class_input.html#aedaace4ea220bcd41963cf171c102288',1,'Input']]]
+  ['m_5fattenuation',['m_attenuation',['../class_point_light.html#a4a44fa4aa2d982893ac037186c85ff2b',1,'PointLight']]],
+  ['m_5fbody',['m_body',['../bird__prog_8h.html#ac84e141f856f0f33bade78361679d454',1,'bird_prog.h']]],
+  ['m_5fclasses',['m_classes',['../structfactory.html#a25209dee0de7731b6d219ff3ba464a21',1,'factory']]],
+  ['m_5fcount',['m_count',['../bird__prog_8h.html#af6f8fac96632a39285e8eada5e439f90',1,'bird_prog.h']]],
+  ['m_5ferror',['m_error',['../class_program.html#acacd819e20737d226d82e73a733e8c27',1,'Program']]],
+  ['m_5flights',['m_lights',['../world_component_8h.html#ae931a5aeae6e2dc50ce1bf465af323c6',1,'worldComponent.h']]],
+  ['m_5fmodel',['m_model',['../world_component_8h.html#a21390e495cdb82f4834c4efcf5db0541',1,'worldComponent.h']]],
+  ['m_5fpause',['m_pause',['../bird__prog_8h.html#a4e8d4fdddddd6e4dc6bc48c3181a6529',1,'bird_prog.h']]],
+  ['m_5fprogs',['m_progs',['../world_component_8h.html#a637bd2c4263d96b69cf156aa702aca27',1,'worldComponent.h']]],
+  ['m_5froot',['m_root',['../class_game.html#a7a4fb23eede3895b8e786ed39cc162d0',1,'Game']]],
+  ['m_5ftime',['m_time',['../bird__prog_8h.html#a0502aaaebf3b22e00600ba4e78e98968',1,'bird_prog.h']]],
+  ['m_5ftimer',['m_timer',['../bird__prog_8h.html#aabe1dcf62423ac601813278be65e7877',1,'bird_prog.h']]],
+  ['marker',['marker',['../structjpeg.html#a9a5cd40790fd432795fb19477c921f8c',1,'jpeg']]],
+  ['max_5fx',['max_x',['../structstbi__gif__struct.html#a02391438194b161d16bdf95878be6a66',1,'stbi_gif_struct']]],
+  ['max_5fy',['max_y',['../structstbi__gif__struct.html#aff3410e0fff097d4719e54096f6da69b',1,'stbi_gif_struct']]],
+  ['maxcode',['maxcode',['../structhuffman.html#aeb78aca6c7377faaad8123566d54fc98',1,'huffman::maxcode()'],['../structzhuffman.html#ac7dd4a2bf01a6e27933dd1cf6b0cc762',1,'zhuffman::maxcode()']]]
 ];

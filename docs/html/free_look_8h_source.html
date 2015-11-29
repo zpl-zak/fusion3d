@@ -131,30 +131,31 @@ $(document).ready(function(){initNavTree('free_look_8h_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../core/math3d.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../core/entityComponent.h&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<a class="code" href="reflection_8h.html#aeb0509a4118ccf8ed7ee586f3e002636">COMPONENT</a>(<a class="code" href="free_look_8h.html#a1af640e90f77bcc13b465f9e9466f9ed">FreeLook</a>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;public:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="free_look_8h.html#a1af640e90f77bcc13b465f9e9466f9ed">   25</a></span>&#160;    <a class="code" href="free_look_8h.html#a1af640e90f77bcc13b465f9e9466f9ed">FreeLook</a>(const <a class="code" href="class_vector2.html">Vector2f</a>&amp; windowCenter, <span class="keywordtype">float</span> sensitivity = 0.5f) :</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="free_look_8h.html#aa3bc2a7fd82370e4ced0de0c90db31b6">m_sensitivity</a>(sensitivity),</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="free_look_8h.html#ac10215652d00c31bec755bc5faf1e2cb">m_mouseLocked</a>(true),</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="free_look_8h.html#a1915880d554346273624da115dd73fd0">m_windowCenter</a>(windowCenter) {}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="free_look_8h.html#a6d7cb32ac0dde33a6c8d5728c895d70f">ProcessInput</a>(<span class="keyword">const</span> <a class="code" href="class_input.html">Input</a>&amp; input, <span class="keywordtype">float</span> delta);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="free_look_8h.html#aa3bc2a7fd82370e4ced0de0c90db31b6">   33</a></span>&#160;    <span class="keywordtype">float</span>    <a class="code" href="free_look_8h.html#aa3bc2a7fd82370e4ced0de0c90db31b6">m_sensitivity</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="free_look_8h.html#ac10215652d00c31bec755bc5faf1e2cb">   34</a></span>&#160;    <span class="keywordtype">bool</span>     <a class="code" href="free_look_8h.html#ac10215652d00c31bec755bc5faf1e2cb">m_mouseLocked</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="free_look_8h.html#a1915880d554346273624da115dd73fd0">   35</a></span>&#160;    <a class="code" href="class_vector2.html">Vector2f</a> <a class="code" href="free_look_8h.html#a1915880d554346273624da115dd73fd0">m_windowCenter</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif // FREELOOK_H</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_free_look.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_free_look.html">FreeLook</a> : <span class="keyword">public</span> <a class="code" href="class_entity_component.html">EntityComponent</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_free_look.html#affebba3ace549e2d847443248b059977">   26</a></span>&#160;    <a class="code" href="class_free_look.html#affebba3ace549e2d847443248b059977">FreeLook</a>() {}</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_free_look.html#aea0640100f4deb62af97ea49c948beb2">   27</a></span>&#160;    <a class="code" href="class_free_look.html#aea0640100f4deb62af97ea49c948beb2">FreeLook</a>(<span class="keyword">const</span> <a class="code" href="class_vector2.html">Vector2f</a>&amp; windowCenter, <span class="keywordtype">float</span> sensitivity = 0.5f) :</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        m_sensitivity(sensitivity),</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        m_mouseLocked(true),</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        m_windowCenter(windowCenter) {}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_free_look.html#a2b73a53cc18b967ea4ec7f169f514b52">ProcessInput</a>(<span class="keyword">const</span> <a class="code" href="class_input.html">Input</a>&amp; input, <span class="keywordtype">float</span> delta);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">float</span>    m_sensitivity;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span>     m_mouseLocked;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_vector2.html">Vector2f</a> m_windowCenter;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif // FREELOOK_H</span></div>
+<div class="ttc" id="class_free_look_html"><div class="ttname"><a href="class_free_look.html">FreeLook</a></div><div class="ttdef"><b>Definition:</b> freeLook.h:23</div></div>
 <div class="ttc" id="class_input_html"><div class="ttname"><a href="class_input.html">Input</a></div><div class="ttdef"><b>Definition:</b> input.h:26</div></div>
-<div class="ttc" id="class_vector2_html"><div class="ttname"><a href="class_vector2.html">Vector2</a></div><div class="ttdef"><b>Definition:</b> math3d.h:182</div></div>
-<div class="ttc" id="free_look_8h_html_a6d7cb32ac0dde33a6c8d5728c895d70f"><div class="ttname"><a href="free_look_8h.html#a6d7cb32ac0dde33a6c8d5728c895d70f">ProcessInput</a></div><div class="ttdeci">virtual void ProcessInput(const Input &amp;input, float delta)</div><div class="ttdef"><b>Definition:</b> devMode.h:75</div></div>
-<div class="ttc" id="free_look_8h_html_a1915880d554346273624da115dd73fd0"><div class="ttname"><a href="free_look_8h.html#a1915880d554346273624da115dd73fd0">m_windowCenter</a></div><div class="ttdeci">Vector2f m_windowCenter</div><div class="ttdef"><b>Definition:</b> freeLook.h:35</div></div>
-<div class="ttc" id="free_look_8h_html_a1af640e90f77bcc13b465f9e9466f9ed"><div class="ttname"><a href="free_look_8h.html#a1af640e90f77bcc13b465f9e9466f9ed">FreeLook</a></div><div class="ttdeci">FreeLook(const Vector2f &amp;windowCenter, float sensitivity=0.5f)</div><div class="ttdef"><b>Definition:</b> freeLook.h:25</div></div>
-<div class="ttc" id="reflection_8h_html_aeb0509a4118ccf8ed7ee586f3e002636"><div class="ttname"><a href="reflection_8h.html#aeb0509a4118ccf8ed7ee586f3e002636">COMPONENT</a></div><div class="ttdeci">#define COMPONENT(p)</div><div class="ttdef"><b>Definition:</b> reflection.h:14</div></div>
-<div class="ttc" id="free_look_8h_html_aa3bc2a7fd82370e4ced0de0c90db31b6"><div class="ttname"><a href="free_look_8h.html#aa3bc2a7fd82370e4ced0de0c90db31b6">m_sensitivity</a></div><div class="ttdeci">float m_sensitivity</div><div class="ttdef"><b>Definition:</b> freeLook.h:33</div></div>
-<div class="ttc" id="free_look_8h_html_ac10215652d00c31bec755bc5faf1e2cb"><div class="ttname"><a href="free_look_8h.html#ac10215652d00c31bec755bc5faf1e2cb">m_mouseLocked</a></div><div class="ttdeci">bool m_mouseLocked</div><div class="ttdef"><b>Definition:</b> freeLook.h:34</div></div>
+<div class="ttc" id="class_vector2_html"><div class="ttname"><a href="class_vector2.html">Vector2&lt; float &gt;</a></div></div>
+<div class="ttc" id="class_free_look_html_aea0640100f4deb62af97ea49c948beb2"><div class="ttname"><a href="class_free_look.html#aea0640100f4deb62af97ea49c948beb2">FreeLook::FreeLook</a></div><div class="ttdeci">FreeLook(const Vector2f &amp;windowCenter, float sensitivity=0.5f)</div><div class="ttdef"><b>Definition:</b> freeLook.h:27</div></div>
+<div class="ttc" id="class_free_look_html_affebba3ace549e2d847443248b059977"><div class="ttname"><a href="class_free_look.html#affebba3ace549e2d847443248b059977">FreeLook::FreeLook</a></div><div class="ttdeci">FreeLook()</div><div class="ttdef"><b>Definition:</b> freeLook.h:26</div></div>
+<div class="ttc" id="class_free_look_html_a2b73a53cc18b967ea4ec7f169f514b52"><div class="ttname"><a href="class_free_look.html#a2b73a53cc18b967ea4ec7f169f514b52">FreeLook::ProcessInput</a></div><div class="ttdeci">virtual void ProcessInput(const Input &amp;input, float delta)</div><div class="ttdef"><b>Definition:</b> freeLook.cpp:20</div></div>
+<div class="ttc" id="class_entity_component_html"><div class="ttname"><a href="class_entity_component.html">EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entityComponent.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

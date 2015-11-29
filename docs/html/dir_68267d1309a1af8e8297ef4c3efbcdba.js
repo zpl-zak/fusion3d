@@ -8,7 +8,9 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "staticLibs", "dir_a112d73e5c2120cc44c300fbea2576aa.html", "dir_a112d73e5c2120cc44c300fbea2576aa" ],
     [ "utils", "dir_313caf1132e152dd9b58bea13a4052ca.html", "dir_313caf1132e152dd9b58bea13a4052ca" ],
     [ "3DEngine.h", "3_d_engine_8h.html", "3_d_engine_8h" ],
-    [ "reflection.h", "reflection_8h.html", "reflection_8h" ],
+    [ "factory.cpp", "factory_8cpp.html", "factory_8cpp" ],
+    [ "factory.hpp", "factory_8hpp.html", "factory_8hpp" ],
+    [ "reflection.h", "reflection_8h.html", null ],
     [ "testing.cpp", "testing_8cpp.html", null ],
     [ "testing.h", "testing_8h.html", "testing_8h" ]
 ];

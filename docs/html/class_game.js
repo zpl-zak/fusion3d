@@ -9,5 +9,6 @@ var class_game =
     [ "ProcessInput", "class_game.html#ab64891eae2c4eb4f3bf7d161c6d5e37a", null ],
     [ "Render", "class_game.html#a5fae2de88740658b07d98972d4b4ed26", null ],
     [ "SetEngine", "class_game.html#ab7ee30cf8ff9dd65e527b6fd1a2bd333", null ],
-    [ "Update", "class_game.html#a6ad207394e4ce91f909d49c87802da08", null ]
+    [ "Update", "class_game.html#a6ad207394e4ce91f909d49c87802da08", null ],
+    [ "m_root", "class_game.html#a7a4fb23eede3895b8e786ed39cc162d0", null ]
 ];
