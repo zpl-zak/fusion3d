@@ -62,16 +62,14 @@ public:
 
 	virtual ~RigidBody()
 	{
-		delete m_body;
-		delete m_state;
-		delete m_shape;
+		CoreEngine::GetCoreEngine()->GetPhysicsEngine()->GetWorld()->removeRigidBody(m_body);
 	}
 
 	virtual void DataDeploy(tinyxml2::XMLElement* data)
 	{
 		btCollisionShape* shape = nullptr;
 		float mass = 0.0f;
-		bool calcInertia = true;
+		bool calcInertia = false;
 		Vector3f inertia = Vector3f(0, 0, 0);
 
 		if (data->Attribute("shape"))
@@ -122,7 +120,14 @@ public:
 
 		if (data->Attribute("calcInertia"))
 		{
-			calcInertia = (!strcmp(data->Attribute("calcInertia"), "0")) ? false : true;
+			if (atoi(data->Attribute("calcInertia")) == 0)
+			{
+				calcInertia = false;
+			}
+			else
+			{
+				calcInertia = true;
+			}
 		}
 
 		if (data->Attribute("inertia"))
@@ -132,7 +137,7 @@ public:
 
 		if (calcInertia)
 		{
-			shape->calculateLocalInertia(m_mass, m_inertia);
+			shape->calculateLocalInertia(mass, inertia.GetBT());
 		}
 
 		m_shape = shape;

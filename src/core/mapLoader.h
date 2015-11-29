@@ -70,9 +70,10 @@ public:
 		delete m_doc;
 	}
 
-	void LoadEntities(Entity* root)
+	void LoadEntities(Entity* root, tinyxml2::XMLElement* sibling = nullptr)
 	{
-		tinyxml2::XMLElement* sibling = m_entities->FirstChildElement("entity");
+		if (sibling == nullptr)
+			sibling = m_entities->FirstChildElement("entity");
 		while (sibling != nullptr)
 		{
 			Entity* entity = new Entity();
@@ -81,6 +82,7 @@ public:
 			{
 				std::string name = sibling->Attribute("name");
 				entity->SetDisplayName(name);
+				std::cout << name;
 			}
 			else
 			{
@@ -133,7 +135,15 @@ public:
 				component = component->NextSiblingElement("component");
 			}
 			
-			
+			tinyxml2::XMLElement* entities = sibling->FirstChildElement("entity");
+
+			while (entities != nullptr)
+			{
+				LoadEntities(entity, entities);
+
+				entities = entities->NextSiblingElement("entity");
+			}
+
 			root->AddChild(entity);
 
 			sibling = sibling->NextSiblingElement("entity");

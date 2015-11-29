@@ -98,7 +98,7 @@ public:
 
 	inline Entity* GetChildByIndex(unsigned int ID)
 	{
-		if (ID < 0 || ID > m_children.size()) return nullptr;
+		if (ID < 0 || ID > m_children.size()+1) return nullptr;
 
 		return m_children.at(ID);
 	}

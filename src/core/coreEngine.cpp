@@ -27,6 +27,7 @@
 
 #include <stdio.h>
 
+
 CoreEngine* CoreEngine::m_coreEngine = NULL;
 
 CoreEngine::CoreEngine(double frameRate, Window* window, RenderingEngine* renderingEngine, PhysicsEngine* physicsEngine) :
