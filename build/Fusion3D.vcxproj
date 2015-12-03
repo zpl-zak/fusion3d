@@ -219,9 +219,8 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <PreBuildEvent>
-      <Command>xcopy  /D /y /s /r $(SolutionDir)..\lib\_bin $(SolutionDir)Debug
-xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Debug\data
-xcopy  /Y /I /E $(SolutionDir)..\python\*.* $(SolutionDir)Debug\python</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>
@@ -278,9 +277,8 @@ xcopy  /Y /I /E $(SolutionDir)..\python\*.* $(SolutionDir)Debug\python</Command>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <PreBuildEvent>
-      <Command>xcopy  /D /y /s /r $(SolutionDir)..\lib\_bin $(SolutionDir)Release
-xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data
-xcopy  /Y /I /E $(SolutionDir)..\python\*.* $(SolutionDir)Release\python</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>
