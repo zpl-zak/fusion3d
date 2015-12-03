@@ -15,7 +15,14 @@
  */
 
 #include "util.h"
+#include "../reflection.h"
 #include <SDL2/SDL.h>
+#include <cassert>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+#include <sstream>
 
 std::string s_ResourcePath = "./data/";
 
@@ -40,6 +47,35 @@ void Util::Sleep(int milliseconds)
 std::string Util::ResourcePath(void)
 {
 	return s_ResourcePath;
+}
+
+std::string Util::ssystem(const char * command)
+{
+	char tmpname[L_tmpnam];
+	std::tmpnam(tmpname);
+	std::string scommand = command;
+	std::string cmd = scommand + " >> " + tmpname;
+	std::system(cmd.c_str());
+	std::ifstream file(tmpname, std::ios::in);
+	std::string result;
+	if (file) {
+		while (!file.eof()) result.push_back(file.get());
+		file.close();
+	}
+	remove(tmpname);
+	return result;
+}
+
+
+std::string Util::ExecuteTask(const std::string & task, const std::string & data)
+{
+#ifdef OS_WINDOWS
+	std::string cmd = "python\\python.exe data/tasks/" + task + ".py " + data;
+	return ssystem(cmd.c_str());
+#else
+	std::cout << "TaskHoster isn't supported on this platform." << std::endl;
+	return "0";
+#endif
 }
 
 Vector3f Util::ParseVector3(std::string n)

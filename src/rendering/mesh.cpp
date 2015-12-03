@@ -189,7 +189,8 @@ void IndexedModel::CalcTangents()
 MeshData::MeshData(const IndexedModel& model, int materialIndex) :
     ReferenceCounter(),
     m_drawCount(model.GetIndices().size()),
-    m_materialIndex(materialIndex)
+    m_materialIndex(materialIndex),
+	m_model(model)
 {
 	if(!model.IsValid())
 	{

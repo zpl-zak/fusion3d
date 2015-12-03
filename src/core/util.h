@@ -58,6 +58,9 @@ namespace Util
 	void Sleep(int milliseconds);
 	std::vector<std::string> Split(const std::string &s, char delim);
 	std::string ResourcePath(void);
+	std::string ssystem(const char *command);
+	std::string ExecuteTask(const std::string& task, const std::string& data="");
+
 
     template < typename T > std::string to_string(const T& n)
     {

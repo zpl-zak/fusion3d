@@ -86,6 +86,7 @@ public:
 	
 	void Draw() const;
     int GetMaterialIndex() { return m_materialIndex; }
+	const IndexedModel& GetModel() { return m_model; }
 protected:	
 private:
 	MeshData(MeshData& other) {}
@@ -107,6 +108,7 @@ private:
 	GLuint m_vertexArrayBuffers[NUM_BUFFERS];
 	int m_drawCount;
     int m_materialIndex;
+	const IndexedModel m_model;
 };
 
 class Mesh
@@ -125,6 +127,7 @@ public:
 
 	void Draw() const;
     MeshData* GetMeshData() const { return m_meshData; }
+	void operator=(Mesh& mesh) {}
 protected:
 private:
 	static std::map<std::string, MeshData*> s_resourceMap;
@@ -133,7 +136,7 @@ private:
 	std::string m_fileName;
 	MeshData* m_meshData;
 	
-	void operator=(Mesh& mesh) {}
+	
 };
 
 //class MeshBuilder

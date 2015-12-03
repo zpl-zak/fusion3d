@@ -82,7 +82,6 @@ public:
 			{
 				std::string name = sibling->Attribute("name");
 				entity->SetDisplayName(name);
-				std::cout << name;
 			}
 			else
 			{

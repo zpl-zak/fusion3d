@@ -63,6 +63,12 @@ void TestGame::Init(const Window& window)
 	//		))*/lal
 	//	);
 
+	/*AddToScene((new Entity())
+		->AddComponent(new MorphMeshRenderer("animtest",1))
+		);*/
+
+
+
 	//AddToScene((new Entity(Vector3f(0, 2, 0), Quaternion(Vector3f(1,0,0), ToRadians(90))))
 	//	//->AddComponent(new Decal(new Material("super", Texture("super.jpg"), 0.0, 0.0), Vector3f(1,1,1), 1))
 	//	);

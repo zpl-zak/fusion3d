@@ -19,7 +19,7 @@ struct factory
 	void* construct(std::string const& n)
 	{
 		map_type::iterator i = m_classes.find(n);
-		if (i == m_classes.end()) return 0; // or throw or whatever you want
+		if (i == m_classes.end()) return 0;
 		return i->second();
 	}
 };

@@ -20,6 +20,11 @@
 				</entity>
 			</entity>
 		</entity>
+		<entity name="animation">
+			<component type="MorphMeshRenderer" step="1">
+				animtest
+			</component>
+		</entity>
 		<entity name="GreenLight" position="7;1;7">
 			<component type="PointLight" color="0;1;0" intensity="0.4" attenuation="0;0;0.4" shadowMapSize="10">
 			
