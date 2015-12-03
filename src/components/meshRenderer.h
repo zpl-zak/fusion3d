@@ -207,9 +207,9 @@ public:
 
 						for (size_t k = 0; k < meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetPositions().size(); k++)
 						{
-							pos.push_back((Vector3f)(meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetPositions().at(k)).Lerp(meshes_old.at(i + 1).at(j)->GetMeshData()->GetModel().GetPositions().at(k), (float)l / (float)100));
-							nor.push_back((Vector3f)(meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetNormals().at(k)).Lerp(meshes_old.at(i + 1).at(j)->GetMeshData()->GetModel().GetNormals().at(k), (float)l / (float)100));
-							tan.push_back((Vector3f)(meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetTangents().at(k)).Lerp(meshes_old.at(i + 1).at(j)->GetMeshData()->GetModel().GetTangents().at(k), (float)l / (float)100));
+							pos.push_back((Vector3f)(meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetPositions().at(k)).Lerp(meshes_old.at(i + 1).at(j)->GetMeshData()->GetModel().GetPositions().at(k), (float)l / (float)stepSize));
+							nor.push_back((Vector3f)(meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetNormals().at(k)).Lerp(meshes_old.at(i + 1).at(j)->GetMeshData()->GetModel().GetNormals().at(k), (float)l / (float)stepSize));
+							tan.push_back((Vector3f)(meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetTangents().at(k)).Lerp(meshes_old.at(i + 1).at(j)->GetMeshData()->GetModel().GetTangents().at(k), (float)l / (float)stepSize));
 						}
 
 
