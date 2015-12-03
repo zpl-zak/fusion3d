@@ -200,7 +200,15 @@ public:
 				std::vector<Mesh> mesh;
 				for (size_t j = 0; j < meshes_old.at(i).size(); j++)
 				{
-				
+					MeshData* meshData;
+					std::map<std::string, MeshData*>::const_iterator it = Mesh::s_resourceMap.find(filename + (char)(j + i + l + 40));
+					if (it != Mesh::s_resourceMap.end())
+					{
+						meshData = it->second;
+						meshData->AddReference();
+					}
+					else
+					{
 						std::vector<Vector3f> pos;
 						std::vector<Vector3f> nor;
 						std::vector<Vector3f> tan;
@@ -212,14 +220,16 @@ public:
 							tan.push_back((Vector3f)(meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetTangents().at(k)).Lerp(meshes_old.at(i + 1).at(j)->GetMeshData()->GetModel().GetTangents().at(k), (float)l / (float)stepSize));
 						}
 
-
-						mesh.push_back(Mesh(filename + (char)(j + 40), new MeshData(IndexedModel(
+						meshData = new MeshData(IndexedModel(
 							meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetIndices(),
 							pos,
 							meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetTexCoords(),
 							nor,
 							tan
-							), meshes_old.at(i).at(j)->GetMeshData()->GetMaterialIndex())));
+							), meshes_old.at(i).at(j)->GetMeshData()->GetMaterialIndex());
+						Mesh::s_resourceMap.insert(std::pair<std::string, MeshData*>(filename + (char)(j + i + l + 40), meshData));
+					}
+						mesh.push_back(Mesh(filename + (char)(j + i + l + 40), meshData));
 					}
 					meshg.push_back(mesh);
 			}

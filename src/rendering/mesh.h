@@ -128,10 +128,11 @@ public:
 	void Draw() const;
     MeshData* GetMeshData() const { return m_meshData; }
 	void operator=(Mesh& mesh) {}
-protected:
-private:
 	static std::map<std::string, MeshData*> s_resourceMap;
 	static std::map<std::string, btTriangleMesh*> s_resourceColMap;
+protected:
+private:
+	
 
 	std::string m_fileName;
 	MeshData* m_meshData;
