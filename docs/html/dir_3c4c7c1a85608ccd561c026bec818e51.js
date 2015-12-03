@@ -12,7 +12,8 @@ var dir_3c4c7c1a85608ccd561c026bec818e51 =
     [ "freeMove.h", "free_move_8h.html", "free_move_8h" ],
     [ "GUIWindow.h", "_g_u_i_window_8h.html", "_g_u_i_window_8h" ],
     [ "meshRenderer.h", "mesh_renderer_8h.html", [
-      [ "MeshRenderer", "class_mesh_renderer.html", "class_mesh_renderer" ]
+      [ "MeshRenderer", "class_mesh_renderer.html", "class_mesh_renderer" ],
+      [ "MorphMeshRenderer", "class_morph_mesh_renderer.html", "class_morph_mesh_renderer" ]
     ] ],
     [ "physicsEngineComponent.cpp", "physics_engine_component_8cpp.html", null ],
     [ "physicsEngineComponent.h", "physics_engine_component_8h.html", [

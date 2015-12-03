@@ -1,6 +1,8 @@
 var searchData=
 [
   ['s',['s',['../structjpeg.html#aa1dac6b3ea069114abf0b4021aa3a67e',1,'jpeg::s()'],['../structpng.html#a77d3bfd0ae8f598a475317ed39e78fd0',1,'png::s()']]],
+  ['s_5fresourcecolmap',['s_resourceColMap',['../class_mesh.html#aa6e883e5a5564dd9ce05adea5a249571',1,'Mesh']]],
+  ['s_5fresourcemap',['s_resourceMap',['../class_mesh.html#a742592f82ac89d0121b608e32ef1a6af',1,'Mesh']]],
   ['s_5fresourcepath',['s_ResourcePath',['../util_8cpp.html#a054c5793bc43fff8d286586ada925db6',1,'util.cpp']]],
   ['savefile',['SaveFile',['../classtinyxml2_1_1_x_m_l_document.html#a73ac416b4a2aa0952e841220eb3da18f',1,'tinyxml2::XMLDocument::SaveFile(const char *filename, bool compact=false)'],['../classtinyxml2_1_1_x_m_l_document.html#a8b95779479a0035acc67b3a61dfe1b74',1,'tinyxml2::XMLDocument::SaveFile(FILE *fp, bool compact=false)']]],
   ['savexml',['SaveXML',['../class_x_m_l_loader.html#a07694c2e672ef533c2833edcce61d6a8',1,'XMLLoader']]],
@@ -47,7 +49,7 @@ var searchData=
   ['setscale',['SetScale',['../class_transform.html#a73296cf3be4bf21b5ac395fecd51f90c',1,'Transform']]],
   ['setshader',['SetShader',['../class_rendering_engine.html#ac7087d3f4ace79e7c1671549959c3bcd',1,'RenderingEngine']]],
   ['setshadowinfo',['SetShadowInfo',['../class_base_light.html#a5161f17c0d2638036ce5a847da18e141',1,'BaseLight']]],
-  ['setshadows',['SetShadows',['../class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2',1,'MeshRenderer']]],
+  ['setshadows',['SetShadows',['../class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2',1,'MeshRenderer::SetShadows()'],['../class_morph_mesh_renderer.html#aaaf0d9e8827dba0b513a856a7a077471',1,'MorphMeshRenderer::SetShadows()']]],
   ['setsimulation',['SetSimulation',['../class_core_engine.html#a49789f1b66c018e944e9e3929a896738',1,'CoreEngine']]],
   ['setstr',['SetStr',['../classtinyxml2_1_1_str_pair.html#a1f82ec6b5bee35ee7466d8565e43b1de',1,'tinyxml2::StrPair']]],
   ['settext',['SetText',['../classtinyxml2_1_1_x_m_l_element.html#a1f9c2cd61b72af5ae708d37b7ad283ce',1,'tinyxml2::XMLElement::SetText(const char *inText)'],['../classtinyxml2_1_1_x_m_l_element.html#aeae8917b5ea6060b3c08d4e3d8d632d7',1,'tinyxml2::XMLElement::SetText(int value)'],['../classtinyxml2_1_1_x_m_l_element.html#a7bbfcc11d516598bc924a8fba4d08597',1,'tinyxml2::XMLElement::SetText(unsigned value)'],['../classtinyxml2_1_1_x_m_l_element.html#ae4b543d6770de76fb6ab68e541c192a4',1,'tinyxml2::XMLElement::SetText(bool value)'],['../classtinyxml2_1_1_x_m_l_element.html#a67bd77ac9aaeff58ff20b4275a65ba4e',1,'tinyxml2::XMLElement::SetText(double value)'],['../classtinyxml2_1_1_x_m_l_element.html#a51d560da5ae3ad6b75e0ab9ffb2ae42a',1,'tinyxml2::XMLElement::SetText(float value)']]],
@@ -63,7 +65,7 @@ var searchData=
   ['setuserspace',['SetUserspace',['../class_core_engine.html#ac44a50a203cf075ba2ad6ee332b950ea',1,'CoreEngine']]],
   ['setvalue',['SetValue',['../classtinyxml2_1_1_x_m_l_node.html#a09dd68cf9eae137579f6e50f36487513',1,'tinyxml2::XMLNode']]],
   ['setvector3f',['SetVector3f',['../class_mapped_values.html#aea6513980de91dc70e84a858cd470b51',1,'MappedValues::SetVector3f()'],['../class_material.html#a1d9130a097b656a99432d9374c887628',1,'Material::SetVector3f()']]],
-  ['setvisible',['SetVisible',['../class_decal_renderer.html#aa94d1c7d71878a2b883286dadcf3e68a',1,'DecalRenderer::SetVisible()'],['../class_g_u_i_window.html#acb9b92b7d3cd92a4f4c6a9a8750328bd',1,'GUIWindow::SetVisible()'],['../class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0',1,'MeshRenderer::SetVisible()']]],
+  ['setvisible',['SetVisible',['../class_decal_renderer.html#aa94d1c7d71878a2b883286dadcf3e68a',1,'DecalRenderer::SetVisible()'],['../class_g_u_i_window.html#acb9b92b7d3cd92a4f4c6a9a8750328bd',1,'GUIWindow::SetVisible()'],['../class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0',1,'MeshRenderer::SetVisible()'],['../class_morph_mesh_renderer.html#afddb9fd04f0e8954d7dc0f9fd27c9284',1,'MorphMeshRenderer::SetVisible()']]],
   ['setw',['SetW',['../class_vector4.html#a8fb9f197a3ff3d9c2f46ccac6795ac5c',1,'Vector4']]],
   ['setx',['SetX',['../class_vector2.html#a40af8778aa3d4094a7849389984460a8',1,'Vector2::SetX()'],['../class_vector3.html#ab447da00bb0176f3160edb743a7a0a19',1,'Vector3::SetX()'],['../class_vector4.html#a4ac9438f9f5464db3dff215c773a7290',1,'Vector4::SetX()'],['../class_vector3f.html#aaa6791fa256647707bcf41017f498bcf',1,'Vector3f::SetX()']]],
   ['setxmldocument',['SetXMLDocument',['../class_x_m_l_loader.html#a6f0268353becf9c39bb26a9cb66be0ee',1,'XMLLoader']]],
@@ -78,7 +80,7 @@ var searchData=
   ['shallowclone',['ShallowClone',['../classtinyxml2_1_1_x_m_l_node.html#a83e3524e2ecea25eeab630c7ab113627',1,'tinyxml2::XMLNode::ShallowClone()'],['../classtinyxml2_1_1_x_m_l_text.html#af5115f8cc83de2947ed6a9d13e2f88c8',1,'tinyxml2::XMLText::ShallowClone()'],['../classtinyxml2_1_1_x_m_l_comment.html#a90bb60193a691b484f5e1b487857016d',1,'tinyxml2::XMLComment::ShallowClone()'],['../classtinyxml2_1_1_x_m_l_declaration.html#a39458732ee6796cfc85dd35d3c488e0b',1,'tinyxml2::XMLDeclaration::ShallowClone()'],['../classtinyxml2_1_1_x_m_l_unknown.html#aa09fc7cb0cd64d6bb9c5ae00ffc549ec',1,'tinyxml2::XMLUnknown::ShallowClone()'],['../classtinyxml2_1_1_x_m_l_element.html#a85d85e32c18863fff1eeed53ae1ce23d',1,'tinyxml2::XMLElement::ShallowClone()'],['../classtinyxml2_1_1_x_m_l_document.html#a57c8511ed9f83aa3e20909a3db3f83d0',1,'tinyxml2::XMLDocument::ShallowClone()']]],
   ['shallowequal',['ShallowEqual',['../classtinyxml2_1_1_x_m_l_node.html#ac50408e91e095237f45716092ac2bddc',1,'tinyxml2::XMLNode::ShallowEqual()'],['../classtinyxml2_1_1_x_m_l_text.html#a1588aa5d23cb21eb31f36df0aaaa8d66',1,'tinyxml2::XMLText::ShallowEqual()'],['../classtinyxml2_1_1_x_m_l_comment.html#a2d9f26757b0018fce933e74420cda22a',1,'tinyxml2::XMLComment::ShallowEqual()'],['../classtinyxml2_1_1_x_m_l_declaration.html#ace0d2d9bc1b63278bd5e984ebe0c7bd0',1,'tinyxml2::XMLDeclaration::ShallowEqual()'],['../classtinyxml2_1_1_x_m_l_unknown.html#a0169df157bf69a092b404ca49621ff1a',1,'tinyxml2::XMLUnknown::ShallowEqual()'],['../classtinyxml2_1_1_x_m_l_element.html#a25d51a2aad92625c78441457d58c85bc',1,'tinyxml2::XMLElement::ShallowEqual()'],['../classtinyxml2_1_1_x_m_l_document.html#a12eac66c6e45d074d5cc47319868cd66',1,'tinyxml2::XMLDocument::ShallowEqual()']]],
   ['simulate',['Simulate',['../class_physics_engine.html#a0eef5ab7f12076bd0e065cdd352761bf',1,'PhysicsEngine']]],
-  ['size',['Size',['../classtinyxml2_1_1_dyn_array.html#a5c3874dd4d5d0bf32919161b19ac7287',1,'tinyxml2::DynArray::Size()'],['../structhuffman.html#afdb0fbcf25aec42ba30b0d0e2453a057',1,'huffman::size()'],['../structzhuffman.html#a46ce4d4a4d7fc41c2560616f6696e9b9',1,'zhuffman::size()'],['../structpic__packet__t.html#ad33021e40c272a20d89bdcceabb20a71',1,'pic_packet_t::size()']]],
+  ['size',['size',['../structhuffman.html#afdb0fbcf25aec42ba30b0d0e2453a057',1,'huffman::size()'],['../structzhuffman.html#a46ce4d4a4d7fc41c2560616f6696e9b9',1,'zhuffman::size()'],['../structpic__packet__t.html#ad33021e40c272a20d89bdcceabb20a71',1,'pic_packet_t::size()'],['../classtinyxml2_1_1_dyn_array.html#a5c3874dd4d5d0bf32919161b19ac7287',1,'tinyxml2::DynArray::Size()']]],
   ['skip',['skip',['../structstbi__io__callbacks.html#aedb03a587afc3bffe28979c4e1b981bd',1,'stbi_io_callbacks']]],
   ['skipwhitespace',['SkipWhiteSpace',['../classtinyxml2_1_1_x_m_l_util.html#a9333d20f2a34325b5115ca45849c4b2a',1,'tinyxml2::XMLUtil::SkipWhiteSpace(const char *p)'],['../classtinyxml2_1_1_x_m_l_util.html#aa48025be8843ec5a79b65579d31bd8fc',1,'tinyxml2::XMLUtil::SkipWhiteSpace(char *p)']]],
   ['sleep',['Sleep',['../namespace_util.html#aa1857f096ad422f2260e3ec6dd1d0db6',1,'Util']]],
@@ -89,6 +91,7 @@ var searchData=
   ['sos',['SOS',['../stb__image_8c.html#a31288a816cfc02212615aefb4b7a557b',1,'stb_image.c']]],
   ['split',['Split',['../namespace_util.html#abe90b401f63d09fbf85cdf8c637cebd1',1,'Util::Split(const std::string &amp;s, char delim)'],['../namespace_util.html#aa885c785af3ad7b88d49831b6df76165',1,'Util::split(const std::string &amp;s, char delim, std::vector&lt; std::string &gt; &amp;elems)'],['../namespace_util.html#aa68ed49daaa9bf2bd1f1b09901615320',1,'Util::split(const std::string &amp;s, char delim)']]],
   ['spotlight',['SpotLight',['../class_spot_light.html',1,'SpotLight'],['../class_spot_light.html#a89ff4f80388f056b018696262dce8b6e',1,'SpotLight::SpotLight()']]],
+  ['ssystem',['ssystem',['../namespace_util.html#a779bef87fc7c81f4633edef1aa6aa8d2',1,'Util']]],
   ['start',['Start',['../class_core_engine.html#a846ab7b6441f17ceef54ceb7045e891b',1,'CoreEngine']]],
   ['start_5fx',['start_x',['../structstbi__gif__struct.html#ad3899ad3323686e963a7322e9a80bb05',1,'stbi_gif_struct']]],
   ['start_5fy',['start_y',['../structstbi__gif__struct.html#a7f4974b80d6e6f4f56b5fd02a9c1c121',1,'stbi_gif_struct']]],
@@ -151,8 +154,8 @@ var searchData=
   ['stopinvocation',['StopInvocation',['../class_profile_timer.html#af7037476ec46701a331459056537ce9c',1,'ProfileTimer']]],
   ['string',['STRING',['../3_d_engine_8h.html#a8f7bd5242b15da973671df869db5fe85',1,'3DEngine.h']]],
   ['stringequal',['StringEqual',['../classtinyxml2_1_1_x_m_l_util.html#acfcd287cacfd2533e1bc9ea4dfb56602',1,'tinyxml2::XMLUtil']]],
-  ['strpair',['StrPair',['../classtinyxml2_1_1_str_pair.html#a69153963f7052de9f767d3d8c1623a70',1,'tinyxml2::StrPair']]],
   ['strpair',['StrPair',['../classtinyxml2_1_1_str_pair.html',1,'tinyxml2']]],
+  ['strpair',['StrPair',['../classtinyxml2_1_1_str_pair.html#a69153963f7052de9f767d3d8c1623a70',1,'tinyxml2::StrPair']]],
   ['suffix',['suffix',['../structstbi__gif__lzw__struct.html#a3ec7f462268018489345b79b2f123764',1,'stbi_gif_lzw_struct']]],
   ['swapbuffers',['SwapBuffers',['../class_window.html#abe1b83eda6980f2b9964aab08b5310ed',1,'Window']]]
 ];

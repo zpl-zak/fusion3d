@@ -29,7 +29,7 @@ var dir_aebb8dcc11953d78e620bbef0b9e2183 =
     [ "referenceCounter.h", "reference_counter_8h.html", [
       [ "ReferenceCounter", "class_reference_counter.html", "class_reference_counter" ]
     ] ],
-    [ "timing.cpp", "timing_8cpp.html", "timing_8cpp" ],
+    [ "timing.cpp", "timing_8cpp.html", null ],
     [ "timing.h", "timing_8h.html", "timing_8h" ],
     [ "transform.cpp", "transform_8cpp.html", null ],
     [ "transform.h", "transform_8h.html", [

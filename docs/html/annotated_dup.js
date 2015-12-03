@@ -34,6 +34,7 @@ var annotated_dup =
     [ "Mesh", "class_mesh.html", "class_mesh" ],
     [ "MeshData", "class_mesh_data.html", "class_mesh_data" ],
     [ "MeshRenderer", "class_mesh_renderer.html", "class_mesh_renderer" ],
+    [ "MorphMeshRenderer", "class_morph_mesh_renderer.html", "class_morph_mesh_renderer" ],
     [ "PhysicsEngine", "class_physics_engine.html", "class_physics_engine" ],
     [ "PhysicsEngineComponent", "class_physics_engine_component.html", "class_physics_engine_component" ],
     [ "pic_packet_t", "structpic__packet__t.html", "structpic__packet__t" ],

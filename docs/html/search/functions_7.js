@@ -52,6 +52,7 @@ var searchData=
   ['getmembernames',['GetMemberNames',['../class_uniform_struct.html#a3cfea35a3fdc46fa4616a47be677fdd3',1,'UniformStruct']]],
   ['getmeshdata',['GetMeshData',['../class_mesh.html#a957ca65ff9f05a82e8c50f3ac72b8618',1,'Mesh']]],
   ['getminvariance',['GetMinVariance',['../class_shadow_info.html#a23944aadb4f86e76626cb1644f525b97',1,'ShadowInfo']]],
+  ['getmodel',['GetModel',['../class_mesh_data.html#a53d4b5e13eca62a8217b24c369402373',1,'MeshData']]],
   ['getmouse',['GetMouse',['../class_input.html#a794df32c5c08c7c1e7b345e8ec1ce71a',1,'Input']]],
   ['getmousedown',['GetMouseDown',['../class_input.html#ae8b2a58735d6e51b59373c2cab509bd3',1,'Input']]],
   ['getmouseposition',['GetMousePosition',['../class_input.html#a13d0d0ab7fdf79cc53da7cc7b996cdbe',1,'Input']]],

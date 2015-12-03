@@ -27,7 +27,9 @@ var hierarchy =
       [ "FreeLook", "class_free_look.html", null ],
       [ "FreeMove", "class_free_move.html", null ],
       [ "GUIWindow", "class_g_u_i_window.html", null ],
-      [ "MeshRenderer", "class_mesh_renderer.html", null ],
+      [ "MeshRenderer", "class_mesh_renderer.html", [
+        [ "MorphMeshRenderer", "class_morph_mesh_renderer.html", null ]
+      ] ],
       [ "PhysicsEngineComponent", "class_physics_engine_component.html", null ],
       [ "ProgramHoster", "class_program_hoster.html", null ],
       [ "RigidBody", "class_rigid_body.html", null ]

@@ -110,6 +110,7 @@ $(document).ready(function(){initNavTree('class_mesh.html','');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="class_mesh-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Mesh Class Reference</div>  </div>
@@ -134,6 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a295f283d6a6a2ca8e8e46e2fc2fbe727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a957ca65ff9f05a82e8c50f3ac72b8618"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_mesh_data.html">MeshData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a957ca65ff9f05a82e8c50f3ac72b8618">GetMeshData</a> () const </td></tr>
 <tr class="separator:a957ca65ff9f05a82e8c50f3ac72b8618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97044782996e795bc7299ca5be03cd28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a97044782996e795bc7299ca5be03cd28">operator=</a> (<a class="el" href="class_mesh.html">Mesh</a> &amp;mesh)</td></tr>
+<tr class="separator:a97044782996e795bc7299ca5be03cd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -147,6 +150,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:af11b125a96697494a80c864e3d7c1864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d11f99b8d05289bb368f65618a32212"><td class="memItemLeft" align="right" valign="top">static btTriangleMesh *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a8d11f99b8d05289bb368f65618a32212">ImportCollision</a> (const std::string &amp;fileName)</td></tr>
 <tr class="separator:a8d11f99b8d05289bb368f65618a32212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a742592f82ac89d0121b608e32ef1a6af"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, <a class="el" href="class_mesh_data.html">MeshData</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a742592f82ac89d0121b608e32ef1a6af">s_resourceMap</a></td></tr>
+<tr class="separator:a742592f82ac89d0121b608e32ef1a6af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e883e5a5564dd9ce05adea5a249571"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, btTriangleMesh * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#aa6e883e5a5564dd9ce05adea5a249571">s_resourceColMap</a></td></tr>
+<tr class="separator:aa6e883e5a5564dd9ce05adea5a249571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a167934b0e617950bf4df22ea01b8704b"></a>
@@ -414,6 +424,71 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>fileName</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a97044782996e795bc7299ca5be03cd28"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_mesh.html">Mesh</a> &amp;&#160;</td>
+          <td class="paramname"><em>mesh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa6e883e5a5564dd9ce05adea5a249571"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, btTriangleMesh * &gt; Mesh::s_resourceColMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a742592f82ac89d0121b608e32ef1a6af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, <a class="el" href="class_mesh_data.html">MeshData</a> * &gt; Mesh::s_resourceMap</td>
         </tr>
       </table>
   </td>
