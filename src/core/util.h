@@ -78,6 +78,30 @@ namespace Util
 		return elems;
 	}
 
+	inline std::string chomp(const std::string& s)
+	{
+		std::string r = "";
+		int c = 0;
+		for (size_t i = s.size(); i > -1; i--)
+		{
+			if (s[i] == ' ' || s[i] == '\n' || s[i] == '\t' || s[i] == '\0')
+			{
+				c++;
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		for (size_t i = 0; i < s.size()-c+1; i++)
+		{
+			r += s.at(i);
+		}
+
+		return r;
+	}
+
 
 	inline std::vector<std::string> split(const std::string &s, char delim) {
 		std::vector<std::string> elems;

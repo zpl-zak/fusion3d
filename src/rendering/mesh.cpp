@@ -312,7 +312,7 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 
     if (!scene)
     {
-        std::cout << "Mesh load failed!: " << fileName << std::endl;
+        std::cout << "Mesh load failed!: " << fileName << "|" << std::endl;
 		scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
 			aiProcess_Triangulate |
 			aiProcess_GenSmoothNormals |

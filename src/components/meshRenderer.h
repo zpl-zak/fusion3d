@@ -110,26 +110,26 @@ protected:
 private:
 };
 
-class MorphMeshRenderer : public MeshRenderer
+class MeshSequence : public MeshRenderer
 {
 public:
-	MorphMeshRenderer()
-	: m_step(-1)
+	MeshSequence()
+	: m_step(-1),
+	m_play(true)
 	{}
 
-	MorphMeshRenderer(const std::string& fileName, int stepSize)
+	MeshSequence(const std::string& fileName, int stepSize)
 		:
-		m_step(-1)
+		m_step(-1),
+		m_play(true)
 	{
 		LoadData(fileName, stepSize);
 	}
 
-	virtual void Update(float delta) 
+	void Update(float delta) 
 	{
-		if (m_timer.HasElapsed())
-		{
-			
-		}
+		if (!m_play) return;
+
 		m_step++;
 
 		if (m_step >= m_meshes.size())
@@ -138,20 +138,21 @@ public:
 		}
 	}
 
-	virtual void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
+	void Render(const Transform& transform, const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 	{
 		if (shader.GetName() == "shadowMapGenerator" && !m_shadows) return;
 		if (!m_visible) return;
+		int step = (m_step < 0) ? 0 : m_step;
 
 		shader.Bind();
-		for (size_t j = 0; j < m_meshes.at(m_step).size(); j++)
+		for (size_t j = 0; j < m_meshes.at(step).size(); j++)
 		{
-			shader.UpdateUniforms(GetTransform(), m_materials.at(m_meshes.at(m_step).at(j).GetMeshData()->GetMaterialIndex()), renderingEngine, camera);
-			m_meshes.at(m_step).at(j).Draw();
+			shader.UpdateUniforms(transform, m_materials.at(m_meshes.at(step).at(j).GetMeshData()->GetMaterialIndex()), renderingEngine, camera);
+			m_meshes.at(step).at(j).Draw();
 		}
 	}
 
-	virtual void DataDeploy(tinyxml2::XMLElement* data)
+	void DataDeploy(tinyxml2::XMLElement* data)
 	{
 		int stepSize = 1;
 		if (data->Attribute("step"))
@@ -180,16 +181,21 @@ public:
 		
 		std::string filelist = Util::ExecuteTask("listdir", (Util::ResourcePath() + "models/" + filename + " .obj"));
 		std::vector<std::string> files = Util::Split(filelist, '@');
-		m_timer.SetDelay(1);
 		std::vector<std::vector<Mesh*>> meshes_old;
 		std::vector<Material*> materials;
 
-		for (size_t i = 0; i < files.size() - 1; i++)
+		for (size_t i = 0; i < files.size(); i++)
 		{
 			meshes_old.push_back(Mesh::ImportMesh(filename + "/" + files[i]));
 		}
 		materials = Mesh::ImportMeshMaterial(filename + "/" + files[0]);
 
+		for (auto x : materials)
+		{
+			m_materials.push_back(*x);
+		}
+		
+		
 		std::vector<std::vector<Mesh>> meshg;
 		for (size_t i = 0; i < meshes_old.size(); i++)
 		{
@@ -237,22 +243,12 @@ public:
 		}
 		m_meshes = meshg;
 
-		for (auto mat : materials)
-		{
-			m_materials.push_back(*mat);
-		}
-
 		for (auto mesh : meshes_old)
 		{
 			for (auto x : mesh)
 			{
 				delete x;
 			}
-		}
-
-		for (auto mat : materials)
-		{
-			delete mat;
 		}
 	}
 
@@ -270,12 +266,122 @@ public:
 		return m_shadows;
 	}
 
+	std::string GetName() 
+	{
+		return m_name;
+	}
+
+	void SetStep(size_t step)
+	{
+		m_step = step;
+	}
+
+	void SetPlay(bool play)
+	{
+		m_play = play;
+	}
+
 protected:
 private:
 	std::vector<std::vector<Mesh>> m_meshes;
 	std::vector<Material> m_materials;
+	std::string m_name;
+	bool m_play;
 	size_t m_step;
 	size_t m_skip;
 	DelayTimer m_timer;
 };
+
+class AnimMeshRenderer : public EntityComponent
+{
+public:
+	AnimMeshRenderer()
+		:
+		m_anim(0)
+	{}
+
+	AnimMeshRenderer(const std::string& fileName, int stepSize)
+		:
+		m_anim(0)
+	{
+		LoadData(fileName, stepSize);
+	}
+
+	virtual ~AnimMeshRenderer()
+	{
+		for (auto x : m_anims)
+		{
+			delete x;
+		}
+	}
+
+	virtual void Update(float delta)
+	{
+		if (m_anims.size() == 0)return;
+		m_anims.at(m_anim)->Update(delta);
+	}
+
+	void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
+	{
+		if (m_anims.size() == 0)return;
+		m_anims.at(m_anim)->Render(GetTransform(), shader, renderingEngine, camera);
+	}
+
+	virtual void DataDeploy(tinyxml2::XMLElement* data)
+	{
+		int stepSize = 1;
+		if (data->Attribute("step"))
+		{
+			stepSize = atoi(data->Attribute("step"));
+		}
+		LoadData(data->GetText(), stepSize);
+	}
+
+	void LoadData(std::string filename, int stepSize)
+	{
+		std::string filelist = Util::ExecuteTask("listdir_dir", (Util::ResourcePath() + "models/" + filename));
+		std::vector<std::string> files = Util::Split(filelist, '@');
+		
+		for (auto x : files)
+		{
+			m_anims.push_back(new MeshSequence(filename + "/" + x, stepSize));
+		}
+
+		for (size_t i = 0; i < files.size(); i++)
+		{
+			m_anims.push_back(new MeshSequence(filename + "/" + files[i], stepSize));
+		}
+	}
+
+	void SetAnimState(std::string anim)
+	{
+		int i = 0;
+		for (auto x : m_anims)
+		{
+			if (x->GetName() == anim)
+			{
+				m_anim = i;
+				m_anims.at(i)->SetStep(-1);
+				return;
+			}
+			++i;
+		}
+	}
+
+	std::string GetAnimState() 
+	{
+		return m_anims.at(m_anim)->GetName();
+	}
+
+	void SetPlayState(bool play)
+	{
+		m_anims.at(m_anim)->SetPlay(play);
+	}
+
+protected:
+private:
+	std::vector<MeshSequence*> m_anims;
+	int m_anim;
+};
+
 #endif // MESHRENDERER_H_INCLUDED

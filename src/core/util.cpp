@@ -71,7 +71,8 @@ std::string Util::ExecuteTask(const std::string & task, const std::string & data
 {
 #ifdef OS_WINDOWS
 	std::string cmd = "python\\python.exe data/tasks/" + task + ".py " + data;
-	return ssystem(cmd.c_str());
+	std::string res = ssystem(cmd.c_str());
+	return res.substr(0, res.size()-1);
 #else
 	std::cout << "TaskHoster isn't supported on this platform." << std::endl;
 	return "0";
