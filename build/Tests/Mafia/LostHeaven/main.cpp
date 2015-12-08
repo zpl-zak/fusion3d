@@ -83,6 +83,30 @@ void TestGame::Init(const Window& window)
 		->AddComponent(new DirectionalLight(Vector3f(1.0, 0.49, 0.31),0.3
 			, 10, 80.0f, 1, 0)));*/
 
+	RigidBody* rb = new RigidBody (
+		new btBoxShape (btVector3 (1, 1, 1)), 1);
+
+	rb->SetEnter ([] (RigidBody* r)
+	{
+		std::cout << "Collision Enter for " << std::endl;
+	});
+
+	rb->SetStay ([] (RigidBody* r)
+	{
+		//std::cout << "Collision Stay" << std::endl;
+		// works
+	});
+
+	rb->SetExit ([] (RigidBody* r)
+	{
+		std::cout << "Collision Exit" << std::endl;
+	});
+
+	AddToScene ((new Entity (Vector3f (3, 6, 2)))
+				->AddComponent (new MeshRenderer ("cube.obj"))
+				->AddComponent (rb)
+				);
+
 	AddToScene((new Entity())
 		->AddComponent(new DevMode(window, true))
 		);

@@ -161,7 +161,7 @@ void Entity::Init()
 		(0.0f, new btDefaultMotionState(GetTransform()->GetBT()), m_shape, btVector3(0, 0, 0));
 
 	m_picker = new btRigidBody(CI);
-	m_picker->setUserPointer((void*)this);
+	m_picker->setUserPointer((void*)m_picker);
 	m_picker->setCollisionFlags(m_picker->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
 
 	CoreEngine::GetCoreEngine()->GetPhysicsEngine()->GetWorld()->addRigidBody(m_picker);

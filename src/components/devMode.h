@@ -18,6 +18,7 @@
 #define DEBUG_PROG_H
 
 #include "../core/coreEngine.h"
+#include "../components/physicsObjectComponent.h"
 #include "../components/ProgramComponent.h"
 #include "../components/freeMove.h"
 #include "../components/freeLook.h"
@@ -141,7 +142,8 @@ public:
 
 					if (RayCallback.hasHit())
 					{
-						Entity* hit = (Entity*)RayCallback.m_collisionObject->getUserPointer();
+						RigidBody* hitBody = (RigidBody*)RayCallback.m_collisionObject->getUserPointer();
+						Entity* hit = hitBody->GetParent ();
 
 						if (hit)
 						{
