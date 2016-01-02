@@ -56,6 +56,7 @@ public:
 	inline MaterialData* GetData() const { return m_materialData; }
 	inline void SetData(MaterialData* data) { m_materialData = data; }
 	static std::map<std::string, MaterialData*> s_resourceMap;
+    
 protected:
 private:
 	MaterialData* m_materialData;
