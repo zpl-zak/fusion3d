@@ -16,16 +16,16 @@
 			</component>
 			<entity name="ChildMap">
 				<entity name="EvenChildierMap">
-				
+					<!-- CHCE TO EDITOR -->
 				</entity>
 			</entity>
 		</entity>
 		
-		<entity name="cuboid" position="0;3;0" rotation="0;0;0;0" scale="1">
+		<!--<entity name="cuboid" position="0;3;0" rotation="0;0;0;0" scale="1">
 			<component type="AnimMeshRenderer" step="10">
 				animtest
 			</component>
-		</entity>
+		</entity>-->
 		
 		<entity name="GreenLight" position="7;1;7">
 			<component type="PointLight" color="0;1;0" intensity="0.4" attenuation="0;0;0.4" shadowMapSize="10">

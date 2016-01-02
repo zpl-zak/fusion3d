@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<map>
+	<meta>
+		<name>Unknownlands</name>
+		<author>ZaKlaus</author>
+		<version>1.0</version>
+	</meta>
+	
+	<entities>
+		<entity name="Map" position="0;0;0" rotation="0;0;0;0" scale="1">
+			<component type="MeshRenderer">
+				world.obj
+			</component>
+			<component type="RigidBody" shape="bvh" mass="0" calcInertia="0">
+				world.obj
+			</component>
+			<entity name="ChildMap">
+				<entity name="EvenChildierMap">
+					<!-- CHCE TO EDITOR -->
+				</entity>
+			</entity>
+		</entity>
+		
+		<entity name="Sun" rotation="1;0;0;-45">
+			<component type="DirectionalLight" color="1;1;1" intensity="0.8" shadowMapSize="10" shadowArea="80" softness="0.2">
+			
+			</component>
+		</entity>
+	</entities>
+	
+	<data>
+		<player name="Doom Guy"></player>
+	</data>
+</map>

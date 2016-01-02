@@ -52,8 +52,10 @@ public:
 		if (!m_visible) return;
         for (size_t i = 0; i < m_mesh.size(); i++)
         {
-            shader.Bind();
-            shader.UpdateUniforms(GetTransform(), m_material.at(m_mesh.at(i).GetMeshData()->GetMaterialIndex()), renderingEngine, camera);
+			auto material = m_material.at (m_mesh.at (i).GetMeshData ()->GetMaterialIndex ());
+			auto _shader = (shader.GetName() == "forward-ambient") ? material.GetShader () : &shader;
+            _shader->Bind();
+            _shader->UpdateUniforms(GetTransform(), material, renderingEngine, camera);
             m_mesh.at(i).Draw();
         }
 	}

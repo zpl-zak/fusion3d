@@ -17,6 +17,7 @@
 #include "material.h"
 #include <iostream>
 #include <cassert>
+#include "shader.h"
 
 std::map<std::string, MaterialData*> Material::s_resourceMap;
 
@@ -35,6 +36,8 @@ Material::Material(const std::string& materialName) :
 		m_materialData = it->second;
 		m_materialData->AddReference();
 	}
+
+	m_shader = new Shader ("forward-ambient");
 }
 
 Material::Material(const Material& other) :
@@ -42,6 +45,8 @@ Material::Material(const Material& other) :
 	m_materialName(other.m_materialName) 
 {
 	m_materialData->AddReference();
+
+	m_shader = new Shader ("forward-ambient");
 }
 
 Material::~Material()
@@ -74,4 +79,6 @@ Material::Material(const std::string& materialName, const Texture& diffuse, floa
 	float baseBias = dispMapScale/2.0f;
 	m_materialData->SetFloat("dispMapScale", dispMapScale);
 	m_materialData->SetFloat("dispMapBias", -baseBias + baseBias * dispMapOffset);
+
+	m_shader = new Shader ("forward-ambient");
 }

@@ -84,7 +84,7 @@ RenderingEngine::RenderingEngine(Window* window) :
 
 	SetTexture("displayTexture", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
 
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
 	glFrontFace(GL_CW);
 	glCullFace(GL_BACK);
@@ -171,7 +171,7 @@ void RenderingEngine::Render(const Entity& object)
 	//m_window->BindAsRenderTarget();
 	//m_tempTarget->BindAsRenderTarget();
 
-	glClearColor(0.0f,0.0f,0.0f,0.0f);
+	glClearColor(1.0f,1.0f,1.0f,0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	object.RenderAll(*m_defaultShader, *this, *m_mainCamera);
 	if (!m_fullbright)

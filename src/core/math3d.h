@@ -86,7 +86,8 @@ public:
 	inline T LengthSq() const { return this->Dot(*this); }
 	inline T Length() const { return sqrt(LengthSq()); }
 	inline Vector<T,D> Normalized() const { return *this/Length(); }
-	inline Vector<T,D> Lerp(const Vector<T,D>& r, T lerpFactor) const { return (r - *this) * lerpFactor + *this; }
+	//inline Vector<T,D> Lerp(const Vector<T,D>& r, T lerpFactor) const { return (r - *this) * lerpFactor + *this; }
+	inline Vector<T, D> Lerp (const Vector<T, D>& r, T lerpFactor) const { return *this * (1 - lerpFactor) + r * lerpFactor; }
 
 	inline Vector<T,D> Reflect(const Vector<T,D>& normal) const
 	{

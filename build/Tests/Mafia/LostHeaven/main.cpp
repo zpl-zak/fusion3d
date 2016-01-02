@@ -122,7 +122,7 @@ public:
     TestRenderer(Window* window) :
         RenderingEngine(window)
     {
-        SetVector3f("ambient", Vector3f(0,0,0));
+        SetVector3f("ambient", Vector3f(0.1, 0.1, 0.12));
 		
     }
 

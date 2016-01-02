@@ -18,10 +18,28 @@
 
 #include <iostream>
 #include <cassert>
+#include "core/math3d.h"
+#include <stdio.h>
+#include <Windows.h>
 
 void Testing::RunAllTests()
 {
-
+	/*Vector3f v0 (1, 0, 0);
+	Vector3f v1 (10, 0, 0);
+	float z = v1.GetX() - v0.GetX();
+	for (;;)
+	{ 
+		for (size_t i = 0; i < z; i++)
+		{
+			Vector3f v2 = v0.Lerp (v1,z/1000);
+			v0 = v2;
+			std::cout << v2.GetX () << std::endl;
+		}
+		Sleep (500);
+		system ("cls");
+		v0.SetX (0);
+	}
+	for (;;);*/
 }
 
 

@@ -22,6 +22,8 @@
 #include "../core/mappedValues.h"
 #include <map>
 
+class Shader;
+
 class MaterialData : public ReferenceCounter, public MappedValues
 {
 public:
@@ -44,11 +46,13 @@ public:
 		
 	inline void SetVector3f(const std::string& name, const Vector3f& value) { m_materialData->SetVector3f(name, value); }
 	inline void SetFloat(const std::string& name, float value)              { m_materialData->SetFloat(name, value); }
+	inline void SetShader (Shader* shader) { m_shader = shader; }
 	inline void SetTexture(const std::string& name, const Texture& value)   { m_materialData->SetTexture(name, value); }
 	
 	inline const Vector3f& GetVector3f(const std::string& name) const { return m_materialData->GetVector3f(name); }
 	inline float GetFloat(const std::string& name)              const { return m_materialData->GetFloat(name); }
 	inline const Texture& GetTexture(const std::string& name)   const { return m_materialData->GetTexture(name); }
+	inline Shader* GetShader () { return m_shader; }
 	inline MaterialData* GetData() const { return m_materialData; }
 	inline void SetData(MaterialData* data) { m_materialData = data; }
 	static std::map<std::string, MaterialData*> s_resourceMap;
@@ -56,7 +60,7 @@ protected:
 private:
 	MaterialData* m_materialData;
 	std::string   m_materialName;
-	
+	Shader*       m_shader;
 	
 	void operator=(const Material& other) {}
 };
