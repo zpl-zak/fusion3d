@@ -221,3 +221,5 @@ build/Fusion3D.dir/
 
 .tlog
 .idb
+*.tlog
+*.lastbuildstate
