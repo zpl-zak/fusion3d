@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\3DEngine.h" />
+    <ClInclude Include="src\components\decalRenderer.h" />
+    <ClInclude Include="src\components\devMode.h" />
+    <ClInclude Include="src\components\freeLook.h" />
+    <ClInclude Include="src\components\freeMove.h" />
+    <ClInclude Include="src\components\GUIWindow.h" />
+    <ClInclude Include="src\components\meshRenderer.h" />
+    <ClInclude Include="src\components\physicsEngineComponent.h" />
+    <ClInclude Include="src\components\physicsObjectComponent.h" />
+    <ClInclude Include="src\components\programComponent.h" />
+    <ClInclude Include="src\components\worldComponent.h" />
+    <ClInclude Include="src\core\coreEngine.h" />
+    <ClInclude Include="src\core\entity.h" />
+    <ClInclude Include="src\core\entityComponent.h" />
+    <ClInclude Include="src\core\game.h" />
+    <ClInclude Include="src\core\input.h" />
+    <ClInclude Include="src\core\mapLoader.h" />
+    <ClInclude Include="src\core\mappedValues.h" />
+    <ClInclude Include="src\core\math3d.h" />
+    <ClInclude Include="src\core\profiling.h" />
+    <ClInclude Include="src\core\referenceCounter.h" />
+    <ClInclude Include="src\core\timing.h" />
+    <ClInclude Include="src\core\transform.h" />
+    <ClInclude Include="src\core\util.h" />
+    <ClInclude Include="src\factory.hpp" />
+    <ClInclude Include="src\physics\physicsEngine.h" />
+    <ClInclude Include="src\progs\bird_prog.h" />
+    <ClInclude Include="src\progs\fibonacci_prog.h" />
+    <ClInclude Include="src\progs\meshArray_prog.h" />
+    <ClInclude Include="src\reflection.h" />
+    <ClInclude Include="src\rendering\camera.h" />
+    <ClInclude Include="src\rendering\lighting.h" />
+    <ClInclude Include="src\rendering\material.h" />
+    <ClInclude Include="src\rendering\mesh.h" />
+    <ClInclude Include="src\rendering\renderingEngine.h" />
+    <ClInclude Include="src\rendering\shader.h" />
+    <ClInclude Include="src\rendering\texture.h" />
+    <ClInclude Include="src\rendering\window.h" />
+    <ClInclude Include="src\staticLibs\stb_image.h" />
+    <ClInclude Include="src\staticLibs\tinyxml2.h" />
+    <ClInclude Include="src\testing.h" />
+    <ClInclude Include="src\utils\colors.h" />
+    <ClInclude Include="src\utils\pos.h" />
+    <ClInclude Include="src\utils\xmlLoader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\components\freeLook.cpp" />
+    <ClCompile Include="src\components\freeMove.cpp" />
+    <ClCompile Include="src\components\physicsEngineComponent.cpp" />
+    <ClCompile Include="src\components\physicsObjectComponent.cpp" />
+    <ClCompile Include="src\components\programComponent.cpp" />
+    <ClCompile Include="src\core\coreEngine.cpp" />
+    <ClCompile Include="src\core\entity.cpp" />
+    <ClCompile Include="src\core\game.cpp" />
+    <ClCompile Include="src\core\input.cpp" />
+    <ClCompile Include="src\core\mappedValues.cpp" />
+    <ClCompile Include="src\core\math3d.cpp" />
+    <ClCompile Include="src\core\profiling.cpp" />
+    <ClCompile Include="src\core\timing.cpp" />
+    <ClCompile Include="src\core\transform.cpp" />
+    <ClCompile Include="src\core\util.cpp" />
+    <ClCompile Include="src\factory.cpp" />
+    <ClCompile Include="src\physics\physicsEngine.cpp" />
+    <ClCompile Include="src\rendering\camera.cpp" />
+    <ClCompile Include="src\rendering\lighting.cpp" />
+    <ClCompile Include="src\rendering\material.cpp" />
+    <ClCompile Include="src\rendering\mesh.cpp" />
+    <ClCompile Include="src\rendering\renderingEngine.cpp" />
+    <ClCompile Include="src\rendering\shader.cpp" />
+    <ClCompile Include="src\rendering\texture.cpp" />
+    <ClCompile Include="src\rendering\window.cpp" />
+    <ClCompile Include="src\staticLibs\stb_image.c" />
+    <ClCompile Include="src\staticLibs\tinyxml2.cpp" />
+    <ClCompile Include="src\testing.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{B097C253-0D52-3D60-B0D7-3ED1BF5098ED}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>Fusion3D</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Intermediate\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Fusion3D_Debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Fusion3D</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Fusion3D.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Fusion3D</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Fusion3D</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Fusion3D.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Fusion3D</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Fusion3D</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Fusion3D.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Fusion3D</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Fusion3D</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+    <SourcePath>$(SolutionDir)src;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+    <SourcePath>$(SolutionDir)src;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+    <SourcePath>$(SolutionDir)src;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+    <SourcePath>$(SolutionDir)src;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+    <OutDir>$(SolutionDir)Release\</OutDir>
+    <IntDir>Fusion3D.dir\Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AssemblerOutput>All</AssemblerOutput>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName)_Debug.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\lib\glew\lib\Release\Win32\glew32.lib;..\lib\SDL2\lib\x86\SDL2.lib;..\lib\Assimp\lib\x86\assimp.lib;..\lib\bullet3\lib\x86\BulletDynamics.lib;..\lib\bullet3\lib\x86\BulletCollision.lib;..\lib\bullet3\lib\x86\BulletFileLoader.lib;..\lib\bullet3\lib\x86\BulletSoftBody.lib;..\lib\bullet3\lib\x86\LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Fusion3D/engine/build/Debug/Fusion3D.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Fusion3D/engine/build/Debug/Fusion3D.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\engine\headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\lib\glew\lib\Release\Win32\glew32.lib;..\lib\SDL2\lib\x86\SDL2.lib;..\lib\Assimp\lib\x86\assimp.lib;..\lib\bullet3\lib\x86\BulletDynamics.lib;..\lib\bullet3\lib\x86\BulletCollision.lib;..\lib\bullet3\lib\x86\BulletFileLoader.lib;..\lib\bullet3\lib\x86\BulletSoftBody.lib;..\lib\bullet3\lib\x86\LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Fusion3D/engine/build/Debug/Fusion3D.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Fusion3D/engine/build/Debug/Fusion3D.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\lib\glew\lib\Release\Win32\glew32.lib;..\lib\SDL2\lib\x86\SDL2.lib;..\lib\Assimp\lib\x86\assimp.lib;..\lib\bullet3\lib\x86\BulletDynamics.lib;..\lib\bullet3\lib\x86\BulletCollision.lib;..\lib\bullet3\lib\x86\BulletFileLoader.lib;..\lib\bullet3\lib\x86\BulletSoftBody.lib;..\lib\bullet3\lib\x86\LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Fusion3D/engine/build/Release/Fusion3D.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Fusion3D/engine/build/Release/Fusion3D.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\engine\headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\lib\glew\lib\Release\Win32\glew32.lib;..\lib\SDL2\lib\x86\SDL2.lib;..\lib\Assimp\lib\x86\assimp.lib;..\lib\bullet3\lib\x86\BulletDynamics.lib;..\lib\bullet3\lib\x86\BulletCollision.lib;..\lib\bullet3\lib\x86\BulletFileLoader.lib;..\lib\bullet3\lib\x86\BulletSoftBody.lib;..\lib\bullet3\lib\x86\LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Fusion3D/engine/build/Release/Fusion3D.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Fusion3D/engine/build/Release/Fusion3D.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\lib\glew\lib\Release\Win32\glew32.lib;..\lib\SDL2\lib\x86\SDL2.lib;..\lib\Assimp\lib\x86\assimp.lib;..\lib\bullet3\lib\x86\BulletDynamics.lib;..\lib\bullet3\lib\x86\BulletCollision.lib;..\lib\bullet3\lib\x86\BulletFileLoader.lib;..\lib\bullet3\lib\x86\BulletSoftBody.lib;..\lib\bullet3\lib\x86\LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Fusion3D/engine/build/MinSizeRel/Fusion3D.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Fusion3D/engine/build/MinSizeRel/Fusion3D.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>xcopy  /D /y /s /r $(SolutionDir)..\lib\_bin $(SolutionDir)Release
+xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\engine\headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\lib\glew\lib\Release\Win32\glew32.lib;..\lib\SDL2\lib\x86\SDL2.lib;..\lib\Assimp\lib\x86\assimp.lib;..\lib\bullet3\lib\x86\BulletDynamics.lib;..\lib\bullet3\lib\x86\BulletCollision.lib;..\lib\bullet3\lib\x86\BulletFileLoader.lib;..\lib\bullet3\lib\x86\BulletSoftBody.lib;..\lib\bullet3\lib\x86\LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Fusion3D/engine/build/MinSizeRel/Fusion3D.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Fusion3D/engine/build/MinSizeRel/Fusion3D.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>xcopy  /D /y /s /r $(SolutionDir)..\lib\_bin $(SolutionDir)Release
+xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\lib\glew\lib\Release\Win32\glew32.lib;..\lib\SDL2\lib\x86\SDL2.lib;..\lib\Assimp\lib\x86\assimp.lib;..\lib\bullet3\lib\x86\BulletDynamics.lib;..\lib\bullet3\lib\x86\BulletCollision.lib;..\lib\bullet3\lib\x86\BulletFileLoader.lib;..\lib\bullet3\lib\x86\BulletSoftBody.lib;..\lib\bullet3\lib\x86\LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Fusion3D/engine/build/RelWithDebInfo/Fusion3D.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Fusion3D/engine/build/RelWithDebInfo/Fusion3D.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>xcopy  /D /y /s /r $(SolutionDir)..\lib\_bin $(SolutionDir)Release
+xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\engine\headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Fusion3D\engine\headers;F:\Fusion3D\engine\sources;F:\Fusion3D\engine\lib\glew\include;F:\Fusion3D\engine\lib\SDL2\include;F:\Fusion3D\engine\lib\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\lib\glew\lib\Release\Win32\glew32.lib;..\lib\SDL2\lib\x86\SDL2.lib;..\lib\Assimp\lib\x86\assimp.lib;..\lib\bullet3\lib\x86\BulletDynamics.lib;..\lib\bullet3\lib\x86\BulletCollision.lib;..\lib\bullet3\lib\x86\BulletFileLoader.lib;..\lib\bullet3\lib\x86\BulletSoftBody.lib;..\lib\bullet3\lib\x86\LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Fusion3D/engine/build/RelWithDebInfo/Fusion3D.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Fusion3D/engine/build/RelWithDebInfo/Fusion3D.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>xcopy  /D /y /s /r $(SolutionDir)..\lib\_bin $(SolutionDir)Release
+xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
