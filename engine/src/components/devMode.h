@@ -25,6 +25,8 @@
 #include "../core/util.h"
 #include <vector>
 
+#include "../staticLibs/imgui.h"
+
 class DevMode : public EntityComponent
 {
 public:
@@ -246,34 +248,8 @@ public:
 		}
 	}
 
-	virtual void PostRender(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
-	{
-		if (m_isDev)
-		{
-			btVector3 color;
-
-			switch (m_handleMode)
-			{
-			case HANDLE_SELECT:
-				color = btVector3 (0, 1, 0);
-				break;
-			case HANDLE_TRANSFORM:
-				color = btVector3 (1, 0, 0);
-				break;
-			case HANDLE_ROTATE:
-				color = btVector3 (1, 1, 0);
-				break;
-			case HANDLE_SCALE:
-				color = btVector3 (0, 0, 1);
-				break;
-			}
-
-			for (auto x : m_selected)
-			{
-				m_engine->GetPhysicsEngine ()->GetWorld ()->debugDrawObject (x->GetBody ()->getWorldTransform (), x->GetBody ()->getCollisionShape (), color);
-			}
-		}
-	}
+	virtual void PostRender (const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
+	
 
 private:
 	CoreEngine* m_engine;
@@ -287,6 +263,10 @@ private:
 	std::vector<char> m_keySequence;
 	std::vector<RigidBody*> m_selected;
 	char m_handleMode;
+
+	bool m_statsWnd;
+
+	bool show_entity_manager;
 
 	enum HANDLE_STATE {
 		HANDLE_SELECT,

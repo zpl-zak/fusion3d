@@ -21,6 +21,7 @@
 #include "../core/timing.h"
 #include "../rendering/mesh.h"
 
+
 class MeshRenderer : public EntityComponent
 {
 public:
@@ -184,7 +185,7 @@ public:
 	}
 
 
-	void LoadData(std::string filename, int stepSize)
+	void LoadData(std::string filename, size_t stepSize)
 	{
 		m_step = -1;
 		

@@ -73,7 +73,14 @@
     <ClInclude Include="src\rendering\shader.h" />
     <ClInclude Include="src\rendering\texture.h" />
     <ClInclude Include="src\rendering\window.h" />
+    <ClInclude Include="src\staticLibs\imconfig.h" />
+    <ClInclude Include="src\staticLibs\imgui.h" />
+    <ClInclude Include="src\staticLibs\imgui_impl_sdl_gl3.h" />
+    <ClInclude Include="src\staticLibs\imgui_internal.h" />
     <ClInclude Include="src\staticLibs\stb_image.h" />
+    <ClInclude Include="src\staticLibs\stb_rect_pack.h" />
+    <ClInclude Include="src\staticLibs\stb_textedit.h" />
+    <ClInclude Include="src\staticLibs\stb_truetype.h" />
     <ClInclude Include="src\staticLibs\tinyxml2.h" />
     <ClInclude Include="src\testing.h" />
     <ClInclude Include="src\utils\colors.h" />
@@ -81,6 +88,7 @@
     <ClInclude Include="src\utils\xmlLoader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\devMode.cpp" />
     <ClCompile Include="src\components\freeLook.cpp" />
     <ClCompile Include="src\components\freeMove.cpp" />
     <ClCompile Include="src\components\physicsEngineComponent.cpp" />
@@ -106,6 +114,10 @@
     <ClCompile Include="src\rendering\shader.cpp" />
     <ClCompile Include="src\rendering\texture.cpp" />
     <ClCompile Include="src\rendering\window.cpp" />
+    <ClCompile Include="src\staticLibs\imgui.cpp" />
+    <ClCompile Include="src\staticLibs\imgui_demo.cpp" />
+    <ClCompile Include="src\staticLibs\imgui_draw.cpp" />
+    <ClCompile Include="src\staticLibs\imgui_impl_sdl_gl3.cpp" />
     <ClCompile Include="src\staticLibs\stb_image.c" />
     <ClCompile Include="src\staticLibs\tinyxml2.cpp" />
     <ClCompile Include="src\testing.cpp" />

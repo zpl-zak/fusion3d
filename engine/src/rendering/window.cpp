@@ -17,6 +17,7 @@
 #include "window.h"
 #include "../core/util.h"
 #include "../core/profiling.h"
+#include "../staticLibs/imgui_impl_sdl_gl3.h"
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 
@@ -88,6 +89,7 @@ void Window::Update()
 	SDL_Event e;
 	while(SDL_PollEvent(&e))
 	{
+		ImGui_ImplSdlGL3_ProcessEvent (&e);
 		int handled = 0;
 		if (!handled)
 		{

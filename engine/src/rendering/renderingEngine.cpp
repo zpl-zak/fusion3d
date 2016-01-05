@@ -20,6 +20,7 @@
 #include "shader.h"
 
 #include "../core/entity.h"
+#include "../staticLibs/imgui_impl_sdl_gl3.h"
 
 #include <GL/glew.h>
 #include <SDL2\SDL.h>
@@ -109,6 +110,8 @@ RenderingEngine::RenderingEngine(Window* window) :
 	}
 	
 	m_lightMatrix = Matrix4f().InitScale(Vector3f(0, 0, 0));
+
+	ImGui_ImplSdlGL3_Init (window->GetSDLWindow ());
 }
 
 void RenderingEngine::BlurShadowMap(int shadowMapIndex, float blurAmount)
@@ -282,6 +285,7 @@ void RenderingEngine::Render(const Entity& object)
 	SetVector3f("inverseFilterTextureSize", Vector3f(1.0f/(float)GetTexture("displayTexture").GetWidth(), 
 	                                                 1.0f/((float)GetTexture("displayTexture").GetHeight() + displayTextureHeightAdditive), 0.0f));
 
+	ImGui_ImplSdlGL3_NewFrame ();
 	object.PostRenderAll(m_nullShader, *this, *m_mainCamera);
 
 	m_renderProfileTimer.StopInvocation();

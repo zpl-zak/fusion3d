@@ -73,30 +73,6 @@ void CoreEngine::Start ()
 	double unprocessedTime = 0;        //Amount of passed time that the engine hasn't accounted for
 	int frames = 0;                    //Number of frames rendered since last
 
-	char copy[] = "Fusion3D";
-
-	for (size_t i = 0; i < 80; i++)
-	{
-		GotoXY (i, 0);
-		CPRINT (concatcolors (dark_red, 0), concatcolors (dark_red, 7), ' ');
-	}
-
-	for (size_t i = 0; i < 80; i++)
-	{
-		for (size_t j = 1; j < 25; j++)
-		{
-			GotoXY (i, j);
-			CPRINT (concatcolors (dark_red, 0), concatcolors (dark_red, 7), (char) 178);
-		}
-
-	}
-
-	GotoXY (78 - strlen (copy), 0);
-	CPRINT (concatcolors (dark_red, white), concatcolors (dark_red, 7), copy);
-
-	GotoXY (0, 1);
-	printf ("GPU: %s -> %s\n", glGetString (GL_VENDOR), glGetString (GL_RENDERER));
-
 	ProfileTimer sleepTimer;
 	ProfileTimer swapBufferTimer;
 	ProfileTimer windowUpdateTimer;
@@ -111,37 +87,8 @@ void CoreEngine::Start ()
 		unprocessedTime += passedTime;
 		frameCounter += passedTime;
 
-		if (frameCounter >= 1.0)
-		{
-			double totalTime = ((1000.0 * frameCounter) / ((double) frames));
-			COORD pos = GetXY ();
-			if (!pos.Y)
-				pos.Y = 1;
-
-			if (pos.Y > 24)
-			{
-				for (size_t i = 0; i < 80; i++)
-				{
-					for (size_t j = 1; j < 25; j++)
-					{
-						GotoXY (i, j);
-						CPRINT (concatcolors (dark_red, 0), concatcolors (dark_red, 7), (char) 178);
-					}
-
-				}
-				pos.X = 0;
-				pos.Y = 1;
-			}
-
-			GotoXY (1, 0);
-			CPRINT (concatcolors (dark_red, white), concatcolors (dark_red, 7), (int)1000.0f / (int) totalTime << " FPS");
-			CPRINT (concatcolors (dark_red, white), concatcolors (dark_red, 7), "  Version " << ENGINE_VERSION << " Build " << std::string (__DATE__) << " " << std::string (__TIME__));
-
-			GotoXY (pos.X, pos.Y);
-			frames = 0;
-			frameCounter = 0;
-		}
-		/*if (frameCounter >= 1.0)
+	
+		if (frameCounter >= 10.0)
 		{
 			double totalTime = ((1000.0 * frameCounter)/((double)frames));
 			double totalMeasuredTime = 0.0;
@@ -158,7 +105,7 @@ void CoreEngine::Start ()
 			printf("Total Time:                             %f ms(%f FPS)\n\n", totalTime, 1000.0f / totalTime);
 			frames = 0;
 			frameCounter = 0;
-		}*/
+		}
 
 		//The engine works on a fixed update system, where each update is 1/frameRate seconds of time.
 		//Because of this, there can be a situation where there is, for instance, a fixed update of 16ms, 
@@ -201,8 +148,7 @@ void CoreEngine::Start ()
 		if (render)
 		{
 			m_game->Render (m_renderingEngine);
-			//m_physicsEngine->GetWorld ()->debugDrawWorld ();
-			//m_dbgDraw->drawLine (btVector3 (0, 0, 0), btVector3 (1, 1, -1), btVector3 ());
+			ImGui::Render ();
 
 			//The newly rendered image will be in the window's backbuffer,
 			//so the buffers must be swapped to display the new image.

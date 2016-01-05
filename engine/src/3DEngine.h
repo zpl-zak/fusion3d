@@ -63,6 +63,9 @@
 #include "core/coreEngine.h"
 #include "core/game.h"
 
+#include "staticLibs\imgui.h"
+#include "staticLibs\imgui_impl_sdl_gl3.h"
+
 //SDL2 defines a main macro, which can prevent certain compilers from finding the main function.
 #undef main
 

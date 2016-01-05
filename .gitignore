@@ -224,3 +224,4 @@ build/Fusion3D.dir/
 *.tlog
 *.lastbuildstate
 temp/
+projects/
