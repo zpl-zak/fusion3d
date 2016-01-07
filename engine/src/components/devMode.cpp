@@ -1,6 +1,6 @@
 #include "devMode.h"
 
-void DevMode::PostRender (const Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera) const
+void DevMode::PostRender (const Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera)
 {
 	if (m_isDev)
 	{
@@ -53,6 +53,18 @@ void DevMode::PostRender (const Shader & shader, const RenderingEngine & renderi
 					}
 					ImGui::End ();
 				}
+
+				ImGui::EndMenu ();
+			}
+
+			if (ImGui::BeginMenu ("States"))
+			{
+				if (ImGui::MenuItem ("Enable Physics", "CTRL+P", enable_physics)) 
+				{
+					enable_physics = !enable_physics;
+				}
+				
+				m_engine->SetSimulation (enable_physics);
 
 				ImGui::EndMenu ();
 			}

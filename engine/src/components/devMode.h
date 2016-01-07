@@ -41,6 +41,8 @@ public:
 		m_showCursor(false),
 		m_devCamera(Matrix4f().InitPerspective(
 			ToRadians(70.0f), window.GetAspect(), 0.1f, 1000.0f), 0)
+
+		, enable_physics(false)
 	{
 		m_engine = CoreEngine::GetCoreEngine();
 		m_move = new FreeMove(10.0f);
@@ -248,7 +250,7 @@ public:
 		}
 	}
 
-	virtual void PostRender (const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
+	virtual void PostRender (const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
 	
 
 private:
@@ -267,6 +269,8 @@ private:
 	bool m_statsWnd;
 
 	bool show_entity_manager;
+
+	bool enable_physics;
 
 	enum HANDLE_STATE {
 		HANDLE_SELECT,

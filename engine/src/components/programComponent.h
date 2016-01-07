@@ -82,6 +82,8 @@ public:
 		return lastError;
 	}
 
+	virtual void DataDeploy (tinyxml2::XMLElement* data){}
+
 	inline void SetParent(Entity* parent) { m_parent = parent; }
 protected:
 	std::set<std::string> m_error;
@@ -147,6 +149,11 @@ public:
 		{
 			std::cerr << "Init() failed for Program Name: " << m_program->GetProgramName() << std::endl;
 		}
+	}
+
+	virtual void DataDeploy (tinyxml2::XMLElement* data)
+	{
+		m_program = (Program*)g_factory.construct (data->GetText ());
 	}
 
 	virtual void ProcessInput(const Input& input, float delta)

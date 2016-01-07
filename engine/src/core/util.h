@@ -103,7 +103,7 @@ namespace Util
 		rayDir = rayDir.Normalized ();
 
 		out_origin = (Vector3f) rayS.GetXYZ().Normalized ();
-		out_dir = rayDir.Normalized ();
+		out_dir = rayDir;
 	}
 
 	inline std::string chomp(const std::string& s)

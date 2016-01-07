@@ -134,6 +134,33 @@ public:
 				component = component->NextSiblingElement("component");
 			}
 			
+			tinyxml2::XMLElement* program = sibling->FirstChildElement ("program");
+
+			while (program != nullptr)
+			{
+				std::string name = program->Attribute ("name");
+				bool verbose = false;
+				
+				if (program->Attribute ("verbose"))
+					verbose = atoi (program->Attribute ("verbose"));
+
+				auto programObj = (Program*)g_factory.construct (name);
+
+				if (programObj == nullptr)
+				{
+					std::cerr << "Program isn't registered in engine! Are you sure you registered it? " << name << std::endl;
+					assert (1 == 0);
+				}
+
+				programObj->DataDeploy (program);
+
+				ProgramHoster* hoster = new ProgramHoster (programObj, verbose);
+
+				entity->AddComponent (hoster);
+
+				program = program->NextSiblingElement ("program");
+			}
+
 			tinyxml2::XMLElement* entities = sibling->FirstChildElement("entity");
 
 			while (entities != nullptr)
