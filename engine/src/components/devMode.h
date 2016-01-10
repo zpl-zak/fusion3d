@@ -25,6 +25,8 @@
 #include "../core/util.h"
 #include <vector>
 
+#include <Windows.h>
+
 #include "../staticLibs/imgui.h"
 
 class DevMode : public EntityComponent
@@ -48,7 +50,9 @@ public:
 		m_move = new FreeMove(10.0f);
 		m_look = new FreeLook(window.GetCenter());
 
-		m_engine->SetSimulation(m_isUpdating);
+		m_engine->GetPhysicsEngine ()->SetSimulation(m_isUpdating);
+
+		MessageBoxA (NULL, (LPCSTR)(m_isUpdating) ? "1" : "0", "Ok", MB_OK);
 		ProgramHoster::SetActive(m_isUpdating);
 
 	}
@@ -77,7 +81,7 @@ public:
 				m_engine->GetRenderingEngine()->SetMainCamera(*m_lastCamera);
 		}
 
-		m_engine->SetSimulation(m_isUpdating);
+		m_engine->GetPhysicsEngine ()->SetSimulation(m_isUpdating);
 		ProgramHoster::SetActive(m_isUpdating);
 	}
 
@@ -198,7 +202,7 @@ public:
 		if (input.GetKeyDown(Input::KEY_F4))
 		{
 			m_isDev = !m_isDev;
-			m_isUpdating = m_engine->GetSimulation();
+			m_isUpdating = m_engine->GetPhysicsEngine ()->GetSimulation();
 			
 
 			if (m_isDev)
@@ -208,7 +212,7 @@ public:
 				m_lastCamera = m_engine->GetRenderingEngine()->GetMainCamera();
 				m_engine->GetRenderingEngine()->SetMainCamera(m_devCamera);
 
-				m_engine->SetSimulation(false);
+				m_engine->GetPhysicsEngine ()->SetSimulation(false);
 				ProgramHoster::SetActive(false);
 			}
 			else
@@ -217,7 +221,7 @@ public:
 				input.SetCursor(!m_showCursor);
 				m_engine->GetRenderingEngine()->SetMainCamera(*m_lastCamera);
 
-				m_engine->SetSimulation(true);
+				m_engine->GetPhysicsEngine ()->SetSimulation(true);
 				ProgramHoster::SetActive(true);
 			}
 

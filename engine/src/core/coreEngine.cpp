@@ -32,7 +32,6 @@ CoreEngine* CoreEngine::m_coreEngine = NULL;
 
 CoreEngine::CoreEngine (double frameRate, Window* window, RenderingEngine* renderingEngine, PhysicsEngine* physicsEngine) :
 	m_isRunning (false),
-	m_isSimulating (false),
 	m_frameTime (1.0 / frameRate),
 	m_window (window),
 	m_renderingEngine (renderingEngine),
@@ -132,9 +131,7 @@ void CoreEngine::Start ()
 			//if (m_view->IsLoading())
 			//	m_web->Update();
 
-
-			if (m_isSimulating)
-				m_physicsEngine->Simulate ((float) m_frameTime);
+			m_physicsEngine->Simulate ((float) m_frameTime);
 
 			m_game->Update ((float) m_frameTime);
 

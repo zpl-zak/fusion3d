@@ -64,7 +64,7 @@ void DevMode::PostRender (const Shader & shader, const RenderingEngine & renderi
 					enable_physics = !enable_physics;
 				}
 				
-				m_engine->SetSimulation (enable_physics);
+				m_engine->GetPhysicsEngine()->SetSimulation (enable_physics);
 
 				ImGui::EndMenu ();
 			}

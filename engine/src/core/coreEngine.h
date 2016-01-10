@@ -44,8 +44,6 @@ public:
 	inline PhysicsEngine* GetPhysicsEngine() { return m_physicsEngine; }
 	inline static CoreEngine* GetCoreEngine() { return m_coreEngine; }
 	inline static void SetCoreEngine(CoreEngine* coreEngine) { m_coreEngine = coreEngine; }
-	inline void SetSimulation(bool state) { m_isSimulating = state; }
-	inline bool GetSimulation() const { return m_isSimulating; }
 	void LoadGame(Game* game);
 	void SetUserspace(std::function<void()> userspace);
 protected:
@@ -54,7 +52,6 @@ protected:
 private:
 	static CoreEngine*	m_coreEngine;
 	bool             m_isRunning;       //Whether or not the engine is running
-	bool			 m_isSimulating;    //Whether or not is BT simulating
 	double           m_frameTime;       //How long, in seconds, one frame should take
 	Window*          m_window;          //Used to display the game
 	RenderingEngine* m_renderingEngine; //Used to render the game. Stored as pointer so the user can pass in a derived class.

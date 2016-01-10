@@ -57,8 +57,6 @@ public:
 		{
 			m_shape->calculateLocalInertia (m_mass, m_inertia);
 		}
-
-		CoreEngine::GetCoreEngine ()->SetSimulation (true);
 	}
 
 	virtual ~RigidBody ()
@@ -143,8 +141,6 @@ public:
 
 		m_shape = shape;
 		m_mass = mass;
-
-		CoreEngine::GetCoreEngine ()->SetSimulation (true);
 	}
 
 	virtual void Init ()

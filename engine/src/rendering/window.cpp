@@ -89,9 +89,8 @@ void Window::Update()
 	SDL_Event e;
 	while(SDL_PollEvent(&e))
 	{
-		ImGui_ImplSdlGL3_ProcessEvent (&e);
-		int handled = 0;
-		if (!handled)
+		int handled = ImGui_ImplSdlGL3_ProcessEvent (&e);
+		if (1)
 		{
 			if (e.type == SDL_QUIT)
 			{

@@ -57,6 +57,7 @@ public:
 		m_solver = new btSequentialImpulseConstraintSolver;
 		m_world = new btDiscreteDynamicsWorld(m_dispatcher, m_broadphase, m_solver, m_configuration);
 		m_world->setGravity(btVector3(0, -9.81f, 0));
+		m_simulation = false;
 	}
 
 	virtual ~PhysicsEngine()
@@ -76,12 +77,16 @@ public:
 		return m_world;
 	}
 
+	inline void SetSimulation (bool state) { m_simulation = state; }
+	inline bool GetSimulation () { return m_simulation; }
+
 private:
 	btBroadphaseInterface* m_broadphase;
 	btDefaultCollisionConfiguration* m_configuration;
 	btCollisionDispatcher* m_dispatcher;
 	btSequentialImpulseConstraintSolver* m_solver;
 	btDiscreteDynamicsWorld* m_world;
+	bool m_simulation;
 };
 
 #endif

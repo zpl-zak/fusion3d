@@ -20,6 +20,8 @@
 
 void PhysicsEngine::Simulate(float delta)
 {
+	if (!m_simulation)return;
+
 	m_world->stepSimulation(1 / 60.0f, 1);
 
 	int numManifolds = GetWorld()->getDispatcher()->getNumManifolds ();
