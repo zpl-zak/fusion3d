@@ -657,8 +657,8 @@ public:
 	//	KEY_LAST
 	//} KEY;
 
-	static const int NUM_KEYS = 512;
-	static const int NUM_MOUSEBUTTONS = 256;
+	static constexpr int NUM_KEYS = 512;
+	static constexpr int NUM_MOUSEBUTTONS = 256;
 
 	Input(Window* window);
 

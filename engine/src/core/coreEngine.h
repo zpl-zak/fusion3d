@@ -57,8 +57,8 @@ private:
 	RenderingEngine* m_renderingEngine; //Used to render the game. Stored as pointer so the user can pass in a derived class.
 	PhysicsEngine*	 m_physicsEngine;	//Used to represent game physics.
 	Game*            m_game;            //The game itself. Stored as pointer so the user can pass in a derived class.
-	GLDebugDrawer*    m_dbgDraw;
-	std::function<void()> m_userspace;
+	GLDebugDrawer*    m_dbgDraw;		//OpenGL Debug Drawer. Used for various debug operations.
+	std::function<void()> m_userspace;	//Reflection class registration for project-wise classes.
 };
 
 #endif // COREENGINE_H

@@ -54,56 +54,19 @@ public:
 	
 	inline Transform* GetTransform() { return &m_transform; }
 	inline Entity* GetParent() { return m_parent; }
-	void SetEngine(CoreEngine* engine);
-	inline void SetParent(Entity* parent) { m_parent = parent; }
 	inline const std::string& GetDisplayName() const { return m_displayName; }
-	inline Entity* SetDisplayName(const std::string& displayName) { m_displayName = displayName; return this; }
-	inline void Destroy() { m_destroy = true; }
-	inline void SetTransform(Transform transform) { m_transform = transform; }
 	
+	inline Entity* SetDisplayName (const std::string& displayName) { m_displayName = displayName; return this; }
+	inline void SetTransform(Transform transform) { m_transform = transform; }
+	void SetEngine (CoreEngine* engine);
+	inline void SetParent (Entity* parent) { m_parent = parent; }
+
+	inline void Destroy () { m_destroy = true; }
+
 	/// Retrieves our scene graph.
-	inline Entity* GetScene() 
-	{
-		Entity* parent = m_parent;
-		Entity* last_parent = parent;
-
-		while (parent != 0)
-		{
-			last_parent = parent;
-			parent = parent->GetParent();
-		}
-
-		return last_parent;
-	}
-
-	inline Entity* GetChildByName(const std::string& name)
-	{
-		Entity* result = 0;
-
-		for (size_t i = 0; i < m_children.size(); i++)
-		{
-			if (m_children.at(i)->GetDisplayName() == name)
-			{
-				result = m_children.at(i);
-				break;
-			}
-			else
-			{
-				result = m_children.at(i)->GetChildByName(name);
-				if (result != 0) break;
-			}
-		}
-
-		return result;
-	}
-
-	inline Entity* GetChildByIndex(unsigned int ID)
-	{
-		if (ID < 0 || ID > m_children.size()+1) return nullptr;
-
-		return m_children.at(ID);
-	}
-
+	Entity* GetScene ();
+	Entity* GetChildByName (const std::string& name);
+	Entity* GetChildByIndex (unsigned int ID);
 	std::vector<EntityComponent*> GetComponentsByType(const std::string& name);
 
 protected:

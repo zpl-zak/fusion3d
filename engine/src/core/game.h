@@ -22,7 +22,7 @@
 #include "profiling.h"
 
 /*
- * This is our game, which also contains our scene graph.
+ * This is our base game class, which also contains our scene graph.
  */
 class Game
 {

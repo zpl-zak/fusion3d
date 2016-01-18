@@ -140,25 +140,4 @@ private:
 	
 };
 
-//class MeshBuilder
-//{
-//public:
-//	MeshBuilder() {}
-//	
-//	void AddVertex(const Vector3f& vert);
-////	inline void AddVertex(float x, float y, float z) { AddVertex(Vector3f(x, y, z)); }
-//	
-//	void AddTexCoord(const Vector2f& texCoord);
-////	inline void AddTexCoord(float x, float y) { AddTexCoord(Vector2f(x, y)); }
-//	
-//	void AddFace(unsigned int vertIndex0, unsigned int vertIndex1, unsigned int vertIndex2);
-//	
-//	Mesh FinalizeMesh(const std::string& meshName);
-//	
-//	inline IndexedModel* GetModel() { return &m_model; }
-//protected:
-//private:
-//	IndexedModel m_model;
-//};
-
 #endif

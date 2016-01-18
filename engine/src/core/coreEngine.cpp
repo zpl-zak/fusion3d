@@ -40,6 +40,9 @@ CoreEngine::CoreEngine (double frameRate, Window* window, RenderingEngine* rende
 	CoreEngine::SetCoreEngine (this);
 }
 
+/**
+* Starts the engine.
+*/
 void CoreEngine::Start ()
 {
 	if (m_game == nullptr)
@@ -86,7 +89,8 @@ void CoreEngine::Start ()
 		unprocessedTime += passedTime;
 		frameCounter += passedTime;
 
-	
+		
+		// Does the timer exceed 10 seconds? Print out our stats.
 		if (frameCounter >= 10.0)
 		{
 			double totalTime = ((1000.0 * frameCounter)/((double)frames));
@@ -206,6 +210,6 @@ void CoreEngine::SetUserspace (std::function<void ()> userspace)
 	m_userspace = userspace;
 }
 
-// Following lines make sure game runs on your dedicated mobile GPU rather than integrated one. (Applies only to mobile devices with integrated and dedicated GPU)
-_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
-_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
+/// Following lines make sure game runs on your dedicated mobile GPU rather than integrated one. (Applies only to mobile devices with integrated and dedicated GPU)
+_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;			// NVIDIA
+_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;		// ATI/AMD

@@ -202,6 +202,48 @@ void Entity::SetEngine(CoreEngine* engine)
 	}
 }
 
+Entity * Entity::GetScene ()
+{
+	Entity* parent = m_parent;
+	Entity* last_parent = parent;
+
+	while (parent != 0)
+	{
+		last_parent = parent;
+		parent = parent->GetParent ();
+	}
+
+	return last_parent;
+}
+
+Entity * Entity::GetChildByName (const std::string & name)
+{
+	Entity* result = 0;
+
+	for (size_t i = 0; i < m_children.size (); i++)
+	{
+		if (m_children.at (i)->GetDisplayName () == name)
+		{
+			result = m_children.at (i);
+			break;
+		}
+		else
+		{
+			result = m_children.at (i)->GetChildByName (name);
+			if (result != 0) break;
+		}
+	}
+
+	return result;
+}
+
+Entity * Entity::GetChildByIndex (unsigned int ID)
+{
+	if (ID < 0 || ID > m_children.size () + 1) return nullptr;
+
+	return m_children.at (ID);
+}
+
 std::vector<Entity*> Entity::GetAllAttached()
 {
 	std::vector<Entity*> result;

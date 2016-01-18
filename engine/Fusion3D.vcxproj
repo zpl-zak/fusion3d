@@ -98,6 +98,7 @@
     <ClCompile Include="src\core\entity.cpp" />
     <ClCompile Include="src\core\game.cpp" />
     <ClCompile Include="src\core\input.cpp" />
+    <ClCompile Include="src\core\mapLoader.cpp" />
     <ClCompile Include="src\core\mappedValues.cpp" />
     <ClCompile Include="src\core\math3d.cpp" />
     <ClCompile Include="src\core\profiling.cpp" />

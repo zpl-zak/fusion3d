@@ -35,11 +35,8 @@ public:
 
 	FCLASS (EntityComponent);
 
-	EntityComponent() :
-		m_parent(0) 
-	{
-		//Mapper::RegisterComponent("EntityComponent", &fCreate<EntityComponent>);
-	}
+	EntityComponent () :
+		m_parent (0) {}
 	virtual ~EntityComponent() {}
 
 	virtual std::string _GetClassName_() { return "EntityComponent"; }
