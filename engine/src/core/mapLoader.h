@@ -19,7 +19,7 @@
 // Tell the TIXML to use Standard Library for XML handling
 #define TIXML_USE_STL 
 
-/*
+/**
  * Handles serialized scene graph structure.
  */
 class MapLoader

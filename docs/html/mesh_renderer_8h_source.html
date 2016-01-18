@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Fusion3D: F:/Fusion3D_work/src/components/meshRenderer.h Source File</title>
+<title>Fusion3D: E:/Fusion3D_work/engine/src/components/meshRenderer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_docs.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
    &#160;<span id="projectnumber">Alpha</span>
@@ -132,324 +131,454 @@ $(document).ready(function(){initNavTree('mesh_renderer_8h_source.html','');});
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../core/timing.h&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../rendering/mesh.h&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_mesh_renderer.html">MeshRenderer</a> : <span class="keyword">public</span> <a class="code" href="class_entity_component.html">EntityComponent</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">   27</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">MeshRenderer</a>(){}</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">   28</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">MeshRenderer</a>(std::vector&lt;Mesh*&gt; meshes, std::vector&lt;Material*&gt; materials)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">LoadData</a>(meshes, materials);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">   33</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">MeshRenderer</a>(<span class="keyword">const</span> std::string&amp; fileName) :</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="class_mesh_renderer.html">MeshRenderer</a>(<a class="code" href="class_mesh.html">Mesh</a>::ImportMesh(fileName), <a class="code" href="class_mesh.html">Mesh</a>::ImportMeshMaterial(fileName))</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">   37</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">MeshRenderer</a>(<a class="code" href="class_mesh.html">Mesh</a> mesh, <span class="keyword">const</span> <a class="code" href="class_material.html">Material</a>&amp; material)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.push_back(mesh);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>.push_back(material);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">   43</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">Init</a>()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">   49</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">Render</a>(<span class="keyword">const</span> <a class="code" href="class_shader.html">Shader</a>&amp; shader, <span class="keyword">const</span> <a class="code" href="class_rendering_engine.html">RenderingEngine</a>&amp; renderingEngine, <span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>&amp; camera)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> (shader.<a class="code" href="class_shader.html#a809d60fe373e488a764dc80ac8158330">GetName</a>() == <span class="stringliteral">&quot;shadowMapGenerator&quot;</span> &amp;&amp; !<a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.size(); i++)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            shader.<a class="code" href="class_shader.html#a80b52feb71b870447cd0f2a20ca68400">Bind</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            shader.<a class="code" href="class_shader.html#a0a6b91d25a352e72624a26cb05f21962">UpdateUniforms</a>(<a class="code" href="class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566">GetTransform</a>(), <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>.at(<a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.at(i).GetMeshData()-&gt;GetMaterialIndex()), renderingEngine, camera);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.at(i).Draw();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">   61</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">DataDeploy</a>(<a class="code" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a>* data)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::vector&lt;Mesh*&gt; meshes = <a class="code" href="class_mesh.html#af11b125a96697494a80c864e3d7c1864">Mesh::ImportMesh</a>(data-&gt;<a class="code" href="classtinyxml2_1_1_x_m_l_element.html#a56cc727044dad002b978256754d43a4b">GetText</a>());</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        std::vector&lt;Material*&gt; materials = <a class="code" href="class_mesh.html#ad1a6c1004ac4e073852989a3d68538d1">Mesh::ImportMeshMaterial</a>(data-&gt;<a class="code" href="classtinyxml2_1_1_x_m_l_element.html#a56cc727044dad002b978256754d43a4b">GetText</a>());</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">LoadData</a>(meshes, materials);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">   68</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">SetVisible</a>(<span class="keywordtype">bool</span> visible)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a> = visible;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_mesh_renderer.html">MeshRenderer</a> : <span class="keyword">public</span> <a class="code" href="class_entity_component.html">EntityComponent</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_mesh_renderer.html#a48c3268f0ea8872d81f36a8891305741">FCLASS</a> (<a class="code" href="class_mesh_renderer.html">MeshRenderer</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">   29</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">MeshRenderer</a>(){}</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">   30</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">MeshRenderer</a>(std::vector&lt;Mesh*&gt; meshes, std::vector&lt;Material*&gt; materials)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">LoadData</a>(meshes, materials);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">   35</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">MeshRenderer</a>(<span class="keyword">const</span> std::string&amp; fileName) :</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_mesh_renderer.html">MeshRenderer</a>(<a class="code" href="class_mesh.html">Mesh</a>::ImportMesh(fileName), <a class="code" href="class_mesh.html">Mesh</a>::ImportMeshMaterial(fileName))</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">   39</a></span>&#160;    <a class="code" href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">MeshRenderer</a>(<a class="code" href="class_mesh.html">Mesh</a> mesh, <span class="keyword">const</span> <a class="code" href="class_material.html">Material</a>&amp; material)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.push_back(mesh);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>.push_back(material);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">   45</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">Init</a>()</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">   51</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">Render</a>(<span class="keyword">const</span> <a class="code" href="class_shader.html">Shader</a>&amp; shader, <span class="keyword">const</span> <a class="code" href="class_rendering_engine.html">RenderingEngine</a>&amp; renderingEngine, <span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>&amp; camera)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span> (shader.<a class="code" href="class_shader.html#a809d60fe373e488a764dc80ac8158330">GetName</a>() == <span class="stringliteral">&quot;shadowMapGenerator&quot;</span> &amp;&amp; !<a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.size(); i++)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keyword">auto</span> material = <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>.at (<a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.at (i).GetMeshData ()-&gt;GetMaterialIndex ());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keyword">auto</span> _shader = (shader.<a class="code" href="class_shader.html#a809d60fe373e488a764dc80ac8158330">GetName</a>() == <span class="stringliteral">&quot;forward-ambient&quot;</span>) ? material.GetShader () : &amp;shader;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            _shader-&gt;<a class="code" href="class_shader.html#a80b52feb71b870447cd0f2a20ca68400">Bind</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            _shader-&gt;UpdateUniforms(<a class="code" href="class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566">GetTransform</a>(), material, renderingEngine, camera);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.at(i).Draw();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">   65</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">DataDeploy</a>(tinyxml2::XMLElement* data)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        std::vector&lt;Mesh*&gt; meshes = <a class="code" href="class_mesh.html#af11b125a96697494a80c864e3d7c1864">Mesh::ImportMesh</a>(data-&gt;GetText());</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::vector&lt;Material*&gt; materials = <a class="code" href="class_mesh.html#ad1a6c1004ac4e073852989a3d68538d1">Mesh::ImportMeshMaterial</a>(data-&gt;GetText());</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">LoadData</a>(meshes, materials);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">   75</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">IsVisible</a>()</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">   80</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">LoadData</a>(std::vector&lt;Mesh*&gt; meshes, std::vector&lt;Material*&gt; materials)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; meshes.size(); i++)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.push_back(*(meshes.at(i)));</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; materials.size(); i++)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>.push_back(*(materials.at(i)));</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">   74</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">SetVisible</a>(<span class="keywordtype">bool</span> visible)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a> = visible;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">   81</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">IsVisible</a>()</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">   86</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">LoadData</a>(std::vector&lt;Mesh*&gt; meshes, std::vector&lt;Material*&gt; materials)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; meshes.size(); i++)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.push_back(*(meshes.at(i)));</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">   93</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">SetShadows</a>(<span class="keywordtype">bool</span> shadows)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a> = shadows;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">  100</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">HasShadows</a>()</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">  106</a></span>&#160;    std::vector&lt;Mesh&gt; <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">  107</a></span>&#160;    std::vector&lt;Material&gt; <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">  108</a></span>&#160;    <span class="keywordtype">bool</span>            <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">  109</a></span>&#160;    <span class="keywordtype">bool</span>            <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html">  113</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_morph_mesh_renderer.html">MorphMeshRenderer</a> : <span class="keyword">public</span> <a class="code" href="class_mesh_renderer.html">MeshRenderer</a></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#aa62c2d85d83cb1f028a3a8a7ecee3f63">  116</a></span>&#160;    <a class="code" href="class_morph_mesh_renderer.html#aa62c2d85d83cb1f028a3a8a7ecee3f63">MorphMeshRenderer</a>()</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    : m_step(-1)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {}</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#a8601971937f4e78c9be85fb62d17b629">  120</a></span>&#160;    <a class="code" href="class_morph_mesh_renderer.html#a8601971937f4e78c9be85fb62d17b629">MorphMeshRenderer</a>(<span class="keyword">const</span> std::string&amp; fileName, <span class="keywordtype">int</span> stepSize)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        :</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        m_step(-1)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <a class="code" href="class_morph_mesh_renderer.html#a475ea23b780d8af1c641c81919e36d2e">LoadData</a>(fileName, stepSize);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#add4866e55e0f0aca3f33445db9d36693">  127</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_morph_mesh_renderer.html#add4866e55e0f0aca3f33445db9d36693">Update</a>(<span class="keywordtype">float</span> delta) </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">if</span> (m_timer.<a class="code" href="class_delay_timer.html#a1432bc52887bab17358c7ae25a3f27c9">HasElapsed</a>())</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        m_step++;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">if</span> (m_step &gt;= m_meshes.size())</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            m_step = 0;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        }</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#ae14359c5cca738895522a0bc597bd3e6">  141</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_morph_mesh_renderer.html#ae14359c5cca738895522a0bc597bd3e6">Render</a>(<span class="keyword">const</span> <a class="code" href="class_shader.html">Shader</a>&amp; shader, <span class="keyword">const</span> <a class="code" href="class_rendering_engine.html">RenderingEngine</a>&amp; renderingEngine, <span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>&amp; camera)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordflow">if</span> (shader.<a class="code" href="class_shader.html#a809d60fe373e488a764dc80ac8158330">GetName</a>() == <span class="stringliteral">&quot;shadowMapGenerator&quot;</span> &amp;&amp; !<a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        shader.<a class="code" href="class_shader.html#a80b52feb71b870447cd0f2a20ca68400">Bind</a>();</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; m_meshes.at(m_step).size(); j++)</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            shader.<a class="code" href="class_shader.html#a0a6b91d25a352e72624a26cb05f21962">UpdateUniforms</a>(<a class="code" href="class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566">GetTransform</a>(), m_materials.at(m_meshes.at(m_step).at(j).GetMeshData()-&gt;GetMaterialIndex()), renderingEngine, camera);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            m_meshes.at(m_step).at(j).Draw();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#a56bff1463f2ade4321e51111a278b67d">  154</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_morph_mesh_renderer.html#a56bff1463f2ade4321e51111a278b67d">DataDeploy</a>(<a class="code" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a>* data)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordtype">int</span> stepSize = 1;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">if</span> (data-&gt;<a class="code" href="classtinyxml2_1_1_x_m_l_element.html#a7bdebdf1888074087237f3dd03912740">Attribute</a>(<span class="stringliteral">&quot;step&quot;</span>))</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            stepSize = atoi(data-&gt;<a class="code" href="classtinyxml2_1_1_x_m_l_element.html#a7bdebdf1888074087237f3dd03912740">Attribute</a>(<span class="stringliteral">&quot;step&quot;</span>));</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <a class="code" href="class_morph_mesh_renderer.html#a475ea23b780d8af1c641c81919e36d2e">LoadData</a>(data-&gt;<a class="code" href="classtinyxml2_1_1_x_m_l_element.html#a56cc727044dad002b978256754d43a4b">GetText</a>(), stepSize);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#afddb9fd04f0e8954d7dc0f9fd27c9284">  164</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_morph_mesh_renderer.html#afddb9fd04f0e8954d7dc0f9fd27c9284">SetVisible</a>(<span class="keywordtype">bool</span> visible)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a> = visible;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#a33dcc98c7e543e7f1fc660fdffe9b82e">  171</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_morph_mesh_renderer.html#a33dcc98c7e543e7f1fc660fdffe9b82e">IsVisible</a>()</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    {</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#a475ea23b780d8af1c641c81919e36d2e">  177</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_morph_mesh_renderer.html#a475ea23b780d8af1c641c81919e36d2e">LoadData</a>(std::string filename, <span class="keywordtype">int</span> stepSize)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    {</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        m_step = -1;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        std::string filelist = <a class="code" href="namespace_util.html#a959e2c36ed4c8e55e6fe4e3888baef05">Util::ExecuteTask</a>(<span class="stringliteral">&quot;listdir&quot;</span>, (<a class="code" href="namespace_util.html#a61c97dd4b940f698790e9f5a79c52c97">Util::ResourcePath</a>() + <span class="stringliteral">&quot;models/&quot;</span> + filename + <span class="stringliteral">&quot; .obj&quot;</span>));</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        std::vector&lt;std::string&gt; files = <a class="code" href="namespace_util.html#abe90b401f63d09fbf85cdf8c637cebd1">Util::Split</a>(filelist, <span class="charliteral">&#39;@&#39;</span>);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        m_timer.<a class="code" href="class_delay_timer.html#a03a384a4cf0ab7b496c6c94f3eeaf564">SetDelay</a>(1);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        std::vector&lt;std::vector&lt;Mesh*&gt;&gt; meshes_old;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        std::vector&lt;Material*&gt; materials;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; materials.size(); i++)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>.push_back(*(materials.at(i)));</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">   99</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">SetShadows</a>(<span class="keywordtype">bool</span> shadows)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a> = shadows;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">  106</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">HasShadows</a>()</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a471efca677d84e80d45ab3865aaabfd0">  111</a></span>&#160;    <a class="code" href="class_material.html">Material</a>&amp; <a class="code" href="class_mesh_renderer.html#a471efca677d84e80d45ab3865aaabfd0">GetMaterial</a> (<span class="keywordtype">int</span> ID) { <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>.at(ID); }</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#ac5b4b6215157ec5e8bcdabd61e96b901">  112</a></span>&#160;    <a class="code" href="class_mesh.html">Mesh</a>&amp; <a class="code" href="class_mesh_renderer.html#ac5b4b6215157ec5e8bcdabd61e96b901">GetMesh</a> (<span class="keywordtype">int</span> ID) { <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>.at(ID); }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">  115</a></span>&#160;    std::vector&lt;Mesh&gt; <a class="code" href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">m_mesh</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">  116</a></span>&#160;    std::vector&lt;Material&gt; <a class="code" href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">m_material</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">  117</a></span>&#160;    <span class="keywordtype">bool</span>            <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">  118</a></span>&#160;    <span class="keywordtype">bool</span>            <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html">  122</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_mesh_sequence.html">MeshSequence</a> : <span class="keyword">public</span> <a class="code" href="class_mesh_renderer.html">MeshRenderer</a></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="class_mesh_sequence.html#a75489ecaa89d128a4affd3316afe10e7">FCLASS</a> (<a class="code" href="class_mesh_sequence.html">MeshSequence</a>);</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a27087a8e808dc885e23196aa0ca1ddf6">  126</a></span>&#160;    <a class="code" href="class_mesh_sequence.html#a27087a8e808dc885e23196aa0ca1ddf6">MeshSequence</a>()</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    : m_step(-1),</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    m_play(true)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a855b55356ffae147abc462f54125eafe">  131</a></span>&#160;    <a class="code" href="class_mesh_sequence.html#a855b55356ffae147abc462f54125eafe">MeshSequence</a>(<span class="keyword">const</span> std::string&amp; fileName, <span class="keywordtype">int</span> stepSize)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        :</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        m_step(-1),</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        m_play(true)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <a class="code" href="class_mesh_sequence.html#ae4a022cffbc50e4ca1f0246a64713807">LoadData</a>(fileName, stepSize);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a842026d031b447488ad272a27b81f8f9">  139</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_sequence.html#a842026d031b447488ad272a27b81f8f9">Update</a>(<span class="keywordtype">float</span> delta) </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">if</span> (!m_play) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        m_step++;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">if</span> (m_step &gt;= m_meshes.size())</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            m_step = 0;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a8ff49980e8436819aceed54d59cbec66">  151</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_sequence.html#a8ff49980e8436819aceed54d59cbec66">Render</a>(<span class="keyword">const</span> <a class="code" href="class_transform.html">Transform</a>&amp; transform, <span class="keyword">const</span> <a class="code" href="class_shader.html">Shader</a>&amp; shader, <span class="keyword">const</span> <a class="code" href="class_rendering_engine.html">RenderingEngine</a>&amp; renderingEngine, <span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>&amp; camera)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">if</span> (shader.<a class="code" href="class_shader.html#a809d60fe373e488a764dc80ac8158330">GetName</a>() == <span class="stringliteral">&quot;shadowMapGenerator&quot;</span> &amp;&amp; !<a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordtype">int</span> step = (m_step &lt; 0) ? 0 : m_step;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        shader.<a class="code" href="class_shader.html#a80b52feb71b870447cd0f2a20ca68400">Bind</a>();</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; m_meshes.at(step).size(); j++)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            shader.<a class="code" href="class_shader.html#a0a6b91d25a352e72624a26cb05f21962">UpdateUniforms</a>(transform, m_materials.at(m_meshes.at(step).at(j).GetMeshData()-&gt;GetMaterialIndex()), renderingEngine, camera);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            m_meshes.at(step).at(j).Draw();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a4d996cf3d85e1847597a70dcf7b94f15">  165</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_sequence.html#a4d996cf3d85e1847597a70dcf7b94f15">DataDeploy</a>(tinyxml2::XMLElement* data)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordtype">int</span> stepSize = 1;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">if</span> (data-&gt;Attribute(<span class="stringliteral">&quot;step&quot;</span>))</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            stepSize = atoi(data-&gt;Attribute(<span class="stringliteral">&quot;step&quot;</span>));</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <a class="code" href="class_mesh_sequence.html#ae4a022cffbc50e4ca1f0246a64713807">LoadData</a>(data-&gt;GetText(), stepSize);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a9af3874a35094cd8c45f34cdc5f6a8f6">  175</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_mesh_sequence.html#a9af3874a35094cd8c45f34cdc5f6a8f6">SetVisible</a>(<span class="keywordtype">bool</span> visible)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a> = visible;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#ae8dcc50d6d8392b09f806cfc091794a0">  182</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_mesh_sequence.html#ae8dcc50d6d8392b09f806cfc091794a0">IsVisible</a>()</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">m_visible</a>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; files.size() - 1; i++)</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        {</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            meshes_old.push_back(<a class="code" href="class_mesh.html#af11b125a96697494a80c864e3d7c1864">Mesh::ImportMesh</a>(filename + <span class="stringliteral">&quot;/&quot;</span> + files[i]));</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        materials = <a class="code" href="class_mesh.html#ad1a6c1004ac4e073852989a3d68538d1">Mesh::ImportMeshMaterial</a>(filename + <span class="stringliteral">&quot;/&quot;</span> + files[0]);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        std::vector&lt;std::vector&lt;Mesh&gt;&gt; meshg;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; meshes_old.size(); i++)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">if</span> (i + 1 == meshes_old.size())<span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> l = 0; l &lt; stepSize; l++)</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                std::vector&lt;Mesh&gt; mesh;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; meshes_old.at(i).size(); j++)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                {</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                    <a class="code" href="class_mesh_data.html">MeshData</a>* meshData;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                    std::map&lt;std::string, MeshData*&gt;::const_iterator it = <a class="code" href="class_mesh.html#a742592f82ac89d0121b608e32ef1a6af">Mesh::s_resourceMap</a>.find(filename + (<span class="keywordtype">char</span>)(j + i + l + 40));</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                    <span class="keywordflow">if</span> (it != <a class="code" href="class_mesh.html#a742592f82ac89d0121b608e32ef1a6af">Mesh::s_resourceMap</a>.end())</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                    {</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                        meshData = it-&gt;second;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                        meshData-&gt;<a class="code" href="class_reference_counter.html#a2675ccf5f6400a629040da7b4ae4a701">AddReference</a>();</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                    }</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                    {</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                        std::vector&lt;Vector3f&gt; pos;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                        std::vector&lt;Vector3f&gt; nor;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                        std::vector&lt;Vector3f&gt; tan;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetPositions().size(); k++)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                        {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                            pos.push_back((<a class="code" href="class_vector3f.html">Vector3f</a>)(meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetPositions().at(k)).Lerp(meshes_old.at(i + 1).at(j)-&gt;GetMeshData()-&gt;GetModel().GetPositions().at(k), (float)l / (<span class="keywordtype">float</span>)stepSize));</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                            nor.push_back((<a class="code" href="class_vector3f.html">Vector3f</a>)(meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetNormals().at(k)).Lerp(meshes_old.at(i + 1).at(j)-&gt;GetMeshData()-&gt;GetModel().GetNormals().at(k), (float)l / (<span class="keywordtype">float</span>)stepSize));</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                            tan.push_back((<a class="code" href="class_vector3f.html">Vector3f</a>)(meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetTangents().at(k)).Lerp(meshes_old.at(i + 1).at(j)-&gt;GetMeshData()-&gt;GetModel().GetTangents().at(k), (float)l / (<span class="keywordtype">float</span>)stepSize));</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                        }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                        meshData = <span class="keyword">new</span> <a class="code" href="class_mesh_data.html">MeshData</a>(<a class="code" href="class_indexed_model.html">IndexedModel</a>(</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                            meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetIndices(),</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                            pos,</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                            meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetTexCoords(),</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                            nor,</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                            tan</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                            ), meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetMaterialIndex());</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                        <a class="code" href="class_mesh.html#a742592f82ac89d0121b608e32ef1a6af">Mesh::s_resourceMap</a>.insert(std::pair&lt;std::string, MeshData*&gt;(filename + (<span class="keywordtype">char</span>)(j + i + l + 40), meshData));</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                    }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                        mesh.push_back(<a class="code" href="class_mesh.html">Mesh</a>(filename + (<span class="keywordtype">char</span>)(j + i + l + 40), meshData));</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                    }</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                    meshg.push_back(mesh);</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            }</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        }</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        m_meshes = meshg;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> mat : materials)</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        {</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            m_materials.push_back(*mat);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        }</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> mesh : meshes_old)</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        {</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : mesh)</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                <span class="keyword">delete</span> x;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            }</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> mat : materials)</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        {</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keyword">delete</span> mat;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    }</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#aaaf0d9e8827dba0b513a856a7a077471">  260</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_morph_mesh_renderer.html#aaaf0d9e8827dba0b513a856a7a077471">SetShadows</a>(<span class="keywordtype">bool</span> shadows)</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    {</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a> = shadows;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#ae4a022cffbc50e4ca1f0246a64713807">  188</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_sequence.html#ae4a022cffbc50e4ca1f0246a64713807">LoadData</a>(std::string filename, <span class="keywordtype">size_t</span> stepSize)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        m_step = -1;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        std::string filelist = <a class="code" href="namespace_util.html#a959e2c36ed4c8e55e6fe4e3888baef05">Util::ExecuteTask</a>(<span class="stringliteral">&quot;listdir&quot;</span>, (<a class="code" href="namespace_util.html#a61c97dd4b940f698790e9f5a79c52c97">Util::ResourcePath</a>() + <span class="stringliteral">&quot;models/&quot;</span> + filename + <span class="stringliteral">&quot; .obj&quot;</span>));</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        std::vector&lt;std::string&gt; files = <a class="code" href="namespace_util.html#abe90b401f63d09fbf85cdf8c637cebd1">Util::Split</a>(filelist, <span class="charliteral">&#39;@&#39;</span>);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        std::vector&lt;std::vector&lt;Mesh*&gt;&gt; meshes_old;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        std::vector&lt;Material*&gt; materials;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; files.size(); i++)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            meshes_old.push_back(<a class="code" href="class_mesh.html#af11b125a96697494a80c864e3d7c1864">Mesh::ImportMesh</a>(filename + <span class="stringliteral">&quot;/&quot;</span> + files[i]));</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        materials = <a class="code" href="class_mesh.html#ad1a6c1004ac4e073852989a3d68538d1">Mesh::ImportMeshMaterial</a>(filename + <span class="stringliteral">&quot;/&quot;</span> + files[0]);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : materials)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            m_materials.push_back(*x);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        std::vector&lt;std::vector&lt;Mesh&gt;&gt; meshg;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; meshes_old.size(); i++)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keywordflow">if</span> (i + 1 == meshes_old.size())<span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> l = 0; l &lt; stepSize; l++)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                std::vector&lt;Mesh&gt; mesh;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; meshes_old.at(i).size(); j++)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                    <a class="code" href="class_mesh_data.html">MeshData</a>* meshData;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                    std::map&lt;std::string, MeshData*&gt;::const_iterator it = <a class="code" href="class_mesh.html#a742592f82ac89d0121b608e32ef1a6af">Mesh::s_resourceMap</a>.find(filename + (<span class="keywordtype">char</span>)(j + i + l + 40));</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                    <span class="keywordflow">if</span> (it != <a class="code" href="class_mesh.html#a742592f82ac89d0121b608e32ef1a6af">Mesh::s_resourceMap</a>.end())</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                    {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                        meshData = it-&gt;second;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                        meshData-&gt;<a class="code" href="class_reference_counter.html#a2675ccf5f6400a629040da7b4ae4a701">AddReference</a>();</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                    }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                    {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                        std::vector&lt;Vector3f&gt; pos;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                        std::vector&lt;Vector3f&gt; nor;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                        std::vector&lt;Vector3f&gt; tan;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetPositions().size(); k++)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                        {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                            pos.push_back((<a class="code" href="class_vector3f.html">Vector3f</a>)(meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetPositions().at(k)).Lerp(meshes_old.at(i + 1).at(j)-&gt;GetMeshData()-&gt;GetModel().GetPositions().at(k), (float)l / (<span class="keywordtype">float</span>)stepSize));</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                            nor.push_back((<a class="code" href="class_vector3f.html">Vector3f</a>)(meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetNormals().at(k)).Lerp(meshes_old.at(i + 1).at(j)-&gt;GetMeshData()-&gt;GetModel().GetNormals().at(k), (float)l / (<span class="keywordtype">float</span>)stepSize));</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                            tan.push_back((<a class="code" href="class_vector3f.html">Vector3f</a>)(meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetTangents().at(k)).Lerp(meshes_old.at(i + 1).at(j)-&gt;GetMeshData()-&gt;GetModel().GetTangents().at(k), (float)l / (<span class="keywordtype">float</span>)stepSize));</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                        }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                        meshData = <span class="keyword">new</span> <a class="code" href="class_mesh_data.html">MeshData</a>(<a class="code" href="class_indexed_model.html">IndexedModel</a>(</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                            meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetIndices(),</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                            pos,</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                            meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetModel().GetTexCoords(),</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                            nor,</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                            tan</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                            ), meshes_old.at(i).at(j)-&gt;GetMeshData()-&gt;GetMaterialIndex());</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                        <a class="code" href="class_mesh.html#a742592f82ac89d0121b608e32ef1a6af">Mesh::s_resourceMap</a>.insert(std::pair&lt;std::string, MeshData*&gt;(filename + (<span class="keywordtype">char</span>)(j + i + l + 40), meshData));</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                    }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                        mesh.push_back(<a class="code" href="class_mesh.html">Mesh</a>(filename + (<span class="keywordtype">char</span>)(j + i + l + 40), meshData));</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                    }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                    meshg.push_back(mesh);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        m_meshes = meshg;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> mesh : meshes_old)</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : mesh)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                <span class="keyword">delete</span> x;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            }</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="class_morph_mesh_renderer.html#a9b920c30f1ce2e4fdca5fd8cb51f9a6d">  268</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_morph_mesh_renderer.html#a9b920c30f1ce2e4fdca5fd8cb51f9a6d">HasShadows</a>()</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    {</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    std::vector&lt;std::vector&lt;Mesh&gt;&gt; m_meshes;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    std::vector&lt;Material&gt; m_materials;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordtype">size_t</span> m_step;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordtype">size_t</span> m_skip;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <a class="code" href="class_delay_timer.html">DelayTimer</a> m_timer;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;};</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor">#endif // MESHRENDERER_H_INCLUDED</span></div>
-<div class="ttc" id="class_mesh_renderer_html_a91dacb828ddbecf4f260c3fed61404a3"><div class="ttname"><a href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">MeshRenderer::m_visible</a></div><div class="ttdeci">bool m_visible</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:108</div></div>
-<div class="ttc" id="class_mesh_renderer_html_add306f84dfe0842074bd14d9fdd4ef7b"><div class="ttname"><a href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">MeshRenderer::DataDeploy</a></div><div class="ttdeci">virtual void DataDeploy(tinyxml2::XMLElement *data)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:61</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_a8601971937f4e78c9be85fb62d17b629"><div class="ttname"><a href="class_morph_mesh_renderer.html#a8601971937f4e78c9be85fb62d17b629">MorphMeshRenderer::MorphMeshRenderer</a></div><div class="ttdeci">MorphMeshRenderer(const std::string &amp;fileName, int stepSize)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:120</div></div>
-<div class="ttc" id="class_entity_component_html_a59e8c59a5f0eda12e4702d8767757566"><div class="ttname"><a href="class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566">EntityComponent::GetTransform</a></div><div class="ttdeci">Transform * GetTransform()</div><div class="ttdef"><b>Definition:</b> entityComponent.h:50</div></div>
-<div class="ttc" id="class_mesh_renderer_html_a502c0e36a2bb4e6b34c42d5381998b4f"><div class="ttname"><a href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">MeshRenderer::Init</a></div><div class="ttdeci">virtual void Init()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:43</div></div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a2b0a1b9ea5bf31459b4837a7c2ff3195">  266</a></span>&#160;    <a class="code" href="class_entity_component.html">EntityComponent</a>* <a class="code" href="class_mesh_sequence.html#a2b0a1b9ea5bf31459b4837a7c2ff3195">SetShadows</a>(<span class="keywordtype">bool</span> shadows)</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a> = shadows;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a6d22af93ef6f09c06c5978945c471f96">  274</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_mesh_sequence.html#a6d22af93ef6f09c06c5978945c471f96">HasShadows</a>()</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">m_shadows</a>;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a0139bd23a9a4b733f27c80c6584bd01d">  279</a></span>&#160;    std::string <a class="code" href="class_mesh_sequence.html#a0139bd23a9a4b733f27c80c6584bd01d">GetName</a>() </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">return</span> m_name;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a96bba96c3ca73d7edfe2612704a6ee0c">  284</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_sequence.html#a96bba96c3ca73d7edfe2612704a6ee0c">SetStep</a>(<span class="keywordtype">size_t</span> step)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        m_step = step;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="class_mesh_sequence.html#a76129958e64c864483386e949d4aaf09">  289</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_mesh_sequence.html#a76129958e64c864483386e949d4aaf09">SetPlay</a>(<span class="keywordtype">bool</span> play)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        m_play = play;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    std::vector&lt;std::vector&lt;Mesh&gt;&gt; m_meshes;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    std::vector&lt;Material&gt; m_materials;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    std::string m_name;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">bool</span> m_play;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordtype">size_t</span> m_step;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordtype">size_t</span> m_skip;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <a class="code" href="class_delay_timer.html">DelayTimer</a> m_timer;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;};</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html">  305</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_anim_mesh_renderer.html">AnimMeshRenderer</a> : <span class="keyword">public</span> <a class="code" href="class_entity_component.html">EntityComponent</a></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;{</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#abb8ad1f979104140e3fc4643e1807c37">  308</a></span>&#160;    <a class="code" href="class_anim_mesh_renderer.html#abb8ad1f979104140e3fc4643e1807c37">AnimMeshRenderer</a>()</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        :</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        m_anim(0)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    {}</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00313"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#a6a4476453ec385b7441e5e09767bbbf7">  313</a></span>&#160;    <a class="code" href="class_anim_mesh_renderer.html#a6a4476453ec385b7441e5e09767bbbf7">AnimMeshRenderer</a>(<span class="keyword">const</span> std::string&amp; fileName, <span class="keywordtype">int</span> stepSize)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        :</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        m_anim(0)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <a class="code" href="class_anim_mesh_renderer.html#a36675954d10226200d8b63dd558cbae8">LoadData</a>(fileName, stepSize);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#a3fb7a0a47c993281e2c5be3fb718813f">  320</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_anim_mesh_renderer.html#a3fb7a0a47c993281e2c5be3fb718813f">~AnimMeshRenderer</a>()</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    {</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : m_anims)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        {</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            <span class="keyword">delete</span> x;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    }</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#ae7beede66d335a9de1eb8e9cb0d1c4ac">  328</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_anim_mesh_renderer.html#ae7beede66d335a9de1eb8e9cb0d1c4ac">Update</a>(<span class="keywordtype">float</span> delta)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="keywordflow">if</span> (m_anims.size() == 0)<span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        m_anims.at(m_anim)-&gt;Update(delta);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#aaec3608ceda653cd79ff04c01575d0d5">  334</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_anim_mesh_renderer.html#aaec3608ceda653cd79ff04c01575d0d5">Render</a>(<span class="keyword">const</span> <a class="code" href="class_shader.html">Shader</a>&amp; shader, <span class="keyword">const</span> <a class="code" href="class_rendering_engine.html">RenderingEngine</a>&amp; renderingEngine, <span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>&amp; camera)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordflow">if</span> (m_anims.size() == 0)<span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        m_anims.at(m_anim)-&gt;Render(<a class="code" href="class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566">GetTransform</a>(), shader, renderingEngine, camera);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    }</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#a7f422949c3a95b88c5a2897027b1f60e">  340</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_anim_mesh_renderer.html#a7f422949c3a95b88c5a2897027b1f60e">DataDeploy</a>(tinyxml2::XMLElement* data)</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    {</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordtype">int</span> stepSize = 1;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">if</span> (data-&gt;Attribute(<span class="stringliteral">&quot;step&quot;</span>))</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        {</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            stepSize = atoi(data-&gt;Attribute(<span class="stringliteral">&quot;step&quot;</span>));</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        }</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <a class="code" href="class_anim_mesh_renderer.html#a36675954d10226200d8b63dd558cbae8">LoadData</a>(data-&gt;GetText(), stepSize);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    }</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#a36675954d10226200d8b63dd558cbae8">  350</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_anim_mesh_renderer.html#a36675954d10226200d8b63dd558cbae8">LoadData</a>(std::string filename, <span class="keywordtype">int</span> stepSize)</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    {</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        std::string filelist = <a class="code" href="namespace_util.html#a959e2c36ed4c8e55e6fe4e3888baef05">Util::ExecuteTask</a>(<span class="stringliteral">&quot;listdir_dir&quot;</span>, (<a class="code" href="namespace_util.html#a61c97dd4b940f698790e9f5a79c52c97">Util::ResourcePath</a>() + <span class="stringliteral">&quot;models/&quot;</span> + filename));</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        std::vector&lt;std::string&gt; files = <a class="code" href="namespace_util.html#abe90b401f63d09fbf85cdf8c637cebd1">Util::Split</a>(filelist, <span class="charliteral">&#39;@&#39;</span>);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : files)</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            m_anims.push_back(<span class="keyword">new</span> <a class="code" href="class_mesh_sequence.html">MeshSequence</a>(filename + <span class="stringliteral">&quot;/&quot;</span> + x, stepSize));</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        }</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; files.size(); i++)</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        {</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            m_anims.push_back(<span class="keyword">new</span> <a class="code" href="class_mesh_sequence.html">MeshSequence</a>(filename + <span class="stringliteral">&quot;/&quot;</span> + files[i], stepSize));</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        }</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
+<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#a5af083ab02ceb9f51332a61edfabc5f1">  366</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_anim_mesh_renderer.html#a5af083ab02ceb9f51332a61edfabc5f1">SetAnimState</a>(std::string anim)</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    {</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : m_anims)</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        {</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            <span class="keywordflow">if</span> (x-&gt;GetName() == anim)</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;            {</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                m_anim = i;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                m_anims.at(i)-&gt;SetStep(-1);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            }</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            ++i;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        }</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
+<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#ab6570bae8753069d987f76c2cd949d86">  381</a></span>&#160;    std::string <a class="code" href="class_anim_mesh_renderer.html#ab6570bae8753069d987f76c2cd949d86">GetAnimState</a>() </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    {</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <span class="keywordflow">return</span> m_anims.at(m_anim)-&gt;GetName();</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    }</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
+<div class="line"><a name="l00386"></a><span class="lineno"><a class="line" href="class_anim_mesh_renderer.html#aba22b36ea109b2ff330a81363f329851">  386</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_anim_mesh_renderer.html#aba22b36ea109b2ff330a81363f329851">SetPlayState</a>(<span class="keywordtype">bool</span> play)</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    {</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        m_anims.at(m_anim)-&gt;SetPlay(play);</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    }</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    std::vector&lt;MeshSequence*&gt; m_anims;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordtype">int</span> m_anim;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;};</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="preprocessor">#endif // MESHRENDERER_H_INCLUDED</span></div>
+<div class="ttc" id="class_mesh_renderer_html_a91dacb828ddbecf4f260c3fed61404a3"><div class="ttname"><a href="class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3">MeshRenderer::m_visible</a></div><div class="ttdeci">bool m_visible</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:117</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a27087a8e808dc885e23196aa0ca1ddf6"><div class="ttname"><a href="class_mesh_sequence.html#a27087a8e808dc885e23196aa0ca1ddf6">MeshSequence::MeshSequence</a></div><div class="ttdeci">MeshSequence()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:126</div></div>
+<div class="ttc" id="class_mesh_renderer_html_add306f84dfe0842074bd14d9fdd4ef7b"><div class="ttname"><a href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">MeshRenderer::DataDeploy</a></div><div class="ttdeci">virtual void DataDeploy(tinyxml2::XMLElement *data)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:65</div></div>
+<div class="ttc" id="class_entity_component_html_a59e8c59a5f0eda12e4702d8767757566"><div class="ttname"><a href="class_entity_component.html#a59e8c59a5f0eda12e4702d8767757566">EntityComponent::GetTransform</a></div><div class="ttdeci">Transform * GetTransform()</div><div class="ttdef"><b>Definition:</b> entityComponent.h:52</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a96bba96c3ca73d7edfe2612704a6ee0c"><div class="ttname"><a href="class_mesh_sequence.html#a96bba96c3ca73d7edfe2612704a6ee0c">MeshSequence::SetStep</a></div><div class="ttdeci">void SetStep(size_t step)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:284</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a502c0e36a2bb4e6b34c42d5381998b4f"><div class="ttname"><a href="class_mesh_renderer.html#a502c0e36a2bb4e6b34c42d5381998b4f">MeshRenderer::Init</a></div><div class="ttdeci">virtual void Init()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:45</div></div>
 <div class="ttc" id="class_mesh_html"><div class="ttname"><a href="class_mesh.html">Mesh</a></div><div class="ttdef"><b>Definition:</b> mesh.h:114</div></div>
-<div class="ttc" id="namespace_util_html_abe90b401f63d09fbf85cdf8c637cebd1"><div class="ttname"><a href="namespace_util.html#abe90b401f63d09fbf85cdf8c637cebd1">Util::Split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Split(const std::string &amp;s, char delim)</div><div class="ttdef"><b>Definition:</b> util.cpp:87</div></div>
+<div class="ttc" id="namespace_util_html_abe90b401f63d09fbf85cdf8c637cebd1"><div class="ttname"><a href="namespace_util.html#abe90b401f63d09fbf85cdf8c637cebd1">Util::Split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Split(const std::string &amp;s, char delim)</div><div class="ttdef"><b>Definition:</b> util.cpp:88</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a471efca677d84e80d45ab3865aaabfd0"><div class="ttname"><a href="class_mesh_renderer.html#a471efca677d84e80d45ab3865aaabfd0">MeshRenderer::GetMaterial</a></div><div class="ttdeci">Material &amp; GetMaterial(int ID)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:111</div></div>
 <div class="ttc" id="class_shader_html_a809d60fe373e488a764dc80ac8158330"><div class="ttname"><a href="class_shader.html#a809d60fe373e488a764dc80ac8158330">Shader::GetName</a></div><div class="ttdeci">const std::string &amp; GetName() const </div><div class="ttdef"><b>Definition:</b> shader.h:112</div></div>
 <div class="ttc" id="class_mesh_html_ad1a6c1004ac4e073852989a3d68538d1"><div class="ttname"><a href="class_mesh.html#ad1a6c1004ac4e073852989a3d68538d1">Mesh::ImportMeshMaterial</a></div><div class="ttdeci">static std::vector&lt; Material * &gt; ImportMeshMaterial(const std::string &amp;fileName)</div><div class="ttdef"><b>Definition:</b> mesh.cpp:444</div></div>
-<div class="ttc" id="class_mesh_renderer_html_acae5946539f6d5e2eebd8876cdb7f2c4"><div class="ttname"><a href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(const std::string &amp;fileName)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:33</div></div>
-<div class="ttc" id="class_mesh_renderer_html"><div class="ttname"><a href="class_mesh_renderer.html">MeshRenderer</a></div><div class="ttdef"><b>Definition:</b> meshRenderer.h:24</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_ae14359c5cca738895522a0bc597bd3e6"><div class="ttname"><a href="class_morph_mesh_renderer.html#ae14359c5cca738895522a0bc597bd3e6">MorphMeshRenderer::Render</a></div><div class="ttdeci">virtual void Render(const Shader &amp;shader, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera) const </div><div class="ttdef"><b>Definition:</b> meshRenderer.h:141</div></div>
-<div class="ttc" id="class_mesh_renderer_html_aa928cebc7dc3602f61bf676761476fb2"><div class="ttname"><a href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:27</div></div>
-<div class="ttc" id="class_delay_timer_html_a1432bc52887bab17358c7ae25a3f27c9"><div class="ttname"><a href="class_delay_timer.html#a1432bc52887bab17358c7ae25a3f27c9">DelayTimer::HasElapsed</a></div><div class="ttdeci">int HasElapsed()</div><div class="ttdef"><b>Definition:</b> timing.h:44</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html"><div class="ttname"><a href="class_anim_mesh_renderer.html">AnimMeshRenderer</a></div><div class="ttdef"><b>Definition:</b> meshRenderer.h:305</div></div>
+<div class="ttc" id="class_mesh_renderer_html_acae5946539f6d5e2eebd8876cdb7f2c4"><div class="ttname"><a href="class_mesh_renderer.html#acae5946539f6d5e2eebd8876cdb7f2c4">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(const std::string &amp;fileName)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:35</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_a5af083ab02ceb9f51332a61edfabc5f1"><div class="ttname"><a href="class_anim_mesh_renderer.html#a5af083ab02ceb9f51332a61edfabc5f1">AnimMeshRenderer::SetAnimState</a></div><div class="ttdeci">void SetAnimState(std::string anim)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:366</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a76129958e64c864483386e949d4aaf09"><div class="ttname"><a href="class_mesh_sequence.html#a76129958e64c864483386e949d4aaf09">MeshSequence::SetPlay</a></div><div class="ttdeci">void SetPlay(bool play)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:289</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a842026d031b447488ad272a27b81f8f9"><div class="ttname"><a href="class_mesh_sequence.html#a842026d031b447488ad272a27b81f8f9">MeshSequence::Update</a></div><div class="ttdeci">void Update(float delta)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:139</div></div>
+<div class="ttc" id="class_mesh_renderer_html"><div class="ttname"><a href="class_mesh_renderer.html">MeshRenderer</a></div><div class="ttdef"><b>Definition:</b> meshRenderer.h:25</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_aaec3608ceda653cd79ff04c01575d0d5"><div class="ttname"><a href="class_anim_mesh_renderer.html#aaec3608ceda653cd79ff04c01575d0d5">AnimMeshRenderer::Render</a></div><div class="ttdeci">void Render(const Shader &amp;shader, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera) const </div><div class="ttdef"><b>Definition:</b> meshRenderer.h:334</div></div>
+<div class="ttc" id="class_mesh_renderer_html_aa928cebc7dc3602f61bf676761476fb2"><div class="ttname"><a href="class_mesh_renderer.html#aa928cebc7dc3602f61bf676761476fb2">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:29</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_a36675954d10226200d8b63dd558cbae8"><div class="ttname"><a href="class_anim_mesh_renderer.html#a36675954d10226200d8b63dd558cbae8">AnimMeshRenderer::LoadData</a></div><div class="ttdeci">void LoadData(std::string filename, int stepSize)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:350</div></div>
 <div class="ttc" id="class_rendering_engine_html"><div class="ttname"><a href="class_rendering_engine.html">RenderingEngine</a></div><div class="ttdef"><b>Definition:</b> renderingEngine.h:37</div></div>
 <div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.h:27</div></div>
-<div class="ttc" id="class_vector3f_html"><div class="ttname"><a href="class_vector3f.html">Vector3f</a></div><div class="ttdef"><b>Definition:</b> math3d.h:681</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_a56bff1463f2ade4321e51111a278b67d"><div class="ttname"><a href="class_morph_mesh_renderer.html#a56bff1463f2ade4321e51111a278b67d">MorphMeshRenderer::DataDeploy</a></div><div class="ttdeci">virtual void DataDeploy(tinyxml2::XMLElement *data)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:154</div></div>
-<div class="ttc" id="classtinyxml2_1_1_x_m_l_element_html_a7bdebdf1888074087237f3dd03912740"><div class="ttname"><a href="classtinyxml2_1_1_x_m_l_element.html#a7bdebdf1888074087237f3dd03912740">tinyxml2::XMLElement::Attribute</a></div><div class="ttdeci">const char * Attribute(const char *name, const char *value=0) const </div><div class="ttdef"><b>Definition:</b> tinyxml2.cpp:1402</div></div>
-<div class="ttc" id="class_mesh_renderer_html_ae3e91290a5f90335cb83b3a263319f4b"><div class="ttname"><a href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">MeshRenderer::m_shadows</a></div><div class="ttdeci">bool m_shadows</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:109</div></div>
+<div class="ttc" id="class_vector3f_html"><div class="ttname"><a href="class_vector3f.html">Vector3f</a></div><div class="ttdef"><b>Definition:</b> math3d.h:697</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_a6a4476453ec385b7441e5e09767bbbf7"><div class="ttname"><a href="class_anim_mesh_renderer.html#a6a4476453ec385b7441e5e09767bbbf7">AnimMeshRenderer::AnimMeshRenderer</a></div><div class="ttdeci">AnimMeshRenderer(const std::string &amp;fileName, int stepSize)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:313</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a2b0a1b9ea5bf31459b4837a7c2ff3195"><div class="ttname"><a href="class_mesh_sequence.html#a2b0a1b9ea5bf31459b4837a7c2ff3195">MeshSequence::SetShadows</a></div><div class="ttdeci">EntityComponent * SetShadows(bool shadows)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:266</div></div>
+<div class="ttc" id="class_mesh_renderer_html_ae3e91290a5f90335cb83b3a263319f4b"><div class="ttname"><a href="class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b">MeshRenderer::m_shadows</a></div><div class="ttdeci">bool m_shadows</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:118</div></div>
 <div class="ttc" id="class_indexed_model_html"><div class="ttname"><a href="class_indexed_model.html">IndexedModel</a></div><div class="ttdef"><b>Definition:</b> mesh.h:33</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a75489ecaa89d128a4affd3316afe10e7"><div class="ttname"><a href="class_mesh_sequence.html#a75489ecaa89d128a4affd3316afe10e7">MeshSequence::FCLASS</a></div><div class="ttdeci">FCLASS(MeshSequence)</div></div>
 <div class="ttc" id="namespace_util_html_a61c97dd4b940f698790e9f5a79c52c97"><div class="ttname"><a href="namespace_util.html#a61c97dd4b940f698790e9f5a79c52c97">Util::ResourcePath</a></div><div class="ttdeci">std::string ResourcePath(void)</div><div class="ttdef"><b>Definition:</b> util.cpp:47</div></div>
-<div class="ttc" id="classtinyxml2_1_1_x_m_l_element_html"><div class="ttname"><a href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a></div><div class="ttdef"><b>Definition:</b> tinyxml2.h:1143</div></div>
-<div class="ttc" id="class_mesh_renderer_html_ab24712085109977fcad5321bcf510e85"><div class="ttname"><a href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">MeshRenderer::m_mesh</a></div><div class="ttdeci">std::vector&lt; Mesh &gt; m_mesh</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:106</div></div>
-<div class="ttc" id="class_mesh_renderer_html_a41631e22d9156e9281ccbccc48e42f36"><div class="ttname"><a href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">MeshRenderer::LoadData</a></div><div class="ttdeci">void LoadData(std::vector&lt; Mesh * &gt; meshes, std::vector&lt; Material * &gt; materials)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:80</div></div>
-<div class="ttc" id="class_material_html"><div class="ttname"><a href="class_material.html">Material</a></div><div class="ttdef"><b>Definition:</b> material.h:34</div></div>
+<div class="ttc" id="class_transform_html"><div class="ttname"><a href="class_transform.html">Transform</a></div><div class="ttdef"><b>Definition:</b> transform.h:25</div></div>
+<div class="ttc" id="class_mesh_renderer_html_ab24712085109977fcad5321bcf510e85"><div class="ttname"><a href="class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85">MeshRenderer::m_mesh</a></div><div class="ttdeci">std::vector&lt; Mesh &gt; m_mesh</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:115</div></div>
+<div class="ttc" id="class_mesh_sequence_html_ae8dcc50d6d8392b09f806cfc091794a0"><div class="ttname"><a href="class_mesh_sequence.html#ae8dcc50d6d8392b09f806cfc091794a0">MeshSequence::IsVisible</a></div><div class="ttdeci">bool IsVisible()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:182</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a855b55356ffae147abc462f54125eafe"><div class="ttname"><a href="class_mesh_sequence.html#a855b55356ffae147abc462f54125eafe">MeshSequence::MeshSequence</a></div><div class="ttdeci">MeshSequence(const std::string &amp;fileName, int stepSize)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:131</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a41631e22d9156e9281ccbccc48e42f36"><div class="ttname"><a href="class_mesh_renderer.html#a41631e22d9156e9281ccbccc48e42f36">MeshRenderer::LoadData</a></div><div class="ttdeci">void LoadData(std::vector&lt; Mesh * &gt; meshes, std::vector&lt; Material * &gt; materials)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:86</div></div>
+<div class="ttc" id="class_material_html"><div class="ttname"><a href="class_material.html">Material</a></div><div class="ttdef"><b>Definition:</b> material.h:36</div></div>
 <div class="ttc" id="class_shader_html_a80b52feb71b870447cd0f2a20ca68400"><div class="ttname"><a href="class_shader.html#a80b52feb71b870447cd0f2a20ca68400">Shader::Bind</a></div><div class="ttdeci">void Bind() const </div><div class="ttdef"><b>Definition:</b> shader.cpp:174</div></div>
-<div class="ttc" id="class_mesh_renderer_html_a76b5c0c52f09ab34655d88c3012ebc4b"><div class="ttname"><a href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">MeshRenderer::Render</a></div><div class="ttdeci">virtual void Render(const Shader &amp;shader, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera) const </div><div class="ttdef"><b>Definition:</b> meshRenderer.h:49</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a76b5c0c52f09ab34655d88c3012ebc4b"><div class="ttname"><a href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">MeshRenderer::Render</a></div><div class="ttdeci">virtual void Render(const Shader &amp;shader, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera) const </div><div class="ttdef"><b>Definition:</b> meshRenderer.h:51</div></div>
 <div class="ttc" id="class_mesh_html_a742592f82ac89d0121b608e32ef1a6af"><div class="ttname"><a href="class_mesh.html#a742592f82ac89d0121b608e32ef1a6af">Mesh::s_resourceMap</a></div><div class="ttdeci">static std::map&lt; std::string, MeshData * &gt; s_resourceMap</div><div class="ttdef"><b>Definition:</b> mesh.h:131</div></div>
-<div class="ttc" id="class_mesh_renderer_html_a56d102c002082a4ff3d226bd2dc800e2"><div class="ttname"><a href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">MeshRenderer::SetShadows</a></div><div class="ttdeci">EntityComponent * SetShadows(bool shadows)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:93</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_a9b920c30f1ce2e4fdca5fd8cb51f9a6d"><div class="ttname"><a href="class_morph_mesh_renderer.html#a9b920c30f1ce2e4fdca5fd8cb51f9a6d">MorphMeshRenderer::HasShadows</a></div><div class="ttdeci">bool HasShadows()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:268</div></div>
-<div class="ttc" id="class_mesh_renderer_html_a1cafde215f33ac92bd9a07bf87678d23"><div class="ttname"><a href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(std::vector&lt; Mesh * &gt; meshes, std::vector&lt; Material * &gt; materials)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:28</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a56d102c002082a4ff3d226bd2dc800e2"><div class="ttname"><a href="class_mesh_renderer.html#a56d102c002082a4ff3d226bd2dc800e2">MeshRenderer::SetShadows</a></div><div class="ttdeci">EntityComponent * SetShadows(bool shadows)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:99</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_ab6570bae8753069d987f76c2cd949d86"><div class="ttname"><a href="class_anim_mesh_renderer.html#ab6570bae8753069d987f76c2cd949d86">AnimMeshRenderer::GetAnimState</a></div><div class="ttdeci">std::string GetAnimState()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:381</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a1cafde215f33ac92bd9a07bf87678d23"><div class="ttname"><a href="class_mesh_renderer.html#a1cafde215f33ac92bd9a07bf87678d23">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(std::vector&lt; Mesh * &gt; meshes, std::vector&lt; Material * &gt; materials)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:30</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_aba22b36ea109b2ff330a81363f329851"><div class="ttname"><a href="class_anim_mesh_renderer.html#aba22b36ea109b2ff330a81363f329851">AnimMeshRenderer::SetPlayState</a></div><div class="ttdeci">void SetPlayState(bool play)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:386</div></div>
 <div class="ttc" id="class_shader_html_a0a6b91d25a352e72624a26cb05f21962"><div class="ttname"><a href="class_shader.html#a0a6b91d25a352e72624a26cb05f21962">Shader::UpdateUniforms</a></div><div class="ttdeci">virtual void UpdateUniforms(const Transform &amp;transform, const Material &amp;material, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera) const </div><div class="ttdef"><b>Definition:</b> shader.cpp:179</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_aaaf0d9e8827dba0b513a856a7a077471"><div class="ttname"><a href="class_morph_mesh_renderer.html#aaaf0d9e8827dba0b513a856a7a077471">MorphMeshRenderer::SetShadows</a></div><div class="ttdeci">EntityComponent * SetShadows(bool shadows)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:260</div></div>
-<div class="ttc" id="class_mesh_renderer_html_a21f3a640710d3dfefbb170fd942461b0"><div class="ttname"><a href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">MeshRenderer::SetVisible</a></div><div class="ttdeci">EntityComponent * SetVisible(bool visible)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:68</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a21f3a640710d3dfefbb170fd942461b0"><div class="ttname"><a href="class_mesh_renderer.html#a21f3a640710d3dfefbb170fd942461b0">MeshRenderer::SetVisible</a></div><div class="ttdeci">EntityComponent * SetVisible(bool visible)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:74</div></div>
 <div class="ttc" id="class_mesh_html_af11b125a96697494a80c864e3d7c1864"><div class="ttname"><a href="class_mesh.html#af11b125a96697494a80c864e3d7c1864">Mesh::ImportMesh</a></div><div class="ttdeci">static std::vector&lt; Mesh * &gt; ImportMesh(const std::string &amp;fileName)</div><div class="ttdef"><b>Definition:</b> mesh.cpp:522</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html"><div class="ttname"><a href="class_morph_mesh_renderer.html">MorphMeshRenderer</a></div><div class="ttdef"><b>Definition:</b> meshRenderer.h:113</div></div>
 <div class="ttc" id="class_delay_timer_html"><div class="ttname"><a href="class_delay_timer.html">DelayTimer</a></div><div class="ttdef"><b>Definition:</b> timing.h:26</div></div>
-<div class="ttc" id="classtinyxml2_1_1_x_m_l_element_html_a56cc727044dad002b978256754d43a4b"><div class="ttname"><a href="classtinyxml2_1_1_x_m_l_element.html#a56cc727044dad002b978256754d43a4b">tinyxml2::XMLElement::GetText</a></div><div class="ttdeci">const char * GetText() const </div><div class="ttdef"><b>Definition:</b> tinyxml2.cpp:1415</div></div>
-<div class="ttc" id="class_mesh_renderer_html_adc28b7069d8d9e739da14233cc8fcd72"><div class="ttname"><a href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">MeshRenderer::HasShadows</a></div><div class="ttdeci">bool HasShadows()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:100</div></div>
+<div class="ttc" id="class_mesh_renderer_html_adc28b7069d8d9e739da14233cc8fcd72"><div class="ttname"><a href="class_mesh_renderer.html#adc28b7069d8d9e739da14233cc8fcd72">MeshRenderer::HasShadows</a></div><div class="ttdeci">bool HasShadows()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:106</div></div>
 <div class="ttc" id="class_reference_counter_html_a2675ccf5f6400a629040da7b4ae4a701"><div class="ttname"><a href="class_reference_counter.html#a2675ccf5f6400a629040da7b4ae4a701">ReferenceCounter::AddReference</a></div><div class="ttdeci">void AddReference()</div><div class="ttdef"><b>Definition:</b> referenceCounter.h:28</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_a33dcc98c7e543e7f1fc660fdffe9b82e"><div class="ttname"><a href="class_morph_mesh_renderer.html#a33dcc98c7e543e7f1fc660fdffe9b82e">MorphMeshRenderer::IsVisible</a></div><div class="ttdeci">bool IsVisible()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:171</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_abb8ad1f979104140e3fc4643e1807c37"><div class="ttname"><a href="class_anim_mesh_renderer.html#abb8ad1f979104140e3fc4643e1807c37">AnimMeshRenderer::AnimMeshRenderer</a></div><div class="ttdeci">AnimMeshRenderer()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:308</div></div>
+<div class="ttc" id="class_mesh_sequence_html_ae4a022cffbc50e4ca1f0246a64713807"><div class="ttname"><a href="class_mesh_sequence.html#ae4a022cffbc50e4ca1f0246a64713807">MeshSequence::LoadData</a></div><div class="ttdeci">void LoadData(std::string filename, size_t stepSize)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:188</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_a3fb7a0a47c993281e2c5be3fb718813f"><div class="ttname"><a href="class_anim_mesh_renderer.html#a3fb7a0a47c993281e2c5be3fb718813f">AnimMeshRenderer::~AnimMeshRenderer</a></div><div class="ttdeci">virtual ~AnimMeshRenderer()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:320</div></div>
 <div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> shader.h:97</div></div>
-<div class="ttc" id="class_delay_timer_html_a03a384a4cf0ab7b496c6c94f3eeaf564"><div class="ttname"><a href="class_delay_timer.html#a03a384a4cf0ab7b496c6c94f3eeaf564">DelayTimer::SetDelay</a></div><div class="ttdeci">void SetDelay(double delay)</div><div class="ttdef"><b>Definition:</b> timing.h:42</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_afddb9fd04f0e8954d7dc0f9fd27c9284"><div class="ttname"><a href="class_morph_mesh_renderer.html#afddb9fd04f0e8954d7dc0f9fd27c9284">MorphMeshRenderer::SetVisible</a></div><div class="ttdeci">EntityComponent * SetVisible(bool visible)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:164</div></div>
-<div class="ttc" id="class_mesh_renderer_html_a3adb394d50133e5a82873c66bdb2923c"><div class="ttname"><a href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(Mesh mesh, const Material &amp;material)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:37</div></div>
-<div class="ttc" id="class_mesh_renderer_html_ad86cc5b64455df8f33169525de2b8340"><div class="ttname"><a href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">MeshRenderer::m_material</a></div><div class="ttdeci">std::vector&lt; Material &gt; m_material</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:107</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_a475ea23b780d8af1c641c81919e36d2e"><div class="ttname"><a href="class_morph_mesh_renderer.html#a475ea23b780d8af1c641c81919e36d2e">MorphMeshRenderer::LoadData</a></div><div class="ttdeci">void LoadData(std::string filename, int stepSize)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:177</div></div>
-<div class="ttc" id="class_entity_component_html"><div class="ttname"><a href="class_entity_component.html">EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entityComponent.h:32</div></div>
-<div class="ttc" id="class_mesh_renderer_html_a031444bc736eba5b2e43f3067bff2add"><div class="ttname"><a href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">MeshRenderer::IsVisible</a></div><div class="ttdeci">bool IsVisible()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:75</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_aa62c2d85d83cb1f028a3a8a7ecee3f63"><div class="ttname"><a href="class_morph_mesh_renderer.html#aa62c2d85d83cb1f028a3a8a7ecee3f63">MorphMeshRenderer::MorphMeshRenderer</a></div><div class="ttdeci">MorphMeshRenderer()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:116</div></div>
-<div class="ttc" id="class_morph_mesh_renderer_html_add4866e55e0f0aca3f33445db9d36693"><div class="ttname"><a href="class_morph_mesh_renderer.html#add4866e55e0f0aca3f33445db9d36693">MorphMeshRenderer::Update</a></div><div class="ttdeci">virtual void Update(float delta)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:127</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a3adb394d50133e5a82873c66bdb2923c"><div class="ttname"><a href="class_mesh_renderer.html#a3adb394d50133e5a82873c66bdb2923c">MeshRenderer::MeshRenderer</a></div><div class="ttdeci">MeshRenderer(Mesh mesh, const Material &amp;material)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:39</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a8ff49980e8436819aceed54d59cbec66"><div class="ttname"><a href="class_mesh_sequence.html#a8ff49980e8436819aceed54d59cbec66">MeshSequence::Render</a></div><div class="ttdeci">void Render(const Transform &amp;transform, const Shader &amp;shader, const RenderingEngine &amp;renderingEngine, const Camera &amp;camera)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:151</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_a7f422949c3a95b88c5a2897027b1f60e"><div class="ttname"><a href="class_anim_mesh_renderer.html#a7f422949c3a95b88c5a2897027b1f60e">AnimMeshRenderer::DataDeploy</a></div><div class="ttdeci">virtual void DataDeploy(tinyxml2::XMLElement *data)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:340</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a0139bd23a9a4b733f27c80c6584bd01d"><div class="ttname"><a href="class_mesh_sequence.html#a0139bd23a9a4b733f27c80c6584bd01d">MeshSequence::GetName</a></div><div class="ttdeci">std::string GetName()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:279</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a48c3268f0ea8872d81f36a8891305741"><div class="ttname"><a href="class_mesh_renderer.html#a48c3268f0ea8872d81f36a8891305741">MeshRenderer::FCLASS</a></div><div class="ttdeci">FCLASS(MeshRenderer)</div></div>
+<div class="ttc" id="class_mesh_renderer_html_ad86cc5b64455df8f33169525de2b8340"><div class="ttname"><a href="class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340">MeshRenderer::m_material</a></div><div class="ttdeci">std::vector&lt; Material &gt; m_material</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:116</div></div>
+<div class="ttc" id="class_mesh_sequence_html"><div class="ttname"><a href="class_mesh_sequence.html">MeshSequence</a></div><div class="ttdef"><b>Definition:</b> meshRenderer.h:122</div></div>
+<div class="ttc" id="class_entity_component_html"><div class="ttname"><a href="class_entity_component.html">EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entityComponent.h:33</div></div>
+<div class="ttc" id="class_mesh_renderer_html_ac5b4b6215157ec5e8bcdabd61e96b901"><div class="ttname"><a href="class_mesh_renderer.html#ac5b4b6215157ec5e8bcdabd61e96b901">MeshRenderer::GetMesh</a></div><div class="ttdeci">Mesh &amp; GetMesh(int ID)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:112</div></div>
+<div class="ttc" id="class_mesh_renderer_html_a031444bc736eba5b2e43f3067bff2add"><div class="ttname"><a href="class_mesh_renderer.html#a031444bc736eba5b2e43f3067bff2add">MeshRenderer::IsVisible</a></div><div class="ttdeci">bool IsVisible()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:81</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a4d996cf3d85e1847597a70dcf7b94f15"><div class="ttname"><a href="class_mesh_sequence.html#a4d996cf3d85e1847597a70dcf7b94f15">MeshSequence::DataDeploy</a></div><div class="ttdeci">void DataDeploy(tinyxml2::XMLElement *data)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:165</div></div>
+<div class="ttc" id="class_anim_mesh_renderer_html_ae7beede66d335a9de1eb8e9cb0d1c4ac"><div class="ttname"><a href="class_anim_mesh_renderer.html#ae7beede66d335a9de1eb8e9cb0d1c4ac">AnimMeshRenderer::Update</a></div><div class="ttdeci">virtual void Update(float delta)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:328</div></div>
 <div class="ttc" id="class_mesh_data_html"><div class="ttname"><a href="class_mesh_data.html">MeshData</a></div><div class="ttdef"><b>Definition:</b> mesh.h:81</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a6d22af93ef6f09c06c5978945c471f96"><div class="ttname"><a href="class_mesh_sequence.html#a6d22af93ef6f09c06c5978945c471f96">MeshSequence::HasShadows</a></div><div class="ttdeci">bool HasShadows()</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:274</div></div>
 <div class="ttc" id="namespace_util_html_a959e2c36ed4c8e55e6fe4e3888baef05"><div class="ttname"><a href="namespace_util.html#a959e2c36ed4c8e55e6fe4e3888baef05">Util::ExecuteTask</a></div><div class="ttdeci">std::string ExecuteTask(const std::string &amp;task, const std::string &amp;data=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> util.cpp:70</div></div>
+<div class="ttc" id="class_mesh_sequence_html_a9af3874a35094cd8c45f34cdc5f6a8f6"><div class="ttname"><a href="class_mesh_sequence.html#a9af3874a35094cd8c45f34cdc5f6a8f6">MeshSequence::SetVisible</a></div><div class="ttdeci">EntityComponent * SetVisible(bool visible)</div><div class="ttdef"><b>Definition:</b> meshRenderer.h:175</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_3c4c7c1a85608ccd561c026bec818e51.html">components</a></li><li class="navelem"><a class="el" href="mesh_renderer_8h.html">meshRenderer.h</a></li>
+    <li class="navelem"><a class="el" href="dir_c2c223261bd67e4d93615e3cf1dcb510.html">engine</a></li><li class="navelem"><a class="el" href="dir_d2615858605543dda865ad8150d8e89e.html">src</a></li><li class="navelem"><a class="el" href="dir_f359c9849d6ff1e4cbd091f3aa96cbf3.html">components</a></li><li class="navelem"><a class="el" href="mesh_renderer_8h.html">meshRenderer.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>

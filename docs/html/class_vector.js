@@ -4,7 +4,7 @@ var class_vector =
     [ "Dot", "class_vector.html#a70c3348b3fcab9e06f120b8e7a9b0a40", null ],
     [ "Length", "class_vector.html#a68702092267c728db02f67c518c9583f", null ],
     [ "LengthSq", "class_vector.html#a197762230f85ba8e0ce7460dfa0000df", null ],
-    [ "Lerp", "class_vector.html#aa78265179b17460e314b8931f498974c", null ],
+    [ "Lerp", "class_vector.html#a5fdb113f5dc2a2f3c630dda3c5a165c5", null ],
     [ "Max", "class_vector.html#adb18e41faad27d9cef7a4629b6fe53b9", null ],
     [ "Max", "class_vector.html#a428af4a05c03660f55cddb78696c2d38", null ],
     [ "Normalized", "class_vector.html#a42dc6fba30ea0f61e3dbf1031876d539", null ],

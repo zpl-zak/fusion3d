@@ -30,7 +30,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_docs.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
    &#160;<span id="projectnumber">Alpha</span>
@@ -157,6 +156,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a61b5cf1c219f9a2514e9c44818dd25a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0765f39bf7970cb6cb9f2de446f86671"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="math3d_8h.html#a5b7721ab7216c91a40538beaa9e6ee1f">Matrix4f</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rendering_engine.html#a0765f39bf7970cb6cb9f2de446f86671">GetLightMatrix</a> () const </td></tr>
 <tr class="separator:a0765f39bf7970cb6cb9f2de446f86671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a523b3313043c39d851eb6cea2ed956f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shader.html">Shader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rendering_engine.html#a523b3313043c39d851eb6cea2ed956f2">GetDefaultShader</a> ()</td></tr>
+<tr class="separator:a523b3313043c39d851eb6cea2ed956f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13808fb827171308e94d530b61feedd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shader.html">Shader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rendering_engine.html#a13808fb827171308e94d530b61feedd2">GetNullShader</a> ()</td></tr>
+<tr class="separator:a13808fb827171308e94d530b61feedd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6bf2a7496e0365fb13ee24d9db7c8f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rendering_engine.html#af6bf2a7496e0365fb13ee24d9db7c8f8">ApplyFilterInternal</a> (const <a class="el" href="class_shader.html">Shader</a> &amp;filter)</td></tr>
+<tr class="separator:af6bf2a7496e0365fb13ee24d9db7c8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_mapped_values"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_mapped_values')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_mapped_values.html">MappedValues</a></td></tr>
 <tr class="memitem:a2f2b64544872889cf6403206f970bb7a inherit pub_methods_class_mapped_values"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mapped_values.html#a2f2b64544872889cf6403206f970bb7a">MappedValues</a> ()</td></tr>
 <tr class="separator:a2f2b64544872889cf6403206f970bb7a inherit pub_methods_class_mapped_values"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +182,8 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a5b6784d215f8ed44ac5fabaa9457811c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rendering_engine.html#a5b6784d215f8ed44ac5fabaa9457811c">SetSamplerSlot</a> (const std::string &amp;name, unsigned int value)</td></tr>
 <tr class="separator:a5b6784d215f8ed44ac5fabaa9457811c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c260844ec9abd172c44d7ddc105acca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rendering_engine.html#a6c260844ec9abd172c44d7ddc105acca">ApplyFilter</a> (const <a class="el" href="class_shader.html">Shader</a> &amp;filter, const <a class="el" href="class_texture.html">Texture</a> &amp;source, const <a class="el" href="class_texture.html">Texture</a> *dest)</td></tr>
+<tr class="separator:a6c260844ec9abd172c44d7ddc105acca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_rendering_engine.html">RenderingEngine</a> encapsulates all the functions and information necessary to perform a rendering. </p>
@@ -241,6 +248,62 @@ Protected Member Functions</h2></td></tr>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6c260844ec9abd172c44d7ddc105acca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderingEngine::ApplyFilter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_shader.html">Shader</a> &amp;&#160;</td>
+          <td class="paramname"><em>filter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_texture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af6bf2a7496e0365fb13ee24d9db7c8f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderingEngine::ApplyFilterInternal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_shader.html">Shader</a> &amp;&#160;</td>
+          <td class="paramname"><em>filter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -316,6 +379,29 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a523b3313043c39d851eb6cea2ed956f2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_shader.html">Shader</a>* RenderingEngine::GetDefaultShader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0765f39bf7970cb6cb9f2de446f86671"></a>
 <div class="memitem">
 <div class="memproto">
@@ -348,6 +434,29 @@ Protected Member Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="class_camera.html">Camera</a>* RenderingEngine::GetMainCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a13808fb827171308e94d530b61feedd2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_shader.html">Shader</a>* RenderingEngine::GetNullShader </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -569,8 +678,8 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>F:/Fusion3D_work/src/rendering/<a class="el" href="rendering_engine_8h_source.html">renderingEngine.h</a></li>
-<li>F:/Fusion3D_work/src/rendering/<a class="el" href="rendering_engine_8cpp.html">renderingEngine.cpp</a></li>
+<li>E:/Fusion3D_work/engine/src/rendering/<a class="el" href="rendering_engine_8h_source.html">renderingEngine.h</a></li>
+<li>E:/Fusion3D_work/engine/src/rendering/<a class="el" href="rendering_engine_8cpp.html">renderingEngine.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

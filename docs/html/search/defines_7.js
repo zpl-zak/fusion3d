@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['idct_5f1d',['IDCT_1D',['../stb__image_8c.html#a3485372e5368e34dd1a7db4f8a69dcc2',1,'stb_image.c']]],
-  ['invalid_5fvalue',['INVALID_VALUE',['../util_8h.html#a35a8a571b374cc7adae7fe767b8f39f0',1,'util.h']]]
+  ['math_5fpi',['MATH_PI',['../math3d_8h.html#ac58cbaeae310f551049f77b7c098599e',1,'math3d.h']]]
 ];

@@ -30,7 +30,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_docs.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
    &#160;<span id="projectnumber">Alpha</span>
@@ -122,22 +121,25 @@ Inheritance diagram for EntityComponent:</div>
  <div class="center">
   <img src="class_entity_component.png" usemap="#EntityComponent_map" alt=""/>
   <map id="EntityComponent_map" name="EntityComponent_map">
-<area href="class_base_light.html" alt="BaseLight" shape="rect" coords="168,56,326,80"/>
-<area href="class_camera_component.html" alt="CameraComponent" shape="rect" coords="168,112,326,136"/>
-<area href="class_decal_renderer.html" alt="DecalRenderer" shape="rect" coords="168,168,326,192"/>
-<area href="class_dev_mode.html" alt="DevMode" shape="rect" coords="168,224,326,248"/>
-<area href="class_free_look.html" alt="FreeLook" shape="rect" coords="168,280,326,304"/>
-<area href="class_free_move.html" alt="FreeMove" shape="rect" coords="168,336,326,360"/>
-<area href="class_g_u_i_window.html" alt="GUIWindow" shape="rect" coords="168,392,326,416"/>
-<area href="class_mesh_renderer.html" alt="MeshRenderer" shape="rect" coords="168,448,326,472"/>
-<area href="class_physics_engine_component.html" alt="PhysicsEngineComponent" shape="rect" coords="168,504,326,528"/>
-<area href="class_program_hoster.html" alt="ProgramHoster" shape="rect" coords="168,560,326,584"/>
-<area href="class_rigid_body.html" alt="RigidBody" shape="rect" coords="168,616,326,640"/>
+<area href="class_anim_mesh_renderer.html" alt="AnimMeshRenderer" shape="rect" coords="168,56,326,80"/>
+<area href="class_base_light.html" alt="BaseLight" shape="rect" coords="168,112,326,136"/>
+<area href="class_camera_component.html" alt="CameraComponent" shape="rect" coords="168,168,326,192"/>
+<area href="class_decal_renderer.html" alt="DecalRenderer" shape="rect" coords="168,224,326,248"/>
+<area href="class_dev_mode.html" alt="DevMode" shape="rect" coords="168,280,326,304"/>
+<area href="class_free_look.html" alt="FreeLook" shape="rect" coords="168,336,326,360"/>
+<area href="class_free_move.html" alt="FreeMove" shape="rect" coords="168,392,326,416"/>
+<area href="class_g_u_i_window.html" alt="GUIWindow" shape="rect" coords="168,448,326,472"/>
+<area href="class_mesh_renderer.html" alt="MeshRenderer" shape="rect" coords="168,504,326,528"/>
+<area href="class_physics_engine_component.html" alt="PhysicsEngineComponent" shape="rect" coords="168,560,326,584"/>
+<area href="class_program_hoster.html" alt="ProgramHoster" shape="rect" coords="168,616,326,640"/>
+<area href="class_rigid_body.html" alt="RigidBody" shape="rect" coords="168,672,326,696"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a39bf7f73b46dffc6d7cc4067357d446f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_component.html#a39bf7f73b46dffc6d7cc4067357d446f">FCLASS</a> (<a class="el" href="class_entity_component.html">EntityComponent</a>)</td></tr>
+<tr class="separator:a39bf7f73b46dffc6d7cc4067357d446f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b45c598f39fcc9237d1ab02dde89cd7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_component.html#a5b45c598f39fcc9237d1ab02dde89cd7">EntityComponent</a> ()</td></tr>
 <tr class="separator:a5b45c598f39fcc9237d1ab02dde89cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a242864ddd9852130396e445386ae123f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_component.html#a242864ddd9852130396e445386ae123f">~EntityComponent</a> ()</td></tr>
@@ -154,7 +156,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abb4682ad76a14bd2d3a7048eb82f3cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43c059d7bf5a5bc1ef90c042c1bf7866"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_component.html#a43c059d7bf5a5bc1ef90c042c1bf7866">PostRender</a> (const <a class="el" href="class_shader.html">Shader</a> &amp;shader, const <a class="el" href="class_rendering_engine.html">RenderingEngine</a> &amp;renderingEngine, const <a class="el" href="class_camera.html">Camera</a> &amp;camera) const </td></tr>
 <tr class="separator:a43c059d7bf5a5bc1ef90c042c1bf7866"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a017e67a2a15d49b8e8b1262f04bae3e7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_component.html#a017e67a2a15d49b8e8b1262f04bae3e7">DataDeploy</a> (<a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a> *data)</td></tr>
+<tr class="memitem:a0f56cbf58e1a1045fb7e536de85174a9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_component.html#a0f56cbf58e1a1045fb7e536de85174a9">PostRender</a> (const <a class="el" href="class_shader.html">Shader</a> &amp;shader, const <a class="el" href="class_rendering_engine.html">RenderingEngine</a> &amp;renderingEngine, const <a class="el" href="class_camera.html">Camera</a> &amp;camera)</td></tr>
+<tr class="separator:a0f56cbf58e1a1045fb7e536de85174a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a017e67a2a15d49b8e8b1262f04bae3e7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_component.html#a017e67a2a15d49b8e8b1262f04bae3e7">DataDeploy</a> (tinyxml2::XMLElement *data)</td></tr>
 <tr class="separator:a017e67a2a15d49b8e8b1262f04bae3e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70083a6d43cc3330ee2914b446db1cf6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_component.html#a70083a6d43cc3330ee2914b446db1cf6">AddToEngine</a> (<a class="el" href="class_core_engine.html">CoreEngine</a> *engine)</td></tr>
 <tr class="separator:a70083a6d43cc3330ee2914b446db1cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,7 +280,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void EntityComponent::DataDeploy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a> *&#160;</td>
+          <td class="paramtype">tinyxml2::XMLElement *&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
@@ -288,7 +292,23 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_spot_light.html#a6f2022297e4fd8aca98e8182bd131fe4">SpotLight</a>, <a class="el" href="class_point_light.html#abc57a545383b050b016ae62caf007b41">PointLight</a>, <a class="el" href="class_morph_mesh_renderer.html#a56bff1463f2ade4321e51111a278b67d">MorphMeshRenderer</a>, <a class="el" href="class_directional_light.html#a0bc6076c6f0af035a33869120d07717a">DirectionalLight</a>, <a class="el" href="class_rigid_body.html#af64e0f574bc6425df5147fbdcad4e2c1">RigidBody</a>, and <a class="el" href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">MeshRenderer</a>.</p>
+<p>Reimplemented in <a class="el" href="class_anim_mesh_renderer.html#a7f422949c3a95b88c5a2897027b1f60e">AnimMeshRenderer</a>, <a class="el" href="class_spot_light.html#a6f2022297e4fd8aca98e8182bd131fe4">SpotLight</a>, <a class="el" href="class_point_light.html#abc57a545383b050b016ae62caf007b41">PointLight</a>, <a class="el" href="class_mesh_sequence.html#a4d996cf3d85e1847597a70dcf7b94f15">MeshSequence</a>, <a class="el" href="class_program_hoster.html#a033e7ee02bffbde7a6111dba3025a960">ProgramHoster</a>, <a class="el" href="class_directional_light.html#a0bc6076c6f0af035a33869120d07717a">DirectionalLight</a>, <a class="el" href="class_rigid_body.html#af64e0f574bc6425df5147fbdcad4e2c1">RigidBody</a>, and <a class="el" href="class_mesh_renderer.html#add306f84dfe0842074bd14d9fdd4ef7b">MeshRenderer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39bf7f73b46dffc6d7cc4067357d446f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EntityComponent::FCLASS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_entity_component.html">EntityComponent</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -426,6 +446,48 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0f56cbf58e1a1045fb7e536de85174a9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void EntityComponent::PostRender </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_shader.html">Shader</a> &amp;&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_rendering_engine.html">RenderingEngine</a> &amp;&#160;</td>
+          <td class="paramname"><em>renderingEngine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_camera.html">Camera</a> &amp;&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_dev_mode.html#ac502ae8b9c29dd493e6e1dee0e0b7411">DevMode</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a2145c244df8f84a1291e58bf1482a940"></a>
 <div class="memitem">
 <div class="memproto">
@@ -500,7 +562,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_morph_mesh_renderer.html#ae14359c5cca738895522a0bc597bd3e6">MorphMeshRenderer</a>, <a class="el" href="class_g_u_i_window.html#a27abb5c9dddf42671f5a7794710408ac">GUIWindow</a>, <a class="el" href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">MeshRenderer</a>, and <a class="el" href="class_decal_renderer.html#a10b17dc6697d5b68ee4bb68f3a0a2ff4">DecalRenderer</a>.</p>
+<p>Reimplemented in <a class="el" href="class_anim_mesh_renderer.html#aaec3608ceda653cd79ff04c01575d0d5">AnimMeshRenderer</a>, <a class="el" href="class_g_u_i_window.html#a27abb5c9dddf42671f5a7794710408ac">GUIWindow</a>, <a class="el" href="class_mesh_renderer.html#a76b5c0c52f09ab34655d88c3012ebc4b">MeshRenderer</a>, and <a class="el" href="class_decal_renderer.html#a10b17dc6697d5b68ee4bb68f3a0a2ff4">DecalRenderer</a>.</p>
 
 </div>
 </div>
@@ -552,12 +614,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_dev_mode.html#a91a28de35bfeaf2454030fc7bfe480d8">DevMode</a>, <a class="el" href="class_program_hoster.html#abd54bb05540679042429e18341462faa">ProgramHoster</a>, <a class="el" href="class_rigid_body.html#a56a8fd7eeaf1627390d900479e083e0f">RigidBody</a>, <a class="el" href="class_morph_mesh_renderer.html#add4866e55e0f0aca3f33445db9d36693">MorphMeshRenderer</a>, <a class="el" href="class_g_u_i_window.html#a5b4354b5d0c16b47bc57cf845a104861">GUIWindow</a>, and <a class="el" href="class_physics_engine_component.html#a5aff2b59ba756680f4438bdeb21bad8e">PhysicsEngineComponent</a>.</p>
+<p>Reimplemented in <a class="el" href="class_anim_mesh_renderer.html#ae7beede66d335a9de1eb8e9cb0d1c4ac">AnimMeshRenderer</a>, <a class="el" href="class_dev_mode.html#a91a28de35bfeaf2454030fc7bfe480d8">DevMode</a>, <a class="el" href="class_program_hoster.html#abd54bb05540679042429e18341462faa">ProgramHoster</a>, <a class="el" href="class_rigid_body.html#a56a8fd7eeaf1627390d900479e083e0f">RigidBody</a>, <a class="el" href="class_mesh_sequence.html#a842026d031b447488ad272a27b81f8f9">MeshSequence</a>, <a class="el" href="class_g_u_i_window.html#a5b4354b5d0c16b47bc57cf845a104861">GUIWindow</a>, and <a class="el" href="class_physics_engine_component.html#a5aff2b59ba756680f4438bdeb21bad8e">PhysicsEngineComponent</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>F:/Fusion3D_work/src/core/<a class="el" href="entity_component_8h_source.html">entityComponent.h</a></li>
+<li>E:/Fusion3D_work/engine/src/core/<a class="el" href="entity_component_8h_source.html">entityComponent.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

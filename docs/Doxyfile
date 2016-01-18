@@ -51,7 +51,7 @@ PROJECT_BRIEF          =
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = F:/Fusion3D_work/media/logo_docs.png
+PROJECT_LOGO           = 
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
@@ -775,7 +775,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ../src
+INPUT                  = ../engine/src
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -856,7 +856,21 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is
 # run.
 
-EXCLUDE                = 
+EXCLUDE                = ../engine/src/staticLibs/imconfig.h \
+                         ../engine/src/staticLibs/imgui.cpp \
+                         ../engine/src/staticLibs/imgui.h \
+                         ../engine/src/staticLibs/imgui_demo.cpp \
+                         ../engine/src/staticLibs/imgui_draw.cpp \
+                         ../engine/src/staticLibs/imgui_impl_sdl_gl3.cpp \
+                         ../engine/src/staticLibs/imgui_impl_sdl_gl3.h \
+                         ../engine/src/staticLibs/imgui_internal.h \
+                         ../engine/src/staticLibs/stb_image.c \
+                         ../engine/src/staticLibs/stb_image.h \
+                         ../engine/src/staticLibs/stb_rect_pack.h \
+                         ../engine/src/staticLibs/stb_textedit.h \
+                         ../engine/src/staticLibs/stb_truetype.h \
+                         ../engine/src/staticLibs/tinyxml2.cpp \
+                         ../engine/src/staticLibs/tinyxml2.h
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

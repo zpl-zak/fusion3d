@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Fusion3D: F:/Fusion3D_work/src/rendering/camera.h Source File</title>
+<title>Fusion3D: E:/Fusion3D_work/engine/src/rendering/camera.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_docs.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
    &#160;<span id="projectnumber">Alpha</span>
@@ -163,23 +162,25 @@ $(document).ready(function(){initNavTree('camera_8h_source.html','');});
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_camera_component.html">   56</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_camera_component.html">CameraComponent</a> : <span class="keyword">public</span> <a class="code" href="class_entity_component.html">EntityComponent</a></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_camera_component.html#a6f14fb3dfa5ca8cfbaae2936413837d8">   59</a></span>&#160;    <a class="code" href="class_camera_component.html#a6f14fb3dfa5ca8cfbaae2936413837d8">CameraComponent</a>() {}</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_camera_component.html#a4a64822fad2f86c861d3951e10cf7719">   60</a></span>&#160;    <a class="code" href="class_camera_component.html#a4a64822fad2f86c861d3951e10cf7719">CameraComponent</a>(<span class="keyword">const</span> <a class="code" href="class_matrix4.html">Matrix4f</a>&amp; projection) :</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        m_camera(projection, 0) {}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_camera_component.html#a47a451b264be1b0eefe668f28626aa21">AddToEngine</a>(<a class="code" href="class_core_engine.html">CoreEngine</a>* engine);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_camera_component.html#a0babe68f313ea0a5b28b2490114210cf">FCLASS</a> (<a class="code" href="class_camera_component.html">CameraComponent</a>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_camera_component.html#a6f14fb3dfa5ca8cfbaae2936413837d8">   61</a></span>&#160;    <a class="code" href="class_camera_component.html#a6f14fb3dfa5ca8cfbaae2936413837d8">CameraComponent</a>() {}</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_camera_component.html#a4a64822fad2f86c861d3951e10cf7719">   62</a></span>&#160;    <a class="code" href="class_camera_component.html#a4a64822fad2f86c861d3951e10cf7719">CameraComponent</a>(<span class="keyword">const</span> <a class="code" href="class_matrix4.html">Matrix4f</a>&amp; projection) :</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        m_camera(projection, 0) {}</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_camera_component.html#a4d879648a6458e624b2ab8632621871d">   65</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="class_matrix4.html">Matrix4f</a> <a class="code" href="class_camera_component.html#a4d879648a6458e624b2ab8632621871d">GetViewProjection</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_camera.<a class="code" href="class_camera.html#a88e084445b0096c581707cb656333b2a">GetViewProjection</a>(); }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_camera_component.html#a47a451b264be1b0eefe668f28626aa21">AddToEngine</a>(<a class="code" href="class_core_engine.html">CoreEngine</a>* engine);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_camera_component.html#ad001ba02fca588f937676d7f7a21e432">   67</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_camera_component.html#ad001ba02fca588f937676d7f7a21e432">SetProjection</a>(<span class="keyword">const</span> <a class="code" href="class_matrix4.html">Matrix4f</a>&amp; projection) { m_camera.<a class="code" href="class_camera.html#a82ee584dbca05d545d39cb49520e0ac5">SetProjection</a>(projection); }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_camera_component.html#a20cc7a5d88e1f4a122cb9b0d0d137736">SetParent</a>(<a class="code" href="class_entity.html">Entity</a>* parent);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="class_camera.html">Camera</a> m_camera; <span class="comment">//The camera that&#39;s being used like a component.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_camera_component.html#a4d879648a6458e624b2ab8632621871d">   67</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="class_matrix4.html">Matrix4f</a> <a class="code" href="class_camera_component.html#a4d879648a6458e624b2ab8632621871d">GetViewProjection</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_camera.<a class="code" href="class_camera.html#a88e084445b0096c581707cb656333b2a">GetViewProjection</a>(); }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_camera_component.html#ad001ba02fca588f937676d7f7a21e432">   69</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_camera_component.html#ad001ba02fca588f937676d7f7a21e432">SetProjection</a>(<span class="keyword">const</span> <a class="code" href="class_matrix4.html">Matrix4f</a>&amp; projection) { m_camera.<a class="code" href="class_camera.html#a82ee584dbca05d545d39cb49520e0ac5">SetProjection</a>(projection); }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_camera_component.html#a20cc7a5d88e1f4a122cb9b0d0d137736">SetParent</a>(<a class="code" href="class_entity.html">Entity</a>* parent);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="class_camera.html">Camera</a> m_camera; <span class="comment">//The camera that&#39;s being used like a component.</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_camera_html_adafb81d278c3566dad4d6fa4da7efd5f"><div class="ttname"><a href="class_camera.html#adafb81d278c3566dad4d6fa4da7efd5f">Camera::GetTransform</a></div><div class="ttdeci">const Transform &amp; GetTransform() const </div><div class="ttdef"><b>Definition:</b> camera.h:39</div></div>
 <div class="ttc" id="class_camera_html_a51b0d4b1a6552dd0d3d6c6a60e505d0e"><div class="ttname"><a href="class_camera.html#a51b0d4b1a6552dd0d3d6c6a60e505d0e">Camera::Camera</a></div><div class="ttdeci">Camera(const Matrix4f &amp;projection, Transform *transform)</div><div class="ttdef"><b>Definition:</b> camera.h:34</div></div>
 <div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.h:27</div></div>
@@ -188,24 +189,25 @@ $(document).ready(function(){initNavTree('camera_8h_source.html','');});
 <div class="ttc" id="class_transform_html"><div class="ttname"><a href="class_transform.html">Transform</a></div><div class="ttdef"><b>Definition:</b> transform.h:25</div></div>
 <div class="ttc" id="class_camera_html_a82ee584dbca05d545d39cb49520e0ac5"><div class="ttname"><a href="class_camera.html#a82ee584dbca05d545d39cb49520e0ac5">Camera::SetProjection</a></div><div class="ttdeci">void SetProjection(const Matrix4f &amp;projection)</div><div class="ttdef"><b>Definition:</b> camera.h:46</div></div>
 <div class="ttc" id="class_matrix4_html"><div class="ttname"><a href="class_matrix4.html">Matrix4&lt; float &gt;</a></div></div>
-<div class="ttc" id="class_camera_component_html_a4a64822fad2f86c861d3951e10cf7719"><div class="ttname"><a href="class_camera_component.html#a4a64822fad2f86c861d3951e10cf7719">CameraComponent::CameraComponent</a></div><div class="ttdeci">CameraComponent(const Matrix4f &amp;projection)</div><div class="ttdef"><b>Definition:</b> camera.h:60</div></div>
-<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:34</div></div>
+<div class="ttc" id="class_camera_component_html_a4a64822fad2f86c861d3951e10cf7719"><div class="ttname"><a href="class_camera_component.html#a4a64822fad2f86c861d3951e10cf7719">CameraComponent::CameraComponent</a></div><div class="ttdeci">CameraComponent(const Matrix4f &amp;projection)</div><div class="ttdef"><b>Definition:</b> camera.h:62</div></div>
+<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:35</div></div>
 <div class="ttc" id="class_camera_html_a01f94c3543f56ede7af49dc778f19331"><div class="ttname"><a href="class_camera.html#a01f94c3543f56ede7af49dc778f19331">Camera::Camera</a></div><div class="ttdeci">Camera()</div><div class="ttdef"><b>Definition:</b> camera.h:30</div></div>
-<div class="ttc" id="class_camera_component_html_a6f14fb3dfa5ca8cfbaae2936413837d8"><div class="ttname"><a href="class_camera_component.html#a6f14fb3dfa5ca8cfbaae2936413837d8">CameraComponent::CameraComponent</a></div><div class="ttdeci">CameraComponent()</div><div class="ttdef"><b>Definition:</b> camera.h:59</div></div>
+<div class="ttc" id="class_camera_component_html_a6f14fb3dfa5ca8cfbaae2936413837d8"><div class="ttname"><a href="class_camera_component.html#a6f14fb3dfa5ca8cfbaae2936413837d8">CameraComponent::CameraComponent</a></div><div class="ttdeci">CameraComponent()</div><div class="ttdef"><b>Definition:</b> camera.h:61</div></div>
 <div class="ttc" id="class_camera_html_a88e084445b0096c581707cb656333b2a"><div class="ttname"><a href="class_camera.html#a88e084445b0096c581707cb656333b2a">Camera::GetViewProjection</a></div><div class="ttdeci">Matrix4f GetViewProjection() const </div><div class="ttdef"><b>Definition:</b> camera.cpp:22</div></div>
 <div class="ttc" id="class_camera_html_ac643febc45392fe1df869faf7162d365"><div class="ttname"><a href="class_camera.html#ac643febc45392fe1df869faf7162d365">Camera::SetTransform</a></div><div class="ttdeci">void SetTransform(Transform *transform)</div><div class="ttdef"><b>Definition:</b> camera.h:47</div></div>
-<div class="ttc" id="class_camera_component_html_a4d879648a6458e624b2ab8632621871d"><div class="ttname"><a href="class_camera_component.html#a4d879648a6458e624b2ab8632621871d">CameraComponent::GetViewProjection</a></div><div class="ttdeci">Matrix4f GetViewProjection() const </div><div class="ttdef"><b>Definition:</b> camera.h:65</div></div>
+<div class="ttc" id="class_camera_component_html_a4d879648a6458e624b2ab8632621871d"><div class="ttname"><a href="class_camera_component.html#a4d879648a6458e624b2ab8632621871d">CameraComponent::GetViewProjection</a></div><div class="ttdeci">Matrix4f GetViewProjection() const </div><div class="ttdef"><b>Definition:</b> camera.h:67</div></div>
 <div class="ttc" id="class_camera_component_html"><div class="ttname"><a href="class_camera_component.html">CameraComponent</a></div><div class="ttdef"><b>Definition:</b> camera.h:56</div></div>
-<div class="ttc" id="class_entity_component_html"><div class="ttname"><a href="class_entity_component.html">EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entityComponent.h:32</div></div>
+<div class="ttc" id="class_entity_component_html"><div class="ttname"><a href="class_entity_component.html">EntityComponent</a></div><div class="ttdef"><b>Definition:</b> entityComponent.h:33</div></div>
+<div class="ttc" id="class_camera_component_html_a0babe68f313ea0a5b28b2490114210cf"><div class="ttname"><a href="class_camera_component.html#a0babe68f313ea0a5b28b2490114210cf">CameraComponent::FCLASS</a></div><div class="ttdeci">FCLASS(CameraComponent)</div></div>
 <div class="ttc" id="class_camera_html_ae1937794b5efed6cb11a73c5fc3c98ab"><div class="ttname"><a href="class_camera.html#ae1937794b5efed6cb11a73c5fc3c98ab">Camera::GetTransform</a></div><div class="ttdeci">Transform * GetTransform()</div><div class="ttdef"><b>Definition:</b> camera.h:38</div></div>
-<div class="ttc" id="class_camera_component_html_ad001ba02fca588f937676d7f7a21e432"><div class="ttname"><a href="class_camera_component.html#ad001ba02fca588f937676d7f7a21e432">CameraComponent::SetProjection</a></div><div class="ttdeci">void SetProjection(const Matrix4f &amp;projection)</div><div class="ttdef"><b>Definition:</b> camera.h:67</div></div>
+<div class="ttc" id="class_camera_component_html_ad001ba02fca588f937676d7f7a21e432"><div class="ttname"><a href="class_camera_component.html#ad001ba02fca588f937676d7f7a21e432">CameraComponent::SetProjection</a></div><div class="ttdeci">void SetProjection(const Matrix4f &amp;projection)</div><div class="ttdef"><b>Definition:</b> camera.h:69</div></div>
 <div class="ttc" id="class_core_engine_html"><div class="ttname"><a href="class_core_engine.html">CoreEngine</a></div><div class="ttdef"><b>Definition:</b> coreEngine.h:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1243271318b2b38807a3b1d2ca08dd72.html">rendering</a></li><li class="navelem"><a class="el" href="camera_8h.html">camera.h</a></li>
+    <li class="navelem"><a class="el" href="dir_c2c223261bd67e4d93615e3cf1dcb510.html">engine</a></li><li class="navelem"><a class="el" href="dir_d2615858605543dda865ad8150d8e89e.html">src</a></li><li class="navelem"><a class="el" href="dir_931b16c502311601f71b93944adc830b.html">rendering</a></li><li class="navelem"><a class="el" href="camera_8h.html">camera.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>

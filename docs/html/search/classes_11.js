@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uniformstruct',['UniformStruct',['../class_uniform_struct.html',1,'']]]
+  ['xmlloader',['XMLLoader',['../class_x_m_l_loader.html',1,'']]]
 ];

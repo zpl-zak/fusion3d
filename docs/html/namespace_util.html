@@ -30,7 +30,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_docs.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
    &#160;<span id="projectnumber">Alpha</span>
@@ -131,6 +130,10 @@ Functions</h2></td></tr>
 <tr class="separator:acc05a2b03fef93489a4dfa0c249888f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa885c785af3ad7b88d49831b6df76165"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_util.html#aa885c785af3ad7b88d49831b6df76165">split</a> (const std::string &amp;s, char delim, std::vector&lt; std::string &gt; &amp;elems)</td></tr>
 <tr class="separator:aa885c785af3ad7b88d49831b6df76165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919e134cdeb3311dc5814d9b28521ad9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_util.html#a919e134cdeb3311dc5814d9b28521ad9">ScreenToWorld</a> (int X, int Y, int W, int H, <a class="el" href="math3d_8h.html#a5b7721ab7216c91a40538beaa9e6ee1f">Matrix4f</a> matrix, <a class="el" href="class_vector3f.html">Vector3f</a> &amp;out_origin, <a class="el" href="class_vector3f.html">Vector3f</a> &amp;out_dir)</td></tr>
+<tr class="separator:a919e134cdeb3311dc5814d9b28521ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd42067d609cc760dd03606caa77e2b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_util.html#abdd42067d609cc760dd03606caa77e2b">chomp</a> (const std::string &amp;s)</td></tr>
+<tr class="separator:abdd42067d609cc760dd03606caa77e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa68ed49daaa9bf2bd1f1b09901615320"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_util.html#aa68ed49daaa9bf2bd1f1b09901615320">split</a> (const std::string &amp;s, char delim)</td></tr>
 <tr class="separator:aa68ed49daaa9bf2bd1f1b09901615320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a515e55a91d8f9f9ef760f8a00ad58f8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3f.html">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_util.html#a515e55a91d8f9f9ef760f8a00ad58f8e">ParseVector3</a> (std::string n)</td></tr>
@@ -139,6 +142,30 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Various functions that didn't make it to actual classes but are still useful in general uses. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="abdd42067d609cc760dd03606caa77e2b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Util::chomp </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a959e2c36ed4c8e55e6fe4e3888baef05"></a>
 <div class="memitem">
 <div class="memproto">
@@ -219,6 +246,70 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a919e134cdeb3311dc5814d9b28521ad9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Util::ScreenToWorld </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>W</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>H</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="math3d_8h.html#a5b7721ab7216c91a40538beaa9e6ee1f">Matrix4f</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vector3f.html">Vector3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>out_origin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vector3f.html">Vector3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>out_dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

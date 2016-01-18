@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['channel',['channel',['../structpic__packet__t.html#af64f17c991495f3f3baf6782a253f7cc',1,'pic_packet_t']]],
-  ['code',['code',['../structhuffman.html#a9925018a95d5a2122cd732561fa0fa64',1,'huffman']]],
-  ['code_5fbits',['code_bits',['../structjpeg.html#a6d1b20b5d9d253006fde4e4dd8ab8c04',1,'jpeg']]],
-  ['code_5fbuffer',['code_buffer',['../structjpeg.html#abfc7f6a333ba3517e669e3e58113bbca',1,'jpeg::code_buffer()'],['../structzbuf.html#a3bb8244d7be17801079c5a8587182edb',1,'zbuf::code_buffer()']]],
-  ['codes',['codes',['../structstbi__gif__struct.html#a4644d2fe2c84e410ab235ea415e9a740',1,'stbi_gif_struct']]],
-  ['color_5ftable',['color_table',['../structstbi__gif__struct.html#aa10fee29a36ac4b9cae98300f839d091',1,'stbi_gif_struct']]],
-  ['cur_5fx',['cur_x',['../structstbi__gif__struct.html#adbc7ae7e9ff2e2abdf66eb0e1a4b3ffb',1,'stbi_gif_struct']]],
-  ['cur_5fy',['cur_y',['../structstbi__gif__struct.html#ac61865216c4b578c235f5b8170c2036c',1,'stbi_gif_struct']]]
+  ['m_5fattenuation',['m_attenuation',['../class_point_light.html#a4a44fa4aa2d982893ac037186c85ff2b',1,'PointLight']]],
+  ['m_5fclasses',['m_classes',['../structfactory.html#a25209dee0de7731b6d219ff3ba464a21',1,'factory']]],
+  ['m_5ferror',['m_error',['../class_program.html#acacd819e20737d226d82e73a733e8c27',1,'Program']]],
+  ['m_5flights',['m_lights',['../world_component_8h.html#ae931a5aeae6e2dc50ce1bf465af323c6',1,'worldComponent.h']]],
+  ['m_5fmaterial',['m_material',['../class_mesh_renderer.html#ad86cc5b64455df8f33169525de2b8340',1,'MeshRenderer']]],
+  ['m_5fmesh',['m_mesh',['../class_mesh_renderer.html#ab24712085109977fcad5321bcf510e85',1,'MeshRenderer']]],
+  ['m_5fmodel',['m_model',['../world_component_8h.html#a21390e495cdb82f4834c4efcf5db0541',1,'worldComponent.h']]],
+  ['m_5fprogs',['m_progs',['../world_component_8h.html#a637bd2c4263d96b69cf156aa702aca27',1,'worldComponent.h']]],
+  ['m_5froot',['m_root',['../class_game.html#a7a4fb23eede3895b8e786ed39cc162d0',1,'Game']]],
+  ['m_5fshadows',['m_shadows',['../class_mesh_renderer.html#ae3e91290a5f90335cb83b3a263319f4b',1,'MeshRenderer']]],
+  ['m_5fvisible',['m_visible',['../class_mesh_renderer.html#a91dacb828ddbecf4f260c3fed61404a3',1,'MeshRenderer']]]
 ];

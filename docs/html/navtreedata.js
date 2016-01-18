@@ -5,9 +5,7 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", null ]
+        [ "Functions", "namespacemembers_func.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -19,14 +17,13 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerator", "functions_eval.html", "functions_eval" ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Enumerator", "functions_eval.html", "functions_eval" ]
       ] ]
     ] ],
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", "globals_dup" ],
+        [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -40,13 +37,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "3_d_engine_8h.html",
-"class_input.html#a4f2253b072b4ee76f282f670de5743eba279d5e8c5f0fe004264b458ef6cef264",
-"class_matrix.html#a085e7210b168aaa55c2c9c5932d33fd7",
-"class_vector.html#a3c785a9866bb20fc79b19196fe9b3a5b",
-"classtinyxml2_1_1_x_m_l_document.html#aa08503d24898bf9992ae5e5fb8b0cf87",
-"entity_component_8h.html#aa81eaa38559c066e0a424da38e0ebd3d",
-"stb__image_8c.html#a894f9f42a78d83fa913bfa6190b5fb8d",
-"tinyxml2_8h.html#a1fbf88509c3ac88c09117b1947414e08a8d4dd3ce2dee784a53f62fa8a6ac83ee"
+"class_input.html#a4f2253b072b4ee76f282f670de5743eba28a7cc269b2264e8fdc7de749fa9f562",
+"class_material_data.html",
+"class_transform.html#a6bced070570282ee5143ac7faa8c694b",
+"functions_w.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

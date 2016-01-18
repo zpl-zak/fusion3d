@@ -2,6 +2,7 @@ var class_program =
 [
     [ "Program", "class_program.html#aaefaa0df08f3484476fc4d61e97acbdc", null ],
     [ "~Program", "class_program.html#a2df844d46504a414498c2140de94bfef", null ],
+    [ "DataDeploy", "class_program.html#ae0f5c210ee1e8d0a4f38fbd2b8838075", null ],
     [ "GetLatestError", "class_program.html#a97d6284ddd0a4abec1041b9fca178829", null ],
     [ "GetParent", "class_program.html#a58a5d26f7d63df786edacb2332c9e594", null ],
     [ "GetProgramName", "class_program.html#aacda59ac678fb196f9d5cf89e9a42885", null ],

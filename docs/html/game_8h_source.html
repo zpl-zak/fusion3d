@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Fusion3D: F:/Fusion3D_work/src/core/game.h Source File</title>
+<title>Fusion3D: E:/Fusion3D_work/engine/src/core/game.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_docs.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
    &#160;<span id="projectnumber">Alpha</span>
@@ -133,7 +132,7 @@ $(document).ready(function(){initNavTree('game_8h_source.html','');});
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="profiling_8h.html">profiling.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * This is our game, which also contains our scene graph.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * This is our base game class, which also contains our scene graph.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_game.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game.html">Game</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
@@ -165,7 +164,7 @@ $(document).ready(function(){initNavTree('game_8h_source.html','');});
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="entity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div></div>
 <div class="ttc" id="class_game_html_ab64891eae2c4eb4f3bf7d161c6d5e37a"><div class="ttname"><a href="class_game.html#ab64891eae2c4eb4f3bf7d161c6d5e37a">Game::ProcessInput</a></div><div class="ttdeci">void ProcessInput(const Input &amp;input, float delta)</div><div class="ttdef"><b>Definition:</b> game.cpp:23</div></div>
-<div class="ttc" id="class_entity_html_a555b11eb18ebada6abb9219c316ec7c6"><div class="ttname"><a href="class_entity.html#a555b11eb18ebada6abb9219c316ec7c6">Entity::InitAll</a></div><div class="ttdeci">void InitAll()</div><div class="ttdef"><b>Definition:</b> entity.cpp:95</div></div>
+<div class="ttc" id="class_entity_html_a555b11eb18ebada6abb9219c316ec7c6"><div class="ttname"><a href="class_entity.html#a555b11eb18ebada6abb9219c316ec7c6">Entity::InitAll</a></div><div class="ttdeci">void InitAll()</div><div class="ttdef"><b>Definition:</b> entity.cpp:80</div></div>
 <div class="ttc" id="class_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdef"><b>Definition:</b> window.h:27</div></div>
 <div class="ttc" id="class_game_html_a0b605ce1406e2afc17184221022d2075"><div class="ttname"><a href="class_game.html#a0b605ce1406e2afc17184221022d2075">Game::AddToScene</a></div><div class="ttdeci">Entity * AddToScene(Entity *child)</div><div class="ttdef"><b>Definition:</b> game.h:43</div></div>
 <div class="ttc" id="profiling_8h_html"><div class="ttname"><a href="profiling_8h.html">profiling.h</a></div></div>
@@ -173,16 +172,16 @@ $(document).ready(function(){initNavTree('game_8h_source.html','');});
 <div class="ttc" id="class_game_html_ab7ee30cf8ff9dd65e527b6fd1a2bd333"><div class="ttname"><a href="class_game.html#ab7ee30cf8ff9dd65e527b6fd1a2bd333">Game::SetEngine</a></div><div class="ttdeci">void SetEngine(CoreEngine *engine)</div><div class="ttdef"><b>Definition:</b> game.h:41</div></div>
 <div class="ttc" id="class_rendering_engine_html"><div class="ttname"><a href="class_rendering_engine.html">RenderingEngine</a></div><div class="ttdef"><b>Definition:</b> renderingEngine.h:37</div></div>
 <div class="ttc" id="class_game_html_ad59df6562a58a614fda24622d3715b65"><div class="ttname"><a href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game::Game</a></div><div class="ttdeci">Game()</div><div class="ttdef"><b>Definition:</b> game.h:30</div></div>
-<div class="ttc" id="class_entity_html_ae57c283bdba04e4d806115ff96931e94"><div class="ttname"><a href="class_entity.html#ae57c283bdba04e4d806115ff96931e94">Entity::SetEngine</a></div><div class="ttdeci">void SetEngine(CoreEngine *engine)</div><div class="ttdef"><b>Definition:</b> entity.cpp:204</div></div>
+<div class="ttc" id="class_entity_html_ae57c283bdba04e4d806115ff96931e94"><div class="ttname"><a href="class_entity.html#ae57c283bdba04e4d806115ff96931e94">Entity::SetEngine</a></div><div class="ttdeci">void SetEngine(CoreEngine *engine)</div><div class="ttdef"><b>Definition:</b> entity.cpp:187</div></div>
 <div class="ttc" id="class_input_html"><div class="ttname"><a href="class_input.html">Input</a></div><div class="ttdef"><b>Definition:</b> input.h:26</div></div>
 <div class="ttc" id="class_game_html_a18483e75040298401c19befdce191aa5"><div class="ttname"><a href="class_game.html#a18483e75040298401c19befdce191aa5">Game::DisplayInputTime</a></div><div class="ttdeci">double DisplayInputTime(double dividend)</div><div class="ttdef"><b>Definition:</b> game.h:38</div></div>
-<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:34</div></div>
+<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:35</div></div>
 <div class="ttc" id="core_engine_8h_html"><div class="ttname"><a href="core_engine_8h.html">coreEngine.h</a></div></div>
 <div class="ttc" id="class_game_html_aec51184864470a1554fd22a47e25a0e2"><div class="ttname"><a href="class_game.html#aec51184864470a1554fd22a47e25a0e2">Game::DisplayUpdateTime</a></div><div class="ttdeci">double DisplayUpdateTime(double dividend)</div><div class="ttdef"><b>Definition:</b> game.h:39</div></div>
 <div class="ttc" id="class_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdef"><b>Definition:</b> game.h:27</div></div>
 <div class="ttc" id="class_game_html_a7a4fb23eede3895b8e786ed39cc162d0"><div class="ttname"><a href="class_game.html#a7a4fb23eede3895b8e786ed39cc162d0">Game::m_root</a></div><div class="ttdeci">Entity m_root</div><div class="ttdef"><b>Definition:</b> game.h:45</div></div>
 <div class="ttc" id="class_game_html_a72772b628443c3675976d6b5e6c9ec2a"><div class="ttname"><a href="class_game.html#a72772b628443c3675976d6b5e6c9ec2a">Game::~Game</a></div><div class="ttdeci">virtual ~Game()</div><div class="ttdef"><b>Definition:</b> game.h:31</div></div>
-<div class="ttc" id="class_entity_html_a82adda07e5a8db0a7e5d0ff703a1541b"><div class="ttname"><a href="class_entity.html#a82adda07e5a8db0a7e5d0ff703a1541b">Entity::AddChild</a></div><div class="ttdeci">Entity * AddChild(Entity *child)</div><div class="ttdef"><b>Definition:</b> entity.cpp:68</div></div>
+<div class="ttc" id="class_entity_html_a82adda07e5a8db0a7e5d0ff703a1541b"><div class="ttname"><a href="class_entity.html#a82adda07e5a8db0a7e5d0ff703a1541b">Entity::AddChild</a></div><div class="ttdeci">Entity * AddChild(Entity *child)</div><div class="ttdef"><b>Definition:</b> entity.cpp:53</div></div>
 <div class="ttc" id="class_game_html_a6ad207394e4ce91f909d49c87802da08"><div class="ttname"><a href="class_game.html#a6ad207394e4ce91f909d49c87802da08">Game::Update</a></div><div class="ttdeci">void Update(float delta)</div><div class="ttdef"><b>Definition:</b> game.cpp:30</div></div>
 <div class="ttc" id="class_profile_timer_html"><div class="ttname"><a href="class_profile_timer.html">ProfileTimer</a></div><div class="ttdef"><b>Definition:</b> profiling.h:27</div></div>
 <div class="ttc" id="class_game_html_a5fae2de88740658b07d98972d4b4ed26"><div class="ttname"><a href="class_game.html#a5fae2de88740658b07d98972d4b4ed26">Game::Render</a></div><div class="ttdeci">void Render(RenderingEngine *renderingEngine)</div><div class="ttdef"><b>Definition:</b> game.cpp:37</div></div>
@@ -193,7 +192,7 @@ $(document).ready(function(){initNavTree('game_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
+    <li class="navelem"><a class="el" href="dir_c2c223261bd67e4d93615e3cf1dcb510.html">engine</a></li><li class="navelem"><a class="el" href="dir_d2615858605543dda865ad8150d8e89e.html">src</a></li><li class="navelem"><a class="el" href="dir_4a095ce238fa12479dd596b91ecf95b0.html">core</a></li><li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Fusion3D: F:/Fusion3D_work/src/core/input.h Source File</title>
+<title>Fusion3D: E:/Fusion3D_work/engine/src/core/input.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo_docs.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Fusion3D
    &#160;<span id="projectnumber">Alpha</span>
@@ -685,8 +684,8 @@ $(document).ready(function(){initNavTree('input_8h_source.html','');});
 <div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="comment">//  KEY_LAST</span></div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="comment">//} KEY;</span></div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;</div>
-<div class="line"><a name="l00660"></a><span class="lineno"><a class="line" href="class_input.html#a593c9d5b6ca0df098a61b683b0b7bbce">  660</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_input.html#a593c9d5b6ca0df098a61b683b0b7bbce">NUM_KEYS</a> = 512;</div>
-<div class="line"><a name="l00661"></a><span class="lineno"><a class="line" href="class_input.html#aedaace4ea220bcd41963cf171c102288">  661</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_input.html#aedaace4ea220bcd41963cf171c102288">NUM_MOUSEBUTTONS</a> = 256;</div>
+<div class="line"><a name="l00660"></a><span class="lineno"><a class="line" href="class_input.html#a2ccf634d72bc9f1def00c6698252406e">  660</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a class="code" href="class_input.html#a2ccf634d72bc9f1def00c6698252406e">NUM_KEYS</a> = 512;</div>
+<div class="line"><a name="l00661"></a><span class="lineno"><a class="line" href="class_input.html#ae9f9dcff0f555aa0c0a98dbbf3154c4f">  661</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a class="code" href="class_input.html#ae9f9dcff0f555aa0c0a98dbbf3154c4f">NUM_MOUSEBUTTONS</a> = 256;</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <a class="code" href="class_input.html#a4f44bbd5cf0bea669dd96465cea32fd9">Input</a>(<a class="code" href="class_window.html">Window</a>* window);</div>
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;</div>
@@ -714,12 +713,12 @@ $(document).ready(function(){initNavTree('input_8h_source.html','');});
 <div class="line"><a name="l00686"></a><span class="lineno"><a class="line" href="class_input.html#ad6f85521d7e38ed652edf01f3d666c14">  686</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_input.html#ad6f85521d7e38ed652edf01f3d666c14">ClearKey</a>() { m_lastKey = -1; }</div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">bool</span> m_inputs[<a class="code" href="class_input.html#a593c9d5b6ca0df098a61b683b0b7bbce">NUM_KEYS</a>];</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">bool</span> m_downKeys[<a class="code" href="class_input.html#a593c9d5b6ca0df098a61b683b0b7bbce">NUM_KEYS</a>];</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordtype">bool</span> m_upKeys[<a class="code" href="class_input.html#a593c9d5b6ca0df098a61b683b0b7bbce">NUM_KEYS</a>];</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordtype">bool</span> m_mouseInput[<a class="code" href="class_input.html#aedaace4ea220bcd41963cf171c102288">NUM_MOUSEBUTTONS</a>];</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keywordtype">bool</span> m_downMouse[<a class="code" href="class_input.html#aedaace4ea220bcd41963cf171c102288">NUM_MOUSEBUTTONS</a>];</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keywordtype">bool</span> m_upMouse[<a class="code" href="class_input.html#aedaace4ea220bcd41963cf171c102288">NUM_MOUSEBUTTONS</a>];</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">bool</span> m_inputs[<a class="code" href="class_input.html#a2ccf634d72bc9f1def00c6698252406e">NUM_KEYS</a>];</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">bool</span> m_downKeys[<a class="code" href="class_input.html#a2ccf634d72bc9f1def00c6698252406e">NUM_KEYS</a>];</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordtype">bool</span> m_upKeys[<a class="code" href="class_input.html#a2ccf634d72bc9f1def00c6698252406e">NUM_KEYS</a>];</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordtype">bool</span> m_mouseInput[<a class="code" href="class_input.html#ae9f9dcff0f555aa0c0a98dbbf3154c4f">NUM_MOUSEBUTTONS</a>];</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keywordtype">bool</span> m_downMouse[<a class="code" href="class_input.html#ae9f9dcff0f555aa0c0a98dbbf3154c4f">NUM_MOUSEBUTTONS</a>];</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keywordtype">bool</span> m_upMouse[<a class="code" href="class_input.html#ae9f9dcff0f555aa0c0a98dbbf3154c4f">NUM_MOUSEBUTTONS</a>];</div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="keywordtype">int</span>  m_mouseX;</div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keywordtype">int</span>  m_mouseY;</div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <a class="code" href="class_window.html">Window</a>* m_window;</div>
@@ -743,7 +742,6 @@ $(document).ready(function(){initNavTree('input_8h_source.html','');});
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebaa903e9d21904c6b7438b0cf475dffb5f"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebaa903e9d21904c6b7438b0cf475dffb5f">Input::KEY_F10</a></div><div class="ttdef"><b>Definition:</b> input.h:157</div></div>
 <div class="ttc" id="class_input_html_a0f6924f37ba551d6abb2529f5dfc964e"><div class="ttname"><a href="class_input.html#a0f6924f37ba551d6abb2529f5dfc964e">Input::SetKey</a></div><div class="ttdeci">void SetKey(int keyCode, bool value)</div><div class="ttdef"><b>Definition:</b> input.h:678</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebaea36dbc69ecd426e6f45289abb420db4"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebaea36dbc69ecd426e6f45289abb420db4">Input::KEY_F9</a></div><div class="ttdef"><b>Definition:</b> input.h:156</div></div>
-<div class="ttc" id="class_input_html_a593c9d5b6ca0df098a61b683b0b7bbce"><div class="ttname"><a href="class_input.html#a593c9d5b6ca0df098a61b683b0b7bbce">Input::NUM_KEYS</a></div><div class="ttdeci">static const int NUM_KEYS</div><div class="ttdef"><b>Definition:</b> input.h:660</div></div>
 <div class="ttc" id="class_input_html_aea68a84e0161c3529415c3b868c513deafe1cb0a5d40b7fbb03ed5efa0497eae1"><div class="ttname"><a href="class_input.html#aea68a84e0161c3529415c3b868c513deafe1cb0a5d40b7fbb03ed5efa0497eae1">Input::MOUSE_WHEEL_DOWN</a></div><div class="ttdef"><b>Definition:</b> input.h:35</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebabb424539ee5af3e62ef26d03acba0e4f"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebabb424539ee5af3e62ef26d03acba0e4f">Input::KEY_KP_PERIOD</a></div><div class="ttdef"><b>Definition:</b> input.h:193</div></div>
 <div class="ttc" id="class_input_html_a0c28431b0f0b7f7e322c1947f6e10b7b"><div class="ttname"><a href="class_input.html#a0c28431b0f0b7f7e322c1947f6e10b7b">Input::GetKeyUp</a></div><div class="ttdeci">bool GetKeyUp(int keyCode) const </div><div class="ttdef"><b>Definition:</b> input.h:667</div></div>
@@ -806,6 +804,7 @@ $(document).ready(function(){initNavTree('input_8h_source.html','');});
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba0806e1ebc3a3d8d34af468d8966e3aa0"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba0806e1ebc3a3d8d34af468d8966e3aa0">Input::KEY_RETURN</a></div><div class="ttdef"><b>Definition:</b> input.h:87</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebab8370cbf59f86b474a3ea3cb9f6a4718"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebab8370cbf59f86b474a3ea3cb9f6a4718">Input::KEY_KP_SPACE</a></div><div class="ttdef"><b>Definition:</b> input.h:305</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebab2349d5d7295c8f44c87882734badfdf"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebab2349d5d7295c8f44c87882734badfdf">Input::KEY_KP_PLUSMINUS</a></div><div class="ttdef"><b>Definition:</b> input.h:315</div></div>
+<div class="ttc" id="class_input_html_a2ccf634d72bc9f1def00c6698252406e"><div class="ttname"><a href="class_input.html#a2ccf634d72bc9f1def00c6698252406e">Input::NUM_KEYS</a></div><div class="ttdeci">static constexpr int NUM_KEYS</div><div class="ttdef"><b>Definition:</b> input.h:660</div></div>
 <div class="ttc" id="class_input_html_a99e51c7d64f94650e9d0b551aa751662"><div class="ttname"><a href="class_input.html#a99e51c7d64f94650e9d0b551aa751662">Input::SetMousePosition</a></div><div class="ttdeci">void SetMousePosition(const Vector2f &amp;pos) const </div><div class="ttdef"><b>Definition:</b> input.cpp:52</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba38f9f9781f5d6390fbdb59762cf724b2"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba38f9f9781f5d6390fbdb59762cf724b2">Input::KEY_R</a></div><div class="ttdef"><b>Definition:</b> input.h:66</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba9fa6ee4c1cd77ea99092ca007b2eca39"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba9fa6ee4c1cd77ea99092ca007b2eca39">Input::KEY_INTERNATIONAL6</a></div><div class="ttdef"><b>Definition:</b> input.h:249</div></div>
@@ -841,7 +840,7 @@ $(document).ready(function(){initNavTree('input_8h_source.html','');});
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba4852ed13d34753547870e2763e877de0"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba4852ed13d34753547870e2763e877de0">Input::KEY_BACKSPACE</a></div><div class="ttdef"><b>Definition:</b> input.h:89</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba88c64f042480bda192243473e11a6a62"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba88c64f042480bda192243473e11a6a62">Input::KEY_F22</a></div><div class="ttdef"><b>Definition:</b> input.h:219</div></div>
 <div class="ttc" id="class_input_html"><div class="ttname"><a href="class_input.html">Input</a></div><div class="ttdef"><b>Definition:</b> input.h:26</div></div>
-<div class="ttc" id="math3d_8h_html_a9f3739462b0605dcb64299fa289b6afe"><div class="ttname"><a href="math3d_8h.html#a9f3739462b0605dcb64299fa289b6afe">Vector2f</a></div><div class="ttdeci">Vector2&lt; float &gt; Vector2f</div><div class="ttdef"><b>Definition:</b> math3d.h:808</div></div>
+<div class="ttc" id="math3d_8h_html_a9f3739462b0605dcb64299fa289b6afe"><div class="ttname"><a href="math3d_8h.html#a9f3739462b0605dcb64299fa289b6afe">Vector2f</a></div><div class="ttdeci">Vector2&lt; float &gt; Vector2f</div><div class="ttdef"><b>Definition:</b> math3d.h:824</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba135676ee1ca5e3b716dcdb97eee03848"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba135676ee1ca5e3b716dcdb97eee03848">Input::KEY_INTERNATIONAL4</a></div><div class="ttdef"><b>Definition:</b> input.h:247</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba3787d68c3f6f4ff73eae7e8765311261"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba3787d68c3f6f4ff73eae7e8765311261">Input::KEY_KP_LEFTPAREN</a></div><div class="ttdef"><b>Definition:</b> input.h:282</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba19582fed31f9b23ab4cd8958fc012dc3"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba19582fed31f9b23ab4cd8958fc012dc3">Input::KEY_6</a></div><div class="ttdef"><b>Definition:</b> input.h:81</div></div>
@@ -872,7 +871,6 @@ $(document).ready(function(){initNavTree('input_8h_source.html','');});
 <div class="ttc" id="class_vector2_html"><div class="ttname"><a href="class_vector2.html">Vector2&lt; float &gt;</a></div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba27d1ebe1d5b2742e8ec821d9b27452da"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba27d1ebe1d5b2742e8ec821d9b27452da">Input::KEY_KP_8</a></div><div class="ttdef"><b>Definition:</b> input.h:190</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebaed1118db06e8dece06e5e83503fbb4e8"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebaed1118db06e8dece06e5e83503fbb4e8">Input::KEY_DECIMALSEPARATOR</a></div><div class="ttdef"><b>Definition:</b> input.h:279</div></div>
-<div class="ttc" id="class_input_html_aedaace4ea220bcd41963cf171c102288"><div class="ttname"><a href="class_input.html#aedaace4ea220bcd41963cf171c102288">Input::NUM_MOUSEBUTTONS</a></div><div class="ttdeci">static const int NUM_MOUSEBUTTONS</div><div class="ttdef"><b>Definition:</b> input.h:661</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba21f8007c5fdbe7261a2c2ea596f2a7b2"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba21f8007c5fdbe7261a2c2ea596f2a7b2">Input::KEY_9</a></div><div class="ttdef"><b>Definition:</b> input.h:84</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba22e8da3ff547b593c75508fcd927b5c3"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba22e8da3ff547b593c75508fcd927b5c3">Input::KEY_INTERNATIONAL7</a></div><div class="ttdef"><b>Definition:</b> input.h:250</div></div>
 <div class="ttc" id="class_input_html_a151b6918fcd7a9df4d2c83f3ad2978d8"><div class="ttname"><a href="class_input.html#a151b6918fcd7a9df4d2c83f3ad2978d8">Input::SetKeyUp</a></div><div class="ttdeci">void SetKeyUp(int keyCode, bool value)</div><div class="ttdef"><b>Definition:</b> input.h:680</div></div>
@@ -909,6 +907,7 @@ $(document).ready(function(){initNavTree('input_8h_source.html','');});
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebae58249fcc0329595db38c09b5d3e2120"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebae58249fcc0329595db38c09b5d3e2120">Input::KEY_COMMA</a></div><div class="ttdef"><b>Definition:</b> input.h:142</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebaa5238bc9f747598a8fce80773d82e51d"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebaa5238bc9f747598a8fce80773d82e51d">Input::KEY_INTERNATIONAL1</a></div><div class="ttdef"><b>Definition:</b> input.h:243</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba2c9e6ffa4d19f57422f31d7f2021ca36"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba2c9e6ffa4d19f57422f31d7f2021ca36">Input::KEY_LANG6</a></div><div class="ttdef"><b>Definition:</b> input.h:258</div></div>
+<div class="ttc" id="class_input_html_ae9f9dcff0f555aa0c0a98dbbf3154c4f"><div class="ttname"><a href="class_input.html#ae9f9dcff0f555aa0c0a98dbbf3154c4f">Input::NUM_MOUSEBUTTONS</a></div><div class="ttdeci">static constexpr int NUM_MOUSEBUTTONS</div><div class="ttdef"><b>Definition:</b> input.h:661</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba82776a4984228707bc4ad3c1f58fa87c"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba82776a4984228707bc4ad3c1f58fa87c">Input::KEY_F4</a></div><div class="ttdef"><b>Definition:</b> input.h:151</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743ebaf8977acc0a0aa844b8416ec532cc4355"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743ebaf8977acc0a0aa844b8416ec532cc4355">Input::KEY_MUTE</a></div><div class="ttdef"><b>Definition:</b> input.h:233</div></div>
 <div class="ttc" id="class_input_html_a4f2253b072b4ee76f282f670de5743eba749979d9bb93106f6468c1229a604d88"><div class="ttname"><a href="class_input.html#a4f2253b072b4ee76f282f670de5743eba749979d9bb93106f6468c1229a604d88">Input::KEY_HELP</a></div><div class="ttdef"><b>Definition:</b> input.h:223</div></div>
@@ -1006,7 +1005,7 @@ $(document).ready(function(){initNavTree('input_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="input_8h.html">input.h</a></li>
+    <li class="navelem"><a class="el" href="dir_c2c223261bd67e4d93615e3cf1dcb510.html">engine</a></li><li class="navelem"><a class="el" href="dir_d2615858605543dda865ad8150d8e89e.html">src</a></li><li class="navelem"><a class="el" href="dir_4a095ce238fa12479dd596b91ecf95b0.html">core</a></li><li class="navelem"><a class="el" href="input_8h.html">input.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
