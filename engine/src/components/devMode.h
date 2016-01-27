@@ -51,8 +51,6 @@ public:
 		m_look = new FreeLook(window.GetCenter());
 
 		m_engine->GetPhysicsEngine ()->SetSimulation(m_isUpdating);
-
-		MessageBoxA (NULL, (LPCSTR)(m_isUpdating) ? "1" : "0", "Ok", MB_OK);
 		ProgramHoster::SetActive(m_isUpdating);
 
 	}

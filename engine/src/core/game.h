@@ -39,9 +39,8 @@ public:
 	inline double DisplayUpdateTime(double dividend) { return m_updateTimer.DisplayAndReset("Update Time: ", dividend); }
 	
 	inline void SetEngine(CoreEngine* engine) { m_root.SetEngine(engine); }
+	inline Entity* AddToScene (Entity* child) { m_root.AddChild (child); child->InitAll (); return child; }
 protected:
-	inline Entity* AddToScene(Entity* child) { m_root.AddChild(child); child->InitAll(); return child; }
-
 	Entity       m_root;
 private:
 	Game(Game& game) {}

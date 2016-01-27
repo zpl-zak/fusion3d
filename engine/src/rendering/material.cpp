@@ -39,16 +39,16 @@ Material::Material(const std::string& materialName) :
 		m_materialData->AddReference();
 	}
 
-	m_shader = new Shader ("forward-ambient");
+	m_shader = Shader::GetShader ("forward-ambient");
 }
 
 Material::Material(const Material& other) :
 	m_materialData(other.m_materialData),
-	m_materialName(other.m_materialName) 
+	m_materialName(other.m_materialName) ,
+	m_shader(other.m_shader)
 {
-	m_materialData->AddReference();
-
-	m_shader = new Shader ("forward-ambient");
+	if (m_materialData)
+		m_materialData->AddReference();
 }
 
 Material::~Material()
@@ -84,5 +84,5 @@ Material::Material(const std::string& materialName, const Texture& diffuse, floa
 	m_materialData->SetFloat("dispMapScale", dispMapScale);
 	m_materialData->SetFloat("dispMapBias", -baseBias + baseBias * dispMapOffset);
 
-	m_shader = new Shader ("forward-ambient");
+	m_shader = new Shader("forward-ambient");
 }

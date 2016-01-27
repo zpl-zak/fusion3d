@@ -20,6 +20,7 @@
 #include "../core/entityComponent.h"
 #include "../core/timing.h"
 #include "../rendering/mesh.h"
+#include "../rendering/renderingEngine.h"
 
 
 class MeshRenderer : public EntityComponent
@@ -56,8 +57,13 @@ public:
         {
 			auto material = m_material.at (m_mesh.at (i).GetMeshData ()->GetMaterialIndex ());
 			auto _shader = (shader.GetName() == "forward-ambient") ? material.GetShader () : &shader;
+			if (!_shader) _shader = &shader;
+
             _shader->Bind();
-            _shader->UpdateUniforms(GetTransform(), material, renderingEngine, camera);
+
+			//if (renderingEngine.ShouldUpdateUniforms())
+				_shader->UpdateUniforms(GetTransform(), material, renderingEngine, camera);
+
             m_mesh.at(i).Draw();
         }
 	}

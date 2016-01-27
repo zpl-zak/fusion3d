@@ -59,7 +59,12 @@ public:
 	
 	void AddTangent(const Vector3f& tangent);
 	inline void AddTangent(float x, float y, float z) { AddTangent(Vector3f(x, y, z)); }
-	
+
+	inline void AddVertices (const std::vector<Vector3f> verts) { for (auto x : verts) { AddVertex (x); } };
+	inline void AddTexCoords (const std::vector<Vector2f> coords) { for (auto x : coords) { AddTexCoord (x); } };
+	inline void AddNormals (const std::vector<Vector3f> normals) { for (auto x : normals) { AddNormal (x); } };
+	inline void AddTangents (const std::vector<Vector3f> tangents) { for (auto x : tangents) { AddTangent (x); } };
+
 	void AddFace(unsigned int vertIndex0, unsigned int vertIndex1, unsigned int vertIndex2);
 
 	inline const std::vector<unsigned int>& GetIndices() const { return m_indices; }

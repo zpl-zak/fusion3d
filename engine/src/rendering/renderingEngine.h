@@ -45,7 +45,7 @@ public:
 	
 	virtual void Render(const Entity& object);
 	
-	inline void AddLight(BaseLight* light) { m_lights.push_back(light); }
+	inline void AddLight (BaseLight* light) { m_lights.push_back (light); m_uniformUpdate = true; }
 	inline void SetMainCamera(const Camera& camera) { m_mainCamera = &camera; }
 	inline const Camera* GetMainCamera() { return m_mainCamera; }
 	
@@ -57,7 +57,7 @@ public:
 	
 	inline double DisplayRenderTime(double dividend) { return m_renderProfileTimer.DisplayAndReset("Render Time: ", dividend); }
 	inline double DisplayWindowSyncTime(double dividend) { return m_windowSyncProfileTimer.DisplayAndReset("Window Sync Time: ", dividend); }
-	inline void SetShader(const std::string& fileName) { delete m_defaultShader; m_defaultShader = new Shader(fileName); }
+	inline void SetShader(const std::string& fileName) { delete m_defaultShader; m_defaultShader = Shader::GetShader(fileName); }
 	inline void SetFullBright(bool state) { m_fullbright = state; }
 	
 	inline const BaseLight& GetActiveLight()                           const { return *m_activeLight; }
@@ -66,6 +66,9 @@ public:
 	inline Shader* GetDefaultShader(){ return m_defaultShader; }
 	inline Shader* GetNullShader () { return &m_nullShader; }
 	void ApplyFilterInternal (const Shader& filter);
+
+	bool ShouldUpdateUniforms () const { return m_uniformUpdate; }
+	void UpdateUniforms (bool state) { m_uniformUpdate = state; }
 protected:
 	inline void SetSamplerSlot(const std::string& name, unsigned int value) { m_samplerMap[name] = value; }
 	void ApplyFilter (const Shader& filter, const Texture& source, const Texture* dest);
@@ -74,6 +77,7 @@ private:
 	static const Matrix4f BIAS_MATRIX;
 	
 	bool								m_fullbright;
+	bool								m_uniformUpdate;
 	ProfileTimer                        m_renderProfileTimer;
 	ProfileTimer                        m_windowSyncProfileTimer;
 	Transform                           m_planeTransform;

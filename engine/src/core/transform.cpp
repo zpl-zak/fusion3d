@@ -15,26 +15,31 @@
  */
 
 #include "transform.h"
+#include "coreEngine.h"
 
 bool Transform::HasChanged()
 {	
 	if(m_parent != 0 && m_parent->HasChanged())
 	{
+		CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 	
 	if(m_pos != m_oldPos)
 	{
+		CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 
 	if(m_rot != m_oldRot)
 	{
+		CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 	
 	if(m_scale != m_oldScale)
 	{
+		CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 		

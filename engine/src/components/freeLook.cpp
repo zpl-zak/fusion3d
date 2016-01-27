@@ -19,6 +19,12 @@
 
 void FreeLook::ProcessInput(const Input& input, float delta)
 {
+	if (input.GetKey (m_unlockMouseKey))
+	{
+		input.SetCursor (true);
+		m_mouseLocked = false;
+	}
+
 	if(m_mouseLocked)
 	{
 		Vector2f deltaPos = input.GetMousePosition() - m_windowCenter;
@@ -39,5 +45,12 @@ void FreeLook::ProcessInput(const Input& input, float delta)
 		{
 			input.SetMousePosition(m_windowCenter);
 		}
+	}
+
+	if (input.GetKey (m_lockMouseKey))
+	{
+		input.SetCursor (false);
+		input.SetMousePosition (m_windowCenter);
+		m_mouseLocked = true;
 	}
 }

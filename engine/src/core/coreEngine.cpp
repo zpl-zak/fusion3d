@@ -96,6 +96,8 @@ void CoreEngine::Start ()
 			double totalTime = ((1000.0 * frameCounter)/((double)frames));
 			double totalMeasuredTime = 0.0;
 
+
+			OutputDebugString ("====================\n");
 			totalMeasuredTime += m_game->DisplayInputTime((double)frames);
 			totalMeasuredTime += m_game->DisplayUpdateTime((double)frames);
 			totalMeasuredTime += m_renderingEngine->DisplayRenderTime((double)frames);

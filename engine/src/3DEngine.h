@@ -46,6 +46,8 @@
 #define SCALL(x, c) if (x != nullptr) c
 
 #include "btBulletDynamicsCommon.h"
+#include "rendering/bitmap.h"
+#include "core/level.h"
 #include "core/util.h"
 #include "rendering/mesh.h"
 #include "rendering/shader.h"

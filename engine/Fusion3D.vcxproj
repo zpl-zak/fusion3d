@@ -51,6 +51,7 @@
     <ClInclude Include="src\core\entityComponent.h" />
     <ClInclude Include="src\core\game.h" />
     <ClInclude Include="src\core\input.h" />
+    <ClInclude Include="src\core\level.h" />
     <ClInclude Include="src\core\mapLoader.h" />
     <ClInclude Include="src\core\mappedValues.h" />
     <ClInclude Include="src\core\math3d.h" />
@@ -65,6 +66,7 @@
     <ClInclude Include="src\progs\fibonacci_prog.h" />
     <ClInclude Include="src\progs\meshArray_prog.h" />
     <ClInclude Include="src\reflection.h" />
+    <ClInclude Include="src\rendering\bitmap.h" />
     <ClInclude Include="src\rendering\camera.h" />
     <ClInclude Include="src\rendering\lighting.h" />
     <ClInclude Include="src\rendering\material.h" />
@@ -98,6 +100,7 @@
     <ClCompile Include="src\core\entity.cpp" />
     <ClCompile Include="src\core\game.cpp" />
     <ClCompile Include="src\core\input.cpp" />
+    <ClCompile Include="src\core\level.cpp" />
     <ClCompile Include="src\core\mapLoader.cpp" />
     <ClCompile Include="src\core\mappedValues.cpp" />
     <ClCompile Include="src\core\math3d.cpp" />
@@ -107,6 +110,7 @@
     <ClCompile Include="src\core\util.cpp" />
     <ClCompile Include="src\factory.cpp" />
     <ClCompile Include="src\physics\physicsEngine.cpp" />
+    <ClCompile Include="src\rendering\bitmap.cpp" />
     <ClCompile Include="src\rendering\camera.cpp" />
     <ClCompile Include="src\rendering\lighting.cpp" />
     <ClCompile Include="src\rendering\material.cpp" />

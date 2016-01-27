@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
 using System.IO.Compression;
 using System.Windows;
+using System.Xml;
 
 namespace build
 {
@@ -160,6 +158,12 @@ namespace build
             {
                 GenerateHeader(name);
             }
+
+            XmlReader proj = XmlReader.Create(File.OpenRead(Path.Combine("projects", name, name + ".vcxproj")));
+
+            proj.
+
+            proj.Close();
 
             ProcessStartInfo pci = new ProcessStartInfo();
             pci.FileName = "build.bat";

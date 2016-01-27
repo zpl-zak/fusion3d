@@ -94,7 +94,7 @@ private:
 /**
  * Represents shader program used by GPU.
  */
-class Shader
+class Shader : ReferenceCounter
 {
 public:
 	Shader(const std::string& fileName = "basicShader");
@@ -110,9 +110,12 @@ public:
 	void SetUniformVector3f(const std::string& uniformName, const Vector3f& value) const;
 
 	const std::string& GetName() const { return m_fileName; }
+
+	static Shader* GetShader (const std::string& fileName);
 protected:
 private:
 	static std::map<std::string, ShaderData*> s_resourceMap;
+	//static std::map<std::string, Shader*> s_resourceShaderMap;
 
 	ShaderData* m_shaderData;
 	std::string m_fileName;

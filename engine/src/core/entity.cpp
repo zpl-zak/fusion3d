@@ -47,7 +47,7 @@
 			delete m_children[i];
 		}
 	}
-	delete m_picker;
+//                            	delete m_picker;
 }
 
 Entity* Entity::AddChild(Entity* child)

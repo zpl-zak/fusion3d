@@ -33,6 +33,7 @@
 // Variable Initializations
 //--------------------------------------------------------------------------------
 std::map<std::string, ShaderData*> Shader::s_resourceMap;
+std::map<std::string, Shader*> s_resourceShaderMap;
 int ShaderData::s_supportedOpenGLLevel = 0;
 std::string ShaderData::s_glslVersion = "";
 
@@ -175,7 +176,6 @@ void Shader::Bind() const
 {
 	glUseProgram(m_shaderData->GetProgram());
 }
-
 void Shader::UpdateUniforms(const Transform& transform, const Material& material, const RenderingEngine& renderingEngine, const Camera& camera) const
 {
 	Matrix4f worldMatrix = transform.GetTransformation();
@@ -258,6 +258,25 @@ void Shader::SetUniformf(const std::string& uniformName, float value) const
 void Shader::SetUniformVector3f(const std::string& uniformName, const Vector3f& value) const
 {
 	glUniform3f(m_shaderData->GetUniformMap().at(uniformName), value.GetX(), value.GetY(), value.GetZ());
+}
+
+Shader * Shader::GetShader (const std::string & fileName)
+{
+	Shader* shader;
+
+	std::map<std::string, Shader*>::const_iterator it = s_resourceShaderMap.find (fileName);
+	if (it != s_resourceShaderMap.end ())
+	{
+		shader = it->second;
+		shader->AddReference ();
+	}
+	else
+	{
+		shader = new Shader (fileName);
+		s_resourceShaderMap.insert (std::pair<std::string, Shader*> (fileName, shader));
+	}
+
+	return shader;
 }
 
 void Shader::SetUniformMatrix4f(const std::string& uniformName, const Matrix4f& value) const
