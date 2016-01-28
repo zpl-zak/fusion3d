@@ -88,6 +88,7 @@
     <ClInclude Include="src\utils\colors.h" />
     <ClInclude Include="src\utils\pos.h" />
     <ClInclude Include="src\utils\xmlLoader.h" />
+    <ClInclude Include="src\core\terrain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\devMode.cpp" />
@@ -126,6 +127,7 @@
     <ClCompile Include="src\staticLibs\stb_image.c" />
     <ClCompile Include="src\staticLibs\tinyxml2.cpp" />
     <ClCompile Include="src\testing.cpp" />
+    <ClCompile Include="src\core\terrain.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGUID>{B097C253-0D52-3D60-B0D7-3ED1BF5098ED}</ProjectGUID>
