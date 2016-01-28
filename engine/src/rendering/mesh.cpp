@@ -75,7 +75,7 @@ void IndexedModel::AddTangent(const Vector3f& tangent)
 	m_tangents.push_back(tangent);
 }
 
-IndexedModel IndexedModel::Finalize()
+IndexedModel IndexedModel::Finalize(bool normalsFlat)
 {
 	if(IsValid())
 	{
@@ -92,7 +92,7 @@ IndexedModel IndexedModel::Finalize()
 	
 	if(m_normals.size() == 0)
 	{
-		CalcNormals();
+		CalcNormals(normalsFlat);
 	}
 	
 	if(m_tangents.size() == 0)
@@ -110,7 +110,7 @@ void IndexedModel::AddFace(unsigned int vertIndex0, unsigned int vertIndex1, uns
 	m_indices.push_back(vertIndex2);
 }
 
-void IndexedModel::CalcNormals()
+void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer normalov,
 {
 	m_normals.clear();
 	m_normals.reserve(m_positions.size());
@@ -118,21 +118,38 @@ void IndexedModel::CalcNormals()
 	for(unsigned int i = 0; i < m_positions.size(); i++)
 		m_normals.push_back(Vector3f(0,0,0));
 
-	for(unsigned int i = 0; i < m_indices.size(); i += 3)
-	{
-		int i0 = m_indices[i];
-		int i1 = m_indices[i + 1];
-		int i2 = m_indices[i + 2];
+	if (flat)
+		for(unsigned int i = 0; i < m_indices.size(); i += 3)
+		{
+			int i0 = m_indices[i];
+			int i1 = m_indices[i + 1];
+			int i2 = m_indices[i + 2];
 			
-		Vector3f v1 = m_positions[i1] - m_positions[i0];
-		Vector3f v2 = m_positions[i2] - m_positions[i0];
+			Vector3f v1 = m_positions[i1] - m_positions[i0];
+			Vector3f v2 = m_positions[i2] - m_positions[i0];
 		
-		Vector3f normal = v1.Cross(v2).Normalized();
+			Vector3f normal = v1 .Cross (v2).Normalized();
 		
-		m_normals[i0] = m_normals[i0] + normal;
-		m_normals[i1] = m_normals[i1] + normal;
-		m_normals[i2] = m_normals[i2] + normal;
-	}
+			m_normals[i0] = m_normals[i0] + normal;
+			m_normals[i1] = m_normals[i1] + normal;
+			m_normals[i2] = m_normals[i2] + normal;
+		}
+	else
+		for (unsigned int i = 0; i < m_positions.size (); i += 3)
+		{
+			int i0 = m_indices[i];
+			int i1 = m_indices[i + 1];
+			int i2 = m_indices[i + 2];
+
+			Vector3f v1 = m_positions[i1] - m_positions[i0];
+			Vector3f v2 = m_positions[i2] - m_positions[i0];
+
+			Vector3f normal = v1.Cross (v2).Normalized ();
+
+			m_normals[i0] = m_normals[i0] + normal;
+			m_normals[i1] = m_normals[i1] + normal;
+			m_normals[i2] = m_normals[i2] + normal;
+		}
 	
 	for(unsigned int i = 0; i < m_normals.size(); i++)
 		m_normals[i] = m_normals[i].Normalized();

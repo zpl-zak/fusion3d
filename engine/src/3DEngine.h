@@ -19,7 +19,9 @@
 
 #pragma warning( disable : 4305)
 #pragma warning( disable : 4996)
+#pragma warning( disable : 4006)
 #pragma warning( disable : 4258)
+
 
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS
@@ -46,6 +48,7 @@
 #define SCALL(x, c) if (x != nullptr) c
 
 #include "btBulletDynamicsCommon.h"
+#include "core/terrain.h"
 #include "rendering/bitmap.h"
 #include "core/level.h"
 #include "core/util.h"

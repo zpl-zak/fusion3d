@@ -2,10 +2,13 @@
 
 #include <string>
 
+class Entity;
+class Game;
+
 class Terrain
 {
 public:
-	Terrain (std::string mapName, std::string matName);
+	Terrain (Game* game, Entity* entity, std::string mapName, int height, std::string matName);
 	~Terrain ();
 };
 

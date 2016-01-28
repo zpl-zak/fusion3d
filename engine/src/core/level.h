@@ -2,13 +2,15 @@
 #define LEVEL_H
 
 #include <string>
-#include "math3d.h"
-#include "game.h"
+
+class Entity;
+class Vector3f;
+class Game;
 
 class Level
 {
     public:
-        Level(Game* game, std::string mapName, Vector3f spot, std::string matName);
+        Level(Game* game, Entity* entity, std::string mapName, Vector3f spot, std::string matName);
         virtual ~Level();
     protected:
     private:

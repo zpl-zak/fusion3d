@@ -261,6 +261,16 @@ public:
 		    axis * this->Dot(axis * (1 - cosAngle)); //Rotation on local Y
 	}
 	
+	inline Vector3<T> Mul(const Vector3<T>& r)
+	{
+		(*this)[0] *= r[0];
+		(*this)[1] *= r[1];
+		(*this)[2] *= r[2];
+
+
+		return *this;
+	}
+
 	inline Vector2<T> GetXY() const { return Vector2<T>(GetX(), GetY()); }
 	inline Vector2<T> GetYZ() const { return Vector2<T>(GetY(), GetZ()); }
 	inline Vector2<T> GetZX() const { return Vector2<T>(GetZ(), GetX()); }

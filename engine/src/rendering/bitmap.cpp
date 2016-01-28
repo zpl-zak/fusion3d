@@ -34,6 +34,8 @@ Bitmap::Bitmap (int width, int height)
 Bitmap::~Bitmap ()
 {
 	//dtor
+
+	delete m_pixels;
 }
 
 Bitmap* Bitmap::FlipX ()

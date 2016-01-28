@@ -4,7 +4,7 @@
 #define NUM_TEX_EXP 4
 #define NUM_TEXTURES ((int)pow(2, NUM_TEX_EXP))
 
-Level::Level(Game* game, std::string mapName, Vector3f spot, std::string matName)
+Level::Level(Game* game, Entity* entity, std::string mapName, Vector3f spot, std::string matName)
 {
     Bitmap level(mapName); level.FlipY();
 
@@ -156,11 +156,11 @@ Level::Level(Game* game, std::string mapName, Vector3f spot, std::string matName
 		cols->addIndex (x);
 	}
 
-    game->AddToScene((new Entity())
-		->SetDisplayName(mapName)
-		->AddComponent(new MeshRenderer(mapMesh, Material(matName)))
-		->AddComponent(new RigidBody(new btConvexTriangleMeshShape(cols), 0, false))
-		);
+	entity
+		->AddComponent (new MeshRenderer (mapMesh, Material (matName)))
+		->AddComponent (new RigidBody (new btConvexTriangleMeshShape (cols), 0, false));
+
+	game->AddToScene (entity);
 }
 
 Level::~Level()

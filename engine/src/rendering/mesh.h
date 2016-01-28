@@ -43,10 +43,10 @@ public:
 			m_tangents(tangents) {}
 
 	bool IsValid() const;
-	void CalcNormals();
+	void CalcNormals(bool flat=true);
 	void CalcTangents();
 
-	IndexedModel Finalize();
+	IndexedModel Finalize(bool normalsFlat=true);
 
 	void AddVertex(const Vector3f& vert);
 	inline void AddVertex(float x, float y, float z) { AddVertex(Vector3f(x, y, z)); }
