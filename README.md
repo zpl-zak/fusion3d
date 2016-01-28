@@ -1,4 +1,4 @@
-![alt tag](https://bytebucket.org/subvision/fusion3d/raw/6fd2de359262c3894658d089f24e094ef729821c/docs/html/logo.png)
+![alt tag](http://i.imgur.com/y7jhAYZ.png)
 
 Fusion3D
 ==
