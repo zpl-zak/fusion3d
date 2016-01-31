@@ -226,3 +226,5 @@ build/Fusion3D.dir/
 temp/
 projects/
 *.cod
+*.idb
+*.exp
