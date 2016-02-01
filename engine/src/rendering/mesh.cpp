@@ -37,7 +37,7 @@
 
 #include <GL/glew.h>
 #include <iostream>
-
+#include <algorithm>
 #include <vector>
 #include <cassert>
 
@@ -110,6 +110,18 @@ void IndexedModel::AddFace(unsigned int vertIndex0, unsigned int vertIndex1, uns
 	m_indices.push_back(vertIndex2);
 }
 
+int getSimilarIndex (const Vector3f& vertex, const std::vector<Vector3f>& out_verts, int& found)
+{
+	auto i = std::find (out_verts.begin (), out_verts.end (), vertex);
+
+	if (i != out_verts.end ())
+	{
+		found = i - out_verts.begin ();
+		return 1;
+	}
+	return 0;
+}
+
 void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer normalov,
 {
 	m_normals.clear();
@@ -118,41 +130,54 @@ void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer norm
 	for(unsigned int i = 0; i < m_positions.size(); i++)
 		m_normals.push_back(Vector3f(0,0,0));
 
-	if (flat)
-		for(unsigned int i = 0; i < m_indices.size(); i += 3)
-		{
-			int i0 = m_indices[i];
-			int i1 = m_indices[i + 1];
-			int i2 = m_indices[i + 2];
-			
-			Vector3f v1 = m_positions[i1] - m_positions[i0];
-			Vector3f v2 = m_positions[i2] - m_positions[i0];
-		
-			Vector3f normal = v1 .Cross (v2).Normalized();
-		
-			m_normals[i0] = m_normals[i0] + normal;
-			m_normals[i1] = m_normals[i1] + normal;
-			m_normals[i2] = m_normals[i2] + normal;
-		}
-	else
-		for (unsigned int i = 0; i < m_positions.size (); i += 3)
-		{
-			int i0 = m_indices[i];
-			int i1 = m_indices[i + 1];
-			int i2 = m_indices[i + 2];
-
-			Vector3f v1 = m_positions[i1] - m_positions[i0];
-			Vector3f v2 = m_positions[i2] - m_positions[i0];
-
-			Vector3f normal = v1.Cross (v2).Normalized ();
-
-			m_normals[i0] = m_normals[i0] + normal;
-			m_normals[i1] = m_normals[i1] + normal;
-			m_normals[i2] = m_normals[i2] + normal;
-		}
 	
-	for(unsigned int i = 0; i < m_normals.size(); i++)
-		m_normals[i] = m_normals[i].Normalized();
+	for (unsigned int i = 0; i < m_indices.size (); i += 3)
+	{
+		int i0 = m_indices[i];
+		int i1 = m_indices[i + 1];
+		int i2 = m_indices[i + 2];
+
+		Vector3f v1 = m_positions[i1] - m_positions[i0];
+		Vector3f v2 = m_positions[i2] - m_positions[i0];
+
+		Vector3f normal = v1.Cross (v2).Normalized ();
+
+		m_normals[i0] = m_normals[i0] + normal;
+		m_normals[i1] = m_normals[i1] + normal;
+		m_normals[i2] = m_normals[i2] + normal;
+	}
+
+	if (!flat)
+	{
+		std::vector<Vector3f> normals;
+		Vector3f nNormal;
+		int shared = 0;
+
+		for (int i = 0; i < m_positions.size (); i++)
+		{
+			for (int j = 0; j < m_indices.size (); j += 3)
+			{
+				if ((m_indices[j] == i) ||
+					(m_indices[j + 1] == i) ||
+					(m_indices[j + 2] == i))
+				{
+					nNormal += m_normals[m_indices[j]];
+					nNormal += m_normals[m_indices[j+1]];
+					nNormal += m_normals[m_indices[j+2]];
+					shared++;
+				}
+			}
+
+			nNormal /= (float)shared;
+			nNormal = nNormal.Normalized ();
+			normals.push_back (nNormal);
+
+			nNormal = Vector3f ();
+			shared = 0;
+		}
+		m_normals.clear ();
+		m_normals = normals;
+	}
 }
 
 void IndexedModel::CalcTangents()
