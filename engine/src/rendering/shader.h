@@ -20,6 +20,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <functional>
 
 #include "../core/referenceCounter.h"
 #include "../core/math3d.h"
@@ -109,6 +110,7 @@ public:
 	void SetUniformMatrix4f(const std::string& uniformName, const Matrix4f& value) const;
 	void SetUniformVector3f(const std::string& uniformName, const Vector3f& value) const;
 
+	inline Shader* SetMapVals (std::function<void (const Shader& shader)> mapVals) { m_mapVals = mapVals; return this; }
 	const std::string& GetName() const { return m_fileName; }
 
 	static Shader* GetShader (const std::string& fileName);
@@ -119,6 +121,7 @@ private:
 
 	ShaderData* m_shaderData;
 	std::string m_fileName;
+	std::function<void (const Shader& shader)> m_mapVals;
 	
 	void SetUniformDirectionalLight(const std::string& uniformName, const DirectionalLight& value) const;
 	void SetUniformPointLight(const std::string& uniformName, const PointLight& value) const;

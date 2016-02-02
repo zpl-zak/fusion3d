@@ -20,6 +20,7 @@
 
 #include "../core/profiling.h"
 #include "../core/util.h"
+#include "../core/timing.h"
 
 #include <cassert>
 #include <fstream>
@@ -28,6 +29,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <sstream>
+#include <Windows.h>
 
 //--------------------------------------------------------------------------------
 // Variable Initializations
@@ -233,6 +235,13 @@ void Shader::UpdateUniforms(const Transform& transform, const Material& material
 			else
 				throw "Invalid Camera Uniform: " + uniformName;
 		}
+		else if (uniformName.substr (0, 2) == "G_")
+		{
+			if (uniformName == "G_Time")
+			{
+				SetUniformf (uniformName, Time::GetTime ());
+			}
+		}
 		else
 		{
 			if(uniformType == "vec3")
@@ -242,6 +251,11 @@ void Shader::UpdateUniforms(const Transform& transform, const Material& material
 			else
 				throw uniformType + " is not supported by the Material class";
 		}
+	}
+
+	if (m_mapVals != nullptr)
+	{
+		m_mapVals (*this);
 	}
 }
 
@@ -355,7 +369,9 @@ void ShaderData::AddProgram(const std::string& text, int type)
         GLchar InfoLog[1024];
 
         glGetShaderInfoLog(shader, 1024, NULL, InfoLog);
-        fprintf(stderr, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
+		char err[255];
+        sprintf(err, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
+		OutputDebugString (err);
 		getchar ();
         exit(1);
     }
@@ -429,6 +445,9 @@ void ShaderData::AddShaderUniforms(const std::string& shaderText)
 			
 			m_uniformNames.push_back(uniformName);
 			m_uniformTypes.push_back(uniformType);
+
+			OutputDebugStringA (uniformName.c_str ());
+			if (uniformName.size () > 80)continue;
 			AddUniform(uniformName, uniformType, structs);
 		}
 		uniformLocation = shaderText.find(UNIFORM_KEY, uniformLocation + UNIFORM_KEY.length());
@@ -455,6 +474,11 @@ void ShaderData::AddUniform(const std::string& uniformName, const std::string& u
 		return;
 
 	unsigned int location = glGetUniformLocation(m_program, uniformName.c_str());
+
+	if (location == INVALID_VALUE)
+	{
+		//OutputDebugStringA(this->)
+	}
 
 	assert(location != INVALID_VALUE);
 
