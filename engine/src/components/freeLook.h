@@ -31,8 +31,8 @@ public:
 		m_unlockMouseKey(unlockMouseKey),
 		m_lockMouseKey (lockMouseKey),
 		m_windowCenter(windowCenter) {}
-	
-	virtual void ProcessInput(const Input& input, float delta);
+
+	void ProcessInput(const Input& input, float delta) override;
 protected:
 private:
 	float    m_sensitivity;

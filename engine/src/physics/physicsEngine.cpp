@@ -15,7 +15,7 @@
  */
 
 #include "physicsEngine.h"
-#include "../components/physicsObjectComponent.h"
+#include "../components/rigidBody.h"
 
 
 void PhysicsEngine::Simulate(float delta)

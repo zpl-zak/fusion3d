@@ -30,8 +30,13 @@ class Program
 {
 public:
 	Program() :
-	m_parent(0) {}
-	virtual ~Program() {}
+		m_parent(0)
+	{
+	}
+
+	virtual ~Program()
+	{
+	}
 
 	virtual int Init()
 	{
@@ -82,9 +87,15 @@ public:
 		return lastError;
 	}
 
-	virtual void DataDeploy (tinyxml2::XMLElement* data){}
+	virtual void DataDeploy(tinyxml2::XMLElement* data)
+	{
+	}
 
-	inline void SetParent(Entity* parent) { m_parent = parent; }
+	inline void SetParent(Entity* parent)
+	{
+		m_parent = parent;
+	}
+
 protected:
 	std::set<std::string> m_error;
 
@@ -93,15 +104,15 @@ protected:
 		m_error.insert(err);
 	}
 
-	inline Entity* GetParent() 
+	inline Entity* GetParent()
 	{
 		if (m_parent == 0)
 		{
 			std::cerr << "Cannot get null parent in program: " << GetLatestError() << std::endl;
 			assert(m_parent != 0);
 		}
-		
-		return m_parent; 
+
+		return m_parent;
 	}
 
 private:
@@ -112,7 +123,9 @@ class ProgramHoster : public EntityComponent
 {
 public:
 	FCLASS (ProgramHoster);
-	ProgramHoster() {}
+
+	ProgramHoster();
+
 	ProgramHoster(Program* program, int verbose = 0)
 		:
 		m_delayedInit((!isUpdating)),
@@ -144,16 +157,16 @@ public:
 			return;
 
 		m_loaded = true;
-		
+
 		if (!m_program->Init())
 		{
 			std::cerr << "Init() failed for Program Name: " << m_program->GetProgramName() << std::endl;
 		}
 	}
 
-	virtual void DataDeploy (tinyxml2::XMLElement* data)
+	virtual void DataDeploy(tinyxml2::XMLElement* data)
 	{
-		m_program = (Program*)g_factory.construct (data->GetText ());
+		m_program = (Program*)g_factory.construct(data->GetText());
 	}
 
 	virtual void ProcessInput(const Input& input, float delta)
@@ -172,8 +185,8 @@ public:
 	{
 		if (!isUpdating)
 			return;
-		
-//		InitProgram();
+
+		//		InitProgram();
 
 		m_updateTimer.StartInvocation();
 
@@ -186,7 +199,7 @@ public:
 	{
 		if (!isUpdating)
 			return;
-		
+
 		m_renderTimer.StartInvocation();
 
 		m_render = m_program->Render(shader, renderingEngine, camera);
@@ -195,9 +208,14 @@ public:
 
 		ProgramHoster::Display(this);
 	}
-	
-	static void SetActive(bool state) { isUpdating = state; };
-	static bool GetActive() {
+
+	static void SetActive(bool state)
+	{
+		isUpdating = state;
+	};
+
+	static bool GetActive()
+	{
 		return isUpdating;
 	}
 
@@ -248,3 +266,5 @@ private:
 };
 
 #endif // ProgramHoster_H_INCLUDED
+
+

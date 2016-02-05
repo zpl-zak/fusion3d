@@ -18,7 +18,7 @@
 #define DEBUG_PROG_H
 
 #include "../core/coreEngine.h"
-#include "../components/physicsObjectComponent.h"
+#include "../components/rigidBody.h"
 #include "../components/ProgramComponent.h"
 #include "../components/freeMove.h"
 #include "../components/freeLook.h"

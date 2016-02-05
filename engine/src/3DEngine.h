@@ -63,7 +63,7 @@
 #include "components/devMode.h"
 #include "components/freeLook.h"
 #include "components/freeMove.h"
-#include "components/physicsObjectComponent.h"
+#include "components/rigidBody.h"
 #include "rendering/window.h"
 #include "core/coreEngine.h"
 #include "core/game.h"

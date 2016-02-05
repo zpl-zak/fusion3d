@@ -18,7 +18,7 @@
 #include "entity.h"
 #include "entityComponent.h"
 #include "coreEngine.h"
-#include "../components/physicsObjectComponent.h"
+#include "../components/rigidBody.h"
 
 	 Entity::Entity(const Vector3f & pos, const Quaternion & rot, float scale) :
 		 m_transform(pos, rot, scale),

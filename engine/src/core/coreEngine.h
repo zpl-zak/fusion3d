@@ -47,8 +47,8 @@ public:
 	void LoadGame(Game* game);
 	void SetUserspace(std::function<void()> userspace);
 protected:
-	void RegisterNatives();
-	void RegisterUserspace();
+	static void RegisterNatives();
+	void RegisterUserspace() const;
 private:
 	static CoreEngine*	m_coreEngine;
 	bool             m_isRunning;       //Whether or not the engine is running

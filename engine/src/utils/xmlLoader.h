@@ -17,6 +17,7 @@
 #include "../staticLibs/tinyxml2.h"
 #include <string>
 #include <fstream>
+#include <cassert>
 
 using namespace tinyxml2;
 

@@ -36,16 +36,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\3DEngine.h" />
-    <ClInclude Include="src\components\decalRenderer.h" />
     <ClInclude Include="src\components\devMode.h" />
     <ClInclude Include="src\components\freeLook.h" />
     <ClInclude Include="src\components\freeMove.h" />
     <ClInclude Include="src\components\GUIWindow.h" />
     <ClInclude Include="src\components\meshRenderer.h" />
-    <ClInclude Include="src\components\physicsEngineComponent.h" />
-    <ClInclude Include="src\components\physicsObjectComponent.h" />
+    <ClInclude Include="src\components\rigidBody.h" />
     <ClInclude Include="src\components\programComponent.h" />
-    <ClInclude Include="src\components\worldComponent.h" />
     <ClInclude Include="src\core\coreEngine.h" />
     <ClInclude Include="src\core\entity.h" />
     <ClInclude Include="src\core\entityComponent.h" />
@@ -94,8 +91,7 @@
     <ClCompile Include="src\components\devMode.cpp" />
     <ClCompile Include="src\components\freeLook.cpp" />
     <ClCompile Include="src\components\freeMove.cpp" />
-    <ClCompile Include="src\components\physicsEngineComponent.cpp" />
-    <ClCompile Include="src\components\physicsObjectComponent.cpp" />
+    <ClCompile Include="src\components\rigidBody.cpp" />
     <ClCompile Include="src\components\programComponent.cpp" />
     <ClCompile Include="src\core\coreEngine.cpp" />
     <ClCompile Include="src\core\entity.cpp" />
@@ -128,6 +124,9 @@
     <ClCompile Include="src\staticLibs\tinyxml2.cpp" />
     <ClCompile Include="src\testing.cpp" />
     <ClCompile Include="src\core\terrain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGUID>{B097C253-0D52-3D60-B0D7-3ED1BF5098ED}</ProjectGUID>
@@ -749,5 +748,18 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\boost.1.60.0.0\build\native\boost.targets" Condition="Exists('packages\boost.1.60.0.0\build\native\boost.targets')" />
+    <Import Project="packages\lua.redist.5.2.2.13\build\native\lua.redist.targets" Condition="Exists('packages\lua.redist.5.2.2.13\build\native\lua.redist.targets')" />
+    <Import Project="packages\lua.5.2.2.13\build\native\lua.targets" Condition="Exists('packages\lua.5.2.2.13\build\native\lua.targets')" />
+    <Import Project="packages\glm.0.9.7.1\build\native\glm.targets" Condition="Exists('packages\glm.0.9.7.1\build\native\glm.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\boost.1.60.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\boost.1.60.0.0\build\native\boost.targets'))" />
+    <Error Condition="!Exists('packages\lua.redist.5.2.2.13\build\native\lua.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\lua.redist.5.2.2.13\build\native\lua.redist.targets'))" />
+    <Error Condition="!Exists('packages\lua.5.2.2.13\build\native\lua.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\lua.5.2.2.13\build\native\lua.targets'))" />
+    <Error Condition="!Exists('packages\glm.0.9.7.1\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\glm.0.9.7.1\build\native\glm.targets'))" />
+  </Target>
 </Project>
