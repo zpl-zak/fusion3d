@@ -25,6 +25,9 @@
 #include "../core/profiling.h"
 #include "../core/timing.h"
 #include "../reflection.h"
+#include "../core/util.h"
+
+#include "../staticLibs/luna.h"
 
 class Program
 {
@@ -115,9 +118,41 @@ protected:
 		return m_parent;
 	}
 
-private:
+protected:
 	Entity* m_parent;
 };
+
+class LuaProgram : public Program
+{
+public:
+	LuaProgram()
+	{
+		L = lua_open();
+		luaopen_base(L);
+		luaopen_table(L);
+		luaopen_io(L);
+		luaopen_string(L);
+		luaopen_math(L);
+		luaopen_debug(L);
+
+	}
+
+	LuaProgram(std::string file)
+		: LuaProgram()
+	{
+		auto p = ("scripts/" + file);
+		luaL_loadfile(L, p.c_str());
+
+		lua_pcall(L, 0, 0, 0);
+	}
+
+	virtual ~LuaProgram() { lua_close(L); };
+
+
+private:
+	lua_State * L;
+};
+
 
 class ProgramHoster : public EntityComponent
 {

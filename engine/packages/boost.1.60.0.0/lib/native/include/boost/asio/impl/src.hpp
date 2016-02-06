@@ -15,9 +15,9 @@
 
 #include <boost/asio/detail/config.hpp>
 
-#if defined(BOOST_ASIO_HEADER_ONLY)
-# error Do not compile Asio library source with BOOST_ASIO_HEADER_ONLY defined
-#endif
+//#if defined(BOOST_ASIO_HEADER_ONLY)
+//# error Do not compile Asio library source with BOOST_ASIO_HEADER_ONLY defined
+//#endif
 
 #include <boost/asio/impl/error.ipp>
 #include <boost/asio/impl/handler_alloc_hook.ipp>
