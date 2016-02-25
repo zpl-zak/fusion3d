@@ -161,7 +161,7 @@ namespace build
 
             XmlReader proj = XmlReader.Create(File.OpenRead(Path.Combine("projects", name, name + ".vcxproj")));
 
-            proj.
+            //proj.
 
             proj.Close();
 
