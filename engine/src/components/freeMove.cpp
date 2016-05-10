@@ -20,6 +20,9 @@ void FreeMove::ProcessInput(const Input& input, float delta)
 {
 	float movAmt = m_speed * delta;
 
+	if (input.GetKey(m_shiftKey))
+		movAmt *= 10.0f;
+
 	if(input.GetKey(m_forwardKey))
 		Move(GetTransform()->GetRot()->GetForward(), movAmt);
 	if(input.GetKey(m_backKey))

@@ -62,6 +62,9 @@ void CoreEngine::Start()
 	//We'll do the same for game-wise components.
 	RegisterUserspace();
 
+	//NOTE(zaklaus): Let meshes load by better post-process flags
+	IsEngineComponent = false;
+
 	m_game->SetEngine(this);
 	m_game->Init(*m_window);
 

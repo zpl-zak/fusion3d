@@ -29,6 +29,10 @@ namespace build
         void UpdateList()
         {
             ProjectList.Items.Clear();
+
+            if (!Directory.Exists("projects"))
+                Directory.CreateDirectory("projects");
+
             foreach (var x in ProjectsUtil.GetDirs("projects"))
             {
                 ProjectList.Items.Add(x.Name);

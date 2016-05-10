@@ -159,11 +159,46 @@ namespace build
                 GenerateHeader(name);
             }
 
-            XmlReader proj = XmlReader.Create(File.OpenRead(Path.Combine("projects", name, name + ".vcxproj")));
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(Path.Combine("projects", name, name + ".vcxproj")));
 
-            //proj.
+            XmlElement el = doc.DocumentElement;
 
-            proj.Close();
+            XmlNodeList l = el.ChildNodes;
+
+            XmlNode heads = l[2];
+            XmlNode srcs = l[1];
+
+            heads.RemoveAll();
+            srcs.RemoveAll();
+
+            foreach(string file in Directory.EnumerateFiles(
+                Path.Combine("projects", name, "src"), "*.h", SearchOption.AllDirectories))
+            {
+                XmlElement n = doc.CreateElement("ClInclude", doc.DocumentElement.NamespaceURI);
+                XmlAttribute a = doc.CreateAttribute("Include");
+                a.Value = file.Replace(Path.Combine("projects", name),"").Substring(1);
+                
+                n.SetAttributeNode(a);
+                n.RemoveAttribute("xmlns");
+
+                heads.AppendChild(n);
+            }
+
+            foreach (string file in Directory.EnumerateFiles(
+                Path.Combine("projects", name, "src"), "*.cpp", SearchOption.AllDirectories))
+            {
+                XmlElement n = doc.CreateElement("ClCompile", doc.DocumentElement.NamespaceURI);
+                XmlAttribute a = doc.CreateAttribute("Include");
+                a.Value = file.Replace(Path.Combine("projects", name), "").Substring(1);
+
+                n.SetAttributeNode(a);
+                n.RemoveAttribute("xmlns");
+
+                srcs.AppendChild(n);
+            }
+
+            doc.Save(Path.Combine("projects", name, name + ".vcxproj"));
 
             ProcessStartInfo pci = new ProcessStartInfo();
             pci.FileName = "build.bat";
@@ -175,6 +210,7 @@ namespace build
 
             proc.Start();
             proc.WaitForExit();
+
         }
 
         public static void RenameProject(string path, string name, string oldName="PLACEHOLDER")

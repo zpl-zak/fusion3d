@@ -27,6 +27,8 @@
 #include <map>
 #include <GL/glew.h>
 
+static bool IsEngineComponent = true;
+
 /**
  * Represents engine-compatible model used by renderer.
  */

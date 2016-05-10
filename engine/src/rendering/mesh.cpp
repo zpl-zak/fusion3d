@@ -14,22 +14,6 @@
  * limitations under the License.
  */
 
-/*
- * Copyright (C) 2015 Subvision Studio
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 #include "mesh.h"
 
 #include "../core/profiling.h"
@@ -340,8 +324,8 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
     Assimp::Importer importer;
 
     const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
-        aiProcess_Triangulate |
-        aiProcess_GenSmoothNormals |
+        (fileName == "plane.obj") ? (aiProcess_Triangulate |			// prvy hack, na load velkeho poctu meshov sa pouzivaju specificke vlajky, ktore mi ale 
+        aiProcess_GenSmoothNormals |									// rozdrbavaju plane.obj, cize tento hack len pouzije pre "plane.obj" povodne import vlajky..
         aiProcess_FlipUVs |
         // aiProcess_OptimizeGraph |
         //aiProcess_PreTransformVertices |
@@ -350,7 +334,14 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
         aiProcess_FixInfacingNormals |
         aiProcess_FindInvalidData |
         //aiProcess_ValidateDataStructure |
-        aiProcess_CalcTangentSpace);
+        aiProcess_CalcTangentSpace) : (aiProcess_CalcTangentSpace |
+			aiProcess_Triangulate |
+			aiProcess_RemoveRedundantMaterials |
+			aiProcess_OptimizeGraph |
+			aiProcess_OptimizeMeshes |
+			aiProcess_SplitLargeMeshes |
+			aiProcess_JoinIdenticalVertices |
+			aiProcess_ImproveCacheLocality));
 
     if (!scene)
     {
