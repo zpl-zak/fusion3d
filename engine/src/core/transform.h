@@ -31,10 +31,11 @@ public:
 		m_scale(scale),
 		m_parent(0),
 		m_parentMatrix(Matrix4f().InitIdentity()),
-		m_initializedOldStuff(false) {}
+		m_initializedOldStuff(false),
+		m_isInitial(true) {}
 
 	Matrix4f GetTransformation() const;
-	bool HasChanged();
+	bool HasChanged() const;
 	void Update();
 	void Rotate(const Vector3f& axis, float angle);
 	void Rotate(const Quaternion& rotation);
@@ -74,6 +75,7 @@ private:
 	Vector3f m_pos;
 	Quaternion m_rot;
 	float m_scale;
+	bool m_isInitial;
 	
 	Transform* m_parent;
 	mutable Matrix4f m_parentMatrix;

@@ -65,7 +65,9 @@ public:
 	virtual ~Texture();
 
 	void Bind(unsigned int unit = 0) const;	
+	void Bind(unsigned int unit = 0);
 	void BindAsRenderTarget() const;
+	bool IsBoundAlready(unsigned int samplerSlot) const;
 	
 	inline int GetWidth()  const { return m_textureData->GetWidth(); }
 	inline int GetHeight() const { return m_textureData->GetHeight(); }
@@ -78,6 +80,7 @@ private:
 
 	TextureData* m_textureData;
 	std::string m_fileName;
+	unsigned int m_oldSamplerSlot;
 };
 
 #endif

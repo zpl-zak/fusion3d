@@ -49,7 +49,7 @@ void DevMode::PostRender (const Shader & shader, const RenderingEngine & renderi
 					ImGui::SetNextWindowPos (ImVec2 (320, 240), ImGuiSetCond_FirstUseEver);
 					ImGui::Begin ("Entity Manager", (bool*)&show_entity_manager);
 					{
-
+						ImGui::Text("Nemam peniaze na entity");
 					}
 					ImGui::End ();
 				}

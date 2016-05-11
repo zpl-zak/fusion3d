@@ -39,7 +39,7 @@ Material::Material(const std::string& materialName) :
 		m_materialData->AddReference();
 	}
 
-	m_shader = Shader::GetShader ("forward-ambient");
+	m_shader = new Shader ("forward-ambient");
 }
 
 Material::Material(const Material& other) :
@@ -79,6 +79,11 @@ Material::Material(const std::string& materialName, const Texture& diffuse, floa
 	m_materialData->SetFloat("specularPower", specularPower);
 	m_materialData->SetTexture("normalMap", normalMap);
 	m_materialData->SetTexture("dispMap", dispMap);
+	
+	//HACK(zaklaus): Speed up for huge meshes
+	m_materialData->Diffuse = diffuse;
+	m_materialData->Normal = normalMap;
+	m_materialData->Disp = dispMap;
 	
 	float baseBias = dispMapScale/2.0f;
 	m_materialData->SetFloat("dispMapScale", dispMapScale);

@@ -115,7 +115,7 @@ void Entity::UpdateAll(float delta)
 	}
 }
 
-void Entity::RenderAll(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
+void Entity::RenderAll( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) 
 {
 	Render(shader, renderingEngine, camera);
 
@@ -168,7 +168,7 @@ void Entity::Update(float delta)
 	}
 }
 
-void Entity::Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
+void Entity::Render( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) 
 {
 	for(unsigned int i = 0; i < m_components.size(); i++)
 	{

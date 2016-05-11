@@ -178,84 +178,103 @@ void Shader::Bind() const
 {
 	glUseProgram(m_shaderData->GetProgram());
 }
-void Shader::UpdateUniforms(const Transform& transform, const Material& material, const RenderingEngine& renderingEngine, const Camera& camera) const
+
+ProfileTimer cas;
+
+void Shader::UpdateUniforms(const Transform& transform, const Material& material, const RenderingEngine& renderingEngine, const Camera& camera)
 {
+	//cas.StartInvocation();
 	Matrix4f worldMatrix = transform.GetTransformation();
 	Matrix4f projectedMatrix = camera.GetViewProjection() * worldMatrix;
 	
+	static const char* uniformName;
+	static const char* uniformType;
+	static const char* unprefixedName;
+
 	for(unsigned int i = 0; i < m_shaderData->GetUniformNames().size(); i++)
 	{
-		std::string uniformName = m_shaderData->GetUniformNames()[i];
-		std::string uniformType = m_shaderData->GetUniformTypes()[i];
+		uniformName = m_shaderData->GetUniformNames()[i].c_str();
+		uniformType = m_shaderData->GetUniformTypes()[i].c_str();
 		
-		if(uniformName.substr(0, 2) == "R_")
+		if(uniformName[0] == 'R' && uniformName[1] == '_')
 		{
-			std::string unprefixedName = uniformName.substr(2, uniformName.length());
+			unprefixedName = uniformName + 2;
 			
-			if(unprefixedName == "lightMatrix")
+			if(!strcmp(unprefixedName,"lightMatrix"))
 				SetUniformMatrix4f(uniformName, renderingEngine.GetLightMatrix() * worldMatrix);
-			else if(uniformType == "sampler2D")
+			else if (!strcmp(uniformType, "sampler2D"))
 			{
 				int samplerSlot = renderingEngine.GetSamplerSlot(unprefixedName);
-				renderingEngine.GetTexture(unprefixedName).Bind(samplerSlot);
-				SetUniformi(uniformName, samplerSlot);
+				if (!renderingEngine.GetTexture(unprefixedName).IsBoundAlready(samplerSlot))
+				{
+					renderingEngine.GetTexture(unprefixedName).Bind(samplerSlot);
+					SetUniformi(uniformName, samplerSlot);
+				}
 			}
-			else if(uniformType == "vec3")
+			else if(!strcmp(uniformType , "vec3"))
 				SetUniformVector3f(uniformName, renderingEngine.GetVector3f(unprefixedName));
-			else if(uniformType == "float")
+			else if(!strcmp(uniformType , "float"))
 				SetUniformf(uniformName, renderingEngine.GetFloat(unprefixedName));
-			else if(uniformType == "DirectionalLight")
+			
+			else if(!strcmp(uniformType , "DirectionalLight"))
 				SetUniformDirectionalLight(uniformName, *(const DirectionalLight*)&renderingEngine.GetActiveLight());
-			else if(uniformType == "PointLight")
+			else if(!strcmp(uniformType , "PointLight"))
 				SetUniformPointLight(uniformName, *(const PointLight*)&renderingEngine.GetActiveLight());
-			else if(uniformType == "SpotLight")
+			else if(!strcmp(uniformType , "SpotLight"))
 				SetUniformSpotLight(uniformName, *(const SpotLight*)&renderingEngine.GetActiveLight());
+			
+			
 			else
 				renderingEngine.UpdateUniformStruct(transform, material, *this, uniformName, uniformType);
 		}
-		else if(uniformType == "sampler2D")
+		else if(!strcmp(uniformType, "sampler2D"))
 		{
 			int samplerSlot = renderingEngine.GetSamplerSlot(uniformName);
-			material.GetTexture(uniformName).Bind(samplerSlot);
-			SetUniformi(uniformName, samplerSlot);
-		}
-		else if(uniformName.substr(0, 2) == "T_")
-		{
-			if(uniformName == "T_MVP")
-				SetUniformMatrix4f(uniformName, projectedMatrix);
-			else if(uniformName == "T_model")
-				SetUniformMatrix4f(uniformName, worldMatrix);
-			else
-				throw "Invalid Transform Uniform: " + uniformName;
-		}
-		else if(uniformName.substr(0, 2) == "C_")
-		{
-			if(uniformName == "C_eyePos")
-				SetUniformVector3f(uniformName, camera.GetTransform().GetTransformedPos());
-			else
-				throw "Invalid Camera Uniform: " + uniformName;
-		}
-		else if (uniformName.substr (0, 2) == "G_")
-		{
-			if (uniformName == "G_Time")
+			if (!material.GetTexture(uniformName).IsBoundAlready(samplerSlot))
 			{
-				SetUniformf (uniformName, Time::GetTime ());
+				material.GetTexture(uniformName).Bind(samplerSlot);
+				SetUniformi(uniformName, samplerSlot);
+			}
+		}
+		else if(uniformName[0] == 'T' && uniformName[1] == '_')
+		{
+			if (!strcmp(uniformName, "T_MVP"))
+			{
+			//	if (camera.GetTransform().HasChanged() || transform.HasChanged())
+					SetUniformMatrix4f(uniformName, projectedMatrix);
+			}
+			else if (!strcmp(uniformName ,"T_model") )
+			{
+				//if (transform.HasChanged())
+					SetUniformMatrix4f(uniformName, worldMatrix);
+			}
+			/*else
+				throw "Invalid Transform Uniform: " + uniformName;*/
+		}
+		else if(uniformName[0] == 'C' && uniformName[1] == '_')
+		{
+			if(!strcmp(uniformName, "C_eyePos"))
+				if (camera.GetTransform().HasChanged())
+					SetUniformVector3f(uniformName, camera.GetTransform().GetTransformedPos());
+			/*else
+				throw "Invalid Camera Uniform: " + uniformName;*/
+		}
+		else if (uniformName[0] == 'G' && uniformName[1] == '_')
+		{
+			if (!strcmp(uniformName, "G_Time"))
+			{
+				SetUniformf (uniformName,0);
 			}
 		}
 		else
 		{
-			if(uniformType == "vec3")
+			if(!strcmp(uniformType, "vec3"))
 				SetUniformVector3f(uniformName, material.GetVector3f(uniformName));
-			else if(uniformType == "float")
+			else if(!strcmp(uniformType, "float"))
 				SetUniformf(uniformName, material.GetFloat(uniformName));
-			else
-				throw uniformType + " is not supported by the Material class";
+			/*else
+				throw uniformType + " is not supported by the Material class";*/
 		}
-	}
-
-	if (m_mapVals != nullptr)
-	{
-		m_mapVals (*this);
 	}
 }
 

@@ -27,6 +27,7 @@ class Shader;
 class MaterialData : public ReferenceCounter, public MappedValues
 {
 public:
+	Texture Diffuse, Normal, Disp;
 private:
 };
 
@@ -52,6 +53,7 @@ public:
 	inline const Vector3f& GetVector3f(const std::string& name) const { return m_materialData->GetVector3f(name); }
 	inline float GetFloat(const std::string& name)              const { return m_materialData->GetFloat(name); }
 	inline const Texture& GetTexture(const std::string& name)   const { return m_materialData->GetTexture(name); }
+	inline void BindDiffuseTexture(int slot) { m_materialData->GetTexture("diffuse").Bind(slot); }
 	inline Shader* GetShader () { return m_shader; }
 	inline MaterialData* GetData() const { return m_materialData; }
 	inline void SetData(MaterialData* data) { m_materialData = data; }

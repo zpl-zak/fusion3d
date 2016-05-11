@@ -59,8 +59,27 @@ void IndexedModel::AddTangent(const Vector3f& tangent)
 	m_tangents.push_back(tangent);
 }
 
+void IndexedModel::CalcBBoxNCenter()
+{
+	Vector3f BMin, BMax, Center;
+	for (size_t i = 0; i < m_positions.size(); i++)
+	{
+		if (BMin.GetX() < m_positions[i].GetX())BMin.SetX(m_positions[i].GetX());
+		if (BMin.GetY() < m_positions[i].GetY())BMin.SetY(m_positions[i].GetY());
+		if (BMin.GetZ() < m_positions[i].GetZ())BMin.SetZ(m_positions[i].GetZ());
+	}
+
+	Center.SetX(0.5f * (BMax.GetX() + BMin.GetX()));
+	Center.SetY(0.5f * (BMax.GetY() + BMin.GetY()));
+	Center.SetZ(0.5f * (BMax.GetZ() + BMin.GetZ()));
+
+	m_boundMax = BMax; m_boundMin = BMin; m_center = Center;
+}
+
 IndexedModel IndexedModel::Finalize(bool normalsFlat)
 {
+	CalcBBoxNCenter();
+	
 	if(IsValid())
 	{
 		return *this;
@@ -83,6 +102,8 @@ IndexedModel IndexedModel::Finalize(bool normalsFlat)
 	{
 		CalcTangents();
 	}
+
+
 	
 	return *this;
 }
@@ -139,17 +160,10 @@ void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer norm
 
 		for (int i = 0; i < m_positions.size (); i++)
 		{
-			for (int j = 0; j < m_indices.size (); j += 3)
+			for (int j = 0; j < m_vertslots[i].size(); j ++)
 			{
-				if ((m_indices[j] == i) ||
-					(m_indices[j + 1] == i) ||
-					(m_indices[j + 2] == i))
-				{
-					nNormal += m_normals[m_indices[j]];
-					nNormal += m_normals[m_indices[j+1]];
-					nNormal += m_normals[m_indices[j+2]];
-					shared++;
-				}
+				nNormal += m_normals[m_indices[m_vertslots[i][j]]];
+				shared++;
 			}
 
 			nNormal /= (float)shared;
@@ -334,10 +348,12 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
         aiProcess_FixInfacingNormals |
         aiProcess_FindInvalidData |
         //aiProcess_ValidateDataStructure |
-        aiProcess_CalcTangentSpace) : (aiProcess_CalcTangentSpace |
+        aiProcess_CalcTangentSpace) : (
+			aiProcess_CalcTangentSpace |
 			aiProcess_Triangulate |
-			aiProcess_RemoveRedundantMaterials |
+			aiProcess_RemoveComponent |
 			aiProcess_OptimizeGraph |
+			aiProcess_PreTransformVertices |
 			aiProcess_OptimizeMeshes |
 			aiProcess_SplitLargeMeshes |
 			aiProcess_JoinIdenticalVertices |

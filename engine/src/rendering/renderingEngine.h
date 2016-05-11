@@ -43,7 +43,7 @@ public:
 		delete m_defaultShader;
 	}
 	
-	virtual void Render(const Entity& object);
+	virtual void Render(Entity& object);
 	
 	inline void AddLight (BaseLight* light) { m_lights.push_back (light); m_uniformUpdate = true; }
 	inline void SetMainCamera(const Camera& camera) { m_mainCamera = &camera; }
@@ -65,13 +65,13 @@ public:
 	inline const Matrix4f& GetLightMatrix()                            const { return m_lightMatrix; }
 	inline Shader* GetDefaultShader(){ return m_defaultShader; }
 	inline Shader* GetNullShader () { return &m_nullShader; }
-	void ApplyFilterInternal (const Shader& filter);
+	void ApplyFilterInternal (Shader& filter);
 
 	bool ShouldUpdateUniforms () const { return m_uniformUpdate; }
 	void UpdateUniforms (bool state) { m_uniformUpdate = state; }
 protected:
 	inline void SetSamplerSlot(const std::string& name, unsigned int value) { m_samplerMap[name] = value; }
-	void ApplyFilter (const Shader& filter, const Texture& source, const Texture* dest);
+	void ApplyFilter (Shader& filter, const Texture& source, const Texture* dest);
 private:
 	static const int NUM_SHADOW_MAPS = 10;
 	static const Matrix4f BIAS_MATRIX;

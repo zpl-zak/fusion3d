@@ -46,7 +46,7 @@ public:
 	void InitAll();
 	void ProcessInputAll(const Input& input, float delta);
 	void UpdateAll(float delta);
-	void RenderAll(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
+	void RenderAll( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
 	void PostRenderAll(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
 	
 	/// Returns all components attached to entity.
@@ -83,7 +83,7 @@ private:
 	void Init();
 	void ProcessInput(const Input& input, float delta);
 	void Update(float delta);
-	void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
+	void Render( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
 	void PostRender(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
 	
 	Entity(const Entity& other) {}

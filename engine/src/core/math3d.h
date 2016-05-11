@@ -161,6 +161,8 @@ public:
 		
 		return *this;
 	}
+
+
 	
 	T& operator [] (unsigned int i) { return values[i]; }
 	T operator [] (unsigned int i) const { return values[i]; }

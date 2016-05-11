@@ -168,7 +168,7 @@ void CoreEngine::Start()
 			//If no rendering is needed, sleep for some time so the OS
 			//can use the processor for other tasks.
 			sleepTimer.StartInvocation();
-			Util::Sleep(1);
+			Util::Sleep(10);
 			sleepTimer.StopInvocation();
 		}
 	}

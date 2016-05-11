@@ -43,7 +43,7 @@ public:
 	virtual void Init() { }
 	virtual void ProcessInput(const Input& input, float delta) {}
 	virtual void Update(float delta) {}
-	virtual void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const {}
+	virtual void Render(Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) {}
 	virtual void PostRender(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const {}
 	virtual void PostRender (const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) {}
 	virtual void DataDeploy(tinyxml2::XMLElement* data) {}

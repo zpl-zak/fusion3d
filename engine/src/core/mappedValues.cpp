@@ -45,6 +45,26 @@ const Texture& MappedValues::GetTexture(const std::string& name) const
 	{
 		return it->second;
 	}
+	else
+	{
+		auto x = Texture(m_defaultTexture);
+	}
 		
+	return m_defaultTexture;
+}
+
+const Texture& MappedValues::GetTexture(const std::string& name)
+{
+	std::map<std::string, Texture>::const_iterator it = m_textureMap.find(name);
+	if (it != m_textureMap.end())
+	{
+		return it->second;
+	}
+	else
+	{
+		auto x = Texture(m_defaultTexture);
+		m_textureMap.insert(std::make_pair(name, x));
+	}
+
 	return m_defaultTexture;
 }

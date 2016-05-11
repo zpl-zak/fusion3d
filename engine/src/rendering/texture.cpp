@@ -235,7 +235,20 @@ void Texture::Bind(unsigned int unit) const
 	m_textureData->Bind(0);
 }
 
+void Texture::Bind(unsigned int unit)
+{
+	assert(unit >= 0 && unit <= 31);
+	glActiveTexture(GL_TEXTURE0 + unit);
+	m_textureData->Bind(0);
+	m_oldSamplerSlot = unit;
+}
+
 void Texture::BindAsRenderTarget() const
 {
 	m_textureData->BindAsRenderTarget();
+}
+
+bool Texture::IsBoundAlready(unsigned int samplerSlot) const
+{
+	return (samplerSlot == m_oldSamplerSlot);
 }

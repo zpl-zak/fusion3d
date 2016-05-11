@@ -1,8 +1,10 @@
 #include "terrain.h"
 
 #include "../3DEngine.h"
+#include "../rendering/mesh.h"
 
-Terrain::Terrain (Game* game, Entity* entity, std::string mapName, int height, std::string matName)
+
+Terrain::Terrain (std::string mapName, int height, bool flat)
 {
 	Bitmap level (mapName); level.FlipY ();
 
@@ -55,18 +57,27 @@ Terrain::Terrain (Game* game, Entity* entity, std::string mapName, int height, s
 				map.AddVertex (Vector3f ((i + 1) * SPOT_W, Y3, (j + 1) * SPOT_L)); map.AddTexCoord (Vector2f (XH, YH));
 				map.AddVertex (Vector3f (i * SPOT_W, Y4, (j + 1) * SPOT_L)); map.AddTexCoord (Vector2f (XL, YH));
 				
+				/*auto slots = std::vector<unsigned int>{ (unsigned int) j*level.GetWidth() + i ,(unsigned int)j*level.GetWidth() + i ,(unsigned int)j*level.GetWidth() + i ,(unsigned int)j*level.GetWidth() + i };
+
+				map.AddVertexSlot(slots);
+				map.AddVertexSlot(slots);
+				map.AddVertexSlot(slots);
+				map.AddVertexSlot(slots);*/
 			}
 		}
 
-		Mesh mesh (mapName, map.Finalize());
-
-		entity
-			->AddComponent (new MeshRenderer (mesh, Material (matName)));
-
-		game->AddToScene (entity);
+		m_mesh = new Mesh (mapName, map.Finalize(flat));
 	}
 }
 
 Terrain::~Terrain ()
 {
+}
+
+void Terrain::Start(Entity* entity, std::string matName)
+{
+	entity
+		->AddComponent(new MeshRenderer(*m_mesh, Material(matName)));
+
+	//game->AddToScene(entity);
 }

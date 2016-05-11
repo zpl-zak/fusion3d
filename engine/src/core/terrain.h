@@ -2,13 +2,20 @@
 
 #include <string>
 
+
 class Entity;
 class Game;
+class Mesh;
 
 class Terrain
 {
 public:
-	Terrain (Game* game, Entity* entity, std::string mapName, int height, std::string matName);
+	Terrain (std::string mapName, int height, bool flat = true);
 	~Terrain ();
+
+	void Start(Entity* entity, std::string matName);
+
+private:
+	Mesh* m_mesh;
 };
 

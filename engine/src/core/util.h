@@ -96,13 +96,13 @@ namespace Util
 
 		Matrix4f M = matrix.Inverse ();
 
-		Vector4f rayS = (Vector4f)M.Transform (rayStart); rayS /= rayS.GetW ();
-		Vector4f rayE = (Vector4f)M.Transform (rayEnd);    rayE /= rayE.GetW ();
+		Vector4f rayS = (Vector4f)M.Transform(rayStart); rayS = rayS.Normalized();
+		Vector4f rayE = (Vector4f)M.Transform(rayEnd);  rayE = rayE.Normalized();
 
 		Vector3f rayDir (Vector4f (rayE - rayS).GetXYZ ());
 		rayDir = rayDir.Normalized ();
 
-		out_origin = (Vector3f) rayS.GetXYZ().Normalized ();
+		out_origin = (Vector3f) rayS.GetXYZ();
 		out_dir = rayDir;
 	}
 

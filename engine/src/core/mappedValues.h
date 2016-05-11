@@ -36,6 +36,7 @@ public:
 	const Vector3f& GetVector3f(const std::string& name) const;
 	float GetFloat(const std::string& name)              const;
 	const Texture& GetTexture(const std::string& name)   const;
+	const Texture& GetTexture(const std::string& name);
 protected:
 private:
 	std::map<std::string, Vector3f> m_vector3fMap;

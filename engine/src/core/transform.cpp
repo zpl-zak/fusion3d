@@ -17,29 +17,34 @@
 #include "transform.h"
 #include "coreEngine.h"
 
-bool Transform::HasChanged()
+bool Transform::HasChanged() const
 {	
+	if (m_isInitial)
+	{
+		return true;
+	}
+
 	if(m_parent != 0 && m_parent->HasChanged())
 	{
-		CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
+		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 	
 	if(m_pos != m_oldPos)
 	{
-		CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
+		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 
 	if(m_rot != m_oldRot)
 	{
-		CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
+		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 	
 	if(m_scale != m_oldScale)
 	{
-		CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
+		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 		
@@ -61,6 +66,8 @@ void Transform::Update()
 		m_oldScale = m_scale + 1;
 		m_initializedOldStuff = true;
 	}
+
+	m_isInitial = false;
 }
 
 void Transform::Rotate(const Vector3f& axis, float angle)

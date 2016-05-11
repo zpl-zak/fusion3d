@@ -22,6 +22,8 @@
 #include "../rendering/mesh.h"
 #include "../rendering/renderingEngine.h"
 
+#include <Windows.h>
+
 
 class MeshRenderer : public EntityComponent
 {
@@ -49,22 +51,37 @@ public:
 		m_shadows = true;
 	}
 
-	virtual void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
+	virtual void Render( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 	{
 		if (shader.GetName() == "shadowMapGenerator" && !m_shadows) return;
 		if (!m_visible) return;
+		
+		auto material = m_material.at(m_mesh.at(0).GetMeshData()->GetMaterialIndex());
+		auto _shader = (shader.GetName() == "forward-ambient") ? material.GetShader() : &shader;
+		if (!_shader) _shader = &shader;
+
+		_shader->Bind();
+		_shader->UpdateUniforms(*GetTransform(), material, renderingEngine, camera);
+
         for (size_t i = 0; i < m_mesh.size(); i++)
         {
-			auto material = m_material.at (m_mesh.at (i).GetMeshData ()->GetMaterialIndex ());
-			auto _shader = (shader.GetName() == "forward-ambient") ? material.GetShader () : &shader;
-			if (!_shader) _shader = &shader;
+			if(shader.GetName() != "shadowMapGenerator")
+			{
+				auto material = m_material.at(m_mesh.at(i).GetMeshData()->GetMaterialIndex());
 
-            _shader->Bind();
-
-			//if (renderingEngine.ShouldUpdateUniforms())
-				_shader->UpdateUniforms(GetTransform(), material, renderingEngine, camera);
-
-            m_mesh.at(i).Draw();
+				//IMPORTANT(zaklaus): Make sure your shader uses following order of texture maps!!
+				
+				/*material.GetTexture("diffuse").Bind(0);
+				material.GetTexture("normalMap").Bind(1);
+				material.GetTexture("dispMap").Bind(2);*/
+				
+				material.GetData()->Diffuse.Bind(0);
+				material.GetData()->Normal.Bind(1);
+				material.GetData()->Disp.Bind(2);
+				
+				//_shader->SetUniformi("diffuse", 0);
+			}
+			m_mesh.at(i).Draw();
         }
 	}
 
@@ -154,7 +171,7 @@ public:
 		}
 	}
 
-	void Render(const Transform& transform, const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
+	void Render(const Transform& transform, Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 	{
 		if (shader.GetName() == "shadowMapGenerator" && !m_shadows) return;
 		if (!m_visible) return;
@@ -337,7 +354,7 @@ public:
 		m_anims.at(m_anim)->Update(delta);
 	}
 
-	void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
+	void Render( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
 	{
 		if (m_anims.size() == 0)return;
 		m_anims.at(m_anim)->Render(GetTransform(), shader, renderingEngine, camera);

@@ -86,7 +86,7 @@ RenderingEngine::RenderingEngine(Window* window) :
 	SetFloat("fxaaAspectDistortion", 150.0f);
 
 	SetTexture("displayTexture", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
-
+	SetTexture("tempTarget", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
 	//glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
 	glFrontFace(GL_CW);
@@ -129,7 +129,7 @@ void RenderingEngine::BlurShadowMap(int shadowMapIndex, float blurAmount)
 //	ApplyFilter(m_nullFilter, m_shadowMapTempTargets[shadowMapIndex], &m_shadowMaps[shadowMapIndex]);
 }
 
-void RenderingEngine::ApplyFilterInternal (const Shader& filter)
+void RenderingEngine::ApplyFilterInternal (Shader& filter)
 {
 	m_altCamera.SetProjection (Matrix4f ().InitIdentity ());
 	m_altCamera.GetTransform ()->SetPos (Vector3f (0, 0, 0));
@@ -141,7 +141,7 @@ void RenderingEngine::ApplyFilterInternal (const Shader& filter)
 	m_plane.Draw ();
 }
 
-void RenderingEngine::ApplyFilter(const Shader& filter, const Texture& source, const Texture* dest)
+void RenderingEngine::ApplyFilter(Shader& filter, const Texture& source, const Texture* dest)
 {
 	//assert(&source != dest);
 
@@ -173,7 +173,7 @@ void RenderingEngine::ApplyFilter(const Shader& filter, const Texture& source, c
 	m_window->BindAsRenderTarget ();
 	ApplyFilterInternal (m_nullFilter);
 
-	SetTexture("filterTexture", 0);
+//	SetTexture("filterTexture", 0);
 }
 
 void RenderingEngine::drawrect(int x, int y, int w, int h, int color)
@@ -186,7 +186,7 @@ void RenderingEngine::drawrect(int x, int y, int w, int h, int color)
 	SDL_FillRect(m_surface, &r, color);
 }
 
-void RenderingEngine::Render(const Entity& object)
+void RenderingEngine::Render(Entity& object)
 {
 	m_renderProfileTimer.StartInvocation();
 	GetTexture("displayTexture").BindAsRenderTarget();
@@ -272,7 +272,7 @@ void RenderingEngine::Render(const Entity& object)
 			glDepthMask(GL_FALSE);
 			glDepthFunc(GL_EQUAL);
 
-			object.RenderAll(m_activeLight->GetShader(), *this, *m_mainCamera);
+			object.RenderAll(*m_activeLight->GetShader(), *this, *m_mainCamera);
 
 			glDepthMask(GL_TRUE);
 			glDepthFunc(GL_LESS);
