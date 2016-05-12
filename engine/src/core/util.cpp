@@ -24,6 +24,11 @@
 #include <cstdlib>
 #include <sstream>
 
+#ifdef WIN32
+#include <Windows.h>
+#else
+#endif
+
 std::string s_ResourcePath = "./data/";
 
 void Util::Init(const char *app, const char *org)
@@ -79,10 +84,23 @@ std::string Util::ExecuteTask(const std::string & task, const std::string & data
 #endif
 }
 
+void Util::CreateDir(const std::string & path, void* flags)
+{
+#ifdef OS_WINDOWS
+	CreateDirectoryA(path.c_str(), *(LPSECURITY_ATTRIBUTES*)&flags);
+#endif
+}
+
 Vector3f Util::ParseVector3(std::string n)
 {
 	std::vector<std::string> vec = Util::Split(n, ';');
 	return Vector3f(atof(vec[0].c_str()), atof(vec[1].c_str()), atof(vec[2].c_str()));
+}
+
+Vector2f Util::ParseVector2(std::string n)
+{
+	std::vector<std::string> vec = Util::Split(n, ';');
+	return Vector2f(atof(vec[0].c_str()), atof(vec[1].c_str()));
 }
 
 std::vector<std::string> Util::Split(const std::string& s, char delim)

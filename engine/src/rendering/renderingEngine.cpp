@@ -93,8 +93,8 @@ RenderingEngine::RenderingEngine(Window* window) :
 	glCullFace(GL_BACK);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
-	//glEnable(GL_DEPTH_CLAMP);
-	//glEnable(GL_MULTISAMPLE);
+	glEnable(GL_DEPTH_CLAMP);
+	glEnable(GL_MULTISAMPLE);
 	//glEnable(GL_FRAMEBUFFER_SRGB);
 	                  
 	//m_planeMaterial("renderingEngine_filterPlane", m_tempTarget, 1, 8);
@@ -123,10 +123,10 @@ void RenderingEngine::BlurShadowMap(int shadowMapIndex, float blurAmount)
 	SetVector3f("blurScale", Vector3f(0.0f, blurAmount/(m_shadowMaps[shadowMapIndex].GetHeight()), 0.0f));
 	ApplyFilter(m_gausBlurFilter, m_shadowMapTempTargets[shadowMapIndex], &m_shadowMaps[shadowMapIndex]); 
 
-//	SetVector3f("inverseFilterTextureSize", Vector3f(blurAmount/m_shadowMaps[shadowMapIndex].GetWidth(), blurAmount/m_shadowMaps[shadowMapIndex].GetHeight(), 0.0f));
-//	ApplyFilter(m_fxaaFilter, m_shadowMaps[shadowMapIndex], &m_shadowMapTempTargets[shadowMapIndex]);
+	SetVector3f("inverseFilterTextureSize", Vector3f(blurAmount/m_shadowMaps[shadowMapIndex].GetWidth(), blurAmount/m_shadowMaps[shadowMapIndex].GetHeight(), 0.0f));
+	ApplyFilter(m_fxaaFilter, m_shadowMaps[shadowMapIndex], &m_shadowMapTempTargets[shadowMapIndex]);
 //	
-//	ApplyFilter(m_nullFilter, m_shadowMapTempTargets[shadowMapIndex], &m_shadowMaps[shadowMapIndex]);
+	ApplyFilter(m_nullFilter, m_shadowMapTempTargets[shadowMapIndex], &m_shadowMaps[shadowMapIndex]);
 }
 
 void RenderingEngine::ApplyFilterInternal (Shader& filter)

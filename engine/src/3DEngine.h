@@ -65,6 +65,7 @@
 #include "components/freeMove.h"
 #include "components/rigidBody.h"
 #include "rendering/window.h"
+#include "core/mapLoader.h"
 #include "core/coreEngine.h"
 #include "core/game.h"
 

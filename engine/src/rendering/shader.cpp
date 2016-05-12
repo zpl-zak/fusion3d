@@ -254,7 +254,7 @@ void Shader::UpdateUniforms(const Transform& transform, const Material& material
 		else if(uniformName[0] == 'C' && uniformName[1] == '_')
 		{
 			if(!strcmp(uniformName, "C_eyePos"))
-				if (camera.GetTransform().HasChanged())
+				///if (camera.GetTransform().HasChanged())
 					SetUniformVector3f(uniformName, camera.GetTransform().GetTransformedPos());
 			/*else
 				throw "Invalid Camera Uniform: " + uniformName;*/
@@ -263,7 +263,7 @@ void Shader::UpdateUniforms(const Transform& transform, const Material& material
 		{
 			if (!strcmp(uniformName, "G_Time"))
 			{
-				SetUniformf (uniformName,0);
+				SetUniformf (uniformName,Time::GetTime());
 			}
 		}
 		else
@@ -389,7 +389,7 @@ void ShaderData::AddProgram(const std::string& text, int type)
 
         glGetShaderInfoLog(shader, 1024, NULL, InfoLog);
 		char err[255];
-        sprintf(err, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
+        sprintf_s(err, 255, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
 		OutputDebugString (err);
 		getchar ();
         exit(1);

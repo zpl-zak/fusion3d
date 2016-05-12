@@ -30,6 +30,7 @@
 //} while (0)
 
 #ifndef WIN32
+
 #endif
 
 #ifdef WIN32
@@ -60,6 +61,7 @@ namespace Util
 	std::string ResourcePath(void);
 	std::string ssystem(const char *command);
 	std::string ExecuteTask(const std::string& task, const std::string& data="");
+	void CreateDir(const std::string& path, void* flags);
 
 
     template < typename T > std::string to_string(const T& n)
@@ -138,6 +140,7 @@ namespace Util
 	}
 
 	Vector3f ParseVector3(std::string n);
+	Vector2f ParseVector2(std::string n);
 	
 	
 };

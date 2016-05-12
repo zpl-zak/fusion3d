@@ -48,6 +48,7 @@ public:
 	inline void AddLight (BaseLight* light) { m_lights.push_back (light); m_uniformUpdate = true; }
 	inline void SetMainCamera(const Camera& camera) { m_mainCamera = &camera; }
 	inline const Camera* GetMainCamera() { return m_mainCamera; }
+	inline Window* GetWindow() { return m_window; }
 	
 	virtual void UpdateUniformStruct(const Transform& transform, const Material& material, const Shader& shader, 
 		const std::string& uniformName, const std::string& uniformType) const
@@ -73,7 +74,7 @@ protected:
 	inline void SetSamplerSlot(const std::string& name, unsigned int value) { m_samplerMap[name] = value; }
 	void ApplyFilter (Shader& filter, const Texture& source, const Texture* dest);
 private:
-	static const int NUM_SHADOW_MAPS = 10;
+	static const int NUM_SHADOW_MAPS = 12;
 	static const Matrix4f BIAS_MATRIX;
 	
 	bool								m_fullbright;

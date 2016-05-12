@@ -62,7 +62,7 @@ public:
 	void AddTangent(const Vector3f& tangent);
 	inline void AddTangent(float x, float y, float z) { AddTangent(Vector3f(x, y, z)); }
 
-	inline void AddVertexSlot(const std::vector<unsigned int> slot) { m_vertslots.push_back(slot); }
+//	inline void AddVertexSlot(const std::vector<unsigned int> slot) { m_vertslots.push_back(slot); }
 
 	inline void AddVertices (const std::vector<Vector3f> verts) { for (auto x : verts) { AddVertex (x); } };
 	inline void AddTexCoords (const std::vector<Vector2f> coords) { for (auto x : coords) { AddTexCoord (x); } };
@@ -73,7 +73,7 @@ public:
 	void CalcBBoxNCenter();
 
 	inline const std::vector<unsigned int>& GetIndices() const { return m_indices; }
-	inline const std::vector<std::vector<unsigned int>>& GetVertexSlot() const { return m_vertslots; }
+	//inline const std::vector<std::vector<unsigned int>>& GetVertexSlot() const { return m_vertslots; }
 	inline const std::vector<Vector3f>& GetPositions()   const { return m_positions; }
 	inline const std::vector<Vector2f>& GetTexCoords()   const { return m_texCoords; }
 	inline const std::vector<Vector3f>& GetNormals()     const { return m_normals; }
@@ -84,7 +84,7 @@ public:
 
 private:
 	std::vector<unsigned int> m_indices;
-	std::vector<std::vector<unsigned int>> m_vertslots;
+	//std::vector<std::vector<unsigned int>> m_vertslots;
     std::vector<Vector3f> m_positions;
     std::vector<Vector2f> m_texCoords;
     std::vector<Vector3f> m_normals;
@@ -104,6 +104,8 @@ public:
 	
 	void Draw() const;
     int GetMaterialIndex() { return m_materialIndex; }
+	static MeshData* LoadCachedModel(const std::string& fileName, int index);
+	void CacheModel(const std::string& fileName, int index);
 	const IndexedModel& GetModel() { return m_model; }
 protected:	
 private:
@@ -141,6 +143,7 @@ public:
     static std::vector<Material*> ImportMeshMaterial(const std::string& fileName);
     static std::vector<Mesh*> ImportMesh(const std::string& fileName);
 	static btTriangleMesh* ImportCollision(const std::string& fileName);
+	
 	virtual ~Mesh();
 
 	void Draw() const;

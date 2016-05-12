@@ -29,6 +29,8 @@
 
 #include "../staticLibs/luna.h"
 
+#include "../core/util.h"
+
 class Program
 {
 public:
@@ -161,10 +163,11 @@ public:
 
 	ProgramHoster();
 
-	ProgramHoster(Program* program, int verbose = 0)
+	ProgramHoster(Program* program, int verbose = 0, bool start = false)
 		:
 		m_delayedInit((!isUpdating)),
-		m_loaded(false)
+		m_loaded(false),
+		m_isUpdating(start)
 	{
 		m_program = program;
 		m_verbose = verbose;
@@ -206,7 +209,7 @@ public:
 
 	virtual void ProcessInput(const Input& input, float delta)
 	{
-		if (!isUpdating)
+		if (!isUpdating && (!m_isUpdating))
 			return;
 
 		m_inputTimer.StartInvocation();
@@ -218,7 +221,7 @@ public:
 
 	virtual void Update(float delta)
 	{
-		if (!isUpdating)
+		if (!isUpdating && (!m_isUpdating))
 			return;
 
 		//		InitProgram();
@@ -232,7 +235,7 @@ public:
 
 	virtual void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 	{
-		if (!isUpdating)
+		if (!isUpdating && (!m_isUpdating))
 			return;
 
 		m_renderTimer.StartInvocation();
@@ -254,11 +257,22 @@ public:
 		return isUpdating;
 	}
 
+	void SetActiveInstance(bool state)
+	{
+		m_isUpdating = state;
+	};
+
+	bool GetActiveInstance()
+	{
+		return m_isUpdating;
+	}
+
 private:
 	int m_input, m_update, m_render, m_verbose;
 	Program* m_program;
 	ProfileTimer m_updateTimer, m_renderTimer, m_inputTimer;
 	bool m_delayedInit, m_loaded;
+	bool m_isUpdating;
 
 	static double lastTime;
 	static double timeCounter;

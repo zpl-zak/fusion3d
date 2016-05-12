@@ -13,8 +13,12 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-#include "../3DEngine.h"
+#if !defined(MAP_LOADER_H)
+
 #include "../staticLibs/tinyxml2.h"
+#include <string>
+
+class Entity;
 
 // Tell the TIXML to use Standard Library for XML handling
 #define TIXML_USE_STL 
@@ -45,3 +49,6 @@ private:
 
 	std::string				m_name, m_version, m_author;
 };
+
+#define MAP_LOADER_H
+#endif

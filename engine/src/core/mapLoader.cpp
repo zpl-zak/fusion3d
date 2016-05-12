@@ -1,8 +1,10 @@
 #include "mapLoader.h"
+#include "../3DEngine.h"
 
 MapLoader::MapLoader (std::string map)
-	: m_map(map)
 {
+	m_map = Util::ResourcePath() + "maps/" + map;
+
 	m_doc = new tinyxml2::XMLDocument (true, tinyxml2::Whitespace::COLLAPSE_WHITESPACE);
 	m_doc->LoadFile (m_map.c_str ());
 

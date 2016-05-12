@@ -160,11 +160,11 @@ void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer norm
 
 		for (int i = 0; i < m_positions.size (); i++)
 		{
-			for (int j = 0; j < m_vertslots[i].size(); j ++)
+			/*for (int j = 0; j < m_vertslots[i].size(); j ++)
 			{
 				nNormal += m_normals[m_indices[m_vertslots[i][j]]];
 				shared++;
-			}
+			}*/
 
 			nNormal /= (float)shared;
 			nNormal = nNormal.Normalized ();
@@ -315,7 +315,9 @@ Mesh::Mesh(const std::string& fileName) :
 	}
 	else
 	{
-        m_meshData = Mesh::ImportMeshData(fileName, 0).at(0);
+		auto name = Util::split(fileName, '.')[0];
+		Util::CreateDir((Util::ResourcePath() + "models/" + name), NULL);
+		m_meshData = Mesh::ImportMeshData(fileName, 0).at(0);
 	}
 }
 
@@ -335,35 +337,14 @@ Mesh::Mesh(const Mesh& mesh) :
 
 std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mode)
 {
-    Assimp::Importer importer;
+	std::vector<MeshData*> outData;
+	auto fname = Util::split(fileName, '.');
+	auto cachedName = Util::ResourcePath() + "models/" + fname[0] + "/" + fname[0] + "_cached_0.zdl";
 
-    const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
-        (fileName == "plane.obj") ? (aiProcess_Triangulate |			// prvy hack, na load velkeho poctu meshov sa pouzivaju specificke vlajky, ktore mi ale 
-        aiProcess_GenSmoothNormals |									// rozdrbavaju plane.obj, cize tento hack len pouzije pre "plane.obj" povodne import vlajky..
-        aiProcess_FlipUVs |
-        // aiProcess_OptimizeGraph |
-        //aiProcess_PreTransformVertices |
-        //aiProcess_JoinIdenticalVertices |
-        aiProcess_SortByPType |
-        aiProcess_FixInfacingNormals |
-        aiProcess_FindInvalidData |
-        //aiProcess_ValidateDataStructure |
-        aiProcess_CalcTangentSpace) : (
-			aiProcess_CalcTangentSpace |
-			aiProcess_Triangulate |
-			aiProcess_RemoveComponent |
-			aiProcess_OptimizeGraph |
-			aiProcess_PreTransformVertices |
-			aiProcess_OptimizeMeshes |
-			aiProcess_SplitLargeMeshes |
-			aiProcess_JoinIdenticalVertices |
-			aiProcess_ImproveCacheLocality));
+	Assimp::Importer importer;
 
-    if (!scene)
-    {
-        std::cout << "Mesh load failed!: " << fileName << "|" << std::endl;
-		scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
-			aiProcess_Triangulate |
+	const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
+		(fileName == "plane.obj") ? (aiProcess_Triangulate |
 			aiProcess_GenSmoothNormals |
 			aiProcess_FlipUVs |
 			// aiProcess_OptimizeGraph |
@@ -373,119 +354,123 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 			aiProcess_FixInfacingNormals |
 			aiProcess_FindInvalidData |
 			//aiProcess_ValidateDataStructure |
-			aiProcess_CalcTangentSpace);
-    }
-    unsigned int start = mode;
-    unsigned int end = start+1;
+			aiProcess_CalcTangentSpace) : (
+				aiProcess_CalcTangentSpace |
+				aiProcess_Triangulate |
+				aiProcess_RemoveComponent |
+				aiProcess_OptimizeGraph |
+				aiProcess_PreTransformVertices |
+				aiProcess_OptimizeMeshes |
+				aiProcess_SplitLargeMeshes |
+				aiProcess_JoinIdenticalVertices |
+				aiProcess_ImproveCacheLocality));
 
-    std::vector<MeshData*> outData;
+	if (FILE *file = fopen(cachedName.c_str(), "rb")) {
+		fclose(file);
+		for (size_t i = 0; i < scene->mNumMeshes; i++)
+		{
+			auto x = MeshData::LoadCachedModel(fileName, i);
+			outData.push_back(x);
+			s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
+		}
+	}
+	else {
+		
+		if (!scene)
+		{
+			std::cout << "Mesh load failed!: " << fileName << "|" << std::endl;
+			scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
+				aiProcess_Triangulate |
+				aiProcess_GenSmoothNormals |
+				aiProcess_FlipUVs |
+				// aiProcess_OptimizeGraph |
+				//aiProcess_PreTransformVertices |
+				//aiProcess_JoinIdenticalVertices |
+				aiProcess_SortByPType |
+				aiProcess_FixInfacingNormals |
+				aiProcess_FindInvalidData |
+				//aiProcess_ValidateDataStructure |
+				aiProcess_CalcTangentSpace);
+		}
+		unsigned int start = mode;
+		unsigned int end = start + 1;
 
-    if (mode == -1)
-    {
-        end = scene->mNumMeshes;
-        start = 0;
-    }
-    int lastIndexOffset = 0;
-    for (unsigned int i = start; i < end; i++)
-    {
-        std::vector<Vector3f> positions;
-        std::vector<Vector2f> texCoords;
-        std::vector<Vector3f> normals;
-        std::vector<Vector3f> tangents;
-        std::vector<unsigned int> indices;
+		if (mode == -1)
+		{
+			end = scene->mNumMeshes;
+			start = 0;
+		}
+		int lastIndexOffset = 0;
+		for (unsigned int i = start; i < end; i++)
+		{
+			std::vector<Vector3f> positions;
+			std::vector<Vector2f> texCoords;
+			std::vector<Vector3f> normals;
+			std::vector<Vector3f> tangents;
+			std::vector<unsigned int> indices;
 
-        const aiMesh* model = scene->mMeshes[i];
+			const aiMesh* model = scene->mMeshes[i];
 
-        const aiVector3D aiZeroVector(0.0f, 0.0f, 0.0f);
-        for (unsigned int j = 0; j < model->mNumVertices; j++)
-        {
-            const aiVector3D pos = model->mVertices[j];
-            const aiVector3D normal = model->mNormals[j];
-            const aiVector3D texCoord = model->HasTextureCoords(0) ? model->mTextureCoords[0][j] : aiZeroVector;
-            const aiVector3D tangent = model->mTangents[j];
+			const aiVector3D aiZeroVector(0.0f, 0.0f, 0.0f);
+			for (unsigned int j = 0; j < model->mNumVertices; j++)
+			{
+				const aiVector3D pos = model->mVertices[j];
+				const aiVector3D normal = model->mNormals[j];
+				const aiVector3D texCoord = model->HasTextureCoords(0) ? model->mTextureCoords[0][j] : aiZeroVector;
+				const aiVector3D tangent = model->mTangents[j];
 
-            positions.push_back(Vector3f(pos.x, pos.y, pos.z));
-            texCoords.push_back(Vector2f(texCoord.x, texCoord.y));
-            normals.push_back(Vector3f(normal.x, normal.y, normal.z));
-            tangents.push_back(Vector3f(tangent.x, tangent.y, tangent.z));
-        }
+				positions.push_back(Vector3f(pos.x, pos.y, pos.z));
+				texCoords.push_back(Vector2f(texCoord.x, texCoord.y));
+				normals.push_back(Vector3f(normal.x, normal.y, normal.z));
+				tangents.push_back(Vector3f(tangent.x, tangent.y, tangent.z));
+			}
 
-        for (unsigned int j = 0; j < model->mNumFaces; j++)
-        {
-            const aiFace& face = model->mFaces[j];
-            assert(face.mNumIndices == 3);
-            indices.push_back(face.mIndices[0] - lastIndexOffset);
-            indices.push_back(face.mIndices[1] - lastIndexOffset);
-            indices.push_back(face.mIndices[2] - lastIndexOffset);
-        }
-        //lastIndexOffset += (positions.size() / 3);
-        outData.push_back(new MeshData(IndexedModel(indices, positions, texCoords, normals, tangents), model->mMaterialIndex));
-        s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size()-1)));
-    }
+			for (unsigned int j = 0; j < model->mNumFaces; j++)
+			{
+				const aiFace& face = model->mFaces[j];
+				assert(face.mNumIndices == 3);
+				indices.push_back(face.mIndices[0] - lastIndexOffset);
+				indices.push_back(face.mIndices[1] - lastIndexOffset);
+				indices.push_back(face.mIndices[2] - lastIndexOffset);
+			}
+			auto mdata = new MeshData(IndexedModel(indices, positions, texCoords, normals, tangents).Finalize(), model->mMaterialIndex);
 
+			mdata->CacheModel(fileName, i);
+			
+			outData.push_back(mdata);
+			s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
+		}
+	}
 
     return outData;
 }
 
 btTriangleMesh* Mesh::ImportColData(const std::string & fileName)
 {
+	auto name = Util::split(fileName, '.')[0];
+	Util::CreateDir((Util::ResourcePath() + "models/" + name), NULL);
+
 	Assimp::Importer importer;
-
-	const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
-		aiProcess_Triangulate |
-		aiProcess_GenSmoothNormals |
-		aiProcess_FlipUVs |
-		aiProcess_OptimizeGraph |
-		aiProcess_OptimizeMeshes |
-		aiProcess_PreTransformVertices |
-		//aiProcess_JoinIdenticalVertices |
-		aiProcess_SortByPType |
-		//aiProcess_FixInfacingNormals |
-		aiProcess_FindInvalidData |
-		//aiProcess_ValidateDataStructure |
-		aiProcess_CalcTangentSpace);
-
-	if (!scene)
-	{
-		std::cout << "Mesh load failed!: " << fileName << std::endl;
-		scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
-			aiProcess_Triangulate |
-			aiProcess_GenSmoothNormals |
-			aiProcess_FlipUVs |
-			// aiProcess_OptimizeGraph |
-			//aiProcess_PreTransformVertices |
-			//aiProcess_JoinIdenticalVertices |
-			aiProcess_SortByPType |
-			aiProcess_FixInfacingNormals |
-			aiProcess_FindInvalidData |
-			//aiProcess_ValidateDataStructure |
-			aiProcess_CalcTangentSpace);
-	}
+	auto data = Mesh::ImportMeshData(fileName);
 
 	btTriangleMesh* mesh = new btTriangleMesh();
 
-	for (unsigned int i = 0; i < scene->mNumMeshes; i++)
+	for (unsigned int i = 0; i < 1; i++)
 	{
-		const aiMesh* model = scene->mMeshes[i];
+		const IndexedModel& model = data.at(i)->GetModel();
 
-		for (unsigned int j = 0; j < model->mNumVertices; j++)
+		for (unsigned int j = 0; j < model.GetPositions().size(); j++)
 		{
-			const aiVector3D pos = model->mVertices[j];
 
-			mesh->findOrAddVertex(btVector3(pos.x, pos.y, pos.z), false);
+			mesh->findOrAddVertex(model.GetPositions()[j].GetBT(), false);
 		}
 
-		for (unsigned int j = 0; j < model->mNumFaces; j++)
+		for (unsigned int j = 0; j < model.GetIndices().size(); j+=3)
 		{
-			const aiFace& face = model->mFaces[j];
-			assert(face.mNumIndices == 3);
-
-			mesh->addTriangleIndices(face.mIndices[0], face.mIndices[1], face.mIndices[2]);
+			mesh->addTriangleIndices(model.GetIndices()[j + 0], model.GetIndices()[j + 1], model.GetIndices()[j+2]);
 		}
-		
+
 	}
-	
-	//s_resourceColMap.insert(std::pair<std::string, btTriangleMesh*>(fileName + "_col", mesh));
 
 	return mesh;
 }
@@ -572,9 +557,19 @@ std::vector<Mesh*> Mesh::ImportMesh(const std::string & fileName)
 {
     std::vector<MeshData*> data = Mesh::ImportMeshData(fileName);
     std::vector<Mesh*> meshes;
+
+	auto prepath = Util::ResourcePath() + "models/" + Util::split(fileName, '.')[0];
+	prepath = prepath.substr(2);
+	
+
+	Util::CreateDir(prepath, NULL);
+
     for (size_t i = 0; i < data.size(); i++)
     {
-        meshes.push_back(new Mesh(fileName + "_" + Util::to_string(i), data.at(i)));
+		auto x = new Mesh(fileName + "_" + Util::to_string(i), data.at(i));
+        meshes.push_back(x);
+
+		//x->CacheModel(i);
     }
     return meshes;
 }
@@ -583,6 +578,12 @@ btTriangleMesh* Mesh::ImportCollision(const std::string & fileName)
 {
 	return Mesh::ImportColData(fileName);
 	std::map<std::string, btTriangleMesh*>::const_iterator it = s_resourceColMap.find(fileName+"_col");
+
+	auto prepath = Util::ResourcePath() + "models/" + Util::split(fileName, '.')[0];
+	prepath = prepath.substr(2);
+
+	Util::CreateDir(prepath, NULL);
+
 	btTriangleMesh* mesh;
 	if (it != s_resourceColMap.end())
 	{
@@ -590,9 +591,122 @@ btTriangleMesh* Mesh::ImportCollision(const std::string & fileName)
 	}
 	else
 	{
-		mesh = Mesh::ImportColData(fileName);
+		mesh = Mesh::ImportColData(Util::split(fileName, '.')[0]);
 	}
 	return mesh;
+}
+
+MeshData * MeshData::LoadCachedModel(const std::string & fileName, int index)
+{
+	MeshData* m;
+	std::string name = Util::split(fileName, '.')[0];
+
+	std::string fname = Util::ResourcePath() + "models/" + name + "/" + name + "_cached_" + std::to_string(index) + ".zdl";
+
+	FILE * file = fopen(fname.c_str(), "rb");
+
+
+	char magic[2] = { 0 };
+
+	fread(magic, sizeof(char), 2, file);
+
+	if (magic[0] != 'Z' || magic[1] != 'F')
+		assert(!"Invalid cached model!");
+
+	int drawCount = 0;
+	fread(&drawCount, sizeof(int), 1, file);
+
+	int matID = 0;
+	fread(&matID, sizeof(int), 1, file);
+
+	int indSize = 0;
+	fread(&indSize, sizeof(int), 1, file);
+	std::vector<unsigned int> indices;
+	
+	indices.resize(indSize);
+	fread((char*)&indices[0], sizeof(indices[0]), indSize, file);
+
+	int posSize = 0;
+	fread(&posSize, sizeof(int), 1, file);
+	std::vector<Vector3f> positions;
+	positions.resize(posSize);
+	fread((char*)&positions[0], sizeof(positions[0]), posSize, file);
+
+	int norSize = 0;
+	fread(&norSize, sizeof(int), 1, file);
+	std::vector<Vector3f> normals;
+	normals.resize(norSize);
+	fread((char*)&normals[0], sizeof(normals[0]), norSize, file);
+
+	int uvSize = 0;
+	fread(&uvSize, sizeof(int), 1, file);
+	std::vector<Vector2f> uvs;
+	uvs.resize(uvSize);
+	fread((char*)&uvs[0], sizeof(uvs[0]), uvSize, file);
+
+
+	fclose(file);
+
+	m = new MeshData(IndexedModel(indices, positions, uvs, normals).Finalize(), matID);
+	//s_resourceMap.insert(std::make_pair(fileName + "_" + Util::to_string(index), m));
+
+	return m;
+}
+
+void MeshData::CacheModel(const std::string& fileName, int index)
+{
+	static char magic[] = "ZF";
+	std::string index_ = std::to_string(index);
+	auto path = Util::split(fileName, '.');
+	std::string newFileName = path[0] + "_cached_"+ index_ +".zdl";
+	auto name = (Util::ResourcePath() + "models/" + path[0] + "/" + newFileName);
+
+	FILE * file = fopen(name.c_str(), "wb");
+
+	if (!file)
+		return;
+
+	fwrite(magic, sizeof(char), 2, file);
+
+	size_t size = GetModel().GetIndices().size();
+	int matID = GetMaterialIndex();
+
+	fwrite(&size, sizeof(size_t), 1, file);
+	fwrite(&matID, sizeof(int), 1, file);
+
+	auto mdl = GetModel();
+
+	fwrite(&size, sizeof(size_t), 1, file);
+
+	for (auto x : mdl.GetIndices())
+	{
+		fwrite(&x, sizeof(size_t), 1, file);
+	}
+
+	auto posSize = mdl.GetPositions().size();
+	fwrite(&posSize, sizeof(size_t), 1, file);
+	for (auto x : mdl.GetPositions())
+	{
+		fwrite(&x, sizeof(Vector3f), 1, file);
+	}
+
+	auto norSize = mdl.GetNormals().size();
+	fwrite(&norSize, sizeof(size_t), 1, file);
+	for (auto x : mdl.GetNormals())
+	{
+		fwrite(&x, sizeof(Vector3f), 1, file);
+	}
+
+	auto uvSize = mdl.GetTexCoords().size();
+	fwrite(&uvSize, sizeof(size_t), 1, file);
+	for (auto x : mdl.GetTexCoords())
+	{
+		fwrite(&x, sizeof(Vector2f), 1, file);
+	}
+
+
+
+	fclose(file);
 }
 
 Mesh::~Mesh()
