@@ -499,7 +499,7 @@ void ShaderData::AddUniform(const std::string& uniformName, const std::string& u
 		//OutputDebugStringA(this->)
 	}
 
-	assert(location != INVALID_VALUE);
+//	assert(location != INVALID_VALUE);
 
 	m_uniformMap.insert(std::pair<std::string, unsigned int>(uniformName, location));
 }
