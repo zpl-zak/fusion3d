@@ -1,8 +1,8 @@
 DIRECTORY STRUCTURE
 ===================
 
-build -> contains engine project files.
-data -> contains runtime files.
-lib -> consists of in-house or third-party libraries
-src -> contains engine's actual source code.
+engine -> contains engine project files.
+docs -> contains generators for docs.
+lib -> consists of in-house or third-party libraries.
+build -> contains tool for managing engine's projects.
 templates -> contains Visual Studio Template archive for generating new game project.

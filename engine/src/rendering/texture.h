@@ -68,6 +68,7 @@ public:
 	void Bind(unsigned int unit = 0);
 	void BindAsRenderTarget() const;
 	bool IsBoundAlready(unsigned int samplerSlot) const;
+	std::string GetName() { return m_fileName; }
 	
 	inline int GetWidth()  const { return m_textureData->GetWidth(); }
 	inline int GetHeight() const { return m_textureData->GetHeight(); }

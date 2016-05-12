@@ -341,33 +341,17 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 	auto fname = Util::split(fileName, '.');
 	auto cachedName = Util::ResourcePath() + "models/" + fname[0] + "/" + fname[0] + "_cached_0.zdl";
 
-	Assimp::Importer importer;
-
-	const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
-		(fileName == "plane.obj") ? (aiProcess_Triangulate |
-			aiProcess_GenSmoothNormals |
-			aiProcess_FlipUVs |
-			// aiProcess_OptimizeGraph |
-			//aiProcess_PreTransformVertices |
-			//aiProcess_JoinIdenticalVertices |
-			aiProcess_SortByPType |
-			aiProcess_FixInfacingNormals |
-			aiProcess_FindInvalidData |
-			//aiProcess_ValidateDataStructure |
-			aiProcess_CalcTangentSpace) : (
-				aiProcess_CalcTangentSpace |
-				aiProcess_Triangulate |
-				aiProcess_RemoveComponent |
-				aiProcess_OptimizeGraph |
-				aiProcess_PreTransformVertices |
-				aiProcess_OptimizeMeshes |
-				aiProcess_SplitLargeMeshes |
-				aiProcess_JoinIdenticalVertices |
-				aiProcess_ImproveCacheLocality));
+	auto name = Util::split(fileName, '.')[0];
+	Util::CreateDir((Util::ResourcePath() + "models/" + name), NULL);
 
 	if (FILE *file = fopen(cachedName.c_str(), "rb")) {
 		fclose(file);
-		for (size_t i = 0; i < scene->mNumMeshes; i++)
+
+		int nums = 1;
+		FILE * num = fopen((Util::ResourcePath() + "models/" + fname[0] + "/nums").c_str(), "rb");
+		fread(&nums, sizeof(int), 1, num);
+		
+		for (size_t i = 0; i < nums; i++)
 		{
 			auto x = MeshData::LoadCachedModel(fileName, i);
 			outData.push_back(x);
@@ -375,7 +359,29 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 		}
 	}
 	else {
-		
+		Assimp::Importer importer;
+
+		const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
+			(fileName == "plane.obj") ? (aiProcess_Triangulate |
+				aiProcess_GenSmoothNormals |
+				aiProcess_FlipUVs |
+				// aiProcess_OptimizeGraph |
+				//aiProcess_PreTransformVertices |
+				//aiProcess_JoinIdenticalVertices |
+				aiProcess_SortByPType |
+				aiProcess_FixInfacingNormals |
+				aiProcess_FindInvalidData |
+				//aiProcess_ValidateDataStructure |
+				aiProcess_CalcTangentSpace) : (
+					aiProcess_CalcTangentSpace |
+					aiProcess_Triangulate |
+					aiProcess_RemoveComponent |
+					aiProcess_OptimizeGraph |
+					aiProcess_PreTransformVertices |
+					aiProcess_OptimizeMeshes |
+					aiProcess_SplitLargeMeshes |
+					aiProcess_JoinIdenticalVertices |
+					aiProcess_ImproveCacheLocality));
 		if (!scene)
 		{
 			std::cout << "Mesh load failed!: " << fileName << "|" << std::endl;
@@ -450,7 +456,6 @@ btTriangleMesh* Mesh::ImportColData(const std::string & fileName)
 	auto name = Util::split(fileName, '.')[0];
 	Util::CreateDir((Util::ResourcePath() + "models/" + name), NULL);
 
-	Assimp::Importer importer;
 	auto data = Mesh::ImportMeshData(fileName);
 
 	btTriangleMesh* mesh = new btTriangleMesh();
@@ -477,25 +482,33 @@ btTriangleMesh* Mesh::ImportColData(const std::string & fileName)
 
 std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 {
-    Assimp::Importer importer;
+	std::vector<Material*> outData;
+	auto fname = Util::split(fileName, '.');
+	auto cachedName = Util::ResourcePath() + "models/" + fname[0] + "/" + fname[0] + "_cached_0.zml";
 
-    const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
-        aiProcess_Triangulate |
-        aiProcess_GenSmoothNormals |
-        aiProcess_FlipUVs |
-        // aiProcess_OptimizeGraph |
-        //aiProcess_PreTransformVertices |
-        //aiProcess_JoinIdenticalVertices |
-        aiProcess_SortByPType |
-        aiProcess_FixInfacingNormals |
-        aiProcess_FindInvalidData |
-        //aiProcess_ValidateDataStructure |
-        aiProcess_CalcTangentSpace);
+	auto name = Util::split(fileName, '.')[0];
+	Util::CreateDir((Util::ResourcePath() + "models/" + name), NULL);
 
-    if (!scene)
-    {
-        std::cout << "Mesh load failed!: " << fileName << std::endl;
-        scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
+	if (FILE *file = fopen(cachedName.c_str(), "rb")) {
+		fclose(file);
+
+		int nums = 1;
+		FILE * num = fopen((Util::ResourcePath() + "models/" + fname[0] + "/numsM").c_str(), "rb");
+		fread(&nums, sizeof(int), 1, num);
+
+		for (size_t i = 0; i < nums; i++)
+		{
+			auto x = Material::LoadCachedMaterial(fileName, i);
+			outData.push_back(x);
+			//s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
+			//Material::s_resourceMap.insert(std::make_pair(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
+		}
+	}
+	else {
+
+		Assimp::Importer importer;
+
+		const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
 			aiProcess_Triangulate |
 			aiProcess_GenSmoothNormals |
 			aiProcess_FlipUVs |
@@ -507,47 +520,61 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 			aiProcess_FindInvalidData |
 			//aiProcess_ValidateDataStructure |
 			aiProcess_CalcTangentSpace);
-    }
 
-    std::vector<Material*> outData;
+		if (!scene)
+		{
+			std::cout << "Mesh load failed!: " << fileName << std::endl;
+			scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
+				aiProcess_Triangulate |
+				aiProcess_GenSmoothNormals |
+				aiProcess_FlipUVs |
+				// aiProcess_OptimizeGraph |
+				//aiProcess_PreTransformVertices |
+				//aiProcess_JoinIdenticalVertices |
+				aiProcess_SortByPType |
+				aiProcess_FixInfacingNormals |
+				aiProcess_FindInvalidData |
+				//aiProcess_ValidateDataStructure |
+				aiProcess_CalcTangentSpace);
+		}
 
-    for (unsigned int i = 0; i < scene->mNumMaterials; i++)
-    {
-        aiString matName;
-        aiString texName, normName, dispName;
-        float shine = 0.0;
+		for (unsigned int i = 0; i < scene->mNumMaterials; i++)
+		{
+			aiString matName;
+			aiString texName, normName, dispName;
+			float shine = 0.0;
 
-        scene->mMaterials[i]->Get(AI_MATKEY_NAME, matName);
-        scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &texName);
-        scene->mMaterials[i]->GetTexture(aiTextureType_HEIGHT, 0, &normName);
-        scene->mMaterials[i]->GetTexture(aiTextureType_DISPLACEMENT, 0, &dispName);
-        scene->mMaterials[i]->Get(AI_MATKEY_SHININESS, shine);
+			scene->mMaterials[i]->Get(AI_MATKEY_NAME, matName);
+			scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &texName);
+			scene->mMaterials[i]->GetTexture(aiTextureType_HEIGHT, 0, &normName);
+			scene->mMaterials[i]->GetTexture(aiTextureType_DISPLACEMENT, 0, &dispName);
+			scene->mMaterials[i]->Get(AI_MATKEY_SHININESS, shine);
 
-        //std::cout << matName.C_Str() << ":::" << texName.C_Str();
+			//std::cout << matName.C_Str() << ":::" << texName.C_Str();
 
-        std::string sTexName = "DefaultTexture.png";
-        if (texName.length > 0)
-        {
-            sTexName = texName.C_Str();
-        }
+			std::string sTexName = "DefaultTexture.png";
+			if (texName.length > 0)
+			{
+				sTexName = texName.C_Str();
+			}
 
-        std::string sNormName = "default_normal.jpg";
-        if (normName.length > 0)
-        {
-            sNormName = normName.C_Str();
-        }
+			std::string sNormName = "default_normal.jpg";
+			if (normName.length > 0)
+			{
+				sNormName = normName.C_Str();
+			}
 
-        std::string sDispName = "default_disp.png";
-        if (dispName.length > 0)
-        {
-            sDispName = dispName.C_Str();
-        }
+			std::string sDispName = "default_disp.png";
+			if (dispName.length > 0)
+			{
+				sDispName = dispName.C_Str();
+			}
 
-        Material * mat = new Material(matName.C_Str(), sTexName, 0.4f, 0.8f, sNormName, sDispName);
-
-        outData.push_back(mat);
-    }
-
+			Material * mat = new Material(matName.C_Str(), sTexName, 0.4f, 0.8f, sNormName, sDispName);
+			mat->CacheMaterial(fileName, i);
+			outData.push_back(mat);
+		}
+	}
     
     
     return outData;
@@ -664,7 +691,7 @@ void MeshData::CacheModel(const std::string& fileName, int index)
 	FILE * file = fopen(name.c_str(), "wb");
 
 	if (!file)
-		return;
+		assert(!"Can't open handle!");
 
 	fwrite(magic, sizeof(char), 2, file);
 
@@ -704,7 +731,11 @@ void MeshData::CacheModel(const std::string& fileName, int index)
 		fwrite(&x, sizeof(Vector2f), 1, file);
 	}
 
+	FILE * num = fopen((Util::ResourcePath() + "models/" + path[0] + "/nums").c_str(), "wb");
+	int id = 1 + index;
+	fwrite(&id, sizeof(int), 1, num);
 
+	fclose(num);
 
 	fclose(file);
 }
