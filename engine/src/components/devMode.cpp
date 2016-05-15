@@ -44,20 +44,24 @@ clear:
 void CreateComponent()
 {
 	static int selected_item = 0;
-	ImGui::ListBoxHeader("Components");
+	//ImGui::ListBoxHeader("Components");
 	{
-		for (size_t i = 0; i < factory_class_names.size(); i++)
+		//for (size_t i = 0; i < factory_class_names.size(); i++)
 		{
-			ImGui::ListBox(factory_class_names[i], &selected_item, &factory_class_names[0], factory_class_names.size());
+			ImGui::ListBox("Components", &selected_item, &factory_class_names[0], factory_class_names.size());
 		}
 	}
-	ImGui::ListBoxFooter();
+	//ImGui::ListBoxFooter();
 
 	if (ImGui::Button("Create Component"))
 	{
-		general_settings_uid->AddComponent((EntityComponent*) g_factory.construct(factory_class_names[selected_item]));
+		auto x = (EntityComponent*)g_factory.construct(factory_class_names[selected_item]);
+		general_settings_uid->AddComponent(x);
 		selected_item = 0;
 		create_component_window = false;
+
+		component_settings = true;
+		component_settings_uid = x;
 	}
 }
 
@@ -90,29 +94,36 @@ void ShowObjectProps(Entity* uid)
 				float y = p->GetY();
 				float z = p->GetZ();
 
-				ImGui::DragFloat("X ##xp", &x);  
-				ImGui::DragFloat("Y ##yp", &y);
-				ImGui::DragFloat("Z ##zp", &z);
+				ImGui::DragFloat("X ##xp", &x, 0.1f);  
+				ImGui::DragFloat("Y ##yp", &y, 0.1f);
+				ImGui::DragFloat("Z ##zp", &z, 0.1f);
 				t->SetPos(Vector3f(x, y, z));
 
 				ImGui::NextColumn();
-
+				
 				auto p2 = t->GetRot();
-				static float x2 = p2->GetX();
-				static float y2 = p2->GetY();
-				static float z2 = p2->GetZ();
-				static float w2 = ToDegrees(p2->GetW());
+				float x2 = p2->GetX();
+				float y2 = p2->GetY();
+				float z2 = p2->GetZ();
+				float w2 = p2->GetW();
 
-				ImGui::SliderFloat("X ##xr", &x2, 0, 1);
-				ImGui::SliderFloat("Y ##yr", &y2, 0, 1);
-				ImGui::SliderFloat("Z ##zr", &z2, 0, 1);
-				ImGui::SliderFloat("W ##wr", &w2, -180, 180);
+				float roll = atan2f(2 * y2*w2 - 2 * x2*z2, 1 - 2 * y2*y2 - 2 * z2*z2);
+				float pitch = asinf(2 * x2*y2 + 2 * z2*w2);
+				float yaw = atan2f(2 * x2*w2 - 2 * y2*z2, 1 - 2 * x2*x2 - 2 * z2*z2);
+
+				ImGui::SliderFloat("Roll ##xr", &roll, 0, 360);
+				ImGui::SliderFloat("Pitch ##yr", &pitch, 0, 360);
+				ImGui::SliderFloat("Yaw ##zr", &yaw, 0, 360);
+				//ImGui::SliderFloat("W ##wr", &w2, 0, 360);
+
+				Quaternion q = Quaternion(Vector3f(0,0,ToRadians(yaw)).Mul(Vector3f(0, ToRadians(pitch), 0).Mul(Vector3f(ToRadians(roll), 0, 0))), ToRadians(360));
+
+				t->SetRot(q);
 
 				ImGui::NextColumn();
 
-				t->SetRot(Quaternion(Vector3f(x2,y2,z2),ToRadians(w2)));
 				auto p3 = t->GetScale();
-				static float x3 = p3;
+				float x3 = p3;
 
 				ImGui::DragFloat("XYZ ##xs", &x3);
 

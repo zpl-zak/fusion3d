@@ -249,6 +249,8 @@ MeshData::MeshData(const IndexedModel& model, int materialIndex) :
 		assert(0 != 0);
 	}
 
+	m_materialArray.push_back(m_materialIndex);
+
 	glGenVertexArrays(1, &m_vertexArrayObject);
 	glBindVertexArray(m_vertexArrayObject);
 

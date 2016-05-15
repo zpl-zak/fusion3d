@@ -93,7 +93,7 @@ public:
 
 	virtual void DrawDebugUI() 
 	{
-		static float color[3] = {m_color[0],m_color[1] ,m_color[2] };
+		float color[3] = {m_color[0],m_color[1] ,m_color[2] };
 		ImGui::ColorEdit3("Color", color);
 		ImGui::DragFloat("Intensity", &m_intensity);
 

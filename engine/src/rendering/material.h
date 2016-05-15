@@ -20,6 +20,7 @@
 #include "texture.h"
 #include "../core/math3d.h"
 #include "../core/mappedValues.h"
+#include "../staticLibs/imgui.h"
 #include <map>
 
 class Shader;
@@ -60,12 +61,56 @@ public:
 	static std::map<std::string, MaterialData*> s_resourceMap;
 	static Material* LoadCachedMaterial(const std::string& fileName, int index);
 	void CacheMaterial(const std::string& fileName, int index);
+	std::string   m_materialName;
+
+	inline void DrawDebugUI()
+	{
+		static char diffuse[256] = { 0 };
+		static char normal[256] = { 0 };
+		static char disp[256] = { 0 };
+		static float dispScale, dispOffset = 0.0f;
+		static float specularIntensity, specularPower = 0.0f;
+
+		ImGui::Text("Texture Maps");
+		ImGui::InputText("Diffuse", diffuse, 256);
+		ImGui::InputText("Normal", normal, 256);
+		ImGui::InputText("Displacement", disp, 256);
+		
+		ImGui::Text("Material Settings");
+		ImGui::DragFloat("Specular Intensity", &specularIntensity, 0.1f);
+		ImGui::DragFloat("Specular Power", &specularPower, 0.1f);
+		ImGui::DragFloat("Displacement Scale", &dispScale, 0.1f);
+		ImGui::DragFloat("Displacement Offset", &dispOffset, 0.1f);
+
+		if (ImGui::Button("Update Material"))
+		{
+			float baseBias = dispScale / 2.0f;
+			m_materialData->SetFloat("dispMapScale", dispScale);
+			m_materialData->SetFloat("dispMapBias", -baseBias + baseBias * dispOffset);
+
+			Texture dif, nrm, dis;
+
+			dif = Texture(diffuse);
+			nrm = Texture(normal);
+			dis = Texture(disp);
+
+			m_materialData->Diffuse = dif;
+			m_materialData->Normal = nrm;
+			m_materialData->Disp = dis;
+
+			m_materialData->SetTexture("diffuse", dif);
+			m_materialData->SetFloat("specularIntensity", specularIntensity);
+			m_materialData->SetFloat("specularPower", specularPower);
+			m_materialData->SetTexture("normalMap", nrm);
+			m_materialData->SetTexture("dispMap", dis);
+		}
+	}
+
 protected:
 private:
 	MaterialData* m_materialData;
-	std::string   m_materialName;
-	Shader*       m_shader;
 	
+	Shader*       m_shader;
 	void operator=(const Material& other) {}
 };
 

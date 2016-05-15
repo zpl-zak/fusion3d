@@ -49,10 +49,17 @@ public:
 	{
 		m_visible = true;
 		m_shadows = true;
+
+		for (size_t i = 0; i < m_material.size(); i++)
+		{
+			m_matNames.push_back(m_material[i].m_materialName.c_str());
+		}
 	}
 
 	virtual void Render( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 	{
+		if (m_mesh.size() == 0)return;
+
 		if (shader.GetName() == "shadowMapGenerator" && !m_shadows) return;
 		if (!m_visible) return;
 		
@@ -136,6 +143,115 @@ public:
 			ImGui::Checkbox("Visible", &m_visible);
 			ImGui::Checkbox("Cast Shadows", &m_shadows);
 		}
+
+		static char meshName[256] = { 0 };
+		ImGui::InputText("Mesh Name", meshName, 256);
+		if (ImGui::Button("Load Mesh"))
+		{
+			std::vector<Mesh*> meshes = Mesh::ImportMesh(meshName);
+			std::vector<Material*> materials = Mesh::ImportMeshMaterial(meshName);
+			LoadData(meshes, materials);
+
+			m_matNames.clear();
+			for (size_t i = 0; i < m_material.size(); i++)
+			{
+				m_matNames.push_back(m_material[i].m_materialName.c_str());
+			}
+		}
+
+		ImGui::Separator();
+
+		//Material Editor
+		if (m_matNames.size() > 0)
+		{
+			static int selected_item = 0;
+			
+			static int selected_mesh = 0;
+			ImGui::InputInt("Mesh", &selected_mesh);
+
+			Clamp<int>(selected_mesh, 0, m_mesh.size()-1);
+
+			std::vector<Material*> mats;
+			std::vector<const char*> matNames;
+
+			mats.clear();
+			matNames.clear();
+			for (size_t i = 0; i < m_mesh[selected_mesh].GetMeshData()->m_materialArray.size(); i++)
+			{
+				auto x = m_mesh[selected_mesh].GetMeshData()->m_materialArray;
+				mats.push_back(&m_material[x[i]]);
+				matNames.push_back(mats[i]->m_materialName.c_str());
+			}
+
+			//ImGui::ListBoxHeader("Material Editor");
+			//for (size_t i = 0; i < m_material.size(); i++)
+			{
+				ImGui::ListBox("Materials", &selected_item, &matNames[0], matNames.size());
+			}
+			//ImGui::ListBoxFooter();
+
+			static bool new_material_dialog = false;
+
+			if (new_material_dialog)
+			{
+				ImGui::SetNextWindowPosCenter();
+				ImGui::Begin("New Material", &new_material_dialog, ImGuiWindowFlags_AlwaysAutoResize);
+				{
+					static char name[256] = { 0 };
+					static char diffuse[256] = { 0 };
+					static char normal[256] = { 0 };
+					static char disp[256] = { 0 };
+					static float dispScale, dispOffset = 0.0f;
+					static float specularIntensity, specularPower = 0.0f;
+
+					ImGui::InputText("Material Name", name, 256);
+
+					ImGui::Text("Texture Maps");
+					ImGui::InputText("Diffuse", diffuse, 256);
+					ImGui::InputText("Normal", normal, 256);
+					ImGui::InputText("Displacement", disp, 256);
+
+					ImGui::Text("Material Settings");
+					ImGui::DragFloat("Specular Intensity", &specularIntensity, 0.1f);
+					ImGui::DragFloat("Specular Power", &specularPower, 0.1f);
+					ImGui::DragFloat("Displacement Scale", &dispScale, 0.1f);
+					ImGui::DragFloat("Displacement Offset", &dispOffset, 0.1f);
+
+					if (ImGui::Button("Cancel"))
+					{
+						new_material_dialog = false;
+					}
+
+					if (ImGui::Button("Create"))
+					{
+						auto x = Material(name, Texture(diffuse), specularIntensity, specularPower, Texture(normal), Texture(disp), dispScale, dispOffset);
+//						m_material.erase(m_material.begin() + selected_item);
+//						m_material.insert(m_material.begin() + selected_item, x);
+						m_material.push_back(x);
+
+						m_mesh[selected_mesh].GetMeshData()->m_materialArray.push_back(m_material.size() - 1);
+
+						//m_matNames[selected_item] = m_material[selected_item].m_materialName.c_str();
+						new_material_dialog = false;
+					}
+					ImGui::End();
+				}
+			}
+
+			if (ImGui::Button("Create Material"))
+			{
+				new_material_dialog = true;
+			}
+
+			if (ImGui::Button("Assign Material"))
+			{
+				m_mesh[selected_mesh].GetMeshData()->SetMaterialIndex(selected_item);
+			}
+
+			ImGui::Separator();
+
+			m_material[selected_item].DrawDebugUI();
+		}
 	}
 
 	EntityComponent* SetVisible(bool visible)
@@ -152,6 +268,9 @@ public:
 
 	void LoadData(std::vector<Mesh*> meshes, std::vector<Material*> materials)
 	{
+		m_mesh.clear();
+		m_material.clear();
+
 		for (size_t i = 0; i < meshes.size(); i++)
 		{
 			m_mesh.push_back(*(meshes.at(i)));
@@ -181,6 +300,7 @@ public:
 protected:
 	std::vector<Mesh> m_mesh;
 	std::vector<Material> m_material;
+	std::vector<const char*> m_matNames;
 	bool			m_visible;
 	bool			m_shadows;
 private:

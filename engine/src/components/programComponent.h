@@ -180,13 +180,28 @@ public:
 		delete m_program;
 	}
 
-	virtual void DebugDrawUI()
+	virtual void DrawDebugUI()
 	{
+		static char name[256] = { 0 };
+		static char params[256] = { 0 };
+
+		ImGui::InputText("Program", name, 256);
+		ImGui::InputText("Parameters", params, 256);
+
+		if (ImGui::Button("Load Program"))
+		{
+			m_program = (Program*)g_programs.construct(name);
+
+			Init();
+		}
+
+		ImGui::Separator();
 		ImGui::Checkbox("Running", &m_isUpdating);
 	}
 
 	virtual void Init()
 	{
+		if (!m_program)return;
 		m_program->SetParent(GetParent());
 
 		if (!m_program->Init())
@@ -215,6 +230,8 @@ public:
 
 	virtual void ProcessInput(const Input& input, float delta)
 	{
+		if (!m_program)return;
+
 		if (!isUpdating && (!m_isUpdating))
 			return;
 
@@ -227,6 +244,8 @@ public:
 
 	virtual void Update(float delta)
 	{
+		if (!m_program)return;
+
 		if (!isUpdating && (!m_isUpdating))
 			return;
 
@@ -241,6 +260,8 @@ public:
 
 	virtual void Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 	{
+		if (!m_program)return;
+		
 		if (!isUpdating && (!m_isUpdating))
 			return;
 

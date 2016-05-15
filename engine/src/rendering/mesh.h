@@ -106,9 +106,11 @@ public:
 	
 	void Draw() const;
     int GetMaterialIndex() { return m_materialIndex; }
+	void SetMaterialIndex(int index) { m_materialIndex = index; }
 	static MeshData* LoadCachedModel(const std::string& fileName, int index);
 	void CacheModel(const std::string& fileName, int index);
 	const IndexedModel& GetModel() { return m_model; }
+	std::vector<int> m_materialArray;
 protected:	
 private:
 	MeshData(MeshData& other) {}

@@ -143,7 +143,7 @@ namespace build
                 if (x.Name.Contains(".h"))
                 {
                     header += string.Format("#include \"Programs\\{0}\"\n", x.Name);
-                    userspace += string.Format("REGISTER_CLASS({0});\n", x.Name.Split('.')[0]);
+                    userspace += string.Format("REGISTER_PROGS({0});\n", x.Name.Split('.')[0]);
                 }
             }
 

@@ -24,8 +24,9 @@ struct factory
 	}
 };
 
-extern factory g_factory;
+extern factory g_factory, g_programs;
 
 #define REGISTER_CLASS(n) g_factory.register_class<n>(#n)
+#define REGISTER_PROGS(n) g_programs.register_class<n>(#n)
 
 #endif
