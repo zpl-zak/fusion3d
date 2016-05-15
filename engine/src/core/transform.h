@@ -64,10 +64,12 @@ public:
 		return Transform(Vector3f::GetFT(bt.getOrigin()), Quaternion::GetFT(bt.getRotation()));
 	}
 
-	inline void SetPos(const Vector3f& pos) { m_pos = pos; }
-	inline void SetRot(const Quaternion& rot) { m_rot = rot; }
-	inline void SetScale(float scale) { m_scale = scale; }
-	inline void SetParent(Transform* parent) { m_parent = parent; }
+	inline void SetPos(const Vector3f& pos) { m_pos = pos; m_hasChanged = true;}
+	inline void SetRot(const Quaternion& rot) { m_rot = rot; m_hasChanged = true;}
+	inline void SetScale(float scale) { m_scale = scale; m_hasChanged = true;}
+	inline void SetParent(Transform* parent) { m_parent = parent; m_hasChanged = true;}
+
+	bool m_hasChanged;
 protected:
 private:
 	const Matrix4f& GetParentMatrix() const;
@@ -76,6 +78,7 @@ private:
 	Quaternion m_rot;
 	float m_scale;
 	bool m_isInitial;
+	
 	
 	Transform* m_parent;
 	mutable Matrix4f m_parentMatrix;

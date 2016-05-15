@@ -207,6 +207,7 @@
     <ClInclude Include="src\reflection.h" />
     <ClInclude Include="src\rendering\bitmap.h" />
     <ClInclude Include="src\rendering\camera.h" />
+    <ClInclude Include="src\rendering\frustum.h" />
     <ClInclude Include="src\rendering\lighting.h" />
     <ClInclude Include="src\rendering\material.h" />
     <ClInclude Include="src\rendering\mesh.h" />
@@ -254,6 +255,7 @@
     <ClCompile Include="src\physics\physicsEngine.cpp" />
     <ClCompile Include="src\rendering\bitmap.cpp" />
     <ClCompile Include="src\rendering\camera.cpp" />
+    <ClCompile Include="src\rendering\frustum.cpp" />
     <ClCompile Include="src\rendering\lighting.cpp" />
     <ClCompile Include="src\rendering\material.cpp" />
     <ClCompile Include="src\rendering\mesh.cpp" />

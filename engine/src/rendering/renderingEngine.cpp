@@ -44,7 +44,7 @@ Uint32 rmask, gmask, bmask, amask;
 RenderingEngine::RenderingEngine(Window* window) :
 	m_plane(Mesh("plane.obj")),
 	m_window(window),
-	m_tempTarget(window->GetWidth(), window->GetHeight(), 0, GL_TEXTURE_2D, GL_NEAREST, GL_RGBA, GL_RGBA, false, GL_COLOR_ATTACHMENT0),
+	m_tempTarget(window->GetWidth(), window->GetHeight(), 0, GL_TEXTURE_2D, GL_NEAREST, GL_RGBA16F, GL_RGBA, false, GL_COLOR_ATTACHMENT0),
 	m_planeMaterial("renderingEngine_filterPlane", m_tempTarget, 1, 8),
 	m_nullShader("forward-null"),
 	m_shadowMapShader("shadowMapGenerator"),
@@ -52,6 +52,7 @@ RenderingEngine::RenderingEngine(Window* window) :
 	m_gausBlurFilter("filter-gausBlur7x1"),
 	m_fullbright(false),
 	m_fxaaFilter("filter-fxaa"),
+	m_hdrFilter("filter-hdr"),
 	m_altCameraTransform(Vector3f(0,0,0), Quaternion(Vector3f(0,1,0),ToRadians(180.0f))),
 	m_altCamera(Matrix4f().InitIdentity(), &m_altCameraTransform),
 	m_uniformUpdate(true)
@@ -85,8 +86,9 @@ RenderingEngine::RenderingEngine(Window* window) :
 	SetFloat("fxaaReduceMul", 1.0f/8.0f);
 	SetFloat("fxaaAspectDistortion", 150.0f);
 
-	SetTexture("displayTexture", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
-	SetTexture("tempTarget", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
+	SetTexture("displayTexture", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA16F, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
+	SetTexture("tempTarget", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA16F, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
+	SetTexture("hdrBuffer", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA16F, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
 	//glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
 	glFrontFace(GL_CW);
@@ -286,6 +288,8 @@ void RenderingEngine::Render(Entity& object)
 	SetVector3f("inverseFilterTextureSize", Vector3f(1.0f/(float)GetTexture("displayTexture").GetWidth(), 
 	                                                 1.0f/((float)GetTexture("displayTexture").GetHeight() + displayTextureHeightAdditive), 0.0f));
 
+	
+
 	ImGui_ImplSdlGL3_NewFrame ();
 	
 	object.PostRenderAll(m_nullShader, *this, *m_mainCamera);
@@ -294,6 +298,10 @@ void RenderingEngine::Render(Entity& object)
 	
 	m_windowSyncProfileTimer.StartInvocation();
 	ApplyFilter(m_fxaaFilter, GetTexture("displayTexture"), &GetTexture ("displayTexture"));
+	
+	//SetFloat("exposure", 1.0f);
+
+	//ApplyFilter(m_hdrFilter, GetTexture("displayTexture"), &GetTexture("displayTexture"));
 	m_windowSyncProfileTimer.StopInvocation();
 
 	m_uniformUpdate = false;

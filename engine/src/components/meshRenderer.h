@@ -56,28 +56,57 @@ public:
 		if (shader.GetName() == "shadowMapGenerator" && !m_shadows) return;
 		if (!m_visible) return;
 		
-		auto material = m_material.at(m_mesh.at(0).GetMeshData()->GetMaterialIndex());
-		auto _shader = (shader.GetName() == "forward-ambient") ? material.GetShader() : &shader;
+		auto material = &m_material.at(m_mesh.at(0).GetMeshData()->GetMaterialIndex());
+		auto _shader = (shader.GetName() == "forward-ambient") ? material->GetShader() : &shader;
 		if (!_shader) _shader = &shader;
 
 		_shader->Bind();
-		_shader->UpdateUniforms(*GetTransform(), material, renderingEngine, camera);
-
+		_shader->UpdateUniforms(*GetTransform(), *material, renderingEngine, camera);
+		//auto b = camera.GetViewProjection();
         for (size_t i = 0; i < m_mesh.size(); i++)
         {
+			// DISTANCE CHECK
+			{
+				const IndexedModel& t = m_mesh.at(i).GetMeshData()->GetModel();
+				//constexpr float DIST =   1.2f;
+
+				//float dz = (t.GetCenter().GetZ()) - (camera.GetTransform().GetPos().GetZ()); dz = fabsf(dz);
+				//float dy = (t.GetCenter().GetY()) - (camera.GetTransform().GetPos().GetY()); dy = fabsf(dy);
+				//float dx = (t.GetCenter().GetX()) - (camera.GetTransform().GetPos().GetX()); dx = fabsf(dx);
+				//float z = sqrtf((dy*dy) + (dx*dx) + (dz*dz));
+
+				//float ad = t.GetBoundSize();// / logf(t.GetBoundSize()); // ??????????????????????????????????? //logf(t.GetBoundSize() + 1.0f) * DIST + 200;// +50;
+				//if (z >= ad)
+				//	continue;
+
+				/*Vector3f c = b.Transform(t.GetCenter());
+				float r = t.GetBoundSize() / 2;
+
+				if (camera.GetFrustum().SphereInFrustum(c, r) == Frustum::OUTSIDE)
+					continue;*/
+			}
+
 			if(shader.GetName() != "shadowMapGenerator")
 			{
-				auto material = m_material.at(m_mesh.at(i).GetMeshData()->GetMaterialIndex());
+				auto* material = &m_material.at(m_mesh.at(i).GetMeshData()->GetMaterialIndex());
 
 				//IMPORTANT(zaklaus): Make sure your shader uses following order of texture maps!!
 				
 				/*material.GetTexture("diffuse").Bind(0);
 				material.GetTexture("normalMap").Bind(1);
 				material.GetTexture("dispMap").Bind(2);*/
+				 
 				
-				material.GetData()->Diffuse.Bind(0);
-				material.GetData()->Normal.Bind(1);
-				material.GetData()->Disp.Bind(2);
+
+				if (shader.GetName() == "forward-null") 
+				{
+					auto matColor = material->GetVector3f("matColor");
+					shader.SetUniformVector3f("matColor", matColor);
+				}
+
+				material->GetData()->Diffuse.Bind(0);
+				material->GetData()->Normal.Bind(1);
+				material->GetData()->Disp.Bind(2);
 				
 				//_shader->SetUniformi("diffuse", 0);
 			}
@@ -92,7 +121,22 @@ public:
 		LoadData(meshes, materials);
 	}
 
-	
+	virtual void DrawDebugUI()
+	{
+		//INFO
+		{
+			ImGui::Text("Visible: %d", m_visible);
+			ImGui::Text("Cast Shadows: %d", m_shadows);
+			ImGui::Text("Number of meshes: %d", m_mesh.size());
+			ImGui::Text("Number of linked materials: %d", m_material.size());
+		}
+
+		//CTRL
+		{
+			ImGui::Checkbox("Visible", &m_visible);
+			ImGui::Checkbox("Cast Shadows", &m_shadows);
+		}
+	}
 
 	EntityComponent* SetVisible(bool visible)
 	{

@@ -90,11 +90,22 @@ public:
 
 	inline BaseLight* SetColor(Vector3f color) { m_color = color;  return this; }
 	inline BaseLight* SetIntensity(float intensity) { m_intensity = intensity; return this; }
+
+	virtual void DrawDebugUI() 
+	{
+		static float color[3] = {m_color[0],m_color[1] ,m_color[2] };
+		ImGui::ColorEdit3("Color", color);
+		ImGui::DragFloat("Intensity", &m_intensity);
+
+		m_color = Vector3f(color[0], color[1], color[2]);
+
+	}
 protected:
 	inline void SetShadowInfo(const ShadowInfo& shadowInfo) { m_shadowInfo = shadowInfo; }
-private:
+
 	Vector3f    m_color;
 	float       m_intensity;
+private:
 	Shader      m_shader;
 	ShadowInfo  m_shadowInfo;
 };
@@ -110,6 +121,34 @@ public:
 	
 	inline float GetHalfShadowArea() const { return m_halfShadowArea; }
 	inline const Material* GetMaterial() { return nullptr; };
+
+	virtual void DrawDebugUI() 
+	{
+		BaseLight::DrawDebugUI();
+
+		static int shadowSize = 0;
+		static float shadowArea = 80.0f;
+		static float shadowSoftness = 1.0f;
+		static float lightBleed = 0.2f;
+		static float minVariance = 0.00002f;
+
+		ImGui::InputInt("Shadowmap Size", &shadowSize); if (shadowSize > 12) shadowSize = 12; if (shadowSize < 0) shadowSize = 0;
+		ImGui::DragFloat("Shadow Area", &shadowArea, 0.5f, 0.0f);
+		ImGui::SliderFloat("Shadow Softness", &shadowSoftness, 0, 1);
+		ImGui::SliderFloat("Light Bleed Reduction", &lightBleed, 0, 1);
+		ImGui::DragFloat("Minimal Variance", &minVariance, 0.00001f, 0.0f, 1.0f, "%.4f");
+
+		//if (ImGui::Button("Update ShadowInfo"))
+		{
+			if (shadowSize != 0)
+			{
+				SetShadowInfo(ShadowInfo(Matrix4f().InitOrthographic(-m_halfShadowArea, m_halfShadowArea, -m_halfShadowArea,
+					m_halfShadowArea, -m_halfShadowArea, m_halfShadowArea),
+					true, shadowSize, shadowSoftness, lightBleed, minVariance));
+			}
+		}
+	}
+
 	virtual void DataDeploy(tinyxml2::XMLElement* data)
 	{
 		Vector3f color = Vector3f(0, 0, 0);
@@ -205,6 +244,53 @@ public:
 
 	inline PointLight* SetAttenuation(Attenuation attenuation) { m_attenuation = attenuation; return this; }
 	inline const Material* GetMaterial() { return nullptr; };
+
+	virtual void DrawDebugUI()
+	{
+		BaseLight::DrawDebugUI();
+
+		static float viewAngle = ToRadians(170.0f);
+		static int shadowSize = 0;
+		static float shadowArea = 80.0f;
+		static float shadowSoftness = 1.0f;
+		static float lightBleed = 0.2f;
+		static float minVariance = 0.00002f;
+		
+		ImGui::DragFloat("View Angle", &viewAngle, 1.0f, 0, 360);
+
+		//Attenuation
+		{
+			static float constant, linear = 0;
+			static float exponent = 1;
+			ImGui::Text("Attenuation");
+			ImGui::DragFloat("Constant", &constant, 0.1f);
+			ImGui::DragFloat("Linear", &linear, 0.1f);
+			ImGui::DragFloat("Exponent", &exponent, 0.1f);
+			m_attenuation = Attenuation(constant, linear, exponent);
+		}
+
+		ImGui::InputInt("Shadowmap Size", &shadowSize); if (shadowSize > 12) shadowSize = 12; if (shadowSize < 0) shadowSize = 0;
+		ImGui::DragFloat("Shadow Area", &shadowArea, 0.5f, 0.0f);
+		ImGui::SliderFloat("Shadow Softness", &shadowSoftness, 0, 1);
+		ImGui::SliderFloat("Light Bleed Reduction", &lightBleed, 0, 1);
+		ImGui::DragFloat("Minimal Variance", &minVariance, 0.00001f, 0.0f, 1.0f, "%.4f");
+
+		//if (ImGui::Button("Update ShadowInfo"))
+		{
+			if (shadowSize != 0)
+			{
+				SetShadowInfo(ShadowInfo(Matrix4f().InitPerspective(viewAngle, 1.0f, 0.1f, GetRange()), false, shadowSize,
+					shadowSoftness, lightBleed, minVariance));
+			}
+		}
+
+		float a = m_attenuation.GetExponent();
+		float b = m_attenuation.GetLinear();
+		float c = m_attenuation.GetConstant() - COLOR_DEPTH * m_intensity * m_color.Max();
+
+		m_range = (-b + sqrtf(b*b - 4 * a*c)) / (2 * a);
+	}
+
 	virtual void DataDeploy(tinyxml2::XMLElement* data)
 	{
 		Vector3f color = Vector3f(0, 0, 0); 

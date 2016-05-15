@@ -51,7 +51,9 @@ public:
 	
 	/// Returns all components attached to entity.
 	std::vector<Entity*> GetAllAttached();
-	
+	inline std::vector<Entity*> GetAllEntities() { return m_children; }
+	inline std::vector<EntityComponent*> GetAllComponents() { return m_components; }
+
 	inline Transform* GetTransform() { return &m_transform; }
 	inline Entity* GetParent() { return m_parent; }
 	inline const std::string& GetDisplayName() const { return m_displayName; }
@@ -66,6 +68,7 @@ public:
 	/// Retrieves our scene graph.
 	Entity* GetScene ();
 	Entity* GetChildByName (const std::string& name);
+	
 	Entity* GetChildByIndex (unsigned int ID);
 	std::vector<EntityComponent*> GetComponentsByType(const std::string& name);
 

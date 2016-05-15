@@ -69,7 +69,7 @@ Material::~Material()
 
 Material::Material(const std::string& materialName, const Texture& diffuse, float specularIntensity, float specularPower,
 		const Texture& normalMap,
-		const Texture& dispMap, float dispMapScale, float dispMapOffset) :
+		const Texture& dispMap, float dispMapScale, float dispMapOffset, Vector3f color) :
 		m_materialName(materialName)
 {
 	m_materialData = new MaterialData();
@@ -80,6 +80,7 @@ Material::Material(const std::string& materialName, const Texture& diffuse, floa
 	m_materialData->SetFloat("specularPower", specularPower);
 	m_materialData->SetTexture("normalMap", normalMap);
 	m_materialData->SetTexture("dispMap", dispMap);
+	m_materialData->SetVector3f("matColor", color);
 	
 	//HACK(zaklaus): Speed up for huge meshes
 	m_materialData->Diffuse = diffuse;
@@ -137,9 +138,13 @@ Material* Material::LoadCachedMaterial(const std::string & fileName, int index)
 	d.reserve(dS);
 	fread((char*)&d[0], sizeof(char), dS + 1, file);
 
+	Vector3f matColor;
+	fread(&matColor, sizeof(Vector3f), 1, file);
+
+
 	fclose(file);
 	int z = strlen("./data/textures/");
-	m = new Material(matName.c_str(), std::string(diff.c_str()+z), 0.4f, 0.8f, std::string(n.c_str() + z), std::string(d.c_str() + z));
+	m = new Material(matName.c_str(), std::string(diff.c_str()+z), 0.4f, 0.8f, std::string(n.c_str() + z), std::string(d.c_str() + z), 0, 0, matColor);
 	
 	return m;
 }
@@ -183,6 +188,9 @@ void Material::CacheMaterial(const std::string & fileName, int index)
 	fwrite(&ds, sizeof(int), 1, file);
 	fwrite(&d[0], sizeof(char), ds, file);
 	fwrite(&null, sizeof(char), 1, file);
+
+	Vector3f matColor = GetVector3f("matColor");
+	fwrite(&matColor, sizeof(matColor), 1, file);
 
 	FILE * num = fopen((Util::ResourcePath() + "models/" + path[0] + "/numsM").c_str(), "wb");
 	int id = 1 + index;

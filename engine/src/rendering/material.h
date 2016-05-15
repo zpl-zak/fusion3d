@@ -43,7 +43,7 @@ public:
 	
 	Material(const std::string& materialName, const Texture& diffuse, float specularIntensity, float specularPower,
 		const Texture& normalMap = Texture("default_normal.jpg"),
-		const Texture& dispMap = Texture("default_disp.png"), float dispMapScale = 0.0f, float dispMapOffset = 0.0f);
+		const Texture& dispMap = Texture("default_disp.png"), float dispMapScale = 0.0f, float dispMapOffset = 0.0f, Vector3f color = Vector3f());
 		
 	inline void SetVector3f(const std::string& name, const Vector3f& value) { m_materialData->SetVector3f(name, value); }
 	inline void SetFloat(const std::string& name, float value)              { m_materialData->SetFloat(name, value); }

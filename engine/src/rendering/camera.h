@@ -19,6 +19,8 @@
 
 #include "../core/math3d.h"
 #include "../core/entityComponent.h"
+#include "frustum.h"
+
 
 /**
  * Cameras represent a location, orientation, and projection from
@@ -37,18 +39,21 @@ public:
 	
 	inline Transform* GetTransform()             { return m_transform; }
 	inline const Transform& GetTransform() const { return *m_transform; }
-	
+	inline const Frustum& GetFrustum() const { return m_frustum; }
 	//This is the primary function of the camera. Multiplying a point by the returned matrix
 	//will transform the point into it's location on the screen, where -1 represents the bottom/left
 	//of the screen, and 1 represents the top/right of the screen.
 	Matrix4f GetViewProjection()           const;
-	
+
 	inline void SetProjection(const Matrix4f& projection) { m_projection = projection; }
-	inline void SetTransform(Transform* transform)        { m_transform = transform; }
+	inline Matrix4f GetCachedViewProjection() const { return m_cachedVP; }
+	inline void SetTransform(Transform* transform) { m_transform = transform; /*m_frustum.CalcPlanes(GetViewProjection());*/  }
 protected:
 private:
 	Matrix4f   m_projection; //The projection with which the camera sees the world (i.e. perspective, orthographic, identity, etc.)
 	Transform* m_transform;  //The transform representing the position and orientation of the camera.
+	Frustum    m_frustum;
+	Matrix4f m_cachedVP;
 };
 
 //CameraComponents are an easy way to use a camera as a component

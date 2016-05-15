@@ -22,6 +22,7 @@
 #include "../components/ProgramComponent.h"
 #include "../components/freeMove.h"
 #include "../components/freeLook.h"
+#include "../components/meshRenderer.h"
 #include "../core/util.h"
 #include <vector>
 
@@ -42,7 +43,7 @@ public:
 		m_isCmd(false),
 		m_showCursor(false),
 		m_devCamera(Matrix4f().InitPerspective(
-			ToRadians(70.0f), window.GetAspect(), 0.1f, 1000.0f), 0)
+			ToRadians(70.0f), window.GetAspect(), 0.1f, 100000.0f), 0)
 
 		, enable_physics(false)
 	{
@@ -50,9 +51,9 @@ public:
 		m_move = new FreeMove(10.0f);
 		m_look = new FreeLook(window.GetCenter());
 
-		m_engine->GetPhysicsEngine ()->SetSimulation(m_isUpdating);
+		m_engine->GetPhysicsEngine ()->SetSimulation(false);
 		ProgramHoster::SetActive(m_isUpdating);
-
+		m_gizmoSphere = (new Entity())->AddComponent(new MeshRenderer("arrows.dae"));
 	}
 
 	virtual ~DevMode()
@@ -61,27 +62,7 @@ public:
 		delete m_move;
 	}
 
-	virtual void Init()
-	{
-		m_move->SetParent(GetParent());
-		m_look->SetParent(GetParent());
-		m_devCamera.SetTransform(GetTransform());
-		m_lastCamera = m_engine->GetRenderingEngine()->GetMainCamera();
-
-		if (m_isDev)
-		{
-			m_lastCamera = m_engine->GetRenderingEngine()->GetMainCamera();
-			m_engine->GetRenderingEngine()->SetMainCamera(m_devCamera);
-		}
-		else
-		{
-			if (m_lastCamera != NULL)
-				m_engine->GetRenderingEngine()->SetMainCamera(*m_lastCamera);
-		}
-
-		m_engine->GetPhysicsEngine ()->SetSimulation(m_isUpdating);
-		ProgramHoster::SetActive(m_isUpdating);
-	}
+	virtual void Init();
 
 	virtual void ProcessInput(const Input& input, float delta)
 	{
@@ -267,6 +248,8 @@ private:
 	std::vector<char> m_keySequence;
 	std::vector<RigidBody*> m_selected;
 	char m_handleMode;
+
+	Entity* m_gizmoSphere;
 
 	bool m_statsWnd;
 

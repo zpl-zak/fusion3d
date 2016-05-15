@@ -3,10 +3,10 @@
 #include <map>
 
 template <class T> void* constructor() { return (void*)new T(); }
+typedef void*(*constructor_t)();
 
 struct factory
 {
-	typedef void*(*constructor_t)();
 	typedef std::map<std::string, constructor_t> map_type;
 	map_type m_classes;
 

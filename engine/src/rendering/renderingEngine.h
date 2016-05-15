@@ -49,6 +49,7 @@ public:
 	inline void SetMainCamera(const Camera& camera) { m_mainCamera = &camera; }
 	inline const Camera* GetMainCamera() { return m_mainCamera; }
 	inline Window* GetWindow() { return m_window; }
+	inline Window* GetWindow() const { return m_window; }
 	
 	virtual void UpdateUniformStruct(const Transform& transform, const Material& material, const Shader& shader, 
 		const std::string& uniformName, const std::string& uniformType) const
@@ -98,6 +99,7 @@ private:
 	Shader                              m_nullFilter;
 	Shader                              m_gausBlurFilter;
 	Shader                              m_fxaaFilter;
+	Shader								m_hdrFilter;
 	Matrix4f                            m_lightMatrix;
 	
 	Transform                           m_altCameraTransform;

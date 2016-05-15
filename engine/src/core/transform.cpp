@@ -73,16 +73,19 @@ void Transform::Update()
 void Transform::Rotate(const Vector3f& axis, float angle)
 {
 	Rotate(Quaternion(axis, angle));
+	m_hasChanged = true;
 }
 
 void Transform::Rotate(const Quaternion& rotation)
 {
 	m_rot = Quaternion((rotation * m_rot).Normalized());
+	m_hasChanged = true;
 }
 
 void Transform::LookAt(const Vector3f& point, const Vector3f& up)
 {
 	m_rot = GetLookAtRotation(point, up);
+	m_hasChanged = true;
 }
 
 Matrix4f Transform::GetTransformation() const

@@ -63,6 +63,10 @@ Entity* Entity::AddComponent(EntityComponent* component)
 {
 	m_components.push_back(component);
 	component->SetParent(this);
+
+	if (m_coreEngine && m_coreEngine->GetRenderingEngine() && m_coreEngine->GetPhysicsEngine())
+		component->AddToEngine(m_coreEngine);
+
 	component->Init();
 	return this;
 }

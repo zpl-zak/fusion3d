@@ -80,6 +80,7 @@ public:
 	inline const std::vector<Vector3f>& GetTangents()    const { return m_tangents; }
 	inline const Vector3f& GetBoundMin()    const { return m_boundMin; }
 	inline const Vector3f& GetBoundMax()    const { return m_boundMax; }
+	inline const float& GetBoundSize()    const { return m_boundSize; }
 	inline const Vector3f& GetCenter()    const { return m_center; }
 
 private:
@@ -91,6 +92,7 @@ private:
     std::vector<Vector3f> m_tangents;  
 	Vector3f m_boundMin, m_boundMax;
 	Vector3f m_center;
+	float m_boundSize;
 };
 
 /**

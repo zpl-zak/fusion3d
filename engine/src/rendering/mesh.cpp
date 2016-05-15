@@ -61,19 +61,29 @@ void IndexedModel::AddTangent(const Vector3f& tangent)
 
 void IndexedModel::CalcBBoxNCenter()
 {
-	Vector3f BMin, BMax, Center;
+	Vector3f BMin, BMax, Center; // ja som K0K0T!!!!!!!!!!
 	for (size_t i = 0; i < m_positions.size(); i++)
 	{
 		if (BMin.GetX() < m_positions[i].GetX())BMin.SetX(m_positions[i].GetX());
 		if (BMin.GetY() < m_positions[i].GetY())BMin.SetY(m_positions[i].GetY());
 		if (BMin.GetZ() < m_positions[i].GetZ())BMin.SetZ(m_positions[i].GetZ());
+
+		if (BMax.GetX() >= m_positions[i].GetX())BMax.SetX(m_positions[i].GetX());
+		if (BMax.GetY() >= m_positions[i].GetY())BMax.SetY(m_positions[i].GetY());
+		if (BMax.GetZ() >= m_positions[i].GetZ())BMax.SetZ(m_positions[i].GetZ());
+
+
 	}
 
 	Center.SetX(0.5f * (BMax.GetX() + BMin.GetX()));
 	Center.SetY(0.5f * (BMax.GetY() + BMin.GetY()));
 	Center.SetZ(0.5f * (BMax.GetZ() + BMin.GetZ()));
 
+	//(t.GetBoundMin().Abs() + t.GetBoundMax().Abs()
+
 	m_boundMax = BMax; m_boundMin = BMin; m_center = Center;
+	m_boundSize = (BMin.Abs() + BMax.Abs()).Length();
+	m_boundSize = fabsf(m_boundSize);
 }
 
 IndexedModel IndexedModel::Finalize(bool normalsFlat)
@@ -338,6 +348,7 @@ Mesh::Mesh(const Mesh& mesh) :
 std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mode)
 {
 	std::vector<MeshData*> outData;
+#if 1
 	auto fname = Util::split(fileName, '.');
 	auto cachedName = Util::ResourcePath() + "models/" + fname[0] + "/" + fname[0] + "_cached_0.zdl";
 
@@ -358,7 +369,9 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 			s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
 		}
 	}
-	else {
+	else 
+#endif
+	{
 		Assimp::Importer importer;
 
 		const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
@@ -375,10 +388,10 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 				aiProcess_CalcTangentSpace) : (
 					aiProcess_CalcTangentSpace |
 					aiProcess_Triangulate |
-					aiProcess_RemoveComponent |
-					aiProcess_OptimizeGraph |
+					//aiProcess_RemoveComponent |
+					//aiProcess_OptimizeGraph |
 					aiProcess_PreTransformVertices |
-					aiProcess_OptimizeMeshes |
+					//aiProcess_OptimizeMeshes |
 					aiProcess_SplitLargeMeshes |
 					aiProcess_JoinIdenticalVertices |
 					aiProcess_ImproveCacheLocality));
@@ -483,6 +496,8 @@ btTriangleMesh* Mesh::ImportColData(const std::string & fileName)
 std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 {
 	std::vector<Material*> outData;
+
+#if 1
 	auto fname = Util::split(fileName, '.');
 	auto cachedName = Util::ResourcePath() + "models/" + fname[0] + "/" + fname[0] + "_cached_0.zml";
 
@@ -504,7 +519,9 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 			//Material::s_resourceMap.insert(std::make_pair(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
 		}
 	}
-	else {
+	else 
+#endif
+	{
 
 		Assimp::Importer importer;
 
@@ -543,12 +560,16 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 			aiString matName;
 			aiString texName, normName, dispName;
 			float shine = 0.0;
+			aiColor3D matColorAi;
 
 			scene->mMaterials[i]->Get(AI_MATKEY_NAME, matName);
 			scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &texName);
 			scene->mMaterials[i]->GetTexture(aiTextureType_HEIGHT, 0, &normName);
 			scene->mMaterials[i]->GetTexture(aiTextureType_DISPLACEMENT, 0, &dispName);
 			scene->mMaterials[i]->Get(AI_MATKEY_SHININESS, shine);
+			scene->mMaterials[i]->Get(AI_MATKEY_COLOR_DIFFUSE, matColorAi);
+
+			Vector3f color = Vector3f(matColorAi.r, matColorAi.g, matColorAi.b);
 
 			//std::cout << matName.C_Str() << ":::" << texName.C_Str();
 
@@ -570,7 +591,7 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 				sDispName = dispName.C_Str();
 			}
 
-			Material * mat = new Material(matName.C_Str(), sTexName, 0.4f, 0.8f, sNormName, sDispName);
+			Material * mat = new Material(matName.C_Str(), sTexName, 0.4f, 0.8f, sNormName, sDispName, 0, 0, color);
 			mat->CacheMaterial(fileName, i);
 			outData.push_back(mat);
 		}

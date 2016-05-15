@@ -34,6 +34,12 @@ public:
 		m_shiftKey(shiftKey) {}
 	
 	virtual void ProcessInput(const Input& input, float delta);
+
+	virtual void DebugDrawUI()
+	{
+		ImGui::InputFloat("Speed", &m_speed);
+	}
+
 protected:
 private:
 	void Move(const Vector3f& direction, float amt);

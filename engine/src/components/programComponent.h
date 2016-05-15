@@ -28,6 +28,7 @@
 #include "../core/util.h"
 
 #include "../staticLibs/luna.h"
+#include "../staticLibs/imgui.h"
 
 #include "../core/util.h"
 
@@ -177,6 +178,11 @@ public:
 	~ProgramHoster()
 	{
 		delete m_program;
+	}
+
+	virtual void DebugDrawUI()
+	{
+		ImGui::Checkbox("Running", &m_isUpdating);
 	}
 
 	virtual void Init()

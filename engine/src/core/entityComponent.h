@@ -19,6 +19,7 @@
 
 #include "../reflection.h"
 #include "../staticLibs/tinyxml2.h"
+#include "../staticLibs/imgui.h"
 #include "../reflection.h"
 
 #include "transform.h"
@@ -48,6 +49,7 @@ public:
 	virtual void PostRender (const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) {}
 	virtual void DataDeploy(tinyxml2::XMLElement* data) {}
 	virtual void AddToEngine(CoreEngine* engine) { }
+	virtual void DrawDebugUI() {}
 	
 	inline Transform* GetTransform()             { return m_parent->GetTransform(); }
 	inline const Transform& GetTransform() const { return *m_parent->GetTransform(); }

@@ -94,6 +94,15 @@ public:
 		return *this - (normal * (this->Dot(normal) * 2));
 	}
 
+	inline Vector<T, D> Abs() const
+	{
+		Vector<T, D> result;
+		for (unsigned int i = 0; i < D; i++)
+			result[i] = ((*this)[i] < 0) ? (-(*this)[i]) : (*this)[i];
+
+		return result;
+	}
+
 	inline Vector<T, D> operator+(const Vector<T,D>& r) const
 	{
 		Vector<T, D> result;
