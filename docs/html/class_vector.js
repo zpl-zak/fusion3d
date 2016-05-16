@@ -1,6 +1,7 @@
 var class_vector =
 [
     [ "Vector", "class_vector.html#a3c785a9866bb20fc79b19196fe9b3a5b", null ],
+    [ "Abs", "class_vector.html#a88ca36bc8d6ef4b5c3e043ded1ee11c2", null ],
     [ "Dot", "class_vector.html#a70c3348b3fcab9e06f120b8e7a9b0a40", null ],
     [ "Length", "class_vector.html#a68702092267c728db02f67c518c9583f", null ],
     [ "LengthSq", "class_vector.html#a197762230f85ba8e0ce7460dfa0000df", null ],

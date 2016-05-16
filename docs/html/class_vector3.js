@@ -14,6 +14,7 @@ var class_vector3 =
     [ "GetZ", "class_vector3.html#ad6da696280e32d7b14ef897977e27f5a", null ],
     [ "GetZX", "class_vector3.html#ae84d69bb63b947a449a7f9f6b022c1c4", null ],
     [ "GetZY", "class_vector3.html#af2ceba0c92219a584a599f9c7c493de6", null ],
+    [ "Mul", "class_vector3.html#a88fbf807181444a9ff909764b98c2f7b", null ],
     [ "Rotate", "class_vector3.html#a6d9ae17426f8721e5918003d9af027a7", null ],
     [ "Set", "class_vector3.html#af1f7474d44998863ad66e5e3c8221f9b", null ],
     [ "SetX", "class_vector3.html#ab447da00bb0176f3160edb743a7a0a19", null ],

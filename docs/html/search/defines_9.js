@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['print',['PRINT',['../3_d_engine_8h.html#aac699a3288732fdc5f67c48c6cea8aa9',1,'3DEngine.h']]],
-  ['profiling_5fdisable_5fmesh_5fdrawing',['PROFILING_DISABLE_MESH_DRAWING',['../profiling_8h.html#a0aa1a8ebfd7c3430979353acc24410d6',1,'profiling.h']]],
-  ['profiling_5fdisable_5fshading',['PROFILING_DISABLE_SHADING',['../profiling_8h.html#a144526415f01f76ebeafa18f59b6afe2',1,'profiling.h']]],
-  ['profiling_5fset_5f1x1_5fviewport',['PROFILING_SET_1x1_VIEWPORT',['../profiling_8h.html#a5ea0c325c1defe2b508de19eca5437d0',1,'profiling.h']]],
-  ['profiling_5fset_5f2x2_5ftexture',['PROFILING_SET_2x2_TEXTURE',['../profiling_8h.html#a5a76a8c9deebd14d07977e60074d1f99',1,'profiling.h']]]
+  ['num_5ftex_5fexp',['NUM_TEX_EXP',['../level_8cpp.html#a3869fdf267a891b002e25520e359a188',1,'level.cpp']]],
+  ['num_5ftextures',['NUM_TEXTURES',['../level_8cpp.html#a0116ea606a07f2b76dd5166b5cd8872e',1,'level.cpp']]]
 ];

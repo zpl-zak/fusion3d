@@ -4,6 +4,7 @@ var class_rigid_body =
     [ "RigidBody", "class_rigid_body.html#aa43da36ca67e78de9e743ed26b40b1e5", null ],
     [ "~RigidBody", "class_rigid_body.html#ada738c85556c1ffeb046d5ffcc5b20db", null ],
     [ "DataDeploy", "class_rigid_body.html#af64e0f574bc6425df5147fbdcad4e2c1", null ],
+    [ "DebugDrawUI", "class_rigid_body.html#a9976d1b7d3a29907137887d7a71c474b", null ],
     [ "Enter", "class_rigid_body.html#a94212de5fa35cef2e0da5c91e3c618aa", null ],
     [ "Exit", "class_rigid_body.html#a65153e523d45a163d56d0585a41375e6", null ],
     [ "FCLASS", "class_rigid_body.html#af71e267253816bc3b9f199910683b1ca", null ],
