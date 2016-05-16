@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['texture',['Texture',['../class_texture.html',1,'']]],
-  ['texturedata',['TextureData',['../class_texture_data.html',1,'']]],
-  ['transform',['Transform',['../class_transform.html',1,'']]],
-  ['typeddata',['TypedData',['../class_typed_data.html',1,'']]]
+  ['shader',['Shader',['../class_shader.html',1,'']]],
+  ['shaderdata',['ShaderData',['../class_shader_data.html',1,'']]],
+  ['shadowcameratransform',['ShadowCameraTransform',['../class_shadow_camera_transform.html',1,'']]],
+  ['shadowinfo',['ShadowInfo',['../class_shadow_info.html',1,'']]],
+  ['spotlight',['SpotLight',['../class_spot_light.html',1,'']]]
 ];

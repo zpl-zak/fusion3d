@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['mouse_5fleft_5fbutton',['MOUSE_LEFT_BUTTON',['../class_input.html#aea68a84e0161c3529415c3b868c513dea96ef1596508d237f71489ad19d5eec5a',1,'Input']]],
-  ['mouse_5fmiddle_5fbutton',['MOUSE_MIDDLE_BUTTON',['../class_input.html#aea68a84e0161c3529415c3b868c513dea98e03b1d8ffff84d003c720a763aa4d1',1,'Input']]],
-  ['mouse_5fright_5fbutton',['MOUSE_RIGHT_BUTTON',['../class_input.html#aea68a84e0161c3529415c3b868c513dea5922e55184cda10f884d2033904b7556',1,'Input']]],
-  ['mouse_5fwheel_5fdown',['MOUSE_WHEEL_DOWN',['../class_input.html#aea68a84e0161c3529415c3b868c513deafe1cb0a5d40b7fbb03ed5efa0497eae1',1,'Input']]],
-  ['mouse_5fwheel_5fup',['MOUSE_WHEEL_UP',['../class_input.html#aea68a84e0161c3529415c3b868c513deaeb908985c36b0eeaab5772810b714391',1,'Input']]]
+  ['light_5fblue',['light_blue',['../colors_8h.html#a61dadd085c1777f559549e05962b2c9ea972303a412461e2efb6aa0e5aa2c4705',1,'colors.h']]],
+  ['light_5fcyan',['light_cyan',['../colors_8h.html#a61dadd085c1777f559549e05962b2c9eafecd03babd8183ea02b051984d605a30',1,'colors.h']]],
+  ['light_5fgray',['light_gray',['../colors_8h.html#a61dadd085c1777f559549e05962b2c9ea62b24fd3f06fdf06ac6ad54d0c2599c9',1,'colors.h']]],
+  ['light_5fgreen',['light_green',['../colors_8h.html#a61dadd085c1777f559549e05962b2c9ea1dc161dc2b58c58f32040f8df082d13c',1,'colors.h']]],
+  ['light_5fmagenta',['light_magenta',['../colors_8h.html#a61dadd085c1777f559549e05962b2c9eac776ca3d5b4f4e9688d7550e09470e13',1,'colors.h']]],
+  ['light_5fred',['light_red',['../colors_8h.html#a61dadd085c1777f559549e05962b2c9ea7eb6e07fb554d175744c78d397984f10',1,'colors.h']]],
+  ['light_5fyellow',['light_yellow',['../colors_8h.html#a61dadd085c1777f559549e05962b2c9ea0c4ac23440a984d7e780094a22b25f1d',1,'colors.h']]]
 ];

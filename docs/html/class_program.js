@@ -13,5 +13,6 @@ var class_program =
     [ "Render", "class_program.html#a29cf518215935cac6db281732f876871", null ],
     [ "SetParent", "class_program.html#ad57322336bab7b5ec5b68857ddfe74ee", null ],
     [ "Update", "class_program.html#a0398d9957f8da7fb37ea77acf8bac342", null ],
-    [ "m_error", "class_program.html#acacd819e20737d226d82e73a733e8c27", null ]
+    [ "m_error", "class_program.html#acacd819e20737d226d82e73a733e8c27", null ],
+    [ "m_parent", "class_program.html#a41542a846be582caa238556320eaca55", null ]
 ];

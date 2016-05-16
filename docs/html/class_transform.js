@@ -11,7 +11,7 @@ var class_transform =
     [ "GetTransformation", "class_transform.html#a11dec5b652271a3c4aebdcbc40d318c3", null ],
     [ "GetTransformedPos", "class_transform.html#aaa07e1fe04771f89f839b325e8bfcc4c", null ],
     [ "GetTransformedRot", "class_transform.html#a8bbae69612f3cd53c001d8dd00275e35", null ],
-    [ "HasChanged", "class_transform.html#a2be4a2c35324d180640d3943b1aecbdd", null ],
+    [ "HasChanged", "class_transform.html#ab7cd23c705546b4c73e313823925f315", null ],
     [ "LookAt", "class_transform.html#a70a53ea2fa7600c37ab1e4929a43a193", null ],
     [ "Rotate", "class_transform.html#a98a622bae4565181d7648600d9a074fc", null ],
     [ "Rotate", "class_transform.html#aa44afbfad3eb5ad0506cea367ea94979", null ],
@@ -19,5 +19,6 @@ var class_transform =
     [ "SetPos", "class_transform.html#a3a3ba4be9b592a26090dcc6d27e7bc01", null ],
     [ "SetRot", "class_transform.html#a859f20339cd42da87165d3146a5a922c", null ],
     [ "SetScale", "class_transform.html#a73296cf3be4bf21b5ac395fecd51f90c", null ],
-    [ "Update", "class_transform.html#a3256c0fb53d0b341ad8d80fe61e5fb2d", null ]
+    [ "Update", "class_transform.html#a3256c0fb53d0b341ad8d80fe61e5fb2d", null ],
+    [ "m_hasChanged", "class_transform.html#add4b6dc6e6707f65aa24d476120c5a9b", null ]
 ];
