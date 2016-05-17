@@ -6,3 +6,7 @@
 	path = pages
 	url = W:/fusion3d
 	branch = gh-pages
+[submodule "gh-pages"]
+	path = gh-pages
+	url = W:/fusion3d
+	branch = gh-pages
