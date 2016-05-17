@@ -1,0 +1,8 @@
+[submodule "docs"]
+	path = docs
+	url = W:/fusion3d
+	branch = gh-pages
+[submodule "pages"]
+	path = pages
+	url = W:/fusion3d
+	branch = gh-pages
