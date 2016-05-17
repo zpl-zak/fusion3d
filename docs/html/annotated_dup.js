@@ -47,7 +47,6 @@ var annotated_dup =
     [ "Quaternion", "class_quaternion.html", "class_quaternion" ],
     [ "ReferenceCounter", "class_reference_counter.html", "class_reference_counter" ],
     [ "RenderingEngine", "class_rendering_engine.html", "class_rendering_engine" ],
-    [ "RigidBody", "class_rigid_body.html", "class_rigid_body" ],
     [ "Shader", "class_shader.html", "class_shader" ],
     [ "ShaderData", "class_shader_data.html", "class_shader_data" ],
     [ "ShadowCameraTransform", "class_shadow_camera_transform.html", "class_shadow_camera_transform" ],

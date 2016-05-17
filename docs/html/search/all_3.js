@@ -7,7 +7,7 @@ var searchData=
   ['bitmap',['Bitmap',['../class_bitmap.html',1,'Bitmap'],['../class_bitmap.html#a56e20ea4f73bcee87bdd3c70296094d9',1,'Bitmap::Bitmap(std::string fileName)'],['../class_bitmap.html#a40526748415c8bbc58a8510d636c20f4',1,'Bitmap::Bitmap(int width, int height)']]],
   ['bitmap_2ecpp',['bitmap.cpp',['../bitmap_8cpp.html',1,'']]],
   ['bitmap_2eh',['bitmap.h',['../bitmap_8h.html',1,'']]],
-  ['black',['black',['../colors_8h.html#a61dadd085c1777f559549e05962b2c9ea775364fe1f3fffe99686bf6d572a7370',1,'colors.h']]],
+  ['black',['black',['../colors_8h.html#adc29c2ff13d900c2f185ee95427fb06ca775364fe1f3fffe99686bf6d572a7370',1,'colors.h']]],
   ['bmask',['bmask',['../rendering_engine_8cpp.html#a14b0866344628e753ba7670a11b780b4',1,'renderingEngine.cpp']]],
   ['buffer',['buffer',['../structlua_l___buffer.html#a848307dbf02455a3acfe690a6b3f9a71',1,'luaL_Buffer']]]
 ];

@@ -7,7 +7,7 @@ var searchData=
   ['neard',['nearD',['../class_frustum.html#a10b439632dcd21fbc1abde1ec81aa9a9',1,'Frustum']]],
   ['nh',['nh',['../class_frustum.html#a8cd2d2d235773a06a29415b92bb39420',1,'Frustum']]],
   ['nlerp',['NLerp',['../class_quaternion.html#ad01607c48ca84db58804369317ec2df4',1,'Quaternion']]],
-  ['normal',['normal',['../class_plane.html#abc8811ead60c7de7ce8050a74f4a39f1',1,'Plane::normal()'],['../class_material_data.html#a04529af1a577df17ef24b75d9ad0793f',1,'MaterialData::Normal()']]],
+  ['normal',['Normal',['../class_material_data.html#a04529af1a577df17ef24b75d9ad0793f',1,'MaterialData::Normal()'],['../class_plane.html#abc8811ead60c7de7ce8050a74f4a39f1',1,'Plane::normal()']]],
   ['normalized',['Normalized',['../class_vector.html#a42dc6fba30ea0f61e3dbf1031876d539',1,'Vector::Normalized()'],['../class_vector3f.html#a96d4153d8f724afc0da1ad0d9a78b358',1,'Vector3f::Normalized()']]],
   ['ntl',['ntl',['../class_frustum.html#a8eec89ad919ac967a27c3e8af6731a83',1,'Frustum']]],
   ['ntr',['ntr',['../class_frustum.html#a3179e2e472b67e8f4a4ecdc84f95edf5',1,'Frustum']]],

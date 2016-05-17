@@ -25,8 +25,7 @@ var hierarchy =
       [ "MeshRenderer", "class_mesh_renderer.html", [
         [ "MeshSequence", "class_mesh_sequence.html", null ]
       ] ],
-      [ "ProgramHoster", "class_program_hoster.html", null ],
-      [ "RigidBody", "class_rigid_body.html", null ]
+      [ "ProgramHoster", "class_program_hoster.html", null ]
     ] ],
     [ "factory", "structfactory.html", null ],
     [ "Frustum", "class_frustum.html", null ],
