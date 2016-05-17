@@ -3,11 +3,12 @@
 #ifndef __3DENGINE_H_INCLUDED
 #define __3DENGINE_H_INCLUDED
 
+#if 0
 #pragma warning( disable : 4305)
 #pragma warning( disable : 4996)
 #pragma warning( disable : 4006)
 #pragma warning( disable : 4258)
-
+#endif
 
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS

@@ -19,6 +19,11 @@ void FreeMove::ProcessInput(const Input& input, float delta)
 		Move(GetTransform()->GetRot()->GetRight(), movAmt);
 }
 
+void FreeMove::DebugDrawUI()
+{
+	ImGui::InputFloat("Speed", &m_speed);
+}
+
 void FreeMove::Move(const Vector3f& direction, float amt)
 {
 	GetTransform()->SetPos(*GetTransform()->GetPos() + (direction * amt));

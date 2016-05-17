@@ -154,7 +154,7 @@ void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer norm
 		Vector3f nNormal;
 		int shared = 0;
 
-		for (int i = 0; i < m_positions.size (); i++)
+		for (size_t i = 0; i < m_positions.size (); i++)
 		{
 			/*for (int j = 0; j < m_vertslots[i].size(); j ++)
 			{
@@ -350,7 +350,7 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 		FILE * num = fopen((Util::ResourcePath() + "models/" + fname[0] + "/nums").c_str(), "rb");
 		fread(&nums, sizeof(int), 1, num);
 		
-		for (size_t i = 0; i < nums; i++)
+		for (int i = 0; i < nums; i++)
 		{
 			auto x = MeshData::LoadCachedModel(fileName, i);
 			outData.push_back(x);
@@ -499,7 +499,7 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 		FILE * num = fopen((Util::ResourcePath() + "models/" + fname[0] + "/numsM").c_str(), "rb");
 		fread(&nums, sizeof(int), 1, num);
 
-		for (size_t i = 0; i < nums; i++)
+		for (int i = 0; i < nums; i++)
 		{
 			auto x = Material::LoadCachedMaterial(fileName, i);
 			outData.push_back(x);

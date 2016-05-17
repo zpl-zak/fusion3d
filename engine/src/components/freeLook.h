@@ -20,10 +20,7 @@ public:
 
 	void ProcessInput(const Input& input, float delta) override;
 
-	virtual void DebugDrawUI()
-	{
-		ImGui::InputFloat("Sensitivity", &m_sensitivity);
-	}
+	virtual void DebugDrawUI();
 
 protected:
 private:

@@ -10,14 +10,14 @@ void PhysicsEngine::Simulate(float delta)
 
 	m_world->stepSimulation(1 / 60.0f, 1);
 
-	int numManifolds = GetWorld()->getDispatcher()->getNumManifolds ();
+	size_t numManifolds = GetWorld()->getDispatcher()->getNumManifolds ();
 	for (size_t i = 0; i < numManifolds; i++)
 	{
 		btPersistentManifold* c = GetWorld()->getDispatcher ()->getManifoldByIndexInternal (i);
 		btCollisionObject* a = (btCollisionObject*) (c->getBody0 ());
 		btCollisionObject* b = (btCollisionObject*) (c->getBody1 ());
 
-		int co = c->getNumContacts ();
+		size_t co = c->getNumContacts ();
 		for (size_t j = 0; j < co; j++)
 		{
 			btManifoldPoint& pt = c->getContactPoint (j);

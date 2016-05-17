@@ -32,7 +32,7 @@ void Input::SetCursor(bool visible) const
 
 bool Input::GetCursor() const
 {
-	return SDL_ShowCursor(SDL_QUERY);
+	return SDL_ShowCursor(SDL_QUERY) != 0;
 }
 
 void Input::SetMousePosition(const Vector2f& pos) const

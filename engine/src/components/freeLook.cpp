@@ -40,3 +40,8 @@ void FreeLook::ProcessInput(const Input& input, float delta)
 		m_mouseLocked = true;
 	}
 }
+
+void FreeLook::DebugDrawUI()
+{
+	ImGui::InputFloat("Sensitivity", &m_sensitivity);
+}

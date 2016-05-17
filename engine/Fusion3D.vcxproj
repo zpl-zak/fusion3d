@@ -237,6 +237,7 @@
     <ClCompile Include="src\components\devMode.cpp" />
     <ClCompile Include="src\components\freeLook.cpp" />
     <ClCompile Include="src\components\freeMove.cpp" />
+    <ClCompile Include="src\components\meshRenderer.cpp" />
     <ClCompile Include="src\components\rigidBody.cpp" />
     <ClCompile Include="src\components\programComponent.cpp" />
     <ClCompile Include="src\core\coreEngine.cpp" />
@@ -527,7 +528,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions> -c /wd4996 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SolutionDir)headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -586,6 +587,7 @@
     <Lib>
       <AdditionalDependencies>legacy_stdio_definitions.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody_Debug.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -648,7 +650,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions> -c /wd4996 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SolutionDir)headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -707,6 +709,7 @@
     <Lib>
       <AdditionalDependencies>legacy_stdio_definitions.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -769,7 +772,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions> -c /wd4996 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SolutionDir)headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -825,6 +828,7 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
     <Lib>
       <AdditionalDependencies>legacy_stdio_definitions.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
@@ -887,7 +891,7 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalOptions> -c %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions> -c /wd4996 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SolutionDir)headers;$(SolutionDir)..\engine\sources;$(SolutionDir)..\lib\glew\include;$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\Assimp\include;$(SolutionDir)..\lib\bullet3\include;$(SolutionDir)..\lib\atb\include;$(AWE_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -942,6 +946,7 @@ xcopy  /Y /I /E $(SolutionDir)..\data\*.* $(SolutionDir)Release\data</Command>
     <Lib>
       <AdditionalDependencies>legacy_stdio_definitions.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(SolutionDir)..\lib\glew\lib\x86\glew32.lib;$(SolutionDir)..\lib\SDL2\lib\x86\SDL2.lib;$(SolutionDir)..\lib\Assimp\lib\x86\assimp.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletDynamics.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletCollision.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletFileLoader.lib;$(SolutionDir)..\lib\bullet3\lib\x86\BulletSoftBody.lib;$(SolutionDir)..\lib\bullet3\lib\x86\LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">

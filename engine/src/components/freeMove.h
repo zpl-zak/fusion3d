@@ -21,10 +21,7 @@ public:
 	
 	virtual void ProcessInput(const Input& input, float delta);
 
-	virtual void DebugDrawUI()
-	{
-		ImGui::InputFloat("Speed", &m_speed);
-	}
+	virtual void DebugDrawUI();
 
 protected:
 private:
