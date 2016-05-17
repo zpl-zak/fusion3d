@@ -1,1 +1,0 @@
-doxygen DoxyFile > doxygen.log
