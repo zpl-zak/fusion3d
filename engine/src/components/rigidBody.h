@@ -12,7 +12,7 @@
 #include "btBulletDynamicsCommon.h"
 
 
-class RigidBody : public EntityComponent
+__declspec(align(16)) class RigidBody : public EntityComponent
 {
 public:
 	FCLASS (RigidBody);
@@ -29,6 +29,16 @@ public:
 	virtual void DebugDrawUI()
 	{
 
+	}
+
+	void* operator new(size_t i)
+	{
+		return _mm_malloc(i, 16);
+	}
+	
+	void operator delete(void* p)
+	{
+		_mm_free(p);
 	}
 
 	virtual void DataDeploy (tinyxml2::XMLElement* data)

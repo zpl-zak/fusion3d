@@ -118,7 +118,7 @@ void MapLoader::LoadEntities (Entity * root, tinyxml2::XMLElement * sibling)
 			bool verbose = false;
 
 			if (program->Attribute ("verbose"))
-				verbose = atoi (program->Attribute ("verbose"));
+				verbose = *program->Attribute ("verbose") != '0';
 
 			auto programObj = (Program*)g_factory.construct (name);
 

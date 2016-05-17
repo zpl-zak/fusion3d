@@ -16,7 +16,7 @@ public:
 class Frustum
 {
 public:
-	static enum {OUTSIDE, INTERSECT, INSIDE};
+	enum STATE {OUTSIDE, INTERSECT, INSIDE};
 	Plane pl[6];
 	Vector3f ntl, ntr, nbl, nbr, ftl, ftr, fbl, fbr;
 	float nearD, farD, ratio, angle, tang;

@@ -8,7 +8,11 @@
 //License: GNU/GPLv3
 //===================================
 //For educational purposes
-#include <windows.h>
+
+
+
+//#include <windows.h>
+/*
 void GotoXY(int x, int y){
 	COORD pos = {x, y};
     HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -26,4 +30,5 @@ COORD GetXY() {
 
 	return pos;
 }
+*/
 #endif
