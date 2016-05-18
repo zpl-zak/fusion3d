@@ -6,13 +6,11 @@
 #include "input.h"
 #include "util.h"
 #include "game.h"
-#include <iostream>
-#include "../utils/pos.h"
-#include "../utils/colors.h"
+
 #include "../3DEngine.h"
 
 #include <stdio.h>
-
+#include <iostream>
 
 CoreEngine* CoreEngine::m_coreEngine = nullptr;
 

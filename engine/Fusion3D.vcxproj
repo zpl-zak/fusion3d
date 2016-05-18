@@ -181,7 +181,6 @@
     <ClInclude Include="src\components\devMode.h" />
     <ClInclude Include="src\components\freeLook.h" />
     <ClInclude Include="src\components\freeMove.h" />
-    <ClInclude Include="src\components\GUIWindow.h" />
     <ClInclude Include="src\components\meshRenderer.h" />
     <ClInclude Include="src\components\rigidBody.h" />
     <ClInclude Include="src\components\programComponent.h" />
@@ -226,8 +225,6 @@
     <ClInclude Include="src\staticLibs\stb_truetype.h" />
     <ClInclude Include="src\staticLibs\tinyxml2.h" />
     <ClInclude Include="src\testing.h" />
-    <ClInclude Include="src\utils\colors.h" />
-    <ClInclude Include="src\utils\pos.h" />
     <ClInclude Include="src\utils\xmlLoader.h" />
     <ClInclude Include="src\core\terrain.h" />
   </ItemGroup>
