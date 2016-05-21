@@ -60,6 +60,13 @@ public:
 protected:
 	inline void SetSamplerSlot(const std::string& name, unsigned int value) { m_samplerMap[name] = value; }
 	void ApplyFilter (Shader& filter, const Texture& source, const Texture* dest);
+
+	Shader								m_nullShader;
+	Shader                              m_shadowMapShader;
+	Shader                              m_nullFilter;
+	Shader                              m_gausBlurFilter;
+	Shader                              m_fxaaFilter;
+	Shader								m_hdrFilter;
 private:
 	static const int NUM_SHADOW_MAPS = 12;
 	static const Matrix4f BIAS_MATRIX;
@@ -80,12 +87,6 @@ private:
 	Texture                             m_shadowMapTempTargets[NUM_SHADOW_MAPS];
 	
 	Shader*                              m_defaultShader;
-	Shader								m_nullShader;
-	Shader                              m_shadowMapShader;
-	Shader                              m_nullFilter;
-	Shader                              m_gausBlurFilter;
-	Shader                              m_fxaaFilter;
-	Shader								m_hdrFilter;
 	Matrix4f                            m_lightMatrix;
 	
 	Transform                           m_altCameraTransform;

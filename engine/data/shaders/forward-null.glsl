@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Subvision Studio
+ * Copyright (C) 2015 Dominik Madarasz
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,9 +32,11 @@ void main()
 #elif defined(FS_BUILD)
 #include "sampling.glh"
 
+uniform vec3 matColor;
+
 DeclareFragOutput(0, vec4);
 void main()
 {
-	SetFragOutput(0, vec4(color0,1));
+	SetFragOutput(0, vec4(matColor,1));
 }
 #endif
