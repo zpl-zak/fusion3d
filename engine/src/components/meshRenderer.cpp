@@ -92,14 +92,6 @@ void MeshRenderer::Render(Shader & shader, const RenderingEngine & renderingEngi
 			material.GetTexture("normalMap").Bind(1);
 			material.GetTexture("dispMap").Bind(2);*/
 
-
-
-			if (shader.GetName() == "forward-null")
-			{
-				auto matColor = material->GetVector3f("matColor");
-				shader.SetUniformVector3f("matColor", matColor);
-			}
-
 			material->GetData()->Diffuse.Bind(0);
 			material->GetData()->Normal.Bind(1);
 			material->GetData()->Disp.Bind(2);

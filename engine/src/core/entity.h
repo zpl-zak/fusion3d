@@ -36,7 +36,7 @@ class RenderingEngine;
 class Entity
 {
 public:
-	Entity(const Vector3f& pos = Vector3f(0, 0, 0), const Quaternion& rot = Quaternion(0, 0, 0, 1), float scale = 1.0f);
+	Entity(const Vector3f& pos = Vector3f(0, 0, 0), const Quaternion& rot = Quaternion(0, 0, 0, 0), float scale = 1.0f);
 		
 	virtual ~Entity();
 	

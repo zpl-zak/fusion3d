@@ -28,12 +28,23 @@ class Transform
 public:
 	Transform(const Vector3f& pos = Vector3f(0,0,0), const Quaternion& rot = Quaternion(0,0,0,1), float scale = 1.0f) :
 		m_pos(pos),
-		m_rot(rot),
+		m_eulerAngles(0),
 		m_scale(scale),
 		m_parent(0),
 		m_parentMatrix(Matrix4f().InitIdentity()),
 		m_initializedOldStuff(false),
-		m_isInitial(true) {}
+		m_isInitial(true)
+	{
+		if (rot[3] == 0)
+		{
+			// Rotation is represented by euler angles.
+			SetEulerAngles(Vector3f(rot[0], rot[1], rot[2]));
+		}
+		else
+		{
+			m_rot = rot;
+		}
+	}
 
 	Matrix4f GetTransformation() const;
 	bool HasChanged() const;
@@ -50,6 +61,7 @@ public:
 	inline Vector3f* GetPos()                   { return &m_pos; }
 	inline const Vector3f& GetPos()       const { return m_pos; }
 	inline Quaternion* GetRot()                 { return &m_rot; }
+	inline const Vector3f& GetEulerAngles() const	{ return m_eulerAngles; }
 	inline const Quaternion& GetRot()     const { return m_rot; }
 	inline float GetScale()               const { return m_scale; }
 	inline Vector3f GetTransformedPos()   const { return Vector3f(GetParentMatrix().Transform(m_pos)); }
@@ -67,6 +79,17 @@ public:
 
 	inline void SetPos(const Vector3f& pos) { m_pos = pos; m_hasChanged = true;}
 	inline void SetRot(const Quaternion& rot) { m_rot = rot; m_hasChanged = true;}
+	inline void SetEulerAngles(const Vector3f& angles) 
+	{ 
+		m_eulerAngles = angles;
+		{
+			Quaternion q1 = Quaternion(Vector3f(1, 0, 0), angles.GetX());
+			Quaternion q2 = Quaternion(Vector3f(0, 1, 0), angles.GetY());
+			Quaternion q3 = Quaternion(Vector3f(0, 0, 1), angles.GetZ());
+			m_rot = q1 * q2 * q3;
+		}
+		m_hasChanged = true; 
+	}
 	inline void SetScale(float scale) { m_scale = scale; m_hasChanged = true;}
 	inline void SetParent(Transform* parent) { m_parent = parent; m_hasChanged = true;}
 
@@ -77,6 +100,7 @@ private:
 
 	Vector3f m_pos;
 	Quaternion m_rot;
+	Vector3f m_eulerAngles;
 	float m_scale;
 	bool m_isInitial;
 	

@@ -85,27 +85,29 @@ namespace Util
 	{
 		Vector4f rayStart (
 			((float)X / (float)W - 0.5f) * 2.0f,
-			((float)Y / (float)H - 0.5f) * 2.0f,
+			-((float)Y / (float)H - 0.5f) * 2.0f,
 			-1.0f,
 			1.0f
 			);
 
 		Vector4f rayEnd (
 			((float)X / (float)W - 0.5f) * 2.0f,
-			((float)Y / (float)H - 0.5f) * 2.0f,
+			-((float)Y / (float)H - 0.5f) * 2.0f,
 			0.0f,
 			1.0f
 			);
 
 		Matrix4f M = matrix.Inverse ();
 
-		Vector4f rayS = (Vector4f)M.Transform(rayStart); rayS = rayS.Normalized();
-		Vector4f rayE = (Vector4f)M.Transform(rayEnd);  rayE = rayE.Normalized();
+		Vector4f rayS = (Vector4f)M.Transform(rayStart); 
+		out_origin = (Vector3f)rayS.GetXYZ();
+		rayS = rayS.Normalized();
+
+		Vector4f rayE = (Vector4f)M.Transform(rayEnd);  
+		rayE = rayE.Normalized();
 
 		Vector3f rayDir (Vector4f (rayE - rayS).GetXYZ ());
-		rayDir = rayDir.Normalized ();
-
-		out_origin = (Vector3f) rayS.GetXYZ();
+		//rayDir = rayDir.Normalized ();
 		out_dir = rayDir;
 	}
 

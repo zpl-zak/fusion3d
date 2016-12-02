@@ -27,6 +27,8 @@ bool create_component_window = false;
 bool component_settings = false;
 EntityComponent* component_settings_uid = 0;
 
+bool global_axis = true;
+
 void CreateEntity()
 {
 	static char name[256] = { 0 };
@@ -117,24 +119,26 @@ void ShowObjectProps(Entity* uid)
 
 				ImGui::NextColumn();
 				
-				auto p2 = t->GetRot();
-				float x2 = p2->GetX();
-				float y2 = p2->GetY();
-				float z2 = p2->GetZ();
-				float w2 = p2->GetW();
+				auto p2 = t->GetEulerAngles();
 
-				float roll = atan2f(2 * y2*w2 - 2 * x2*z2, 1 - 2 * y2*y2 - 2 * z2*z2);
-				float pitch = asinf(2 * x2*y2 + 2 * z2*w2);
-				float yaw = atan2f(2 * x2*w2 - 2 * y2*z2, 1 - 2 * x2*x2 - 2 * z2*z2);
+				float roll = ToDegrees(p2[0]);
+				float pitch = ToDegrees(p2[1]);
+				float yaw = ToDegrees(p2[2]);
 
-				ImGui::SliderFloat("Roll ##xr", &roll, 0, 360);
-				ImGui::SliderFloat("Pitch ##yr", &pitch, 0, 360);
-				ImGui::SliderFloat("Yaw ##zr", &yaw, 0, 360);
+				float old_roll = roll;
+				float old_pitch = pitch;
+				float old_yaw = yaw;
+
+				ImGui::SliderFloat("Roll ##xr", &roll, -180, 180);
+				ImGui::SliderFloat("Pitch ##yr", &pitch, -180, 180);
+				ImGui::SliderFloat("Yaw ##zr", &yaw, -180, 180);
 				//ImGui::SliderFloat("W ##wr", &w2, 0, 360);
 
-				Quaternion q = Quaternion(Vector3f(0,0,ToRadians(yaw)).Mul(Vector3f(0, ToRadians(pitch), 0).Mul(Vector3f(ToRadians(roll), 0, 0))), ToRadians(360));
-
-				t->SetRot(q);
+				float ex = ToRadians(roll);
+				float ey = ToRadians(pitch);
+				float ez = ToRadians(yaw);
+				
+				t->SetEulerAngles(Vector3f(ex, ey, ez));
 
 				ImGui::NextColumn();
 
@@ -250,7 +254,7 @@ DevMode::DevMode(const Window & window, bool isDev)
 
 	m_engine->GetPhysicsEngine()->SetSimulation(false);
 	ProgramHoster::SetActive(m_isUpdating);
-	m_gizmoSphere = (new Entity())->AddComponent(new MeshRenderer("arrows.dae"));
+	m_gizmoSphere = (new Entity())->AddComponent(new MeshRenderer("arrows.obj"));
 }
 
 DevMode::~DevMode()
@@ -322,8 +326,8 @@ void DevMode::ProcessInput(const Input & input, float delta)
 
 				Vector3f RayOrigin, RayDir;
 
-				Util::ScreenToWorld(input.GetMousePosition().GetX(), input.GetMousePosition().GetY(), m_window->GetWidth(), m_window->GetHeight(), m_devCamera.GetViewProjection().Inverse(), RayOrigin, RayDir);
-
+				Util::ScreenToWorld(input.GetMousePosition().GetX(), input.GetMousePosition().GetY(), m_window->GetWidth(), m_window->GetHeight(), m_devCamera.GetViewProjectionWithoutTranslation(), RayOrigin, RayDir);
+				RayOrigin = m_devCamera.GetTransform()->GetTransformedPos();
 
 				Vector3f end = RayOrigin + RayDir*1000.0f;
 
@@ -371,13 +375,40 @@ void DevMode::ProcessInput(const Input & input, float delta)
 							if (!exist)
 							{
 								m_selected.push_back(hitBody);
+								general_settings = true;
+								general_settings_uid = hitBody->GetParent();
 							}
+							else
+							{
+								general_settings = false;
+								general_settings_uid = nullptr;
+							}
+							
 						}
 
 						//std::cout << "Selected Count: " << m_selected.size () << std::endl;
 					}
 				}
 			}
+			if (input.GetKey(Input::KEY_J) && m_handleMode == HANDLE_TRANSFORM)
+			{
+				for (size_t i = 0; i < m_selected.size(); i++)
+				{
+					auto selected = m_selected.at(i);
+					auto pos = selected->GetTransform()->GetPos();
+
+					if (global_axis)
+					{
+						selected->GetTransform()->SetPos(*pos + Vector3f(-1, 0, 0));
+					}
+					else
+					{
+						auto left = selected->GetTransform()->GetRot()->GetLeft();
+						selected->GetTransform()->SetPos(*pos + left);
+					}
+				}
+			}
+
 			if (input.GetKeyDown(Input::KEY_Q))
 			{
 				m_handleMode = HANDLE_SELECT;
@@ -397,6 +428,10 @@ void DevMode::ProcessInput(const Input & input, float delta)
 			{
 				m_handleMode = HANDLE_SCALE;
 				std::cout << "Scale Mode" << std::endl;
+			}
+			if (input.GetKeyDown(Input::KEY_G))
+			{
+				global_axis = !global_axis;
 			}
 		}
 	}
@@ -481,7 +516,7 @@ void DevMode::PostRender(const Shader & shader, const RenderingEngine & renderin
 
 		for (auto x : m_selected)
 		{
-			//m_engine->GetPhysicsEngine ()->GetWorld ()->debugDrawObject (x->GetBody ()->getWorldTransform (), x->GetBody ()->getCollisionShape (), color);
+			m_engine->GetPhysicsEngine ()->GetWorld ()->debugDrawObject (x->GetBody ()->getWorldTransform (), x->GetBody ()->getCollisionShape (), color);
 		}
 	}
 
@@ -556,6 +591,7 @@ void DevMode::PostRender(const Shader & shader, const RenderingEngine & renderin
 		ImGui::Begin("Stats", (bool*)&m_statsWnd, ImGuiWindowFlags_NoResize);
 		{
 			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+			ImGui::Text("Axis mode: %s", (global_axis) ? "Global" : "Local");
 			ImGui::End();
 		}
 

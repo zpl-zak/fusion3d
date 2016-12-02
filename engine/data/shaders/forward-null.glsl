@@ -23,20 +23,20 @@ attribute vec3 position;
 attribute vec3 color;
 
 uniform mat4 T_MVP;
+uniform vec3 matColor;
 
 void main()
 {
     gl_Position = T_MVP * vec4(position, 1.0);
 	color0 = color;
+
 }
 #elif defined(FS_BUILD)
 #include "sampling.glh"
 
-uniform vec3 matColor;
-
 DeclareFragOutput(0, vec4);
 void main()
 {
-	SetFragOutput(0, vec4(matColor,1));
+	SetFragOutput(0, vec4(color0,1));
 }
 #endif

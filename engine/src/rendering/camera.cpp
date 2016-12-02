@@ -34,6 +34,15 @@ Matrix4f Camera::GetViewProjection() const
 	return m_projection * cameraRotation * cameraTranslation;
 }
 
+Matrix4f Camera::GetViewProjectionWithoutTranslation() const
+{
+	//This comes from the conjugate rotation because the world should appear to rotate
+	//opposite to the camera's rotation.
+	Matrix4f cameraRotation = GetTransform().GetTransformedRot().Conjugate().ToRotationMatrix();
+	
+	return m_projection * cameraRotation;
+}
+
 void CameraComponent::AddToEngine(CoreEngine* engine)
 {
 	//TODO: This is probably not the correct solution in the case of multiple cameras,

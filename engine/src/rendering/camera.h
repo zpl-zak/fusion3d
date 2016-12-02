@@ -44,11 +44,12 @@ public:
 	//This is the primary function of the camera. Multiplying a point by the returned matrix
 	//will transform the point into it's location on the screen, where -1 represents the bottom/left
 	//of the screen, and 1 represents the top/right of the screen.
-	Matrix4f GetViewProjection()           const;
+	Matrix4f GetViewProjection()                             const;
+	Matrix4f GetViewProjectionWithoutTranslation()           const;
 
 	inline void SetProjection(const Matrix4f& projection) { m_projection = projection; }
 	inline Matrix4f GetCachedViewProjection() const { return m_cachedVP; }
-	inline void SetTransform(Transform* transform) { m_transform = transform; /*m_frustum.CalcPlanes(GetViewProjection());*/  }
+	inline void SetTransform(Transform* transform) { m_transform = transform; m_frustum.CalcPlanes(GetViewProjection());  }
 protected:
 private:
 	Matrix4f   m_projection; //The projection with which the camera sees the world (i.e. perspective, orthographic, identity, etc.)
@@ -71,6 +72,7 @@ public:
 	virtual void AddToEngine(CoreEngine* engine);
 	
 	inline Matrix4f GetViewProjection() const { return m_camera.GetViewProjection(); }
+	inline Matrix4f GetViewProjectionWithoutTranslation() const { return m_camera.GetViewProjectionWithoutTranslation(); }
 	
 	inline void SetProjection(const Matrix4f& projection) { m_camera.SetProjection(projection); }
 	virtual void SetParent(Entity* parent);
