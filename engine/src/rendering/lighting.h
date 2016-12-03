@@ -90,6 +90,8 @@ public:
 	{
 	}
 
+	~BaseLight() override;
+
 	virtual ShadowCameraTransform CalcShadowCameraTransform(const Vector3f& mainCameraPos, const Quaternion& mainCameraRot) const;
 	virtual void AddToEngine(CoreEngine* engine);
 
@@ -177,7 +179,6 @@ public:
 	{
 		Vector3f color = Vector3f(0, 0, 0);
 		float intensity = 0;
-		float viewAngle = ToRadians(170.0f);
 		int shadowMapSizeAsPowerOf2 = 0;
 		float shadowSoftness = 1.0f;
 		float shadowArea = 80.0f;
@@ -192,11 +193,6 @@ public:
 		if (data->Attribute("intensity"))
 		{
 			intensity = atof(data->Attribute("intensity"));
-		}
-
-		if (data->Attribute("vAngle"))
-		{
-			viewAngle = ToRadians(atof(data->Attribute("vAngle")));
 		}
 
 		if (data->Attribute("shadowMapSize"))

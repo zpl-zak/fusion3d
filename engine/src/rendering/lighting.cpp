@@ -24,6 +24,11 @@ void BaseLight::AddToEngine(CoreEngine* engine)
 	engine->GetRenderingEngine()->AddLight(this);
 }
 
+BaseLight::~BaseLight()
+{
+	CoreEngine::GetCoreEngine()->GetRenderingEngine()->RemoveLight(this);
+}
+
 ShadowCameraTransform BaseLight::CalcShadowCameraTransform(const Vector3f& mainCameraPos, const Quaternion& mainCameraRot) const
 {
 	return ShadowCameraTransform(GetTransform().GetTransformedPos(), GetTransform().GetTransformedRot());

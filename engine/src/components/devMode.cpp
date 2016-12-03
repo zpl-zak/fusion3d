@@ -176,6 +176,14 @@ void ShowObjectProps(Entity* uid)
 			//root_entity->GetTransform()->LookAt((*uid->GetTransform()->GetPos()), Vector3f(0, 1, 0));
 			uid->GetTransform()->SetPos(*root_entity->GetTransform()->GetPos());
 		}
+
+		if (ImGui::Button("Remove Entity"))
+		{
+			uid->Destroy();
+			general_settings_uid = nullptr;
+			general_settings = false;
+			return;
+		}
 	}
 	ImGui::Separator();
 
@@ -324,7 +332,7 @@ void DevMode::ProcessInput(const Input& input, float delta)
 				}
 			}
 
-			if (input.GetMouseDown(Input::MOUSE_LEFT_BUTTON) && m_handleMode == HANDLE_SELECT)
+			if (false && input.GetMouseDown(Input::MOUSE_LEFT_BUTTON) && m_handleMode == HANDLE_SELECT)
 			{
 				Vector3f RayOrigin, RayDir;
 
@@ -627,6 +635,7 @@ void DevMode::PostRender(const Shader& shader, RenderingEngine& renderingEngine,
 			{
 				for (auto x : GetParent()->GetScene()->GetAllEntities())
 				{
+					if (!x)continue;
 					ShowObject(x->GetDisplayName().c_str(), x);
 				}
 			}

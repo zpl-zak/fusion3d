@@ -80,7 +80,7 @@ RenderingEngine::RenderingEngine(Window* window) :
 
 	SetSamplerSlot("filterTexture", 0);
 
-	SetVector3f("ambient", Vector3f(0.2f, 0.2f, 0.2f));
+	SetVector3f("ambient", Vector3f(0.16f, 0.17f, 0.24f));
 
 	SetFloat("fxaaSpanMax", 8.0f);
 	SetFloat("fxaaReduceMin", 1.0f / 128.0f);

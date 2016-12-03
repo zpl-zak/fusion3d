@@ -29,6 +29,7 @@
 
 #include <vector>
 #include <map>
+#include <algorithm>
 class Entity;
 
 /**
@@ -53,8 +54,14 @@ public:
 		m_uniformUpdate = true;
 	}
 
+	void RemoveLight(BaseLight* light)
+	{
+		m_lights.erase(std::remove(m_lights.begin(), m_lights.end(), light), m_lights.end());
+		m_uniformUpdate = true;
+	}
+
 	inline void SetMainCamera(const Camera& camera) { m_mainCamera = &camera; }
-	inline const Camera* GetMainCamera() { return m_mainCamera; }
+	inline const Camera* GetMainCamera() const { return m_mainCamera; }
 	inline Window* GetWindow() { return m_window; }
 	inline Window* GetWindow() const { return m_window; }
 

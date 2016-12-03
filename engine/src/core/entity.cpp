@@ -106,16 +106,18 @@ void Entity::ProcessInputAll(const Input& input, float delta)
 void Entity::UpdateAll(float delta)
 {
 	Update(delta);
-	for (unsigned int i = 0; i < m_children.size(); i++)
+	int del = 0;
+	for (unsigned int i = 0; i < m_children.size() - del; i++)
 	{
 		if (m_children[i]->m_destroy)
 		{
 			delete m_children[i];
-			m_children[i] = NULL;
+			m_children.erase(m_children.begin() + i);
+			++del;
+			--i;
 			continue;
 		}
-		if (m_children[i] != NULL)
-			m_children[i]->UpdateAll(delta);
+		m_children[i]->UpdateAll(delta);
 	}
 }
 

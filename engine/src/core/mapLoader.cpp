@@ -94,8 +94,10 @@ void MapLoader::LoadEntities(Entity* root, tinyxml2::XMLElement* sibling)
 		{
 			std::string rotation = sibling->Attribute("rotation");
 			std::vector<std::string> rot = Util::Split(rotation, ';');
-			Quaternion rot_(Vector3f(atof(rot[0].c_str()), atof(rot[1].c_str()), atof(rot[2].c_str())), ToRadians (atof (rot[3].c_str ())));
+			Quaternion rot_(ToRadians(atof(rot[0].c_str())), ToRadians(atof(rot[1].c_str())), ToRadians(atof(rot[2].c_str())), 0);
+			Vector3f euler = Vector3f(ToRadians(atof(rot[0].c_str())), ToRadians(atof(rot[1].c_str())), ToRadians(atof(rot[2].c_str())));
 			trans.SetRot(rot_);
+			trans.SetEulerAngles(euler);
 		}
 
 		if (sibling->Attribute("scale"))
