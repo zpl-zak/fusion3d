@@ -80,7 +80,6 @@ public:
 		luaopen_string(L);
 		luaopen_math(L);
 		luaopen_debug(L);
-
 	}
 
 	LuaProgram(std::string file)
@@ -96,7 +95,7 @@ public:
 
 
 private:
-	lua_State * L;
+	lua_State* L;
 };
 
 
@@ -148,5 +147,3 @@ private:
 };
 
 #endif // ProgramHoster_H_INCLUDED
-
-

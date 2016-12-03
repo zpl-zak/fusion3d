@@ -21,32 +21,32 @@
 #include "shader.h"
 #include "../core/util.h"
 
-std::map<std::string, MaterialData*> Material::s_resourceMap;
+std::map<std::string, Material*> Material::s_resourceMap;
 
 Material::Material(const std::string& materialName) :
 	m_materialName(materialName)
 {
 	if (materialName == "null")return;
 
-	if(materialName.length() > 0)
+	if (materialName.length() > 0)
 	{
-		std::map<std::string, MaterialData*>::const_iterator it = s_resourceMap.find(materialName);
-		if(it == s_resourceMap.end())
+		std::map<std::string, Material*>::const_iterator it = s_resourceMap.find(materialName);
+		if (it == s_resourceMap.end())
 		{
 			std::cerr << "Error: Material " << materialName << " has not been initialized!" << std::endl;
 			assert(0 != 0);
 		}
-	
-		m_materialData = it->second;
+
+		m_materialData = it->second->GetData();
 		m_materialData->AddReference();
 	}
 
-	m_shader = new Shader ("forward-ambient");
+	m_shader = new Shader("forward-ambient");
 }
 
 Material::Material(const Material& other) :
 	m_materialData(other.m_materialData),
-	m_materialName(other.m_materialName) ,
+	m_materialName(other.m_materialName),
 	m_shader(other.m_shader)
 {
 	if (m_materialData)
@@ -57,24 +57,24 @@ Material::~Material()
 {
 	if (m_materialName == "null")return;
 
-	if(m_materialData && m_materialData->RemoveReference())
+	if (m_materialData && m_materialData->RemoveReference())
 	{
-		if(m_materialName.length() > 0)
+		if (m_materialName.length() > 0)
 		{
 			s_resourceMap.erase(m_materialName);
 		}
-			
+
 		delete m_materialData;
 	}
 }
 
 Material::Material(const std::string& materialName, const Texture& diffuse, float specularIntensity, float specularPower,
-		const Texture& normalMap,
-		const Texture& dispMap, float dispMapScale, float dispMapOffset, Vector3f color) :
-		m_materialName(materialName)
+                   const Texture& normalMap,
+                   const Texture& dispMap, float dispMapScale, float dispMapOffset, Vector3f color) :
+	m_materialName(materialName)
 {
 	m_materialData = new MaterialData();
-	s_resourceMap[m_materialName] = m_materialData;
+	s_resourceMap[m_materialName] = this;
 
 	m_materialData->SetTexture("diffuse", diffuse);
 	m_materialData->SetFloat("specularIntensity", specularIntensity);
@@ -82,41 +82,41 @@ Material::Material(const std::string& materialName, const Texture& diffuse, floa
 	m_materialData->SetTexture("normalMap", normalMap);
 	m_materialData->SetTexture("dispMap", dispMap);
 	m_materialData->SetVector3f("matColor", color);
-	
+
 	//HACK(zaklaus): Speed up for huge meshes
 	m_materialData->Diffuse = diffuse;
 	m_materialData->Normal = normalMap;
 	m_materialData->Disp = dispMap;
-	
-	float baseBias = dispMapScale/2.0f;
+
+	float baseBias = dispMapScale / 2.0f;
 	m_materialData->SetFloat("dispMapScale", dispMapScale);
 	m_materialData->SetFloat("dispMapBias", -baseBias + baseBias * dispMapOffset);
 
 	m_shader = new Shader("forward-ambient");
 }
 
-Material* Material::LoadCachedMaterial(const std::string & fileName, int index)
+Material* Material::LoadCachedMaterial(const std::string& fileName, int index)
 {
 	Material* m;
 	std::string name = Util::split(fileName, '.')[0];
 
 	std::string fname = Util::ResourcePath() + "models/" + name + "/" + name + "_cached_" + std::to_string(index) + ".zml";
 
-	FILE * file = fopen(fname.c_str(), "rb");
+	FILE* file = fopen(fname.c_str(), "rb");
 
-	char magic[2] = { 0 };
+	char magic[2] = {0};
 
 	fread(magic, sizeof(char), 2, file);
 
 	if (magic[0] != 'Z' || magic[1] != 'F')
-		assert(!"Invalid cached model!");
+	assert(!"Invalid cached model!");
 
 
 	int matNameS = 0;
 	fread(&matNameS, sizeof(int), 1, file);
 	std::string matName = "";
 	matName.reserve(matNameS);
-	fread((char*)&matName[0], sizeof(char), matNameS+1, file);
+	fread((char*)&matName[0], sizeof(char), matNameS + 1, file);
 
 	// diffuse
 	int diffS = 0;
@@ -145,12 +145,12 @@ Material* Material::LoadCachedMaterial(const std::string & fileName, int index)
 
 	fclose(file);
 	int z = strlen("./data/textures/");
-	m = new Material(matName.c_str(), std::string(diff.c_str()+z), 0.4f, 0.8f, std::string(n.c_str() + z), std::string(d.c_str() + z), 0, 0, matColor);
-	
+	m = new Material(matName.c_str(), std::string(diff.c_str() + z), 0.4f, 0.8f, std::string(n.c_str() + z), std::string(d.c_str() + z), 0, 0, matColor);
+
 	return m;
 }
 
-void Material::CacheMaterial(const std::string & fileName, int index)
+void Material::CacheMaterial(const std::string& fileName, int index)
 {
 	static char magic[] = "ZF";
 	std::string index_ = std::to_string(index);
@@ -158,10 +158,10 @@ void Material::CacheMaterial(const std::string & fileName, int index)
 	std::string newFileName = path[0] + "_cached_" + index_ + ".zml";
 	auto name = (Util::ResourcePath() + "models/" + path[0] + "/" + newFileName);
 
-	FILE * file = fopen(name.c_str(), "wb");
+	FILE* file = fopen(name.c_str(), "wb");
 
 	if (!file)
-		assert(!"Can't open handle!");
+	assert(!"Can't open handle!");
 
 	char null = 0;
 
@@ -171,7 +171,7 @@ void Material::CacheMaterial(const std::string & fileName, int index)
 	fwrite(&ms, sizeof(int), 1, file);
 	fwrite(&m_materialName[0], sizeof(char), ms, file);
 	fwrite(&null, sizeof(char), 1, file);
-	
+
 	int dds = m_materialData->Diffuse.GetName().size();
 	auto dd = m_materialData->Diffuse.GetName();
 	fwrite(&dds, sizeof(int), 1, file);
@@ -193,7 +193,7 @@ void Material::CacheMaterial(const std::string & fileName, int index)
 	Vector3f matColor = GetVector3f("matColor");
 	fwrite(&matColor, sizeof(matColor), 1, file);
 
-	FILE * num = fopen((Util::ResourcePath() + "models/" + path[0] + "/numsM").c_str(), "wb");
+	FILE* num = fopen((Util::ResourcePath() + "models/" + path[0] + "/numsM").c_str(), "wb");
 	int id = 1 + index;
 	fwrite(&id, sizeof(int), 1, num);
 
@@ -204,9 +204,9 @@ void Material::CacheMaterial(const std::string & fileName, int index)
 
 void Material::DrawDebugUI()
 {
-	static char diffuse[256] = { 0 };
-	static char normal[256] = { 0 };
-	static char disp[256] = { 0 };
+	static char diffuse[256] = {0};
+	static char normal[256] = {0};
+	static char disp[256] = {0};
 	static float dispScale, dispOffset = 0.0f;
 	static float specularIntensity, specularPower = 0.0f;
 

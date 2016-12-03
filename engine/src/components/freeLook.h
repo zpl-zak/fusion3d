@@ -25,13 +25,19 @@ class FreeLook : public EntityComponent
 {
 public:
 	FCLASS (FreeLook);
-	FreeLook() {}
+
+	FreeLook()
+	{
+	}
+
 	FreeLook(const Vector2f& windowCenter, float sensitivity = 0.5f, int unlockMouseKey = Input::KEY_ESCAPE, int lockMouseKey = Input::KEY_RETURN) :
 		m_sensitivity(sensitivity),
 		m_mouseLocked(true),
 		m_unlockMouseKey(unlockMouseKey),
-		m_lockMouseKey (lockMouseKey),
-		m_windowCenter(windowCenter) {}
+		m_lockMouseKey(lockMouseKey),
+		m_windowCenter(windowCenter)
+	{
+	}
 
 	void ProcessInput(const Input& input, float delta) override;
 
@@ -39,10 +45,10 @@ public:
 
 protected:
 private:
-	float    m_sensitivity;
-	bool     m_mouseLocked;
-	int		 m_unlockMouseKey;
-	int		 m_lockMouseKey;
+	float m_sensitivity;
+	bool m_mouseLocked;
+	int m_unlockMouseKey;
+	int m_lockMouseKey;
 	Vector2f m_windowCenter;
 };
 

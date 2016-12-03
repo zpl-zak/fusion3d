@@ -24,20 +24,19 @@ RigidBody::~RigidBody()
 
 void RigidBody::DebugDrawUI()
 {
-
 }
 
-void * RigidBody::operator new(size_t i)
+void* RigidBody::operator new(size_t i)
 {
 	return _mm_malloc(i, 16);
 }
 
-void RigidBody::operator delete(void * p)
+void RigidBody::operator delete(void* p)
 {
 	_mm_free(p);
 }
 
-void RigidBody::DataDeploy(tinyxml2::XMLElement * data)
+void RigidBody::DataDeploy(tinyxml2::XMLElement* data)
 {
 	btCollisionShape* shape = nullptr;
 	float mass = 0.0f;
@@ -122,7 +121,7 @@ void RigidBody::Init()
 	m_state = new btDefaultMotionState(GetTransform()->GetBT());
 
 	btRigidBody::btRigidBodyConstructionInfo CI
-	(m_mass, m_state, m_shape, m_inertia);
+		(m_mass, m_state, m_shape, m_inertia);
 
 	m_body = new btRigidBody(CI);
 
@@ -133,7 +132,8 @@ void RigidBody::Init()
 
 void RigidBody::Update(float delta)
 {
-	if (!CoreEngine::GetCoreEngine()->GetPhysicsEngine()->GetSimulation()) {
+	if (!CoreEngine::GetCoreEngine()->GetPhysicsEngine()->GetSimulation())
+	{
 		m_body->getMotionState()->setWorldTransform(GetTransform()->GetBT());
 		m_body->setWorldTransform(GetTransform()->GetBT());
 		return;
@@ -154,7 +154,7 @@ void RigidBody::Update(float delta)
 	Exit();
 }
 
-void RigidBody::Enter(RigidBody * hit)
+void RigidBody::Enter(RigidBody* hit)
 {
 	for (auto x : m_contacts)
 	{
@@ -206,7 +206,7 @@ void RigidBody::Exit()
 	}
 }
 
-btRigidBody * RigidBody::GetBody() { return m_body; }
+btRigidBody* RigidBody::GetBody() { return m_body; }
 
 void RigidBody::UpdateTransform()
 {
@@ -216,17 +216,17 @@ void RigidBody::UpdateTransform()
 	m_body->setLinearVelocity(btVector3());
 }
 
-void RigidBody::SetEnter(std::function<void(RigidBody*hit)> f)
+void RigidBody::SetEnter(std::function<void(RigidBody* hit)> f)
 {
 	m_enter = f;
 }
 
-void RigidBody::SetStay(std::function<void(RigidBody*hit)> f)
+void RigidBody::SetStay(std::function<void(RigidBody* hit)> f)
 {
 	m_stay = f;
 }
 
-void RigidBody::SetExit(std::function<void(RigidBody*hit)> f)
+void RigidBody::SetExit(std::function<void(RigidBody* hit)> f)
 {
 	m_exit = f;
 }

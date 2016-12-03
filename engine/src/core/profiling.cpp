@@ -28,12 +28,12 @@ void ProfileTimer::StartInvocation()
 
 void ProfileTimer::StopInvocation()
 {
-	if(m_startTime == 0)
+	if (m_startTime == 0)
 	{
 		std::cout << "Error: StopInvocation called without matching start invocation" << std::endl;
 		assert(m_startTime != 0);
 	}
-	
+
 	m_numInvocations++;
 	m_totalTime += (Time::GetTime() - m_startTime);
 	m_startTime = 0;
@@ -42,25 +42,25 @@ void ProfileTimer::StopInvocation()
 double ProfileTimer::GetTimeAndReset(double divisor)
 {
 	divisor = (divisor == 0) ? m_numInvocations : divisor;
-	double result = (m_totalTime == 0 && divisor == 0.0) ? 0.0 : (1000.0 * m_totalTime)/((double)divisor);
+	double result = (m_totalTime == 0 && divisor == 0.0) ? 0.0 : (1000.0 * m_totalTime) / ((double)divisor);
 	m_totalTime = 0.0;
 	m_numInvocations = 0;
-	
+
 	return result;
 }
 
 double ProfileTimer::DisplayAndReset(const std::string& message, double divisor, int displayedMessageLength)
 {
 	std::string whiteSpace = "";
-	for(int i = message.length(); i < displayedMessageLength; i++)
+	for (int i = message.length(); i < displayedMessageLength; i++)
 	{
 		whiteSpace += " ";
 	}
-	
-	double time = GetTimeAndReset(divisor);
-	std::string out =  message + whiteSpace + std::to_string(time) + " ms\n";
 
-	OutputDebugString (out.c_str ());
+	double time = GetTimeAndReset(divisor);
+	std::string out = message + whiteSpace + std::to_string(time) + " ms\n";
+
+	OutputDebugString(out.c_str());
 
 	return time;
 }

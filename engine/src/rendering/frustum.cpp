@@ -11,14 +11,14 @@ Frustum::~Frustum()
 void Plane::setCo(float a, float b, float c, float d)
 {
 	normal = Vector3f(a, b, c);
-	
+
 	float l = normal.Length();
 	normal = Vector3f(a / l, b / l, c / l);
 
 	this->d = d / l;
 }
 
-float Plane::distance(Vector3f & p) const
+float Plane::distance(Vector3f& p) const
 {
 	float dist = normal.Dot(p) + d;
 
@@ -28,10 +28,10 @@ float Plane::distance(Vector3f & p) const
 void Frustum::CalcPlanes(Matrix4f mat)
 {
 	pl[NEARP].setCo(
-		 mat[2][0] + mat[3][0],
-		 mat[2][1] + mat[3][1],
-		 mat[2][2] + mat[3][2],
-		 mat[2][3] + mat[3][3]
+		mat[2][0] + mat[3][0],
+		mat[2][1] + mat[3][1],
+		mat[2][2] + mat[3][2],
+		mat[2][3] + mat[3][3]
 	);
 
 	pl[FARP].setCo(
@@ -42,10 +42,10 @@ void Frustum::CalcPlanes(Matrix4f mat)
 	);
 
 	pl[BOTTOM].setCo(
-		 mat[1][0] + mat[3][0],
-		 mat[1][1] + mat[3][1],
-		 mat[1][2] + mat[3][2],
-		 mat[1][3] + mat[3][3]
+		mat[1][0] + mat[3][0],
+		mat[1][1] + mat[3][1],
+		mat[1][2] + mat[3][2],
+		mat[1][3] + mat[3][3]
 	);
 
 	pl[TOP].setCo(
@@ -56,10 +56,10 @@ void Frustum::CalcPlanes(Matrix4f mat)
 	);
 
 	pl[LEFT].setCo(
-		 mat[0][0] + mat[3][0],
-		 mat[0][1] + mat[3][1],
-		 mat[0][2] + mat[3][2],
-		 mat[0][3] + mat[3][3]
+		mat[0][0] + mat[3][0],
+		mat[0][1] + mat[3][1],
+		mat[0][2] + mat[3][2],
+		mat[0][3] + mat[3][3]
 	);
 
 	pl[RIGHT].setCo(
@@ -84,11 +84,11 @@ void Frustum::SetCamInternals(float angle, float ratio, float nearD, float farD)
 	nw = fh * ratio;
 }
 
-void Frustum::SetCamDef(Vector3f & p, Vector3f & l, Vector3f & u)
+void Frustum::SetCamDef(Vector3f& p, Vector3f& l, Vector3f& u)
 {
 }
 
-int Frustum::PointInFrustum(Vector3f & p) const
+int Frustum::PointInFrustum(Vector3f& p) const
 {
 	int r = INSIDE;
 
@@ -99,7 +99,7 @@ int Frustum::PointInFrustum(Vector3f & p) const
 	return r;
 }
 
-int Frustum::SphereInFrustum(Vector3f & p, float radius) const
+int Frustum::SphereInFrustum(Vector3f& p, float radius) const
 {
 	float distance;
 	int r = INSIDE;
@@ -111,7 +111,7 @@ int Frustum::SphereInFrustum(Vector3f & p, float radius) const
 		if (distance < -radius)
 			return OUTSIDE;
 		else if (distance < radius)
-			r =  INTERSECT;
+			r = INTERSECT;
 	}
 
 	return r;

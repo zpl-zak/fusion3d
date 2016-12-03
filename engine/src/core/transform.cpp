@@ -19,42 +19,42 @@
 #include "coreEngine.h"
 
 bool Transform::HasChanged() const
-{	
+{
 	if (m_isInitial)
 	{
 		return true;
 	}
 
-	if(m_parent != 0 && m_parent->HasChanged())
-	{
-		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
-		return true;
-	}
-	
-	if(m_pos != m_oldPos)
+	if (m_parent != 0 && m_parent->HasChanged())
 	{
 		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
 
-	if(m_rot != m_oldRot)
+	if (m_pos != m_oldPos)
 	{
 		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
-	
-	if(m_scale != m_oldScale)
+
+	if (m_rot != m_oldRot)
 	{
 		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
 		return true;
 	}
-		
+
+	if (m_scale != m_oldScale)
+	{
+		//CoreEngine::GetCoreEngine ()->GetRenderingEngine ()->UpdateUniforms (true);
+		return true;
+	}
+
 	return false;
 }
 
 void Transform::Update()
 {
-	if(m_initializedOldStuff)
+	if (m_initializedOldStuff)
 	{
 		m_oldPos = m_pos;
 		m_oldRot = m_rot;
@@ -62,7 +62,7 @@ void Transform::Update()
 	}
 	else
 	{
-		m_oldPos = m_pos + Vector3f(1,1,1);
+		m_oldPos = m_pos + Vector3f(1, 1, 1);
 		m_oldRot = m_rot * 0.5f;
 		m_oldScale = m_scale + 1;
 		m_initializedOldStuff = true;
@@ -104,22 +104,22 @@ Matrix4f Transform::GetTransformation() const
 
 const Matrix4f& Transform::GetParentMatrix() const
 {
-	if(m_parent != 0 && m_parent->HasChanged())
+	if (m_parent != 0 && m_parent->HasChanged())
 	{
 		m_parentMatrix = m_parent->GetTransformation();
 	}
-		
+
 	return m_parentMatrix;
 }
 
 Quaternion Transform::GetTransformedRot() const
 {
-	Quaternion parentRot = Quaternion(0,0,0,1);
-	
-	if(m_parent)
+	Quaternion parentRot = Quaternion(0, 0, 0, 1);
+
+	if (m_parent)
 	{
 		parentRot = m_parent->GetTransformedRot();
 	}
-	
+
 	return parentRot * m_rot;
 }

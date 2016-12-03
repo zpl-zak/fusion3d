@@ -31,16 +31,18 @@ public:
 	ProfileTimer() :
 		m_numInvocations(0),
 		m_totalTime(0.0),
-		m_startTime(0) {}
+		m_startTime(0)
+	{
+	}
 
 	void StartInvocation();
 	void StopInvocation();
-	
+
 	double DisplayAndReset(const std::string& message, double divisor = 0, int displayedMessageLength = 40);
 	double GetTimeAndReset(double divisor = 0);
 protected:
 private:
-	int    m_numInvocations;
+	int m_numInvocations;
 	double m_totalTime;
 	double m_startTime;
 };

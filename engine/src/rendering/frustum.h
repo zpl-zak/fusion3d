@@ -10,13 +10,19 @@ public:
 	Vector3f normal;
 
 	void setCo(float, float, float, float);
-	float distance(Vector3f &p) const;
+	float distance(Vector3f& p) const;
 };
 
 class Frustum
 {
 public:
-	enum STATE {OUTSIDE, INTERSECT, INSIDE};
+	enum STATE
+	{
+		OUTSIDE,
+		INTERSECT,
+		INSIDE
+	};
+
 	Plane pl[6];
 	Vector3f ntl, ntr, nbl, nbr, ftl, ftr, fbl, fbr;
 	float nearD, farD, ratio, angle, tang;
@@ -26,13 +32,21 @@ public:
 	~Frustum();
 	void CalcPlanes(Matrix4f mat);
 	void SetCamInternals(float angle, float ratio, float nearD, float farD);
-	void SetCamDef(Vector3f &p, Vector3f &l, Vector3f &u);
-	int PointInFrustum(Vector3f &p) const;
-	int SphereInFrustum(Vector3f &p, float radius) const;
+	void SetCamDef(Vector3f& p, Vector3f& l, Vector3f& u);
+	int PointInFrustum(Vector3f& p) const;
+	int SphereInFrustum(Vector3f& p, float radius) const;
 	//int PointInFrustum(Vector3f &p); //TODO(zaklaus): Implement AABox class!
 
 private:
-	enum {TOP = 0, BOTTOM, LEFT, RIGHT, NEARP, FARP};
+	enum
+	{
+		TOP = 0,
+		BOTTOM,
+		LEFT,
+		RIGHT,
+		NEARP,
+		FARP
+	};
 };
 
 #define FRUSTUM_H_INCLUDED 1

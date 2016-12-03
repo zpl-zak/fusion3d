@@ -31,13 +31,15 @@ public:
 		m_delay(0),
 		m_lastTime(Time::GetTime()),
 		m_timer(0)
-	{}
+	{
+	}
 
 	DelayTimer(double delay) :
 		m_delay(delay),
 		m_lastTime(Time::GetTime()),
 		m_timer(0)
-	{}
+	{
+	}
 
 	double GetDelay() const { return m_delay; }
 	void SetDelay(double delay) { m_delay = delay; }

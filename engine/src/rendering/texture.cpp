@@ -34,48 +34,48 @@ TextureData::TextureData(GLenum textureTarget, int width, int height, int numTex
 	m_textureID = new GLuint[numTextures];
 	m_textureTarget = textureTarget;
 	m_numTextures = numTextures;
-	
-	#if PROFILING_SET_2x2_TEXTURE == 0
-		m_width = width;
-		m_height = height;
-	#else
+
+#if PROFILING_SET_2x2_TEXTURE == 0
+	m_width = width;
+	m_height = height;
+#else
 		m_width = 2;
 		m_height = 2;
-	#endif
+#endif
 	m_frameBuffer = 0;
 	m_renderBuffer = 0;
-	
+
 	InitTextures(data, filters, internalFormat, format, clamp);
 	InitRenderTargets(attachments);
 }
 
 TextureData::~TextureData()
 {
-	if(*m_textureID) glDeleteTextures(m_numTextures, m_textureID);
-	if(m_frameBuffer) glDeleteFramebuffers(1, &m_frameBuffer);
-	if(m_renderBuffer) glDeleteRenderbuffers(1, &m_renderBuffer);
-	if(m_textureID) delete[] m_textureID;
+	if (*m_textureID) glDeleteTextures(m_numTextures, m_textureID);
+	if (m_frameBuffer) glDeleteFramebuffers(1, &m_frameBuffer);
+	if (m_renderBuffer) glDeleteRenderbuffers(1, &m_renderBuffer);
+	if (m_textureID) delete[] m_textureID;
 }
 
 void TextureData::InitTextures(unsigned char** data, GLfloat* filters, GLenum* internalFormat, GLenum* format, bool clamp)
 {
 	glGenTextures(m_numTextures, m_textureID);
-	for(int i = 0; i < m_numTextures; i++)
+	for (int i = 0; i < m_numTextures; i++)
 	{
 		glBindTexture(m_textureTarget, m_textureID[i]);
-			
+
 		glTexParameterf(m_textureTarget, GL_TEXTURE_MIN_FILTER, filters[i]);
 		glTexParameterf(m_textureTarget, GL_TEXTURE_MAG_FILTER, filters[i]);
-		
-		if(clamp)
+
+		if (clamp)
 		{
 			glTexParameterf(m_textureTarget, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 			glTexParameterf(m_textureTarget, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		}
-		
+
 		glTexImage2D(m_textureTarget, 0, internalFormat[i], m_width, m_height, 0, format[i], GL_UNSIGNED_BYTE, data[i]);
-		
-		if(filters[i] == GL_NEAREST_MIPMAP_NEAREST ||
+
+		if (filters[i] == GL_NEAREST_MIPMAP_NEAREST ||
 			filters[i] == GL_NEAREST_MIPMAP_LINEAR ||
 			filters[i] == GL_LINEAR_MIPMAP_NEAREST ||
 			filters[i] == GL_LINEAR_MIPMAP_LINEAR)
@@ -95,57 +95,57 @@ void TextureData::InitTextures(unsigned char** data, GLfloat* filters, GLenum* i
 
 void TextureData::InitRenderTargets(GLenum* attachments)
 {
-	if(attachments == 0)
+	if (attachments == 0)
 		return;
 
-	GLenum drawBuffers[32];      //32 is the max number of bound textures in OpenGL
+	GLenum drawBuffers[32]; //32 is the max number of bound textures in OpenGL
 	assert(m_numTextures <= 32); //Assert to be sure no buffer overrun should occur
 
 	bool hasDepth = false;
-	for(int i = 0; i < m_numTextures; i++)
+	for (int i = 0; i < m_numTextures; i++)
 	{
-		if(attachments[i] == GL_DEPTH_ATTACHMENT)
+		if (attachments[i] == GL_DEPTH_ATTACHMENT)
 		{
 			drawBuffers[i] = GL_NONE;
 			hasDepth = true;
 		}
 		else
 			drawBuffers[i] = attachments[i];
-	
-		if(attachments[i] == GL_NONE)
+
+		if (attachments[i] == GL_NONE)
 			continue;
-		
-		if(m_frameBuffer == 0)
+
+		if (m_frameBuffer == 0)
 		{
 			glGenFramebuffers(1, &m_frameBuffer);
 			glBindFramebuffer(GL_FRAMEBUFFER, m_frameBuffer);
 		}
-		
+
 		glFramebufferTexture2D(GL_FRAMEBUFFER, attachments[i], m_textureTarget, m_textureID[i], 0);
 	}
-	
-	if(m_frameBuffer == 0)
+
+	if (m_frameBuffer == 0)
 		return;
-	
-	if(!hasDepth)
+
+	if (!hasDepth)
 	{
 		glGenRenderbuffers(1, &m_renderBuffer);
 		glBindRenderbuffer(GL_RENDERBUFFER, m_renderBuffer);
 		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, m_width, m_height);
 		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_renderBuffer);
 	}
-	
+
 	glDrawBuffers(m_numTextures, drawBuffers);
-	
+
 	//glDrawBuffer(GL_NONE);
 	//glReadBuffer(GL_NONE);
-	
-	if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+
+	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 	{
 		std::cerr << "Framebuffer creation failed!" << std::endl;
 		assert(false);
 	}
-	
+
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
@@ -156,25 +156,25 @@ void TextureData::Bind(int textureNum) const
 
 void TextureData::BindAsRenderTarget() const
 {
-	glBindTexture(GL_TEXTURE_2D,0);
+	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindFramebuffer(GL_FRAMEBUFFER, m_frameBuffer);
-	
-	#if PROFILING_SET_1x1_VIEWPORT == 0
-		glViewport(0, 0, m_width, m_height);
-	#else
+
+#if PROFILING_SET_1x1_VIEWPORT == 0
+	glViewport(0, 0, m_width, m_height);
+#else
 		glViewport(0, 0, 1, 1);
-	#endif
+#endif
 }
 
 Texture::Texture(const std::string& fileName, GLenum textureTarget, GLfloat filter, GLenum internalFormat, GLenum format, bool clamp, GLenum attachment)
 {
-    std::string filePath = fileName;
-    if (filePath.find(":") == std::string::npos)
-        filePath = Util::ResourcePath() + "textures/" + fileName;
- 	m_fileName = filePath;
+	std::string filePath = fileName;
+	if (filePath.find(":") == std::string::npos)
+		filePath = Util::ResourcePath() + "textures/" + fileName;
+	m_fileName = filePath;
 
 	std::map<std::string, TextureData*>::const_iterator it = s_resourceMap.find(filePath);
-	if(it != s_resourceMap.end())
+	if (it != s_resourceMap.end())
 	{
 		m_textureData = it->second;
 		m_textureData->AddReference();
@@ -182,17 +182,17 @@ Texture::Texture(const std::string& fileName, GLenum textureTarget, GLfloat filt
 	else
 	{
 		int x, y, bytesPerPixel;
-        
+
 		unsigned char* data = stbi_load((filePath).c_str(), &x, &y, &bytesPerPixel, 4);
 
-		if(data == NULL)
+		if (data == NULL)
 		{
 			std::cerr << "Unable to load texture: " << filePath << std::endl;
 		}
 
 		m_textureData = new TextureData(textureTarget, x, y, 1, &data, &filter, &internalFormat, &format, clamp, &attachment);
 		stbi_image_free(data);
-		
+
 		s_resourceMap.insert(std::pair<std::string, TextureData*>(filePath, m_textureData));
 	}
 }
@@ -212,7 +212,7 @@ Texture::Texture(const Texture& texture) :
 
 void Texture::operator=(Texture texture)
 {
-	char* temp[sizeof(Texture)/sizeof(char)];
+	char* temp[sizeof(Texture) / sizeof(char)];
 	memcpy(temp, this, sizeof(Texture));
 	memcpy(this, &texture, sizeof(Texture));
 	memcpy(&texture, temp, sizeof(Texture));
@@ -220,11 +220,11 @@ void Texture::operator=(Texture texture)
 
 Texture::~Texture()
 {
-	if(m_textureData && m_textureData->RemoveReference())
+	if (m_textureData && m_textureData->RemoveReference())
 	{
-		if(m_fileName.length() > 0)
+		if (m_fileName.length() > 0)
 			s_resourceMap.erase(m_fileName);
-			
+
 		delete m_textureData;
 	}
 }

@@ -53,60 +53,63 @@
 
 /**
  * Various functions that didn't make it to actual classes but are still useful in general uses.
- */ 
+ */
 namespace Util
 {
-	void Init(const char *app, const char *org = "Fusion3D");
+	void Init(const char* app, const char* org = "Fusion3D");
 	void Sleep(int milliseconds);
-	std::vector<std::string> Split(const std::string &s, char delim);
+	std::vector<std::string> Split(const std::string& s, char delim);
 	std::string ResourcePath(void);
-	std::string ssystem(const char *command);
-	std::string ExecuteTask(const std::string& task, const std::string& data="");
+	std::string ssystem(const char* command);
+	std::string ExecuteTask(const std::string& task, const std::string& data = "");
 	void CreateDir(const std::string& path, void* flags);
 
 
-    template < typename T > std::string to_string(const T& n)
-    {
-        std::ostringstream stm;
-        stm << n;
-        return stm.str();
-    }
+	template <typename T>
+	std::string to_string(const T& n)
+	{
+		std::ostringstream stm;
+		stm << n;
+		return stm.str();
+	}
 
-	inline std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
+	inline std::vector<std::string>& split(const std::string& s, char delim, std::vector<std::string>& elems)
+	{
 		std::stringstream ss(s);
 		std::string item;
-		while (std::getline(ss, item, delim)) {
+		while (std::getline(ss, item, delim))
+		{
 			elems.push_back(item);
 		}
 		return elems;
 	}
 
-	inline void ScreenToWorld (int X, int Y, int W, int H, Matrix4f matrix, Vector3f & out_origin, Vector3f & out_dir)
+	inline void ScreenToWorld(int X, int Y, int W, int H, Matrix4f matrix, Vector3f& out_origin, Vector3f& out_dir)
 	{
-		Vector4f rayStart (
+		Vector4f rayStart(
 			((float)X / (float)W - 0.5f) * 2.0f,
 			-((float)Y / (float)H - 0.5f) * 2.0f,
 			-1.0f,
 			1.0f
-			);
+		);
 
-		Vector4f rayEnd (
+		Vector4f rayEnd(
 			((float)X / (float)W - 0.5f) * 2.0f,
 			-((float)Y / (float)H - 0.5f) * 2.0f,
 			0.0f,
 			1.0f
-			);
+		);
 
-		Matrix4f M = matrix.Inverse ();
+		Matrix4f M = matrix.Inverse();
 
-		Vector4f rayS = (Vector4f)M.Transform(rayStart); 
+		Vector4f rayS = (Vector4f)M.Transform(rayStart);
 		out_origin = (Vector3f)rayS.GetXYZ();
 		rayS = rayS.Normalized();
 
-		Vector4f rayE = (Vector4f)M.Transform(rayEnd);  
+		Vector4f rayE = (Vector4f)M.Transform(rayEnd);
 		rayE = rayE.Normalized();
 
-		Vector3f rayDir (Vector4f (rayE - rayS).GetXYZ ());
+		Vector3f rayDir(Vector4f(rayE - rayS).GetXYZ());
 		//rayDir = rayDir.Normalized ();
 		out_dir = rayDir;
 	}
@@ -127,7 +130,7 @@ namespace Util
 			}
 		}
 
-		for (size_t i = 0; i < s.size()-c+1; i++)
+		for (size_t i = 0; i < s.size() - c + 1; i++)
 		{
 			r += s.at(i);
 		}
@@ -136,7 +139,8 @@ namespace Util
 	}
 
 
-	inline std::vector<std::string> split(const std::string &s, char delim) {
+	inline std::vector<std::string> split(const std::string& s, char delim)
+	{
 		std::vector<std::string> elems;
 		split(s, delim, elems);
 		return elems;
@@ -144,8 +148,6 @@ namespace Util
 
 	Vector3f ParseVector3(std::string n);
 	Vector2f ParseVector2(std::string n);
-	
-	
 };
 
 #endif

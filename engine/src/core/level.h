@@ -25,11 +25,11 @@ class Game;
 
 class Level
 {
-    public:
-        Level(Game* game, Entity* entity, std::string mapName, Vector3f spot, std::string matName);
-        virtual ~Level();
-    protected:
-    private:
+public:
+	Level(Game* game, Entity* entity, std::string mapName, Vector3f spot, std::string matName);
+	virtual ~Level();
+protected:
+private:
 };
 
 #endif // LEVEL_H

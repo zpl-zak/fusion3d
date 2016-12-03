@@ -38,7 +38,7 @@ public:
 
 	enum
 	{
-			KEY_UNKNOWN = 0,
+		KEY_UNKNOWN = 0,
 
 		/**
 		 *  \name Usage page 0x07
@@ -225,7 +225,7 @@ public:
 		KEY_MENU = 118,
 		KEY_SELECT = 119,
 		KEY_STOP = 120,
-		KEY_AGAIN = 121,   /**< redo */
+		KEY_AGAIN = 121, /**< redo */
 		KEY_UNDO = 122,
 		KEY_CUT = 123,
 		KEY_COPY = 124,
@@ -234,10 +234,10 @@ public:
 		KEY_MUTE = 127,
 		KEY_VOLUMEUP = 128,
 		KEY_VOLUMEDOWN = 129,
-	/* not sure whether there's a reason to enable these */
-	/*     KEY_LOCKINGCAPSLOCK = 130,  */
-	/*     KEY_LOCKINGNUMLOCK = 131, */
-	/*     KEY_LOCKINGSCROLLLOCK = 132, */
+		/* not sure whether there's a reason to enable these */
+		/*     KEY_LOCKINGCAPSLOCK = 130,  */
+		/*     KEY_LOCKINGNUMLOCK = 131, */
+		/*     KEY_LOCKINGSCROLLLOCK = 132, */
 		KEY_KP_COMMA = 133,
 		KEY_KP_EQUALSAS400 = 134,
 
@@ -330,7 +330,7 @@ public:
 		KEY_RALT = 230, /**< alt gr, option */
 		KEY_RGUI = 231, /**< windows, command (apple), meta */
 
-		KEY_MODE = 257,    /**< I'm not sure if this is really not covered
+		KEY_MODE = 257, /**< I'm not sure if this is really not covered
 									 *   by any of the above, but since there's a
 									 *   special KMOD_MODE for it I'm adding it here
 									 */
@@ -663,27 +663,33 @@ public:
 
 	Input(Window* window);
 
-	inline bool GetKey(int keyCode)            const { return m_inputs[keyCode]; }
-	inline bool GetKeyDown(int keyCode)        const { return m_downKeys[keyCode]; }
-	inline bool GetKeyUp(int keyCode)          const { return m_upKeys[keyCode]; }
-	inline bool GetMouse(int keyCode)          const { return m_mouseInput[keyCode]; }
-	inline bool GetMouseDown(int keyCode)      const { return m_downMouse[keyCode]; }
-	inline bool GetMouseUp(int keyCode)        const { return m_upMouse[keyCode]; }
-	inline int GetLastKey()				   const { return m_lastKey; }
-	inline Vector2f GetMousePosition()         const { return Vector2f((float)m_mouseX, (float)m_mouseY); }
-	
-	void SetCursor(bool value)                 const;
-	bool GetCursor()                 const;
+	inline bool GetKey(int keyCode) const { return m_inputs[keyCode]; }
+	inline bool GetKeyDown(int keyCode) const { return m_downKeys[keyCode]; }
+	inline bool GetKeyUp(int keyCode) const { return m_upKeys[keyCode]; }
+	inline bool GetMouse(int keyCode) const { return m_mouseInput[keyCode]; }
+	inline bool GetMouseDown(int keyCode) const { return m_downMouse[keyCode]; }
+	inline bool GetMouseUp(int keyCode) const { return m_upMouse[keyCode]; }
+	inline int GetLastKey() const { return m_lastKey; }
+	inline Vector2f GetMousePosition() const { return Vector2f((float)m_mouseX, (float)m_mouseY); }
+
+	void SetCursor(bool value) const;
+	bool GetCursor() const;
 	void SetMousePosition(const Vector2f& pos) const;
-	
+
 	inline void SetKey(int keyCode, bool value) { m_inputs[keyCode] = value; }
-	inline void SetKeyDown(int keyCode, bool value)   { m_downKeys[keyCode] = value; m_lastKey = keyCode;}
-	inline void SetKeyUp(int keyCode, bool value)     { m_upKeys[keyCode] = value; }
-	inline void SetMouse(int keyCode, bool value)     { m_mouseInput[keyCode] = value; }
+
+	inline void SetKeyDown(int keyCode, bool value)
+	{
+		m_downKeys[keyCode] = value;
+		m_lastKey = keyCode;
+	}
+
+	inline void SetKeyUp(int keyCode, bool value) { m_upKeys[keyCode] = value; }
+	inline void SetMouse(int keyCode, bool value) { m_mouseInput[keyCode] = value; }
 	inline void SetMouseDown(int keyCode, bool value) { m_downMouse[keyCode] = value; }
-	inline void SetMouseUp(int keyCode, bool value)   { m_upMouse[keyCode] = value; }
-	inline void SetMouseX(int value)                  { m_mouseX = value; }
-	inline void SetMouseY(int value)                  { m_mouseY = value; }
+	inline void SetMouseUp(int keyCode, bool value) { m_upMouse[keyCode] = value; }
+	inline void SetMouseX(int value) { m_mouseX = value; }
+	inline void SetMouseY(int value) { m_mouseY = value; }
 	inline void ClearKey() { m_lastKey = -1; }
 protected:
 private:
@@ -693,8 +699,8 @@ private:
 	bool m_mouseInput[NUM_MOUSEBUTTONS];
 	bool m_downMouse[NUM_MOUSEBUTTONS];
 	bool m_upMouse[NUM_MOUSEBUTTONS];
-	int  m_mouseX;
-	int  m_mouseY;
+	int m_mouseX;
+	int m_mouseY;
 	Window* m_window;
 	int m_lastKey;
 };

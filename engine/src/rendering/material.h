@@ -42,36 +42,39 @@ public:
 	Material(const std::string& materialName = "");
 	Material(const Material& other);
 	virtual ~Material();
-	
+
 	Material(const std::string& materialName, const Texture& diffuse, float specularIntensity, float specularPower,
-		const Texture& normalMap = Texture("default_normal.jpg"),
-		const Texture& dispMap = Texture("default_disp.png"), float dispMapScale = 0.0f, float dispMapOffset = 0.0f, Vector3f color = Vector3f());
-		
+	         const Texture& normalMap = Texture("default_normal.jpg"),
+	         const Texture& dispMap = Texture("default_disp.png"), float dispMapScale = 0.0f, float dispMapOffset = 0.0f, Vector3f color = Vector3f());
+
 	inline void SetVector3f(const std::string& name, const Vector3f& value) { m_materialData->SetVector3f(name, value); }
-	inline void SetFloat(const std::string& name, float value)              { m_materialData->SetFloat(name, value); }
-	inline void SetShader (Shader* shader) { m_shader = shader; }
-	inline void SetTexture(const std::string& name, const Texture& value)   { m_materialData->SetTexture(name, value); }
-	
+	inline void SetFloat(const std::string& name, float value) { m_materialData->SetFloat(name, value); }
+	inline void SetShader(Shader* shader) { m_shader = shader; }
+	inline void SetTexture(const std::string& name, const Texture& value) { m_materialData->SetTexture(name, value); }
+
 	inline const Vector3f& GetVector3f(const std::string& name) const { return m_materialData->GetVector3f(name); }
-	inline float GetFloat(const std::string& name)              const { return m_materialData->GetFloat(name); }
-	inline const Texture& GetTexture(const std::string& name)   const { return m_materialData->GetTexture(name); }
+	inline float GetFloat(const std::string& name) const { return m_materialData->GetFloat(name); }
+	inline const Texture& GetTexture(const std::string& name) const { return m_materialData->GetTexture(name); }
 	inline void BindDiffuseTexture(int slot) { m_materialData->GetTexture("diffuse").Bind(slot); }
-	inline Shader* GetShader () { return m_shader; }
+	inline Shader* GetShader() { return m_shader; }
 	inline MaterialData* GetData() const { return m_materialData; }
 	inline void SetData(MaterialData* data) { m_materialData = data; }
-	static std::map<std::string, MaterialData*> s_resourceMap;
+	static std::map<std::string, Material*> s_resourceMap;
 	static Material* LoadCachedMaterial(const std::string& fileName, int index);
 	void CacheMaterial(const std::string& fileName, int index);
-	std::string   m_materialName;
+	std::string m_materialName;
 
 	void DrawDebugUI();
 
 protected:
 private:
 	MaterialData* m_materialData;
-	
-	Shader*       m_shader;
-	void operator=(const Material& other) {}
+
+	Shader* m_shader;
+
+	void operator=(const Material& other)
+	{
+	}
 };
 
 #endif

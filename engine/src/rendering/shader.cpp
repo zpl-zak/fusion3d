@@ -55,52 +55,52 @@ static std::string LoadShader(const std::string& fileName);
 ShaderData::ShaderData(const std::string& fileName)
 {
 	std::string actualFileName = fileName;
-	#if PROFILING_DISABLE_SHADING != 0
+#if PROFILING_DISABLE_SHADING != 0
 		actualFileName = "nullShader";
-	#endif
-	
+#endif
+
 	m_program = glCreateProgram();
 
-	if (m_program == 0) 
+	if (m_program == 0)
 	{
-        fprintf(stderr, "Error creating shader program\n");
-        exit(1);
-    }
-    
-    if(s_supportedOpenGLLevel == 0)
-    {
+		fprintf(stderr, "Error creating shader program\n");
+		exit(1);
+	}
+
+	if (s_supportedOpenGLLevel == 0)
+	{
 		int majorVersion;
 		int minorVersion;
-		
-		glGetIntegerv(GL_MAJOR_VERSION, &majorVersion); 
+
+		glGetIntegerv(GL_MAJOR_VERSION, &majorVersion);
 		glGetIntegerv(GL_MINOR_VERSION, &minorVersion);
-		
+
 		s_supportedOpenGLLevel = majorVersion * 100 + minorVersion * 10;
-		
-		if(s_supportedOpenGLLevel >= 330)
+
+		if (s_supportedOpenGLLevel >= 330)
 		{
 			std::ostringstream convert;
 			convert << s_supportedOpenGLLevel;
-		
+
 			s_glslVersion = convert.str();
 		}
-		else if(s_supportedOpenGLLevel >= 320)
+		else if (s_supportedOpenGLLevel >= 320)
 		{
 			s_glslVersion = "150";
 		}
-		else if(s_supportedOpenGLLevel >= 310)
+		else if (s_supportedOpenGLLevel >= 310)
 		{
 			s_glslVersion = "140";
 		}
-		else if(s_supportedOpenGLLevel >= 300)
+		else if (s_supportedOpenGLLevel >= 300)
 		{
 			s_glslVersion = "130";
 		}
-		else if(s_supportedOpenGLLevel >= 210)
+		else if (s_supportedOpenGLLevel >= 210)
 		{
 			s_glslVersion = "120";
 		}
-		else if(s_supportedOpenGLLevel >= 200)
+		else if (s_supportedOpenGLLevel >= 200)
 		{
 			s_glslVersion = "110";
 		}
@@ -110,28 +110,28 @@ ShaderData::ShaderData(const std::string& fileName)
 			exit(1);
 		}
 	}
-    
+
 	std::string shaderText = LoadShader(actualFileName + ".glsl");
 
 	std::string vertexShaderText = "#version " + s_glslVersion + "\n#define VS_BUILD\n#define GLSL_VERSION " + s_glslVersion + "\n" + shaderText;
 	std::string fragmentShaderText = "#version " + s_glslVersion + "\n#define FS_BUILD\n#define GLSL_VERSION " + s_glslVersion + "\n" + shaderText;
-    
-    AddVertexShader(vertexShaderText);
+
+	AddVertexShader(vertexShaderText);
 	AddFragmentShader(fragmentShaderText);
-	
+
 	std::string attributeKeyword = "attribute";
 	AddAllAttributes(vertexShaderText, attributeKeyword);
-	
+
 	CompileShader();
-	
+
 	AddShaderUniforms(shaderText);
 }
 
 ShaderData::~ShaderData()
 {
-	for(std::vector<int>::iterator it = m_shaders.begin(); it != m_shaders.end(); ++it) 
+	for (std::vector<int>::iterator it = m_shaders.begin(); it != m_shaders.end(); ++it)
 	{
-		glDetachShader(m_program,*it);
+		glDetachShader(m_program, *it);
 		glDeleteShader(*it);
 	}
 	glDeleteProgram(m_program);
@@ -142,7 +142,7 @@ Shader::Shader(const std::string& fileName)
 	m_fileName = fileName;
 
 	std::map<std::string, ShaderData*>::const_iterator it = s_resourceMap.find(fileName);
-	if(it != s_resourceMap.end())
+	if (it != s_resourceMap.end())
 	{
 		m_shaderData = it->second;
 		m_shaderData->AddReference();
@@ -163,11 +163,11 @@ Shader::Shader(const Shader& other) :
 
 Shader::~Shader()
 {
-	if(m_shaderData && m_shaderData->RemoveReference())
+	if (m_shaderData && m_shaderData->RemoveReference())
 	{
-		if(m_fileName.length() > 0)
+		if (m_fileName.length() > 0)
 			s_resourceMap.erase(m_fileName);
-			
+
 		delete m_shaderData;
 	}
 }
@@ -187,21 +187,21 @@ void Shader::UpdateUniforms(const Transform& transform, const Material& material
 	//cas.StartInvocation();
 	Matrix4f worldMatrix = transform.GetTransformation();
 	Matrix4f projectedMatrix = camera.GetViewProjection() * worldMatrix;
-	
+
 	static const char* uniformName;
 	static const char* uniformType;
 	static const char* unprefixedName;
 
-	for(unsigned int i = 0; i < m_shaderData->GetUniformNames().size(); i++)
+	for (unsigned int i = 0; i < m_shaderData->GetUniformNames().size(); i++)
 	{
 		uniformName = m_shaderData->GetUniformNames()[i].c_str();
 		uniformType = m_shaderData->GetUniformTypes()[i].c_str();
-		
-		if(uniformName[0] == 'R' && uniformName[1] == '_')
+
+		if (uniformName[0] == 'R' && uniformName[1] == '_')
 		{
 			unprefixedName = uniformName + 2;
-			
-			if(!strcmp(unprefixedName,"lightMatrix"))
+
+			if (!strcmp(unprefixedName, "lightMatrix"))
 				SetUniformMatrix4f(uniformName, renderingEngine.GetLightMatrix() * worldMatrix);
 			else if (!strcmp(uniformType, "sampler2D"))
 			{
@@ -212,23 +212,23 @@ void Shader::UpdateUniforms(const Transform& transform, const Material& material
 					SetUniformi(uniformName, samplerSlot);
 				}
 			}
-			else if(!strcmp(uniformType , "vec3"))
+			else if (!strcmp(uniformType, "vec3"))
 				SetUniformVector3f(uniformName, renderingEngine.GetVector3f(unprefixedName));
-			else if(!strcmp(uniformType , "float"))
+			else if (!strcmp(uniformType, "float"))
 				SetUniformf(uniformName, renderingEngine.GetFloat(unprefixedName));
-			
-			else if(!strcmp(uniformType , "DirectionalLight"))
+
+			else if (!strcmp(uniformType, "DirectionalLight"))
 				SetUniformDirectionalLight(uniformName, *(const DirectionalLight*)&renderingEngine.GetActiveLight());
-			else if(!strcmp(uniformType , "PointLight"))
+			else if (!strcmp(uniformType, "PointLight"))
 				SetUniformPointLight(uniformName, *(const PointLight*)&renderingEngine.GetActiveLight());
-			else if(!strcmp(uniformType , "SpotLight"))
+			else if (!strcmp(uniformType, "SpotLight"))
 				SetUniformSpotLight(uniformName, *(const SpotLight*)&renderingEngine.GetActiveLight());
-			
-			
+
+
 			else
 				renderingEngine.UpdateUniformStruct(transform, material, *this, uniformName, uniformType);
 		}
-		else if(!strcmp(uniformType, "sampler2D"))
+		else if (!strcmp(uniformType, "sampler2D"))
 		{
 			int samplerSlot = renderingEngine.GetSamplerSlot(uniformName);
 			if (!material.GetTexture(uniformName).IsBoundAlready(samplerSlot))
@@ -237,26 +237,26 @@ void Shader::UpdateUniforms(const Transform& transform, const Material& material
 				SetUniformi(uniformName, samplerSlot);
 			}
 		}
-		else if(uniformName[0] == 'T' && uniformName[1] == '_')
+		else if (uniformName[0] == 'T' && uniformName[1] == '_')
 		{
 			if (!strcmp(uniformName, "T_MVP"))
 			{
-			//	if (camera.GetTransform().HasChanged() || transform.HasChanged())
-					SetUniformMatrix4f(uniformName, projectedMatrix);
+				//	if (camera.GetTransform().HasChanged() || transform.HasChanged())
+				SetUniformMatrix4f(uniformName, projectedMatrix);
 			}
-			else if (!strcmp(uniformName ,"T_model") )
+			else if (!strcmp(uniformName, "T_model"))
 			{
 				//if (transform.HasChanged())
-					SetUniformMatrix4f(uniformName, worldMatrix);
+				SetUniformMatrix4f(uniformName, worldMatrix);
 			}
 			/*else
 				throw "Invalid Transform Uniform: " + uniformName;*/
 		}
-		else if(uniformName[0] == 'C' && uniformName[1] == '_')
+		else if (uniformName[0] == 'C' && uniformName[1] == '_')
 		{
-			if(!strcmp(uniformName, "C_eyePos"))
-				///if (camera.GetTransform().HasChanged())
-					SetUniformVector3f(uniformName, camera.GetTransform().GetTransformedPos());
+			if (!strcmp(uniformName, "C_eyePos"))
+			///if (camera.GetTransform().HasChanged())
+				SetUniformVector3f(uniformName, camera.GetTransform().GetTransformedPos());
 			/*else
 				throw "Invalid Camera Uniform: " + uniformName;*/
 		}
@@ -264,14 +264,14 @@ void Shader::UpdateUniforms(const Transform& transform, const Material& material
 		{
 			if (!strcmp(uniformName, "G_Time"))
 			{
-				SetUniformf (uniformName,Time::GetTime());
+				SetUniformf(uniformName, Time::GetTime());
 			}
 		}
 		else
 		{
-			if(!strcmp(uniformType, "vec3"))
+			if (!strcmp(uniformType, "vec3"))
 				SetUniformVector3f(uniformName, material.GetVector3f(uniformName));
-			else if(!strcmp(uniformType, "float"))
+			else if (!strcmp(uniformType, "float"))
 				SetUniformf(uniformName, material.GetFloat(uniformName));
 			/*else
 				throw uniformType + " is not supported by the Material class";*/
@@ -294,20 +294,20 @@ void Shader::SetUniformVector3f(const std::string& uniformName, const Vector3f& 
 	glUniform3f(m_shaderData->GetUniformMap().at(uniformName), value.GetX(), value.GetY(), value.GetZ());
 }
 
-Shader * Shader::GetShader (const std::string & fileName)
+Shader* Shader::GetShader(const std::string& fileName)
 {
 	Shader* shader;
 
-	std::map<std::string, Shader*>::const_iterator it = s_resourceShaderMap.find (fileName);
-	if (it != s_resourceShaderMap.end ())
+	std::map<std::string, Shader*>::const_iterator it = s_resourceShaderMap.find(fileName);
+	if (it != s_resourceShaderMap.end())
 	{
 		shader = it->second;
-		shader->AddReference ();
+		shader->AddReference();
 	}
 	else
 	{
-		shader = new Shader (fileName);
-		s_resourceShaderMap.insert (std::pair<std::string, Shader*> (fileName, shader));
+		shader = new Shader(fileName);
+		s_resourceShaderMap.insert(std::pair<std::string, Shader*>(fileName, shader));
 	}
 
 	return shader;
@@ -368,7 +368,7 @@ void ShaderData::AddProgram(const std::string& text, int type)
 {
 	int shader = glCreateShader(type);
 
-	if(shader == 0)
+	if (shader == 0)
 	{
 		fprintf(stderr, "Error creating shader type %d\n", type);
 		exit(1);
@@ -383,18 +383,18 @@ void ShaderData::AddProgram(const std::string& text, int type)
 	glCompileShader(shader);
 
 	GLint success;
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-    if (!success) 
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+	if (!success)
 	{
-        GLchar InfoLog[1024];
+		GLchar InfoLog[1024];
 
-        glGetShaderInfoLog(shader, 1024, NULL, InfoLog);
+		glGetShaderInfoLog(shader, 1024, NULL, InfoLog);
 		char err[255];
-        sprintf_s(err, 255, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
-		OutputDebugString (err);
-		getchar ();
-        exit(1);
-    }
+		sprintf_s(err, 255, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
+		OutputDebugString(err);
+		getchar();
+		exit(1);
+	}
 
 	glAttachShader(m_program, shader);
 	m_shaders.push_back(shader);
@@ -404,29 +404,29 @@ void ShaderData::AddAllAttributes(const std::string& vertexShaderText, const std
 {
 	int currentAttribLocation = 0;
 	size_t attributeLocation = vertexShaderText.find(attributeKeyword);
-	while(attributeLocation != std::string::npos)
+	while (attributeLocation != std::string::npos)
 	{
- 		bool isCommented = false;
+		bool isCommented = false;
 		size_t lastLineEnd = vertexShaderText.rfind("\n", attributeLocation);
-		
-		if(lastLineEnd != std::string::npos)
+
+		if (lastLineEnd != std::string::npos)
 		{
-			std::string potentialCommentSection = vertexShaderText.substr(lastLineEnd,attributeLocation - lastLineEnd);
-			
+			std::string potentialCommentSection = vertexShaderText.substr(lastLineEnd, attributeLocation - lastLineEnd);
+
 			//Potential false positives are both in comments, and in macros.
 			isCommented = potentialCommentSection.find("//") != std::string::npos || potentialCommentSection.find("#") != std::string::npos;
 		}
-		
-		if(!isCommented)
+
+		if (!isCommented)
 		{
 			size_t begin = attributeLocation + attributeKeyword.length();
 			size_t end = vertexShaderText.find(";", begin);
-			
-			std::string attributeLine = vertexShaderText.substr(begin + 1, end-begin - 1);
-			
+
+			std::string attributeLine = vertexShaderText.substr(begin + 1, end - begin - 1);
+
 			begin = attributeLine.find(" ");
 			std::string attributeName = attributeLine.substr(begin + 1);
-				
+
 			glBindAttribLocation(m_program, currentAttribLocation, attributeName.c_str());
 			currentAttribLocation++;
 		}
@@ -437,37 +437,37 @@ void ShaderData::AddAllAttributes(const std::string& vertexShaderText, const std
 void ShaderData::AddShaderUniforms(const std::string& shaderText)
 {
 	static const std::string UNIFORM_KEY = "uniform";
-		
+
 	std::vector<UniformStruct> structs = FindUniformStructs(shaderText);
 
 	size_t uniformLocation = shaderText.find(UNIFORM_KEY);
-	while(uniformLocation != std::string::npos)
+	while (uniformLocation != std::string::npos)
 	{
 		bool isCommented = false;
 		size_t lastLineEnd = shaderText.rfind("\n", uniformLocation);
-		
-		if(lastLineEnd != std::string::npos)
+
+		if (lastLineEnd != std::string::npos)
 		{
-			std::string potentialCommentSection = shaderText.substr(lastLineEnd,uniformLocation - lastLineEnd);
+			std::string potentialCommentSection = shaderText.substr(lastLineEnd, uniformLocation - lastLineEnd);
 			isCommented = potentialCommentSection.find("//") != std::string::npos;
 		}
-		
-		if(!isCommented)
+
+		if (!isCommented)
 		{
 			size_t begin = uniformLocation + UNIFORM_KEY.length();
 			size_t end = shaderText.find(";", begin);
-			
-			std::string uniformLine = shaderText.substr(begin + 1, end-begin - 1);
-			
+
+			std::string uniformLine = shaderText.substr(begin + 1, end - begin - 1);
+
 			begin = uniformLine.find(" ");
 			std::string uniformName = uniformLine.substr(begin + 1);
 			std::string uniformType = uniformLine.substr(0, begin);
-			
+
 			m_uniformNames.push_back(uniformName);
 			m_uniformTypes.push_back(uniformType);
 
-			OutputDebugStringA (uniformName.c_str ());
-			if (uniformName.size () > 80)continue;
+			OutputDebugStringA(uniformName.c_str());
+			if (uniformName.size() > 80)continue;
 			AddUniform(uniformName, uniformType, structs);
 		}
 		uniformLocation = shaderText.find(UNIFORM_KEY, uniformLocation + UNIFORM_KEY.length());
@@ -478,19 +478,19 @@ void ShaderData::AddUniform(const std::string& uniformName, const std::string& u
 {
 	bool addThis = true;
 
-	for(unsigned int i = 0; i < structs.size(); i++)
+	for (unsigned int i = 0; i < structs.size(); i++)
 	{
-		if(structs[i].GetName().compare(uniformType) == 0)
+		if (structs[i].GetName().compare(uniformType) == 0)
 		{
 			addThis = false;
-			for(unsigned int j = 0; j < structs[i].GetMemberNames().size(); j++)
+			for (unsigned int j = 0; j < structs[i].GetMemberNames().size(); j++)
 			{
 				AddUniform(uniformName + "." + structs[i].GetMemberNames()[j].GetName(), structs[i].GetMemberNames()[j].GetType(), structs);
 			}
 		}
 	}
 
-	if(!addThis)
+	if (!addThis)
 		return;
 
 	unsigned int location = glGetUniformLocation(m_program, uniformName.c_str());
@@ -500,17 +500,17 @@ void ShaderData::AddUniform(const std::string& uniformName, const std::string& u
 		//OutputDebugStringA(this->)
 	}
 
-//	assert(location != INVALID_VALUE);
+	//	assert(location != INVALID_VALUE);
 
 	m_uniformMap.insert(std::pair<std::string, unsigned int>(uniformName, location));
 }
 
 void ShaderData::CompileShader() const
 {
-    glLinkProgram(m_program);
+	glLinkProgram(m_program);
 	CheckShaderError(m_program, GL_LINK_STATUS, true, "Error linking shader program");
 
-    glValidateProgram(m_program);
+	glValidateProgram(m_program);
 	CheckShaderError(m_program, GL_VALIDATE_STATUS, true, "Invalid shader program");
 }
 
@@ -520,25 +520,24 @@ void ShaderData::CompileShader() const
 static void CheckShaderError(int shader, int flag, bool isProgram, const std::string& errorMessage)
 {
 	GLint success = 0;
-    GLchar error[1024] = { 0 };
+	GLchar error[1024] = {0};
 
-	if(isProgram)
-		glGetProgramiv(shader, flag, &success);
+	if (isProgram)
+	glGetProgramiv(shader, flag, &success);
 	else
-		glGetShaderiv(shader, flag, &success);
+	glGetShaderiv(shader, flag, &success);
 
-	if(!success)
+	if (!success)
 	{
-		if(isProgram)
-			glGetProgramInfoLog(shader, sizeof(error), NULL, error);
+		if (isProgram)
+		glGetProgramInfoLog(shader, sizeof(error), NULL, error);
 		else
-			glGetShaderInfoLog(shader, sizeof(error), NULL, error);
+		glGetShaderInfoLog(shader, sizeof(error), NULL, error);
 
 		char vodka[4096] = {};
 		sprintf(vodka, "============ GLSL ERROR ===========\n%s: '%s'\n", errorMessage.c_str(), error);
 
 		OutputDebugStringA(vodka);
-
 	}
 }
 
@@ -550,18 +549,18 @@ static std::string LoadShader(const std::string& fileName)
 	std::string output;
 	std::string line;
 
-	if(file.is_open())
+	if (file.is_open())
 	{
-		while(file.good())
+		while (file.good())
 		{
 			getline(file, line);
-			
-			if(line.find("#include") == std::string::npos)
+
+			if (line.find("#include") == std::string::npos)
 				output.append(line + "\n");
 			else
 			{
 				std::string includeFileName = Util::Split(line, ' ')[1];
-				includeFileName = includeFileName.substr(1,includeFileName.length() - 2);
+				includeFileName = includeFileName.substr(1, includeFileName.length() - 2);
 
 				std::string toAppend = LoadShader(includeFileName);
 				output.append(toAppend + "\n");
@@ -584,40 +583,40 @@ static std::vector<TypedData> FindUniformStructComponents(const std::string& ope
 	std::vector<TypedData> result;
 	std::vector<std::string> structLines = Util::Split(openingBraceToClosingBrace, ';');
 
-	for(unsigned int i = 0; i < structLines.size(); i++)
+	for (unsigned int i = 0; i < structLines.size(); i++)
 	{
 		size_t nameBegin = UNSIGNED_NEG_ONE;
 		size_t nameEnd = UNSIGNED_NEG_ONE;
 
-		for(unsigned int j = 0; j < structLines[i].length(); j++)
+		for (unsigned int j = 0; j < structLines[i].length(); j++)
 		{
 			bool isIgnoreableCharacter = false;
 
-			for(unsigned int k = 0; k < sizeof(charsToIgnore)/sizeof(char); k++)
+			for (unsigned int k = 0; k < sizeof(charsToIgnore) / sizeof(char); k++)
 			{
-				if(structLines[i][j] == charsToIgnore[k])
+				if (structLines[i][j] == charsToIgnore[k])
 				{
 					isIgnoreableCharacter = true;
 					break;
 				}
 			}
 
-			if(nameBegin == UNSIGNED_NEG_ONE && isIgnoreableCharacter == false)
+			if (nameBegin == UNSIGNED_NEG_ONE && isIgnoreableCharacter == false)
 			{
 				nameBegin = j;
 			}
-			else if(nameBegin != UNSIGNED_NEG_ONE && isIgnoreableCharacter)
+			else if (nameBegin != UNSIGNED_NEG_ONE && isIgnoreableCharacter)
 			{
 				nameEnd = j;
 				break;
 			}
 		}
 
-		if(nameBegin == UNSIGNED_NEG_ONE || nameEnd == UNSIGNED_NEG_ONE)
+		if (nameBegin == UNSIGNED_NEG_ONE || nameEnd == UNSIGNED_NEG_ONE)
 			continue;
 
 		TypedData newData(
-			structLines[i].substr(nameEnd + 1), 
+			structLines[i].substr(nameEnd + 1),
 			structLines[i].substr(nameBegin, nameEnd - nameBegin));
 
 		result.push_back(newData);
@@ -637,7 +636,7 @@ static std::vector<UniformStruct> FindUniformStructs(const std::string& shaderTe
 	std::vector<UniformStruct> result;
 
 	size_t structLocation = shaderText.find(STRUCT_KEY);
-	while(structLocation != std::string::npos)
+	while (structLocation != std::string::npos)
 	{
 		structLocation += STRUCT_KEY.length() + 1; //Ignore the struct keyword and space
 

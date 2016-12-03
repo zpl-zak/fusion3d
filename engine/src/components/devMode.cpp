@@ -29,23 +29,24 @@ EntityComponent* component_settings_uid = 0;
 
 bool global_axis = true;
 
+bool render_settings = false;
+
 void CreateEntity()
 {
-	static char name[256] = { 0 };
+	static char name[256] = {0};
 	//Dialog
 	{
 		ImGui::InputText("Name", name, 256);
-		
 	}
 
 	if (ImGui::Button("Cancel"))
 	{
-clear:
+	clear:
 		ZeroMemory(name, 256);
 		create_entity_window = false;
 	}
 
-	if (ImGui::Button("Create")) 
+	if (ImGui::Button("Create"))
 	{
 		auto e = new Entity();
 		e->SetDisplayName(name);
@@ -112,13 +113,13 @@ void ShowObjectProps(Entity* uid)
 				float y = p->GetY();
 				float z = p->GetZ();
 
-				ImGui::DragFloat("X ##xp", &x, 0.1f);  
+				ImGui::DragFloat("X ##xp", &x, 0.1f);
 				ImGui::DragFloat("Y ##yp", &y, 0.1f);
 				ImGui::DragFloat("Z ##zp", &z, 0.1f);
 				t->SetPos(Vector3f(x, y, z));
 
 				ImGui::NextColumn();
-				
+
 				auto p2 = t->GetEulerAngles();
 
 				float roll = ToDegrees(p2[0]);
@@ -137,7 +138,7 @@ void ShowObjectProps(Entity* uid)
 				float ex = ToRadians(roll);
 				float ey = ToRadians(pitch);
 				float ez = ToRadians(yaw);
-				
+
 				t->SetEulerAngles(Vector3f(ex, ey, ez));
 
 				ImGui::NextColumn();
@@ -207,7 +208,6 @@ void ShowObjectProps(Entity* uid)
 	{
 		create_component_window = true;
 	}
-
 }
 
 void ShowObject(const char* prefix, Entity* uid)
@@ -215,13 +215,14 @@ void ShowObject(const char* prefix, Entity* uid)
 	if (uid == nullptr)
 		return;
 
-	ImGui::PushID(uid);                      // Use object uid as identifier. Most commonly you could also use the object pointer as a base ID.
+	ImGui::PushID(uid); // Use object uid as identifier. Most commonly you could also use the object pointer as a base ID.
 	//ImGui::AlignFirstTextHeightToWidgets();  // Text and Tree nodes are less high than regular widgets, here we add vertical spacing to make the tree lines equal high.
 	bool node_open = ImGui::TreeNode("Object", "%s_%u", prefix, uid);
 
 	if (node_open)
 	{
-		if (ImGui::Selectable("General", &general_settings)) {
+		if (ImGui::Selectable("General", &general_settings))
+		{
 			general_settings = true;
 			general_settings_uid = uid;
 		}
@@ -236,7 +237,7 @@ void ShowObject(const char* prefix, Entity* uid)
 	ImGui::PopID();
 }
 
-DevMode::DevMode(const Window & window, bool isDev)
+DevMode::DevMode(const Window& window, bool isDev)
 	:
 	m_window(&window),
 	m_isUpdating(!isDev),
@@ -244,7 +245,7 @@ DevMode::DevMode(const Window & window, bool isDev)
 	m_isCmd(false),
 	m_showCursor(false),
 	m_devCamera(Matrix4f().InitPerspective(
-		ToRadians(70.0f), window.GetAspect(), 0.1f, 1000.0f), 0)
+		            ToRadians(70.0f), window.GetAspect(), 0.1f, 1000.0f), 0)
 
 	, enable_physics(false)
 {
@@ -286,12 +287,13 @@ void DevMode::Init()
 	ProgramHoster::SetActive(m_isUpdating);
 
 
-	for (std::map<std::string, constructor_t>::iterator it = g_factory.m_classes.begin(); it != g_factory.m_classes.end(); ++it) {
+	for (std::map<std::string, constructor_t>::iterator it = g_factory.m_classes.begin(); it != g_factory.m_classes.end(); ++it)
+	{
 		factory_class_names.push_back(it->first.c_str());
 	}
 }
 
-void DevMode::ProcessInput(const Input & input, float delta)
+void DevMode::ProcessInput(const Input& input, float delta)
 {
 	if (m_isDev)
 	{
@@ -324,13 +326,12 @@ void DevMode::ProcessInput(const Input & input, float delta)
 
 			if (input.GetMouseDown(Input::MOUSE_LEFT_BUTTON) && m_handleMode == HANDLE_SELECT)
 			{
-
 				Vector3f RayOrigin, RayDir;
 
 				Util::ScreenToWorld(input.GetMousePosition().GetX(), input.GetMousePosition().GetY(), m_window->GetWidth(), m_window->GetHeight(), m_devCamera.GetViewProjectionWithoutTranslation(), RayOrigin, RayDir);
 				RayOrigin = m_devCamera.GetTransform()->GetTransformedPos();
 
-				Vector3f end = RayOrigin + RayDir*1000.0f;
+				Vector3f end = RayOrigin + RayDir * 1000.0f;
 
 				btCollisionWorld::ClosestRayResultCallback RayCallback(
 					RayOrigin.GetBT(),
@@ -338,10 +339,10 @@ void DevMode::ProcessInput(const Input & input, float delta)
 				);
 
 				CoreEngine::GetCoreEngine()->GetPhysicsEngine()->GetWorld()->rayTest(
-					RayOrigin.GetBT(),
-					end.GetBT(),
-					RayCallback
-				);
+					                           RayOrigin.GetBT(),
+					                           end.GetBT(),
+					                           RayCallback
+				                           );
 
 				if (RayCallback.hasHit())
 				{
@@ -384,7 +385,6 @@ void DevMode::ProcessInput(const Input & input, float delta)
 								general_settings = false;
 								general_settings_uid = nullptr;
 							}
-							
 						}
 
 						//std::cout << "Selected Count: " << m_selected.size () << std::endl;
@@ -543,11 +543,10 @@ void DevMode::Update(float delta)
 {
 	if (m_isDev)
 	{
-
 	}
 }
 
-void DevMode::PostRender(const Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera)
+void DevMode::PostRender(const Shader& shader, RenderingEngine& renderingEngine, const Camera& camera)
 {
 	root_entity = this;
 	if (m_isDev)
@@ -572,7 +571,7 @@ void DevMode::PostRender(const Shader & shader, const RenderingEngine & renderin
 
 		for (auto x : m_selected)
 		{
-			m_engine->GetPhysicsEngine ()->GetWorld ()->debugDrawObject (x->GetBody ()->getWorldTransform (), x->GetBody ()->getCollisionShape (), color);
+			m_engine->GetPhysicsEngine()->GetWorld()->debugDrawObject(x->GetBody()->getWorldTransform(), x->GetBody()->getCollisionShape(), color);
 		}
 	}
 
@@ -651,6 +650,23 @@ void DevMode::PostRender(const Shader & shader, const RenderingEngine & renderin
 			ImGui::End();
 		}
 
+		ImGui::SetNextWindowPos(ImVec2(0, 120), ImGuiSetCond_FirstUseEver);
+		ImGui::Begin("Render Settings", (bool*)&render_settings, ImGuiWindowFlags_NoResize);
+		{
+			ImGui::Text("Ambient color: ");
+			static const Vector3f colvec = renderingEngine.GetVector3f("ambient");
+			static float col[3] = { colvec[0], colvec[1], colvec[2] };
+			ImGui::ColorEdit3("Ambient Color", col);
+
+			if (ImGui::Button("Update"))
+			{
+				const Vector3f newcol = Vector3f(col[0], col[1], col[2]);
+				renderingEngine.SetVector3f("ambient", newcol);
+			}
+			
+			ImGui::End();
+		}
+
 
 		if (ImGui::BeginMainMenuBar())
 		{
@@ -672,13 +688,16 @@ void DevMode::PostRender(const Shader & shader, const RenderingEngine & renderin
 					m_engine->GetPhysicsEngine()->SetSimulation(enable_physics);
 				}
 
+				if (ImGui::MenuItem("Render Settings", "CTRL+R"))
+				{
+					render_settings = !render_settings;
+				}
 
 				ImGui::EndMenu();
 			}
 
 			ImGui::EndMainMenuBar();
 		}
-
 	}
 
 	///GIZMO
@@ -700,7 +719,7 @@ void DevMode::PostRender(const Shader & shader, const RenderingEngine & renderin
 		pos.SetX(pos.GetX() / pos.GetZ());
 		pos.SetY(pos.GetY() / pos.GetZ());
 
-		pos.SetX(renderingEngine.GetWindow()->GetWidth() *  ((pos.GetX() + 1.0f) / 2.0f) + 0.05f);
+		pos.SetX(renderingEngine.GetWindow()->GetWidth() * ((pos.GetX() + 1.0f) / 2.0f) + 0.05f);
 		pos.SetY(renderingEngine.GetWindow()->GetHeight() * (1.0f - (pos.GetY() + 1.0f) / 2.0f) + 0.05f);
 
 		if (pos.GetX() > renderingEngine.GetWindow()->GetWidth() ||
@@ -765,4 +784,3 @@ void DevMode::EvalKeySequence()
 
 	m_keySequence.clear();
 }
-

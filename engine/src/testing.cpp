@@ -25,9 +25,9 @@
 
 void Testing::RunAllTests()
 {
-    //Math
+	//Math
 	{
-		Vector3f x = Vector3f(6.f, 3.f, 2.f); 
+		Vector3f x = Vector3f(6.f, 3.f, 2.f);
 		size_t x_size = x.Length();
 		assert(x_size == 7.f);
 

@@ -32,36 +32,70 @@ class Shader;
 /**
  * Represents functional component attached to entity.
 */
-class EntityComponent{
+class EntityComponent
+{
 public:
 
 	FCLASS (EntityComponent);
 
-	EntityComponent () :
-		m_parent (0) {}
-	virtual ~EntityComponent() {}
+	EntityComponent() :
+		m_parent(0)
+	{
+	}
+
+	virtual ~EntityComponent()
+	{
+	}
 
 	virtual std::string _GetClassName_() { return "EntityComponent"; }
-	virtual void Init() { }
-	virtual void ProcessInput(const Input& input, float delta) {}
-	virtual void Update(float delta) {}
-	virtual void Render(Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) {}
-	virtual void PostRender(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const {}
-	virtual void PostRender (const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) {}
-	virtual void DataDeploy(tinyxml2::XMLElement* data) {}
-	virtual void AddToEngine(CoreEngine* engine) { }
-	virtual void DrawDebugUI() {}
-	
-	inline Transform* GetTransform()             { return m_parent->GetTransform(); }
+
+	virtual void Init()
+	{
+	}
+
+	virtual void ProcessInput(const Input& input, float delta)
+	{
+	}
+
+	virtual void Update(float delta)
+	{
+	}
+
+	virtual void Render(Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
+	{
+	}
+
+	virtual void PostRender(const Shader& shader, RenderingEngine& renderingEngine, const Camera& camera)
+	{
+	}
+
+	virtual void DataDeploy(tinyxml2::XMLElement* data)
+	{
+	}
+
+	virtual void AddToEngine(CoreEngine* engine)
+	{
+	}
+
+	virtual void DrawDebugUI()
+	{
+	}
+
+	inline Transform* GetTransform() { return m_parent->GetTransform(); }
 	inline const Transform& GetTransform() const { return *m_parent->GetTransform(); }
-	
+
 	virtual void SetParent(Entity* parent) { m_parent = parent; }
 	inline Entity* GetParent() { return m_parent; }
 private:
 	Entity* m_parent;
-	
-	EntityComponent(const EntityComponent& other) {}
-	void operator=(const EntityComponent& other) {}
+
+	EntityComponent(const EntityComponent& other)
+	{
+	}
+
+	void operator=(const EntityComponent& other)
+	{
+	}
 };
 
 #endif // ENTITYCOMPONENT_H_INCLUDED

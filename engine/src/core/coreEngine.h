@@ -25,7 +25,6 @@
 class Game;
 
 
-
 /**
  * This is the central part of the game engine. It's purpose is to manage interaction 
  * between the various sub-engines (such as the rendering and physics engines) and the game itself.
@@ -36,10 +35,9 @@ public:
 	CoreEngine(double frameRate, Window* window, RenderingEngine* renderingEngine, PhysicsEngine* physicsEngine);
 
 	void Start(); //Starts running the game; contains central game loop.
-	void Stop();  //Stops running the game, and disables all subsystems.
+	void Stop(); //Stops running the game, and disables all subsystems.
 
-	
-	
+
 	inline RenderingEngine* GetRenderingEngine() { return m_renderingEngine; }
 	inline PhysicsEngine* GetPhysicsEngine() { return m_physicsEngine; }
 	inline static CoreEngine* GetCoreEngine() { return m_coreEngine; }
@@ -50,15 +48,15 @@ protected:
 	static void RegisterNatives();
 	void RegisterUserspace() const;
 private:
-	static CoreEngine*	m_coreEngine;
-	bool             m_isRunning;       //Whether or not the engine is running
-	double           m_frameTime;       //How long, in seconds, one frame should take
-	Window*          m_window;          //Used to display the game
+	static CoreEngine* m_coreEngine;
+	bool m_isRunning; //Whether or not the engine is running
+	double m_frameTime; //How long, in seconds, one frame should take
+	Window* m_window; //Used to display the game
 	RenderingEngine* m_renderingEngine; //Used to render the game. Stored as pointer so the user can pass in a derived class.
-	PhysicsEngine*	 m_physicsEngine;	//Used to represent game physics.
-	Game*            m_game;            //The game itself. Stored as pointer so the user can pass in a derived class.
-	GLDebugDrawer*    m_dbgDraw;		//OpenGL Debug Drawer. Used for various debug operations.
-	std::function<void()> m_userspace;	//Reflection class registration for project-wise classes.
+	PhysicsEngine* m_physicsEngine; //Used to represent game physics.
+	Game* m_game; //The game itself. Stored as pointer so the user can pass in a derived class.
+	GLDebugDrawer* m_dbgDraw; //OpenGL Debug Drawer. Used for various debug operations.
+	std::function<void()> m_userspace; //Reflection class registration for project-wise classes.
 };
 
 #endif // COREENGINE_H

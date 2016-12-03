@@ -37,19 +37,19 @@ class Entity
 {
 public:
 	Entity(const Vector3f& pos = Vector3f(0, 0, 0), const Quaternion& rot = Quaternion(0, 0, 0, 0), float scale = 1.0f);
-		
+
 	virtual ~Entity();
-	
+
 	Entity* AddChild(Entity* child);
 	Entity* AddComponent(EntityComponent* component);
-    Entity* AddComponents(std::vector<EntityComponent*> components);
-	
+	Entity* AddComponents(std::vector<EntityComponent*> components);
+
 	void InitAll();
 	void ProcessInputAll(const Input& input, float delta);
 	void UpdateAll(float delta);
-	void RenderAll( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
-	void PostRenderAll(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
-	
+	void RenderAll(Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
+	void PostRenderAll(const Shader& shader, RenderingEngine& renderingEngine, const Camera& camera) const;
+
 	/// Returns all components attached to entity.
 	std::vector<Entity*> GetAllAttached();
 	inline std::vector<Entity*> GetAllEntities() { return m_children; }
@@ -58,40 +58,50 @@ public:
 	inline Transform* GetTransform() { return &m_transform; }
 	inline Entity* GetParent() { return m_parent; }
 	inline const std::string& GetDisplayName() const { return m_displayName; }
-	
-	inline Entity* SetDisplayName (const std::string& displayName) { m_displayName = displayName; return this; }
-	inline void SetTransform(Transform transform) { m_transform = transform; }
-	void SetEngine (CoreEngine* engine);
-	inline void SetParent (Entity* parent) { m_parent = parent; }
 
-	inline void Destroy () { m_destroy = true; }
+	inline Entity* SetDisplayName(const std::string& displayName)
+	{
+		m_displayName = displayName;
+		return this;
+	}
+
+	inline void SetTransform(Transform transform) { m_transform = transform; }
+	void SetEngine(CoreEngine* engine);
+	inline void SetParent(Entity* parent) { m_parent = parent; }
+
+	inline void Destroy() { m_destroy = true; }
 
 	/// Retrieves our scene graph.
-	Entity* GetScene ();
-	Entity* GetChildByName (const std::string& name);
-	
-	Entity* GetChildByIndex (unsigned int ID);
+	Entity* GetScene();
+	Entity* GetChildByName(const std::string& name);
+
+	Entity* GetChildByIndex(unsigned int ID);
 	std::vector<EntityComponent*> GetComponentsByType(const std::string& name);
 
 protected:
 private:
-	Entity*							m_parent;
-	std::vector<Entity*>          m_children;
+	Entity* m_parent;
+	std::vector<Entity*> m_children;
 	std::vector<EntityComponent*> m_components;
-	std::string						m_displayName;
-	Transform                     m_transform;
-	CoreEngine*                   m_coreEngine;
-	RigidBody*					 m_picker;
-	bool						m_destroy;
+	std::string m_displayName;
+	Transform m_transform;
+	CoreEngine* m_coreEngine;
+	RigidBody* m_picker;
+	bool m_destroy;
 
 	void Init();
 	void ProcessInput(const Input& input, float delta);
 	void Update(float delta);
-	void Render( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
-	void PostRender(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const;
-	
-	Entity(const Entity& other) {}
-	void operator=(const Entity& other) {}
+	void Render(Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
+	void PostRender(const Shader& shader, RenderingEngine& renderingEngine, const Camera& camera) const;
+
+	Entity(const Entity& other)
+	{
+	}
+
+	void operator=(const Entity& other)
+	{
+	}
 };
 
 #endif // GAMEOBJECT_H

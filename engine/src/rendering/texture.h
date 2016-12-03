@@ -27,18 +27,23 @@ class TextureData : public ReferenceCounter
 {
 public:
 	TextureData(GLenum textureTarget, int width, int height, int numTextures, unsigned char** data, GLfloat* filters, GLenum* internalFormat, GLenum* format, bool clamp, GLenum* attachments);
-	
+
 	void Bind(int textureNum) const;
 	void BindAsRenderTarget() const;
-	
-	inline int GetWidth()  const { return m_width; }
+
+	inline int GetWidth() const { return m_width; }
 	inline int GetHeight() const { return m_height; }
-	
+
 	virtual ~TextureData();
-protected:	
+protected:
 private:
-	TextureData(TextureData& other) {}
-	void operator=(TextureData& other) {}
+	TextureData(TextureData& other)
+	{
+	}
+
+	void operator=(TextureData& other)
+	{
+	}
 
 	void InitTextures(unsigned char** data, GLfloat* filter, GLenum* internalFormat, GLenum* format, bool clamp);
 	void InitRenderTargets(GLenum* attachments);
@@ -65,15 +70,15 @@ public:
 	void operator=(Texture texture);
 	virtual ~Texture();
 
-	void Bind(unsigned int unit = 0) const;	
+	void Bind(unsigned int unit = 0) const;
 	void Bind(unsigned int unit = 0);
 	void BindAsRenderTarget() const;
 	bool IsBoundAlready(unsigned int samplerSlot) const;
 	std::string GetName() { return m_fileName; }
-	
-	inline int GetWidth()  const { return m_textureData->GetWidth(); }
+
+	inline int GetWidth() const { return m_textureData->GetWidth(); }
 	inline int GetHeight() const { return m_textureData->GetHeight(); }
-	
+
 	bool operator==(const Texture& texture) const { return m_textureData == texture.m_textureData; }
 	bool operator!=(const Texture& texture) const { return !operator==(texture); }
 protected:

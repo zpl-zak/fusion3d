@@ -35,14 +35,14 @@ Window::Window(int width, int height, const std::string& title) :
 	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
-	SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE,32);
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,16);
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
+	SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	//SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
 	//SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
 
-	SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	/*SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 3 );
 	SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 3 );*/
 
@@ -56,7 +56,7 @@ Window::Window(int width, int height, const std::string& title) :
 	glewExperimental = GL_TRUE;
 
 	GLenum res = glewInit();
-	if(res != GLEW_OK)
+	if (res != GLEW_OK)
 	{
 		fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
 	}
@@ -73,13 +73,13 @@ Window::~Window()
 
 void Window::Update()
 {
-	for(int i = 0; i < Input::NUM_MOUSEBUTTONS; i++)
+	for (int i = 0; i < Input::NUM_MOUSEBUTTONS; i++)
 	{
 		m_input.SetMouseDown(i, false);
 		m_input.SetMouseUp(i, false);
 	}
 
-	for(int i = 0; i < Input::NUM_KEYS; i++)
+	for (int i = 0; i < Input::NUM_KEYS; i++)
 	{
 		m_input.SetKeyDown(i, false);
 		m_input.SetKeyUp(i, false);
@@ -88,9 +88,9 @@ void Window::Update()
 	m_input.ClearKey();
 
 	SDL_Event e;
-	while(SDL_PollEvent(&e))
+	while (SDL_PollEvent(&e))
 	{
-		int handled = ImGui_ImplSdlGL3_ProcessEvent (&e);
+		int handled = ImGui_ImplSdlGL3_ProcessEvent(&e);
 
 		{
 			if (e.type == SDL_QUIT)
@@ -145,24 +145,23 @@ void Window::SwapBuffers()
 
 void Window::BindAsRenderTarget() const
 {
-	glBindTexture(GL_TEXTURE_2D,0);
+	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	#if PROFILING_SET_1x1_VIEWPORT == 0
-		glViewport(0, 0, GetWidth(), GetHeight());
-	#else
+#if PROFILING_SET_1x1_VIEWPORT == 0
+	glViewport(0, 0, GetWidth(), GetHeight());
+#else
 		glViewport(0, 0, 1, 1);
-	#endif
+#endif
 }
 
 void Window::SetFullScreen(bool value)
 {
 	int mode = 0;
-	if(value)
+	if (value)
 		mode = SDL_WINDOW_FULLSCREEN;
 	else
 		mode = 0;
 
 	SDL_SetWindowFullscreen(m_window, mode);
 }
-

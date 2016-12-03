@@ -16,7 +16,7 @@
  */
 
 #include "freeMove.h"
-	
+
 void FreeMove::ProcessInput(const Input& input, float delta)
 {
 	float movAmt = m_speed * delta;
@@ -24,13 +24,13 @@ void FreeMove::ProcessInput(const Input& input, float delta)
 	if (input.GetKey(m_shiftKey))
 		movAmt *= 10.0f;
 
-	if(input.GetKey(m_forwardKey))
+	if (input.GetKey(m_forwardKey))
 		Move(GetTransform()->GetRot()->GetForward(), movAmt);
-	if(input.GetKey(m_backKey))
+	if (input.GetKey(m_backKey))
 		Move(GetTransform()->GetRot()->GetBack(), movAmt);
-	if(input.GetKey(m_leftKey))
+	if (input.GetKey(m_leftKey))
 		Move(GetTransform()->GetRot()->GetLeft(), movAmt);
-	if(input.GetKey(m_rightKey))
+	if (input.GetKey(m_rightKey))
 		Move(GetTransform()->GetRot()->GetRight(), movAmt);
 }
 

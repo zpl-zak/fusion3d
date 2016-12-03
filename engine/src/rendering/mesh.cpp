@@ -54,7 +54,7 @@ void IndexedModel::AddNormal(const Vector3f& normal)
 {
 	m_normals.push_back(normal);
 }
-	
+
 void IndexedModel::AddTangent(const Vector3f& tangent)
 {
 	m_tangents.push_back(tangent);
@@ -72,8 +72,6 @@ void IndexedModel::CalcBBoxNCenter()
 		if (BMax.GetX() >= m_positions[i].GetX())BMax.SetX(m_positions[i].GetX());
 		if (BMax.GetY() >= m_positions[i].GetY())BMax.SetY(m_positions[i].GetY());
 		if (BMax.GetZ() >= m_positions[i].GetZ())BMax.SetZ(m_positions[i].GetZ());
-
-
 	}
 
 	Center.SetX(0.5f * (BMax.GetX() + BMin.GetX()));
@@ -82,7 +80,9 @@ void IndexedModel::CalcBBoxNCenter()
 
 	//(t.GetBoundMin().Abs() + t.GetBoundMax().Abs()
 
-	m_boundMax = BMax; m_boundMin = BMin; m_center = Center;
+	m_boundMax = BMax;
+	m_boundMin = BMin;
+	m_center = Center;
 	m_boundSize = (BMin.Abs() + BMax.Abs()).Length();
 	m_boundSize = fabsf(m_boundSize);
 }
@@ -90,32 +90,31 @@ void IndexedModel::CalcBBoxNCenter()
 IndexedModel IndexedModel::Finalize(bool normalsFlat)
 {
 	CalcBBoxNCenter();
-	
-	if(IsValid())
+
+	if (IsValid())
 	{
 		return *this;
 	}
-	
-	if(m_texCoords.size() == 0)
+
+	if (m_texCoords.size() == 0)
 	{
-		for(unsigned int i = m_texCoords.size(); i < m_positions.size(); i++)
+		for (unsigned int i = m_texCoords.size(); i < m_positions.size(); i++)
 		{
 			m_texCoords.push_back(Vector2f(0.0f, 0.0f));
 		}
 	}
-	
-	if(m_normals.size() == 0)
+
+	if (m_normals.size() == 0)
 	{
 		CalcNormals(normalsFlat);
 	}
-	
-	if(m_tangents.size() == 0)
+
+	if (m_tangents.size() == 0)
 	{
 		CalcTangents();
 	}
 
 
-	
 	return *this;
 }
 
@@ -126,13 +125,13 @@ void IndexedModel::AddFace(unsigned int vertIndex0, unsigned int vertIndex1, uns
 	m_indices.push_back(vertIndex2);
 }
 
-int getSimilarIndex (const Vector3f& vertex, const std::vector<Vector3f>& out_verts, int& found)
+int getSimilarIndex(const Vector3f& vertex, const std::vector<Vector3f>& out_verts, int& found)
 {
-	auto i = std::find (out_verts.begin (), out_verts.end (), vertex);
+	auto i = std::find(out_verts.begin(), out_verts.end(), vertex);
 
-	if (i != out_verts.end ())
+	if (i != out_verts.end())
 	{
-		found = i - out_verts.begin ();
+		found = i - out_verts.begin();
 		return 1;
 	}
 	return 0;
@@ -142,12 +141,12 @@ void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer norm
 {
 	m_normals.clear();
 	m_normals.reserve(m_positions.size());
-	
-	for(unsigned int i = 0; i < m_positions.size(); i++)
-		m_normals.push_back(Vector3f(0,0,0));
 
-	
-	for (unsigned int i = 0; i < m_indices.size (); i += 3)
+	for (unsigned int i = 0; i < m_positions.size(); i++)
+		m_normals.push_back(Vector3f(0, 0, 0));
+
+
+	for (unsigned int i = 0; i < m_indices.size(); i += 3)
 	{
 		int i0 = m_indices[i];
 		int i1 = m_indices[i + 1];
@@ -156,7 +155,7 @@ void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer norm
 		Vector3f v1 = m_positions[i1] - m_positions[i0];
 		Vector3f v2 = m_positions[i2] - m_positions[i0];
 
-		Vector3f normal = v1.Cross (v2).Normalized ();
+		Vector3f normal = v1.Cross(v2).Normalized();
 
 		m_normals[i0] = m_normals[i0] + normal;
 		m_normals[i1] = m_normals[i1] + normal;
@@ -169,7 +168,7 @@ void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer norm
 		Vector3f nNormal;
 		int shared = 0;
 
-		for (size_t i = 0; i < m_positions.size (); i++)
+		for (size_t i = 0; i < m_positions.size(); i++)
 		{
 			/*for (int j = 0; j < m_vertslots[i].size(); j ++)
 			{
@@ -178,13 +177,13 @@ void IndexedModel::CalcNormals(bool flat) // toto musim prerobit na priemer norm
 			}*/
 
 			nNormal /= (float)shared;
-			nNormal = nNormal.Normalized ();
-			normals.push_back (nNormal);
+			nNormal = nNormal.Normalized();
+			normals.push_back(nNormal);
 
-			nNormal = Vector3f ();
+			nNormal = Vector3f();
 			shared = 0;
 		}
-		m_normals.clear ();
+		m_normals.clear();
 		m_normals = normals;
 	}
 }
@@ -193,57 +192,57 @@ void IndexedModel::CalcTangents()
 {
 	m_tangents.clear();
 	m_tangents.reserve(m_positions.size());
-	
-	for(unsigned int i = 0; i < m_positions.size(); i++)
-		m_tangents.push_back(Vector3f(0,0,0));
-		
-	for(unsigned int i = 0; i < m_indices.size(); i += 3)
-    {
+
+	for (unsigned int i = 0; i < m_positions.size(); i++)
+		m_tangents.push_back(Vector3f(0, 0, 0));
+
+	for (unsigned int i = 0; i < m_indices.size(); i += 3)
+	{
 		int i0 = m_indices[i];
 		int i1 = m_indices[i + 1];
 		int i2 = m_indices[i + 2];
-    
-        Vector3f edge1 = m_positions[i1] - m_positions[i0];
-        Vector3f edge2 = m_positions[i2] - m_positions[i0];
-        
-        float deltaU1 = m_texCoords[i1].GetX() - m_texCoords[i0].GetX();
-        float deltaU2 = m_texCoords[i2].GetX() - m_texCoords[i0].GetX();
-        float deltaV1 = m_texCoords[i1].GetY() - m_texCoords[i0].GetY();
-        float deltaV2 = m_texCoords[i2].GetY() - m_texCoords[i0].GetY();
-        
-        float dividend = (deltaU1 * deltaV2 - deltaU2 * deltaV1);
-        float f = dividend == 0.0f ? 0.0f : 1.0f/dividend;
-        
-        Vector3f tangent = Vector3f(0,0,0);
-        
-        tangent.SetX(f * (deltaV2 * edge1.GetX() - deltaV1 * edge2.GetX()));
-        tangent.SetY(f * (deltaV2 * edge1.GetY() - deltaV1 * edge2.GetY()));
-        tangent.SetZ(f * (deltaV2 * edge1.GetZ() - deltaV1 * edge2.GetZ()));
 
-//Bitangent example, in Java
-//		Vector3f bitangent = new Vector3f(0,0,0);
-//		
-//		bitangent.setX(f * (-deltaU2 * edge1.getX() - deltaU1 * edge2.getX()));
-//		bitangent.setX(f * (-deltaU2 * edge1.getY() - deltaU1 * edge2.getY()));
-//		bitangent.setX(f * (-deltaU2 * edge1.getZ() - deltaU1 * edge2.getZ()));
+		Vector3f edge1 = m_positions[i1] - m_positions[i0];
+		Vector3f edge2 = m_positions[i2] - m_positions[i0];
+
+		float deltaU1 = m_texCoords[i1].GetX() - m_texCoords[i0].GetX();
+		float deltaU2 = m_texCoords[i2].GetX() - m_texCoords[i0].GetX();
+		float deltaV1 = m_texCoords[i1].GetY() - m_texCoords[i0].GetY();
+		float deltaV2 = m_texCoords[i2].GetY() - m_texCoords[i0].GetY();
+
+		float dividend = (deltaU1 * deltaV2 - deltaU2 * deltaV1);
+		float f = dividend == 0.0f ? 0.0f : 1.0f / dividend;
+
+		Vector3f tangent = Vector3f(0, 0, 0);
+
+		tangent.SetX(f * (deltaV2 * edge1.GetX() - deltaV1 * edge2.GetX()));
+		tangent.SetY(f * (deltaV2 * edge1.GetY() - deltaV1 * edge2.GetY()));
+		tangent.SetZ(f * (deltaV2 * edge1.GetZ() - deltaV1 * edge2.GetZ()));
+
+		//Bitangent example, in Java
+		//		Vector3f bitangent = new Vector3f(0,0,0);
+		//		
+		//		bitangent.setX(f * (-deltaU2 * edge1.getX() - deltaU1 * edge2.getX()));
+		//		bitangent.setX(f * (-deltaU2 * edge1.getY() - deltaU1 * edge2.getY()));
+		//		bitangent.setX(f * (-deltaU2 * edge1.getZ() - deltaU1 * edge2.getZ()));
 
 		m_tangents[i0] += tangent;
 		m_tangents[i1] += tangent;
-		m_tangents[i2] += tangent;	
-    }
+		m_tangents[i2] += tangent;
+	}
 
-    for(unsigned int i = 0; i < m_tangents.size(); i++)
+	for (unsigned int i = 0; i < m_tangents.size(); i++)
 		m_tangents[i] = m_tangents[i].Normalized();
 }
 
 
 MeshData::MeshData(const IndexedModel& model, int materialIndex) :
-    ReferenceCounter(),
-    m_drawCount(model.GetIndices().size()),
-    m_materialIndex(materialIndex),
+	ReferenceCounter(),
+	m_drawCount(model.GetIndices().size()),
+	m_materialIndex(materialIndex),
 	m_model(model)
 {
-	if(!model.IsValid())
+	if (!model.IsValid())
 	{
 		std::cout << "Error: Invalid mesh! Must have same number of positions, texCoords, normals, and tangents! "
 			<< "(Maybe you forgot to Finalize() your IndexedModel?)" << std::endl;
@@ -258,34 +257,34 @@ MeshData::MeshData(const IndexedModel& model, int materialIndex) :
 	glGenBuffers(NUM_BUFFERS, m_vertexArrayBuffers);
 	glBindBuffer(GL_ARRAY_BUFFER, m_vertexArrayBuffers[POSITION_VB]);
 	glBufferData(GL_ARRAY_BUFFER, model.GetPositions().size() * sizeof(model.GetPositions()[0]), &model.GetPositions()[0], GL_STATIC_DRAW);
-	
+
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, m_vertexArrayBuffers[TEXCOORD_VB]);
 	glBufferData(GL_ARRAY_BUFFER, model.GetTexCoords().size() * sizeof(model.GetTexCoords()[0]), &model.GetTexCoords()[0], GL_STATIC_DRAW);
-	
+
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, m_vertexArrayBuffers[NORMAL_VB]);
 	glBufferData(GL_ARRAY_BUFFER, model.GetNormals().size() * sizeof(model.GetNormals()[0]), &model.GetNormals()[0], GL_STATIC_DRAW);
-	
+
 	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, m_vertexArrayBuffers[TANGENT_VB]);
 	glBufferData(GL_ARRAY_BUFFER, model.GetTangents().size() * sizeof(model.GetTangents()[0]), &model.GetTangents()[0], GL_STATIC_DRAW);
-	
+
 	glEnableVertexAttribArray(3);
 	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	
+
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vertexArrayBuffers[INDEX_VB]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, model.GetIndices().size() * sizeof(model.GetIndices()[0]), &model.GetIndices()[0], GL_STATIC_DRAW);
 }
 
-MeshData::~MeshData() 
-{	
+MeshData::~MeshData()
+{
 	glDeleteBuffers(NUM_BUFFERS, m_vertexArrayBuffers);
 	glDeleteVertexArrays(1, &m_vertexArrayObject);
 }
@@ -293,10 +292,10 @@ MeshData::~MeshData()
 void MeshData::Draw() const
 {
 	glBindVertexArray(m_vertexArrayObject);
-	
-	#if PROFILING_DISABLE_MESH_DRAWING == 0
-		glDrawElements(GL_TRIANGLES, m_drawCount, GL_UNSIGNED_INT, 0);
-	#endif
+
+#if PROFILING_DISABLE_MESH_DRAWING == 0
+	glDrawElements(GL_TRIANGLES, m_drawCount, GL_UNSIGNED_INT, 0);
+#endif
 }
 
 
@@ -304,7 +303,7 @@ Mesh::Mesh(const std::string& meshName, const IndexedModel& model) :
 	m_fileName(meshName)
 {
 	std::map<std::string, MeshData*>::const_iterator it = s_resourceMap.find(meshName);
-	if(it != s_resourceMap.end())
+	if (it != s_resourceMap.end())
 	{
 		std::cout << "Error adding mesh " << meshName << ": Mesh already exists by the same name!" << std::endl;
 		assert(0 != 0);
@@ -320,8 +319,8 @@ Mesh::Mesh(const std::string& fileName) :
 	m_fileName(fileName),
 	m_meshData(0)
 {
-	std::map<std::string, MeshData*>::const_iterator it = s_resourceMap.find(fileName);
-	if(it != s_resourceMap.end())
+	std::map<std::string, MeshData*>::const_iterator it = s_resourceMap.lower_bound(fileName);
+	if (it != s_resourceMap.end())
 	{
 		m_meshData = it->second;
 		m_meshData->AddReference();
@@ -334,11 +333,11 @@ Mesh::Mesh(const std::string& fileName) :
 	}
 }
 
-Mesh::Mesh(const std::string& fileName, MeshData * data) :
-    m_fileName(fileName),
-    m_meshData(data)
+Mesh::Mesh(const std::string& fileName, MeshData* data) :
+	m_fileName(fileName),
+	m_meshData(data)
 {
-    m_meshData->AddReference();
+	m_meshData->AddReference();
 }
 
 Mesh::Mesh(const Mesh& mesh) :
@@ -348,7 +347,7 @@ Mesh::Mesh(const Mesh& mesh) :
 	m_meshData->AddReference();
 }
 
-std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mode)
+std::vector<MeshData*> Mesh::ImportMeshData(const std::string& fileName, int mode)
 {
 	std::vector<MeshData*> outData;
 #if 1
@@ -358,61 +357,72 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 	auto name = Util::split(fileName, '.')[0];
 	Util::CreateDir((Util::ResourcePath() + "models/" + name), NULL);
 
-	if (FILE *file = fopen(cachedName.c_str(), "rb")) {
+	if (FILE* file = fopen(cachedName.c_str(), "rb"))
+	{
 		fclose(file);
 
 		int nums = 1;
-		FILE * num = fopen((Util::ResourcePath() + "models/" + fname[0] + "/nums").c_str(), "rb");
+		FILE* num = fopen((Util::ResourcePath() + "models/" + fname[0] + "/nums").c_str(), "rb");
 		fread(&nums, sizeof(int), 1, num);
-		
+		fclose(num);
+
 		for (int i = 0; i < nums; i++)
 		{
-			auto x = MeshData::LoadCachedModel(fileName, i);
-			outData.push_back(x);
-			s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
+			std::map<std::string, MeshData*>::const_iterator it = s_resourceMap.find(fileName + "_" + Util::to_string(i));
+			if (it != s_resourceMap.end())
+			{
+				it->second->AddReference();
+				outData.push_back(it->second);
+			}
+			else
+			{
+				auto x = MeshData::LoadCachedModel(fileName, i);
+				outData.push_back(x);
+				s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
+			}
 		}
 	}
-	else 
+	else
 #endif
 	{
 		Assimp::Importer importer;
 
 		const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
-			(fileName == "plane.obj") ? (aiProcess_Triangulate |
-				aiProcess_GenSmoothNormals |
-				aiProcess_FlipUVs |
-				// aiProcess_OptimizeGraph |
-				//aiProcess_PreTransformVertices |
-				//aiProcess_JoinIdenticalVertices |
-				aiProcess_SortByPType |
-				aiProcess_FixInfacingNormals |
-				aiProcess_FindInvalidData |
-				//aiProcess_ValidateDataStructure |
-				aiProcess_CalcTangentSpace) : (
-					aiProcess_CalcTangentSpace |
-					aiProcess_Triangulate |
-					//aiProcess_RemoveComponent |
-					//aiProcess_OptimizeGraph |
-					aiProcess_PreTransformVertices |
-					//aiProcess_OptimizeMeshes |
-					aiProcess_SplitLargeMeshes |
-					aiProcess_JoinIdenticalVertices |
-					aiProcess_ImproveCacheLocality));
+		                                         (fileName == "plane.obj") ? (aiProcess_Triangulate |
+			                                         aiProcess_GenSmoothNormals |
+			                                         aiProcess_FlipUVs |
+			                                         // aiProcess_OptimizeGraph |
+			                                         //aiProcess_PreTransformVertices |
+			                                         //aiProcess_JoinIdenticalVertices |
+			                                         aiProcess_SortByPType |
+			                                         aiProcess_FixInfacingNormals |
+			                                         aiProcess_FindInvalidData |
+			                                         //aiProcess_ValidateDataStructure |
+			                                         aiProcess_CalcTangentSpace) : (
+			                                         aiProcess_CalcTangentSpace |
+			                                         aiProcess_Triangulate |
+			                                         //aiProcess_RemoveComponent |
+			                                         //aiProcess_OptimizeGraph |
+			                                         aiProcess_PreTransformVertices |
+			                                         //aiProcess_OptimizeMeshes |
+			                                         aiProcess_SplitLargeMeshes |
+			                                         aiProcess_JoinIdenticalVertices |
+			                                         aiProcess_ImproveCacheLocality));
 		if (!scene)
 		{
 			std::cout << "Mesh load failed!: " << fileName << "|" << std::endl;
 			scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
-				aiProcess_Triangulate |
-				aiProcess_GenSmoothNormals |
-				aiProcess_FlipUVs |
-				// aiProcess_OptimizeGraph |
-				//aiProcess_PreTransformVertices |
-				//aiProcess_JoinIdenticalVertices |
-				aiProcess_SortByPType |
-				aiProcess_FixInfacingNormals |
-				aiProcess_FindInvalidData |
-				//aiProcess_ValidateDataStructure |
-				aiProcess_CalcTangentSpace);
+			                          aiProcess_Triangulate |
+			                          aiProcess_GenSmoothNormals |
+			                          aiProcess_FlipUVs |
+			                          // aiProcess_OptimizeGraph |
+			                          //aiProcess_PreTransformVertices |
+			                          //aiProcess_JoinIdenticalVertices |
+			                          aiProcess_SortByPType |
+			                          aiProcess_FixInfacingNormals |
+			                          aiProcess_FindInvalidData |
+			                          //aiProcess_ValidateDataStructure |
+			                          aiProcess_CalcTangentSpace);
 		}
 		unsigned int start = mode;
 		unsigned int end = start + 1;
@@ -432,7 +442,15 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 			std::vector<unsigned int> indices;
 
 			const aiMesh* model = scene->mMeshes[i];
-			
+
+			std::map<std::string, MeshData*>::const_iterator it = s_resourceMap.find(fileName + "_" + Util::to_string(i));
+			if (it != s_resourceMap.end())
+			{
+				it->second->AddReference();
+				outData.push_back(it->second);
+				continue;
+			}
+
 			const aiVector3D aiZeroVector(0.0f, 0.0f, 0.0f);
 			for (unsigned int j = 0; j < model->mNumVertices; j++)
 			{
@@ -458,16 +476,16 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 			auto mdata = new MeshData(IndexedModel(indices, positions, texCoords, normals, tangents).Finalize(), model->mMaterialIndex);
 
 			mdata->CacheModel(fileName, i);
-			
+
 			outData.push_back(mdata);
 			s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
 		}
 	}
 
-    return outData;
+	return outData;
 }
 
-btTriangleMesh* Mesh::ImportColData(const std::string & fileName)
+btTriangleMesh* Mesh::ImportColData(const std::string& fileName)
 {
 	auto name = Util::split(fileName, '.')[0];
 	Util::CreateDir((Util::ResourcePath() + "models/" + name), NULL);
@@ -482,21 +500,19 @@ btTriangleMesh* Mesh::ImportColData(const std::string & fileName)
 
 		for (unsigned int j = 0; j < model.GetPositions().size(); j++)
 		{
-
 			mesh->findOrAddVertex(model.GetPositions()[j].GetBT(), false);
 		}
 
-		for (unsigned int j = 0; j < model.GetIndices().size(); j+=3)
+		for (unsigned int j = 0; j < model.GetIndices().size(); j += 3)
 		{
-			mesh->addTriangleIndices(model.GetIndices()[j + 0], model.GetIndices()[j + 1], model.GetIndices()[j+2]);
+			mesh->addTriangleIndices(model.GetIndices()[j + 0], model.GetIndices()[j + 1], model.GetIndices()[j + 2]);
 		}
-
 	}
 
 	return mesh;
 }
 
-std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
+std::vector<Material*> Mesh::ImportMeshMaterial(const std::string& fileName)
 {
 	std::vector<Material*> outData;
 
@@ -507,59 +523,76 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 	auto name = Util::split(fileName, '.')[0];
 	Util::CreateDir((Util::ResourcePath() + "models/" + name), NULL);
 
-	if (FILE *file = fopen(cachedName.c_str(), "rb")) {
+	if (FILE* file = fopen(cachedName.c_str(), "rb"))
+	{
 		fclose(file);
 
 		int nums = 1;
-		FILE * num = fopen((Util::ResourcePath() + "models/" + fname[0] + "/numsM").c_str(), "rb");
+		FILE* num = fopen((Util::ResourcePath() + "models/" + fname[0] + "/numsM").c_str(), "rb");
 		fread(&nums, sizeof(int), 1, num);
+		fclose(num);
 
 		for (int i = 0; i < nums; i++)
 		{
-			auto x = Material::LoadCachedMaterial(fileName, i);
-			outData.push_back(x);
-			//s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
-			//Material::s_resourceMap.insert(std::make_pair(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
+			std::map<std::string, Material*>::const_iterator it = Material::s_resourceMap.find(fileName + "_" + Util::to_string(i));
+			if (it != Material::s_resourceMap.end())
+			{
+				it->second->GetData()->AddReference();
+				outData.push_back(it->second);
+			}
+			else
+			{
+				auto x = Material::LoadCachedMaterial(fileName, i);
+				outData.push_back(x);
+				Material::s_resourceMap.insert(std::make_pair(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
+			}
 		}
 	}
-	else 
+	else
 #endif
 	{
-
 		Assimp::Importer importer;
 
 		const aiScene* scene = importer.ReadFile((Util::ResourcePath() + "models/" + fileName).c_str(),
-			aiProcess_Triangulate |
-			aiProcess_GenSmoothNormals |
-			aiProcess_FlipUVs |
-			// aiProcess_OptimizeGraph |
-			//aiProcess_PreTransformVertices |
-			//aiProcess_JoinIdenticalVertices |
-			aiProcess_SortByPType |
-			aiProcess_FixInfacingNormals |
-			aiProcess_FindInvalidData |
-			//aiProcess_ValidateDataStructure |
-			aiProcess_CalcTangentSpace);
+		                                         aiProcess_Triangulate |
+		                                         aiProcess_GenSmoothNormals |
+		                                         aiProcess_FlipUVs |
+		                                         // aiProcess_OptimizeGraph |
+		                                         //aiProcess_PreTransformVertices |
+		                                         //aiProcess_JoinIdenticalVertices |
+		                                         aiProcess_SortByPType |
+		                                         aiProcess_FixInfacingNormals |
+		                                         aiProcess_FindInvalidData |
+		                                         //aiProcess_ValidateDataStructure |
+		                                         aiProcess_CalcTangentSpace);
 
 		if (!scene)
 		{
 			std::cout << "Mesh load failed!: " << fileName << std::endl;
 			scene = importer.ReadFile(Util::ResourcePath() + "models/error.obj",
-				aiProcess_Triangulate |
-				aiProcess_GenSmoothNormals |
-				aiProcess_FlipUVs |
-				// aiProcess_OptimizeGraph |
-				//aiProcess_PreTransformVertices |
-				//aiProcess_JoinIdenticalVertices |
-				aiProcess_SortByPType |
-				aiProcess_FixInfacingNormals |
-				aiProcess_FindInvalidData |
-				//aiProcess_ValidateDataStructure |
-				aiProcess_CalcTangentSpace);
+			                          aiProcess_Triangulate |
+			                          aiProcess_GenSmoothNormals |
+			                          aiProcess_FlipUVs |
+			                          // aiProcess_OptimizeGraph |
+			                          //aiProcess_PreTransformVertices |
+			                          //aiProcess_JoinIdenticalVertices |
+			                          aiProcess_SortByPType |
+			                          aiProcess_FixInfacingNormals |
+			                          aiProcess_FindInvalidData |
+			                          //aiProcess_ValidateDataStructure |
+			                          aiProcess_CalcTangentSpace);
 		}
 
 		for (unsigned int i = 0; i < scene->mNumMaterials; i++)
 		{
+			std::map<std::string, Material*>::const_iterator it = Material::s_resourceMap.find(fileName + "_" + Util::to_string(i));
+			if (it != Material::s_resourceMap.end())
+			{
+				it->second->GetData()->AddReference();
+				outData.push_back(it->second);
+				continue;
+			}
+
 			aiString matName;
 			aiString texName, normName, dispName;
 			float shine = 0.0;
@@ -594,41 +627,42 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string & fileName)
 				sDispName = dispName.C_Str();
 			}
 
-			Material * mat = new Material(matName.C_Str(), sTexName, 0.4f, 0.8f, sNormName, sDispName, 0, 0, color);
+			Material* mat = new Material(matName.C_Str(), sTexName, 0.4f, 0.8f, sNormName, sDispName, 0, 0, color);
 			mat->CacheMaterial(fileName, i);
 			outData.push_back(mat);
+			Material::s_resourceMap.insert(std::make_pair(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
 		}
 	}
-    
-    
-    return outData;
+
+
+	return outData;
 }
 
-std::vector<Mesh*> Mesh::ImportMesh(const std::string & fileName)
+std::vector<Mesh*> Mesh::ImportMesh(const std::string& fileName)
 {
-    std::vector<MeshData*> data = Mesh::ImportMeshData(fileName);
-    std::vector<Mesh*> meshes;
+	std::vector<MeshData*> data = Mesh::ImportMeshData(fileName);
+	std::vector<Mesh*> meshes;
 
 	auto prepath = Util::ResourcePath() + "models/" + Util::split(fileName, '.')[0];
 	prepath = prepath.substr(2);
-	
+
 
 	Util::CreateDir(prepath, NULL);
 
-    for (size_t i = 0; i < data.size(); i++)
-    {
+	for (size_t i = 0; i < data.size(); i++)
+	{
 		auto x = new Mesh(fileName + "_" + Util::to_string(i), data.at(i));
-        meshes.push_back(x);
+		meshes.push_back(x);
 
 		//x->CacheModel(i);
-    }
-    return meshes;
+	}
+	return meshes;
 }
 
-btTriangleMesh* Mesh::ImportCollision(const std::string & fileName)
+btTriangleMesh* Mesh::ImportCollision(const std::string& fileName)
 {
 	return Mesh::ImportColData(fileName);
-	std::map<std::string, btTriangleMesh*>::const_iterator it = s_resourceColMap.find(fileName+"_col");
+	std::map<std::string, btTriangleMesh*>::const_iterator it = s_resourceColMap.find(fileName + "_col");
 
 	auto prepath = Util::ResourcePath() + "models/" + Util::split(fileName, '.')[0];
 	prepath = prepath.substr(2);
@@ -647,22 +681,22 @@ btTriangleMesh* Mesh::ImportCollision(const std::string & fileName)
 	return mesh;
 }
 
-MeshData * MeshData::LoadCachedModel(const std::string & fileName, int index)
+MeshData* MeshData::LoadCachedModel(const std::string& fileName, int index)
 {
 	MeshData* m;
 	std::string name = Util::split(fileName, '.')[0];
 
 	std::string fname = Util::ResourcePath() + "models/" + name + "/" + name + "_cached_" + std::to_string(index) + ".zdl";
 
-	FILE * file = fopen(fname.c_str(), "rb");
+	FILE* file = fopen(fname.c_str(), "rb");
 
 
-	char magic[2] = { 0 };
+	char magic[2] = {0};
 
 	fread(magic, sizeof(char), 2, file);
 
 	if (magic[0] != 'Z' || magic[1] != 'F')
-		assert(!"Invalid cached model!");
+	assert(!"Invalid cached model!");
 
 	int drawCount = 0;
 	fread(&drawCount, sizeof(int), 1, file);
@@ -673,7 +707,7 @@ MeshData * MeshData::LoadCachedModel(const std::string & fileName, int index)
 	int indSize = 0;
 	fread(&indSize, sizeof(int), 1, file);
 	std::vector<unsigned int> indices;
-	
+
 	indices.resize(indSize);
 	fread((char*)&indices[0], sizeof(indices[0]), indSize, file);
 
@@ -709,13 +743,13 @@ void MeshData::CacheModel(const std::string& fileName, int index)
 	static char magic[] = "ZF";
 	std::string index_ = std::to_string(index);
 	auto path = Util::split(fileName, '.');
-	std::string newFileName = path[0] + "_cached_"+ index_ +".zdl";
+	std::string newFileName = path[0] + "_cached_" + index_ + ".zdl";
 	auto name = (Util::ResourcePath() + "models/" + path[0] + "/" + newFileName);
 
-	FILE * file = fopen(name.c_str(), "wb");
+	FILE* file = fopen(name.c_str(), "wb");
 
 	if (!file)
-		assert(!"Can't open handle!");
+	assert(!"Can't open handle!");
 
 	fwrite(magic, sizeof(char), 2, file);
 
@@ -755,7 +789,7 @@ void MeshData::CacheModel(const std::string& fileName, int index)
 		fwrite(&x, sizeof(Vector2f), 1, file);
 	}
 
-	FILE * num = fopen((Util::ResourcePath() + "models/" + path[0] + "/nums").c_str(), "wb");
+	FILE* num = fopen((Util::ResourcePath() + "models/" + path[0] + "/nums").c_str(), "wb");
 	int id = 1 + index;
 	fwrite(&id, sizeof(int), 1, num);
 
@@ -766,13 +800,13 @@ void MeshData::CacheModel(const std::string& fileName, int index)
 
 Mesh::~Mesh()
 {
-	if(m_meshData && m_meshData->RemoveReference())
+	if (m_meshData && m_meshData->RemoveReference())
 	{
-		if(m_fileName.length() > 0)
+		if (m_fileName.length() > 0)
 		{
 			s_resourceMap.erase(m_fileName);
 		}
-			
+
 		delete m_meshData;
 	}
 }

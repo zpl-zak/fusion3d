@@ -24,7 +24,7 @@ ProgramHoster::ProgramHoster(): m_input(0), m_update(0), m_render(0), m_verbose(
 {
 }
 
-ProgramHoster::ProgramHoster(Program * program, int verbose, bool start)
+ProgramHoster::ProgramHoster(Program* program, int verbose, bool start)
 	:
 	m_delayedInit((!isUpdating)),
 	m_loaded(false),
@@ -42,8 +42,8 @@ ProgramHoster::~ProgramHoster()
 
 void ProgramHoster::DrawDebugUI()
 {
-	static char name[256] = { 0 };
-	static char params[256] = { 0 };
+	static char name[256] = {0};
+	static char params[256] = {0};
 
 	ImGui::InputText("Program", name, 256);
 	ImGui::InputText("Parameters", params, 256);
@@ -83,12 +83,12 @@ void ProgramHoster::InitProgram()
 	}
 }
 
-void ProgramHoster::DataDeploy(tinyxml2::XMLElement * data)
+void ProgramHoster::DataDeploy(tinyxml2::XMLElement* data)
 {
 	m_program = (Program*)g_factory.construct(data->GetText());
 }
 
-void ProgramHoster::ProcessInput(const Input & input, float delta)
+void ProgramHoster::ProcessInput(const Input& input, float delta)
 {
 	if (!m_program)return;
 
@@ -118,7 +118,7 @@ void ProgramHoster::Update(float delta)
 	m_updateTimer.StopInvocation();
 }
 
-void ProgramHoster::Render(const Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera)
+void ProgramHoster::Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 {
 	if (!m_program)return;
 
@@ -154,7 +154,7 @@ bool ProgramHoster::GetActiveInstance()
 	return m_isUpdating;
 }
 
-void ProgramHoster::Display(ProgramHoster * ProgramHoster)
+void ProgramHoster::Display(ProgramHoster* ProgramHoster)
 {
 	timeCounter += Time::GetTime() - lastTime;
 
@@ -203,7 +203,7 @@ int Program::Init()
 	return 1;
 }
 
-int Program::ProcessInput(const Input & input, float delta)
+int Program::ProcessInput(const Input& input, float delta)
 {
 	return 1;
 }
@@ -213,12 +213,12 @@ int Program::Update(float delta)
 	return 1;
 }
 
-int Program::Render(const Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera) const
+int Program::Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
 {
 	return 1;
 }
 
-int Program::Render(const Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera)
+int Program::Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 {
 	return 1;
 }
@@ -247,11 +247,11 @@ std::string Program::GetLatestError()
 	return lastError;
 }
 
-void Program::DataDeploy(tinyxml2::XMLElement * data)
+void Program::DataDeploy(tinyxml2::XMLElement* data)
 {
 }
 
-void Program::SetParent(Entity * parent)
+void Program::SetParent(Entity* parent)
 {
 	m_parent = parent;
 }
@@ -261,7 +261,7 @@ void Program::PushError(std::string err)
 	m_error.insert(err);
 }
 
-Entity * Program::GetParent()
+Entity* Program::GetParent()
 {
 	if (m_parent == 0)
 	{

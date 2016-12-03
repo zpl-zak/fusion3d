@@ -62,8 +62,8 @@ protected:
 	std::vector<Mesh> m_mesh;
 	std::vector<Material> m_material;
 	std::vector<const char*> m_matNames;
-	bool			m_visible;
-	bool			m_shadows;
+	bool m_visible;
+	bool m_shadows;
 private:
 };
 
@@ -142,7 +142,7 @@ public:
 		}
 	}
 
-	std::string GetAnimState() 
+	std::string GetAnimState()
 	{
 		return m_anims.at(m_anim)->GetName();
 	}

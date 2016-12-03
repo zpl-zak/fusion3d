@@ -19,7 +19,9 @@
 #define FACTORY_H
 #include <map>
 
-template <class T> void* constructor() { return (void*)new T(); }
+template <class T>
+void* constructor() { return (void*)new T(); }
+
 typedef void*(*constructor_t)();
 
 struct factory

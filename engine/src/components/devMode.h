@@ -34,19 +34,23 @@ class DevMode : public EntityComponent
 {
 public:
 	FCLASS (DevMode);
-	DevMode() {}
+
+	DevMode()
+	{
+	}
+
 	DevMode(const Window& window, bool isDev = true);
 
-	virtual ~DevMode();
+	virtual ~DevMode() override;
 
-	virtual void Init();
+	virtual void Init() override;
 
-	virtual void ProcessInput(const Input& input, float delta);
+	virtual void ProcessInput(const Input& input, float delta) override;
 
-	virtual void Update(float delta);
+	virtual void Update(float delta) override;
 
-	virtual void PostRender(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
-	
+	virtual void PostRender(const Shader& shader, RenderingEngine& renderingEngine, const Camera& camera) override;
+
 
 private:
 	CoreEngine* m_engine;
@@ -69,7 +73,8 @@ private:
 
 	bool enable_physics;
 
-	enum HANDLE_STATE {
+	enum HANDLE_STATE
+	{
 		HANDLE_SELECT,
 		HANDLE_TRANSFORM,
 		HANDLE_ROTATE,

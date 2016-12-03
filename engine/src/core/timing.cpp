@@ -21,10 +21,10 @@
 
 
 #ifdef OS_WINDOWS
-	#include <Windows.h>
-	#include <iostream>
-	static double g_freq;
-	static bool g_timerInitialized = false;
+#include <Windows.h>
+#include <iostream>
+static double g_freq;
+static bool g_timerInitialized = false;
 #endif
 
 #ifdef OS_LINUX
@@ -43,37 +43,37 @@
 
 double Time::GetTime()
 {
-	#ifdef OS_WINDOWS
-		if(!g_timerInitialized)
-		{
-			LARGE_INTEGER li;
-			if(!QueryPerformanceFrequency(&li))
-				std::cerr << "QueryPerformanceFrequency failed in timer initialization"  << std::endl;
-			
-			g_freq = double(li.QuadPart);
-			g_timerInitialized = true;
-		}
-	
+#ifdef OS_WINDOWS
+	if (!g_timerInitialized)
+	{
 		LARGE_INTEGER li;
-		if(!QueryPerformanceCounter(&li))
-			std::cerr << "QueryPerformanceCounter failed in get time!" << std::endl;
-		
-		return double(li.QuadPart)/g_freq;
-	#endif
+		if (!QueryPerformanceFrequency(&li))
+			std::cerr << "QueryPerformanceFrequency failed in timer initialization" << std::endl;
 
-	#ifdef OS_LINUX
+		g_freq = double(li.QuadPart);
+		g_timerInitialized = true;
+	}
+
+	LARGE_INTEGER li;
+	if (!QueryPerformanceCounter(&li))
+		std::cerr << "QueryPerformanceCounter failed in get time!" << std::endl;
+
+	return double(li.QuadPart) / g_freq;
+#endif
+
+#ifdef OS_LINUX
 		timespec ts;
 		clock_gettime(CLOCK_REALTIME, &ts);
 		return (double)(((long) ts.tv_sec * NANOSECONDS_PER_SECOND) + ts.tv_nsec)/((double)(NANOSECONDS_PER_SECOND));
-	#endif
+#endif
 
-	#ifdef OS_OTHER_CPP11
+#ifdef OS_OTHER_CPP11
 		return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - m_epoch).count() / 1000000000.0;
-	#endif
+#endif
 
-	#ifdef OS_OTHER
+#ifdef OS_OTHER
 		return (double)SDL_GetTicks()/1000.0;
-	#endif
+#endif
 }
 
 

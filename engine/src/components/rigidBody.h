@@ -32,11 +32,12 @@ public:
 	FCLASS (RigidBody);
 
 	RigidBody() : m_body(nullptr), m_shape(nullptr), m_state(nullptr), m_mass(0)
-	{ }
+	{
+	}
 
 	explicit RigidBody(btCollisionShape* shape, float mass = 0.0f, bool calcInertia = true, Vector3f inertia = Vector3f(0, 0, 0)) : m_body(nullptr),
-		m_shape(shape), m_state(nullptr),
-		m_mass(mass)
+	                                                                                                                                m_shape(shape), m_state(nullptr),
+	                                                                                                                                m_mass(mass)
 	{
 		if (calcInertia)
 		{
@@ -49,7 +50,7 @@ public:
 	virtual void DebugDrawUI();
 
 	void* operator new(size_t i);
-	
+
 	void operator delete(void* p);
 
 	virtual void DataDeploy(tinyxml2::XMLElement* data);

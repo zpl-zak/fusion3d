@@ -17,18 +17,21 @@
 
 #include "meshRenderer.h"
 
-MeshRenderer::MeshRenderer() {}
+MeshRenderer::MeshRenderer()
+{
+}
 
 MeshRenderer::MeshRenderer(std::vector<Mesh*> meshes, std::vector<Material*> materials)
 {
 	LoadData(meshes, materials);
 }
 
-MeshRenderer::MeshRenderer(const std::string & fileName) :
+MeshRenderer::MeshRenderer(const std::string& fileName) :
 	MeshRenderer(Mesh::ImportMesh(fileName), Mesh::ImportMeshMaterial(fileName))
-{}
+{
+}
 
-MeshRenderer::MeshRenderer(Mesh mesh, const Material & material)
+MeshRenderer::MeshRenderer(Mesh mesh, const Material& material)
 {
 	m_mesh.push_back(mesh);
 	m_material.push_back(material);
@@ -45,7 +48,7 @@ void MeshRenderer::Init()
 	}
 }
 
-void MeshRenderer::Render(Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera)
+void MeshRenderer::Render(Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 {
 	if (m_mesh.size() == 0)return;
 
@@ -93,7 +96,7 @@ void MeshRenderer::Render(Shader & shader, const RenderingEngine & renderingEngi
 	}
 }
 
-void MeshRenderer::DataDeploy(tinyxml2::XMLElement * data)
+void MeshRenderer::DataDeploy(tinyxml2::XMLElement* data)
 {
 	std::vector<Mesh*> meshes = Mesh::ImportMesh(data->GetText());
 	std::vector<Material*> materials = Mesh::ImportMeshMaterial(data->GetText());
@@ -116,7 +119,7 @@ void MeshRenderer::DrawDebugUI()
 		ImGui::Checkbox("Cast Shadows", &m_shadows);
 	}
 
-	static char meshName[256] = { 0 };
+	static char meshName[256] = {0};
 	ImGui::InputText("Mesh Name", meshName, 256);
 	if (ImGui::Button("Load Mesh"))
 	{
@@ -169,10 +172,10 @@ void MeshRenderer::DrawDebugUI()
 			ImGui::SetNextWindowPosCenter();
 			ImGui::Begin("New Material", &new_material_dialog, ImGuiWindowFlags_AlwaysAutoResize);
 			{
-				static char name[256] = { 0 };
-				static char diffuse[256] = { 0 };
-				static char normal[256] = { 0 };
-				static char disp[256] = { 0 };
+				static char name[256] = {0};
+				static char diffuse[256] = {0};
+				static char normal[256] = {0};
+				static char disp[256] = {0};
 				static float dispScale, dispOffset = 0.0f;
 				static float specularIntensity, specularPower = 0.0f;
 
@@ -226,7 +229,7 @@ void MeshRenderer::DrawDebugUI()
 	}
 }
 
-EntityComponent * MeshRenderer::SetVisible(bool visible)
+EntityComponent* MeshRenderer::SetVisible(bool visible)
 {
 	m_visible = visible;
 
@@ -254,7 +257,7 @@ void MeshRenderer::LoadData(std::vector<Mesh*> meshes, std::vector<Material*> ma
 	}
 }
 
-EntityComponent * MeshRenderer::SetShadows(bool shadows)
+EntityComponent* MeshRenderer::SetShadows(bool shadows)
 {
 	m_shadows = shadows;
 
@@ -266,16 +269,17 @@ bool MeshRenderer::HasShadows()
 	return m_shadows;
 }
 
-Material & MeshRenderer::GetMaterial(int ID) { return m_material.at(ID); }
+Material& MeshRenderer::GetMaterial(int ID) { return m_material.at(ID); }
 
-Mesh & MeshRenderer::GetMesh(int ID) { return m_mesh.at(ID); }
+Mesh& MeshRenderer::GetMesh(int ID) { return m_mesh.at(ID); }
 
 MeshSequence::MeshSequence()
 	: m_step(-1),
-	m_play(true)
-{}
+	  m_play(true)
+{
+}
 
-MeshSequence::MeshSequence(const std::string & fileName, int stepSize)
+MeshSequence::MeshSequence(const std::string& fileName, int stepSize)
 	:
 	m_step(-1),
 	m_play(true)
@@ -295,7 +299,7 @@ void MeshSequence::Update(float delta)
 	}
 }
 
-void MeshSequence::Render(const Transform & transform, Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera)
+void MeshSequence::Render(const Transform& transform, Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera)
 {
 	if (shader.GetName() == "shadowMapGenerator" && !m_shadows) return;
 	if (!m_visible) return;
@@ -309,7 +313,7 @@ void MeshSequence::Render(const Transform & transform, Shader & shader, const Re
 	}
 }
 
-void MeshSequence::DataDeploy(tinyxml2::XMLElement * data)
+void MeshSequence::DataDeploy(tinyxml2::XMLElement* data)
 {
 	int stepSize = 1;
 	if (data->Attribute("step"))
@@ -319,7 +323,7 @@ void MeshSequence::DataDeploy(tinyxml2::XMLElement * data)
 	LoadData(data->GetText(), stepSize);
 }
 
-EntityComponent * MeshSequence::SetVisible(bool visible)
+EntityComponent* MeshSequence::SetVisible(bool visible)
 {
 	m_visible = visible;
 
@@ -383,19 +387,18 @@ void MeshSequence::LoadData(std::string filename, size_t stepSize)
 					}
 
 					meshData = new MeshData(IndexedModel(
-						meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetIndices(),
-						pos,
-						meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetTexCoords(),
-						nor,
-						tan
-					), meshes_old.at(i).at(j)->GetMeshData()->GetMaterialIndex());
+						                        meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetIndices(),
+						                        pos,
+						                        meshes_old.at(i).at(j)->GetMeshData()->GetModel().GetTexCoords(),
+						                        nor,
+						                        tan
+					                        ), meshes_old.at(i).at(j)->GetMeshData()->GetMaterialIndex());
 					Mesh::s_resourceMap.insert(std::pair<std::string, MeshData*>(filename + (char)(j + i + l + 40), meshData));
 				}
 				mesh.push_back(Mesh(filename + (char)(j + i + l + 40), meshData));
 			}
 			meshg.push_back(mesh);
 		}
-
 	}
 	m_meshes = meshg;
 
@@ -408,12 +411,11 @@ void MeshSequence::LoadData(std::string filename, size_t stepSize)
 	}
 }
 
-EntityComponent * MeshSequence::SetShadows(bool shadows)
+EntityComponent* MeshSequence::SetShadows(bool shadows)
 {
 	m_shadows = shadows;
 
 	return this;
-
 }
 
 bool MeshSequence::HasShadows()
@@ -439,9 +441,10 @@ void MeshSequence::SetPlay(bool play)
 AnimMeshRenderer::AnimMeshRenderer()
 	:
 	m_anim(0)
-{}
+{
+}
 
-AnimMeshRenderer::AnimMeshRenderer(const std::string & fileName, int stepSize)
+AnimMeshRenderer::AnimMeshRenderer(const std::string& fileName, int stepSize)
 	:
 	m_anim(0)
 {
@@ -462,13 +465,13 @@ void AnimMeshRenderer::Update(float delta)
 	m_anims.at(m_anim)->Update(delta);
 }
 
-void AnimMeshRenderer::Render(Shader & shader, const RenderingEngine & renderingEngine, const Camera & camera) const
+void AnimMeshRenderer::Render(Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) const
 {
 	if (m_anims.size() == 0)return;
 	m_anims.at(m_anim)->Render(GetTransform(), shader, renderingEngine, camera);
 }
 
-void AnimMeshRenderer::DataDeploy(tinyxml2::XMLElement * data)
+void AnimMeshRenderer::DataDeploy(tinyxml2::XMLElement* data)
 {
 	int stepSize = 1;
 	if (data->Attribute("step"))

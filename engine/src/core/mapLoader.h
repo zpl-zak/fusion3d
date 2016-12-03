@@ -31,25 +31,25 @@ class Entity;
 class MapLoader
 {
 public:
-	MapLoader (std::string map);
-	
+	MapLoader(std::string map);
+
 
 	inline ~MapLoader()
 	{
 		delete m_doc;
 	}
 
-	void LoadEntities (Entity* root, tinyxml2::XMLElement* sibling = nullptr);
+	void LoadEntities(Entity* root, tinyxml2::XMLElement* sibling = nullptr);
 
 private:
-	tinyxml2::XMLDocument*		m_doc;
-	tinyxml2::XMLElement*		m_node;
-	tinyxml2::XMLElement*		m_meta;
-	tinyxml2::XMLElement*		m_data;
-	tinyxml2::XMLElement*		m_entities;
-	std::string				m_map;
+	tinyxml2::XMLDocument* m_doc;
+	tinyxml2::XMLElement* m_node;
+	tinyxml2::XMLElement* m_meta;
+	tinyxml2::XMLElement* m_data;
+	tinyxml2::XMLElement* m_entities;
+	std::string m_map;
 
-	std::string				m_name, m_version, m_author;
+	std::string m_name, m_version, m_author;
 };
 
 #define MAP_LOADER_H

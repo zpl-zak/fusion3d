@@ -31,7 +31,7 @@ Input::Input(Window* window) :
 	memset(m_inputs, 0, NUM_KEYS * sizeof(bool));
 	memset(m_downKeys, 0, NUM_KEYS * sizeof(bool));
 	memset(m_upKeys, 0, NUM_KEYS * sizeof(bool));
-	
+
 	memset(m_mouseInput, 0, NUM_MOUSEBUTTONS * sizeof(bool));
 	memset(m_downMouse, 0, NUM_MOUSEBUTTONS * sizeof(bool));
 	memset(m_upMouse, 0, NUM_MOUSEBUTTONS * sizeof(bool));
@@ -39,7 +39,7 @@ Input::Input(Window* window) :
 
 void Input::SetCursor(bool visible) const
 {
-	if(visible)
+	if (visible)
 		SDL_ShowCursor(1);
 	else
 		SDL_ShowCursor(0);
@@ -53,5 +53,5 @@ bool Input::GetCursor() const
 void Input::SetMousePosition(const Vector2f& pos) const
 {
 	SDL_WarpMouseInWindow(m_window->GetSDLWindow(), (int)pos.GetX(), (int)pos.GetY());
-//	SDLSetMousePosition((int)pos.GetX(), (int)pos.GetY());
+	//	SDLSetMousePosition((int)pos.GetX(), (int)pos.GetY());
 }

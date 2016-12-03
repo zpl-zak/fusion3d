@@ -26,11 +26,11 @@ Matrix4f Camera::GetViewProjection() const
 	//opposite to the camera's rotation.
 	Matrix4f cameraRotation = GetTransform().GetTransformedRot().Conjugate().ToRotationMatrix();
 	Matrix4f cameraTranslation;
-	
+
 	//Similarly, the translation is inverted because the world appears to move opposite
 	//to the camera's movement.
 	cameraTranslation.InitTranslation(GetTransform().GetTransformedPos() * -1);
-	
+
 	return m_projection * cameraRotation * cameraTranslation;
 }
 
@@ -39,7 +39,7 @@ Matrix4f Camera::GetViewProjectionWithoutTranslation() const
 	//This comes from the conjugate rotation because the world should appear to rotate
 	//opposite to the camera's rotation.
 	Matrix4f cameraRotation = GetTransform().GetTransformedRot().Conjugate().ToRotationMatrix();
-	
+
 	return m_projection * cameraRotation;
 }
 
@@ -53,7 +53,7 @@ void CameraComponent::AddToEngine(CoreEngine* engine)
 void CameraComponent::SetParent(Entity* parent)
 {
 	EntityComponent::SetParent(parent);
-	
+
 	//The camera's transform is initialized here because this is the first point where
 	//there is a parent object with a transform.
 	m_camera.SetTransform(GetTransform());

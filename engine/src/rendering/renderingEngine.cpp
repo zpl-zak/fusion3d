@@ -54,7 +54,7 @@ RenderingEngine::RenderingEngine(Window* window) :
 	m_fullbright(false),
 	m_fxaaFilter("filter-fxaa"),
 	m_hdrFilter("filter-hdr"),
-	m_altCameraTransform(Vector3f(0,0,0), Quaternion(Vector3f(0,1,0),ToRadians(180.0f))),
+	m_altCameraTransform(Vector3f(0, 0, 0), Quaternion(Vector3f(0, 1, 0),ToRadians(180.0f))),
 	m_altCamera(Matrix4f().InitIdentity(), &m_altCameraTransform),
 	m_uniformUpdate(true)
 {
@@ -73,18 +73,18 @@ RenderingEngine::RenderingEngine(Window* window) :
 	m_gui = SDL_CreateRenderer(m_window->GetSDLWindow(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	m_surface = SDL_CreateRGBSurface(0, window->GetWidth(), window->GetHeight(), 32, rmask, gmask, bmask, amask);
 	m_defaultShader = Shader::GetShader("forward-ambient");
-	SetSamplerSlot("diffuse",   0);
+	SetSamplerSlot("diffuse", 0);
 	SetSamplerSlot("normalMap", 1);
-	SetSamplerSlot("dispMap",   2);
+	SetSamplerSlot("dispMap", 2);
 	SetSamplerSlot("shadowMap", 3);
-	
+
 	SetSamplerSlot("filterTexture", 0);
-	
+
 	SetVector3f("ambient", Vector3f(0.2f, 0.2f, 0.2f));
-	
+
 	SetFloat("fxaaSpanMax", 8.0f);
-	SetFloat("fxaaReduceMin", 1.0f/128.0f);
-	SetFloat("fxaaReduceMul", 1.0f/8.0f);
+	SetFloat("fxaaReduceMin", 1.0f / 128.0f);
+	SetFloat("fxaaReduceMul", 1.0f / 8.0f);
 	SetFloat("fxaaAspectDistortion", 150.0f);
 
 	SetTexture("displayTexture", Texture(m_window->GetWidth(), m_window->GetHeight(), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA16F, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
@@ -99,49 +99,49 @@ RenderingEngine::RenderingEngine(Window* window) :
 	glEnable(GL_DEPTH_CLAMP);
 	glEnable(GL_MULTISAMPLE);
 	//glEnable(GL_FRAMEBUFFER_SRGB);
-	                  
+
 	//m_planeMaterial("renderingEngine_filterPlane", m_tempTarget, 1, 8);
 	m_planeTransform.SetScale(1.0f);
-	m_planeTransform.Rotate(Quaternion(Vector3f(1,0,0), ToRadians(90.0f)));
-	m_planeTransform.Rotate(Quaternion(Vector3f(0,0,1), ToRadians(180.0f)));
-	
-	for(int i = 0; i < NUM_SHADOW_MAPS; i++)
+	m_planeTransform.Rotate(Quaternion(Vector3f(1, 0, 0), ToRadians(90.0f)));
+	m_planeTransform.Rotate(Quaternion(Vector3f(0, 0, 1), ToRadians(180.0f)));
+
+	for (int i = 0; i < NUM_SHADOW_MAPS; i++)
 	{
 		int shadowMapSize = 1 << (i + 1);
 
 		m_shadowMaps[i] = Texture(shadowMapSize, shadowMapSize, 0, GL_TEXTURE_2D, GL_LINEAR, GL_RG32F, GL_RGBA, true, GL_COLOR_ATTACHMENT0);
 		m_shadowMapTempTargets[i] = Texture(shadowMapSize, shadowMapSize, 0, GL_TEXTURE_2D, GL_LINEAR, GL_RG32F, GL_RGBA, true, GL_COLOR_ATTACHMENT0);
 	}
-	
+
 	m_lightMatrix = Matrix4f().InitScale(Vector3f(0, 0, 0));
 
-	ImGui_ImplSdlGL3_Init (window->GetSDLWindow ());
+	ImGui_ImplSdlGL3_Init(window->GetSDLWindow());
 }
 
 void RenderingEngine::BlurShadowMap(int shadowMapIndex, float blurAmount)
 {
-	SetVector3f("blurScale", Vector3f(blurAmount/(m_shadowMaps[shadowMapIndex].GetWidth()), 0.0f, 0.0f));
+	SetVector3f("blurScale", Vector3f(blurAmount / (m_shadowMaps[shadowMapIndex].GetWidth()), 0.0f, 0.0f));
 	ApplyFilter(m_gausBlurFilter, m_shadowMaps[shadowMapIndex], &m_shadowMapTempTargets[shadowMapIndex]);
-	
-	SetVector3f("blurScale", Vector3f(0.0f, blurAmount/(m_shadowMaps[shadowMapIndex].GetHeight()), 0.0f));
-	ApplyFilter(m_gausBlurFilter, m_shadowMapTempTargets[shadowMapIndex], &m_shadowMaps[shadowMapIndex]); 
 
-	SetVector3f("inverseFilterTextureSize", Vector3f(blurAmount/m_shadowMaps[shadowMapIndex].GetWidth(), blurAmount/m_shadowMaps[shadowMapIndex].GetHeight(), 0.0f));
+	SetVector3f("blurScale", Vector3f(0.0f, blurAmount / (m_shadowMaps[shadowMapIndex].GetHeight()), 0.0f));
+	ApplyFilter(m_gausBlurFilter, m_shadowMapTempTargets[shadowMapIndex], &m_shadowMaps[shadowMapIndex]);
+
+	SetVector3f("inverseFilterTextureSize", Vector3f(blurAmount / m_shadowMaps[shadowMapIndex].GetWidth(), blurAmount / m_shadowMaps[shadowMapIndex].GetHeight(), 0.0f));
 	ApplyFilter(m_fxaaFilter, m_shadowMaps[shadowMapIndex], &m_shadowMapTempTargets[shadowMapIndex]);
-//	
+	//	
 	ApplyFilter(m_nullFilter, m_shadowMapTempTargets[shadowMapIndex], &m_shadowMaps[shadowMapIndex]);
 }
 
-void RenderingEngine::ApplyFilterInternal (Shader& filter)
+void RenderingEngine::ApplyFilterInternal(Shader& filter)
 {
-	m_altCamera.SetProjection (Matrix4f ().InitIdentity ());
-	m_altCamera.GetTransform ()->SetPos (Vector3f (0, 0, 0));
-	m_altCamera.GetTransform ()->SetRot (Quaternion (Vector3f (0, 1, 0), ToRadians (180.0f)));
+	m_altCamera.SetProjection(Matrix4f().InitIdentity());
+	m_altCamera.GetTransform()->SetPos(Vector3f(0, 0, 0));
+	m_altCamera.GetTransform()->SetRot(Quaternion(Vector3f(0, 1, 0), ToRadians (180.0f)));
 
-	glClear (GL_DEPTH_BUFFER_BIT);
-	filter.Bind ();
-	filter.UpdateUniforms (m_planeTransform, m_planeMaterial, *this, m_altCamera);
-	m_plane.Draw ();
+	glClear(GL_DEPTH_BUFFER_BIT);
+	filter.Bind();
+	filter.UpdateUniforms(m_planeTransform, m_planeMaterial, *this, m_altCamera);
+	m_plane.Draw();
 }
 
 void RenderingEngine::ApplyFilter(Shader& filter, const Texture& source, const Texture* dest)
@@ -151,17 +151,17 @@ void RenderingEngine::ApplyFilter(Shader& filter, const Texture& source, const T
 	if (&source == dest)
 	{
 		//SetTexture ("tempTexture", Texture (m_window->GetWidth (), m_window->GetHeight (), 0, GL_TEXTURE_2D, GL_LINEAR, GL_RGBA, GL_RGBA, true, GL_COLOR_ATTACHMENT0));
-		GetTexture ("tempTarget").BindAsRenderTarget ();
+		GetTexture("tempTarget").BindAsRenderTarget();
 
-		SetTexture ("filterTexture", source);
+		SetTexture("filterTexture", source);
 
-		ApplyFilterInternal (filter);
+		ApplyFilterInternal(filter);
 
-		dest->BindAsRenderTarget ();
+		dest->BindAsRenderTarget();
 
-		ApplyFilterInternal (m_nullFilter);
+		ApplyFilterInternal(m_nullFilter);
 	}
-	else if(dest == 0)
+	else if (dest == 0)
 	{
 		m_window->BindAsRenderTarget();
 	}
@@ -169,14 +169,14 @@ void RenderingEngine::ApplyFilter(Shader& filter, const Texture& source, const T
 	{
 		dest->BindAsRenderTarget();
 	}
-	
-	SetTexture("filterTexture", source);
-	
-	ApplyFilterInternal (filter);
-	m_window->BindAsRenderTarget ();
-	ApplyFilterInternal (m_nullFilter);
 
-//	SetTexture("filterTexture", 0);
+	SetTexture("filterTexture", source);
+
+	ApplyFilterInternal(filter);
+	m_window->BindAsRenderTarget();
+	ApplyFilterInternal(m_nullFilter);
+
+	//	SetTexture("filterTexture", 0);
 }
 
 void RenderingEngine::drawrect(int x, int y, int w, int h, int color)
@@ -196,7 +196,7 @@ void RenderingEngine::Render(Entity& object)
 	//m_window->BindAsRenderTarget();
 	//m_tempTarget->BindAsRenderTarget();
 
-	glClearColor(1.0f,1.0f,1.0f,0.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	object.RenderAll(*m_defaultShader, *this, *m_mainCamera);
 	if (!m_fullbright)
@@ -221,7 +221,7 @@ void RenderingEngine::Render(Entity& object)
 			{
 				m_altCamera.SetProjection(shadowInfo.GetProjection());
 				ShadowCameraTransform shadowCameraTransform = m_activeLight->CalcShadowCameraTransform(m_mainCamera->GetTransform().GetTransformedPos(),
-					m_mainCamera->GetTransform().GetTransformedRot());
+				                                                                                       m_mainCamera->GetTransform().GetTransformedRot());
 				m_altCamera.GetTransform()->SetPos(shadowCameraTransform.GetPos());
 				m_altCamera.GetTransform()->SetRot(shadowCameraTransform.GetRot());
 
@@ -266,9 +266,9 @@ void RenderingEngine::Render(Entity& object)
 			GetTexture("displayTexture").BindAsRenderTarget();
 			//m_window->BindAsRenderTarget();
 
-	//		glEnable(GL_SCISSOR_TEST);
-	//		TODO: Make use of scissor test to limit light area
-	//		glScissor(0, 0, 100, 100);
+			//		glEnable(GL_SCISSOR_TEST);
+			//		TODO: Make use of scissor test to limit light area
+			//		glScissor(0, 0, 100, 100);
 
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_ONE, GL_ONE);
@@ -281,129 +281,122 @@ void RenderingEngine::Render(Entity& object)
 			glDepthFunc(GL_LESS);
 			glDisable(GL_BLEND);
 		}
-//		glDisable(GL_SCISSOR_TEST);
+		//		glDisable(GL_SCISSOR_TEST);
 	}
-	
-	float displayTextureAspect = (float)GetTexture("displayTexture").GetWidth()/(float)GetTexture("displayTexture").GetHeight();
+
+	float displayTextureAspect = (float)GetTexture("displayTexture").GetWidth() / (float)GetTexture("displayTexture").GetHeight();
 	float displayTextureHeightAdditive = displayTextureAspect * GetFloat("fxaaAspectDistortion");
-	SetVector3f("inverseFilterTextureSize", Vector3f(1.0f/(float)GetTexture("displayTexture").GetWidth(), 
-	                                                 1.0f/((float)GetTexture("displayTexture").GetHeight() + displayTextureHeightAdditive), 0.0f));
+	SetVector3f("inverseFilterTextureSize", Vector3f(1.0f / (float)GetTexture("displayTexture").GetWidth(),
+	                                                 1.0f / ((float)GetTexture("displayTexture").GetHeight() + displayTextureHeightAdditive), 0.0f));
 
-	
 
-	ImGui_ImplSdlGL3_NewFrame ();
-	
+	ImGui_ImplSdlGL3_NewFrame();
+
 	glDisable(GL_DEPTH_TEST);
 	glClear(GL_DEPTH_BUFFER_BIT);
 	object.PostRenderAll(m_nullShader, *this, *m_mainCamera);
 	glEnable(GL_DEPTH_TEST);
 
 	m_renderProfileTimer.StopInvocation();
-	
-	m_windowSyncProfileTimer.StartInvocation();
-	ApplyFilter(m_fxaaFilter, GetTexture("displayTexture"), &GetTexture ("displayTexture"));
-	
-	//SetFloat("exposure", 1.0f);
 
-	//ApplyFilter(m_hdrFilter, GetTexture("displayTexture"), &GetTexture("displayTexture"));
+	m_windowSyncProfileTimer.StartInvocation();
+	ApplyFilter(m_fxaaFilter, GetTexture("displayTexture"), &GetTexture("displayTexture"));
+
 	m_windowSyncProfileTimer.StopInvocation();
 
 	m_uniformUpdate = false;
 }
 
 
-GLDebugDrawer::GLDebugDrawer (RenderingEngine* renderer)
-	:m_debugMode (btIDebugDraw::DBG_DrawWireframe),
-	m_renderer (renderer)
+GLDebugDrawer::GLDebugDrawer(RenderingEngine* renderer)
+	: m_debugMode(btIDebugDraw::DBG_DrawWireframe),
+	  m_renderer(renderer)
 {
-
 }
 
-void    GLDebugDrawer::drawLine(const btVector3& from, const btVector3& to, const btVector3& color)
+void GLDebugDrawer::drawLine(const btVector3& from, const btVector3& to, const btVector3& color)
 {
 	//      if (m_debugMode > 0)
 	{
-		auto shader = m_renderer->GetNullShader ();
-		
+		auto shader = m_renderer->GetNullShader();
+
 		if (shader == nullptr)
 			return;
 
-		Vector3f S = Vector3f::GetFT (from);
-		Vector3f E = Vector3f::GetFT (to);
+		Vector3f S = Vector3f::GetFT(from);
+		Vector3f E = Vector3f::GetFT(to);
 
-		shader->Bind ();
-		shader->UpdateUniforms (Transform (), Material("null"), *m_renderer, *m_renderer->GetMainCamera ());
+		shader->Bind();
+		shader->UpdateUniforms(Transform(), Material("null"), *m_renderer, *m_renderer->GetMainCamera());
 
-		float vertices[] = { 
+		float vertices[] = {
 			S.GetX(), S.GetY(), S.GetZ(),
-			E.GetX (), E.GetY (), E.GetZ ()
+			E.GetX(), E.GetY(), E.GetZ()
 		};
 		float colors[] = {
-			color.getX (),color.getY (),color.getZ (),
-			color.getX (),color.getY (),color.getZ ()
+			color.getX(),color.getY(),color.getZ(),
+			color.getX(),color.getY(),color.getZ()
 		};
-		
+
 		GLuint vbo;
-		glGenVertexArrays (1, &vbo);
-		glBindVertexArray (vbo);
-		
+		glGenVertexArrays(1, &vbo);
+		glBindVertexArray(vbo);
+
 		GLuint vertexbuffer, colorbuffer;
-		glGenBuffers (1, &vertexbuffer);
-		glBindBuffer (GL_ARRAY_BUFFER, vertexbuffer);
-		glBufferData (GL_ARRAY_BUFFER, sizeof (vertices), vertices, GL_DYNAMIC_DRAW);
+		glGenBuffers(1, &vertexbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+		glBufferData(GL_ARRAY_BUFFER, sizeof (vertices), vertices, GL_DYNAMIC_DRAW);
 
-		glGenBuffers (1, &colorbuffer);
-		glBindBuffer (GL_ARRAY_BUFFER, colorbuffer);
-		glBufferData (GL_ARRAY_BUFFER, sizeof (colors), colors, GL_DYNAMIC_DRAW);
+		glGenBuffers(1, &colorbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+		glBufferData(GL_ARRAY_BUFFER, sizeof (colors), colors, GL_DYNAMIC_DRAW);
 
-		glEnableVertexAttribArray (0);
-		glBindBuffer (GL_ARRAY_BUFFER, vertexbuffer);
-		glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-		
-		glEnableVertexAttribArray (1);
-		glBindBuffer (GL_ARRAY_BUFFER, colorbuffer);
-		glVertexAttribPointer (1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-		glDisable (GL_DEPTH_TEST);
-		
-		glDrawArrays (GL_LINES, 0, 2);
-		
-		glEnable (GL_DEPTH_TEST);
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-		glDisableVertexAttribArray (1);
-		glDisableVertexAttribArray (0);
-		
+		glDisable(GL_DEPTH_TEST);
 
-		glDeleteBuffers (1, &vertexbuffer);
-		glDeleteBuffers (1, &colorbuffer);
-		glDeleteVertexArrays (1, &vbo);
+		glDrawArrays(GL_LINES, 0, 2);
 
-		
+		glEnable(GL_DEPTH_TEST);
+
+		glDisableVertexAttribArray(1);
+		glDisableVertexAttribArray(0);
+
+
+		glDeleteBuffers(1, &vertexbuffer);
+		glDeleteBuffers(1, &colorbuffer);
+		glDeleteVertexArrays(1, &vbo);
 	}
 }
 
-void    GLDebugDrawer::setDebugMode(int debugMode)
+void GLDebugDrawer::setDebugMode(int debugMode)
 {
 	m_debugMode = debugMode;
 }
 
-void    GLDebugDrawer::draw3dText(const btVector3& location, const char* textString)
+void GLDebugDrawer::draw3dText(const btVector3& location, const char* textString)
 {
 	//glRasterPos3f(location.x(),  location.y(),  location.z());
 	//BMF_DrawString(BMF_GetFont(BMF_kHelvetica10),textString);
 }
 
-void    GLDebugDrawer::reportErrorWarning(const char* warningString)
+void GLDebugDrawer::reportErrorWarning(const char* warningString)
 {
 	printf(warningString);
 }
 
-void    GLDebugDrawer::drawContactPoint(const btVector3& pointOnB, const btVector3& normalOnB, btScalar distance, int lifeTime, const btVector3& color)
+void GLDebugDrawer::drawContactPoint(const btVector3& pointOnB, const btVector3& normalOnB, btScalar distance, int lifeTime, const btVector3& color)
 {
 	{
-		btVector3 to=pointOnB+normalOnB*distance;
-		const btVector3&from = pointOnB;
-		glColor4f(color.getX(), color.getY(), color.getZ(), 1.0f);   
+		btVector3 to = pointOnB + normalOnB * distance;
+		const btVector3& from = pointOnB;
+		glColor4f(color.getX(), color.getY(), color.getZ(), 1.0f);
 
 		//GLDebugDrawer::drawLine(from, to, color);
 		//glRasterPos3f(from.x(),  from.y(),  from.z());

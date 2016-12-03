@@ -3,12 +3,12 @@
 #include <iostream>
 #include "../core/util.h"
 
-Bitmap::Bitmap (std::string fileName)
+Bitmap::Bitmap(std::string fileName)
 {
 	//ctor
 
 	int x, y, bytesPerPixel;
-	unsigned char* data = stbi_load ((Util::ResourcePath () + "bitmaps/" + fileName).c_str (), &x, &y, &bytesPerPixel, 4);
+	unsigned char* data = stbi_load((Util::ResourcePath() + "bitmaps/" + fileName).c_str(), &x, &y, &bytesPerPixel, 4);
 
 	if (data == NULL)
 	{
@@ -21,30 +21,30 @@ Bitmap::Bitmap (std::string fileName)
 	m_bpp = bytesPerPixel;
 }
 
-Bitmap::Bitmap (int width, int height)
+Bitmap::Bitmap(int width, int height)
 	:
-	m_width (width),
-	m_height (height)
+	m_width(width),
+	m_height(height)
 {
 	//ctor
 
 	m_pixels = new unsigned int[width * height];
 }
 
-Bitmap::~Bitmap ()
+Bitmap::~Bitmap()
 {
 	//dtor
 
 	delete m_pixels;
 }
 
-Bitmap* Bitmap::FlipX ()
+Bitmap* Bitmap::FlipX()
 {
 	unsigned int* temp = new unsigned int[m_width * m_height * m_bpp];
 
-	for (int i = 0; i<m_width; i++)
+	for (int i = 0; i < m_width; i++)
 	{
-		for (int j = 0; j<m_height; j++)
+		for (int j = 0; j < m_height; j++)
 		{
 			temp[i + j * m_width] = m_pixels[(m_width - i - 1) + j * m_width];
 		}
@@ -56,13 +56,13 @@ Bitmap* Bitmap::FlipX ()
 	return this;
 }
 
-Bitmap* Bitmap::FlipY ()
+Bitmap* Bitmap::FlipY()
 {
 	unsigned int* temp = new unsigned int[m_width * m_height * m_bpp];
 
-	for (int i = 0; i<m_width; i++)
+	for (int i = 0; i < m_width; i++)
 	{
-		for (int j = 0; j<m_height; j++)
+		for (int j = 0; j < m_height; j++)
 		{
 			temp[i + j * m_width] = m_pixels[i + (m_height - j - 1) * m_width];
 		}

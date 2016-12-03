@@ -26,9 +26,10 @@ class XMLLoader
 public:
 	XMLLoader(std::string document)
 		:
-			m_document(document)
-	{}
-	
+		m_document(document)
+	{
+	}
+
 	~XMLLoader()
 	{
 		delete m_xmlDocument;
@@ -47,14 +48,13 @@ public:
 
 	XMLLoader* SaveXML()
 	{
-		
 		return this;
 	}
 
-	XMLDocument*  GetXMLDocument() { return m_xmlDocument; }
-	void		 SetXMLDocument(XMLDocument* xmlDocument) { m_xmlDocument = xmlDocument; }
+	XMLDocument* GetXMLDocument() { return m_xmlDocument; }
+	void SetXMLDocument(XMLDocument* xmlDocument) { m_xmlDocument = xmlDocument; }
 
 private:
-	XMLDocument*		m_xmlDocument;
-	std::string		m_document;
+	XMLDocument* m_xmlDocument;
+	std::string m_document;
 };

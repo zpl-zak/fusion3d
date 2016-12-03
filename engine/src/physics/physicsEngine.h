@@ -31,7 +31,7 @@ public:
 	/** 
 	 * Creates a PhysicsEngine in a usable state.
 	 */
-	PhysicsEngine() 
+	PhysicsEngine()
 	{
 		m_broadphase = new btDbvtBroadphase();
 		m_configuration = new btDefaultCollisionConfiguration();
@@ -50,7 +50,7 @@ public:
 		delete m_configuration;
 		delete m_broadphase;
 	}
-	
+
 
 	void Simulate(float delta);
 
@@ -59,8 +59,8 @@ public:
 		return m_world;
 	}
 
-	inline void SetSimulation (bool state) { m_simulation = state; }
-	inline bool GetSimulation () { return m_simulation; }
+	inline void SetSimulation(bool state) { m_simulation = state; }
+	inline bool GetSimulation() { return m_simulation; }
 
 private:
 	btBroadphaseInterface* m_broadphase;
