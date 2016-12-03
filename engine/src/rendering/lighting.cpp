@@ -63,7 +63,8 @@ ShadowCameraTransform DirectionalLight::CalcShadowCameraTransform(const Vector3f
 PointLight::PointLight(const Vector3f& color, float intensity, const Attenuation& attenuation, float viewAngle,
     int shadowMapSizeAsPowerOf2, float shadowSoftness, float lightBleedReductionAmount, float minVariance, const Shader& shader) :
 	BaseLight(color, intensity, shader),
-	m_attenuation(attenuation)
+	m_attenuation(attenuation),
+	m_angle(viewAngle)
 {
 	float a = m_attenuation.GetExponent();
 	float b = m_attenuation.GetLinear();

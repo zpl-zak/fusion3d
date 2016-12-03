@@ -244,7 +244,7 @@ DevMode::DevMode(const Window & window, bool isDev)
 	m_isCmd(false),
 	m_showCursor(false),
 	m_devCamera(Matrix4f().InitPerspective(
-		ToRadians(70.0f), window.GetAspect(), 0.1f, 100000.0f), 0)
+		ToRadians(70.0f), window.GetAspect(), 0.1f, 1000.0f), 0)
 
 	, enable_physics(false)
 {
@@ -269,6 +269,7 @@ void DevMode::Init()
 	m_look->SetParent(GetParent());
 	m_devCamera.SetTransform(GetTransform());
 	m_lastCamera = m_engine->GetRenderingEngine()->GetMainCamera();
+	GetParent()->AddComponent(new PointLight(Vector3f(0.1f, 0.1f, 0.1f), 55.4f, Attenuation(6.5f, 7.7f, 23.2f), 42.f, 6, 1, 0.193f));
 
 	if (m_isDev)
 	{
@@ -408,6 +409,61 @@ void DevMode::ProcessInput(const Input & input, float delta)
 					}
 				}
 			}
+			if (input.GetKey(Input::KEY_I) && m_handleMode == HANDLE_TRANSFORM)
+			{
+				for (size_t i = 0; i < m_selected.size(); i++)
+				{
+					auto selected = m_selected.at(i);
+					auto pos = selected->GetTransform()->GetPos();
+
+					if (global_axis)
+					{
+						selected->GetTransform()->SetPos(*pos + Vector3f(0, 0, 1));
+					}
+					else
+					{
+						auto forward = selected->GetTransform()->GetRot()->GetForward();
+						selected->GetTransform()->SetPos(*pos + forward);
+					}
+				}
+			}
+			if (input.GetKey(Input::KEY_K) && m_handleMode == HANDLE_TRANSFORM)
+			{
+				for (size_t i = 0; i < m_selected.size(); i++)
+				{
+					auto selected = m_selected.at(i);
+					auto pos = selected->GetTransform()->GetPos();
+
+					if (global_axis)
+					{
+						selected->GetTransform()->SetPos(*pos + Vector3f(0, 0, -1));
+					}
+					else
+					{
+						auto backward = selected->GetTransform()->GetRot()->GetBack();
+						selected->GetTransform()->SetPos(*pos + backward);
+					}
+				}
+			}
+			if (input.GetKey(Input::KEY_L) && m_handleMode == HANDLE_TRANSFORM)
+			{
+				for (size_t i = 0; i < m_selected.size(); i++)
+				{
+					auto selected = m_selected.at(i);
+					auto pos = selected->GetTransform()->GetPos();
+
+					if (global_axis)
+					{
+						selected->GetTransform()->SetPos(*pos + Vector3f(1, 0, 0));
+					}
+					else
+					{
+						auto right = selected->GetTransform()->GetRot()->GetRight();
+						selected->GetTransform()->SetPos(*pos + right);
+					}
+				}
+			}
+
 
 			if (input.GetKeyDown(Input::KEY_Q))
 			{
@@ -632,6 +688,10 @@ void DevMode::PostRender(const Shader & shader, const RenderingEngine & renderin
 		Shader s = shader;
 		//m_gizmoSphere->GetTransform()->SetPos(*ot->GetPos());
 		m_gizmoSphere->SetTransform(*ot);
+
+		if (global_axis)
+			m_gizmoSphere->GetTransform()->SetEulerAngles(Vector3f());
+
 		m_gizmoSphere->RenderAll(s, renderingEngine, camera);
 
 		Vector3f pos = ot->GetTransformedPos();

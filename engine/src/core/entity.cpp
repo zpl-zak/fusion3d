@@ -171,8 +171,6 @@ void Entity::Update(float delta)
 	{
 		m_components[i]->Update(delta);
 	}
-	if(m_picker)
-		m_picker->UpdateTransform();
 }
 
 void Entity::Render( Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera) 

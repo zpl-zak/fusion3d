@@ -293,7 +293,10 @@ void RenderingEngine::Render(Entity& object)
 
 	ImGui_ImplSdlGL3_NewFrame ();
 	
+	glDisable(GL_DEPTH_TEST);
+	glClear(GL_DEPTH_BUFFER_BIT);
 	object.PostRenderAll(m_nullShader, *this, *m_mainCamera);
+	glEnable(GL_DEPTH_TEST);
 
 	m_renderProfileTimer.StopInvocation();
 	

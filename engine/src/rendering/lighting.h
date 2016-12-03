@@ -106,9 +106,9 @@ protected:
 
 	Vector3f    m_color;
 	float       m_intensity;
+	ShadowInfo  m_shadowInfo;
 private:
 	Shader      m_shader;
-	ShadowInfo  m_shadowInfo;
 };
 
 class DirectionalLight : public BaseLight
@@ -127,17 +127,19 @@ public:
 	{
 		BaseLight::DrawDebugUI();
 
-		static int shadowSize = 0;
-		static float shadowArea = 80.0f;
-		static float shadowSoftness = 1.0f;
-		static float lightBleed = 0.2f;
-		static float minVariance = 0.00002f;
+		int shadowSize = m_shadowInfo.GetShadowMapSizeAsPowerOf2();
+		float shadowArea = m_halfShadowArea * 2;
+		float shadowSoftness = m_shadowInfo.GetShadowSoftness();
+		float lightBleed = m_shadowInfo.GetLightBleedReductionAmount();
+		float minVariance = m_shadowInfo.GetMinVariance();
 
 		ImGui::InputInt("Shadowmap Size", &shadowSize); if (shadowSize > 12) shadowSize = 12; if (shadowSize < 0) shadowSize = 0;
 		ImGui::DragFloat("Shadow Area", &shadowArea, 0.5f, 0.0f);
 		ImGui::SliderFloat("Shadow Softness", &shadowSoftness, 0, 1);
 		ImGui::SliderFloat("Light Bleed Reduction", &lightBleed, 0, 1);
 		ImGui::DragFloat("Minimal Variance", &minVariance, 0.00001f, 0.0f, 1.0f, "%.4f");
+
+		m_halfShadowArea = shadowArea / 2;
 
 		//if (ImGui::Button("Update ShadowInfo"))
 		{
@@ -250,19 +252,19 @@ public:
 	{
 		BaseLight::DrawDebugUI();
 
-		static float viewAngle = ToRadians(170.0f);
-		static int shadowSize = 0;
-		static float shadowArea = 80.0f;
-		static float shadowSoftness = 1.0f;
-		static float lightBleed = 0.2f;
-		static float minVariance = 0.00002f;
+		float viewAngle = m_angle;
+		int shadowSize = m_shadowInfo.GetShadowMapSizeAsPowerOf2();
+		float shadowSoftness = m_shadowInfo.GetShadowSoftness();
+		float lightBleed = m_shadowInfo.GetLightBleedReductionAmount();
+		float minVariance = m_shadowInfo.GetMinVariance();
 		
 		ImGui::DragFloat("View Angle", &viewAngle, 1.0f, 0, 360);
 
 		//Attenuation
 		{
-			static float constant, linear = 0;
-			static float exponent = 1;
+			float constant = m_attenuation.GetConstant();
+			float linear = m_attenuation.GetLinear();
+			float exponent = m_attenuation.GetExponent();
 			ImGui::Text("Attenuation");
 			ImGui::DragFloat("Constant", &constant, 0.1f);
 			ImGui::DragFloat("Linear", &linear, 0.1f);
@@ -271,13 +273,13 @@ public:
 		}
 
 		ImGui::InputInt("Shadowmap Size", &shadowSize); if (shadowSize > 12) shadowSize = 12; if (shadowSize < 0) shadowSize = 0;
-		ImGui::DragFloat("Shadow Area", &shadowArea, 0.5f, 0.0f);
 		ImGui::SliderFloat("Shadow Softness", &shadowSoftness, 0, 1);
 		ImGui::SliderFloat("Light Bleed Reduction", &lightBleed, 0, 1);
 		ImGui::DragFloat("Minimal Variance", &minVariance, 0.00001f, 0.0f, 1.0f, "%.4f");
 
 		//if (ImGui::Button("Update ShadowInfo"))
 		{
+			m_angle = viewAngle;
 			if (shadowSize != 0)
 			{
 				SetShadowInfo(ShadowInfo(Matrix4f().InitPerspective(viewAngle, 1.0f, 0.1f, GetRange()), false, shadowSize,
@@ -347,6 +349,7 @@ public:
 		SetColor(color);
 		SetIntensity(intensity);
 		m_attenuation = atten;
+		m_angle = viewAngle;
 
 		float a = m_attenuation.GetExponent();
 		float b = m_attenuation.GetLinear();
@@ -355,10 +358,13 @@ public:
 		m_range = (-b + sqrtf(b*b - 4 * a*c)) / (2 * a);
 
 		if (shadowMapSizeAsPowerOf2 != 0)
-		SetShadowInfo(ShadowInfo(Matrix4f().InitPerspective(viewAngle, 1.0f, 0.1f, GetRange()), false, shadowMapSizeAsPowerOf2, shadowSoftness, lightBleedReductionAmount, minVariance));
+			SetShadowInfo(ShadowInfo(Matrix4f().InitPerspective(viewAngle, 1.0f, 0.1f, GetRange()), false, shadowMapSizeAsPowerOf2, shadowSoftness, lightBleedReductionAmount, minVariance));
+		else
+			m_shadowInfo = {};
 	}
 protected:
 	Attenuation m_attenuation;
+	float	    m_angle;
 private:
 	
 	float m_range;

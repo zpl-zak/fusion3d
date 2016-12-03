@@ -35,7 +35,7 @@ void main()
     texCoord0 = texCoord; 
     worldPos0 = (T_model * vec4(position, 1.0)).xyz;
     
-    vec3 n = normalize((normalize(T_model) * vec4(normal, 0.0)).xyz);
+    vec3 n = normalize((T_model * vec4(normal, 0.0)).xyz);
     vec3 t = normalize((T_model * vec4(tangent, 0.0)).xyz);
     t = normalize(t - dot(t, n) * n);
     
@@ -58,6 +58,6 @@ void main()
 {
 	vec3 directionToEye = normalize(C_eyePos - worldPos0);
 	vec2 texCoords = CalcParallaxTexCoords(dispMap, tbnMatrix, directionToEye, texCoord0, dispMapScale, dispMapBias);
-	SetFragOutput(0, texture2D(diffuse, texCoords) * vec4(R_ambient, 1));
+	SetFragOutput(0, texture2D(diffuse, texCoords) + vec4(R_ambient, 1));
 }
 #endif

@@ -58,29 +58,20 @@ void MeshRenderer::Render(Shader & shader, const RenderingEngine & renderingEngi
 
 	_shader->Bind();
 	_shader->UpdateUniforms(*GetTransform(), *material, renderingEngine, camera);
-	//auto b = camera.GetViewProjection();
+	auto b = camera.GetViewProjection();
 	for (size_t i = 0; i < m_mesh.size(); i++)
 	{
-		// DISTANCE CHECK
+		/*// DISTANCE CHECK
 		{
 			const IndexedModel& t = m_mesh.at(i).GetMeshData()->GetModel();
-			//constexpr float DIST =   1.2f;
+			constexpr float DIST =  3.2f;
 
-			//float dz = (t.GetCenter().GetZ()) - (camera.GetTransform().GetPos().GetZ()); dz = fabsf(dz);
-			//float dy = (t.GetCenter().GetY()) - (camera.GetTransform().GetPos().GetY()); dy = fabsf(dy);
-			//float dx = (t.GetCenter().GetX()) - (camera.GetTransform().GetPos().GetX()); dx = fabsf(dx);
-			//float z = sqrtf((dy*dy) + (dx*dx) + (dz*dz));
-
-			//float ad = t.GetBoundSize();// / logf(t.GetBoundSize()); // ??????????????????????????????????? //logf(t.GetBoundSize() + 1.0f) * DIST + 200;// +50;
-			//if (z >= ad)
-			//	continue;
-
-			/*Vector3f c = b.Transform(t.GetCenter());
+			Vector3f c = b.Transform(t.GetCenter());
 			float r = t.GetBoundSize() / 2;
 
 			if (camera.GetFrustum().SphereInFrustum(c, r) == Frustum::OUTSIDE)
-			continue;*/
-		}
+				continue;
+		}*/
 
 		if (shader.GetName() != "shadowMapGenerator")
 		{

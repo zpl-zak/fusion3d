@@ -534,7 +534,11 @@ static void CheckShaderError(int shader, int flag, bool isProgram, const std::st
 		else
 			glGetShaderInfoLog(shader, sizeof(error), NULL, error);
 
-		fprintf(stderr, "%s: '%s'\n", errorMessage.c_str(), error);
+		char vodka[4096] = {};
+		sprintf(vodka, "============ GLSL ERROR ===========\n%s: '%s'\n", errorMessage.c_str(), error);
+
+		OutputDebugStringA(vodka);
+
 	}
 }
 

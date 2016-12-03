@@ -227,6 +227,7 @@ temp/
 projects/
 *.cod
 *.idb
+*.opendb
 *.exp
 engine/Fusion3D.VC.opendb
 build.vshost.exe

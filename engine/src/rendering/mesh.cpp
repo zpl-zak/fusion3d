@@ -432,14 +432,14 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 			std::vector<unsigned int> indices;
 
 			const aiMesh* model = scene->mMeshes[i];
-
+			
 			const aiVector3D aiZeroVector(0.0f, 0.0f, 0.0f);
 			for (unsigned int j = 0; j < model->mNumVertices; j++)
 			{
-				const aiVector3D pos = model->mVertices[j];
-				const aiVector3D normal = model->mNormals[j];
-				const aiVector3D texCoord = model->HasTextureCoords(0) ? model->mTextureCoords[0][j] : aiZeroVector;
-				const aiVector3D tangent = model->mTangents[j];
+				aiVector3D pos = model->HasPositions() ? model->mVertices[j] : aiZeroVector;
+				aiVector3D normal = model->mNormals[j];
+				aiVector3D texCoord = model->HasTextureCoords(0) ? model->mTextureCoords[0][j] : aiZeroVector;
+				aiVector3D tangent = model->mTangents[j];
 
 				positions.push_back(Vector3f(pos.x, pos.y, pos.z));
 				texCoords.push_back(Vector2f(texCoord.x, texCoord.y));
@@ -450,7 +450,7 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string & fileName, int mo
 			for (unsigned int j = 0; j < model->mNumFaces; j++)
 			{
 				const aiFace& face = model->mFaces[j];
-				assert(face.mNumIndices == 3);
+				//assert(face.mNumIndices == 3);
 				indices.push_back(face.mIndices[0] - lastIndexOffset);
 				indices.push_back(face.mIndices[1] - lastIndexOffset);
 				indices.push_back(face.mIndices[2] - lastIndexOffset);
