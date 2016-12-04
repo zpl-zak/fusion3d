@@ -20,10 +20,6 @@ Simple 3D Game Engine with dynamic shading, physics and reflected modular progra
 - Program can be generated via Build Tool by accessing Program Editor
 - Please, build project via Build Tool if you make any changes in program editor.
 
-##Documentation
-Documentation can be found at [following webpage](https://subvisionstudio.github.io/fusion3d/docs/html/index.html).
-
-
 ##Credits
 Developed by Dominik "ZaKlaus" Madarász and other direct or indirect contributors to the GitHub.
 
