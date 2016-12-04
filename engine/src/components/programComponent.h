@@ -49,6 +49,8 @@ public:
 
 	virtual int Render(const Shader& shader, const RenderingEngine& renderingEngine, const Camera& camera);
 
+	virtual void DrawDebugUI();
+
 	virtual std::string GetProgramName();
 
 	virtual std::string GetLatestError();
@@ -56,7 +58,6 @@ public:
 	virtual void DataDeploy(tinyxml2::XMLElement* data);
 
 	void SetParent(Entity* parent);
-
 protected:
 	std::set<std::string> m_error;
 
