@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Subvision Studio
+ * Copyright (C) 2014 Benny Bobaganoosh
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,11 +18,10 @@
 
 #if defined(VS_BUILD)
 attribute vec3 position;
-uniform mat4 T_MVP;
 
 void main()
 {
-    gl_Position = T_MVP * vec4(position, 1.0);
+    gl_Position = vec4(position, 1.0);
 }
 
 #elif defined(FS_BUILD)
