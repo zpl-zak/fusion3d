@@ -196,7 +196,8 @@ void RenderingEngine::Render(Entity& object)
 	//m_window->BindAsRenderTarget();
 	//m_tempTarget->BindAsRenderTarget();
 
-	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+	auto amb = GetVector3f("ambient");
+	glClearColor(amb[0], amb[1], amb[2], 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	object.RenderAll(*m_defaultShader, *this, *m_mainCamera);
 	if (!m_fullbright)
