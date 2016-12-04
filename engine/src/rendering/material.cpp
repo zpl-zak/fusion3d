@@ -242,5 +242,7 @@ void Material::DrawDebugUI()
 		m_materialData->SetFloat("specularPower", specularPower);
 		m_materialData->SetTexture("normalMap", nrm);
 		m_materialData->SetTexture("dispMap", dis);
+
+		m_shader = Shader::GetShader("forward-ambient");
 	}
 }

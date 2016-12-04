@@ -31,6 +31,12 @@ bool global_axis = true;
 
 bool render_settings = false;
 
+bool rename_entity_window = false;
+Entity* rename_entity_uid = nullptr;
+
+bool remove_entity_window = false;
+Entity* remove_entity_uid = nullptr;
+
 void CreateEntity()
 {
 	static char name[256] = {0};
@@ -56,6 +62,47 @@ void CreateEntity()
 		general_settings = true;
 		general_settings_uid = e;
 
+		goto clear;
+	}
+}
+
+void RenameEntity()
+{
+	static char name[256] = { 0 };
+	//Dialog
+	{
+		ImGui::InputText("Name", name, 256);
+	}
+
+	if (ImGui::Button("Cancel"))
+	{
+	clear:
+		ZeroMemory(name, 256);
+	}
+
+	if (ImGui::Button("Rename"))
+	{
+		rename_entity_uid->SetDisplayName(name);
+		rename_entity_uid = nullptr;
+		rename_entity_window = false;
+		goto clear;
+	}
+}
+
+void RemoveEntity()
+{
+	if (ImGui::Button("Cancel"))
+	{
+		clear:
+		remove_entity_uid = nullptr;
+		remove_entity_window = false;
+	}
+
+	if (ImGui::Button("Remove"))
+	{
+		remove_entity_uid->Destroy();
+		general_settings_uid = nullptr;
+		general_settings = false;
 		goto clear;
 	}
 }
@@ -126,10 +173,6 @@ void ShowObjectProps(Entity* uid)
 				float pitch = ToDegrees(p2[1]);
 				float yaw = ToDegrees(p2[2]);
 
-				float old_roll = roll;
-				float old_pitch = pitch;
-				float old_yaw = yaw;
-
 				ImGui::SliderFloat("Roll ##xr", &roll, -180, 180);
 				ImGui::SliderFloat("Pitch ##yr", &pitch, -180, 180);
 				ImGui::SliderFloat("Yaw ##zr", &yaw, -180, 180);
@@ -179,10 +222,14 @@ void ShowObjectProps(Entity* uid)
 
 		if (ImGui::Button("Remove Entity"))
 		{
-			uid->Destroy();
-			general_settings_uid = nullptr;
-			general_settings = false;
-			return;
+			remove_entity_uid = uid;
+			remove_entity_window = true;
+		}
+
+		if (ImGui::Button("Rename Entity"))
+		{
+			rename_entity_window = true;
+			rename_entity_uid = uid;
 		}
 	}
 	ImGui::Separator();
@@ -602,6 +649,27 @@ void DevMode::PostRender(const Shader& shader, RenderingEngine& renderingEngine,
 			ImGui::Begin("Create Entity", &create_entity_window, ImGuiWindowFlags_AlwaysAutoResize);
 			{
 				CreateEntity();
+				ImGui::End();
+			}
+		}
+
+
+		if (rename_entity_window)
+		{
+			ImGui::SetNextWindowPosCenter();
+			ImGui::Begin("Rename Entity", &rename_entity_window, ImGuiWindowFlags_AlwaysAutoResize);
+			{
+				RenameEntity();
+				ImGui::End();
+			}
+		}
+
+		if (remove_entity_window)
+		{
+			ImGui::SetNextWindowPosCenter();
+			ImGui::Begin("Remove Entity", &remove_entity_window, ImGuiWindowFlags_AlwaysAutoResize);
+			{
+				RemoveEntity();
 				ImGui::End();
 			}
 		}
