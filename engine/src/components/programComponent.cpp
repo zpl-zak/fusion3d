@@ -57,6 +57,11 @@ void ProgramHoster::DrawDebugUI()
 
 	ImGui::Separator();
 	ImGui::Checkbox("Running", &m_isUpdating);
+
+	ImGui::Separator();
+
+	if(m_program)
+		m_program->DrawDebugUI();
 }
 
 void ProgramHoster::Init()
@@ -254,6 +259,10 @@ void Program::DataDeploy(tinyxml2::XMLElement* data)
 void Program::SetParent(Entity* parent)
 {
 	m_parent = parent;
+}
+
+void Program::DrawDebugUI()
+{
 }
 
 void Program::PushError(std::string err)
