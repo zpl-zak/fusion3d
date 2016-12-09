@@ -26,7 +26,14 @@
 #include "btBulletDynamicsCommon.h"
 
 
-__declspec(align(16)) class RigidBody : public EntityComponent
+#if defined(WIN32)
+#define MMALIGN __declspec(align(16))
+#else
+// TODO(zaklaus): Find clang/gcc alternatie
+#define MMALIGN
+#endif
+
+MMALIGN class RigidBody : public EntityComponent
 {
 public:
 	FCLASS (RigidBody);

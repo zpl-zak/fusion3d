@@ -23,9 +23,6 @@
 #include "../rendering/mesh.h"
 #include "../rendering/renderingEngine.h"
 
-#include <Windows.h>
-
-
 class MeshRenderer : public EntityComponent
 {
 public:
