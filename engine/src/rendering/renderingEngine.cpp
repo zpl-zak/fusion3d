@@ -53,7 +53,6 @@ RenderingEngine::RenderingEngine(Window* window) :
 	m_gausBlurFilter("filter-gausBlur7x1"),
 	m_fullbright(false),
 	m_fxaaFilter("filter-fxaa"),
-	m_hdrFilter("filter-hdr"),
 	m_altCameraTransform(Vector3f(0, 0, 0), Quaternion(Vector3f(0, 1, 0),ToRadians(180.0f))),
 	m_altCamera(Matrix4f().InitIdentity(), &m_altCameraTransform),
 	m_uniformUpdate(true)

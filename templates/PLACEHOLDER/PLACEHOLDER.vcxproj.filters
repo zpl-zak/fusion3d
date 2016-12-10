@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Games\PLACEHOLDERGame.cpp" />
+    <ClCompile Include="src\Renderers\PLACEHOLDERRenderer.cpp" />
+    <ClCompile Include="src\Physics\PLACEHOLDERPhysics.cpp" />
+    <ClCompile Include="src\Programs\PLACEHOLDERProgram.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\main.h" />
+    <ClInclude Include="src\Games\PLACEHOLDERGame.h" />
+    <ClInclude Include="src\Renderers\PLACEHOLDERRenderer.h" />
+    <ClInclude Include="src\Physics\PLACEHOLDERPhysics.h" />
+    <ClInclude Include="src\main.generated.h" />
+    <ClInclude Include="src\Programs\PLACEHOLDERProgram.h" />
+  </ItemGroup>
+</Project>

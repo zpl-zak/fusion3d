@@ -1,6 +1,4 @@
 # Copyright (C) 2016 Marek Kraus
-# Copyright (C) 2014 Barry Deeney
-# Copyright (C) 2014 Benny Bobaganoosh
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,17 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-################
-# CMAKE RULES! #
-################
-# Huge thanks to mxaddict for setting up the CMake build system!
-
-# we need features that are 2.6 >= dependent
 cmake_minimum_required(VERSION 2.6)
 set (CMAKE_CXX_STANDARD 11)
 
-# lets name the project
-project(Fusion3D)
+project(PLACEHOLDER)
 
 # add the -c and -Wall flags
 add_definitions(
@@ -46,31 +37,33 @@ if ( CMAKE_BUILD_TYPE STREQUAL "Release" )
 add_definitions( -O2 )
 endif ( CMAKE_BUILD_TYPE STREQUAL "Release" )
 
-# Lets LOAD app our headers!
-file(GLOB_RECURSE HDRS ${Fusion3D_SOURCE_DIR}/src/*.h)
+if ( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+add_definitions( -g )
+endif ( CMAKE_BUILD_TYPE STREQUAL "Debug" )
 
-# Lets LOAD app our sources!
+SET(Fusion3D_SOURCE_DIR $ENV{FUSION3D_ROOT})
+
+file(GLOB_RECURSE HDRS
+	${Fusion3D_SOURCE_DIR}/src/*.h
+	${PLACEHOLDER_SOURCE_DIR}/src/*.h
+)
+
 file(GLOB_RECURSE SRCS
 	${Fusion3D_SOURCE_DIR}/src/*.cpp
 	${Fusion3D_SOURCE_DIR}/src/*.c
+	${PLACEHOLDER_SOURCE_DIR}/src/*.cpp
+	${PLACEHOLDER_SOURCE_DIR}/src/*.c
 )
 
-# Define the executable
-add_library(Fusion3D ${HDRS} ${SRCS})
+add_executable(PLACEHOLDER ${HDRS} ${SRCS})
 
-# We need a CMAKE_DIR with some code to find external dependencies
-SET(Fusion3D_CMAKE_DIR "${Fusion3D_SOURCE_DIR}/cmake")
+SET(Fusion3D_CMAKE_DIR "$ENV{FUSION3D_ROOT}/cmake")
 
-#######################################
-# LOOK for the packages that we need! #
-#######################################
-
-# FindDeps
 INCLUDE(${Fusion3D_CMAKE_DIR}/FindDeps.cmake)
 
-# Define the include DIRs
-include_directories(
-	${Fusion3D_SOURCE_DIR}/src/
+include_directories( 
+	${PLACEHOLDER_SOURCE_DIR}/src/
+	$ENV{FUSION3D_ROOT}/src/
 	${OPENGL_INCLUDE_DIRS}
 	${GLEW_INCLUDE_DIRS}
 	${SDL2_INCLUDE_DIRS}
@@ -78,12 +71,10 @@ include_directories(
 	${BULLET_INCLUDE_DIRS}
 )
 
-# Define the link libraries
-target_link_libraries( Fusion3D
+target_link_libraries( PLACEHOLDER
 	${OPENGL_LIBRARIES}
 	${GLEW_LIBRARIES}
 	${SDL2_LIBRARIES}
 	${ASSIMP_LIBRARIES}
 	${BULLET_LIBRARIES}
 )
-

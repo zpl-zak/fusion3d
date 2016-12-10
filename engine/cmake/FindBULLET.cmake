@@ -30,7 +30,7 @@ SET( BULLET_SEARCH_PATHS
 	~/Library/Frameworks				# MAC
 	/Library/Frameworks					# MAC
 	/usr/local/include/bullet/
-	/usr/local/lib/						# LINUX/MAC/UNIX
+	/usr/local/lib						# LINUX/MAC/UNIX
 	/usr/local							# LINUX/MAC/UNIX
 	/usr								# LINUX/MAC/UNIX
 	/opt								# LINUX/MAC/UNIX
@@ -52,22 +52,52 @@ FIND_PATH( BULLET_INCLUDE_DIRS
 		"The directory where bullet/btBulletCollisionCommon.h resides"
 )
 
-FIND_LIBRARY( BULLET_LIBRARIES
-	NAMES
-		BulletCommon
-		BulletCollision
-		LinearMath
-		BulletDynamics
-	PATHS
-		${BULLET_SEARCH_PATHS}
-	PATH_SUFFIXES
-		lib
-		lib64
-		lib/x86
-		lib/x64
-	DOC
-		"The Bullet library"
-)
+SET(CMAKE_FIND_LIBRARY_SUFFIXES .a)
+#
+#FIND_LIBRARY( BULLET_LIBRARIES
+#	NAMES
+#		BulletCommon
+#		BulletCollision
+#		BulletSoftBody
+#		BulletFileLoader
+#		LinearMath
+#		BulletDynamics
+#	PATHS
+#		${BULLET_SEARCH_PATHS}
+#	PATH_SUFFIXES
+#		lib
+#		lib64
+#		lib/x86
+#		lib/x64
+#	DOC
+#		"The Bullet library"
+#)
+
+macro(FIND_BULLET_LIBRARY name)
+	FIND_LIBRARY( _temp
+		NAMES
+			${name}
+		PATHS
+			${BULLET_SEARCH_PATHS}
+		PATH_SUFFIXES
+			lib
+			lib64
+			lib/x86
+			lib/x64
+		DOC
+			"The Bullet library"
+	)
+	if(_temp)
+		set(BULLET_LIBRARIES ${BULLET_LIBRARIES} ${_temp} ${name})
+	endif()
+endmacro()
+
+FIND_BULLET_LIBRARY(BulletCommon)
+FIND_BULLET_LIBRARY(BulletCollision)
+FIND_BULLET_LIBRARY(BulletSoftBody)
+FIND_BULLET_LIBRARY(BulletFileLoader)
+FIND_BULLET_LIBRARY(LinearMath)
+FIND_BULLET_LIBRARY(BulletDynamics)
 
 # Check if we found it!
 IF ( BULLET_INCLUDE_DIRS AND BULLET_LIBRARIES )

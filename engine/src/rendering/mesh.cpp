@@ -350,7 +350,7 @@ Mesh::Mesh(const Mesh& mesh) :
 std::vector<MeshData*> Mesh::ImportMeshData(const std::string& fileName, int mode)
 {
 	std::vector<MeshData*> outData;
-#if 1
+#if 0
 	auto fname = Util::split(fileName, '.');
 	auto cachedName = Util::ResourcePath() + "models/" + fname[0] + "/" + fname[0] + "_cached_0.zdl";
 
@@ -475,7 +475,7 @@ std::vector<MeshData*> Mesh::ImportMeshData(const std::string& fileName, int mod
 			}
 			auto mdata = new MeshData(IndexedModel(indices, positions, texCoords, normals, tangents).Finalize(), model->mMaterialIndex);
 
-			mdata->CacheModel(fileName, i);
+			//mdata->CacheModel(fileName, i);
 
 			outData.push_back(mdata);
 			s_resourceMap.insert(std::pair<std::string, MeshData*>(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
@@ -516,7 +516,7 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string& fileName)
 {
 	std::vector<Material*> outData;
 
-#if 1
+#if 0
 	auto fname = Util::split(fileName, '.');
 	auto cachedName = Util::ResourcePath() + "models/" + fname[0] + "/" + fname[0] + "_cached_0.zml";
 
@@ -628,7 +628,7 @@ std::vector<Material*> Mesh::ImportMeshMaterial(const std::string& fileName)
 			}
 
 			Material* mat = new Material(matName.C_Str(), sTexName, 0.4f, 0.8f, sNormName, sDispName, 0, 0, color);
-			mat->CacheMaterial(fileName, i);
+			//mat->CacheMaterial(fileName, i);
 			outData.push_back(mat);
 			Material::s_resourceMap.insert(std::make_pair(fileName + "_" + Util::to_string(i), outData.at(outData.size() - 1)));
 		}

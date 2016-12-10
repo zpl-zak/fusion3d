@@ -114,6 +114,8 @@ ShaderData::ShaderData(const std::string& fileName)
 			fprintf(stderr, "Error: OpenGL Version %d.%d does not support shaders.\n", majorVersion, minorVersion);
 			exit(1);
 		}
+
+		std::cout << "OpenGL Version: " << s_supportedOpenGLLevel << std::endl;
 	}
 
 	std::string shaderText = LoadShader(actualFileName + ".glsl");
@@ -396,9 +398,8 @@ void ShaderData::AddProgram(const std::string& text, int type)
 		glGetShaderInfoLog(shader, 1024, NULL, InfoLog);
 		char err[255];
 		sprintf(err, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
-		OutputDebugString(err);
-		getchar();
-		exit(1);
+		std::cout << std::endl << err << std::endl;
+		assert(0);
 	}
 
 	glAttachShader(m_program, shader);
@@ -565,8 +566,7 @@ static std::string LoadShader(const std::string& fileName)
 			else
 			{
 				std::string includeFileName = Util::Split(line, ' ')[1];
-				includeFileName = includeFileName.substr(1, includeFileName.length() - 2);
-
+				includeFileName = includeFileName.substr(1, includeFileName.length() - 3);
 				std::string toAppend = LoadShader(includeFileName);
 				output.append(toAppend + "\n");
 			}

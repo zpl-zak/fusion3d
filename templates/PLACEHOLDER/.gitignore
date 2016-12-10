@@ -226,17 +226,6 @@ build/Fusion3D.dir/
 temp/
 projects/
 *.cod
-*.idb
-*.opendb
-*.exp
-engine/Fusion3D.VC.opendb
-build.vshost.exe
-build/build.vshost.exe.manifest
-engine/Debug/Fusion3D_Debug.lib
-*.config
-engine/Fusion3D.VC.db
-engine/Release/Fusion3D.lib
 
-#ignore build directory
-/engine/build/
-/templates/PLACEHOLDER/build/
+Debug/
+Release/
