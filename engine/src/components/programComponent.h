@@ -144,7 +144,7 @@ private:
 	static double timeCounter;
 	static bool isUpdating;
 
-	static void ProgramHoster::Display(ProgramHoster* ProgramHoster);
+	static void Display(ProgramHoster* ProgramHoster);
 };
 
 #endif // ProgramHoster_H_INCLUDED

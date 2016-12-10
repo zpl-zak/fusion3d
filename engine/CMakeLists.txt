@@ -28,10 +28,8 @@ project(Fusion3D)
 
 # add the -c and -Wall flags
 add_definitions(
-	-c
-	-Wall
+	
 )
-
 if ( CMAKE_BUILD_TYPE STREQUAL "" )
 	# CMake defaults to leaving CMAKE_BUILD_TYPE empty. This screws up
 	# differentiation between debug and release builds.
@@ -49,16 +47,16 @@ add_definitions( -O2 )
 endif ( CMAKE_BUILD_TYPE STREQUAL "Release" )
 
 # Lets LOAD app our headers!
-file(GLOB_RECURSE HDRS ${Fusion3D_SOURCE_DIR}/engine/src/*.h)
+file(GLOB_RECURSE HDRS ${Fusion3D_SOURCE_DIR}/src/*.h)
 
 # Lets LOAD app our sources!
 file(GLOB_RECURSE SRCS
-	${Fusion3D_SOURCE_DIR}/engine/src/*.cpp
-	${Fusion3D_SOURCE_DIR}/engine/src/*.c
+	${Fusion3D_SOURCE_DIR}/src/*.cpp
+	${Fusion3D_SOURCE_DIR}/src/*.c
 )
 
 # Define the executable
-add_executable(Fusion3D ${HDRS} ${SRCS})
+add_library(Fusion3D ${HDRS} ${SRCS})
 
 # We need a CMAKE_DIR with some code to find external dependencies
 SET(Fusion3D_CMAKE_DIR "${Fusion3D_SOURCE_DIR}/cmake")
@@ -82,21 +80,15 @@ INCLUDE(${Fusion3D_CMAKE_DIR}/FindASSIMP.cmake)
 # BULLET
 INCLUDE(${Fusion3D_CMAKE_DIR}/FindBULLET.cmake)
 
-MESSAGE(STATUS "DIR: " ${Fusion3D_SOURCE_DIR})
-
 # Define the include DIRs
 include_directories(
-	${Fusion3D_SOURCE_DIR}/headers
-	${Fusion3D_SOURCE_DIR}/sources
-	${Fusion3D_SOURCE_DIR}/engine/src/staticLibs
+	${Fusion3D_SOURCE_DIR}/src/
 	${OPENGL_INCLUDE_DIRS}
 	${GLEW_INCLUDE_DIRS}
 	${SDL2_INCLUDE_DIRS}
 	${ASSIMP_INCLUDE_DIRS}
 	${BULLET_INCLUDE_DIRS}
 )
-
-MESSAGE(STATUS "OMG: " ${BULLET_INCLUDE_DIRS})
 
 # Define the link libraries
 target_link_libraries( Fusion3D

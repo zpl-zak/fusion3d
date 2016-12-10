@@ -33,6 +33,8 @@
 #define OS_WINDOWS
 #elif defined(__linux__)
 #define OS_LINUX
+#elif defined(__APPLE__)
+#define OS_DARWIN
 #elif __cplusplus >= 201103L
 #define OS_OTHER_CPP11
 #else
@@ -61,15 +63,26 @@
 #include <spe.h>
 #endif
 
+#if defined(_MSC_VER)
+    //  Microsoft 
+    #define EXPORT __declspec(dllexport)
+    #define IMPORT __declspec(dllimport)
+#elif defined(__GNUC__)
+    //  GCC
+    #define EXPORT __attribute__((visibility("default")))
+    #define IMPORT
+#else
+    //  do nothing and hope for the best?
+    #define EXPORT
+    #define IMPORT
+    #pragma warning Unknown dynamic link import/export semantics.
+#endif
+
 #define RUNTIME_TESTS
 #define ENGINE_VERSION 1
 
-#define FOREVER for (;;)
-#define FOR(p, q, z) for (size_t z = p; z < q; ++z)
-#define DFOR(p, q, z) for (size_t z = q; z > p; --z)
-#define PRINT(p) std::cout << p << std::endl
-#define STRING(s) #s
-#define SCALL(x, c) if (x != nullptr) c
+#include "macro.h"
+#define OutputDebugString(x)
 
 #include "btBulletDynamicsCommon.h"
 #include "core/terrain.h"
@@ -93,8 +106,8 @@
 #include "core/coreEngine.h"
 #include "core/game.h"
 
-#include "staticLibs\imgui.h"
-#include "staticLibs\imgui_impl_sdl_gl3.h"
+#include "staticLibs/imgui.h"
+#include "staticLibs/imgui_impl_sdl_gl3.h"
 
 //SDL2 defines a main macro, which can prevent certain compilers from finding the main function.
 #undef main

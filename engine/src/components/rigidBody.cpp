@@ -108,7 +108,8 @@ void RigidBody::DataDeploy(tinyxml2::XMLElement* data)
 
 	if (calcInertia)
 	{
-		shape->calculateLocalInertia(mass, inertia.GetBT());
+		btVector3 inertiaBT = inertia.GetBT();
+		shape->calculateLocalInertia(mass, inertiaBT);
 	}
 
 	m_shape = shape;

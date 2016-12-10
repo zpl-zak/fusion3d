@@ -17,7 +17,6 @@
 
 #include "profiling.h"
 #include "timing.h"
-#include <Windows.h>
 #include <cassert>
 #include <iostream>
 
@@ -59,8 +58,7 @@ double ProfileTimer::DisplayAndReset(const std::string& message, double divisor,
 
 	double time = GetTimeAndReset(divisor);
 	std::string out = message + whiteSpace + std::to_string(time) + " ms\n";
-
-	OutputDebugString(out.c_str());
+	std::cout << out << std::endl;
 
 	return time;
 }

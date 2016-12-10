@@ -18,6 +18,7 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 #include <map>
+#include <string>
 
 template <class T>
 void* constructor() { return (void*)new T(); }
@@ -37,7 +38,7 @@ struct factory
 
 	void* construct(std::string const& n)
 	{
-		map_type::iterator i = m_classes.find(n);
+		auto i = m_classes.find(n);
 		if (i == m_classes.end()) return 0;
 		return i->second();
 	}

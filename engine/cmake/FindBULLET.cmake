@@ -1,3 +1,4 @@
+# Copyright (C) 2016 Marek Kraus
 # Copyright (C) 2014 Barry Deeney
 # Copyright (C) 2014 Benny Bobaganoosh
 #
@@ -14,60 +15,65 @@
 # limitations under the License.
 
 #############################################
-# Try to find ASSMIP and set the following: #
+# Try to find BULLET and set the following: #
 #                                           #
-# ASSIMP_FOUND                              #
-# ASSIMP_INCLUDE_DIRS                       #
-# ASSIMP_LIBRARIES                          #
+# BULLET_FOUND                              #
+# BULLET_INCLUDE_DIRS                       #
+# BULLET_LIBRARIES                          #
 #############################################
 
-SET( ASSIMP_SEARCH_PATHS
-	${ASSIMP_ROOT_DIR}					# ASSIMP!
-#	./lib/Assimp
+SET( BULLET_SEARCH_PATHS
+	${BULLET_ROOT_DIR}					# ASSIMP!
+#	./lib/bullet
 	$ENV{PROGRAMFILES}/ASSIMP			# WINDOWS
 #	"$ENV{PROGRAMFILES(X86)}/ASSIMP"	# WINDOWS
 	~/Library/Frameworks				# MAC
 	/Library/Frameworks					# MAC
+	/usr/local/include/bullet/
+	/usr/local/lib/						# LINUX/MAC/UNIX
 	/usr/local							# LINUX/MAC/UNIX
 	/usr								# LINUX/MAC/UNIX
 	/opt								# LINUX/MAC/UNIX
 	/sw									# Fink
 	/opt/local							# DarwinPorts
 	/opt/csw							# Blastwave
+	/usr/local/include/bullet
 )
 
-
-
-FIND_PATH( ASSIMP_INCLUDE_DIRS
+FIND_PATH( BULLET_INCLUDE_DIRS
 	NAMES
-		assimp/mesh.h
+		btBulletCollisionCommon.h
+		btBulletDynamicsCommon.h
 	PATHS
-		${ASSIMP_SEARCH_PATHS}
+		${BULLET_SEARCH_PATHS}
 	PATH_SUFFIXES
-		include
+		bullet
 	DOC
-		"The directory where assimp/mesh.h resides"
+		"The directory where bullet/btBulletCollisionCommon.h resides"
 )
 
-FIND_LIBRARY( ASSIMP_LIBRARIES
+FIND_LIBRARY( BULLET_LIBRARIES
 	NAMES
-		assimp ASSIMP
+		BulletCommon
+		BulletCollision
+		LinearMath
+		BulletDynamics
 	PATHS
-		${ASSIMP_SEARCH_PATHS}
+		${BULLET_SEARCH_PATHS}
 	PATH_SUFFIXES
 		lib
 		lib64
 		lib/x86
 		lib/x64
 	DOC
-		"The ASSIMP library"
+		"The Bullet library"
 )
 
 # Check if we found it!
-IF ( ASSIMP_INCLUDE_DIRS AND ASSIMP_LIBRARIES )
-	SET( ASSIMP_FOUND TRUE )
-	MESSAGE(STATUS "Looking for ASSIMP - found")
-ELSE ( ASSIMP_INCLUDE_DIRS AND ASSIMP_LIBRARIES )
-	SET( ASSIMP_FOUND FALSE )
-	MESSAGE(STATUS "Looking for ASSIMP - not found")
-ENDIF ( ASSIMP_INCLUDE_DIRS AND ASSIMP_LIBRARIES )
+IF ( BULLET_INCLUDE_DIRS AND BULLET_LIBRARIES )
+	SET( BULLET_FOUND TRUE )
+	MESSAGE(STATUS "Looking for BULLET - found")
+ELSE ( BULLET_INCLUDE_DIRS AND BULLET_LIBRARIES )
+	SET( BULLET_FOUND FALSE )
+	MESSAGE(STATUS "Looking for BULLET - not found")
+ENDIF ( BULLET_INCLUDE_DIRS AND BULLET_LIBRARIES )

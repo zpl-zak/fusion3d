@@ -17,6 +17,7 @@
 #ifndef DEBUG_PROG_H
 #define DEBUG_PROG_H
 
+#include "../macro.h"
 #include "../core/coreEngine.h"
 #include "../components/rigidBody.h"
 #include "../components/ProgramComponent.h"
@@ -25,8 +26,6 @@
 #include "../components/meshRenderer.h"
 #include "../core/util.h"
 #include <vector>
-
-#include <Windows.h>
 
 #include "../staticLibs/imgui.h"
 

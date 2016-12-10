@@ -245,7 +245,7 @@ void ShowObjectProps(Entity* uid)
 			// Here we use a Selectable (instead of Text) to highlight on hover
 			//ImGui::Text("Field_%d", i);
 			char label[64];
-			sprintf_s(label, 64, "Component %s", uid->GetAllComponents()[i]->__ClassType__().c_str());
+			sprintf(label, "Component %s", uid->GetAllComponents()[i]->__ClassType__().c_str());
 			ImGui::Bullet();
 			if (ImGui::Selectable(label))
 			{

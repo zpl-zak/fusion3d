@@ -213,5 +213,5 @@ void CoreEngine::SetUserspace(std::function<void ()> userspace)
 }
 
 /// Following lines make sure game runs on your dedicated mobile GPU rather than integrated one. (Applies only to mobile devices with integrated and dedicated GPU)
-_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001; // NVIDIA
-_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1; // ATI/AMD
+EXPORT unsigned long NvOptimusEnablement = 0x00000001; // NVIDIA
+EXPORT int AmdPowerXpressRequestHighPerformance = 1; // ATI/AMD

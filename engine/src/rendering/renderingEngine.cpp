@@ -24,7 +24,7 @@
 #include "../staticLibs/imgui_impl_sdl_gl3.h"
 
 #include <GL/glew.h>
-#include <SDL2\SDL.h>
+#include <SDL2/SDL.h>
 #include <cassert>
 #include <vector>
 

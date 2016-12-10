@@ -30,7 +30,12 @@
 #include <cstdlib>
 #include <cstring>
 #include <sstream>
-#include <Windows.h>
+
+#ifndef OS_WINDOWS
+#define OutputDebugStringA(x)
+#define OutputDebugString(x)
+#endif
+
 
 //--------------------------------------------------------------------------------
 // Variable Initializations
@@ -390,7 +395,7 @@ void ShaderData::AddProgram(const std::string& text, int type)
 
 		glGetShaderInfoLog(shader, 1024, NULL, InfoLog);
 		char err[255];
-		sprintf_s(err, 255, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
+		sprintf(err, "Error compiling shader type %d: '%s'\n", shader, InfoLog);
 		OutputDebugString(err);
 		getchar();
 		exit(1);

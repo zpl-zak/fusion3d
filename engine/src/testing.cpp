@@ -21,7 +21,6 @@
 #include <cassert>
 #include "core/math3d.h"
 #include <stdio.h>
-#include <Windows.h>
 
 void Testing::RunAllTests()
 {

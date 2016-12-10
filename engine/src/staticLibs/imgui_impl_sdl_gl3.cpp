@@ -8,9 +8,9 @@
 #include "imgui_impl_sdl_gl3.h"
 
 // SDL,GL3W
-#include "SDL2\SDL.h"
-#include "SDL2\SDL_syswm.h"
-#include "GL\glew.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_syswm.h"
+#include "GL/glew.h"
 
 // Data
 static SDL_Window* g_Window = NULL;
