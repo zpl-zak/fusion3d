@@ -1,0 +1,3 @@
+[submodule "libs\\hftw"]
+	path = libs\\hftw
+	url = https://github.com/zaklaus/handmade_ftw
