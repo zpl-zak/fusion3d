@@ -1,7 +1,0 @@
-DIRECTORY STRUCTURE
-===================
-
-engine -> contains engine project files.
-lib -> consists of in-house or third-party libraries.
-build -> contains tool for managing engine's projects.
-templates -> contains Visual Studio Template archive for generating new game project.
