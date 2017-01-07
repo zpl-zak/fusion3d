@@ -24,10 +24,8 @@ SET CODE_HOME=%~dp0
 SET "HFTW_CODE=\code"
 SET HFTW_PATH=%CODE_HOME%libs\hftw%HFTW_CODE%
 
-SET SQUIRREL_INCLUDES=..\libs\squirrel\headers
-
 ctime -begin %SRC%.ctm
-cl -D_SQ64 /I%SQUIRREL_INCLUDES% /I%CODE_HOME% /I%HFTW_PATH% %OPTS% %O% %SRC% /link %PAL% squirrel.lib sqstdlib.lib /LIBPATH:%SQLIB% -stack:0x100000,0x100000 %LIBS% /incremental:no -opt:ref
+cl -D_SQ64 /I%CODE_HOME% /I%HFTW_PATH% %OPTS% %O% %SRC% /link %PAL% -stack:0x100000,0x100000 %LIBS% /incremental:no -opt:ref
 ctime -end %SRC%.ctm %ERRORLEVEL%
 
 rem del *.obj

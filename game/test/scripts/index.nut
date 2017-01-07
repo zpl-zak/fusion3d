@@ -8,15 +8,17 @@ function onScriptInit() {
 
   local data = assetGetContent(texture);
 
+  local pk3 = assetRegister("pk3", "brutality.pk3", Asset_None);
+  assetLoad(pk3);
+
   if(data == false) {
     print("We forgot to load the texture into the memory!\n");
     assetLoad(texture);
   }
 
-  data = assetGetContent(texture);
-  local size = assetGetSize(texture);
-
-  for(local i = 0; i < size; i++) {
-    print(data[i]);
-  }
+  async(function () {
+    print("Yay! Second thread rockzz!!");
+  }, function (data) {
+    print(data);
+  })
 }

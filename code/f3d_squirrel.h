@@ -151,33 +151,24 @@ F3DSQErrorFunc(HSQUIRRELVM VM, const char *Format, ...)
     //sqstd_printcallstack(VM);
 }
 
-internal HSQUIRRELVM
-F3DSQLoadScript(char *Name)
+internal s32
+F3DSQFindFree(void)
 {
-    s32 Slot;
     for(s32 Idx = 0;
         Idx < SQ_MAX_VM;
         ++Idx)
     {
         if(!GlobalSQVM[Idx])
         {
-            Slot = Idx;
-            break;
+            return(Idx);
         }
     }
-    
-    asset_file *Script = F3DAssetFind(Name);
-    
-    if(!Script->Loaded)
-    {
-        F3DAssetLoadInternal(Script);
-    }
-    
-    HSQUIRRELVM *VMPtr = GlobalSQVM + Slot;
-    *VMPtr = sq_open(1024);
-    
-    HSQUIRRELVM VM = *VMPtr;
-    
+    return(-1);
+}
+
+internal HSQUIRRELVM
+F3DSQLoadVM(HSQUIRRELVM VM)
+{
     sq_setprintfunc(VM, F3DSQPrintFunc, F3DSQErrorFunc);
     sqstd_seterrorhandlers(VM);
     
@@ -192,24 +183,53 @@ F3DSQLoadScript(char *Name)
     // NOTE(zaklaus): Natives
     {
         SQNATAsset(VM);
+        SQNATAsync(VM);
     }
-    
-    SQInteger Top = sq_gettop(VM);
-    if(SQ_FAILED(sq_compilebuffer(VM, Script->Content, Script->FileSize, "compile", 1)))
-    {
-        printf("Squirrel error[%s]\n", Name); 
-        sq_close(VM);
-        *VMPtr = 0;
-        return(0);
-    }
-    sq_pushroottable(VM);
-    sq_call(VM, 1, SQFalse, SQTrue);
-    sq_settop(VM, Top);
-    sq_pop(VM, 1);
-    
-    F3DSQCall(VM, "onScriptInit", 0, 0);
     
     return(VM);
+   }
+   
+   internal HSQUIRRELVM
+       F3DSQLoadScript(HSQUIRRELVM VM, char *Code, ms CodeSize=0)
+   {
+       F3DSQLoadVM(VM);
+       
+       SQInteger Top = sq_gettop(VM);
+       if(Code)
+           if(SQ_FAILED(sq_compilebuffer(VM, Code, CodeSize, "compile", 1)))
+       {
+           printf("Squirrel error for %.*s:\n", (s32)CodeSize, Code); 
+           sq_close(VM);
+           VM = 0;
+           return(0);
+       }
+       
+       sq_pushroottable(VM);
+       sq_call(VM, 1, SQFalse, SQTrue);
+       sq_settop(VM, Top);
+       sq_pop(VM, 1);
+       
+       return(VM);
+   }
+   
+   internal HSQUIRRELVM
+       F3DSQLoadScriptFile(char *Name)
+   {
+       s32 Slot = F3DSQFindFree();
+       
+       asset_file *Script = F3DAssetFind(Name);
+       
+       if(!Script->Loaded)
+       {
+           F3DAssetLoadInternal(Script);
+       }
+       
+       *(GlobalSQVM + Slot) = sq_open(1024);
+       
+       HSQUIRRELVM VM = F3DSQLoadScript(*(GlobalSQVM + Slot), (char *)Script->Content, Script->FileSize);
+       F3DSQCall(VM, "onScriptInit", 0, 0);
+       
+       return(VM);
    }
    
    #define F3D_SQUIRREL_H

@@ -4,48 +4,12 @@
 
 #include "hftw.h"
 
-#if defined(_MSC_VER) && defined(_DEBUG)
-#include "crtdbg.h"
-#include "conio.h"
-#endif
-#include "squirrel.h"
-#include "sqstdblob.h"
-#include "sqstdsystem.h"
-#include "sqstdio.h"
-#include "sqstdmath.h"	
-#include "sqstdstring.h"
-#include "sqstdaux.h"
-
-#ifdef SQUNICODE
-#define scfprintf fwprintf
-#define scvprintf vfwprintf
-#else
-#define scfprintf fprintf
-#define scvprintf vfprintf
-#endif
-                 
-
-internal SQInteger
-F3DSQRegisterNative(HSQUIRRELVM VM, SQFUNCTION Function, char *Name, s32 Params, char *Template);
-
-internal SQInteger
-F3DSQRegisterVariableb(HSQUIRRELVM VM, char *Name, b32 Value);
-
-internal SQInteger
-F3DSQRegisterVariable(HSQUIRRELVM VM, char *Name, s32 Value);
-
-internal SQInteger
-F3DSQRegisterVariablef(HSQUIRRELVM VM, char *Name, r32 Value);
-
-internal SQInteger
-F3DSQRegisterVariables(HSQUIRRELVM VM, char *Name, char *Value);
-
 global_variable b32 Running = 1;
                  
+#include "f3d_async.h"
 #include "f3d_asset.h"
 #include "f3d_window.h"
-#include "f3d_squirrel.h"
-                 
+
 int CALLBACK     
 _WinMain(HINSTANCE Instance,
         HINSTANCE PrevInstance,
@@ -55,10 +19,6 @@ _WinMain(HINSTANCE Instance,
     F3DWindowInitialize(Instance);
     F3DAssetInitialize("test");
     
-    F3DSQRegister("index");
-    F3DSQRegister("index"); // NOTE(zaklaus): Intentional call.
-    F3DSQLoadScript("index");
-                 
     TimeInit();  
                  
     r64 OldTime = TimeGet();
@@ -92,17 +52,10 @@ _WinMain(HINSTANCE Instance,
     return(0);
 }
 
-FILE __iob[3];
-FILE * __cdecl __iob_func(void) { return __iob; }
-
 int
 main(void)
 {
-    __iob[0] = *stdin;
-    __iob[1] = *stdout;
-    __iob[2] = *stderr;
-    
     LRESULT Result = _WinMain(GetModuleHandle(0), 0, GetCommandLine(), SW_SHOW);
     
-    return(Result);
+    return((int)Result);
 }
