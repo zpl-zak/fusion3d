@@ -2,26 +2,6 @@
 
 #if !defined(F3D_SQUIRREL_H)
 
-#if defined(_MSC_VER) && defined(_DEBUG)
-#include "crtdbg.h"
-#include "conio.h"
-#endif
-#include "squirrel.h"
-#include "sqstdblob.h"
-#include "sqstdsystem.h"
-#include "sqstdio.h"
-#include "sqstdmath.h"	
-#include "sqstdstring.h"
-#include "sqstdaux.h"
-
-#ifdef SQUNICODE
-#define scfprintf fwprintf
-#define scvprintf vfwprintf
-#else
-#define scfprintf fprintf
-#define scvprintf vfprintf
-#endif
-
 #define SQ_MAX_VM 512
 
 global_variable HSQUIRRELVM GlobalSQVM[SQ_MAX_VM];
@@ -30,9 +10,9 @@ internal void
 F3DSQRegister(char *Name)
 {
     char Temp[256];
-    sprintf(Temp, "scripts/%s.nut", Name);
+    sprintf(Temp, "%s%s.nut", AssetTypeNames[Asset_Script][0], Name);
     
-    F3DAssetRegister(Name, Temp, ASSET_SCRIPT);
+    F3DAssetRegister(Name, Temp, Asset_Script);
 }
 
 internal SQInteger
@@ -49,6 +29,8 @@ F3DSQRegisterNative(HSQUIRRELVM VM, SQFUNCTION Function, char *Name, s32 Params,
     
     sq_newslot(VM, -3, SQFalse);
     sq_pop(VM, 1);
+    
+    return(1);
 }
 
 internal SQInteger
@@ -57,6 +39,8 @@ F3DSQRegisterVariableb(HSQUIRRELVM VM, char *Name, b32 Value)
     sq_pushstring(VM, Name, -1);
     sq_pushbool(VM, Value);
     sq_createslot(VM, -3);
+    
+    return(1);
 }
 
 internal SQInteger
@@ -65,6 +49,8 @@ F3DSQRegisterVariable(HSQUIRRELVM VM, char *Name, s32 Value)
     sq_pushstring(VM, Name, -1);
     sq_pushinteger(VM, Value);
     sq_createslot(VM, -3);
+    
+    return(1);
 }
 
 internal SQInteger
@@ -73,6 +59,8 @@ F3DSQRegisterVariablef(HSQUIRRELVM VM, char *Name, r32 Value)
     sq_pushstring(VM, Name, -1);
     sq_pushfloat(VM, Value);
     sq_createslot(VM, -3);
+    
+    return(1);
 }
 
 internal SQInteger
@@ -81,6 +69,8 @@ F3DSQRegisterVariables(HSQUIRRELVM VM, char *Name, char *Value)
     sq_pushstring(VM, Name, -1);
     sq_pushstring(VM, Value, -1);
     sq_createslot(VM, -3);
+    
+    return(1);
 }
 
 internal void
@@ -170,6 +160,11 @@ F3DSQLoadScript(char *Name)
     
     asset_file *Script = F3DAssetFind(Name);
     
+    if(!Script->Loaded)
+    {
+        F3DAssetLoadInternal(Script);
+    }
+    
     HSQUIRRELVM *VMPtr = GlobalSQVM + Slot;
     *VMPtr = sq_open(1024);
     
@@ -186,14 +181,22 @@ F3DSQLoadScript(char *Name)
     sqstd_register_stringlib(VM);
     sqstd_register_systemlib(VM);
     
-    if(SQ_FAILED(sqstd_dofile(VM, Script->FilePath, SQFalse, SQTrue)))
+    // NOTE(zaklaus): Natives
+    {
+        SQNATAsset(VM);
+    }
+    
+    SQInteger Top = sq_gettop(VM);
+    if(SQ_FAILED(sq_compilebuffer(VM, Script->Content, Script->FileSize, "compile", 1)))
     {
         printf("Squirrel error[%s]\n", Name); 
         sq_close(VM);
         *VMPtr = 0;
         return(0);
     }
-    
+    sq_pushroottable(VM);
+    sq_call(VM, 1, SQFalse, SQTrue);
+    sq_settop(VM, Top);
     sq_pop(VM, 1);
     
     F3DSQCall("onScriptInit", 0, 0);

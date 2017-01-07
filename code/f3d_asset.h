@@ -17,7 +17,16 @@ typedef struct
 
 enum
 {
-    ASSET_SCRIPT
+    Asset_None,
+    Asset_Script,
+    Asset_Texture,
+    Num_of_Asset_Types,
+};
+
+global_variable char *AssetTypeNames[][2] = {
+    {"", "Asset_None"},
+    {"scripts/", "Asset_Script"},
+        {"textures/", "Asset_Texture"}
 };
 
 global_variable char *GlobalGamePath = "game/default";
@@ -35,6 +44,29 @@ F3DAssetInitialize(char *GamePath)
 internal asset_file *
 F3DAssetRegister(char *Name, char *FilePath, u32 AssetType)
 {
+    asset_file *File = 0;
+    for(s32 Idx = 0;
+        Idx < ASSET_MAX;
+        ++Idx)
+    {
+        asset_file *Asset = GlobalAssets + Idx;
+        if(!Asset->Name && !File)
+        {
+            File = Asset;
+        }
+        
+        if(Asset->Name && StringsAreEqual(Asset->Name, Name))
+        {
+            return(Asset);
+        }
+    }
+    
+    if(!File)
+    {
+        Assert(!"Max capacity has been reached!");
+        return(0);
+    }
+    
     char Temp[256];
     sprintf(Temp, "%s/%s", GlobalGamePath, FilePath);
     
@@ -55,21 +87,9 @@ F3DAssetRegister(char *Name, char *FilePath, u32 AssetType)
     Copy(strlen(Temp)+1, Temp, Asset.FilePath);
     Asset.Type = AssetType;
     Asset.FileSize = FileSize;
+    *File = Asset;
     
-    s32 Idx;
-    for(Idx = 0;
-        Idx < ASSET_MAX;
-        ++Idx)
-    {
-        asset_file *File = GlobalAssets + Idx;
-        if(!File->Name)
-        {
-            *File = Asset;
-            return(File);
-        }
-    }
-    Assert(!"Max capacity has been reached!");
-    return(0);
+    return(File);
 }
 
 internal asset_file *
@@ -91,7 +111,12 @@ F3DAssetFind(char *Name)
 internal asset_file *
 F3DAssetLoadInternal(asset_file *Asset)
 {
-    s32 File = IOFileOpenRead(Asset->Name, 0);
+    if(Asset->Loaded)
+    {
+        return(Asset);
+    }
+    
+    s32 File = IOFileOpenRead(Asset->FilePath, 0);
     Asset->Content = PlatformMemAlloc(Asset->FileSize);
     IOFileRead(File, Asset->Content, Asset->FileSize);
     Asset->Loaded = 1;
@@ -107,6 +132,118 @@ F3DAssetLoad(char *Name, b32 Async)
     F3DAssetLoadInternal(Asset);
     
     return(Asset);
+}
+
+//
+// NOTE(zaklaus): Natives
+//
+
+internal SQInteger 
+SQNATAssetRegister(HSQUIRRELVM VM)
+{
+    SQChar *Name, *FilePath;
+    SQInteger AssetType;
+    
+    sq_getstring(VM, -3, &Name);
+    sq_getstring(VM, -2, &FilePath);
+    sq_getinteger(VM, -1, &AssetType);
+    
+    char Temp[256];
+    sprintf(Temp, "%s%s", AssetTypeNames[AssetType][0], FilePath);
+    
+    void *Asset = F3DAssetRegister(Name, Temp, (u32)AssetType);
+    sq_pushuserpointer(VM, Asset);
+    
+    return(1);
+}
+
+internal SQInteger 
+SQNATAssetLoadByName(HSQUIRRELVM VM)
+{
+    SQChar *Name;
+    sq_getstring(VM, -3, &Name);
+    
+    void *Asset = F3DAssetLoad(Name, 0);
+    sq_pushuserpointer(VM, Asset);
+    
+    return(1);
+}
+
+internal SQInteger 
+SQNATAssetLoad(HSQUIRRELVM VM)
+{
+    SQUserPointer Ptr;
+    sq_getuserpointer(VM, -1, &Ptr);
+    
+    void *Asset = F3DAssetLoadInternal((asset_file *)Ptr);
+    sq_pushuserpointer(VM, Asset);
+    
+    return(1);
+}
+
+internal SQInteger
+SQNATAssetGetName(HSQUIRRELVM VM)
+{
+    SQUserPointer Ptr;
+    sq_getuserpointer(VM, -1, &Ptr);
+    asset_file *Asset = (asset_file *)Ptr;
+    
+    sq_pushstring(VM, Asset->Name, strlen(Asset->Name));
+    
+    return(1);
+}
+
+internal SQInteger
+SQNATAssetGetContent(HSQUIRRELVM VM)
+{
+    SQUserPointer Ptr;
+    sq_getuserpointer(VM, -1, &Ptr);
+    asset_file *Asset = (asset_file *)Ptr;
+    
+    if(!Asset->Loaded)
+    {
+        sq_pushbool(VM, 0);
+        return(1);
+    }
+    
+    void *Data = sq_newuserdata(VM, Asset->FileSize);
+    Copy(Asset->FileSize, Asset->Content, Data);
+    
+    return(1);
+}
+
+internal SQInteger
+SQNATAssetGetSize(HSQUIRRELVM VM)
+{
+    SQUserPointer Ptr;
+    sq_getuserpointer(VM, -1, &Ptr);
+    asset_file *Asset = (asset_file *)Ptr;
+    
+    sq_pushinteger(VM, Asset->FileSize);
+    
+    return(1);
+}
+
+internal void
+SQNATAsset(HSQUIRRELVM VM)
+{
+    F3DSQRegisterNative(VM, SQNATAssetRegister, "assetRegister", 4, ".dss");
+    F3DSQRegisterNative(VM, SQNATAssetLoadByName, "assetLoadByName", 2, ".s");
+    F3DSQRegisterNative(VM, SQNATAssetLoad, "assetLoad", 2, ".p");
+    
+    F3DSQRegisterNative(VM, SQNATAssetGetName, "assetGetName", 2, ".p");
+    F3DSQRegisterNative(VM, SQNATAssetGetSize, "assetGetSize", 2, ".p");
+    F3DSQRegisterNative(VM, SQNATAssetGetContent, "assetGetContent", 2, ".p");
+    
+    // NOTE(zaklaus): Constants.
+    {
+        for(s32 Idx = 0;
+            Idx < Num_of_Asset_Types;
+            ++Idx)
+        {
+            F3DSQRegisterVariable(VM, AssetTypeNames[Idx][1], Asset_None + Idx);
+        }
+    }
 }
 
 #define F3D_ASSET_H
