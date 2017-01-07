@@ -74,7 +74,37 @@ F3DSQRegisterVariables(HSQUIRRELVM VM, char *Name, char *Value)
 }
 
 internal void
-F3DSQCall(char *FuncName, s32 ArgCount, SQObject *Args)
+F3DSQCall(HSQUIRRELVM VM, char *FuncName, s32 ArgCount, SQObject *Args)
+{
+    s32 Top = (s32)sq_gettop(VM);
+    
+    sq_pushroottable(VM);
+    
+    sq_pushstring(VM, FuncName, -1);
+    
+    if(SQ_SUCCEEDED(sq_get(VM, -2)))
+    {
+        sq_pushroottable(VM);
+        
+        if(Args)
+        {
+            s32 Idx2;
+            for(Idx2 = 0;
+                Idx2 < ArgCount;
+                ++Idx2)
+            {
+                sq_pushobject(VM, Args[Idx2]);
+            }
+        }
+        
+        sq_call(VM, ArgCount + 1, 1, 1);
+    }
+    
+    sq_settop(VM, Top);
+}
+
+internal void
+F3DSQBroadcast(char *FuncName, s32 ArgCount, SQObject *Args)
 {
     s32 Idx;
     for(Idx = 0;
@@ -88,31 +118,7 @@ F3DSQCall(char *FuncName, s32 ArgCount, SQObject *Args)
             continue;
         }
         
-        s32 Top = (s32)sq_gettop(VM);
-        
-        sq_pushroottable(VM);
-        
-        sq_pushstring(VM, FuncName, -1);
-        
-        if(SQ_SUCCEEDED(sq_get(VM, -2)))
-           {
-               sq_pushroottable(VM);
-               
-               if(Args)
-               {
-                   s32 Idx2;
-                   for(Idx2 = 0;
-                       Idx2 < ArgCount;
-                       ++Idx2)
-                   {
-                       sq_pushobject(VM, Args[Idx2]);
-                   }
-               }
-               
-               sq_call(VM, ArgCount + 1, 1, 1);
-           }
-           
-           sq_settop(VM, Top);
+        F3DSQCall(VM, FuncName, ArgCount, Args);
     }
 }
 
@@ -199,7 +205,7 @@ F3DSQLoadScript(char *Name)
     sq_settop(VM, Top);
     sq_pop(VM, 1);
     
-    F3DSQCall("onScriptInit", 0, 0);
+    F3DSQCall(VM, "onScriptInit", 0, 0);
     
     return(VM);
    }
