@@ -1,6 +1,6 @@
 @echo off
 
-IF NOT DEFINED clset (call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64)
+IF NOT DEFINED clset (call "D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x64)
 SET clset=64
 
 SET SRC=%1
@@ -16,14 +16,18 @@ SET OPTS=%WARN% /W3 /WX /GR- /nologo -MTd -nologo -fp:fast -fp:except- -Gm- -GR-
 SET DEBUG=/Zi /Zo /DEBUG
 SET OPTI=/FC -O2
 SET O=%OPTI%
+SET SQLIB=..\libs\squirrel\lib\x64\Release
 if "%ADD%" == "D" SET O=%DEBUG%
+if "%ADD%" == "D" SET SQLIB=..\libs\squirrel\lib\x64\Debug
 
 SET CODE_HOME=%~dp0
 SET "HFTW_CODE=\code"
 SET HFTW_PATH=%CODE_HOME%libs\hftw%HFTW_CODE%
 
+SET SQUIRREL_INCLUDES=..\libs\squirrel\headers
+
 ctime -begin %SRC%.ctm
-cl /I%CODE_HOME% /I%HFTW_PATH% %OPTS% %O% %SRC% /link %PAL% -stack:0x100000,0x100000 %LIBS% /incremental:no -opt:ref
+cl -D_SQ64 /I%SQUIRREL_INCLUDES% /I%CODE_HOME% /I%HFTW_PATH% %OPTS% %O% %SRC% /link %PAL% squirrel.lib sqstdlib.lib /LIBPATH:%SQLIB% -stack:0x100000,0x100000 %LIBS% /incremental:no -opt:ref
 ctime -end %SRC%.ctm %ERRORLEVEL%
 
 rem del *.obj
