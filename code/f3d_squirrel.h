@@ -76,6 +76,8 @@ F3DSQRegisterVariables(HSQUIRRELVM VM, char *Name, char *Value)
 internal void
 F3DSQCall(HSQUIRRELVM VM, char *FuncName, s32 ArgCount, SQObject *Args)
 {
+        Assert(VM);
+    
     s32 Top = (s32)sq_gettop(VM);
     
     sq_pushroottable(VM);
