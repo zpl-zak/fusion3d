@@ -20,13 +20,17 @@ enum
     Asset_None,
     Asset_Script,
     Asset_Texture,
+    Asset_Shader,
+    Asset_Model,
     Num_of_Asset_Types,
 };
 
 global_variable char *AssetTypeNames[][2] = {
     {"", "Asset_None"},
     {"scripts/", "Asset_Script"},
-        {"textures/", "Asset_Texture"}
+        {"textures/", "Asset_Texture"},
+        {"shaders/", "Asset_Shader"},
+        {"models/", "Asset_Model"},
 };
 
 global_variable char *GlobalGamePath = "game/default";
