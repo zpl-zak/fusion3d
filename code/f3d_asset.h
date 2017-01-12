@@ -2,7 +2,7 @@
 
 #if !defined(F3D_ASSET_H)
 
-#define ASSET_MAX 1024
+#define ASSET_MAX 16034
 
 typedef struct
 {
@@ -28,7 +28,7 @@ enum
 global_variable char *AssetTypeNames[][2] = {
     {"", "Asset_None"},
     {"scripts/", "Asset_Script"},
-        {"textures/", "Asset_Texture"},
+        {"maps/", "Asset_Texture"},
         {"shaders/", "Asset_Shader"},
         {"models/", "Asset_Model"},
 };
@@ -37,16 +37,16 @@ global_variable char *GlobalGamePath = "game/default";
 global_variable asset_file GlobalAssets[ASSET_MAX];
 
 internal void
-F3DAssetInitialize(char *GamePath)
+AssetInitialize(char *GamePath)
 {
     char Temp[256];
-    sprintf(Temp, "game/%s", GamePath);
+    sprintf(Temp, "%s", GamePath);
     GlobalGamePath = (char *)PlatformMemAlloc(strlen(Temp)+1);
     Copy(strlen(Temp)+1, Temp, GlobalGamePath);
 }
 
 internal asset_file *
-F3DAssetRegister(char *Name, char *FilePath, u32 AssetType)
+AssetRegister(char *Name, char *FilePath, u32 AssetType)
 {
     asset_file *File = 0;
     for(s32 Idx = 0;
@@ -97,7 +97,7 @@ F3DAssetRegister(char *Name, char *FilePath, u32 AssetType)
 }
 
 internal asset_file *
-F3DAssetFind(char *Name)
+AssetFind(char *Name)
 {
     for(s32 Idx = 0;
         Idx < ASSET_MAX;
@@ -113,7 +113,7 @@ F3DAssetFind(char *Name)
 }
 
 internal asset_file *
-F3DAssetLoadInternal(asset_file *Asset)
+AssetLoadInternal(asset_file *Asset)
 {
     if(Asset->Loaded)
     {
@@ -130,10 +130,10 @@ F3DAssetLoadInternal(asset_file *Asset)
 }
 
 internal asset_file *
-F3DAssetLoad(char *Name, b32 Async)
+AssetLoad(char *Name, b32 Async)
 {
-    asset_file *Asset = F3DAssetFind(Name);
-    F3DAssetLoadInternal(Asset);
+    asset_file *Asset = AssetFind(Name);
+    AssetLoadInternal(Asset);
     
     return(Asset);
 }

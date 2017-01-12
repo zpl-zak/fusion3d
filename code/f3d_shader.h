@@ -7,7 +7,7 @@
 global_variable GLuint GlobalShaderPrograms[F3D_SHADER_MAX] = {0};
 
 internal GLuint
-F3DShaderProgramInit(void)
+ShaderProgramInit(void)
 {
     s32 Slot = -1;
     for(s32 Idx = 0;
@@ -29,7 +29,7 @@ F3DShaderProgramInit(void)
 }
 
 internal b32
-F3DShaderPrintLog(GLuint Object)
+ShaderPrintLog(GLuint Object)
 {
     GLint ErrResult = 0;
     s32 InfoLogLength;
@@ -61,7 +61,7 @@ F3DProgramPrintLog(GLuint Object)
     if(InfoLogLength > 0)
     {
         char *InfoLog = PlatformMemAlloc(InfoLogLength);
-        glGetProgramInfoLog(Object, InfoLogLength, 0, InfoLog);
+        glGetShaderInfoLog(Object, InfoLogLength, 0, InfoLog);
         printf("Object[%d]: %.*s\n", ErrResult, InfoLogLength, InfoLog);
         PlatformMemFree(InfoLog);
         
@@ -72,19 +72,19 @@ F3DProgramPrintLog(GLuint Object)
 }
 
 internal asset_file *
-F3DShaderLoad(char *Name, char *FileName)
+ShaderLoad(char *Name, char *FileName)
 {
     char Temp[256];
     sprintf(Temp, "%s%s", AssetTypeNames[Asset_Shader][0], FileName);
     
-    asset_file *Asset = F3DAssetRegister(Name, Temp, Asset_Shader);
-    F3DAssetLoadInternal(Asset);
+    asset_file *Asset = AssetRegister(Name, Temp, Asset_Shader);
+    AssetLoadInternal(Asset);
     
     return(Asset);
 }
 
 internal GLuint
-F3DShaderLink(GLuint Program, asset_file *Asset, GLenum Type)
+ShaderLink(GLuint Program, asset_file *Asset, GLenum Type)
 {
     Assert(Program && Asset && Asset->Content);
     glUseProgram(Program);
@@ -100,7 +100,7 @@ F3DShaderLink(GLuint Program, asset_file *Asset, GLenum Type)
     
     PlatformMemFree(Source);
     
-    Assert(F3DShaderPrintLog(Shader));
+    Assert(ShaderPrintLog(Shader));
     
     glAttachShader(Program, Shader);
     
@@ -108,7 +108,7 @@ F3DShaderLink(GLuint Program, asset_file *Asset, GLenum Type)
 }
 
 internal void
-F3DShaderUnload(GLuint Program, GLuint Shader)
+ShaderUnload(GLuint Program, GLuint Shader)
 {
     Assert(Program && Shader);
     glUseProgram(Program);
@@ -118,13 +118,13 @@ F3DShaderUnload(GLuint Program, GLuint Shader)
 }
 
 internal GLuint
-F3DShaderProgramLink(GLuint Program)
+ShaderProgramLink(GLuint Program)
 {
     Assert(Program);
     
     glLinkProgram(Program);
     
-    Assert(F3DProgramPrintLog(Program));
+    ShaderPrintLog(Program);
     
             return(Program);
 }

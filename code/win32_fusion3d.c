@@ -3,14 +3,71 @@
 #define HANDMADE_SLOW
 
 #include "hftw.h"
+                                                                   
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 global_variable b32 Running = 1;
-                 
+
+#include "f3d_camera.h"
 #include "f3d_async.h"
 #include "f3d_asset.h"
 #include "f3d_window.h"
                                                                    #include "f3d_shader.h"
-                                                                   #include "f3d_render_4ds.h"
+                                                                   #include "f3d_texture.h"
+#include "f3d_render_4ds.h"
+                                                                   
+                                                                   void HandleInput(camera *Camera, r32 DeltaTime)
+                                                                   {
+                                                                       local_persist s32 x,y;
+                                                                       local_persist b32 FirstPos = 1;
+                                                                       
+                                                                       if(FirstPos)
+                                                                       {
+                                                                           FirstPos = 0;
+                                                                           x = GlobalMouseX;
+                                                                           y = GlobalMouseY;
+                                                                       }
+                                                                       
+                                                                       Camera->Angle.X +=  0.007f * 5.f * DeltaTime * (x - GlobalMouseX);
+                                                                       Camera->Angle.Y +=  0.007f * 5.f * DeltaTime * (y - GlobalMouseY);
+                                                                       
+                                                                       window_dim Res = WindowGetClientRect(GlobalWindow);
+                                                                       WindowSetMousePos((s32)(Res.X / 2.f), (s32)(Res.Y / 2.f));
+                                                                       
+                                                                       x = GlobalMouseX;
+                                                                       y = GlobalMouseY;
+                                                                       
+                                                                       if(GlobalKeyDown[VK_ESCAPE])
+                                                                       {
+                                                                           Running = 0;
+                                                                       }
+                                                                       
+                                                                       v3 Dir = MathDivideVec3f(MathNormalize(CameraGetDirection(Camera)), 3.f);
+                                                                       v3 Right = MathDivideVec3f(MathNormalize(CameraGetRight(Camera)), 3.f);
+                                                                       
+                                                                       
+                                                                       if(GlobalKeyDown[0x57])
+                                                                       {
+                                                                           Camera->Position = MathAddVec3(Camera->Position, Dir);
+                                                                       }
+                                                                       
+                                                                       if(GlobalKeyDown[0x53])
+                                                                       {
+                                                                           Camera->Position = MathSubtractVec3(Camera->Position, Dir);
+                                                                       }
+                                                                       
+                                                                       if(GlobalKeyDown[0x41])
+                                                                       {
+                                                                           Camera->Position = MathSubtractVec3(Camera->Position, Right);
+                                                                       }
+                                                                       
+                                                                       if(GlobalKeyDown[0x44])
+                                                                       {
+                                                                           Camera->Position = MathAddVec3(Camera->Position, Right);
+                                                                       }
+                                                                       
+                                                                   }
 
 int CALLBACK     
 _WinMain(HINSTANCE Instance,
@@ -18,66 +75,64 @@ _WinMain(HINSTANCE Instance,
         LPSTR CmdLine,
         int CmdShow)
 {                
-    F3DWindowInitialize(Instance);
-    F3DAssetInitialize("test");
+    WindowInitialize(Instance);
+    AssetInitialize("D:\\Games\\Mafia");
     
-    asset_file *VShader = F3DShaderLoad("color_vs", "color.vert");
-    asset_file *FShader = F3DShaderLoad("color_fs", "color.frag");
+    asset_file *VShader = ShaderLoad("ambient_vs", "ambient.vert");
+    asset_file *FShader = ShaderLoad("ambient_fs", "ambient.frag");
     
-    GLuint ColorProgram = F3DShaderProgramInit();
+    GLuint AmbientProgram = ShaderProgramInit();
     {
-        F3DShaderLink(ColorProgram, VShader, GL_VERTEX_SHADER);
-F3DShaderLink(ColorProgram, FShader, GL_FRAGMENT_SHADER);
+        ShaderLink(AmbientProgram, VShader, GL_VERTEX_SHADER);
+ShaderLink(AmbientProgram, FShader, GL_FRAGMENT_SHADER);
     }
-    F3DShaderProgramLink(ColorProgram);
+    ShaderProgramLink(AmbientProgram);
     
-    render_4ds *BalikSena = F3DModel4DSRegister("baliksena", "baliksena.4ds");
-    F3DModel4DSLoad(BalikSena);
+    render_4ds *BalikSena = Model4DSRegister("scene", "..\\missions\\freeride\\scene.4ds");
+    Model4DSLoad(BalikSena);
+    
+    camera MainCamera = {0};
+    MainCamera.Position.X = 0;
+    MainCamera.Position.Y = 0;
+    MainCamera.Position.Z =-6;
     
     TimeInit();  
     r64 OldTime = TimeGet();
     
-    m4 Projection = MathPerspective(45.f, 4.f / 3.f, .1f, 100.f);
-        
-            v3 Pos = {4, 3, 7};
-        v3 Target = {0};
-        v3 Up = {0, 1, 0};
-        
-            m4 View = MathLookAt(Pos, Target, Up);
-        m4 Model = MathMat4d(1.f);
-        
-            mat4 MVP = MathMultiplyMat4(Projection, View);   
-        MVP = MathMultiplyMat4(MVP, Model);
-        
-            GLuint MatrixID = glGetUniformLocation(ColorProgram, "mvp");
-        
-         const GLfloat g_vertex_buffer_data[] = {
-                    -1.0f, -1.0f, 0.0f,
-                    1.0f, -1.0f, 0.0f,
-                    0.0f,  1.0f, 0.0f,
-                };
-                
-                GLuint vertexbuffer;
-                    
-                        glGenBuffers(1, &vertexbuffer);
-                    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-                    glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-    
-    glUseProgram(ColorProgram);
-                 
     while(Running) 
     {             
         r64 NewTime = TimeGet();
         r64 DeltaTime = NewTime - OldTime;
+        printf("Delta: %f (%f FPS)\n", (r32)DeltaTime * 1000.f, 1.f / (r32)DeltaTime);
         {        
-            F3DWindowUpdate();
+            MainWindowUpdate();
+            {
+                HandleInput(&MainCamera, (r32)DeltaTime);
+            }
+            CameraUpdate(&MainCamera, 
+                         WindowGetClientRect(GlobalWindow),
+                         45.f,
+                         0.1f,
+                         1000.f);
             {    
                 glClearColor(0.44, 0.44, 0.56, 0.f);
                 glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
                   
-                glUseProgram(ColorProgram);
-                F3DModel4DSRender(BalikSena, ColorProgram, ModelRenderType_Normal);
+                local_persist r32 offset = 0.f;
                 
+                glUseProgram(AmbientProgram);
+                
+                for(s32 Idx = 0;
+                    Idx < 1;
+                    ++Idx)
+                {
+                        v3 BalikPos = MathVec3(0, 0, 0);
+                            
+                        render_transform Transform = RenderTransform();
+                        Transform.Pos = BalikPos;
+                        Model4DSRender(BalikSena, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
+                            
+                        }
                 #if 0
                 {
                     local_persist b32 MainWindowVisible = 1;
@@ -92,10 +147,11 @@ F3DShaderLink(ColorProgram, FShader, GL_FRAGMENT_SHADER);
                 }
                 SwapBuffers(GlobalDeviceContext);
                 
+                OldTime = NewTime;
             Sleep(10);
         }
     }
-    F3DWindowShutdown();
+    WindowShutdown();
     
     return(0);
 }

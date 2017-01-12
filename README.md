@@ -1,5 +1,11 @@
 ﻿# fusion3d
-Fusion3D - Game Engine made from scratch.
+Fusion3D - Open-Source engine replacement for the game Mafia: The City of Lost Heaven.
+
+# How to use
+- In `win32_fusion3d.c`, Customize the game path in _AssetInitialize_ function.
+- Copy `shaders` folder into your game directory.
+- Extract game data using MafiaDataXTractor by MassaSnygga.
+- Play!
 
 # Copyright
 ```

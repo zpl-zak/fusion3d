@@ -1,3 +1,3 @@
 [submodule "libs\\hftw"]
 	path = libs\\hftw
-	url = https://github.com/zaklaus/handmade_ftw
+	url = git@github.com:zaklaus/handmade_ftw.git
