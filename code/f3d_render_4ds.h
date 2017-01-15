@@ -21,6 +21,7 @@ typedef struct
     u16 VertexCount;
     
     GLuint PositionBuffer;
+    GLuint NormalBuffer;
     GLuint UVBuffer;
     
     u8 FaceGroupCount;
@@ -32,19 +33,24 @@ typedef struct
     u8 LODLevel;
     render_4ds_lod *LODs;
      s32 InstanceOf;
+    s32 ParentID;
     
-    v3 Pos;
-    v4 Rot;
-    v3 Scale;
+    glm::vec3 Pos;
+    glm::vec4 Rot;
+    glm::vec3 Scale;
+    
+    b32 Transformed;
+    glm::mat4 Transform;
 } render_4ds_mesh;
 
 typedef struct
 {
-    render_texture *Diffuse;
+    render_material Material;
 } render_4ds_material;
 
 typedef struct
 {
+    b32 Loaded;
     asset_file *Asset;
     
     u16 MeshCount;
@@ -102,23 +108,25 @@ Model4DSRegister(char *Name, char *FileName)
     return(Render);
 }
 
-internal render_4ds *
-Model4DSLoad(render_4ds *Render)
+internal void
+Model4DSLoadInternal(LPVOID Param)
 {
+    render_4ds *Render = (render_4ds *)Param;
+    
     Assert(Render && Render->Asset);
     
     if(Render->Header)
     {
-        return(Render);
+        return;
     }
     
-    s32 FileHandle = IOFileOpenRead(Render->Asset->FilePath, 0);
+    s32 FileHandle = IOFileOpenRead((s8 *)Render->Asset->FilePath, 0);
     
     Render->Header = HFormatLoad4DSModel(FileHandle);
     {
         Render->MaterialCount = Render->Header->MaterialCount;
         
-        Render->Materials = PlatformMemAlloc(sizeof(render_4ds_material)*Render->MaterialCount);
+        Render->Materials = (render_4ds_material *)PlatformMemAlloc(sizeof(render_4ds_material)*Render->MaterialCount);
         
         for(s32 Idx = 0;
             Idx < Render->MaterialCount;
@@ -126,8 +134,12 @@ Model4DSLoad(render_4ds *Render)
         {
             hformat_4ds_material *HMaterial = Render->Header->Materials + Idx;
             render_4ds_material *Material = Render->Materials + Idx;
-            render_4ds_material Material_ = {0};
+            render_4ds_material Material_ = {};
             *Material = Material_;
+            
+            Material->Material.Ambient = {.12,.12,.12};
+            
+            Material->Material.Diffuse = {0.5,.5,.5};
             
             if(HMaterial->DiffuseMapNameLength)
             {
@@ -136,13 +148,13 @@ Model4DSLoad(render_4ds *Render)
             
             render_texture *Texture = TextureRegister(Temp, Temp, 0);
             TextureLoad(Texture);
-            Material->Diffuse = Texture;
+            Material->Material.DiffTexture = Texture;
         }
         }
         
         Render->MeshCount = Render->Header->MeshCount;
         
-        Render->Meshes = PlatformMemAlloc(sizeof(render_4ds_mesh)*Render->MeshCount);
+        Render->Meshes = (render_4ds_mesh *)PlatformMemAlloc(sizeof(render_4ds_mesh)*Render->MeshCount);
         
         for(s32 Idx = 0;
             Idx < Render->MeshCount;
@@ -153,21 +165,23 @@ Model4DSLoad(render_4ds *Render)
             render_4ds_mesh *Mesh = Render->Meshes + Idx;
             hformat_4ds_standard *Standard = &HMesh->Standard;
             *Mesh = Mesh_;
+            
+            Mesh->ParentID = HMesh->ParentID;
+            Mesh->Pos = {HMesh->Pos.X, HMesh->Pos.Y, HMesh->Pos.Z};
+            Mesh->Rot = {HMesh->Rot.X, HMesh->Rot.Y, HMesh->Rot.Z, HMesh->Rot.W};
+            Mesh->Scale = {HMesh->Scale.X, HMesh->Scale.Y, HMesh->Scale.Z};
+            
             if(HMesh->MeshType == HFormat4DSMeshType_Standard &&
                HMesh->VisualMeshType == HFormat4DSVisualMeshType_Standard)
             {
-            if(Standard->Instanced)
-            {
-                Mesh->InstanceOf = Standard->Instanced;
-                continue;
-            }
-            
-            Mesh->Pos = HMesh->Pos;
-            Mesh->Rot = HMesh->Rot;
-            Mesh->Scale = HMesh->Scale;
-            
+                if(Standard->Instanced)
+                {
+                    Mesh->InstanceOf = Standard->Instanced;
+                    continue;
+                }
+                
             Mesh->LODLevel = Standard->LODLevel;
-            Mesh->LODs = PlatformMemAlloc(sizeof(render_4ds_lod)*Mesh->LODLevel);
+                Mesh->LODs = (render_4ds_lod *)PlatformMemAlloc(sizeof(render_4ds_lod)*Mesh->LODLevel);
             for(s32 Idx2 = 0;
                 Idx2 < Mesh->LODLevel;
                 ++Idx2)
@@ -180,7 +194,7 @@ Model4DSLoad(render_4ds *Render)
                 LOD->RelativeDistance = HLOD->RelativeDistance;
                 LOD->VertexCount = HLOD->VertexCount;
                 
-                 v3 *Positions = PlatformMemAlloc(sizeof(v3)*LOD->VertexCount);
+                v3 *Positions = (v3 *)PlatformMemAlloc(sizeof(v3)*LOD->VertexCount);
                 
                 for(s32 PosIdx = 0;
                     PosIdx < LOD->VertexCount;
@@ -195,7 +209,23 @@ Model4DSLoad(render_4ds *Render)
                 
                 PlatformMemFree(Positions);
                 
-                v2 *UV = PlatformMemAlloc(sizeof(v2)*LOD->VertexCount);
+                v3 *Normals = (v3 *)PlatformMemAlloc(sizeof(v3)*LOD->VertexCount);
+                
+                for(s32 PosIdx = 0;
+                    PosIdx < LOD->VertexCount;
+                    ++PosIdx)
+                {
+                    Normals[PosIdx] = HLOD->Vertices[PosIdx].Normal;
+                }
+                
+                glGenBuffers(1, &LOD->NormalBuffer);
+                glBindBuffer(GL_ARRAY_BUFFER, LOD->NormalBuffer);
+                glBufferData(GL_ARRAY_BUFFER, sizeof(v3)*LOD->VertexCount, Normals, GL_STATIC_DRAW);
+                
+                PlatformMemFree(Normals);
+                
+                
+                v2 *UV = (v2 *)PlatformMemAlloc(sizeof(v2)*LOD->VertexCount);
                 
                 for(s32 PosIdx = 0;
                     PosIdx < LOD->VertexCount;
@@ -212,7 +242,7 @@ Model4DSLoad(render_4ds *Render)
                 
                 
                 LOD->FaceGroupCount = HLOD->FaceGroupCount;
-                LOD->FaceGroups = PlatformMemAlloc(sizeof(render_4ds_facegroup)*LOD->FaceGroupCount);
+                LOD->FaceGroups = (render_4ds_facegroup *)PlatformMemAlloc(sizeof(render_4ds_facegroup)*LOD->FaceGroupCount);
                 for(s32 GroupIdx = 0;
                     GroupIdx < LOD->FaceGroupCount;
                     ++GroupIdx)
@@ -233,7 +263,7 @@ Model4DSLoad(render_4ds *Render)
                         continue;
                     }
                     
-                     hformat_4ds_face *Faces = PlatformMemAlloc(sizeof(hformat_4ds_face)*FaceCount);
+                    hformat_4ds_face *Faces = (hformat_4ds_face *)PlatformMemAlloc(sizeof(hformat_4ds_face)*FaceCount);
                     
                     s32 HFaceIdx = 0;
                     for(s32 FaceIdx = 0;
@@ -254,23 +284,77 @@ Model4DSLoad(render_4ds *Render)
     }
 }
     IOFileClose(FileHandle);
-    
-    return(Render);
+
+Render->Loaded = 1;
 }
+
+internal void
+Model4DSLoad(render_4ds *Render)
+{
+    Model4DSLoadInternal((LPVOID)Render);
+}
+
+internal void
+AsyncModel4DSLoad(render_4ds *Render)
+{
+    CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Model4DSLoadInternal, (LPVOID)Render, 0, 0);
+}
+
+internal glm::mat4
+Model4DSGetTransform(render_4ds_mesh *Mesh, render_4ds *Render)
+{
+    #if 1
+    //v3 ScaleVec = Mesh->Scale;
+     glm::mat4 Pos = glm::translate(Mesh->Pos);
+    glm::quat Quat = glm::quat(Mesh->Rot.w, Mesh->Rot.x, Mesh->Rot.y, Mesh->Rot.z);
+    glm::mat4 Rot = glm::toMat4(Quat);
+     glm::mat4 Scale = glm::scale(Mesh->Scale);
+    
+    glm::mat4 Model = Pos * Rot * Scale;
+    //Model = MathMultiplyMat4(Model, Pos);
+    
+    if(Mesh->ParentID)
+    {
+        Model = Model4DSGetTransform((Render->Meshes + Mesh->ParentID - 1), Render) * Model;
+    }
+    return(Model);
+    #endif
+}
+
+global_variable GLuint gLastProgram = 0;
+
+global_variable GLuint gMatrix = 0;
+global_variable GLuint gMatrixM = 0;
+global_variable GLuint gMatrixV = 0;
+global_variable GLuint gMatrixP = 0;
 
 internal render_4ds *
 Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transform Transform, s32 RenderType)
 {
+    if(!Render->Loaded)
+    {
+        return(Render);
+    }
+    
     glUseProgram(Program);
     
     switch(RenderType)
     {
         case ModelRenderType_Normal:
         {
+            if(gLastProgram != Program)
+            {
+            gMatrix = glGetUniformLocation(Program, "mvp");
+            gMatrixM = glGetUniformLocation(Program, "m");
+            gMatrixV = glGetUniformLocation(Program, "v");
+            gMatrixP = glGetUniformLocation(Program, "p");
+                gLastProgram = Program;
+            }
             
-            
-            GLuint Matrix = glGetUniformLocation(Program, "mvp");
-            GLuint Texture = glGetUniformLocation(Program, "texSampler");
+            glm::mat4 V = Camera->View;
+            glm::mat4 P = Camera->Projection;
+            glUniformMatrix4fv(gMatrixV, 1, GL_FALSE, &V[0][0]);
+            glUniformMatrix4fv(gMatrixP, 1, GL_FALSE, &P[0][0]);
             
             for(s32 Idx = 0;
                 Idx < Render->MeshCount;
@@ -280,36 +364,41 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                 render_4ds_lod *LOD = &Render->Meshes[Idx].LODs[0];
                 
                 s32 Cdx = Idx;
-                if(!LOD)
+                while(!LOD && Render->Meshes[Cdx].InstanceOf)
                 {
-                    continue;
-                    Cdx = Render->Meshes[Cdx].InstanceOf + 1;
+                    Cdx = Render->Meshes[Cdx].InstanceOf - 1;
                     LOD = &Render->Meshes[Cdx].LODs[0];
                 }
                 
-                mat4 Model = MathMultiplyMat4(MathTranslate(Mesh->Pos), MathRotate(Mesh->Rot.W, Mesh->Rot.XYZ));
-                Model = MathMultiplyMat4(Model, MathScale(Mesh->Scale));
+                if(!LOD)
+                {
+                    continue;
+                }
                 
-                mat4 MVP = MathMultiplyMat4(Camera->Projection, 
-                                            Camera->View);   
-                MVP = MathMultiplyMat4(MVP, Model);
+                glm::mat4 Model = Mesh->Transform;
+                if(!Mesh->Transformed)
+                    {
+                        Model = Mesh->Transform = Model4DSGetTransform(Mesh, Render);
+                        Mesh->Transformed = 1;
+                    }
                 
+                glm::mat4 MVP = Camera->Projection * Camera->View * Model;
+                glm::mat4 M = Model;
                 
                 for(s32 FgIdx = 0;
                     FgIdx < LOD->FaceGroupCount;
                     ++FgIdx)
                 {
-                    glUniformMatrix4fv(Matrix, 1, GL_FALSE, &MVP.Elements[0][0]);
+                    glUniformMatrix4fv(gMatrix, 1, GL_FALSE, &MVP[0][0]);
+                    glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &M[0][0]);
                     
                     s32 MatIdx = MathMAX(0,LOD->FaceGroups[FgIdx].MaterialIndex - 1);
-                    if(Render->Materials[MatIdx].Diffuse && Render->Materials[MatIdx].Diffuse->TextureObject)
-                    {
-                        glActiveTexture(GL_TEXTURE0);
-                        glBindTexture(GL_TEXTURE_2D, Render->Materials[MatIdx].Diffuse->TextureObject);
-                        glUniform1i(Texture, 0);
-                    }
+                    
+                    RenderApplyMaterial(&Render->Materials[MatIdx].Material, Program);
+                    
                     glEnableVertexAttribArray(0);
                     glEnableVertexAttribArray(1);
+                    glEnableVertexAttribArray(2);
                     {
                         glBindBuffer(GL_ARRAY_BUFFER, LOD->PositionBuffer);
                         glVertexAttribPointer(
@@ -319,9 +408,17 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                             GL_FALSE,
                             0, (void *)0);
                         
-                        glBindBuffer(GL_ARRAY_BUFFER, LOD->UVBuffer);
+                        glBindBuffer(GL_ARRAY_BUFFER, LOD->NormalBuffer);
                         glVertexAttribPointer(
                             1,
+                            3,
+                            GL_FLOAT,
+                            GL_FALSE,
+                            0, (void *)0);
+                        
+                        glBindBuffer(GL_ARRAY_BUFFER, LOD->UVBuffer);
+                        glVertexAttribPointer(
+                            2,
                             2,
                             GL_FLOAT,
                             GL_FALSE,
@@ -331,6 +428,7 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                         
                         glDrawElements(GL_TRIANGLES, LOD->FaceGroups[FgIdx].FaceCount*3, GL_UNSIGNED_SHORT, (void *)0);
                     }
+                    glDisableVertexAttribArray(2);
                     glDisableVertexAttribArray(1);
                     glDisableVertexAttribArray(0);
                 }

@@ -4,6 +4,14 @@
 
 #include "hftw.h"
                                                                    
+                                                                   #include "common.hpp"
+                                                                   #include "vec3.hpp"
+                                                                   #include "mat4x4.hpp"
+#include "gtc/quaternion.hpp"
+#include "gtx/quaternion.hpp"
+#include "gtc/matrix_transform.hpp"
+#include "gtx/transform.hpp"
+                                                                   
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
@@ -43,9 +51,15 @@ global_variable b32 Running = 1;
                                                                            Running = 0;
                                                                        }
                                                                        
-                                                                       v3 Dir = MathDivideVec3f(MathNormalize(CameraGetDirection(Camera)), 3.f);
-                                                                       v3 Right = MathDivideVec3f(MathNormalize(CameraGetRight(Camera)), 3.f);
+                                                                       f32 Speed = 3.f;
                                                                        
+                                                                       if(GlobalKeyDown[VK_LSHIFT])
+                                                                       {
+                                                                           Speed = 0.7f;
+                                                                       }
+                                                                       
+                                                                       v3 Dir = glm::normalize(CameraGetDirection(Camera)) / Speed;
+                                                                       v3 Right = glm::normalize(CameraGetRight(Camera)) /  Speed;
                                                                        
                                                                        if(GlobalKeyDown[0x57])
                                                                        {
@@ -111,7 +125,7 @@ ShaderLink(AmbientProgram, FShader, GL_FRAGMENT_SHADER);
             }
             CameraUpdate(&MainCamera, 
                          WindowGetClientRect(GlobalWindow),
-                         45.f,
+                         75.f,
                          0.1f,
                          1000.f);
             {    

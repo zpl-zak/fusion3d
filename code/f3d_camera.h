@@ -4,41 +4,41 @@
 
 typedef struct
 {
-    m4 Projection;
-    m4 View;
-    v3 Position;
-    v2 Angle;
+     glm::mat4 Projection;
+     glm::mat4 View;
+     glm::vec3 Position;
+     glm::vec2 Angle;
 } camera;
 
-internal v3
+internal glm::vec3
 CameraGetDirection(camera *Camera)
 {
-    v3 Result = MathVec3(cosf(Camera->Angle.Y) * sinf(Camera->Angle.X),
-                      sinf(Camera->Angle.Y),
-                      cosf(Camera->Angle.Y) * cosf(Camera->Angle.X));
+     glm::vec3 Result = glm::vec3(cosf(Camera->Angle.y) * sinf(Camera->Angle.x),
+                      sinf(Camera->Angle.y),
+                      cosf(Camera->Angle.y) * cosf(Camera->Angle.x));
     return(Result);
 }
 
-internal v3
+internal glm::vec3
 CameraGetRight(camera *Camera)
 {
-    v3 Result = MathVec3(sinf(Camera->Angle.X - 3.14f / 2.f),
+    glm::vec3 Result = glm::vec3(sinf(Camera->Angle.x - 3.14f / 2.f),
                          0,
-                         cosf(Camera->Angle.X - 3.14f / 2.f));
+                         cosf(Camera->Angle.x - 3.14f / 2.f));
     return(Result);
 }
 
-internal v3
+internal glm::vec3
 CameraGetUp(camera *Camera)
 {
-    v3 Result = MathCross(MathNormalize(CameraGetRight(Camera)), MathNormalize(CameraGetDirection(Camera)));
+    glm::vec3 Result = glm::cross(glm::normalize(CameraGetRight(Camera)), glm::normalize(CameraGetDirection(Camera)));
     return(Result);
 }
 
 internal void
 CameraFixAngles(camera *Camera)
 {
-    Camera->Angle.X = MathToRadians(Camera->Angle.X);Camera->Angle.Y = MathToRadians(Camera->Angle.Y);
+    Camera->Angle.x = MathToRadians(Camera->Angle.x);Camera->Angle.y = MathToRadians(Camera->Angle.y);
 }
 
 internal camera *
@@ -46,14 +46,16 @@ CameraUpdate(camera *Camera, window_dim WindowDimension, r32 FieldOfView, r32 Ne
 {
     Assert(Camera);
     
-    Camera->Projection = MathPerspective(FieldOfView, WindowDimension.X / (r32)WindowDimension.Y, NearPlane, FarPlane);
+    Camera->Projection = glm::perspective(glm::radians(FieldOfView), WindowDimension.X / (r32)WindowDimension.Y, NearPlane, FarPlane);
     
-    v3 Dir = MathNormalize(CameraGetDirection(Camera));
-    v3 Up = MathNormalize(CameraGetUp(Camera));
+     glm::vec3 Dir = glm::normalize(CameraGetDirection(Camera));
+     glm::vec3 Up = glm::normalize(CameraGetUp(Camera));
     
-    Camera->View = MathLookAt(
-        Camera->Position,
-        MathAddVec3(Camera->Position, Dir),
+    glm::vec3 Pos = {Camera->Position.x, Camera->Position.y, Camera->Position.z};
+    
+    Camera->View = glm::lookAt(
+        Pos,
+        Pos+Dir,
         Up);
     
     return(Camera);

@@ -2,8 +2,6 @@
 
 #if !defined(F3D_TEXTURE_H)
 
-#include "f3d_render.h"
-
 #define F3D_TEXTURE_MAX 4096
 
 typedef struct
@@ -69,7 +67,8 @@ TextureLoad(render_texture *Texture)
         
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, x, y, 0, GL_RGB, GL_UNSIGNED_BYTE, Data);
         
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     }
     stbi_image_free(Data);
     

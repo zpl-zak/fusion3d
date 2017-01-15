@@ -38,7 +38,7 @@ ShaderPrintLog(GLuint Object)
     glGetShaderiv(Object, GL_INFO_LOG_LENGTH, &InfoLogLength);
     if(InfoLogLength > 0)
     {
-        char *InfoLog = PlatformMemAlloc(InfoLogLength);
+        char *InfoLog = (char *)PlatformMemAlloc(InfoLogLength);
         glGetShaderInfoLog(Object, InfoLogLength, 0, InfoLog);
         printf("Object[%d]: %.*s\n", ErrResult, InfoLogLength, InfoLog);
         PlatformMemFree(InfoLog);
@@ -60,7 +60,7 @@ F3DProgramPrintLog(GLuint Object)
     glGetProgramiv(Object, GL_INFO_LOG_LENGTH, &InfoLogLength);
     if(InfoLogLength > 0)
     {
-        char *InfoLog = PlatformMemAlloc(InfoLogLength);
+        char *InfoLog = (char *)PlatformMemAlloc(InfoLogLength);
         glGetShaderInfoLog(Object, InfoLogLength, 0, InfoLog);
         printf("Object[%d]: %.*s\n", ErrResult, InfoLogLength, InfoLog);
         PlatformMemFree(InfoLog);
@@ -91,11 +91,11 @@ ShaderLink(GLuint Program, asset_file *Asset, GLenum Type)
     
     GLuint Shader = glCreateShader(Type);
     
-    char *Source = PlatformMemAlloc(Asset->FileSize + 1);
+    char *Source = (char *)PlatformMemAlloc(Asset->FileSize + 1);
     Copy(Asset->FileSize, Asset->Content, Source);
     Source[Asset->FileSize] = 0;
     
-    glShaderSource(Shader, 1, &Source, 0);
+    glShaderSource(Shader, 1, (const char **)&Source, 0);
     glCompileShader(Shader);
     
     PlatformMemFree(Source);

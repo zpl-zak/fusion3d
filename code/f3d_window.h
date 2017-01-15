@@ -59,7 +59,7 @@ WindowInitialize(HINSTANCE Instance)
     WindowCreateClass(Instance, "Handmade FTW", &WndProc);
     
     window_dim PosDim = {0};
-    window_dim ResDim = {800, 600};
+    window_dim ResDim = {1280, 800};
     
     WindowCreateWindowed("Handmade FTW", "Fusion3D", Instance, 0, 0, ResDim, PosDim, CW_USEDEFAULT, &GlobalWindow);
     
@@ -76,7 +76,6 @@ WindowInitialize(HINSTANCE Instance)
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
     glEnable(GL_CULL_FACE);
-    
 }
 
 internal void
@@ -98,6 +97,8 @@ WindowSetMousePos(s32 x, s32 y)
 internal void
 MainWindowUpdate(void)
 {
+    wglMakeCurrent(GlobalDeviceContext, OpenGLRC);
+    
     for(s32 Idx = 0;
         Idx < 0xFE;
         ++Idx)
