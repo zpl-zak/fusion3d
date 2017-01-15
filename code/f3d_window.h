@@ -78,6 +78,8 @@ WindowInitialize(HINSTANCE Instance)
     glEnable(GL_CULL_FACE);
     glEnable(GL_ALPHA_TEST);
     glAlphaFunc(GL_GREATER, 0);
+    
+    wglSwapIntervalEXT(0);
 }
 
 internal void

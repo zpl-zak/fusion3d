@@ -112,13 +112,16 @@
                                                                        }
                                                                        ShaderProgramLink(AmbientProgram);
                                                                        
-                                                                       render_4ds *BalikSena = Model4DSRegister("scene", "..\\missions\\freeride\\scene.4ds");
+                                                                       render_4ds *BalikSena = Model4DSRegister("krajina", "..\\missions\\freekrajina\\scene.4ds");
                                                                        Model4DSLoad(BalikSena);
                                                                        
+                                                                       render_4ds *Mesto = Model4DSRegister("mesto", "..\\missions\\freeride\\scene.4ds");
+                                                                       Model4DSLoad(Mesto);
+                                                                       
                                                                        render_light_dir Sun = {};
-                                                                       Sun.Ambient = {0.94, 0.86, .54};
-                                                                       Sun.Diffuse = {.5,.5,.56};
-                                                                       Sun.Dir = {-.2,-1.,-.3};
+                                                                       Sun.Ambient = {0.34, 0.43, .54};
+                                                                       Sun.Diffuse = {0.98,0.76,0.23};//{.1,.1,.1};
+                                                                       Sun.Dir = {-.12,-1.,-.3};
                                                                        
                                                                        camera MainCamera;
                                                                        MainCamera.Position.x = 0;
@@ -127,8 +130,8 @@
                                                                        
                                                                        render_light_point CameraLight = {};
                                                                        
-                                                                       CameraLight.Ambient = {29./255,30./255,53./255};
-                                                                       CameraLight.Diffuse = {.23/255,12./255,255./255};
+                                                                       CameraLight.Ambient = {.3,.3,.3};
+                                                                       CameraLight.Diffuse = {.6,.6,.6};
                                                                        CameraLight.Constant = 1.f;
                                                                        CameraLight.Linear = .01f;
                                                                        CameraLight.Quadratic = .045f;
@@ -152,7 +155,7 @@
                                                                                             WindowGetClientRect(GlobalWindow),
                                                                                             75.f,
                                                                                             0.1f,
-                                                                                            1000.f);
+                                                                                            10000.f);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -173,12 +176,13 @@
                                                                                        Transform.Pos = BalikPos;
                                                                                        Model4DSRender(BalikSena, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
                                                                                        
+                                                                                       Model4DSRender(Mesto, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
                                                                                    }
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);
                                                                                
                                                                                OldTime = NewTime;
-                                                                               Sleep(10);
+                                                                               Sleep(1);
                                                                            }
                                                                        }
                                                                        WindowShutdown();
