@@ -149,6 +149,18 @@ Model4DSLoadInternal(LPVOID Param)
             render_texture *Texture = TextureRegister(Temp, Temp, 0);
             TextureLoad(Texture);
             Material->Material.DiffTexture = Texture;
+            
+            Material->Material.ColorKey = 0;
+            if(HMaterial->Flags & HFormat4DSMaterialFlag_ColorKey)
+            {
+                Material->Material.ColorKey = 1;
+            }
+            
+            Material->Material.DoubleSided = 0;
+            if(HMaterial->Flags & HFormat4DSMaterialFlag_DoubleSidedMaterial)
+            {
+                Material->Material.DoubleSided = 1;
+            }
         }
         }
         
@@ -170,6 +182,11 @@ Model4DSLoadInternal(LPVOID Param)
             Mesh->Pos = {HMesh->Pos.X, HMesh->Pos.Y, HMesh->Pos.Z};
             Mesh->Rot = {HMesh->Rot.X, HMesh->Rot.Y, HMesh->Rot.Z, HMesh->Rot.W};
             Mesh->Scale = {HMesh->Scale.X, HMesh->Scale.Y, HMesh->Scale.Z};
+            
+            if(StringsAreEqualA(4, (char *)HMesh->MeshName, "wcol"))
+               {
+                   continue;
+               }
             
             if(HMesh->MeshType == HFormat4DSMeshType_Standard &&
                HMesh->VisualMeshType == HFormat4DSVisualMeshType_Standard)

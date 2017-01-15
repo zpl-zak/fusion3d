@@ -30,37 +30,46 @@
                                                                    {
                                                                        local_persist s32 x,y;
                                                                        local_persist b32 FirstPos = 1;
+                                                                       local_persist b32 UseMouse = 1;
                                                                        
-                                                                       if(FirstPos)
+                                                                       if(UseMouse)
                                                                        {
-                                                                           FirstPos = 0;
+                                                                           if(FirstPos)
+                                                                           {
+                                                                               FirstPos = 0;
+                                                                               x = GlobalMouseX;
+                                                                               y = GlobalMouseY;
+                                                                           }
+                                                                           
+                                                                           Camera->Angle.x +=  0.007f * 5.f * DeltaTime * (x - GlobalMouseX);
+                                                                           Camera->Angle.y +=  0.007f * 5.f * DeltaTime * (y - GlobalMouseY);
+                                                                           
+                                                                           window_dim Res = WindowGetClientRect(GlobalWindow);
+                                                                           WindowSetMousePos((s32)(Res.X / 2.f), (s32)(Res.Y / 2.f));
+                                                                           
                                                                            x = GlobalMouseX;
                                                                            y = GlobalMouseY;
                                                                        }
                                                                        
-                                                                       Camera->Angle.x +=  0.007f * 5.f * DeltaTime * (x - GlobalMouseX);
-                                                                       Camera->Angle.y +=  0.007f * 5.f * DeltaTime * (y - GlobalMouseY);
-                                                                       
-                                                                       window_dim Res = WindowGetClientRect(GlobalWindow);
-                                                                       WindowSetMousePos((s32)(Res.X / 2.f), (s32)(Res.Y / 2.f));
-                                                                       
-                                                                       x = GlobalMouseX;
-                                                                       y = GlobalMouseY;
+                                                                       if(GlobalKeyPress[VK_CONTROL])
+                                                                       {
+                                                                           UseMouse = !UseMouse;
+                                                                       }
                                                                        
                                                                        if(GlobalKeyDown[VK_ESCAPE])
                                                                        {
                                                                            Running = 0;
                                                                        }
                                                                        
-                                                                       f32 Speed = 3.f;
+                                                                       f32 Speed = 0.3f;
                                                                        
-                                                                       if(GlobalKeyDown[VK_LSHIFT])
+                                                                       if(GlobalKeyDown[VK_SHIFT])
                                                                        {
-                                                                           Speed = 0.7f;
+                                                                           Speed = 2.1f;
                                                                        }
                                                                        
-                                                                       glm::vec3 Dir = glm::normalize(CameraGetDirection(Camera)) / Speed;
-                                                                       glm::vec3 Right = glm::normalize(CameraGetRight(Camera)) /  Speed;
+                                                                       glm::vec3 Dir = glm::normalize(CameraGetDirection(Camera)) * Speed;
+                                                                       glm::vec3 Right = glm::normalize(CameraGetRight(Camera)) *  Speed;
                                                                        
                                                                        if(GlobalKeyDown[0x57])
                                                                        {
@@ -106,10 +115,10 @@
                                                                        render_4ds *BalikSena = Model4DSRegister("scene", "..\\missions\\freeride\\scene.4ds");
                                                                        Model4DSLoad(BalikSena);
                                                                        
-                                                                       render_light_dir MainLight = {};
-                                                                       MainLight.Ambient = {29./255,30./255,53./255};
-                                                                       MainLight.Diffuse = {1.,244./255,211./255};
-                                                                       MainLight.Dir = {-.2,-1.,-.3};
+                                                                       render_light_dir Sun = {};
+                                                                       Sun.Ambient = {0.94, 0.86, .54};
+                                                                       Sun.Diffuse = {.5,.5,.56};
+                                                                       Sun.Dir = {-.2,-1.,-.3};
                                                                        
                                                                        camera MainCamera;
                                                                        MainCamera.Position.x = 0;
@@ -119,13 +128,15 @@
                                                                        render_light_point CameraLight = {};
                                                                        
                                                                        CameraLight.Ambient = {29./255,30./255,53./255};
-                                                                       CameraLight.Diffuse = {.23,12./255,255./255};
+                                                                       CameraLight.Diffuse = {.23/255,12./255,255./255};
                                                                        CameraLight.Constant = 1.f;
-                                                                       CameraLight.Linear = .09f;
+                                                                       CameraLight.Linear = .01f;
                                                                        CameraLight.Quadratic = .045f;
                                                                        
                                                                        TimeInit();  
                                                                        r64 OldTime = TimeGet();
+                                                                       
+                                                                       RenderApplyLightDirectional(&Sun, AmbientProgram);
                                                                        
                                                                        while(Running) 
                                                                        {             
@@ -143,7 +154,7 @@
                                                                                             0.1f,
                                                                                             1000.f);
                                                                                {    
-                                                                                   glClearColor(MainLight.Ambient.x, MainLight.Ambient.y, MainLight.Ambient.z, 0.f);
+                                                                                   glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
                                                                                    
                                                                                    local_persist r32 offset = 0.f;
@@ -151,8 +162,6 @@
                                                                                    CameraLight.Pos = MainCamera.Position;
                                                                                    
                                                                                    RenderApplyLightPoint(0, &CameraLight, AmbientProgram);
-                                                                                   
-                                                                                   RenderApplyLightDirectional(&MainLight, AmbientProgram);
                                                                                    
                                                                                    for(s32 Idx = 0;
                                                                                        Idx < 1;
@@ -165,17 +174,6 @@
                                                                                        Model4DSRender(BalikSena, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
                                                                                        
                                                                                    }
-#if 0
-                                                                                   {
-                                                                                       local_persist b32 MainWindowVisible = 1;
-                                                                                       GUIBeginWindow("Handmade FTW", MathVec2(20, 20), MathVec2(220, 480), MathVec3(0.12, 0.12, 0.12), &MainWindowVisible);
-                                                                                       {
-                                                                                           
-                                                                                       }
-                                                                                       GUIEndWindow();
-                                                                                   }
-                                                                                   GUIDrawFrame();
-#endif
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);
                                                                                

@@ -29,7 +29,10 @@ global_variable b32 Running = 1;
                                                                    {
                                                                        local_persist s32 x,y;
                                                                        local_persist b32 FirstPos = 1;
+                                                                       local_persist b32 UseMouse = 1;
                                                                        
+                                                                       if(UseMouse)
+                                                                       {
                                                                        if(FirstPos)
                                                                        {
                                                                            FirstPos = 0;
@@ -45,7 +48,13 @@ global_variable b32 Running = 1;
                                                                        
                                                                        x = GlobalMouseX;
                                                                        y = GlobalMouseY;
-                                                                       
+                                                                   }
+                                                                   
+                                                                   if(GlobalKeyPress[VK_CONTROL])
+                                                                   {
+                                                                       UseMouse = !UseMouse;
+                                                                   }
+                                                                   
                                                                        if(GlobalKeyDown[VK_ESCAPE])
                                                                        {
                                                                            Running = 0;
@@ -102,7 +111,7 @@ ShaderLink(AmbientProgram, FShader, GL_FRAGMENT_SHADER);
     }
     ShaderProgramLink(AmbientProgram);
     
-    render_4ds *BalikSena = Model4DSRegister("scene", "..\\missions\\freeride\\scene.4ds");
+    render_4ds *BalikSena = Model4DSRegister("scene", "..\\missions\\freekrajina\\scene.4ds");
     Model4DSLoad(BalikSena);
     
     camera MainCamera = {0};

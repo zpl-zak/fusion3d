@@ -4,10 +4,13 @@
 
 #define F3D_TEXTURE_MAX 4096
 
+#include "formats/hformat_bmp.h"
+
 typedef struct
 {
     GLuint TextureObject;
     asset_file *Asset;
+    hformat_bmp *Bitmap;
 } render_texture;
 
 global_variable render_texture GlobalTextures[F3D_TEXTURE_MAX] = {0};
@@ -58,19 +61,45 @@ TextureLoad(render_texture *Texture)
         return(Texture);
     }
     
-    s32 x, y, bpp;
+    AssetLoadInternal(Texture->Asset);
+    s32 FileIdx = IOFileOpenRead((s8 *)Texture->Asset->FilePath, 0);
+    Texture->Bitmap = HFormatLoadBMPImage(FileIdx, 0);
+    IOFileClose(FileIdx);
     
-    u8 *Data = stbi_load(Texture->Asset->FilePath, &x, &y, &bpp, 0);
+    s32 x, y, cpp;
+    
+    u8 *Data = stbi_load_from_memory(Texture->Asset->Content, (s32)Texture->Asset->FileSize, &x, &y, &cpp, 3);
+    u8 *TData = (u8 *)PlatformMemAlloc(x*y*4);
     {
+        glm::vec3 ColorKey;
+        ColorKey.x = (Texture->Bitmap->Colors[0].rgbRed);
+        ColorKey.y = (Texture->Bitmap->Colors[0].rgbGreen);
+        ColorKey.z = (Texture->Bitmap->Colors[0].rgbBlue);
+        for(s32 Idx = 0, Idx2 = 0;
+            Idx < x*y*3;
+            Idx += 3, Idx2 += 4)
+        {
+            *(TData+Idx2) = *(Data+Idx);
+            *(TData+Idx2+1) = *(Data+Idx+1);
+            *(TData+Idx2+2) = *(Data+Idx+2);
+            *(TData+Idx2+3) = 255;
+            
+            if(ColorKey.x == *(TData+Idx2) && ColorKey.y == *(TData+Idx2+1) && ColorKey.z == *(TData+Idx2+2))
+            {
+                *(TData+Idx2+3) = 0;
+            }
+        }
+        
         glGenTextures(1, &Texture->TextureObject);
         glBindTexture(GL_TEXTURE_2D, Texture->TextureObject);
         
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, x, y, 0, GL_RGB, GL_UNSIGNED_BYTE, Data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, x, y, 0, GL_RGBA, GL_UNSIGNED_BYTE, TData);
+        
+        PlatformMemFree(TData);
         
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     }
-    stbi_image_free(Data);
     
     return(Texture);
 }

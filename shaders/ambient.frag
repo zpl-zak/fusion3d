@@ -11,6 +11,7 @@ struct Material
   vec3 ambient;
   vec3 diffuse;
   sampler2D difftex;
+  int colorkey;
 };
 
 struct DirLight
@@ -73,7 +74,7 @@ vec3 CalcPointLight(in PointLight light, in vec3 normal, in vec3 frag, in vec2 u
 
 void main() {
   vec2 uv = uv0;
-  uv.x *= -1.0f;
+  //uv.x *= -1.0f;
 
   vec3 n = normalize(normal0);
   vec3 res = CalcDirLight(light, n, uv);
@@ -84,5 +85,12 @@ void main() {
       res += CalcPointLight(pointLight[i], n, frag0, uv);
   }
 
-  color = vec4(res, 1);
+  float alpha = 1.0;
+
+  if(material.colorkey == 1)
+  {
+    alpha = texture(material.difftex, uv).a;
+  }
+
+  color = vec4(res, alpha);
 }
