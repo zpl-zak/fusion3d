@@ -25,6 +25,7 @@
                                                                    #include "f3d_render.h"
 #include "f3d_shader.h"
 #include "f3d_render_4ds.h"
+#include "f3d_scene.h"
                                                                    
                                                                    void HandleInput(camera *Camera, r32 DeltaTime)
                                                                    {
@@ -105,6 +106,9 @@
                                                                        asset_file *VShader = ShaderLoad("ambient_vs", "ambient.vert");
                                                                        asset_file *FShader = ShaderLoad("ambient_fs", "ambient.frag");
                                                                        
+                                                                       scene *CityScene = SceneRegister("city", "FREERIDE");
+                                                                       SceneLoad(CityScene);
+                                                                       
                                                                        GLuint AmbientProgram = ShaderProgramInit();
                                                                        {
                                                                            ShaderLink(AmbientProgram, VShader, GL_VERTEX_SHADER);
@@ -155,7 +159,7 @@
                                                                                             WindowGetClientRect(GlobalWindow),
                                                                                             75.f,
                                                                                             0.1f,
-                                                                                            10000.f);
+                                                                                            666.f);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -170,6 +174,7 @@
                                                                                        Idx < 1;
                                                                                        ++Idx)
                                                                                    {
+                                                                                       offset = sinf((r32)NewTime);
                                                                                        glm::vec3 BalikPos = glm::vec3(0, 0, 0);
                                                                                        
                                                                                        render_transform Transform = RenderTransform();
@@ -177,6 +182,20 @@
                                                                                        Model4DSRender(BalikSena, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
                                                                                        
                                                                                        Model4DSRender(Mesto, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
+                                                                                   }
+                                                                                   
+                                                                                   for(s32 Idx = 0;
+                                                                                       Idx < CityScene->RenderCount;
+                                                                                       ++Idx)
+                                                                                   {
+                                                                                       scene_instance *Instance = *(CityScene->Instances + Idx);
+                                                                                       render_transform Transform = RenderTransform();
+                                                                                       {
+                                                                                           Transform.Pos = Instance->Pos;
+                                                                                           Transform.Rot = Instance->Rot;
+                                                                                           Transform.Scale = Instance->Scale;
+                                                                                       }
+                                                                                       Model4DSRender(CityScene->Renders[Idx], AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
                                                                                    }
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);

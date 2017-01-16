@@ -6,7 +6,7 @@
 
 #include "formats/hformat_4ds.h"
 
-#define F3D_MODEL_4DS_MAX 16
+#define F3D_MODEL_4DS_MAX 128*1024
 
 typedef struct
 {
@@ -392,12 +392,25 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                     continue;
                 }
                 
+                
+                glm::mat4 T;
+                {
+                    glm::mat4 Pos = glm::translate(Transform.Pos);
+                    glm::quat Quat = glm::quat(Transform.Rot.w, Transform.Rot.x, Transform.Rot.y, Transform.Rot.z);
+                    glm::mat4 Rot = glm::toMat4(Quat);
+                    glm::mat4 Scale = glm::scale(Transform.Scale);
+                    
+                    T = Pos * Rot * Scale;
+                    
+                }
+                
                 glm::mat4 Model = Mesh->Transform;
                 if(!Mesh->Transformed)
                     {
                         Model = Mesh->Transform = Model4DSGetTransform(Mesh, Render);
                         Mesh->Transformed = 1;
                     }
+                    Model = T * Mesh->Transform;
                 
                 glm::mat4 MVP = Camera->Projection * Camera->View * Model;
                 glm::mat4 M = Model;

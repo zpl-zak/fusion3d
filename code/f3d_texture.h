@@ -2,7 +2,7 @@
 
 #if !defined(F3D_TEXTURE_H)
 
-#define F3D_TEXTURE_MAX 4096
+#define F3D_TEXTURE_MAX 16*1024
 
 #include "formats/hformat_bmp.h"
 

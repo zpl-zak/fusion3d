@@ -12,7 +12,7 @@ enum
 typedef struct
 {
     glm::vec3 Pos;
-     glm::vec3 Rot;
+     glm::vec4 Rot;
     glm::vec3 Scale;
 } render_transform;
 

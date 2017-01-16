@@ -2,7 +2,7 @@
 
 #if !defined(F3D_ASSET_H)
 
-#define ASSET_MAX 16034
+#define ASSET_MAX 512*1024
 
 typedef struct
 {
@@ -22,6 +22,7 @@ enum
     Asset_Texture,
     Asset_Shader,
     Asset_Model,
+    Asset_Scene,
     Num_of_Asset_Types,
 };
 
@@ -31,6 +32,7 @@ global_variable char *AssetTypeNames[][2] = {
         {"maps/", "Asset_Texture"},
         {"shaders/", "Asset_Shader"},
         {"models/", "Asset_Model"},
+        {"missions/", "Asset_Scene"},
 };
 
 global_variable char *GlobalGamePath = "game/default";
