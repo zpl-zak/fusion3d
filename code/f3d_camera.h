@@ -8,6 +8,11 @@ typedef struct
      glm::mat4 View;
      glm::vec3 Position;
      glm::vec2 Angle;
+    
+    real32 FieldOfView;
+    real32 AspectRatio;
+    real32 NearPlane;
+    real32 FarPlane;
 } camera;
 
 internal glm::vec3
@@ -48,6 +53,11 @@ CameraUpdate(camera *Camera, window_dim WindowDimension, r32 FieldOfView, r32 Ne
     
     Camera->Projection = glm::perspective(glm::radians(FieldOfView), WindowDimension.X / (r32)WindowDimension.Y, NearPlane, FarPlane);
     
+    Camera->FieldOfView = glm::radians(FieldOfView);
+    Camera->AspectRatio = WindowDimension.X / (r32)WindowDimension.Y;
+    Camera->NearPlane = NearPlane;
+    Camera->FarPlane = FarPlane;
+    
      glm::vec3 Dir = glm::normalize(CameraGetDirection(Camera));
      glm::vec3 Up = glm::normalize(CameraGetUp(Camera));
     
@@ -57,7 +67,6 @@ CameraUpdate(camera *Camera, window_dim WindowDimension, r32 FieldOfView, r32 Ne
         Pos,
         Pos+Dir,
         Up);
-    
     return(Camera);
 }
 

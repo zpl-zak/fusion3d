@@ -10,7 +10,9 @@
 #include "gtc/quaternion.hpp"
 #include "gtx/quaternion.hpp"
 #include "gtc/matrix_transform.hpp"
+                                                                   #include "gtc/matrix_access.hpp"
 #include "gtx/transform.hpp"
+                                                                   #include "gtc/type_ptr.hpp"
                                                                    
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -18,6 +20,7 @@
                                                                    global_variable b32 Running = 1;
                                                                    
 #include "f3d_camera.h"
+#include "f3d_frustum.h"
 #include "f3d_async.h"
 #include "f3d_asset.h"
 #include "f3d_window.h"
@@ -106,15 +109,16 @@
                                                                        asset_file *VShader = ShaderLoad("ambient_vs", "ambient.vert");
                                                                        asset_file *FShader = ShaderLoad("ambient_fs", "ambient.frag");
                                                                        
-                                                                       scene *CityScene = SceneRegister("city", "FREERIDE");
-                                                                       SceneLoad(CityScene);
-                                                                       
                                                                        GLuint AmbientProgram = ShaderProgramInit();
                                                                        {
                                                                            ShaderLink(AmbientProgram, VShader, GL_VERTEX_SHADER);
                                                                            ShaderLink(AmbientProgram, FShader, GL_FRAGMENT_SHADER);
                                                                        }
                                                                        ShaderProgramLink(AmbientProgram);
+                                                                       
+                                                                       
+                                                                       scene *CityScene = SceneRegister("city", "FREERIDE");
+                                                                       SceneLoad(CityScene);
                                                                        
                                                                        render_4ds *BalikSena = Model4DSRegister("krajina", "..\\missions\\freekrajina\\scene.4ds");
                                                                        Model4DSLoad(BalikSena);
@@ -159,7 +163,7 @@
                                                                                             WindowGetClientRect(GlobalWindow),
                                                                                             75.f,
                                                                                             0.1f,
-                                                                                            666.f);
+                                                                                            800.f);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -179,9 +183,9 @@
                                                                                        
                                                                                        render_transform Transform = RenderTransform();
                                                                                        Transform.Pos = BalikPos;
-                                                                                       Model4DSRender(BalikSena, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
+                                                                                       Model4DSRender(BalikSena, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 0);
                                                                                        
-                                                                                       Model4DSRender(Mesto, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
+                                                                                       Model4DSRender(Mesto, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 0);
                                                                                    }
                                                                                    
                                                                                    for(s32 Idx = 0;
@@ -195,7 +199,7 @@
                                                                                            Transform.Rot = Instance->Rot;
                                                                                            Transform.Scale = Instance->Scale;
                                                                                        }
-                                                                                       Model4DSRender(CityScene->Renders[Idx], AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal);
+                                                                                       Model4DSRender(CityScene->Renders[Idx], AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 1);
                                                                                    }
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);

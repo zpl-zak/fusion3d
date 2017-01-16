@@ -41,6 +41,7 @@ typedef struct
     
     b32 Transformed;
     glm::mat4 Transform;
+    glm::vec3 Position;
 } render_4ds_mesh;
 
 typedef struct
@@ -66,6 +67,12 @@ typedef struct
 {
     s32 Min, Max;
 } render_mesh_volume;
+
+typedef struct
+{
+    glm::mat4 Transform;
+    glm::vec3 Position;
+} render_transform_result;
 
 global_variable render_4ds GlobalModel4DS[F3D_MODEL_4DS_MAX] = {0};
 
@@ -317,24 +324,28 @@ AsyncModel4DSLoad(render_4ds *Render)
     CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Model4DSLoadInternal, (LPVOID)Render, 0, 0);
 }
 
-internal glm::mat4
+internal render_transform_result
 Model4DSGetTransform(render_4ds_mesh *Mesh, render_4ds *Render)
 {
     #if 1
-    //v3 ScaleVec = Mesh->Scale;
+    render_transform_result Result;
+    Result.Position = Mesh->Pos;
+    
      glm::mat4 Pos = glm::translate(Mesh->Pos);
     glm::quat Quat = glm::quat(Mesh->Rot.w, Mesh->Rot.x, Mesh->Rot.y, Mesh->Rot.z);
     glm::mat4 Rot = glm::toMat4(Quat);
      glm::mat4 Scale = glm::scale(Mesh->Scale);
     
     glm::mat4 Model = Pos * Rot * Scale;
-    //Model = MathMultiplyMat4(Model, Pos);
+    Result.Transform = Model;
     
     if(Mesh->ParentID)
     {
-        Model = Model4DSGetTransform((Render->Meshes + Mesh->ParentID - 1), Render) * Model;
+        render_transform_result Parent = Model4DSGetTransform((Render->Meshes + Mesh->ParentID - 1), Render);
+         Result.Transform = Parent.Transform * Result.Transform;
+        Result.Position = Parent.Position * Result.Position;
     }
-    return(Model);
+    return(Result);
     #endif
 }
 
@@ -346,7 +357,7 @@ global_variable GLuint gMatrixV = 0;
 global_variable GLuint gMatrixP = 0;
 
 internal render_4ds *
-Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transform Transform, s32 RenderType)
+Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transform Transform, s32 RenderType, b32 CheckFrustum)
 {
     if(!Render->Loaded)
     {
@@ -407,13 +418,23 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                 glm::mat4 Model = Mesh->Transform;
                 if(!Mesh->Transformed)
                     {
-                        Model = Mesh->Transform = Model4DSGetTransform(Mesh, Render);
+                        render_transform_result Tr = Model4DSGetTransform(Mesh, Render);
+                        Model = Mesh->Transform = Tr.Transform;
+                        Mesh->Position = Tr.Position;
                         Mesh->Transformed = 1;
                     }
                     Model = T * Mesh->Transform;
-                
+                    
                 glm::mat4 MVP = Camera->Projection * Camera->View * Model;
                 glm::mat4 M = Model;
+                    
+                    if(CheckFrustum)
+                    {
+                    if(!FrustumCheckSphere(MVP, Mesh->Position, 50))
+                    {
+                        continue;
+                    }
+                }
                 
                 for(s32 FgIdx = 0;
                     FgIdx < LOD->FaceGroupCount;
