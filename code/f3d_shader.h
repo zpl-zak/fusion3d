@@ -124,7 +124,7 @@ ShaderProgramLink(GLuint Program)
     
     glLinkProgram(Program);
     
-    ShaderPrintLog(Program);
+    //ShaderPrintLog(Program);
     
             return(Program);
 }

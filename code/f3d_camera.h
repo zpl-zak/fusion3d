@@ -67,6 +67,7 @@ CameraUpdate(camera *Camera, window_dim WindowDimension, r32 FieldOfView, r32 Ne
         Pos,
         Pos+Dir,
         Up);
+    
     return(Camera);
 }
 

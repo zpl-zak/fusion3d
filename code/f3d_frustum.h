@@ -29,7 +29,7 @@ FrustumCheckSphere(glm::mat4 MVP, glm::vec3 Center, GLfloat radius)
     GLfloat distance = leftPlane[A] * xPos + leftPlane[B] * yPos + leftPlane[C] * zPos + leftPlane[D];
     if (distance <= -radius)
     {
-        return false; // Bounding sphere is completely outside the left plane
+        return 0; // Bounding sphere is completely outside the left plane
     }
     
     // Check the point's location with respect to the right plane of our viewing frustum
@@ -49,7 +49,7 @@ FrustumCheckSphere(glm::mat4 MVP, glm::vec3 Center, GLfloat radius)
     distance = rightPlane[A] * xPos + rightPlane[B] * yPos + rightPlane[C] * zPos + rightPlane[D];
     if (distance <= -radius)
     {
-        return false; // Bounding sphere is completely outside the right plane
+        return 0; // Bounding sphere is completely outside the right plane
     }
     
     // Check the point's location with respect to the bottom plane of our viewing frustum
@@ -69,7 +69,7 @@ FrustumCheckSphere(glm::mat4 MVP, glm::vec3 Center, GLfloat radius)
     distance = bottomPlane[A] * xPos + bottomPlane[B] * yPos + bottomPlane[C] * zPos + bottomPlane[D];
     if (distance <= -radius)
     {
-        return false; // Bounding sphere is completely outside the bottom plane
+        return 0; // Bounding sphere is completely outside the bottom plane
     }
     
     // Check the point's location with respect to the top plane of our viewing frustrum
@@ -89,7 +89,7 @@ FrustumCheckSphere(glm::mat4 MVP, glm::vec3 Center, GLfloat radius)
     distance = topPlane[A] * xPos + topPlane[B] * yPos + topPlane[C] * zPos + topPlane[D];
     if (distance <= -radius)
     {
-        return false; // Bounding sphere is completely outside the top plane
+        return 0; // Bounding sphere is completely outside the top plane
     }
     
     // Check the point's location with respect to the near plane of our viewing frustum
@@ -109,8 +109,8 @@ FrustumCheckSphere(glm::mat4 MVP, glm::vec3 Center, GLfloat radius)
     distance = nearPlane[A] * xPos + nearPlane[B] * yPos + nearPlane[C] * zPos + nearPlane[D];
     if (distance <= -radius)
     {
-        return false; // Bounding sphere is completely outside the near plane
-    }
+        return 0; // Bounding sphere is completely outside the near plane
+    } 
     
     // Check the point's location with respect to the far plane of our viewing frustum
     GLfloat farPlane[4];
@@ -129,11 +129,126 @@ FrustumCheckSphere(glm::mat4 MVP, glm::vec3 Center, GLfloat radius)
     distance = farPlane[A] * xPos + farPlane[B] * yPos + farPlane[C] * zPos + farPlane[D];
     if (distance <= -radius)
     {
-        return false; // Bounding sphere is completely outside the far plane
-    }
+        return 0; // Bounding sphere is completely outside the far plane
+    } 
     
-    // If we got here, then the bounding sphere is within at least all six sides of the view frustum, so it's visible and we should draw it!
-    return true;
+    return(1);
+}
+
+global_variable real32 frustum[6][4];
+
+internal void
+FrustumExtract(glm::mat4 MVP)
+{
+    GLfloat *MVPMatrix = glm::value_ptr(MVP);
+    
+    enum term { A = 0, B, C, D };
+    
+    frustum[0][A] = MVPMatrix[3]  + MVPMatrix[0];
+    frustum[0][B] = MVPMatrix[7]  + MVPMatrix[4];
+    frustum[0][C] = MVPMatrix[11] + MVPMatrix[8];
+    frustum[0][D] = MVPMatrix[15] + MVPMatrix[12];
+    
+    // Normalise the plane
+    GLfloat length = sqrtf(frustum[0][A] * frustum[0][A] + frustum[0][B] * frustum[0][B] + frustum[0][C] * frustum[0][C]);
+    frustum[0][A] /= length;
+    frustum[0][B] /= length;
+    frustum[0][C] /= length;
+    frustum[0][D] /= length;
+    
+    frustum[1][A] = MVPMatrix[3]  - MVPMatrix[0];
+    frustum[1][B] = MVPMatrix[7]  - MVPMatrix[4];
+    frustum[1][C] = MVPMatrix[11] - MVPMatrix[8];
+    frustum[1][D] = MVPMatrix[15] - MVPMatrix[12];
+    
+    // Normalise the plane
+    length = sqrtf(frustum[1][A] * frustum[1][A] + frustum[1][B] * frustum[1][B] + frustum[1][C] * frustum[1][C]);
+    frustum[1][A] /= length;
+    frustum[1][B] /= length;
+    frustum[1][C] /= length;
+    frustum[1][D] /= length;
+    
+    frustum[2][A] = MVPMatrix[3]  + MVPMatrix[1];
+    frustum[2][B] = MVPMatrix[7]  + MVPMatrix[5];
+    frustum[2][C] = MVPMatrix[11] + MVPMatrix[9];
+    frustum[2][D] = MVPMatrix[15] + MVPMatrix[13];
+    
+    // Normalise the plane
+    length = sqrtf(frustum[2][A] * frustum[2][A] + frustum[2][B] * frustum[2][B] + frustum[2][C] * frustum[2][C]);
+    frustum[2][A] /= length;
+    frustum[2][B] /= length;
+    frustum[2][C] /= length;
+    frustum[2][D] /= length;
+    
+    frustum[3][A] = MVPMatrix[3]  - MVPMatrix[1];
+    frustum[3][B] = MVPMatrix[7]  - MVPMatrix[5];
+    frustum[3][C] = MVPMatrix[11] - MVPMatrix[9];
+    frustum[3][D] = MVPMatrix[15] - MVPMatrix[13];
+    
+    // Normalise the plane
+    length = sqrtf(frustum[3][A] * frustum[3][A] + frustum[3][B] * frustum[3][B] + frustum[3][C] * frustum[3][C]);
+    frustum[3][A] /= length;
+    frustum[3][B] /= length;
+    frustum[3][C] /= length;
+    frustum[3][D] /= length;
+    
+    frustum[4][A] = MVPMatrix[3]  + MVPMatrix[2];
+    frustum[4][B] = MVPMatrix[7]  + MVPMatrix[6];
+    frustum[4][C] = MVPMatrix[11] + MVPMatrix[10];
+    frustum[4][D] = MVPMatrix[15] + MVPMatrix[14];
+    
+    // Normalise the plane
+    length = sqrtf(frustum[4][A] * frustum[4][A] + frustum[4][B] * frustum[4][B] + frustum[4][C] * frustum[4][C]);
+    frustum[4][A] /= length;
+    frustum[4][B] /= length;
+    frustum[4][C] /= length;
+    frustum[4][D] /= length;
+    
+    frustum[5][A] = MVPMatrix[3]  - MVPMatrix[2];
+    frustum[5][B] = MVPMatrix[7]  - MVPMatrix[6];
+    frustum[5][C] = MVPMatrix[11] - MVPMatrix[10];
+    frustum[5][D] = MVPMatrix[15] - MVPMatrix[14];
+    
+    // Normalise the plane
+    length = sqrtf(frustum[5][A] * frustum[5][A] + frustum[5][B] * frustum[5][B] + frustum[5][C] * frustum[5][C]);
+    frustum[5][A] /= length;
+    frustum[5][B] /= length;
+    frustum[5][C] /= length;
+    frustum[5][D] /= length;
+    
+}
+
+internal int
+FrustumCheckAABB(aabb bbox)
+{
+    int p;
+    int c;
+    int c2 = 0;
+    for(p = 0; p < 6; p++)
+    {
+        c = 0;
+        if(frustum[p][0] * (bbox.Min.x) + frustum[p][1] * (bbox.Min.y) + frustum[p][2]    * (bbox.Min.z) + frustum[p][3] > 0)
+            c++;
+        if(frustum[p][0] * (bbox.Max.x) + frustum[p][1] * (bbox.Min.y) + frustum[p][2]    * (bbox.Min.z) + frustum[p][3] > 0)
+            c++;
+        if(frustum[p][0] * (bbox.Min.x) + frustum[p][1] * (bbox.Max.x) + frustum[p][2]    * (bbox.Min.z) + frustum[p][3] > 0)
+            c++;
+        if(frustum[p][0] * (bbox.Max.x) + frustum[p][1] * (bbox.Max.x) + frustum[p][2]    * (bbox.Min.z) + frustum[p][3] > 0)
+            c++;
+        if(frustum[p][0] * (bbox.Min.x) + frustum[p][1] * (bbox.Min.y) + frustum[p][2]    * (bbox.Max.z) + frustum[p][3] > 0)
+            c++;
+        if(frustum[p][0] * (bbox.Max.x) + frustum[p][1] * (bbox.Min.y) + frustum[p][2]    * (bbox.Max.z) + frustum[p][3] > 0)
+            c++;
+        if(frustum[p][0] * (bbox.Min.x) + frustum[p][1] * (bbox.Max.x) + frustum[p][2]    * (bbox.Max.z) + frustum[p][3] > 0)
+            c++;
+        if(frustum[p][0] * (bbox.Max.x) + frustum[p][1] * (bbox.Max.x) + frustum[p][2]    * (bbox.Max.z) + frustum[p][3] > 0)
+            c++;
+        if(c == 0)
+            return(0);
+        if(c == 8)
+            c2++;
+    }
+    return (c2 == 6) ? 2 : 1;
 }
 
 #define F3D_FRUSTUM_H

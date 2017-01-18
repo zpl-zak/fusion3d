@@ -2,71 +2,11 @@
 
 #if !defined(F3D_RENDER_4DS_H)
 
-#include "f3d_render.h"
-
 #include "formats/hformat_4ds.h"
 
+#include "f3d_render.h"
+
 #define F3D_MODEL_4DS_MAX 128*1024
-
-typedef struct
-{
-    GLuint ElementBuffer;
-    u16 FaceCount;
-     u16 MaterialIndex;
-} render_4ds_facegroup;
-
-typedef struct
-{
-    r32 RelativeDistance;
-    u16 VertexCount;
-    
-    GLuint PositionBuffer;
-    GLuint NormalBuffer;
-    GLuint UVBuffer;
-    
-    u8 FaceGroupCount;
-    render_4ds_facegroup *FaceGroups;
-} render_4ds_lod;
-
-typedef struct
-{
-    u8 LODLevel;
-    render_4ds_lod *LODs;
-     s32 InstanceOf;
-    s32 ParentID;
-    
-    glm::vec3 Pos;
-    glm::vec4 Rot;
-    glm::vec3 Scale;
-    
-    b32 Transformed;
-    glm::mat4 Transform;
-    glm::vec3 Position;
-} render_4ds_mesh;
-
-typedef struct
-{
-    render_material Material;
-} render_4ds_material;
-
-typedef struct
-{
-    b32 Loaded;
-    asset_file *Asset;
-    
-    u16 MeshCount;
-    render_4ds_mesh *Meshes;
-    
-    u16 MaterialCount;
-    render_4ds_material *Materials;
-    
-    hformat_4ds_header *Header;
-} render_4ds;
-
-typedef struct
-{
-    s32 Min, Max;
-} render_mesh_volume;
 
 typedef struct
 {
@@ -225,6 +165,55 @@ Model4DSLoadInternal(LPVOID Param)
                     ++PosIdx)
                 {
                     Positions[PosIdx] = HLOD->Vertices[PosIdx].Pos;
+                }
+                
+                if(!Render->BBoxSet)
+                {
+                    Render->BBoxSet = 1;
+                    
+                    aabb BBox = {};
+                    
+                    glm::vec4 Min, Max;
+                    Min.w = Max.w = 1;
+                    for(s32 PosIdx = 0;
+                        PosIdx < LOD->VertexCount;
+                        ++PosIdx)
+                    {
+                        if(HLOD->Vertices[PosIdx].Pos.X < Min.x)
+                        {
+                            Min.x = HLOD->Vertices[PosIdx].Pos.X;
+                        }
+                        
+                        if(HLOD->Vertices[PosIdx].Pos.Y < Min.y)
+                        {
+                            Min.y = HLOD->Vertices[PosIdx].Pos.Y;
+                        }
+                        
+                        if(HLOD->Vertices[PosIdx].Pos.Z < Min.z)
+                        {
+                            Min.z = HLOD->Vertices[PosIdx].Pos.Z;
+                        }
+                        
+                        if(HLOD->Vertices[PosIdx].Pos.X > Max.x)
+                        {
+                            Max.x = HLOD->Vertices[PosIdx].Pos.X;
+                        }
+                        
+                        if(HLOD->Vertices[PosIdx].Pos.Y > Max.y)
+                        {
+                            Max.y = HLOD->Vertices[PosIdx].Pos.Y;
+                        }
+                        
+                        if(HLOD->Vertices[PosIdx].Pos.Z > Max.z)
+                        {
+                            Max.z = HLOD->Vertices[PosIdx].Pos.Z;
+                        }
+                    }
+                    
+                    BBox.Min = Min;
+                    BBox.Max = Max;
+                    
+                    Render->BBox = BBox;
                 }
                 
                 glGenBuffers(1, &LOD->PositionBuffer);
@@ -391,11 +380,16 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                 render_4ds_mesh *Mesh = &Render->Meshes[Idx];
                 render_4ds_lod *LOD = &Render->Meshes[Idx].LODs[0];
                 
+                if(!LOD)
+                {
+                    continue;
+                }
+                
                 s32 Cdx = Idx;
                 while(!LOD && Render->Meshes[Cdx].InstanceOf)
                 {
                     Cdx = Render->Meshes[Cdx].InstanceOf - 1;
-                    LOD = &Render->Meshes[Cdx].LODs[0];
+                    LOD = &Render->Meshes[Cdx].LODs[Mesh->LODLevel-1];
                 }
                 
                 if(!LOD)
@@ -403,17 +397,7 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                     continue;
                 }
                 
-                
-                glm::mat4 T;
-                {
-                    glm::mat4 Pos = glm::translate(Transform.Pos);
-                    glm::quat Quat = glm::quat(Transform.Rot.w, Transform.Rot.x, Transform.Rot.y, Transform.Rot.z);
-                    glm::mat4 Rot = glm::toMat4(Quat);
-                    glm::mat4 Scale = glm::scale(Transform.Scale);
-                    
-                    T = Pos * Rot * Scale;
-                    
-                }
+                glm::mat4 T = RenderTransformMatrix(Transform);
                 
                 glm::mat4 Model = Mesh->Transform;
                 if(!Mesh->Transformed)
@@ -430,19 +414,30 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                     
                     if(CheckFrustum)
                     {
-                    if(!FrustumCheckSphere(MVP, Mesh->Position, 50))
+                        aabb tbbox = Render->BBox;
+                        FrustumExtract(MVP);
+                    if(!FrustumCheckAABB(tbbox))
                     {
                         continue;
                     }
                 }
                 
+                /*
+                s32 LODAttempts = 0;
+                while(LOD->RelativeDistance > sqrt(pow(Mesh->Position.x - Camera->Position.x,2.f)
+                                                   +pow(Mesh->Position.y - Camera->Position.y,2.f)
+                                                   +pow(Mesh->Position.z - Camera->Position.z,2.f)) && LODAttempts < Mesh->LODLevel)
+                {
+                    LOD = &Mesh->LODs[++LODAttempts];
+                }*/
+                
+                glUniformMatrix4fv(gMatrix, 1, GL_FALSE, &MVP[0][0]);
+                glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &M[0][0]);
+                
                 for(s32 FgIdx = 0;
                     FgIdx < LOD->FaceGroupCount;
                     ++FgIdx)
                 {
-                    glUniformMatrix4fv(gMatrix, 1, GL_FALSE, &MVP[0][0]);
-                    glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &M[0][0]);
-                    
                     s32 MatIdx = MathMAX(0,LOD->FaceGroups[FgIdx].MaterialIndex - 1);
                     
                     RenderApplyMaterial(&Render->Materials[MatIdx].Material, Program);

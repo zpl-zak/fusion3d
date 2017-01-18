@@ -20,7 +20,6 @@
                                                                    global_variable b32 Running = 1;
                                                                    
 #include "f3d_camera.h"
-#include "f3d_frustum.h"
 #include "f3d_async.h"
 #include "f3d_asset.h"
 #include "f3d_window.h"
@@ -116,9 +115,41 @@
                                                                        }
                                                                        ShaderProgramLink(AmbientProgram);
                                                                        
+                                                                       asset_file *CVShader = ShaderLoad("color_vs", "color.vert");
+                                                                       asset_file *CFShader = ShaderLoad("color_fs", "color.frag");
                                                                        
-                                                                       scene *CityScene = SceneRegister("city", "FREERIDE");
+                                                                       GLuint ColorProgram = ShaderProgramInit();
+                                                                       {
+                                                                           ShaderLink(ColorProgram, CVShader, GL_VERTEX_SHADER);
+                                                                           ShaderLink(ColorProgram, CFShader, GL_FRAGMENT_SHADER);
+                                                                       }
+                                                                       ShaderProgramLink(ColorProgram);
+                                                                       
+                                                                       
+                                                                       
+#if 1
+                                                                       scene *CityScene = SceneRegister("city", "freeride");
                                                                        SceneLoad(CityScene);
+                                                                       
+                                                                       for(s32 Idx = 0;
+                                                                           Idx < CityScene->RenderCount;
+                                                                           ++Idx)
+                                                                       {
+                                                                           scene_instance *Instance = *(CityScene->Instances + Idx);
+                                                                           render_transform Transform = RenderTransform();
+                                                                           {
+                                                                               Transform.Pos = Instance->Pos;
+                                                                               Transform.Rot = Instance->Rot;
+                                                                               Transform.Scale = Instance->Scale;
+                                                                           }
+                                                                           //Model4DSRender(CityScene->Renders[Idx], AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 1);
+                                                                           
+                                                                           RenderSingleAdd(CityScene->Renders[Idx], Transform, 1);
+                                                                           RenderOctreeAdd(CityScene->Renders[Idx], Transform);
+                                                                       }
+#endif
+                                                                       
+                                                                       RenderOctreeGenerate();
                                                                        
                                                                        render_4ds *BalikSena = Model4DSRegister("krajina", "..\\missions\\freekrajina\\scene.4ds");
                                                                        Model4DSLoad(BalikSena);
@@ -163,7 +194,7 @@
                                                                                             WindowGetClientRect(GlobalWindow),
                                                                                             75.f,
                                                                                             0.1f,
-                                                                                            800.f);
+                                                                                            1000.f);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -187,25 +218,12 @@
                                                                                        
                                                                                        Model4DSRender(Mesto, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 0);
                                                                                    }
-                                                                                   
-                                                                                   for(s32 Idx = 0;
-                                                                                       Idx < CityScene->RenderCount;
-                                                                                       ++Idx)
-                                                                                   {
-                                                                                       scene_instance *Instance = *(CityScene->Instances + Idx);
-                                                                                       render_transform Transform = RenderTransform();
-                                                                                       {
-                                                                                           Transform.Pos = Instance->Pos;
-                                                                                           Transform.Rot = Instance->Rot;
-                                                                                           Transform.Scale = Instance->Scale;
-                                                                                       }
-                                                                                       Model4DSRender(CityScene->Renders[Idx], AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 1);
-                                                                                   }
+                                                                                   RenderSingleDraw(AmbientProgram, &MainCamera, ModelRenderType_Normal);
+                                                                                   DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, &MainCamera);
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);
                                                                                
                                                                                OldTime = NewTime;
-                                                                               Sleep(1);
                                                                            }
                                                                        }
                                                                        WindowShutdown();
