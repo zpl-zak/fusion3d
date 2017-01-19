@@ -12,7 +12,7 @@ enum
 typedef struct
 {
     glm::vec3 Pos;
-     glm::vec4 Rot;
+    glm::vec4 Rot;
     glm::vec3 Scale;
 } render_transform;
 
@@ -81,7 +81,7 @@ typedef struct render_octree_
     s32 NodeCount;
     render_octree_node *Node;
     
-    aabb BBox;
+    aabb BBox, TBBox;
     glm::vec4 Center;
     r32 Radius;
     
@@ -133,7 +133,7 @@ RenderApplyMaterial(render_material *Mat, GLuint Program)
 {
     if(!Mat->AmbLoc)
     {
-    Mat->AmbLoc = glGetUniformLocation(Program, "material.ambient");Mat->DiffLoc = glGetUniformLocation(Program, "material.diffuse");
+        Mat->AmbLoc = glGetUniformLocation(Program, "material.ambient");Mat->DiffLoc = glGetUniformLocation(Program, "material.diffuse");
         Mat->DiffTex = glGetUniformLocation(Program, "material.difftex");
         Mat->ColLoc = glGetUniformLocation(Program, "material.colorkey");
     }
@@ -143,9 +143,9 @@ RenderApplyMaterial(render_material *Mat, GLuint Program)
     
     if(Mat->DiffTexture && Mat->DiffTexture->TextureObject)
     {
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, Mat->DiffTexture->TextureObject);
-    glUniform1i(Mat->DiffTex, 0);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, Mat->DiffTexture->TextureObject);
+        glUniform1i(Mat->DiffTex, 0);
         glUniform1i(Mat->ColLoc, Mat->ColorKey);
     }
     
@@ -188,7 +188,7 @@ RenderApplyLightPoint(s32 Index, render_light_point *Light, GLuint Program)
         Light->PosLoc = glGetUniformLocation(Program, Temp);
         sprintf(Temp, "pointLight[%d].ambient", Index);
         Light->AmbLoc = glGetUniformLocation(Program, Temp);
-            sprintf(Temp, "pointLight[%d].diffuse", Index);Light->DiffLoc = glGetUniformLocation(Program, Temp);
+        sprintf(Temp, "pointLight[%d].diffuse", Index);Light->DiffLoc = glGetUniformLocation(Program, Temp);
         
         sprintf(Temp, "pointLight[%d].constant", Index);Light->CLoc = glGetUniformLocation(Program, Temp);
         sprintf(Temp, "pointLight[%d].linear", Index);Light->LLoc = glGetUniformLocation(Program, Temp);
@@ -228,7 +228,7 @@ RenderSingleAdd(render_4ds *Render, render_transform Transform, b32 CheckFrustum
         {
             if(!N->Next)
             {
-            N->Next = Node;
+                N->Next = Node;
                 break;
             }
         }
@@ -300,7 +300,7 @@ RenderTestAABB(aabb a, aabb b)
 internal void
 RenderOctreeGenerateInternal(render_octree *Octree)
 {
-    aabb bbox = Octree->BBox;
+    aabb bbox = Octree->TBBox;
     
     r32 wx = bbox.Max.x - bbox.Min.x;
     r32 wy = bbox.Max.y - bbox.Min.y;
@@ -310,14 +310,19 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     r32 hy = wy / 2.f;
     r32 hz = wz / 2.f;
     
-    glm::vec4 Center = bbox.Max - glm::vec4(wx,wy,wz,1);
+    r32 qx = hx / 2.f;
+    r32 qy = hy / 2.f;
+    r32 qz = hz / 2.f;
+    
+    
+    glm::vec4 Center = bbox.Max - glm::vec4(hx,hy,hz,1);
     
     real32 Radius = MathMAX(hx, MathMAX(hy, hz));
     
     Octree->Center = Center;
     Octree->Radius = Radius;
     
-    if(Octree->NodeCount < 10)
+    if(Octree->NodeCount < 5)
     {
         return;
     }
@@ -325,12 +330,13 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     render_octree o_ = {};
     
     ///
-    /// Branch 1 -- luf
+    /// Branch 1 -- ldf
     ///
     
     aabb o1box;
-    o1box.Min = bbox.Min;
-    o1box.Max = bbox.Max - glm::vec4(hx,hy,hz,1);
+    glm::vec4 o1center = Center + glm::vec4(-qx, -qy, qz, 1);
+    o1box.Min = o1center + glm::vec4(-qx, -qy, -qz, 1);
+    o1box.Max = o1center + glm::vec4(qx, qy, qz, 1);
     
     render_octree_node *o1list = 0;
     
@@ -369,17 +375,20 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     }
     
     o1->Node = o1list;
-    o1->BBox = o1box;
+    o1->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
+    o1->BBox.Max = glm::vec4(qx, qy, qz, 1);
+    o1->TBBox = o1box;
     
     Octree->Branches[0] = o1;
     
     ///
-    /// Branch 2 -- ruf
+    /// Branch 2 -- rdf
     ///
     
     aabb o2box;
-    o2box.Min = bbox.Min + glm::vec4(hx,0,0,1);
-    o2box.Max = bbox.Max - glm::vec4(0,hy,hz,1);
+    glm::vec4 o2center = Center + glm::vec4(qx, -qy, qz, 1);
+    o2box.Min = o2center + glm::vec4(-qx, -qy, -qz, 1);
+    o2box.Max = o2center + glm::vec4(qx, qy, qz, 1);
     
     render_octree_node *o2list = 0;
     
@@ -418,17 +427,20 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     }
     
     o2->Node = o2list;
-    o2->BBox = o2box;
+    o2->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
+    o2->BBox.Max = glm::vec4(qx, qy, qz, 1);
+    o2->TBBox = o2box;
     
     Octree->Branches[1] = o2;
     
     ///
-    /// Branch 3 -- rdf
+    /// Branch 3 -- luf
     ///
     
     aabb o3box;
-    o3box.Min = bbox.Min + glm::vec4(hx,hy,0,1);
-    o3box.Max = bbox.Max - glm::vec4(0,0,hz,1);
+    glm::vec4 o3center = Center + glm::vec4(-qx, qy, qz, 1);
+    o3box.Min = o3center + glm::vec4(-qx, -qy, -qz, 1);
+    o3box.Max = o3center + glm::vec4(qx, qy, qz, 1);
     
     render_octree_node *o3list = 0;
     
@@ -467,17 +479,20 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     }
     
     o3->Node = o3list;
-    o3->BBox = o3box;
+    o3->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
+    o3->BBox.Max = glm::vec4(qx, qy, qz, 1);
+    o3->TBBox = o3box;
     
     Octree->Branches[2] = o3;
     
     ///
-    /// Branch 4 -- ldf
+    /// Branch 4 -- ruf
     ///
     
     aabb o4box;
-    o4box.Min = bbox.Min + glm::vec4(0,hy,0,1);
-    o4box.Max = bbox.Max - glm::vec4(hx, 0, hz,1);
+    glm::vec4 o4center = Center + glm::vec4(qx, qy, qz, 1);
+    o4box.Min = o4center + glm::vec4(-qx, -qy, -qz, 1);
+    o4box.Max = o4center + glm::vec4(qx, qy, qz, 1);
     
     render_octree_node *o4list = 0;
     
@@ -516,17 +531,20 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     }
     
     o4->Node = o4list;
-    o4->BBox = o4box;
+    o4->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
+    o4->BBox.Max = glm::vec4(qx, qy, qz, 1);
+    o4->TBBox = o4box;
     
     Octree->Branches[3] = o4;
     
     ///
-    /// Branch 5 -- lun
+    /// Branch 5 -- ldn
     ///
     
     aabb o5box;
-    o5box.Min = bbox.Min + glm::vec4(0,0,hz,1);
-    o5box.Max = bbox.Max - glm::vec4(hx,hz,0,1);
+    glm::vec4 o5center = Center + glm::vec4(-qx, -qy, -qz, 1);
+    o5box.Min = o5center + glm::vec4(-qx, -qy, -qz, 1);
+    o5box.Max = o5center + glm::vec4(qx, qy, qz, 1);
     
     render_octree_node *o5list = 0;
     
@@ -565,17 +583,20 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     }
     
     o5->Node = o5list;
-    o5->BBox = o5box;
+    o5->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
+    o5->BBox.Max = glm::vec4(qx, qy, qz, 1);
+    o5->TBBox = o5box;
     
     Octree->Branches[4] = o5;
     
     ///
-    /// Branch 6 -- run
+    /// Branch 6 -- rdn
     ///
     
     aabb o6box;
-    o6box.Min = bbox.Min + glm::vec4(hx,0,hz,1);
-    o6box.Max = bbox.Max - glm::vec4(0,hy,0,1);
+    glm::vec4 o6center = Center + glm::vec4(qx, -qy, -qz, 1);
+    o6box.Min = o6center + glm::vec4(-qx, -qy, -qz, 1);
+    o6box.Max = o6center + glm::vec4(qx, qy, qz, 1);
     
     render_octree_node *o6list = 0;
     
@@ -614,17 +635,20 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     }
     
     o6->Node = o6list;
-    o6->BBox = o6box;
+    o6->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
+    o6->BBox.Max = glm::vec4(qx, qy, qz, 1);
+    o6->TBBox = o6box;
     
     Octree->Branches[5] = o6;
     
     ///
-    /// Branch 7 -- rdn
+    /// Branch 7 -- run
     ///
     
     aabb o7box;
-    o7box.Min = bbox.Min + glm::vec4(hx,hy,hz,1);
-    o7box.Max = bbox.Max;
+    glm::vec4 o7center = Center + glm::vec4(qx, qy, -qz, 1);
+    o7box.Min = o7center + glm::vec4(-qx, -qy, -qz, 1);
+    o7box.Max = o7center + glm::vec4(qx, qy, qz, 1);
     
     render_octree_node *o7list = 0;
     
@@ -663,17 +687,20 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     }
     
     o7->Node = o7list;
-    o7->BBox = o7box;
+    o7->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
+    o7->BBox.Max = glm::vec4(qx, qy, qz, 1);
+    o7->TBBox = o7box;
     
     Octree->Branches[6] = o7;
     
     ///
-    /// Branch 8 -- ldn
+    /// Branch 8 -- lun
     ///
     
     aabb o8box;
-    o8box.Min = bbox.Min + glm::vec4(0,hy,hz,1);
-    o8box.Max = bbox.Max - glm::vec4(hx,0,0,1);
+    glm::vec4 o8center = Center + glm::vec4(-qx, qy, -qz, 1);
+    o8box.Min = o8center + glm::vec4(-qx, -qy, -qz, 1);
+    o8box.Max = o8center + glm::vec4(qx, qy, qz, 1);
     
     render_octree_node *o8list = 0;
     
@@ -712,7 +739,9 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     }
     
     o8->Node = o8list;
-    o8->BBox = o8box;
+    o8->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
+    o8->BBox.Max = glm::vec4(qx, qy, qz, 1);
+    o8->TBBox = o8box;
     
     Octree->Branches[7] = o8;
     
@@ -764,12 +793,13 @@ RenderOctreeGenerate(void)
         }
     }
     
-     GlobalWorld.BBox = BBox;
+    GlobalWorld.BBox = BBox;
+    GlobalWorld.TBBox = BBox;
     RenderOctreeGenerateInternal(&GlobalWorld);
 }
 
 internal void
-DEBUGRenderOctreeViz(render_octree *Octree, GLuint Program, camera *Camera)
+DEBUGRenderOctreeViz(render_octree *Octree, GLuint Program, camera *Camera, b32 Recursive)
 {
     {
 #if 1
@@ -808,12 +838,12 @@ DEBUGRenderOctreeViz(render_octree *Octree, GLuint Program, camera *Camera)
         min_y, max_y,
         min_z, max_z;
         
-        min_x = Octree->BBox.Min.x;
-        min_y = Octree->BBox.Min.y;
-        min_z = Octree->BBox.Min.z;
-        max_x = Octree->BBox.Max.x;
-        max_y = Octree->BBox.Max.y;
-        max_z = Octree->BBox.Max.z;
+        min_x = Octree->TBBox.Min.x;
+        min_y = Octree->TBBox.Min.y;
+        min_z = Octree->TBBox.Min.z;
+        max_x = Octree->TBBox.Max.x;
+        max_y = Octree->TBBox.Max.y;
+        max_z = Octree->TBBox.Max.z;
         
         glm::vec3 size = glm::vec3(max_x-min_x, max_y-min_y, max_z-min_z);
         glm::vec3 center = glm::vec3((min_x+max_x)/2, (min_y+max_y)/2, (min_z+max_z)/2);
@@ -846,13 +876,14 @@ DEBUGRenderOctreeViz(render_octree *Octree, GLuint Program, camera *Camera)
         glDeleteBuffers(1, &vbo_vertices);
         glDeleteBuffers(1, &ibo_elements);
         
-        for(s32 Idx = 0;
-            Idx < 7;
-            Idx++)
+        if(Recursive)
+            for(s32 Idx = 0;
+                Idx < 7;
+                Idx++)
         {
             if(Octree->Branches[Idx] && Octree->Branches[Idx]->NodeCount)
             {
-                DEBUGRenderOctreeViz(Octree->Branches[Idx], Program, Camera);
+                DEBUGRenderOctreeViz(Octree->Branches[Idx], Program, Camera, Recursive);
             }
         }
 #endif
@@ -862,9 +893,9 @@ DEBUGRenderOctreeViz(render_octree *Octree, GLuint Program, camera *Camera)
 internal void
 RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, s32 RenderType)
 {
-    
+    //DEBUGRenderOctreeViz(Octree, Program, Camera, 0);
     aabb bbox = Octree->BBox;
-    glm::vec4 Center = (bbox.Max - bbox.Min)/2.f;
+    glm::vec4 Center = Octree->Center;
     render_transform T = RenderTransform();
     T.Pos = glm::vec3(Center.x, Center.y, Center.z);
     glm::mat4 MVP = Camera->Projection * Camera->View * RenderTransformMatrix(T);
@@ -889,7 +920,7 @@ RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, 
         {
             if(Octree->Branches[Idx] && Octree->Branches[Idx]->NodeCount)
             {
-            RenderOctreeDrawInternal(Octree->Branches[Idx], Program, Camera, RenderType);
+                RenderOctreeDrawInternal(Octree->Branches[Idx], Program, Camera, RenderType);
             }
         }
     }
@@ -898,7 +929,15 @@ RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, 
 internal void
 RenderOctreeDraw(GLuint Program, camera *Camera, s32 RenderType)
 {
-    RenderOctreeDrawInternal(&GlobalWorld, Program, Camera, RenderType);
+    for(s32 Idx = 0;
+        Idx < 7;
+        Idx++)
+    {
+        if(GlobalWorld.Branches[Idx] && GlobalWorld.Branches[Idx]->NodeCount)
+        {
+            RenderOctreeDrawInternal(GlobalWorld.Branches[Idx], Program, Camera, RenderType);
+        }
+    }
 }
 
 #define F3D_RENDER_H

@@ -144,7 +144,7 @@
                                                                            }
                                                                            //Model4DSRender(CityScene->Renders[Idx], AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 1);
                                                                            
-                                                                           RenderSingleAdd(CityScene->Renders[Idx], Transform, 1);
+                                                                           //RenderSingleAdd(CityScene->Renders[Idx], Transform, 1);
                                                                            RenderOctreeAdd(CityScene->Renders[Idx], Transform);
                                                                        }
 #endif
@@ -193,7 +193,7 @@
                                                                                CameraUpdate(&MainCamera, 
                                                                                             WindowGetClientRect(GlobalWindow),
                                                                                             75.f,
-                                                                                            0.1f,
+                                                                                            0.01f,
                                                                                             1000.f);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
@@ -218,8 +218,8 @@
                                                                                        
                                                                                        Model4DSRender(Mesto, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 0);
                                                                                    }
-                                                                                   RenderSingleDraw(AmbientProgram, &MainCamera, ModelRenderType_Normal);
-                                                                                   DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, &MainCamera);
+                                                                                   RenderOctreeDraw(AmbientProgram, &MainCamera, ModelRenderType_Normal);
+                                                                                   //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, &MainCamera);
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);
                                                                                
