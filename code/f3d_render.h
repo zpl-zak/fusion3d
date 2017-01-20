@@ -73,6 +73,8 @@ typedef struct render_octree_node_
     render_4ds *Render;
     render_transform Transform;
     aabb TBBox;
+    
+    b32 WasUsed;
     struct render_octree_node_ *Next;
 } render_octree_node;
 
@@ -85,6 +87,7 @@ typedef struct render_octree_
     glm::vec4 Center;
     r32 Radius;
     
+    b32 IsLeaf;
     struct render_octree_ *Branches[8];
 } render_octree;
 
@@ -257,7 +260,9 @@ RenderOctreeAdd(render_4ds *Render, render_transform Transform)
     Node->Render = Render;
     Node->Next = 0;
     
+    Transform.Rot = glm::vec4(0,0,0,0);
     glm::mat4 T = RenderTransformMatrix(Transform);
+    
     
     aabb bbox = Render->BBox;
     
@@ -290,11 +295,64 @@ RenderOctreeAdd(render_4ds *Render, render_transform Transform)
 internal b32
 RenderTestAABB(aabb a, aabb b)
 {
-    b32 x = (a.Min.x < b.Min.x) && (a.Max.x > b.Max.x);
-    b32 y = (a.Min.y < b.Min.y) && (a.Max.y > b.Max.y);
-    b32 z = (a.Min.z < b.Min.z) && (a.Max.z > b.Max.z);
+    return((a.Min.x <= b.Max.x) && (a.Min.y <= b.Max.y) && (a.Min.z <= b.Max.z) && (a.Max.x >= b.Min.x) && (a.Max.y >= b.Min.y) && (a.Max.z >= b.Min.z));
+}
+
+internal render_octree *
+RenderOctreeGenerateSubtree(render_octree *Octree, glm::vec4 Center, r32 x, r32 y, r32 z)
+{
+    aabb Subtreebox;
+    r32 ax = abs(x);
+    r32 ay = abs(y);
+    r32 az = abs(z);
+    glm::vec4 Subtreecenter = Center + glm::vec4(x, y, z, 1);
+    Subtreebox.Min = Subtreecenter - glm::vec4(ax, ay, az, 1);
+    Subtreebox.Max = Subtreecenter + glm::vec4(ax, ay, az, 1);
     
-    return(x && y && z);
+    render_octree_node *Subtreelist = 0;
+    
+    render_octree *Subtree = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
+    render_octree o_ = {0};
+    *Subtree = o_;
+    
+    for(render_octree_node *Node = Octree->Node;
+        Node;
+        Node = Node->Next)
+    {
+        if(RenderTestAABB(Node->TBBox, Subtreebox))
+        {
+            ++Subtree->NodeCount;
+            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
+            *NewNode = *Node;
+            NewNode->Next = 0;
+            NewNode->WasUsed = 1;
+            
+            if(!Subtreelist)
+            {
+                Subtreelist = NewNode;
+            }
+            else
+            {
+                for(render_octree_node *N = Subtreelist;
+                    N;
+                    N = N->Next)
+                {
+                    if(!N->Next)
+                    {
+                        N->Next = NewNode;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    
+    Subtree->Node = Subtreelist;
+    Subtree->BBox.Min = glm::vec4(-ax, -ay, -az, 1);
+    Subtree->BBox.Max = glm::vec4(ax, ay, az, 1);
+    Subtree->TBBox = Subtreebox;
+    
+    return(Subtree);
 }
 
 internal void
@@ -322,9 +380,17 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     Octree->Center = Center;
     Octree->Radius = Radius;
     
-    if(Octree->NodeCount < 5)
+    if(Octree->NodeCount < 200 || Radius < 1.f)
     {
         return;
+    }
+    
+    
+    for(render_octree_node *Node = Octree->Node;
+        Node;
+        Node = Node->Next)
+    {
+        Node->WasUsed = 0;
     }
     
     render_octree o_ = {};
@@ -333,51 +399,8 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     /// Branch 1 -- ldf
     ///
     
-    aabb o1box;
-    glm::vec4 o1center = Center + glm::vec4(-qx, -qy, qz, 1);
-    o1box.Min = o1center + glm::vec4(-qx, -qy, -qz, 1);
-    o1box.Max = o1center + glm::vec4(qx, qy, qz, 1);
-    
-    render_octree_node *o1list = 0;
-    
-    render_octree *o1 = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
-    *o1 = o_;
-    
-    for(render_octree_node *Node = Octree->Node;
-        Node;
-        Node = Node->Next)
-    {
-        if(RenderTestAABB(o1box, Node->TBBox))
-        {
-            ++o1->NodeCount;
-            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
-            *NewNode = *Node;
-            NewNode->Next = 0;
-            
-            if(!o1list)
-            {
-                o1list = NewNode;
-            }
-            else
-            {
-                for(render_octree_node *N = o1list;
-                    N;
-                    N = N->Next)
-                {
-                    if(!N->Next)
-                    {
-                        N->Next = NewNode;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    o1->Node = o1list;
-    o1->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
-    o1->BBox.Max = glm::vec4(qx, qy, qz, 1);
-    o1->TBBox = o1box;
+    render_octree *o1 = RenderOctreeGenerateSubtree(Octree, Center,
+                                                    -qx,-qy,qz);
     
     Octree->Branches[0] = o1;
     
@@ -385,51 +408,8 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     /// Branch 2 -- rdf
     ///
     
-    aabb o2box;
-    glm::vec4 o2center = Center + glm::vec4(qx, -qy, qz, 1);
-    o2box.Min = o2center + glm::vec4(-qx, -qy, -qz, 1);
-    o2box.Max = o2center + glm::vec4(qx, qy, qz, 1);
-    
-    render_octree_node *o2list = 0;
-    
-    render_octree *o2 = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
-    *o2 = o_;
-    
-    for(render_octree_node *Node = Octree->Node;
-        Node;
-        Node = Node->Next)
-    {
-        if(RenderTestAABB(o2box, Node->TBBox))
-        {
-            ++o2->NodeCount;
-            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
-            *NewNode = *Node;
-            NewNode->Next = 0;
-            
-            if(!o2list)
-            {
-                o2list = NewNode;
-            }
-            else
-            {
-                for(render_octree_node *N = o2list;
-                    N;
-                    N = N->Next)
-                {
-                    if(!N->Next)
-                    {
-                        N->Next = NewNode;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    o2->Node = o2list;
-    o2->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
-    o2->BBox.Max = glm::vec4(qx, qy, qz, 1);
-    o2->TBBox = o2box;
+    render_octree *o2 = RenderOctreeGenerateSubtree(Octree, Center,
+                                                    qx,-qy,qz);
     
     Octree->Branches[1] = o2;
     
@@ -437,51 +417,8 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     /// Branch 3 -- luf
     ///
     
-    aabb o3box;
-    glm::vec4 o3center = Center + glm::vec4(-qx, qy, qz, 1);
-    o3box.Min = o3center + glm::vec4(-qx, -qy, -qz, 1);
-    o3box.Max = o3center + glm::vec4(qx, qy, qz, 1);
-    
-    render_octree_node *o3list = 0;
-    
-    render_octree *o3 = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
-    *o3 = o_;
-    
-    for(render_octree_node *Node = Octree->Node;
-        Node;
-        Node = Node->Next)
-    {
-        if(RenderTestAABB(o3box, Node->TBBox))
-        {
-            ++o3->NodeCount;
-            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
-            *NewNode = *Node;
-            NewNode->Next = 0;
-            
-            if(!o3list)
-            {
-                o3list = NewNode;
-            }
-            else
-            {
-                for(render_octree_node *N = o3list;
-                    N;
-                    N = N->Next)
-                {
-                    if(!N->Next)
-                    {
-                        N->Next = NewNode;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    o3->Node = o3list;
-    o3->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
-    o3->BBox.Max = glm::vec4(qx, qy, qz, 1);
-    o3->TBBox = o3box;
+    render_octree *o3 = RenderOctreeGenerateSubtree(Octree, Center,
+                                                    -qx,qy,qz);
     
     Octree->Branches[2] = o3;
     
@@ -489,268 +426,58 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     /// Branch 4 -- ruf
     ///
     
-    aabb o4box;
-    glm::vec4 o4center = Center + glm::vec4(qx, qy, qz, 1);
-    o4box.Min = o4center + glm::vec4(-qx, -qy, -qz, 1);
-    o4box.Max = o4center + glm::vec4(qx, qy, qz, 1);
-    
-    render_octree_node *o4list = 0;
-    
-    render_octree *o4 = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
-    *o4 = o_;
-    
-    for(render_octree_node *Node = Octree->Node;
-        Node;
-        Node = Node->Next)
-    {
-        if(RenderTestAABB(o4box, Node->TBBox))
-        {
-            ++o4->NodeCount;
-            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
-            *NewNode = *Node;
-            NewNode->Next = 0;
-            
-            if(!o4list)
-            {
-                o4list = NewNode;
-            }
-            else
-            {
-                for(render_octree_node *N = o4list;
-                    N;
-                    N = N->Next)
-                {
-                    if(!N->Next)
-                    {
-                        N->Next = NewNode;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    o4->Node = o4list;
-    o4->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
-    o4->BBox.Max = glm::vec4(qx, qy, qz, 1);
-    o4->TBBox = o4box;
+    render_octree *o4 = RenderOctreeGenerateSubtree(Octree, Center,
+                                                    qx,qy,qz);
     
     Octree->Branches[3] = o4;
     
     ///
     /// Branch 5 -- ldn
     ///
-    
-    aabb o5box;
-    glm::vec4 o5center = Center + glm::vec4(-qx, -qy, -qz, 1);
-    o5box.Min = o5center + glm::vec4(-qx, -qy, -qz, 1);
-    o5box.Max = o5center + glm::vec4(qx, qy, qz, 1);
-    
-    render_octree_node *o5list = 0;
-    
-    render_octree *o5 = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
-    *o5 = o_;
-    
-    for(render_octree_node *Node = Octree->Node;
-        Node;
-        Node = Node->Next)
-    {
-        if(RenderTestAABB(o5box, Node->TBBox))
-        {
-            ++o5->NodeCount;
-            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
-            *NewNode = *Node;
-            NewNode->Next = 0;
-            
-            if(!o5list)
-            {
-                o5list = NewNode;
-            }
-            else
-            {
-                for(render_octree_node *N = o5list;
-                    N;
-                    N = N->Next)
-                {
-                    if(!N->Next)
-                    {
-                        N->Next = NewNode;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    o5->Node = o5list;
-    o5->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
-    o5->BBox.Max = glm::vec4(qx, qy, qz, 1);
-    o5->TBBox = o5box;
+    render_octree *o5 = RenderOctreeGenerateSubtree(Octree, Center,
+                                                    -qx,-qy,-qz);
     
     Octree->Branches[4] = o5;
     
     ///
     /// Branch 6 -- rdn
     ///
-    
-    aabb o6box;
-    glm::vec4 o6center = Center + glm::vec4(qx, -qy, -qz, 1);
-    o6box.Min = o6center + glm::vec4(-qx, -qy, -qz, 1);
-    o6box.Max = o6center + glm::vec4(qx, qy, qz, 1);
-    
-    render_octree_node *o6list = 0;
-    
-    render_octree *o6 = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
-    *o6 = o_;
-    
-    for(render_octree_node *Node = Octree->Node;
-        Node;
-        Node = Node->Next)
-    {
-        if(RenderTestAABB(o6box, Node->TBBox))
-        {
-            ++o6->NodeCount;
-            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
-            *NewNode = *Node;
-            NewNode->Next = 0;
-            
-            if(!o6list)
-            {
-                o6list = NewNode;
-            }
-            else
-            {
-                for(render_octree_node *N = o6list;
-                    N;
-                    N = N->Next)
-                {
-                    if(!N->Next)
-                    {
-                        N->Next = NewNode;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    o6->Node = o6list;
-    o6->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
-    o6->BBox.Max = glm::vec4(qx, qy, qz, 1);
-    o6->TBBox = o6box;
+    render_octree *o6 = RenderOctreeGenerateSubtree(Octree, Center,
+                                                    qx,-qy,-qz);
     
     Octree->Branches[5] = o6;
     
     ///
     /// Branch 7 -- run
     ///
-    
-    aabb o7box;
-    glm::vec4 o7center = Center + glm::vec4(qx, qy, -qz, 1);
-    o7box.Min = o7center + glm::vec4(-qx, -qy, -qz, 1);
-    o7box.Max = o7center + glm::vec4(qx, qy, qz, 1);
-    
-    render_octree_node *o7list = 0;
-    
-    render_octree *o7 = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
-    *o7 = o_;
-    
-    for(render_octree_node *Node = Octree->Node;
-        Node;
-        Node = Node->Next)
-    {
-        if(RenderTestAABB(o7box, Node->TBBox))
-        {
-            ++o7->NodeCount;
-            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
-            *NewNode = *Node;
-            NewNode->Next = 0;
-            
-            if(!o7list)
-            {
-                o7list = NewNode;
-            }
-            else
-            {
-                for(render_octree_node *N = o7list;
-                    N;
-                    N = N->Next)
-                {
-                    if(!N->Next)
-                    {
-                        N->Next = NewNode;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    o7->Node = o7list;
-    o7->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
-    o7->BBox.Max = glm::vec4(qx, qy, qz, 1);
-    o7->TBBox = o7box;
+    render_octree *o7 = RenderOctreeGenerateSubtree(Octree, Center,
+                                                    qx,qy,-qz);
     
     Octree->Branches[6] = o7;
     
     ///
     /// Branch 8 -- lun
     ///
-    
-    aabb o8box;
-    glm::vec4 o8center = Center + glm::vec4(-qx, qy, -qz, 1);
-    o8box.Min = o8center + glm::vec4(-qx, -qy, -qz, 1);
-    o8box.Max = o8center + glm::vec4(qx, qy, qz, 1);
-    
-    render_octree_node *o8list = 0;
-    
-    render_octree *o8 = (render_octree *)PlatformMemAlloc(sizeof(render_octree));
-    *o8 = o_;
-    
-    for(render_octree_node *Node = Octree->Node;
-        Node;
-        Node = Node->Next)
-    {
-        if(RenderTestAABB(o8box, Node->TBBox))
-        {
-            ++o8->NodeCount;
-            render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
-            *NewNode = *Node;
-            NewNode->Next = 0;
-            
-            if(!o8list)
-            {
-                o8list = NewNode;
-            }
-            else
-            {
-                for(render_octree_node *N = o8list;
-                    N;
-                    N = N->Next)
-                {
-                    if(!N->Next)
-                    {
-                        N->Next = NewNode;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    o8->Node = o8list;
-    o8->BBox.Min = glm::vec4(-qx, -qy, -qz, 1);
-    o8->BBox.Max = glm::vec4(qx, qy, qz, 1);
-    o8->TBBox = o8box;
+    render_octree *o8 = RenderOctreeGenerateSubtree(Octree, Center,
+                                                    -qx,qy,-qz);
     
     Octree->Branches[7] = o8;
+    
+    s8 NotEmpty = 0;
     
     for(s32 Idx = 0;
         Idx < 7;
         Idx++)
     {
         RenderOctreeGenerateInternal(Octree->Branches[Idx]);
+        
+        if(Octree->Branches[Idx]->NodeCount)
+        {
+            ++NotEmpty;
+        }
     }
+    
+    Octree->IsLeaf = (NotEmpty == 0);
 }
 
 internal void
@@ -893,7 +620,6 @@ DEBUGRenderOctreeViz(render_octree *Octree, GLuint Program, camera *Camera, b32 
 internal void
 RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, s32 RenderType)
 {
-    //DEBUGRenderOctreeViz(Octree, Program, Camera, 0);
     aabb bbox = Octree->BBox;
     glm::vec4 Center = Octree->Center;
     render_transform T = RenderTransform();
@@ -903,8 +629,9 @@ RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, 
     
     b32 IsInFrustum = FrustumCheckAABB(bbox);
     
-    if(IsInFrustum == 2)
+    if(IsInFrustum == 2 || Octree->IsLeaf)
     {
+        DEBUGRenderOctreeViz(Octree, Program, Camera, 0);
         for(render_octree_node *Node = Octree->Node;
             Node;
             Node = Node->Next)
@@ -914,13 +641,25 @@ RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, 
     }
     else if(IsInFrustum == 1)
     {
+        s32 Subs = 0;
         for(s32 Idx = 0;
             Idx < 7;
             Idx++)
         {
-            if(Octree->Branches[Idx] && Octree->Branches[Idx]->NodeCount)
+            if(Octree->Branches[Idx])
             {
+                ++Subs;
                 RenderOctreeDrawInternal(Octree->Branches[Idx], Program, Camera, RenderType);
+            }
+        }
+        
+        if(!Subs)
+        {
+            for(render_octree_node *Node = Octree->Node;
+                Node;
+                Node = Node->Next)
+            {
+                Model4DSRender(Node->Render, Program, Camera, Node->Transform, RenderType, 0);
             }
         }
     }

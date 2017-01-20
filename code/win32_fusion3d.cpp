@@ -144,7 +144,7 @@
                                                                            }
                                                                            //Model4DSRender(CityScene->Renders[Idx], AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 1);
                                                                            
-                                                                           //RenderSingleAdd(CityScene->Renders[Idx], Transform, 1);
+                                                                           RenderSingleAdd(CityScene->Renders[Idx], Transform, 1);
                                                                            RenderOctreeAdd(CityScene->Renders[Idx], Transform);
                                                                        }
 #endif
@@ -193,8 +193,8 @@
                                                                                CameraUpdate(&MainCamera, 
                                                                                             WindowGetClientRect(GlobalWindow),
                                                                                             75.f,
-                                                                                            0.01f,
-                                                                                            1000.f);
+                                                                                            0.1f,
+                                                                                            800.f);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);

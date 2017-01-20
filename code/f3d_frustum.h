@@ -221,34 +221,35 @@ FrustumExtract(glm::mat4 MVP)
 internal int
 FrustumCheckAABB(aabb bbox)
 {
-    int p;
-    int c;
-    int c2 = 0;
-    for(p = 0; p < 6; p++)
+    glm::vec4 b[] = {bbox.Min, bbox.Max};
+    enum { Outside, Intersect, Inside };
+    
+    s32 Result = Inside;
+    
+    for(s32 p = 0; p < 6; p++)
     {
-        c = 0;
-        if(frustum[p][0] * (bbox.Min.x) + frustum[p][1] * (bbox.Min.y) + frustum[p][2]    * (bbox.Min.z) + frustum[p][3] > 0)
-            c++;
-        if(frustum[p][0] * (bbox.Max.x) + frustum[p][1] * (bbox.Min.y) + frustum[p][2]    * (bbox.Min.z) + frustum[p][3] > 0)
-            c++;
-        if(frustum[p][0] * (bbox.Min.x) + frustum[p][1] * (bbox.Max.x) + frustum[p][2]    * (bbox.Min.z) + frustum[p][3] > 0)
-            c++;
-        if(frustum[p][0] * (bbox.Max.x) + frustum[p][1] * (bbox.Max.x) + frustum[p][2]    * (bbox.Min.z) + frustum[p][3] > 0)
-            c++;
-        if(frustum[p][0] * (bbox.Min.x) + frustum[p][1] * (bbox.Min.y) + frustum[p][2]    * (bbox.Max.z) + frustum[p][3] > 0)
-            c++;
-        if(frustum[p][0] * (bbox.Max.x) + frustum[p][1] * (bbox.Min.y) + frustum[p][2]    * (bbox.Max.z) + frustum[p][3] > 0)
-            c++;
-        if(frustum[p][0] * (bbox.Min.x) + frustum[p][1] * (bbox.Max.x) + frustum[p][2]    * (bbox.Max.z) + frustum[p][3] > 0)
-            c++;
-        if(frustum[p][0] * (bbox.Max.x) + frustum[p][1] * (bbox.Max.x) + frustum[p][2]    * (bbox.Max.z) + frustum[p][3] > 0)
-            c++;
-        if(c == 0)
-            return(0);
-        if(c == 8)
-            c2++;
+        s32 px = (s32)(frustum[p][0] > 0.f);
+        s32 py = (s32)(frustum[p][1] > 0.f);
+        s32 pz = (s32)(frustum[p][2] > 0.f);
+        
+        s32 nx = (s32)(frustum[p][0] < 0.f);
+        s32 ny = (s32)(frustum[p][1] < 0.f);
+        s32 nz = (s32)(frustum[p][2] < 0.f);
+        
+        r32 dp = ((frustum[p][0]*b[px].x) + (frustum[p][1]*b[py].y) + (frustum[p][2]*b[pz].z) + frustum[p][3]);
+        
+        r32 dn = ((frustum[p][0]*b[nx].x) + (frustum[p][1]*b[ny].y) + (frustum[p][2]*b[nz].z) + frustum[p][3]);
+        
+        if(dp < 0)
+        {
+            return(Outside);
+        }
+        else if(dn < 0)
+        {
+            Result = Intersect;
+        }
     }
-    return (c2 == 6) ? 2 : 1;
+    return(Result);
 }
 
 #define F3D_FRUSTUM_H
