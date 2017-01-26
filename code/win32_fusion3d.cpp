@@ -4,6 +4,8 @@
                                                                    
 #include "hftw.h"
                                                                    
+#include "Shlwapi.h"
+                                                                   
 #include "common.hpp"
 #include "vec3.hpp"
 #include "mat4x4.hpp"
@@ -145,7 +147,7 @@
                                                                            //Model4DSRender(CityScene->Renders[Idx], AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 1);
                                                                            
                                                                            RenderSingleAdd(CityScene->Renders[Idx], Transform, 1);
-                                                                           RenderOctreeAdd(CityScene->Renders[Idx], Transform);
+                                                                           //RenderOctreeAdd(CityScene->Renders[Idx], Transform);
                                                                        }
 #endif
                                                                        
@@ -180,6 +182,15 @@
                                                                        
                                                                        RenderApplyLightDirectional(&Sun, AmbientProgram);
                                                                        
+                                                                       /*
+                                                                           -- HEY PC!
+                                                                           GIVE ME 60 FPS STABLE
+                                                                           NO LAGS
+                                                                           PLZ NO BUGS
+                                                                           I WANT THE WHOLE CITY BEING RENDERED
+                                                                           GIB ME POWER TO DO DIS!
+                                                                       */
+                                                                       
                                                                        while(Running) 
                                                                        {             
                                                                            r64 NewTime = TimeGet();
@@ -194,7 +205,7 @@
                                                                                             WindowGetClientRect(GlobalWindow),
                                                                                             75.f,
                                                                                             0.1f,
-                                                                                            800.f);
+                                                                                            2000.f);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -218,8 +229,8 @@
                                                                                        
                                                                                        Model4DSRender(Mesto, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 0);
                                                                                    }
-                                                                                   RenderOctreeDraw(AmbientProgram, &MainCamera, ModelRenderType_Normal);
-                                                                                   //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, &MainCamera);
+                                                                                   RenderSingleDraw(AmbientProgram, &MainCamera, ModelRenderType_Normal);
+                                                                                   //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, &MainCamera, 1);
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);
                                                                                

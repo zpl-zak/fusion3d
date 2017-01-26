@@ -100,6 +100,11 @@ typedef struct render_single_
     struct render_single_ *Next;
 } render_single;
 
+typedef struct
+{
+    
+} render_pass;
+
 #include "f3d_frustum.h"
 
 global_variable render_octree GlobalWorld = {0};
@@ -319,7 +324,8 @@ RenderOctreeGenerateSubtree(render_octree *Octree, glm::vec4 Center, r32 x, r32 
         Node;
         Node = Node->Next)
     {
-        if(RenderTestAABB(Node->TBBox, Subtreebox))
+        if(RenderTestAABB(Subtreebox, Node->TBBox) ||
+           RenderTestAABB(Node->TBBox, Subtreebox))
         {
             ++Subtree->NodeCount;
             render_octree_node *NewNode = (render_octree_node *)PlatformMemAlloc(sizeof(render_octree_node));
@@ -380,7 +386,7 @@ RenderOctreeGenerateInternal(render_octree *Octree)
     Octree->Center = Center;
     Octree->Radius = Radius;
     
-    if(Octree->NodeCount < 200 || Radius < 1.f)
+    if(Octree->NodeCount < 10 || Radius < 1.f)
     {
         return;
     }

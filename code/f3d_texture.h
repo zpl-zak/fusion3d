@@ -62,15 +62,17 @@ TextureLoad(render_texture *Texture)
     }
     
     AssetLoadInternal(Texture->Asset);
-    s32 FileIdx = IOFileOpenRead((s8 *)Texture->Asset->FilePath, 0);
+    
+    // TODO(zaklaus): Make sure it loads from memory!
+    s32 FileIdx = AssetOpenHandle(Texture->Asset, 0);
     Texture->Bitmap = HFormatLoadBMPImage(FileIdx, 0);
-    IOFileClose(FileIdx);
     
     s32 x, y, cpp;
     
-    u8 *Data = stbi_load_from_memory(Texture->Asset->Content, (s32)Texture->Asset->FileSize, &x, &y, &cpp, 3);
+    u8 *Data = stbi_load_from_memory(Texture->Asset->Content, (s32)Texture->Asset->FileSize, &x, &y, &cpp, 0);
     u8 *TData = (u8 *)PlatformMemAlloc(x*y*4);
     {
+        //TRAP();
         glm::vec3 ColorKey;
         ColorKey.x = (Texture->Bitmap->Colors[0].rgbRed);
         ColorKey.y = (Texture->Bitmap->Colors[0].rgbGreen);
@@ -101,6 +103,7 @@ TextureLoad(render_texture *Texture)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     }
     
+    IOFileClose(FileIdx);
     return(Texture);
 }
 

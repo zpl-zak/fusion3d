@@ -67,7 +67,8 @@ Model4DSLoadInternal(LPVOID Param)
         return;
     }
     
-    s32 FileHandle = IOFileOpenRead((s8 *)Render->Asset->FilePath, 0);
+    AssetLoadInternal(Render->Asset);
+    s32 FileHandle = AssetOpenHandle(Render->Asset, 1);//IOFileOpenRead((s8 *)Render->Asset->FilePath, 0);
     
     Render->Header = HFormatLoad4DSModel(FileHandle);
     {
