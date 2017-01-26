@@ -191,11 +191,19 @@
                                                                            GIB ME POWER TO DO DIS!
                                                                        */
                                                                        
+                                                                       r64 LastStatsTime = 0;
+                                                                       
                                                                        while(Running) 
                                                                        {             
                                                                            r64 NewTime = TimeGet();
                                                                            r64 DeltaTime = NewTime - OldTime;
-                                                                           printf("Delta: %f (%f FPS)\n", (r32)DeltaTime * 1000.f, 1.f / (r32)DeltaTime);
+                                                                           
+                                                                           if(NewTime - LastStatsTime > 1)
+                                                                           {
+                                                                               LastStatsTime = NewTime;
+                                                                               printf("Delta: %f (%f FPS)\n", (r32)DeltaTime * 1000.f, 1.f / (r32)DeltaTime);
+                                                                           }
+                                                                           
                                                                            {        
                                                                                MainWindowUpdate();
                                                                                {
