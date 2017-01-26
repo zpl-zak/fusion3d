@@ -85,7 +85,14 @@ AssetInitialize(char *GamePath)
         
         if(Find == INVALID_HANDLE_VALUE)
         {
-            return;
+            sprintf(Dir, "%s\\*", AssetTypeNames[Asset_Pack][0]);
+            
+            Find = FindFirstFile(Dir, &FindData);
+            
+            if(Find == INVALID_HANDLE_VALUE)
+            {
+                return;
+            }
         }
         
         s32 PackIndex = 0;
@@ -110,7 +117,11 @@ AssetInitialize(char *GamePath)
                 
                 s32 FileIdx = IOFileOpenRead((s8 *)Path, 0);
                 
-                Assert(FileIdx != -1);
+                if(FileIdx == -1)
+                {
+                    sprintf(Path, "packs\\%s", Pack->Name);
+                    FileIdx = IOFileOpenRead((s8 *)Path, 0);
+                }
                 
                 Pack->Data = HFormatLoadPakArchive(FileIdx);
                 
@@ -193,7 +204,13 @@ AssetRegister(char *Name, char *FilePath, u32 AssetType)
     
     if(FileIndex == -1)
     {
-        Assert(0);
+        // NOTE(zaklaus): Check the working directory instead:
+        {
+            sprintf(Temp, "%s", FilePath);
+            FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
+            
+            Assert(FileSize != -1);
+        }
     }
     
     IOFileClose(FileIndex);
