@@ -6,6 +6,7 @@ typedef struct render_octree_node_
 {
     render_4ds *Render;
     render_transform Transform;
+    glm::mat4 TransformMatrix;
     aabb TBBox;
     
     b32 WasUsed;
@@ -40,6 +41,7 @@ RenderOctreeAdd(render_4ds *Render, render_transform Transform)
     
     Transform.Rot = glm::vec4(0,0,0,0);
     glm::mat4 T = RenderTransformMatrix(Transform);
+    Node->TransformMatrix = T;
     
     
     aabb bbox = Render->BBox;
@@ -415,7 +417,7 @@ RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, 
             Node;
             Node = Node->Next)
         {
-            Model4DSRender(Node->Render, Program, Camera, Node->Transform, RenderType, 0);
+            Model4DSRender(Node->Render, Program, Camera, Node->TransformMatrix, RenderType, 0);
         }
     }
     else if(IsInFrustum == 1)
@@ -438,7 +440,7 @@ RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, 
                 Node;
                 Node = Node->Next)
             {
-                Model4DSRender(Node->Render, Program, Camera, Node->Transform, RenderType, 0);
+                Model4DSRender(Node->Render, Program, Camera, Node->TransformMatrix, RenderType, 0);
             }
         }
     }

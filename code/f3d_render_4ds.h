@@ -354,7 +354,7 @@ global_variable GLuint gMatrixV = 0;
 global_variable GLuint gMatrixP = 0;
 
 internal render_4ds *
-Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transform Transform, s32 RenderType, b32 CheckFrustum)
+Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Transform, s32 RenderType, b32 CheckFrustum)
 {
     if(!Render->Loaded)
     {
@@ -400,12 +400,7 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                     LOD = &Render->Meshes[Cdx].LODs[Mesh->LODLevel-1];
                 }
                 
-                if(!LOD)
-                {
-                    continue;
-                }
-                
-                glm::mat4 T = RenderTransformMatrix(Transform);
+                glm::mat4 T = Transform;
                 
                 glm::mat4 Model = Mesh->Transform;
                 if(!Mesh->Transformed)

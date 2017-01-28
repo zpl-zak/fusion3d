@@ -7,6 +7,7 @@ typedef struct render_single_
     render_4ds *Render;
     b32 CheckFrustum;
     render_transform Transform;
+    glm::mat4 TransformMatrix;
     
     struct render_single_ *Next;
 } render_single;
@@ -22,6 +23,7 @@ RenderSingleAdd(render_4ds *Render, render_transform Transform, b32 CheckFrustum
     
     Node->Render = Render;
     Node->Transform = Transform;
+    Node->TransformMatrix = RenderTransformMatrix(Transform);
     Node->CheckFrustum = CheckFrustum;
     Node->Next = 0;
     
@@ -51,7 +53,7 @@ RenderSingleDraw(GLuint Program, camera *Camera, s32 RenderType)
         N;
         N = N->Next)
     {
-        Model4DSRender(N->Render, Program, Camera, N->Transform, RenderType, N->CheckFrustum); 
+        Model4DSRender(N->Render, Program, Camera, N->TransformMatrix, RenderType, N->CheckFrustum); 
     }
 }
 

@@ -231,11 +231,12 @@
                                                                                        offset = sinf((r32)NewTime);
                                                                                        glm::vec3 BalikPos = glm::vec3(0, 0, 0);
                                                                                        
-                                                                                       render_transform Transform = RenderTransform();
+                                                                                       local_persist render_transform Transform = RenderTransform();
+                                                                                       local_persist glm::mat4 TransformMatrix = RenderTransformMatrix(Transform);
                                                                                        Transform.Pos = BalikPos;
-                                                                                       Model4DSRender(BalikSena, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 0);
+                                                                                       Model4DSRender(BalikSena, AmbientProgram, &MainCamera, TransformMatrix, ModelRenderType_Normal, 0);
                                                                                        
-                                                                                       Model4DSRender(Mesto, AmbientProgram, &MainCamera, Transform, ModelRenderType_Normal, 0);
+                                                                                       Model4DSRender(Mesto, AmbientProgram, &MainCamera, TransformMatrix, ModelRenderType_Normal, 0);
                                                                                    }
                                                                                    RenderSingleDraw(AmbientProgram, &MainCamera, ModelRenderType_Normal);
                                                                                    //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, &MainCamera, 1);
