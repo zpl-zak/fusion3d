@@ -9,6 +9,14 @@ enum
     ModelRenderType_Normal,
 };
 
+enum
+{
+    VBO_Position,
+    VBO_Normal,
+    VBO_UV,
+    VBO_Count,
+};
+
 typedef struct
 {
     glm::vec3 Pos;

@@ -224,8 +224,8 @@ Model4DSLoadInternal(LPVOID Param)
                     }
                 }
                 
-                glGenBuffers(1, &LOD->PositionBuffer);
-                glBindBuffer(GL_ARRAY_BUFFER, LOD->PositionBuffer);
+                glGenBuffers(1, &LOD->Buffers[VBO_Position]);
+                glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Position]);
                 glBufferData(GL_ARRAY_BUFFER, sizeof(v3)*LOD->VertexCount, Positions, GL_STATIC_DRAW);
                 
                 PlatformMemFree(Positions);
@@ -239,8 +239,8 @@ Model4DSLoadInternal(LPVOID Param)
                     Normals[PosIdx] = HLOD->Vertices[PosIdx].Normal;
                 }
                 
-                glGenBuffers(1, &LOD->NormalBuffer);
-                glBindBuffer(GL_ARRAY_BUFFER, LOD->NormalBuffer);
+                glGenBuffers(1, &LOD->Buffers[VBO_Normal]);
+                glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Normal]);
                 glBufferData(GL_ARRAY_BUFFER, sizeof(v3)*LOD->VertexCount, Normals, GL_STATIC_DRAW);
                 
                 PlatformMemFree(Normals);
@@ -255,8 +255,8 @@ Model4DSLoadInternal(LPVOID Param)
                     UV[PosIdx] = HLOD->Vertices[PosIdx].UV;
                 }
                 
-                glGenBuffers(1, &LOD->UVBuffer);
-                glBindBuffer(GL_ARRAY_BUFFER, LOD->UVBuffer);
+                glGenBuffers(1, &LOD->Buffers[VBO_UV]);
+                glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_UV]);
                 glBufferData(GL_ARRAY_BUFFER, sizeof(v2)*LOD->VertexCount, UV, GL_STATIC_DRAW);
                 
                 PlatformMemFree(UV);
@@ -450,11 +450,14 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                     
                     RenderApplyMaterial(&Render->Materials[MatIdx].Material, Program);
                     
-                    glEnableVertexAttribArray(0);
-                    glEnableVertexAttribArray(1);
-                    glEnableVertexAttribArray(2);
+                    for(s32 Idx = 0;
+                        Idx < VBO_Count;
+                        ++Idx)
                     {
-                        glBindBuffer(GL_ARRAY_BUFFER, LOD->PositionBuffer);
+                        glEnableVertexAttribArray(Idx);
+                    }
+                    
+                        glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Position]);
                         glVertexAttribPointer(
                             0,
                             3,
@@ -462,7 +465,7 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                             GL_FALSE,
                             0, (void *)0);
                         
-                        glBindBuffer(GL_ARRAY_BUFFER, LOD->NormalBuffer);
+                        glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Normal]);
                         glVertexAttribPointer(
                             1,
                             3,
@@ -470,7 +473,7 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                             GL_FALSE,
                             0, (void *)0);
                         
-                        glBindBuffer(GL_ARRAY_BUFFER, LOD->UVBuffer);
+                        glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_UV]);
                         glVertexAttribPointer(
                             2,
                             2,
@@ -481,10 +484,13 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, render_transf
                         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, LOD->FaceGroups[FgIdx].ElementBuffer);
                         
                         glDrawElements(GL_TRIANGLES, LOD->FaceGroups[FgIdx].FaceCount*3, GL_UNSIGNED_SHORT, (void *)0);
+                    
+                    for(s32 Idx = 0;
+                        Idx < VBO_Count;
+                        ++Idx)
+                    {
+                        glDisableVertexAttribArray(Idx);
                     }
-                    glDisableVertexAttribArray(2);
-                    glDisableVertexAttribArray(1);
-                    glDisableVertexAttribArray(0);
                 }
             }
             

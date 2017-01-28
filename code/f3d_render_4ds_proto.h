@@ -14,9 +14,7 @@ typedef struct
     r32 RelativeDistance;
     u16 VertexCount;
     
-    GLuint PositionBuffer;
-    GLuint NormalBuffer;
-    GLuint UVBuffer;
+    GLuint Buffers[VBO_Count];
     
     u8 FaceGroupCount;
     render_4ds_facegroup *FaceGroups;
