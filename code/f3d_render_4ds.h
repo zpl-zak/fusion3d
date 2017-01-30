@@ -357,6 +357,7 @@ global_variable GLuint gMatrix = 0;
 global_variable GLuint gMatrixM = 0;
 global_variable GLuint gMatrixV = 0;
 global_variable GLuint gMatrixP = 0;
+global_variable GLuint gCameraP = 0;
 
 internal render_4ds *
 Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Transform, s32 RenderType, b32 CheckFrustum)
@@ -372,12 +373,14 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Tra
     {
         case ModelRenderType_Normal:
         {
+            // TODO(zaklaus): Replace!
             if(gLastProgram != Program)
             {
             gMatrix = glGetUniformLocation(Program, "mvp");
             gMatrixM = glGetUniformLocation(Program, "m");
             gMatrixV = glGetUniformLocation(Program, "v");
             gMatrixP = glGetUniformLocation(Program, "p");
+                gCameraP = glGetUniformLocation(Program, "camP");
                 gLastProgram = Program;
             }
             
@@ -385,6 +388,7 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Tra
             glm::mat4 P = Camera->Projection;
             glUniformMatrix4fv(gMatrixV, 1, GL_FALSE, &V[0][0]);
             glUniformMatrix4fv(gMatrixP, 1, GL_FALSE, &P[0][0]);
+            glUniform3fv(gCameraP, 1, &Camera->Position.x);
             
             for(s32 Idx = 0;
                 Idx < Render->MeshCount;

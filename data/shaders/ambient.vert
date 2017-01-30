@@ -9,13 +9,17 @@ uniform mat4 m;
 uniform mat4 v;
 uniform mat4 p;
 
+uniform vec3 camP;
+
 out vec2 uv0;
 out vec3 normal0;
 out vec3 frag0;
+out float vdist;
 
 void main() {
   gl_Position = mvp * vec4(vertex, 1);
   frag0 = vec3(m * vec4(vertex, 1));
   uv0 = uv;
+  vdist = distance(camP, (m * vec4(vertex, 1)).xyz) / 500.0f;
   normal0 = mat3(transpose(inverse(m))) * normal;
 }

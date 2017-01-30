@@ -206,7 +206,7 @@
                                                                                             0.1f,
                                                                                             500.f);
                                                                                {    
-                                                                                   glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
+                                                                                   glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 1.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
                                                                                    
                                                                                    local_persist r32 offset = 0.f;
