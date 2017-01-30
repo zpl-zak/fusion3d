@@ -214,13 +214,18 @@ Model4DSLoadInternal(LPVOID Param)
                     BBox.Min = Min;
                     BBox.Max = Max;
                     
-                    if((Render->BBox.Min.x > BBox.Min.x &&
-                       Render->BBox.Min.y > BBox.Min.y &&
-                       Render->BBox.Min.z > BBox.Min.z) || (Render->BBox.Max.x < BBox.Max.x &&
-                       Render->BBox.Max.y < BBox.Max.y &&
-                        Render->BBox.Max.z < BBox.Max.z))
+                    if((Render->BBox.Min.x > BBox.Min.x ||
+                       Render->BBox.Min.y > BBox.Min.y ||
+                        Render->BBox.Min.z > BBox.Min.z))
                     {
-                    Render->BBox = BBox;
+                        Render->BBox.Min = BBox.Min;
+                    }
+                       
+                       if(Render->BBox.Max.x < BBox.Max.x ||
+                       Render->BBox.Max.y < BBox.Max.y ||
+                        Render->BBox.Max.z < BBox.Max.z)
+                    {
+                    Render->BBox.Max = BBox.Max;
                     }
                 }
                 

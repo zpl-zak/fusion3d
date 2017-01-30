@@ -182,15 +182,6 @@
                                                                        
                                                                        RenderApplyLightDirectional(&Sun, AmbientProgram);
                                                                        
-                                                                       /*
-                                                                           -- HEY PC!
-                                                                           GIVE ME 60 FPS STABLE
-                                                                           NO LAGS
-                                                                           PLZ NO BUGS
-                                                                           I WANT THE WHOLE CITY BEING RENDERED
-                                                                           GIB ME POWER TO DO DIS!
-                                                                       */
-                                                                       
                                                                        r64 LastStatsTime = 0;
                                                                        
                                                                        while(Running) 
@@ -213,7 +204,7 @@
                                                                                             WindowGetClientRect(GlobalWindow),
                                                                                             75.f,
                                                                                             0.1f,
-                                                                                            2000.f);
+                                                                                            500.f);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 0.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
