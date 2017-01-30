@@ -46,6 +46,9 @@ CameraFixAngles(camera *Camera)
     Camera->Angle.x = MathToRadians(Camera->Angle.x);Camera->Angle.y = MathToRadians(Camera->Angle.y);
 }
 
+internal void
+FrustumExtract(glm::mat4 Matrix);
+
 internal camera *
 CameraUpdate(camera *Camera, window_dim WindowDimension, r32 FieldOfView, r32 NearPlane, r32 FarPlane)
 {
@@ -67,6 +70,8 @@ CameraUpdate(camera *Camera, window_dim WindowDimension, r32 FieldOfView, r32 Ne
         Pos,
         Pos+Dir,
         Up);
+    
+    FrustumExtract(Camera->Projection * Camera->View);
     
     return(Camera);
 }

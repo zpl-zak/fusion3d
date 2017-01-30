@@ -238,7 +238,10 @@
                                                                                        
                                                                                        Model4DSRender(Mesto, AmbientProgram, &MainCamera, TransformMatrix, ModelRenderType_Normal, 0);
                                                                                    }
-                                                                                   RenderSingleDraw(AmbientProgram, &MainCamera, ModelRenderType_Normal);
+                                                                                   
+                                                                                   RenderSingleCull(0, F3D_SINGLE_MAX);
+                                                                                   
+                                                                                   RenderSingleDraw(0, F3D_SINGLE_MAX, AmbientProgram, &MainCamera, ModelRenderType_Normal);
                                                                                    //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, &MainCamera, 1);
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);

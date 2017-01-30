@@ -415,16 +415,6 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Tra
                 glm::mat4 MVP = Camera->Projection * Camera->View * Model;
                 glm::mat4 M = Model;
                     
-                    if(CheckFrustum)
-                    {
-                        aabb tbbox = Render->BBox;
-                        FrustumExtract(MVP);
-                    if(!FrustumCheckAABB(tbbox))
-                    {
-                        continue;
-                    }
-                }
-                
                 /*
                 s32 LODAttempts = 0;
                 while(LOD->RelativeDistance > sqrt(pow(Mesh->Position.x - Camera->Position.x,2.f)
