@@ -76,5 +76,47 @@ CameraUpdate(camera *Camera, window_dim WindowDimension, r32 FieldOfView, r32 Ne
     return(Camera);
 }
 
+// TODO(zaklaus): Probably shouldn't be here.
+internal void
+RenderApplyCamera(GLuint Program, camera *Camera)
+{
+    local_persist GLuint OldProgram = -1;
+    
+    if(OldProgram != Program)
+    {
+    local_persist GLuint ProjLoc = glGetUniformLocation(Program, "camera.projection");
+    local_persist GLuint ViewLoc = glGetUniformLocation(Program, "camera.view");
+    local_persist GLuint PosLoc = glGetUniformLocation(Program, "camera.position");
+    local_persist GLuint AngleLoc = glGetUniformLocation(Program, "camera.angle");
+    
+    local_persist GLuint FOVLoc = glGetUniformLocation(Program, "camera.fieldOfView");
+    local_persist GLuint ARLoc = glGetUniformLocation(Program, "camera.aspectRatio");
+    local_persist GLuint NearLoc = glGetUniformLocation(Program, "camera.nearPlane");
+    local_persist GLuint FarLoc = glGetUniformLocation(Program, "camera.farPlane");
+        
+        camera_send:
+        {
+            glUniformMatrix4fv(ProjLoc, 1, GL_FALSE, &Camera->Projection[0][0]);
+            glUniformMatrix4fv(ViewLoc, 1, GL_FALSE, &Camera->View[0][0]);
+            glUniform3fv(PosLoc, 1, &Camera->Position[0]);
+            glUniform2fv(AngleLoc, 1, &Camera->Angle[0]);
+            
+            glUniform1f(FOVLoc, Camera->FieldOfView);
+            glUniform1f(ARLoc, Camera->AspectRatio);
+            glUniform1f(NearLoc, Camera->NearPlane);
+            glUniform1f(FarLoc, Camera->FarPlane);
+            
+            goto camera_done;
+        }
+    }
+    
+    goto camera_send;
+    
+    camera_done:
+    {
+    OldProgram = Program;
+    }
+}
+
 #define F3D_CAMERA_H
 #endif

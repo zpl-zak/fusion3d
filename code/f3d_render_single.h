@@ -71,7 +71,7 @@ RenderSingleCull(s32 StartIdx, s32 NumIndices)
 }
 
 internal void
-RenderSingleDraw(s32 StartIdx, s32 NumIndices, GLuint Program, camera *Camera, s32 RenderType)
+RenderSingleDraw(s32 StartIdx, s32 NumIndices, GLuint Program, s32 RenderType)
 {
     for(s32 Idx = StartIdx;
         Idx < NumIndices;
@@ -81,7 +81,7 @@ RenderSingleDraw(s32 StartIdx, s32 NumIndices, GLuint Program, camera *Camera, s
         
         if(N->Loaded && N->Visible)
         {
-        Model4DSRender(N->Render, Program, Camera, N->TransformMatrix, RenderType, N->CheckFrustum); 
+        Model4DSRender(N->Render, Program, N->TransformMatrix, RenderType, N->CheckFrustum); 
         }
     }
 }

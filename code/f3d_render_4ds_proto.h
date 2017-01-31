@@ -64,7 +64,7 @@ typedef struct
 } render_mesh_volume;
 
 internal render_4ds *
-Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Transform, s32 RenderType, b32 CheckFrustum);
+Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 RenderType, b32 CheckFrustum);
 
 #define F3D_RENDER_4DS_PROTO
 #endif

@@ -417,7 +417,7 @@ RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, 
             Node;
             Node = Node->Next)
         {
-            Model4DSRender(Node->Render, Program, Camera, Node->TransformMatrix, RenderType, 0);
+            Model4DSRender(Node->Render, Program, Node->TransformMatrix, RenderType, 0);
         }
     }
     else if(IsInFrustum == 1)
@@ -440,7 +440,7 @@ RenderOctreeDrawInternal(render_octree *Octree, GLuint Program, camera *Camera, 
                 Node;
                 Node = Node->Next)
             {
-                Model4DSRender(Node->Render, Program, Camera, Node->TransformMatrix, RenderType, 0);
+                Model4DSRender(Node->Render, Program, Node->TransformMatrix, RenderType, 0);
             }
         }
     }

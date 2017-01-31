@@ -360,7 +360,7 @@ global_variable GLuint gMatrixP = 0;
 global_variable GLuint gCameraP = 0;
 
 internal render_4ds *
-Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Transform, s32 RenderType, b32 CheckFrustum)
+Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 RenderType, b32 CheckFrustum)
 {
     if(!Render->Loaded)
     {
@@ -383,12 +383,6 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Tra
                 gCameraP = glGetUniformLocation(Program, "camP");
                 gLastProgram = Program;
             }
-            
-            glm::mat4 V = Camera->View;
-            glm::mat4 P = Camera->Projection;
-            glUniformMatrix4fv(gMatrixV, 1, GL_FALSE, &V[0][0]);
-            glUniformMatrix4fv(gMatrixP, 1, GL_FALSE, &P[0][0]);
-            glUniform3fv(gCameraP, 1, &Camera->Position.x);
             
             for(s32 Idx = 0;
                 Idx < Render->MeshCount;
@@ -421,7 +415,6 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Tra
                     }
                     Model = T * Mesh->Transform;
                     
-                glm::mat4 MVP = Camera->Projection * Camera->View * Model;
                 glm::mat4 M = Model;
                     
                 /*
@@ -433,7 +426,6 @@ Model4DSRender(render_4ds *Render, GLuint Program, camera *Camera, glm::mat4 Tra
                     LOD = &Mesh->LODs[++LODAttempts];
                 }*/
                 
-                glUniformMatrix4fv(gMatrix, 1, GL_FALSE, &MVP[0][0]);
                 glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &M[0][0]);
                 
                 for(s32 FgIdx = 0;

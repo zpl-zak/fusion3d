@@ -205,6 +205,7 @@
                                                                                             75.f,
                                                                                             0.1f,
                                                                                             500.f);
+                                                                               RenderApplyCamera(AmbientProgram, &MainCamera);
                                                                                {    
                                                                                    glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 1.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -225,15 +226,15 @@
                                                                                        local_persist render_transform Transform = RenderTransform();
                                                                                        local_persist glm::mat4 TransformMatrix = RenderTransformMatrix(Transform);
                                                                                        Transform.Pos = BalikPos;
-                                                                                       Model4DSRender(BalikSena, AmbientProgram, &MainCamera, TransformMatrix, ModelRenderType_Normal, 0);
+                                                                                       Model4DSRender(BalikSena, AmbientProgram, TransformMatrix, ModelRenderType_Normal, 0);
                                                                                        
-                                                                                       Model4DSRender(Mesto, AmbientProgram, &MainCamera, TransformMatrix, ModelRenderType_Normal, 0);
+                                                                                       Model4DSRender(Mesto, AmbientProgram, TransformMatrix, ModelRenderType_Normal, 0);
                                                                                    }
                                                                                    
                                                                                    RenderSingleCull(0, F3D_SINGLE_MAX);
                                                                                    
-                                                                                   RenderSingleDraw(0, F3D_SINGLE_MAX, AmbientProgram, &MainCamera, ModelRenderType_Normal);
-                                                                                   //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, &MainCamera, 1);
+                                                                                   RenderSingleDraw(0, F3D_SINGLE_MAX, AmbientProgram, ModelRenderType_Normal);
+                                                                                   //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, 1);
                                                                                }
                                                                                SwapBuffers(GlobalDeviceContext);
                                                                                
