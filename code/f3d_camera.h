@@ -13,6 +13,8 @@ typedef struct
     real32 AspectRatio;
     real32 NearPlane;
     real32 FarPlane;
+    
+    glm::vec3 AmbColor;
 } camera;
 
 internal glm::vec3
@@ -94,6 +96,8 @@ RenderApplyCamera(GLuint Program, camera *Camera)
     local_persist GLuint NearLoc = glGetUniformLocation(Program, "camera.nearPlane");
     local_persist GLuint FarLoc = glGetUniformLocation(Program, "camera.farPlane");
         
+        local_persist GLuint AmbLoc = glGetUniformLocation(Program, "camera.ambColor");
+        
         camera_send:
         {
             glUniformMatrix4fv(ProjLoc, 1, GL_FALSE, &Camera->Projection[0][0]);
@@ -105,6 +109,8 @@ RenderApplyCamera(GLuint Program, camera *Camera)
             glUniform1f(ARLoc, Camera->AspectRatio);
             glUniform1f(NearLoc, Camera->NearPlane);
             glUniform1f(FarLoc, Camera->FarPlane);
+            
+            glUniform3fv(AmbLoc, 1, &Camera->AmbColor[0]);
             
             goto camera_done;
         }

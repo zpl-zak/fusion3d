@@ -4,6 +4,7 @@ in vec2 uv0;
 in vec3 normal0;
 in vec3 frag0;
 in float vdist;
+in vec3 ambColor0;
 
 out vec4 color;
 
@@ -88,10 +89,7 @@ void main() {
 
   float alpha = 1.0;
 
-  vec3 fogCol = vec3(158.f, 186.f, 211.f);
-  fogCol /= 255.f;
-  
-  res = mix(res, fogCol, vdist);
+  res = mix(res, ambColor0, vdist);
 
   if(material.colorkey == 1)
   {

@@ -184,6 +184,8 @@
                                                                        
                                                                        r64 LastStatsTime = 0;
                                                                        
+                                                                       MainCamera.AmbColor = {158.f/255.f, 186.f/255.f, 211.f/255.f};
+                                                                       
                                                                        while(Running) 
                                                                        {             
                                                                            r64 NewTime = TimeGet();
@@ -207,7 +209,7 @@
                                                                                             500.f);
                                                                                RenderApplyCamera(AmbientProgram, &MainCamera);
                                                                                {    
-                                                                                   glClearColor(158.f/255.f, 186.f/255.f, 211.f/255.f, 1.f);
+                                                                                   glClearColor(MainCamera.AmbColor.x, MainCamera.AmbColor.y, MainCamera.AmbColor.z, 1.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
                                                                                    
                                                                                    local_persist r32 offset = 0.f;
