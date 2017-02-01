@@ -166,12 +166,13 @@ SceneLoad(scene *Scene)
             Instance->ModelName[Instance->ModelNameLength] = 0;
             
             Instance->Pos = *(glm::vec3 *)Data;
+            Instance->Pos.x *= -1.f;
             Data += sizeof(glm::vec3);
             
             r32 r[4];
             Copy(sizeof(r32)*4, Data, r);
             
-            glm::vec4 v(r[1], r[2], r[3], -r[0]);
+            glm::vec4 v(r[1], r[2], r[3], r[0]);
             
             Instance->Rot = v;
             Data += sizeof(glm::quat);
@@ -192,8 +193,6 @@ SceneLoad(scene *Scene)
         
                 Scene->RenderCount++;
             }
-        int a = 5; a;
-        
     }
     
     return(Scene);

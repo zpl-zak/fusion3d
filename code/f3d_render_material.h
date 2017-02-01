@@ -14,16 +14,18 @@ typedef struct
     GLuint DiffLoc;
     GLuint DiffTex;
     GLuint ColLoc;
+    GLuint OldProgram;
 } render_material;
 
 internal void
 RenderApplyMaterial(render_material *Mat, GLuint Program)
 {
-    if(!Mat->AmbLoc)
+    if(!Mat->AmbLoc || Mat->OldProgram != Program)
     {
         Mat->AmbLoc = glGetUniformLocation(Program, "material.ambient");Mat->DiffLoc = glGetUniformLocation(Program, "material.diffuse");
         Mat->DiffTex = glGetUniformLocation(Program, "material.difftex");
         Mat->ColLoc = glGetUniformLocation(Program, "material.colorkey");
+        Mat->OldProgram = Program;
     }
     
     glUniform3f(Mat->AmbLoc, Mat->Ambient.x, Mat->Ambient.y, Mat->Ambient.z);

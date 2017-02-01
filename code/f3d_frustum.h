@@ -225,6 +225,7 @@ FrustumCheckAABB(aabb bbox)
     enum { Outside, Intersect, Inside };
     
     s32 Result = Inside;
+    s32 Misses = 0;
     
     for(s32 p = 0; p < 6; p++)
     {
@@ -240,15 +241,16 @@ FrustumCheckAABB(aabb bbox)
         
         r32 dn = ((frustum[p][0]*b[nx].x) + (frustum[p][1]*b[ny].y) + (frustum[p][2]*b[nz].z) + frustum[p][3]);
         
-        if(dp < 0)
+        if(dp < 0.f)
         {
             return(Outside);
-        }
-        else if(dn < 0)
+            }
+        else if(dn < 0.f)
         {
             Result = Intersect;
         }
     }
+    
     return(Result);
 }
 

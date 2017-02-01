@@ -63,6 +63,15 @@ typedef struct
     s32 Min, Max;
 } render_mesh_volume;
 
+typedef struct
+{
+    glm::mat4 Transform;
+    glm::vec3 Position;
+} render_transform_result;
+
+internal render_transform_result
+Model4DSGetTransform(render_4ds_mesh *Mesh, render_4ds *Render);
+
 internal render_4ds *
 Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 RenderType, b32 CheckFrustum);
 

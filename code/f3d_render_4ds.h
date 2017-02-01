@@ -8,12 +8,6 @@
 
 #define F3D_MODEL_4DS_MAX 128*1024
 
-typedef struct
-{
-    glm::mat4 Transform;
-    glm::vec3 Position;
-} render_transform_result;
-
 global_variable render_4ds GlobalModel4DS[F3D_MODEL_4DS_MAX] = {0};
 
 internal render_4ds *
@@ -409,10 +403,13 @@ Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 Rend
                 if(!Mesh->Transformed)
                     {
                         render_transform_result Tr = Model4DSGetTransform(Mesh, Render);
-                        Model = Mesh->Transform = Tr.Transform;
+                        local_persist glm::mat4 FlipZY = glm::scale(glm::vec3(-1,1,1));
+                        Model = Mesh->Transform = FlipZY * Tr.Transform;
                         Mesh->Position = Tr.Position;
                         Mesh->Transformed = 1;
                     }
+                    
+                    
                     Model = T * Mesh->Transform;
                     
                 glm::mat4 M = Model;

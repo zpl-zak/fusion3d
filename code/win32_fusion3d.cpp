@@ -207,7 +207,7 @@
                                                                                             500.f);
                                                                                RenderApplyCamera(AmbientProgram, &MainCamera);
                                                                                {    
-                                                                                   glClearColor(Sun.Ambient.x, Sun.Ambient.y, Sun.Ambient.z, 1.f);
+                                                                                   glClearColor(158.f/255.f, 186.f/255.f, 211.f/255.f, 1.f);
                                                                                    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
                                                                                    
                                                                                    local_persist r32 offset = 0.f;
@@ -253,3 +253,6 @@
                                                                        
                                                                        return((int)Result);
 }
+                                                                   
+DWORD NvOptimusEnablement = 0x00000001; // NVIDIA
+ int AmdPowerXpressRequestHighPerformance = 1; // ATI/AMD
