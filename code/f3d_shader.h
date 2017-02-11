@@ -6,7 +6,7 @@
 
 global_variable GLuint GlobalShaderPrograms[F3D_SHADER_MAX] = {0};
 
-internal GLuint
+internal s32
 ShaderProgramInit(void)
 {
     s32 Slot = -1;
@@ -23,7 +23,8 @@ ShaderProgramInit(void)
     
     Assert(Slot != -1);
     
-     GLuint Result = GlobalShaderPrograms[Slot] = glCreateProgram();
+    GlobalShaderPrograms[Slot] = glCreateProgram();
+    s32 Result = Slot;
     
     return(Result);
 }
@@ -84,9 +85,11 @@ ShaderLoad(char *Name, char *FileName)
 }
 
 internal GLuint
-ShaderLink(GLuint Program, asset_file *Asset, GLenum Type)
+ShaderLink(GLuint ProgramID, asset_file *Asset, GLenum Type)
 {
-    Assert(Program && Asset && Asset->Content);
+    Assert(ProgramID != -1 && Asset && Asset->Content);
+    
+    GLuint Program = *(GlobalShaderPrograms + ProgramID);
     glUseProgram(Program);
     
     GLuint Shader = glCreateShader(Type);
@@ -108,9 +111,10 @@ ShaderLink(GLuint Program, asset_file *Asset, GLenum Type)
 }
 
 internal void
-ShaderUnload(GLuint Program, GLuint Shader)
+ShaderUnload(GLuint ProgramID, GLuint Shader)
 {
-    Assert(Program && Shader);
+    Assert(ProgramID != -1 && Shader);
+    GLuint Program = *(GlobalShaderPrograms + ProgramID);
     glUseProgram(Program);
     
     glDetachShader(Program, Shader);
@@ -118,15 +122,25 @@ ShaderUnload(GLuint Program, GLuint Shader)
 }
 
 internal GLuint
-ShaderProgramLink(GLuint Program)
+ShaderProgramLink(GLuint ProgramID)
 {
-    Assert(Program);
+    Assert(ProgramID != -1);
+    GLuint Program = *(GlobalShaderPrograms + ProgramID);
     
     glLinkProgram(Program);
     
     //ShaderPrintLog(Program);
     
-            return(Program);
+    return(Program);
+}
+
+internal GLuint
+ShaderProgramGet(s32 ProgramID)
+{
+    Assert(ProgramID != -1);
+    
+    GLuint Program = *(GlobalShaderPrograms + ProgramID);
+    return(Program);
 }
 
 #define F3D_SHADER_H

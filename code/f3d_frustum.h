@@ -247,7 +247,7 @@ FrustumCheckAABB(aabb bbox)
             }
         else if(dn < 0.f)
         {
-            Result = Intersect;
+            Result = Inside;
         }
     }
     

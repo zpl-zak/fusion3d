@@ -13,11 +13,13 @@ SET LIBS=%~4
 SET WARN=-D_CRT_SECURE_NO_WARNINGS /wd4189 /wd4310 /wd4100 /wd4201 /wd4505 /wd4996 /wd4127 /wd4510 /wd4512 /wd4610 /wd4457
 SET OPTS=%WARN% /W3 /WX /GR- /EHsc /nologo -MTd -nologo -fp:fast -fp:except- -Gm- -GR- -EHa- -Zo -Oi /GS- /Gs9999999
 
-SET DEBUG=/Zi /Zo /O2 /DEBUG
-SET OPTI=/FC -O2
+SET OPTID=/Zi /Zo /O2 
+SET DEBUG=/DEBUG /Od /Zo /Zi /Oi
+SET OPTI=
 SET O=%OPTI%
 SET SQLIB=..\libs\squirrel\lib\x64\Release
 if "%ADD%" == "D" SET O=%DEBUG%
+if "%ADD%" == "OD" SET O=%DEBUG% %OPTID%
 if "%ADD%" == "D" SET SQLIB=..\libs\squirrel\lib\x64\Debug
 
 SET CODE_HOME=%~dp0

@@ -11,6 +11,15 @@
 
 typedef struct
 {
+    char Name[MAX_PATH];
+    char Path[MAX_PATH];
+    hformat_pak *Data;
+    
+    b32 Loaded;
+} asset_pack;
+
+typedef struct asset_file_
+{
     char *Name;
     char *FilePath;
     u32 Type;
@@ -18,19 +27,17 @@ typedef struct
     b32 Loaded;
     u8 *Content;
     ms FileSize;
+    u64 Checksum;
+    b32 HasChanged;
+    void (*ReloadCallback)(struct asset_file_ *Asset);
     
     b32 LoadFromPack;
+    asset_pack *PackPtr;
     hformat_pak_file *PakFile;
     hformat_pak *Pak;
 } asset_file;
 
-typedef struct
-{
-    char Name[MAX_PATH];
-    hformat_pak *Data;
-    
-    b32 Loaded;
-} asset_pack;
+typedef void asset_reload_callback(asset_file *Asset);
 
 enum
 {
@@ -47,11 +54,11 @@ enum
 global_variable char *AssetTypeNames[][2] = {
     {"", "Asset_None"},
     {"scripts/", "Asset_Script"},
-        {"maps/", "Asset_Texture"},
-        {"shaders/", "Asset_Shader"},
-        {"models/", "Asset_Model"},
-        {"missions/", "Asset_Scene"},
-        {"packs", "Asset_Pack"},
+    {"maps/", "Asset_Texture"},
+    {"shaders/", "Asset_Shader"},
+    {"models/", "Asset_Model"},
+    {"missions/", "Asset_Scene"},
+    {"packs", "Asset_Pack"},
 };
 
 global_variable char *GlobalGamePath = "game/default";
@@ -115,6 +122,8 @@ AssetInitialize(char *GamePath)
                 char Path[MAX_PATH];
                 sprintf(Path, "%s\\packs\\%s", GlobalGamePath, Pack->Name);
                 
+                Copy(MAX_PATH, Path, Pack->Path);
+                
                 s32 FileIdx = IOFileOpenRead((s8 *)Path, 0);
                 
                 if(FileIdx == -1)
@@ -162,6 +171,7 @@ AssetRegister(char *Name, char *FilePath, u32 AssetType)
     
     char Temp[MAX_PATH];
     b32 InPack = 0;
+    asset_pack *PackPtr = 0;
     hformat_pak_file *PakFile;
     hformat_pak *Pak;
     ms FileSize;
@@ -189,6 +199,7 @@ AssetRegister(char *Name, char *FilePath, u32 AssetType)
                 {
                     sprintf(Temp, "%s", FilePath);
                     InPack = 1;
+                    PackPtr = Pack;
                     FileSize = PakFile->FileLength;
                     break;
                 }
@@ -200,25 +211,25 @@ AssetRegister(char *Name, char *FilePath, u32 AssetType)
     {
         sprintf(Temp, "%s/%s", GlobalGamePath, FilePath);
         
-    s32 FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
-    
-    if(FileIndex == -1)
-    {
-        // NOTE(zaklaus): Check the working directory instead:
+        s32 FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
+        
+        if(FileIndex == -1)
         {
-            sprintf(Temp, "%s", FilePath);
-            FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
-            
-            Assert(FileSize != -1);
+            // NOTE(zaklaus): Check the working directory instead:
+            {
+                sprintf(Temp, "%s", FilePath);
+                FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
+                
+                Assert(FileSize != -1);
+            }
         }
+        
+        IOFileClose(FileIndex);
+        
+        PakFile = 0;
+        Pak = 0;
     }
     
-    IOFileClose(FileIndex);
-    
-    PakFile = 0;
-    Pak = 0;
-}
-
     asset_file Asset = {0};
     Asset.Name = (char *)PlatformMemAlloc(strlen(Name)+1);
     Copy(strlen(Name)+1, Name, Asset.Name);
@@ -229,6 +240,7 @@ AssetRegister(char *Name, char *FilePath, u32 AssetType)
     Asset.LoadFromPack = InPack;
     Asset.PakFile = PakFile;
     Asset.Pak = Pak;
+    Asset.PackPtr = PackPtr;
     *File = Asset;
     
     return(File);
@@ -241,21 +253,21 @@ AssetOpenHandle(asset_file *Asset, b32 LoadFromMemory)
     
     if(LoadFromMemory)
     {
-    HANDLE ReadPipe;
-    HANDLE WritePipe;
-    
+        HANDLE ReadPipe;
+        HANDLE WritePipe;
+        
         CreatePipe(&ReadPipe, &WritePipe, 0, (DWORD)Asset->FileSize);
-    WriteFile(WritePipe, Asset->Content, (DWORD)Asset->FileSize, 0, 0);
+        WriteFile(WritePipe, Asset->Content, (DWORD)Asset->FileSize, 0, 0);
         CloseHandle(WritePipe);
-    
-     FileIdx = IOFindHandle();
-    
-    Assert(FileIdx != -1);
-    
-    s32 FileDescriptor = _open_osfhandle((intptr_t)ReadPipe, _O_RDONLY);
-    FILE *FileHandle = _fdopen(FileDescriptor, "rb");
-    
-    FileHandles[FileIdx] = FileHandle;
+        
+        FileIdx = IOFindHandle();
+        
+        Assert(FileIdx != -1);
+        
+        s32 FileDescriptor = _open_osfhandle((intptr_t)ReadPipe, _O_RDONLY);
+        FILE *FileHandle = _fdopen(FileDescriptor, "rb");
+        
+        FileHandles[FileIdx] = FileHandle;
     }
     else
     {
@@ -282,9 +294,9 @@ AssetFind(char *Name)
 }
 
 internal asset_file *
-AssetLoadInternal(asset_file *Asset)
+AssetLoadInternal(asset_file *Asset, b32 Forced = 0, ms FileSize = 0)
 {
-    if(Asset->Loaded)
+    if(Asset->Loaded && !Forced)
     {
         return(Asset);
     }
@@ -292,23 +304,39 @@ AssetLoadInternal(asset_file *Asset)
     s32 File = -1;
     if(!Asset->LoadFromPack)
     {
-     File = IOFileOpenRead((s8 *)Asset->FilePath, 0);
+        File = IOFileOpenRead((s8 *)Asset->FilePath, 0);
     }
     else
     {
-        File = Asset->Pak->PakHandle;
+        File = IOFileOpenRead((s8 *)Asset->PackPtr->Path, 0);
         IOFileSeek(File, Asset->PakFile->FilePosition, SeekOrigin_Set);
     }
     
+    if(Asset->Content)
+    {
+        PlatformMemFree(Asset->Content);
+        
+        if(FileSize)
+        {
+            Asset->FileSize = FileSize;
+        }
+    }
     Asset->Content = (u8 *)PlatformMemAlloc(Asset->FileSize);
     IOFileRead(File, Asset->Content, Asset->FileSize);
     
-    if(!Asset->LoadFromPack)
-    {
-        IOFileClose(File);
-    }
+    IOFileClose(File);
     
     Asset->Loaded = 1;
+    
+    u64 FileChecksum = 0;
+    for(u64 Idx = 0;
+        Idx < Asset->FileSize;
+        ++Idx)
+    {
+        FileChecksum += *(Asset->Content + Idx);
+    }
+    
+    Asset->Checksum = FileChecksum;
     
     return(Asset);
 }
@@ -320,6 +348,124 @@ AssetLoad(char *Name, b32 Async)
     AssetLoadInternal(Asset);
     
     return(Asset);
+}
+
+internal void
+AssetReload(asset_file *Asset)
+{
+    Assert(Asset);
+    AssetLoadInternal(Asset, 1);
+}
+
+// NOTE(ZaKlaus): This is what we could actually call an asset hot-reloading.
+// currently supported only by PAK archive.
+// We basically reload the meta information of archive from the file
+// and then simply walk through every affected asset that comes from the archive,
+// reloading the asset's content and if possible, triggering an event which
+// should handle our asset changes. Assets are compared by simple SUM checksum 
+// algorihtm, so there might be occasional collisions, I suggest using either 
+// MD5 or CRC32 for such task, which might be considered as a TODO.
+internal void
+AssetSyncPack(void)
+{
+    // NOTE(ZaKlaus): Update PAKs first.
+    for(s32 Idx = 0;
+        Idx < PACK_MAX;
+        ++Idx)
+    {
+        asset_pack *Pack = GlobalPacks + Idx;
+        
+        if(!Pack->Loaded)
+        {
+            break;
+        }
+        
+        // TODO(ZaKlaus): De-allocate the pack to avoid mem leak.
+        //HFormatReleasePakArchive(Pack->Data);
+        
+        s32 NewHandle = IOFileOpenRead((s8 *)Pack->Path, 0);
+        
+        Pack->Data = HFormatLoadPakArchive(NewHandle);
+    }
+    
+    // NOTE(ZaKlaus): Check individual assets belonging to PAK and reload if required.
+    for(s32 Idx = 0;
+        Idx < ASSET_MAX;
+        ++Idx)
+    {
+        asset_file *Asset = GlobalAssets + Idx;
+        
+        for(s32 Idx = 0;
+            Idx < PACK_MAX;
+            ++Idx)
+        {
+            asset_pack *Pack = GlobalPacks + Idx;
+            
+            if(!Pack->Loaded)
+            {
+                break;
+            }
+            
+            hformat_pak *Pak = Pack->Data;
+            
+            for(mi Idx2 = 0;
+                Idx2 < Pak->FileCount;
+                Idx2++)
+            {
+                hformat_pak_file *PakFile = Pak->Files + Idx2;
+                if(StringsAreEqual((char *)PakFile->FileName, Asset->FilePath))
+                {
+                    if(Pak->Checksums[Idx2] != Asset->Checksum)
+                    {
+                        AssetLoadInternal(Asset, 1, Pak->Files[Idx2].FileLength);
+                        
+                        if(Asset->ReloadCallback)
+                        {
+                            Asset->ReloadCallback(Asset);
+                        }
+                        Asset->HasChanged = 1;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
+
+internal void
+AssetAssignReloadCallbackInternal(asset_file *Asset, asset_reload_callback *Callback)
+{
+    Assert(Asset);
+    
+    Asset->ReloadCallback = Callback;
+}
+
+internal void
+AssetAssignReloadCallback(s32 AssetIdx, asset_reload_callback *Callback)
+{
+    Assert(AssetIdx != 1);
+    
+    AssetAssignReloadCallbackInternal(GlobalAssets + AssetIdx, Callback);
+}
+
+
+// NOTE(ZaKlaus): This should be used, once the host has the ability to check for
+// changes when possible and dealing with them on his own. 
+// While this is not following any event system, there are occasions where callbacks
+// won't be able to process any asset changes at that time, therefore leaving
+// the job to a simple check, which might be performed whenever required.
+// Point of WARNing though, you NEED to perform the check after the latest Pack Sync
+// or you will hit false checks everytime.
+internal b32
+AssetScanChanges(s32 AssetIdx)
+{
+    Assert(AssetIdx != -1);
+    asset_file *Asset = (GlobalAssets + AssetIdx);
+    
+    b32 Result = Asset->HasChanged;
+    Asset->HasChanged = 0;
+    
+    return(Result);
 }
 
 #define F3D_ASSET_H

@@ -4,6 +4,6 @@ set LIBS="kernel32.lib legacy_stdio_definitions.lib user32.lib gdi32.lib opengl3
 
 if not exist build mkdir build
 pushd build
-../msvc.bat ../code/win32_fusion3d.cpp D %LIBS%
+../msvc.bat ../code/win32_fusion3d.cpp OD %LIBS%
 popd
 

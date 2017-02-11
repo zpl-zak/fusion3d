@@ -61,6 +61,11 @@
                                                                            UseMouse = !UseMouse;
                                                                        }
                                                                        
+                                                                       if(GlobalKeyPress[VK_F5])
+                                                                       {
+                                                                           AssetSyncPack();
+                                                                       }
+                                                                       
                                                                        if(GlobalKeyDown[VK_ESCAPE])
                                                                        {
                                                                            Running = 0;
@@ -98,6 +103,42 @@
                                                                        
                                                                    }
                                                                    
+                                                                   global_variable s32 AmbientProgramID = -1;
+                                                                   global_variable asset_file *VShader = 0;
+                                                                   global_variable asset_file *FShader = 0;
+                                                                   global_variable b32 ProgramGotReloaded = 0;
+                                                                   
+                                                                   internal void
+                                                                       DEBUGReloadShaderSource(asset_file *Asset)
+                                                                   {
+                                                                       local_persist b32 VChanged = 0;
+                                                                       local_persist b32 FChanged = 0;
+                                                                       
+                                                                       if(StringsAreEqual(Asset->Name, "ambient_vs"))
+                                                                       {
+                                                                           VChanged = 1;
+                                                                       }
+                                                                       
+                                                                       if(StringsAreEqual(Asset->Name, "ambient_fs"))
+                                                                       {
+                                                                           FChanged = 1;
+                                                                       }
+                                                                       
+                                                                       if(VChanged || FChanged)
+                                                                       {
+                                                                           VChanged = FChanged = 0;
+                                                                           AmbientProgramID = ShaderProgramInit();
+                                                                           {
+                                                                               ShaderLink(AmbientProgramID, VShader, GL_VERTEX_SHADER);
+                                                                               ShaderLink(AmbientProgramID, FShader, GL_FRAGMENT_SHADER);
+                                                                           }
+                                                                           ShaderProgramLink(AmbientProgramID);
+                                                                           
+                                                                           ProgramGotReloaded = 1;
+                                                                           printf("Shader program reloaded!\n");
+                                                                       }
+                                                                   }
+                                                                   
                                                                    int CALLBACK     
                                                                        _WinMain(HINSTANCE Instance,
                                                                                 HINSTANCE PrevInstance,
@@ -107,27 +148,17 @@
                                                                        WindowInitialize(Instance);
                                                                        AssetInitialize("D:\\Games\\Mafia");
                                                                        
-                                                                       asset_file *VShader = ShaderLoad("ambient_vs", "ambient.vert");
-                                                                       asset_file *FShader = ShaderLoad("ambient_fs", "ambient.frag");
+                                                                       VShader = ShaderLoad("ambient_vs", "ambient.vert");
+                                                                       AssetAssignReloadCallbackInternal(VShader, DEBUGReloadShaderSource);
+                                                                       FShader = ShaderLoad("ambient_fs", "ambient.frag");
+                                                                       AssetAssignReloadCallbackInternal(FShader, DEBUGReloadShaderSource);
                                                                        
-                                                                       GLuint AmbientProgram = ShaderProgramInit();
+                                                                       AmbientProgramID = ShaderProgramInit();
                                                                        {
-                                                                           ShaderLink(AmbientProgram, VShader, GL_VERTEX_SHADER);
-                                                                           ShaderLink(AmbientProgram, FShader, GL_FRAGMENT_SHADER);
+                                                                           ShaderLink(AmbientProgramID, VShader, GL_VERTEX_SHADER);
+                                                                           ShaderLink(AmbientProgramID, FShader, GL_FRAGMENT_SHADER);
                                                                        }
-                                                                       ShaderProgramLink(AmbientProgram);
-                                                                       
-                                                                       asset_file *CVShader = ShaderLoad("color_vs", "color.vert");
-                                                                       asset_file *CFShader = ShaderLoad("color_fs", "color.frag");
-                                                                       
-                                                                       GLuint ColorProgram = ShaderProgramInit();
-                                                                       {
-                                                                           ShaderLink(ColorProgram, CVShader, GL_VERTEX_SHADER);
-                                                                           ShaderLink(ColorProgram, CFShader, GL_FRAGMENT_SHADER);
-                                                                       }
-                                                                       ShaderProgramLink(ColorProgram);
-                                                                       
-                                                                       
+                                                                       ShaderProgramLink(AmbientProgramID);
                                                                        
 #if 1
                                                                        scene *CityScene = SceneRegister("city", "freeride");
@@ -151,7 +182,7 @@
                                                                        }
 #endif
                                                                        
-                                                                       RenderOctreeGenerate();
+                                                                       //RenderOctreeGenerate();
                                                                        
                                                                        render_4ds *BalikSena = Model4DSRegister("krajina", "..\\missions\\freekrajina\\scene.4ds");
                                                                        Model4DSLoad(BalikSena);
@@ -180,6 +211,8 @@
                                                                        TimeInit();  
                                                                        r64 OldTime = TimeGet();
                                                                        
+                                                                       GLuint AmbientProgram = ShaderProgramGet(AmbientProgramID);
+                                                                       
                                                                        RenderApplyLightDirectional(&Sun, AmbientProgram);
                                                                        
                                                                        r64 LastStatsTime = 0;
@@ -191,13 +224,23 @@
                                                                            r64 NewTime = TimeGet();
                                                                            r64 DeltaTime = NewTime - OldTime;
                                                                            
-                                                                           if(NewTime - LastStatsTime > 1)
+                                                                           if(NewTime - LastStatsTime > 5)
                                                                            {
                                                                                LastStatsTime = NewTime;
+                                                                               AssetSyncPack();
                                                                                printf("Delta: %f (%f FPS)\n", (r32)DeltaTime * 1000.f, 1.f / (r32)DeltaTime);
                                                                            }
                                                                            
-                                                                           {        
+                                                                           AmbientProgram = ShaderProgramGet(AmbientProgramID);
+                                                                           
+                                                                           if(ProgramGotReloaded)
+                                                                           {
+                                                                               ProgramGotReloaded = 0;
+                                                                               RenderApplyLightDirectional(&Sun, AmbientProgram);
+                                                                           }
+                                                                           
+                                                                           // NOTE(zaklaus): Render pass
+                                                                           {
                                                                                MainWindowUpdate();
                                                                                {
                                                                                    HandleInput(&MainCamera, (r32)DeltaTime);
@@ -241,6 +284,8 @@
                                                                                SwapBuffers(GlobalDeviceContext);
                                                                                
                                                                                OldTime = NewTime;
+                                                                               
+                                                                               AmbientProgram = ShaderProgramGet(AmbientProgramID);
                                                                            }
                                                                        }
                                                                        WindowShutdown();
@@ -254,7 +299,8 @@
                                                                        LRESULT Result = _WinMain(GetModuleHandle(0), 0, GetCommandLine(), SW_SHOW);
                                                                        
                                                                        return((int)Result);
-}
+                                                                   }
                                                                    
-DWORD NvOptimusEnablement = 0x00000001; // NVIDIA
+                                                                   // NOTE(zaklaus): Tell the OS to prefer dedicated video card.
+                                                                   DWORD NvOptimusEnablement = 0x00000001; // NVIDIA
  int AmdPowerXpressRequestHighPerformance = 1; // ATI/AMD
