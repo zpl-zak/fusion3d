@@ -9,43 +9,51 @@ typedef struct
     render_texture *DiffTexture;
     b32 ColorKey;
     b32 DoubleSided;
-    
-    GLuint AmbLoc;
-    GLuint DiffLoc;
-    GLuint DiffTex;
-    GLuint ColLoc;
-    GLuint OldProgram;
 } render_material;
 
 internal void
 RenderApplyMaterial(render_material *Mat, GLuint Program)
 {
-    if(!Mat->AmbLoc || Mat->OldProgram != Program)
+    local_persist GLuint OldProgram = -1;
+    
+    if(OldProgram != Program)
     {
-        Mat->AmbLoc = glGetUniformLocation(Program, "material.ambient");Mat->DiffLoc = glGetUniformLocation(Program, "material.diffuse");
-        Mat->DiffTex = glGetUniformLocation(Program, "material.difftex");
-        Mat->ColLoc = glGetUniformLocation(Program, "material.colorkey");
-        Mat->OldProgram = Program;
+        local_persist GLuint AmbLoc = glGetUniformLocation(Program, "material.ambient");
+        local_persist GLuint DiffLoc = glGetUniformLocation(Program, "material.diffuse");
+        local_persist GLuint DiffTex = glGetUniformLocation(Program, "material.difftex");
+        local_persist GLuint ColLoc = glGetUniformLocation(Program, "material.colorkey");
+        
+        material_send:
+        {
+            glUniform3f(AmbLoc, Mat->Ambient.x, Mat->Ambient.y, Mat->Ambient.z);
+            glUniform3f(DiffLoc, Mat->Diffuse.x, Mat->Diffuse.y, Mat->Diffuse.z);
+            
+            if(Mat->DiffTexture && Mat->DiffTexture->TextureObject)
+            {
+                glActiveTexture(GL_TEXTURE0);
+                glBindTexture(GL_TEXTURE_2D, Mat->DiffTexture->TextureObject);
+                glUniform1i(DiffTex, 0);
+                glUniform1i(ColLoc, Mat->ColorKey);
+            }
+            
+            goto material_done;
+        }
     }
     
-    glUniform3f(Mat->AmbLoc, Mat->Ambient.x, Mat->Ambient.y, Mat->Ambient.z);
-    glUniform3f(Mat->DiffLoc, Mat->Diffuse.x, Mat->Diffuse.y, Mat->Diffuse.z);
+    goto material_send;
     
-    if(Mat->DiffTexture && Mat->DiffTexture->TextureObject)
+    material_done:
     {
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, Mat->DiffTexture->TextureObject);
-        glUniform1i(Mat->DiffTex, 0);
-        glUniform1i(Mat->ColLoc, Mat->ColorKey);
-    }
-    
-    if(Mat->DoubleSided)
-    {
-        glDisable(GL_CULL_FACE);
-    }
-    else
-    {
-        glEnable(GL_CULL_FACE);
+        if(Mat->DoubleSided)
+        {
+            glDisable(GL_CULL_FACE);
+        }
+        else
+        {
+            glEnable(GL_CULL_FACE);
+        }
+        
+        OldProgram = Program;
     }
 }
 

@@ -129,6 +129,7 @@ AssetInitialize(char *GamePath)
                 if(FileIdx == -1)
                 {
                     sprintf(Path, "packs\\%s", Pack->Name);
+                    Copy(MAX_PATH, Path, Pack->Path);
                     FileIdx = IOFileOpenRead((s8 *)Path, 0);
                 }
                 
@@ -350,13 +351,6 @@ AssetLoad(char *Name, b32 Async)
     return(Asset);
 }
 
-internal void
-AssetReload(asset_file *Asset)
-{
-    Assert(Asset);
-    AssetLoadInternal(Asset, 1);
-}
-
 // NOTE(ZaKlaus): This is what we could actually call an asset hot-reloading.
 // currently supported only by PAK archive.
 // We basically reload the meta information of archive from the file
@@ -425,6 +419,10 @@ AssetSyncPack(void)
                         }
                         Asset->HasChanged = 1;
                     }
+                    else
+                    {
+                        Asset->HasChanged = 0;
+                    }
                     break;
                 }
             }
@@ -463,7 +461,6 @@ AssetScanChanges(s32 AssetIdx)
     asset_file *Asset = (GlobalAssets + AssetIdx);
     
     b32 Result = Asset->HasChanged;
-    Asset->HasChanged = 0;
     
     return(Result);
 }

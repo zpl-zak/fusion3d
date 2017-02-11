@@ -6,7 +6,9 @@
                                                                    
                                                                    global_variable b32 Running = 1;
                                                                    
-                                                                   void HandleInput(camera *Camera, r32 DeltaTime)
+                                                                   // NOTE(ZaKlaus): This is an example on how to manipulate our player's camera.
+                                                                   // to provide a simple free fly mechanism.
+                                                                   void DEBUGHandleInput(camera *Camera, r32 DeltaTime)
                                                                    {
                                                                        local_persist s32 x,y;
                                                                        local_persist b32 FirstPos = 1;
@@ -253,7 +255,7 @@
                                                                            {
                                                                                MainWindowUpdate();
                                                                                {
-                                                                                   HandleInput(&MainCamera, (r32)DeltaTime);
+                                                                                   DEBUGHandleInput(&MainCamera, (r32)DeltaTime);
                                                                                }
                                                                                CameraUpdate(&MainCamera, 
                                                                                             WindowGetClientRect(GlobalWindow),
