@@ -52,7 +52,7 @@
  }
  
  internal render_texture *
-     TextureLoad(render_texture *Texture)
+     TextureLoad(render_texture *Texture, b32 Filtering = GL_LINEAR)
  {
      Assert(Texture && Texture->Asset);
      
@@ -78,7 +78,6 @@
      // We assume Mafia's opaque material uses only 8-bit bitmap for handing out the colorkey,
      // therefore there might be problems involved with 24-bit bitmaps.
      {
-         //TRAP();
          glm::vec3 ColorKey;
          ColorKey.x = (Texture->Bitmap->Colors[0].rgbRed);
          ColorKey.y = (Texture->Bitmap->Colors[0].rgbGreen);
@@ -105,8 +104,9 @@
          
          PlatformMemFree(TData);
          
-         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, Filtering);
+         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, Filtering);
+         
      }
      
      IOFileClose(FileIdx);

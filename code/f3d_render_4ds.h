@@ -85,25 +85,25 @@ Model4DSLoadInternal(LPVOID Param)
             
             if(HMaterial->DiffuseMapNameLength)
             {
-            char Temp[255] = {0};
-            sprintf(Temp, "%.*s", HMaterial->DiffuseMapNameLength, HMaterial->DiffuseMapName);
-            
-            render_texture *Texture = TextureRegister(Temp, Temp, 0);
-            TextureLoad(Texture);
-            Material->Material.DiffTexture = Texture;
-            
-            Material->Material.ColorKey = 0;
-            if(HMaterial->Flags & HFormat4DSMaterialFlag_ColorKey)
-            {
-                Material->Material.ColorKey = 1;
+                char Temp[255] = {0};
+                sprintf(Temp, "%.*s", HMaterial->DiffuseMapNameLength, HMaterial->DiffuseMapName);
+                
+                render_texture *Texture = TextureRegister(Temp, Temp, 0);
+                TextureLoad(Texture, GL_NEAREST);
+                Material->Material.DiffTexture = Texture;
+                
+                Material->Material.ColorKey = 0;
+                if(HMaterial->Flags & HFormat4DSMaterialFlag_ColorKey)
+                {
+                    Material->Material.ColorKey = 1;
+                }
+                
+                Material->Material.DoubleSided = 0;
+                if(HMaterial->Flags & HFormat4DSMaterialFlag_DoubleSidedMaterial)
+                {
+                    Material->Material.DoubleSided = 1;
+                }
             }
-            
-            Material->Material.DoubleSided = 0;
-            if(HMaterial->Flags & HFormat4DSMaterialFlag_DoubleSidedMaterial)
-            {
-                Material->Material.DoubleSided = 1;
-            }
-        }
         }
         
         Render->MeshCount = Render->Header->MeshCount;
@@ -126,9 +126,9 @@ Model4DSLoadInternal(LPVOID Param)
             Mesh->Scale = {HMesh->Scale.X, HMesh->Scale.Y, HMesh->Scale.Z};
             
             if(StringsAreEqualA(4, (char *)HMesh->MeshName, "wcol"))
-               {
-                   continue;
-               }
+            {
+                continue;
+            }
             
             if(HMesh->MeshType == HFormat4DSMeshType_Standard &&
                HMesh->VisualMeshType == HFormat4DSVisualMeshType_Standard)
@@ -139,173 +139,173 @@ Model4DSLoadInternal(LPVOID Param)
                     continue;
                 }
                 
-            Mesh->LODLevel = Standard->LODLevel;
+                Mesh->LODLevel = Standard->LODLevel;
                 Mesh->LODs = (render_4ds_lod *)PlatformMemAlloc(sizeof(render_4ds_lod)*Mesh->LODLevel);
-            for(s32 Idx2 = 0;
-                Idx2 < Mesh->LODLevel;
-                ++Idx2)
-            {
-                hformat_4ds_lod *HLOD = Standard->LODs + Idx2;
-                render_4ds_lod LOD_ = {0};
-                render_4ds_lod *LOD = Mesh->LODs + Idx2;
-                *LOD = LOD_;
-                
-                LOD->RelativeDistance = HLOD->RelativeDistance;
-                LOD->VertexCount = HLOD->VertexCount;
-                
-                v3 *Positions = (v3 *)PlatformMemAlloc(sizeof(v3)*LOD->VertexCount);
-                
-                for(s32 PosIdx = 0;
-                    PosIdx < LOD->VertexCount;
-                    ++PosIdx)
+                for(s32 Idx2 = 0;
+                    Idx2 < Mesh->LODLevel;
+                    ++Idx2)
                 {
-                    Positions[PosIdx] = HLOD->Vertices[PosIdx].Pos;
-                }
-                
-                if(!Render->BBoxSet)
-                {
-                    Render->BBoxSet = 1;
+                    hformat_4ds_lod *HLOD = Standard->LODs + Idx2;
+                    render_4ds_lod LOD_ = {0};
+                    render_4ds_lod *LOD = Mesh->LODs + Idx2;
+                    *LOD = LOD_;
                     
-                    aabb BBox = {};
+                    LOD->RelativeDistance = HLOD->RelativeDistance;
+                    LOD->VertexCount = HLOD->VertexCount;
                     
-                    glm::vec4 Min, Max;
-                    Min.w = Max.w = 1;
+                    v3 *Positions = (v3 *)PlatformMemAlloc(sizeof(v3)*LOD->VertexCount);
+                    
                     for(s32 PosIdx = 0;
                         PosIdx < LOD->VertexCount;
                         ++PosIdx)
                     {
-                        if(HLOD->Vertices[PosIdx].Pos.X < Min.x)
-                        {
-                            Min.x = HLOD->Vertices[PosIdx].Pos.X;
-                        }
-                        
-                        if(HLOD->Vertices[PosIdx].Pos.Y < Min.y)
-                        {
-                            Min.y = HLOD->Vertices[PosIdx].Pos.Y;
-                        }
-                        
-                        if(HLOD->Vertices[PosIdx].Pos.Z < Min.z)
-                        {
-                            Min.z = HLOD->Vertices[PosIdx].Pos.Z;
-                        }
-                        
-                        if(HLOD->Vertices[PosIdx].Pos.X > Max.x)
-                        {
-                            Max.x = HLOD->Vertices[PosIdx].Pos.X;
-                        }
-                        
-                        if(HLOD->Vertices[PosIdx].Pos.Y > Max.y)
-                        {
-                            Max.y = HLOD->Vertices[PosIdx].Pos.Y;
-                        }
-                        
-                        if(HLOD->Vertices[PosIdx].Pos.Z > Max.z)
-                        {
-                            Max.z = HLOD->Vertices[PosIdx].Pos.Z;
-                        }
+                        Positions[PosIdx] = HLOD->Vertices[PosIdx].Pos;
                     }
                     
-                    BBox.Min = Min;
-                    BBox.Max = Max;
-                    
-                    if((Render->BBox.Min.x > BBox.Min.x ||
-                       Render->BBox.Min.y > BBox.Min.y ||
-                        Render->BBox.Min.z > BBox.Min.z))
+                    if(!Render->BBoxSet)
                     {
-                        Render->BBox.Min = BBox.Min;
+                        Render->BBoxSet = 1;
+                        
+                        aabb BBox = {};
+                        
+                        glm::vec4 Min, Max;
+                        Min.w = Max.w = 1;
+                        for(s32 PosIdx = 0;
+                            PosIdx < LOD->VertexCount;
+                            ++PosIdx)
+                        {
+                            if(HLOD->Vertices[PosIdx].Pos.X < Min.x)
+                            {
+                                Min.x = HLOD->Vertices[PosIdx].Pos.X;
+                            }
+                            
+                            if(HLOD->Vertices[PosIdx].Pos.Y < Min.y)
+                            {
+                                Min.y = HLOD->Vertices[PosIdx].Pos.Y;
+                            }
+                            
+                            if(HLOD->Vertices[PosIdx].Pos.Z < Min.z)
+                            {
+                                Min.z = HLOD->Vertices[PosIdx].Pos.Z;
+                            }
+                            
+                            if(HLOD->Vertices[PosIdx].Pos.X > Max.x)
+                            {
+                                Max.x = HLOD->Vertices[PosIdx].Pos.X;
+                            }
+                            
+                            if(HLOD->Vertices[PosIdx].Pos.Y > Max.y)
+                            {
+                                Max.y = HLOD->Vertices[PosIdx].Pos.Y;
+                            }
+                            
+                            if(HLOD->Vertices[PosIdx].Pos.Z > Max.z)
+                            {
+                                Max.z = HLOD->Vertices[PosIdx].Pos.Z;
+                            }
+                        }
+                        
+                        BBox.Min = Min;
+                        BBox.Max = Max;
+                        
+                        if((Render->BBox.Min.x > BBox.Min.x ||
+                            Render->BBox.Min.y > BBox.Min.y ||
+                            Render->BBox.Min.z > BBox.Min.z))
+                        {
+                            Render->BBox.Min = BBox.Min;
+                        }
+                        
+                        if(Render->BBox.Max.x < BBox.Max.x ||
+                           Render->BBox.Max.y < BBox.Max.y ||
+                           Render->BBox.Max.z < BBox.Max.z)
+                        {
+                            Render->BBox.Max = BBox.Max;
+                        }
                     }
-                       
-                       if(Render->BBox.Max.x < BBox.Max.x ||
-                       Render->BBox.Max.y < BBox.Max.y ||
-                        Render->BBox.Max.z < BBox.Max.z)
+                    
+                    glGenBuffers(1, &LOD->Buffers[VBO_Position]);
+                    glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Position]);
+                    glBufferData(GL_ARRAY_BUFFER, sizeof(v3)*LOD->VertexCount, Positions, GL_STATIC_DRAW);
+                    
+                    PlatformMemFree(Positions);
+                    
+                    v3 *Normals = (v3 *)PlatformMemAlloc(sizeof(v3)*LOD->VertexCount);
+                    
+                    for(s32 PosIdx = 0;
+                        PosIdx < LOD->VertexCount;
+                        ++PosIdx)
                     {
-                    Render->BBox.Max = BBox.Max;
+                        Normals[PosIdx] = HLOD->Vertices[PosIdx].Normal;
                     }
-                }
-                
-                glGenBuffers(1, &LOD->Buffers[VBO_Position]);
-                glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Position]);
-                glBufferData(GL_ARRAY_BUFFER, sizeof(v3)*LOD->VertexCount, Positions, GL_STATIC_DRAW);
-                
-                PlatformMemFree(Positions);
-                
-                v3 *Normals = (v3 *)PlatformMemAlloc(sizeof(v3)*LOD->VertexCount);
-                
-                for(s32 PosIdx = 0;
-                    PosIdx < LOD->VertexCount;
-                    ++PosIdx)
-                {
-                    Normals[PosIdx] = HLOD->Vertices[PosIdx].Normal;
-                }
-                
-                glGenBuffers(1, &LOD->Buffers[VBO_Normal]);
-                glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Normal]);
-                glBufferData(GL_ARRAY_BUFFER, sizeof(v3)*LOD->VertexCount, Normals, GL_STATIC_DRAW);
-                
-                PlatformMemFree(Normals);
-                
-                
-                v2 *UV = (v2 *)PlatformMemAlloc(sizeof(v2)*LOD->VertexCount);
-                
-                for(s32 PosIdx = 0;
-                    PosIdx < LOD->VertexCount;
-                    ++PosIdx)
-                {
-                    UV[PosIdx] = HLOD->Vertices[PosIdx].UV;
-                }
-                
-                glGenBuffers(1, &LOD->Buffers[VBO_UV]);
-                glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_UV]);
-                glBufferData(GL_ARRAY_BUFFER, sizeof(v2)*LOD->VertexCount, UV, GL_STATIC_DRAW);
-                
-                PlatformMemFree(UV);
-                
-                
-                LOD->FaceGroupCount = HLOD->FaceGroupCount;
-                LOD->FaceGroups = (render_4ds_facegroup *)PlatformMemAlloc(sizeof(render_4ds_facegroup)*LOD->FaceGroupCount);
-                for(s32 GroupIdx = 0;
-                    GroupIdx < LOD->FaceGroupCount;
-                    ++GroupIdx)
-                {
-                    render_4ds_facegroup Group_ = {0};
-                    render_4ds_facegroup *Group = LOD->FaceGroups + GroupIdx;
-                    hformat_4ds_facegroup *HGroup = HLOD->FaceGroups + GroupIdx;
                     
-                    *Group = Group_;
+                    glGenBuffers(1, &LOD->Buffers[VBO_Normal]);
+                    glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Normal]);
+                    glBufferData(GL_ARRAY_BUFFER, sizeof(v3)*LOD->VertexCount, Normals, GL_STATIC_DRAW);
                     
-                    Group->MaterialIndex = HGroup->MaterialID;
-                    u16 FaceCount = HGroup->FaceCount;
-                    Group->FaceCount = FaceCount;
-                    hformat_4ds_face *HFaces = HGroup->Faces;
+                    PlatformMemFree(Normals);
                     
-                    if(!FaceCount)
+                    
+                    v2 *UV = (v2 *)PlatformMemAlloc(sizeof(v2)*LOD->VertexCount);
+                    
+                    for(s32 PosIdx = 0;
+                        PosIdx < LOD->VertexCount;
+                        ++PosIdx)
                     {
-                        continue;
+                        UV[PosIdx] = HLOD->Vertices[PosIdx].UV;
                     }
                     
-                    hformat_4ds_face *Faces = (hformat_4ds_face *)PlatformMemAlloc(sizeof(hformat_4ds_face)*FaceCount);
+                    glGenBuffers(1, &LOD->Buffers[VBO_UV]);
+                    glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_UV]);
+                    glBufferData(GL_ARRAY_BUFFER, sizeof(v2)*LOD->VertexCount, UV, GL_STATIC_DRAW);
                     
-                    s32 HFaceIdx = 0;
-                    for(s32 FaceIdx = 0;
-                        FaceIdx < FaceCount;
-                        ++FaceIdx, ++HFaceIdx)
+                    PlatformMemFree(UV);
+                    
+                    
+                    LOD->FaceGroupCount = HLOD->FaceGroupCount;
+                    LOD->FaceGroups = (render_4ds_facegroup *)PlatformMemAlloc(sizeof(render_4ds_facegroup)*LOD->FaceGroupCount);
+                    for(s32 GroupIdx = 0;
+                        GroupIdx < LOD->FaceGroupCount;
+                        ++GroupIdx)
                     {
-                        Faces[FaceIdx] = HFaces[HFaceIdx];
+                        render_4ds_facegroup Group_ = {0};
+                        render_4ds_facegroup *Group = LOD->FaceGroups + GroupIdx;
+                        hformat_4ds_facegroup *HGroup = HLOD->FaceGroups + GroupIdx;
+                        
+                        *Group = Group_;
+                        
+                        Group->MaterialIndex = HGroup->MaterialID;
+                        u16 FaceCount = HGroup->FaceCount;
+                        Group->FaceCount = FaceCount;
+                        hformat_4ds_face *HFaces = HGroup->Faces;
+                        
+                        if(!FaceCount)
+                        {
+                            continue;
+                        }
+                        
+                        hformat_4ds_face *Faces = (hformat_4ds_face *)PlatformMemAlloc(sizeof(hformat_4ds_face)*FaceCount);
+                        
+                        s32 HFaceIdx = 0;
+                        for(s32 FaceIdx = 0;
+                            FaceIdx < FaceCount;
+                            ++FaceIdx, ++HFaceIdx)
+                        {
+                            Faces[FaceIdx] = HFaces[HFaceIdx];
+                        }
+                        
+                        glGenBuffers(1, &Group->ElementBuffer);
+                        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Group->ElementBuffer);
+                        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(hformat_4ds_face)*FaceCount, Faces, GL_STATIC_DRAW);
+                        
+                        PlatformMemFree(Faces);
                     }
-                    
-                    glGenBuffers(1, &Group->ElementBuffer);
-                    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Group->ElementBuffer);
-                    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(hformat_4ds_face)*FaceCount, Faces, GL_STATIC_DRAW);
-                    
-                    PlatformMemFree(Faces);
                 }
             }
         }
     }
-}
     IOFileClose(FileHandle);
-
-Render->Loaded = 1;
+    
+    Render->Loaded = 1;
 }
 
 internal void
@@ -323,14 +323,14 @@ AsyncModel4DSLoad(render_4ds *Render)
 internal render_transform_result
 Model4DSGetTransform(render_4ds_mesh *Mesh, render_4ds *Render)
 {
-    #if 1
+#if 1
     render_transform_result Result;
     Result.Position = Mesh->Pos;
     
-     glm::mat4 Pos = glm::translate(Mesh->Pos);
+    glm::mat4 Pos = glm::translate(Mesh->Pos);
     glm::quat Quat = glm::quat(Mesh->Rot.w, Mesh->Rot.x, Mesh->Rot.y, Mesh->Rot.z);
     glm::mat4 Rot = glm::toMat4(Quat);
-     glm::mat4 Scale = glm::scale(Mesh->Scale);
+    glm::mat4 Scale = glm::scale(Mesh->Scale);
     
     glm::mat4 Model = Pos * Rot * Scale;
     Result.Transform = Model;
@@ -338,11 +338,11 @@ Model4DSGetTransform(render_4ds_mesh *Mesh, render_4ds *Render)
     if(Mesh->ParentID)
     {
         render_transform_result Parent = Model4DSGetTransform((Render->Meshes + Mesh->ParentID - 1), Render);
-         Result.Transform = Parent.Transform * Result.Transform;
+        Result.Transform = Parent.Transform * Result.Transform;
         Result.Position = Parent.Position * Result.Position;
     }
     return(Result);
-    #endif
+#endif
 }
 
 global_variable GLuint gLastProgram = 0;
@@ -370,10 +370,10 @@ Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 Rend
             // TODO(zaklaus): Replace!
             if(gLastProgram != Program)
             {
-            gMatrix = glGetUniformLocation(Program, "mvp");
-            gMatrixM = glGetUniformLocation(Program, "m");
-            gMatrixV = glGetUniformLocation(Program, "v");
-            gMatrixP = glGetUniformLocation(Program, "p");
+                gMatrix = glGetUniformLocation(Program, "mvp");
+                gMatrixM = glGetUniformLocation(Program, "m");
+                gMatrixV = glGetUniformLocation(Program, "v");
+                gMatrixP = glGetUniformLocation(Program, "p");
                 gCameraP = glGetUniformLocation(Program, "camP");
                 gLastProgram = Program;
             }
@@ -401,19 +401,19 @@ Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 Rend
                 
                 glm::mat4 Model = Mesh->Transform;
                 if(!Mesh->Transformed)
-                    {
-                        render_transform_result Tr = Model4DSGetTransform(Mesh, Render);
-                        local_persist glm::mat4 FlipZY = glm::scale(glm::vec3(-1,1,1));
-                        Model = Mesh->Transform = FlipZY * Tr.Transform;
-                        Mesh->Position = Tr.Position;
-                        Mesh->Transformed = 1;
-                    }
-                    
-                    
-                    Model = T * Mesh->Transform;
-                    
+                {
+                    render_transform_result Tr = Model4DSGetTransform(Mesh, Render);
+                    local_persist glm::mat4 FlipZY = glm::scale(glm::vec3(-1,1,1));
+                    Model = Mesh->Transform = FlipZY * Tr.Transform;
+                    Mesh->Position = Tr.Position;
+                    Mesh->Transformed = 1;
+                }
+                
+                
+                Model = T * Mesh->Transform;
+                
                 glm::mat4 M = Model;
-                    
+                
                 /*
                 s32 LODAttempts = 0;
                 while(LOD->RelativeDistance > sqrt(pow(Mesh->Position.x - Camera->Position.x,2.f)
@@ -440,33 +440,33 @@ Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 Rend
                         glEnableVertexAttribArray(Idx);
                     }
                     
-                        glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Position]);
-                        glVertexAttribPointer(
-                            0,
-                            3,
-                            GL_FLOAT,
-                            GL_FALSE,
-                            0, (void *)0);
-                        
-                        glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Normal]);
-                        glVertexAttribPointer(
-                            1,
-                            3,
-                            GL_FLOAT,
-                            GL_FALSE,
-                            0, (void *)0);
-                        
-                        glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_UV]);
-                        glVertexAttribPointer(
-                            2,
-                            2,
-                            GL_FLOAT,
-                            GL_FALSE,
-                            0, (void *)0);
-                        
-                        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, LOD->FaceGroups[FgIdx].ElementBuffer);
-                        
-                        glDrawElements(GL_TRIANGLES, LOD->FaceGroups[FgIdx].FaceCount*3, GL_UNSIGNED_SHORT, (void *)0);
+                    glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Position]);
+                    glVertexAttribPointer(
+                        0,
+                        3,
+                        GL_FLOAT,
+                        GL_FALSE,
+                        0, (void *)0);
+                    
+                    glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Normal]);
+                    glVertexAttribPointer(
+                        1,
+                        3,
+                        GL_FLOAT,
+                        GL_FALSE,
+                        0, (void *)0);
+                    
+                    glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_UV]);
+                    glVertexAttribPointer(
+                        2,
+                        2,
+                        GL_FLOAT,
+                        GL_FALSE,
+                        0, (void *)0);
+                    
+                    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, LOD->FaceGroups[FgIdx].ElementBuffer);
+                    
+                    glDrawElements(GL_TRIANGLES, LOD->FaceGroups[FgIdx].FaceCount*3, GL_UNSIGNED_SHORT, (void *)0);
                     
                     for(s32 Idx = 0;
                         Idx < VBO_Count;
