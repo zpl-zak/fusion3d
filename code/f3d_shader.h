@@ -84,30 +84,37 @@ ShaderLoad(char *Name, char *FileName)
     return(Asset);
 }
 
-internal GLuint
-ShaderLink(GLuint ProgramID, asset_file *Asset, GLenum Type)
+internal b32
+ShaderLink(GLuint ProgramID, asset_file *Asset, GLenum Type, GLuint *Shader)
 {
     Assert(ProgramID != -1 && Asset && Asset->Content);
     
     GLuint Program = *(GlobalShaderPrograms + ProgramID);
     glUseProgram(Program);
     
-    GLuint Shader = glCreateShader(Type);
+    *Shader = glCreateShader(Type);
     
     char *Source = (char *)PlatformMemAlloc(Asset->FileSize + 1);
     Copy(Asset->FileSize, Asset->Content, Source);
     Source[Asset->FileSize] = 0;
     
-    glShaderSource(Shader, 1, (const char **)&Source, 0);
-    glCompileShader(Shader);
+    glShaderSource(*Shader, 1, (const char **)&Source, 0);
+    glCompileShader(*Shader);
     
     PlatformMemFree(Source);
     
-    Assert(ShaderPrintLog(Shader));
+    b32 Result = ShaderPrintLog(*Shader);
     
-    glAttachShader(Program, Shader);
+    if(!Result)
+    {
+        *Shader = 0;
+    }
+    else
+    {
+        glAttachShader(Program, *Shader);
+    }
     
-    return(Shader);
+    return(Result);
 }
 
 internal void

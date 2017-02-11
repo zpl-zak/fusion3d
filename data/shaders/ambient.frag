@@ -75,7 +75,7 @@ vec3 CalcPointLight(in PointLight light, in vec3 normal, in vec3 frag, in vec2 u
 }
 
 void main() {
-  vec2 uv = uv0; //abc
+  vec2 uv = uv0;
 
   vec3 n = normalize(normal0);
   vec3 res = CalcDirLight(light, n, uv);

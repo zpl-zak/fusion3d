@@ -106,8 +106,17 @@
                                                                    global_variable s32 AmbientProgramID = -1;
                                                                    global_variable asset_file *VShader = 0;
                                                                    global_variable asset_file *FShader = 0;
+                                                                   global_variable GLuint VShaderID = 0;
+                                                                   global_variable GLuint FShaderID = 0;
                                                                    global_variable b32 ProgramGotReloaded = 0;
                                                                    
+                                                                   // NOTE(ZaKlaus): This is an example of how hot-reloading works in
+                                                                   // the current architecture. Assets get reloaded and optionally processed
+                                                                   // by an assigned callback, which in this case, reloads/re-creates 
+                                                                   // a shader program and gives our game a new one, or
+                                                                   // discards any changes that would result to failure, such as faulty shaders
+                                                                   // broken by syntax error. In such case, game will rollback to 
+                                                                   // its last shader program.
                                                                    internal void
                                                                        DEBUGReloadShaderSource(asset_file *Asset)
                                                                    {
@@ -127,12 +136,31 @@
                                                                        if(VChanged || FChanged)
                                                                        {
                                                                            VChanged = FChanged = 0;
-                                                                           AmbientProgramID = ShaderProgramInit();
+                                                                           
+                                                                           GLuint NewAmbientProgramID = ShaderProgramInit();
                                                                            {
-                                                                               ShaderLink(AmbientProgramID, VShader, GL_VERTEX_SHADER);
-                                                                               ShaderLink(AmbientProgramID, FShader, GL_FRAGMENT_SHADER);
+                                                                               
+                                                                               GLuint s1 = 0;
+                                                                               b32 f1 = ShaderLink(NewAmbientProgramID, VShader, GL_VERTEX_SHADER, &s1);
+                                                                               GLuint s2 = 0;
+                                                                               b32 f2 = ShaderLink(NewAmbientProgramID, FShader, GL_FRAGMENT_SHADER, &s2);
+                                                                               
+                                                                               if(f1 && f2)
+                                                                               {
+                                                                                   ShaderUnload(AmbientProgramID, VShaderID);
+                                                                                   ShaderUnload(AmbientProgramID, FShaderID);
+                                                                                   glDeleteProgram(ShaderProgramGet(AmbientProgramID));
+                                                                                   VShaderID = s1;
+                                                                                   FShaderID = s2;
+                                                                                   AmbientProgramID = NewAmbientProgramID;
+                                                                                   ShaderProgramLink(NewAmbientProgramID);
+                                                                               }
+                                                                               else
+                                                                               {
+                                                                                   glDeleteProgram(ShaderProgramGet(NewAmbientProgramID));
+                                                                                   return;
+                                                                               }
                                                                            }
-                                                                           ShaderProgramLink(AmbientProgramID);
                                                                            
                                                                            ProgramGotReloaded = 1;
                                                                            printf("Shader program reloaded!\n");
@@ -155,8 +183,15 @@
                                                                        
                                                                        AmbientProgramID = ShaderProgramInit();
                                                                        {
-                                                                           ShaderLink(AmbientProgramID, VShader, GL_VERTEX_SHADER);
-                                                                           ShaderLink(AmbientProgramID, FShader, GL_FRAGMENT_SHADER);
+                                                                           GLuint s1 = 0;
+                                                                           b32 f1 = ShaderLink(AmbientProgramID, VShader, GL_VERTEX_SHADER, &s1);
+                                                                           GLuint s2 = 0;
+                                                                           b32 f2 = ShaderLink(AmbientProgramID, FShader, GL_FRAGMENT_SHADER, &s2);
+                                                                           
+                                                                           Assert(f1 && f2);
+                                                                           
+                                                                           VShaderID = s1;
+                                                                           FShaderID = s2;
                                                                        }
                                                                        ShaderProgramLink(AmbientProgramID);
                                                                        
