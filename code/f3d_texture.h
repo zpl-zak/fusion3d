@@ -51,8 +51,16 @@
      return(Texture);
  }
  
+ // NOTE(ZaKlaus): Call this after you bind the texture!!!
+ internal void
+     TextureModify(s32 Filtering = GL_LINEAR)
+ {
+     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, Filtering);
+     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, Filtering);
+ }
+ 
  internal render_texture *
-     TextureLoad(render_texture *Texture, b32 Filtering = GL_LINEAR)
+     TextureLoad(render_texture *Texture, s32 Filtering = GL_LINEAR)
  {
      Assert(Texture && Texture->Asset);
      
@@ -104,9 +112,8 @@
          
          PlatformMemFree(TData);
          
-         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, Filtering);
-         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, Filtering);
          
+         TextureModify(Filtering);
      }
      
      IOFileClose(FileIdx);

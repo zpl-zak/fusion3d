@@ -55,6 +55,37 @@
                                                                            Speed = 2.1f;
                                                                        }
                                                                        
+                                                                       s32 Filtering = GL_LINEAR;
+                                                                       
+                                                                       if(GlobalKeyPress[VK_F6])
+                                                                       {
+                                                                           Filtering = GL_LINEAR;
+                                                                       }
+                                                                       
+                                                                       if(GlobalKeyPress[VK_F7])
+                                                                       {
+                                                                           Filtering = GL_NEAREST;
+                                                                       }
+                                                                       
+                                                                       if(GlobalKeyPress[VK_F6] || GlobalKeyPress[VK_F7])
+                                                                       {
+                                                                           for(s32 Idx = 0;
+                                                                               Idx < F3D_TEXTURE_MAX;
+                                                                               ++Idx)
+                                                                           {
+                                                                               render_texture *Texture = GlobalTextures + Idx;
+                                                                               
+                                                                               if(Texture->TextureObject)
+                                                                               {
+                                                                                   glBindTexture(GL_TEXTURE_2D, Texture->TextureObject);
+                                                                                   
+                                                                                   TextureModify(Filtering);
+                                                                               }
+                                                                           }
+                                                                           
+                                                                           glBindTexture(GL_TEXTURE_2D, 0);
+                                                                       }
+                                                                       
                                                                        glm::vec3 Dir = glm::normalize(CameraGetDirection(Camera)) * Speed;
                                                                        glm::vec3 Right = glm::normalize(CameraGetRight(Camera)) *  Speed;
                                                                        
