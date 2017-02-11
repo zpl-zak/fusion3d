@@ -75,7 +75,7 @@ F3DProgramPrintLog(GLuint Object)
 internal asset_file *
 ShaderLoad(char *Name, char *FileName)
 {
-    char Temp[256];
+    char Temp[MAX_PATH];
     sprintf(Temp, "%s%s", AssetTypeNames[Asset_Shader][0], FileName);
     
     asset_file *Asset = AssetRegister(Name, Temp, Asset_Shader);

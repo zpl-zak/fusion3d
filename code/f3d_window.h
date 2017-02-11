@@ -13,6 +13,8 @@ global_variable b32 GlobalKeyPress[0xFE] = {0};
 global_variable s32 GlobalMouseX = 0;
 global_variable s32 GlobalMouseY = 0;
 
+extern b32 Running;
+
 LRESULT CALLBACK
 WndProc(HWND Window,
         UINT Message,
@@ -68,7 +70,7 @@ WindowInitialize(HINSTANCE Instance)
     
     GlobalWindowArea = ResizeResult;
     
-     GlobalDeviceContext = GetDC(GlobalWindow);
+    GlobalDeviceContext = GetDC(GlobalWindow);
     b32 ModernContext = 1;
     Win32InitOpenGL(GlobalDeviceContext, &ModernContext);
     GUIInitialize(GlobalDeviceContext, GlobalWindow);
@@ -123,10 +125,10 @@ MainWindowUpdate(void)
     s32 GlobalWindowWidth = GlobalWindowArea.Width;
     s32 GlobalWindowHeight = GlobalWindowArea.Height;
     
-        Dim = WindowGetClientRect(GlobalWindow);
-        window_resize_result ResizeResult = WindowResize(Dim.X, Dim.Y, GlobalWindowArea, 1);
-        glViewport(0, 0, GlobalWindowArea.Width, GlobalWindowArea.Height);
-        GlobalWindowArea = ResizeResult;
+    Dim = WindowGetClientRect(GlobalWindow);
+    window_resize_result ResizeResult = WindowResize(Dim.X, Dim.Y, GlobalWindowArea, 1);
+    glViewport(0, 0, GlobalWindowArea.Width, GlobalWindowArea.Height);
+    GlobalWindowArea = ResizeResult;
 }
 
 internal void
