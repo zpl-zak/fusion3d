@@ -72,7 +72,7 @@
      AssetLoadInternal(Texture->Asset);
      
      // TODO(zaklaus): Make sure it loads from memory!
-     s32 FileIdx = AssetOpenHandle(Texture->Asset, 0);
+     s32 FileIdx = AssetOpenHandle(Texture->Asset, Texture->Asset->LoadFromPack);
      Texture->Bitmap = HFormatLoadBMPImage(FileIdx, 0);
      
      s32 x, y, cpp;

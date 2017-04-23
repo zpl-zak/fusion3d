@@ -15,7 +15,7 @@ global_variable s32 GlobalMouseY = 0;
 
 extern b32 Running;
 
-LRESULT CALLBACK
+LRESULT
 WndProc(HWND Window,
         UINT Message,
         WPARAM WParam,

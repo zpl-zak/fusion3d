@@ -14,6 +14,7 @@ struct Material
   vec3 diffuse;
   sampler2D difftex;
   int colorkey;
+  float opacity;
 };
 
 struct DirLight
@@ -49,8 +50,8 @@ vec3 CalcDirLight(in DirLight light, in vec3 normal, in vec2 uv)
   float diff = max(dot(normal, ld), 0.0);
 
   vec3 tex = vec3(texture(material.difftex, uv));
-  vec3 ambient = light.ambient * tex;
-  vec3 diffuse = light.diffuse * diff * tex;
+  vec3 ambient = light.ambient * tex * material.ambient;
+  vec3 diffuse = light.diffuse * diff * tex * material.diffuse;
 
   return(ambient + diffuse);
 }
@@ -93,6 +94,10 @@ void main() {
   if(material.colorkey == 1)
   {
     alpha = texture(material.difftex, uv).a;
+  }
+  else
+  {
+    alpha = 1.0 - material.opacity;
   }
 
   color = vec4(res, alpha);

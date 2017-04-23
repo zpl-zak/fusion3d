@@ -1,7 +1,7 @@
 @echo off
 
-IF NOT DEFINED clset (call "D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x64)
-SET clset=64
+REM IF NOT DEFINED clset (call "D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x64)
+REM SET clset=64
 
 SET SRC=%1
 if "%SRC%" == "" SET SRC=main.cpp

@@ -6,10 +6,13 @@ typedef struct
 {
     glm::vec3 Ambient;
     glm::vec3 Diffuse;
+    r32 Opacity; // 0 - solid, 1 - invisible
     render_texture *DiffTexture;
     b32 ColorKey;
     b32 DoubleSided;
 } render_material;
+
+global_variable render_texture *GlobalDefaultTexture = 0;
 
 internal void
 RenderApplyMaterial(render_material *Mat, GLuint Program)
@@ -22,19 +25,36 @@ RenderApplyMaterial(render_material *Mat, GLuint Program)
         local_persist GLuint DiffLoc = glGetUniformLocation(Program, "material.diffuse");
         local_persist GLuint DiffTex = glGetUniformLocation(Program, "material.difftex");
         local_persist GLuint ColLoc = glGetUniformLocation(Program, "material.colorkey");
+        local_persist GLuint OpLoc  = glGetUniformLocation(Program, "material.opacity");
+        
+        local_persist b32 CallOnce = 0;
+        
+        if(!CallOnce)
+        {
+            CallOnce = 1;
+            
+            GlobalDefaultTexture = TextureRegister("DefaultTexture", "white.bmp", 0);
+            TextureLoad(GlobalDefaultTexture, GL_NEAREST);
+        }
         
         material_send:
         {
             glUniform3f(AmbLoc, Mat->Ambient.x, Mat->Ambient.y, Mat->Ambient.z);
             glUniform3f(DiffLoc, Mat->Diffuse.x, Mat->Diffuse.y, Mat->Diffuse.z);
-            
+
+            glActiveTexture(GL_TEXTURE0);
             if(Mat->DiffTexture && Mat->DiffTexture->TextureObject)
             {
-                glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_2D, Mat->DiffTexture->TextureObject);
-                glUniform1i(DiffTex, 0);
-                glUniform1i(ColLoc, Mat->ColorKey);
             }
+            else
+            {
+                glBindTexture(GL_TEXTURE_2D, GlobalDefaultTexture->TextureObject);
+            }
+            
+            glUniform1i(DiffTex, 0);
+            glUniform1f(OpLoc, Mat->Opacity);
+            glUniform1i(ColLoc, Mat->ColorKey);
             
             goto material_done;
         }

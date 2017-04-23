@@ -345,14 +345,6 @@ Model4DSGetTransform(render_4ds_mesh *Mesh, render_4ds *Render)
 #endif
 }
 
-global_variable GLuint gLastProgram = 0;
-
-global_variable GLuint gMatrix = 0;
-global_variable GLuint gMatrixM = 0;
-global_variable GLuint gMatrixV = 0;
-global_variable GLuint gMatrixP = 0;
-global_variable GLuint gCameraP = 0;
-
 internal render_4ds *
 Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 RenderType, b32 CheckFrustum)
 {
@@ -367,16 +359,7 @@ Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 Rend
     {
         case ModelRenderType_Normal:
         {
-            // TODO(zaklaus): Replace!
-            if(gLastProgram != Program)
-            {
-                gMatrix = glGetUniformLocation(Program, "mvp");
-                gMatrixM = glGetUniformLocation(Program, "m");
-                gMatrixV = glGetUniformLocation(Program, "v");
-                gMatrixP = glGetUniformLocation(Program, "p");
-                gCameraP = glGetUniformLocation(Program, "camP");
-                gLastProgram = Program;
-            }
+            RenderCheckUniforms(Program);
             
             for(s32 Idx = 0;
                 Idx < Render->MeshCount;

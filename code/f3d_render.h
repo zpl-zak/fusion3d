@@ -62,11 +62,35 @@ RenderTransformMatrix(render_transform Transform)
     return(T);
 }
 
+global_variable GLuint gLastProgram = 0;
+
+global_variable GLuint gMatrix = 0;
+global_variable GLuint gMatrixM = 0;
+global_variable GLuint gMatrixV = 0;
+global_variable GLuint gMatrixP = 0;
+global_variable GLuint gCameraP = 0;
+
+internal void
+RenderCheckUniforms(GLuint Program)
+{
+    if(gLastProgram != Program)
+    {
+        gMatrix = glGetUniformLocation(Program, "mvp");
+        gMatrixM = glGetUniformLocation(Program, "m");
+        gMatrixV = glGetUniformLocation(Program, "v");
+        gMatrixP = glGetUniformLocation(Program, "p");
+        gCameraP = glGetUniformLocation(Program, "camP");
+        gLastProgram = Program;
+    }
+}
+
 #include "f3d_render_material.h"
 #include "f3d_render_4ds_proto.h"
 #include "f3d_render_light.h"
 #include "f3d_render_octree.h"
 #include "f3d_render_single.h"
+
+#include "f3d_primitive_cube.h"
 
 #define F3D_RENDER_H
 #endif
