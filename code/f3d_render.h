@@ -85,6 +85,7 @@ RenderCheckUniforms(GLuint Program)
 }
 
 #include "f3d_render_material.h"
+#include "f3d_render_mesh.h"
 #include "f3d_render_4ds_proto.h"
 #include "f3d_render_light.h"
 #include "f3d_render_octree.h"

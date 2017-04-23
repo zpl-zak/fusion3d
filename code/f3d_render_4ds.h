@@ -79,9 +79,9 @@ Model4DSLoadInternal(LPVOID Param)
             render_4ds_material Material_ = {};
             *Material = Material_;
             
-            Material->Material.Ambient = {.12,.12,.12};
+            Material->Material.Ambient = {1.,1.,1.};
             
-            Material->Material.Diffuse = {0.5,.5,.5};
+            Material->Material.Diffuse = {1.,1.,1.};
             
             if(HMaterial->DiffuseMapNameLength)
             {

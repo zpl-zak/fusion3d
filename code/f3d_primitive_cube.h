@@ -2,7 +2,7 @@
 
 #if !defined(F3D_PRIMITIVE_CUBE_H)
 
-global_variable GLuint GlobalPrimitiveCubeBuffers[VBO_Count] = {0};
+global_variable render_mesh *GlobalCube = 0;
 
 global_variable real32 GlobalCubePositions[] =
 {
@@ -67,82 +67,30 @@ global_variable u16 GlobalCubeElements[] =
 internal void
 PrimitiveCubeBuild(void)
 {
-    glGenBuffers(1, &GlobalPrimitiveCubeBuffers[VBO_Position]);
-    glBindBuffer(GL_ARRAY_BUFFER, GlobalPrimitiveCubeBuffers[VBO_Position]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GlobalCubePositions), GlobalCubePositions, GL_STATIC_DRAW);
+    GlobalCube = MeshRegister("_Default_Cube");
 
-    glGenBuffers(1, &GlobalPrimitiveCubeBuffers[VBO_UV]);
-    glBindBuffer(GL_ARRAY_BUFFER, GlobalPrimitiveCubeBuffers[VBO_UV]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GlobalCubeTexCoords), GlobalCubeTexCoords, GL_STATIC_DRAW);
-
-    // NOTE(ZaKlaus): Generate normals
-    for(u32 Idx = 0;
-        Idx < sizeof(GlobalCubeElements);
-        Idx += 3)
-    {
-        u16 i0 = GlobalCubeElements[Idx];
-        u16 i1 = GlobalCubeElements[Idx+1];
-        u16 i2 = GlobalCubeElements[Idx+2];
-        
-        glm::vec3 v1 = 
-            glm::vec3(GlobalCubePositions[i1],
-                      GlobalCubePositions[i1+1],
-                      GlobalCubePositions[i1+2]) -
-            glm::vec3(GlobalCubePositions[i0],
-                      GlobalCubePositions[i0+1],
-                      GlobalCubePositions[i0+2]);
-        
-        glm::vec3 v2 = 
-            glm::vec3(GlobalCubePositions[i2],
-                      GlobalCubePositions[i2+1],
-                      GlobalCubePositions[i2+2]) -
-            glm::vec3(GlobalCubePositions[i0],
-                      GlobalCubePositions[i0+1],
-                      GlobalCubePositions[i0+2]);
-        
-        glm::vec3 normal = glm::normalize(glm::cross(v1, v2));
-        
-        // i0
-        {
-            GlobalCubeNormals[i0] = normal.x;
-            GlobalCubeNormals[i0+1] = normal.y;
-            GlobalCubeNormals[i0+2] = normal.z;
-        }
-        
-        // i1
-        {
-            GlobalCubeNormals[i1] = normal.x;
-            GlobalCubeNormals[i1+1] = normal.y;
-            GlobalCubeNormals[i1+2] = normal.z;
-        }
-        
-        // i2
-        {
-            GlobalCubeNormals[i2] = normal.x;
-            GlobalCubeNormals[i2+1] = normal.y;
-            GlobalCubeNormals[i2+2] = normal.z;
-        }
-    }
+    GlobalCube->Vertices.PositionsSize = sizeof(GlobalCubePositions);
+    GlobalCube->Vertices.Positions = GlobalCubePositions;
     
-    glGenBuffers(1, &GlobalPrimitiveCubeBuffers[VBO_Normal]);
-    glBindBuffer(GL_ARRAY_BUFFER, GlobalPrimitiveCubeBuffers[VBO_Normal]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GlobalCubeNormals), GlobalCubeNormals, GL_STATIC_DRAW);
+    GlobalCube->Vertices.NormalsSize = sizeof(GlobalCubeNormals);
+    GlobalCube->Vertices.Normals = GlobalCubeNormals;
     
-    glGenBuffers(1, &GlobalPrimitiveCubeBuffers[3]);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, GlobalPrimitiveCubeBuffers[3]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GlobalCubeElements), GlobalCubeElements, GL_STATIC_DRAW);
+    GlobalCube->Vertices.TexCoordsSize = sizeof(GlobalCubeTexCoords);
+    GlobalCube->Vertices.TexCoords = GlobalCubeTexCoords;
     
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    GlobalCube->ElementsSize = sizeof(GlobalCubeElements);
+    GlobalCube->Elements = GlobalCubeElements;
+    
+    MeshBuild(GlobalCube);
 }
 
 internal void
-PrimitiveCubeRender(render_material *Mat,
+PrimitiveCubeDraw(render_material *Mat,
                     GLuint Program,
                     glm::mat4 Transform,
                     s32 RenderType)
 {
-    if(!GlobalPrimitiveCubeBuffers[VBO_Position])
+    if(!GlobalCube)
     {
         PrimitiveCubeBuild();
     }
@@ -157,47 +105,7 @@ PrimitiveCubeRender(render_material *Mat,
             
             RenderApplyMaterial(Mat, Program);
             
-            for(s32 Idx = 0;
-                Idx < VBO_Count;
-                ++Idx)
-            {
-                glEnableVertexAttribArray(Idx);
-            }
-            
-            glBindBuffer(GL_ARRAY_BUFFER, GlobalPrimitiveCubeBuffers[VBO_Position]);
-            glVertexAttribPointer(
-                0,
-                3,
-                GL_FLOAT,
-                GL_FALSE,
-                0, (void *)0);
-            
-            glBindBuffer(GL_ARRAY_BUFFER, GlobalPrimitiveCubeBuffers[VBO_Normal]);
-            glVertexAttribPointer(
-                1,
-                3,
-                GL_FLOAT,
-                GL_FALSE,
-                0, (void *)0);
-            
-            glBindBuffer(GL_ARRAY_BUFFER, GlobalPrimitiveCubeBuffers[VBO_UV]);
-            glVertexAttribPointer(
-                2,
-                2,
-                GL_FLOAT,
-                GL_FALSE,
-                0, (void *)0);
-            
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, GlobalPrimitiveCubeBuffers[3]);
-            
-            glDrawElements(GL_QUADS, sizeof(GlobalCubeElements), GL_UNSIGNED_SHORT, (void *)0);
-            
-            for(s32 Idx = 0;
-                Idx < VBO_Count;
-                ++Idx)
-            {
-                glDisableVertexAttribArray(Idx);
-            }
+            MeshDraw(GlobalCube);
         }break;
     }
 }

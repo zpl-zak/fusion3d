@@ -207,7 +207,7 @@ int CALLBACK
    render_4ds *BalikSena = 0;
    render_4ds *Mesto = 0;
    
-#if 1
+#if 0
    scene *CityScene = SceneRegister("city", "freeride");
    SceneLoad(CityScene);
    
@@ -241,7 +241,7 @@ int CALLBACK
    
    render_light_dir Sun = {};
    Sun.Ambient = {0.34, 0.43, .54};
-   Sun.Diffuse = {0.98,0.76,0.23};//{.1,.1,.1};
+   Sun.Diffuse = {1.,.97,.98};//{0.98,0.76,0.23};//{.1,.1,.1};
    Sun.Dir = {-.12,-1.,-.3};
    
    camera MainCamera;
@@ -266,7 +266,12 @@ int CALLBACK
    
    r64 LastStatsTime = 0;
    
-   MainCamera.AmbColor = {158.f/255.f, 186.f/255.f, 211.f/255.f};
+   MainCamera.AmbColor = {212.f/255.f, 232.f/255.f, 211.f/255.f};
+   
+   render_material CubeTest = {};
+   CubeTest.Diffuse = {0.2f, 1.2f, 0.34f};
+   CubeTest.Ambient = {0.2f, 1.2f, 0.34f};
+   CubeTest.DoubleSided = 1;
    
    while(Running) 
    {             
@@ -310,7 +315,7 @@ int CALLBACK
                
                RenderApplyLightPoint(0, &CameraLight, AmbientProgram);
                
-               #if 1
+               #if 0
                offset = sinf((r32)NewTime);
                glm::vec3 BalikPos = glm::vec3(0, 0, 0);
                    
@@ -326,6 +331,31 @@ int CALLBACK
                RenderSingleDraw(0, F3D_SINGLE_MAX, AmbientProgram, ModelRenderType_Normal);
                #endif
                //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, 1);
+               
+               // NOTE(ZaKlaus): Small cube test.
+               {
+                   constexpr s32 CUBE_SIZE = 4;
+                   constexpr s32 CUBE_MULT = 4;
+                   
+                   for(int i = -CUBE_SIZE; i <= CUBE_SIZE; i++)
+                   {
+                       for(int j = -CUBE_SIZE; j <= CUBE_SIZE; j++)
+                       {
+                           for(int k = -CUBE_SIZE; k <= CUBE_SIZE; k++)
+                           {
+                               if(i == -CUBE_SIZE || i == CUBE_SIZE ||
+                                  j == -CUBE_SIZE || j == CUBE_SIZE ||
+                                  k == -CUBE_SIZE || k == CUBE_SIZE)
+                               {
+                                   render_transform TransformOrig = RenderTransform();
+                                   TransformOrig.Pos = glm::vec3(i*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
+                                   glm::mat4 Mat = RenderTransformMatrix(TransformOrig);
+                                   PrimitiveCubeDraw(&CubeTest, AmbientProgram, Mat, ModelRenderType_Normal);
+                               }
+                           }
+                       }
+                   }
+               }
            }
            SwapBuffers(GlobalDeviceContext);
            

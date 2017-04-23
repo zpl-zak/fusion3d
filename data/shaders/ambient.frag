@@ -66,8 +66,8 @@ vec3 CalcPointLight(in PointLight light, in vec3 normal, in vec3 frag, in vec2 u
   float atten = 1.0f / (light.constant + light.linear * dist + light.quadratic * (dist * dist));
 
   vec3 tex = vec3(texture(material.difftex, uv));
-  vec3 ambient = light.ambient * tex;
-  vec3 diffuse = light.diffuse * diff * tex;
+  vec3 ambient = light.ambient * tex * material.ambient;
+  vec3 diffuse = light.diffuse * diff * tex * material.diffuse;
 
   ambient *= atten;
   diffuse *= atten;
