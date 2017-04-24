@@ -65,8 +65,8 @@ RenderSingleCull(s32 StartIdx, s32 NumIndices)
             const glm::mat4 M = N->TransformMatrix;
             const glm::mat4 LM = N->LocalTransformMatrix;
             
-            tbbox.Min = M * LM * tbbox.Min;
-            tbbox.Max = M * LM * tbbox.Max;
+            tbbox.Min = M * tbbox.Min;
+            tbbox.Max = M * tbbox.Max;
             N->Visible = FrustumCheckAABB(tbbox);
         }
         else if(N->Loaded)
@@ -126,9 +126,9 @@ DEBUGRenderSingleViz(aabb BBox, GLuint Program, glm::mat4 TransformMatrix, glm::
         
         glm::vec3 size = glm::vec3(max_x-min_x, max_y-min_y, max_z-min_z);
         glm::vec3 center = glm::vec3((min_x+max_x)/2.f, (min_y+max_y)/2.f, (min_z+max_z)/2.f);
-        glm::mat4 transform = glm::scale(TransformMatrix, size);
+        glm::mat4 transform = glm::scale(glm::translate(TransformMatrix*LocalTransformMatrix, center), size);
         
-        transform = LocalTransformMatrix * transform;
+//        transform = transform * LocalTransformMatrix;
         
         /* Apply object's transformation matrix */
         glm::mat4 m = transform;
@@ -172,7 +172,7 @@ RenderSingleDraw(s32 StartIdx, s32 NumIndices, GLuint Program, s32 RenderType)
         
         if(N->Loaded && N->Visible)
         {
-        Model4DSRender(N->Render, Program, N->TransformMatrix, RenderType, N->CheckFrustum); 
+            Model4DSRender(N->Render, Program, N->TransformMatrix, RenderType, N->CheckFrustum); 
             //DEBUGRenderSingleViz(N->Render->BBox, Program, N->TransformMatrix, N->LocalTransformMatrix);
         }
     }

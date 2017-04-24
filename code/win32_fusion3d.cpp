@@ -207,7 +207,7 @@ int CALLBACK
    render_4ds *BalikSena = 0;
    render_4ds *Mesto = 0;
    
-#if 0
+#if 1
    scene *CityScene = SceneRegister("city", "freeride");
    SceneLoad(CityScene);
    
@@ -240,8 +240,8 @@ int CALLBACK
 #endif   
    
    render_light_dir Sun = {};
-   Sun.Ambient = {0.34, 0.43, .54};
-   Sun.Diffuse = {1.,.97,.98};//{0.98,0.76,0.23};//{.1,.1,.1};
+   Sun.Ambient = {0.};
+   Sun.Diffuse = {188/255.f, 152/255.f, 45/255.f};//{0.98,0.76,0.23};//{.1,.1,.1};
    Sun.Dir = {-.12,-1.,-.3};
    
    camera MainCamera;
@@ -315,7 +315,7 @@ int CALLBACK
                
                RenderApplyLightPoint(0, &CameraLight, AmbientProgram);
                
-               #if 0
+               #if 1
                offset = sinf((r32)NewTime);
                glm::vec3 BalikPos = glm::vec3(0, 0, 0);
                    
@@ -326,7 +326,7 @@ int CALLBACK
                    
                Model4DSRender(Mesto, AmbientProgram, TransformMatrix, ModelRenderType_Normal, 0);
                               
-               RenderSingleCull(0, F3D_SINGLE_MAX);
+               //RenderSingleCull(0, F3D_SINGLE_MAX);
                
                RenderSingleDraw(0, F3D_SINGLE_MAX, AmbientProgram, ModelRenderType_Normal);
                #endif

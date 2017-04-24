@@ -81,7 +81,7 @@ PrimitiveCubeBuild(void)
     GlobalCube->ElementsSize = sizeof(GlobalCubeElements);
     GlobalCube->Elements = GlobalCubeElements;
     
-    MeshBuild(GlobalCube);
+    MeshBuild(GlobalCube, 1);
 }
 
 internal void

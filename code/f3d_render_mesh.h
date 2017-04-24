@@ -66,7 +66,7 @@ MeshRegister(char *Name)
 }
 
 internal void
-MeshBuild(render_mesh *Mesh)
+MeshBuild(render_mesh *Mesh, b32 GenerateNormals)
 {
     glGenBuffers(1, &Mesh->ArrayBuffers[VBO_Position]);
     glBindBuffer(GL_ARRAY_BUFFER, Mesh->ArrayBuffers[VBO_Position]);
@@ -77,51 +77,55 @@ MeshBuild(render_mesh *Mesh)
     glBufferData(GL_ARRAY_BUFFER, Mesh->Vertices.TexCoordsSize, Mesh->Vertices.TexCoords, GL_STATIC_DRAW);
 
     // NOTE(ZaKlaus): Generate normals
-    for(u32 Idx = 0;
-        Idx < Mesh->ElementsSize;
-        Idx += 3)
+    
+    if(GenerateNormals)
     {
-        u16 i0 = Mesh->Elements[Idx];
-        u16 i1 = Mesh->Elements[Idx+1];
-        u16 i2 = Mesh->Elements[Idx+2];
-        
-        glm::vec3 v1 = 
-            glm::vec3(Mesh->Vertices.Positions[i1],
-                      Mesh->Vertices.Positions[i1+1],
-                      Mesh->Vertices.Positions[i1+2]) -
-            glm::vec3(Mesh->Vertices.Positions[i0],
-                      Mesh->Vertices.Positions[i0+1],
-                      Mesh->Vertices.Positions[i0+2]);
-        
-        glm::vec3 v2 = 
-            glm::vec3(Mesh->Vertices.Positions[i2],
-                      Mesh->Vertices.Positions[i2+1],
-                      Mesh->Vertices.Positions[i2+2]) -
-            glm::vec3(Mesh->Vertices.Positions[i0],
-                      Mesh->Vertices.Positions[i0+1],
-                      Mesh->Vertices.Positions[i0+2]);
-        
-        glm::vec3 normal = glm::normalize(glm::cross(v1, v2));
-        
-        // i0
+        for(u32 Idx = 0;
+            Idx < Mesh->ElementsSize;
+            Idx += 3)
         {
-            Mesh->Vertices.Normals[i0] = normal.x;
-            Mesh->Vertices.Normals[i0+1] = normal.y;
-            Mesh->Vertices.Normals[i0+2] = normal.z;
-        }
-        
-        // i1
-        {
-            Mesh->Vertices.Normals[i1] = normal.x;
-            Mesh->Vertices.Normals[i1+1] = normal.y;
-            Mesh->Vertices.Normals[i1+2] = normal.z;
-        }
-        
-        // i2
-        {
-            Mesh->Vertices.Normals[i2] = normal.x;
-            Mesh->Vertices.Normals[i2+1] = normal.y;
-            Mesh->Vertices.Normals[i2+2] = normal.z;
+            u16 i0 = Mesh->Elements[Idx];
+            u16 i1 = Mesh->Elements[Idx+1];
+            u16 i2 = Mesh->Elements[Idx+2];
+            
+            glm::vec3 v1 = 
+                glm::vec3(Mesh->Vertices.Positions[i1],
+                          Mesh->Vertices.Positions[i1+1],
+                          Mesh->Vertices.Positions[i1+2]) -
+                glm::vec3(Mesh->Vertices.Positions[i0],
+                          Mesh->Vertices.Positions[i0+1],
+                          Mesh->Vertices.Positions[i0+2]);
+            
+            glm::vec3 v2 = 
+                glm::vec3(Mesh->Vertices.Positions[i2],
+                          Mesh->Vertices.Positions[i2+1],
+                          Mesh->Vertices.Positions[i2+2]) -
+                glm::vec3(Mesh->Vertices.Positions[i0],
+                          Mesh->Vertices.Positions[i0+1],
+                          Mesh->Vertices.Positions[i0+2]);
+            
+            glm::vec3 normal = glm::normalize(glm::cross(v1, v2));
+            
+            // i0
+            {
+                Mesh->Vertices.Normals[i0] = normal.x;
+                Mesh->Vertices.Normals[i0+1] = normal.y;
+                Mesh->Vertices.Normals[i0+2] = normal.z;
+            }
+            
+            // i1
+            {
+                Mesh->Vertices.Normals[i1] = normal.x;
+                Mesh->Vertices.Normals[i1+1] = normal.y;
+                Mesh->Vertices.Normals[i1+2] = normal.z;
+            }
+            
+            // i2
+            {
+                Mesh->Vertices.Normals[i2] = normal.x;
+                Mesh->Vertices.Normals[i2+1] = normal.y;
+                Mesh->Vertices.Normals[i2+2] = normal.z;
+            }
         }
     }
     
