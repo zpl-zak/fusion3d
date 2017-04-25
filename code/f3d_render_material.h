@@ -10,6 +10,7 @@ typedef struct
     render_texture *DiffTexture;
     b32 ColorKey;
     b32 DoubleSided;
+    b32 Fullbright;
 } render_material;
 
 global_variable render_texture *GlobalDefaultTexture = 0;
@@ -26,6 +27,7 @@ RenderApplyMaterial(render_material *Mat, GLuint Program)
         local_persist GLuint DiffTex = glGetUniformLocation(Program, "material.difftex");
         local_persist GLuint ColLoc = glGetUniformLocation(Program, "material.colorkey");
         local_persist GLuint OpLoc  = glGetUniformLocation(Program, "material.opacity");
+        local_persist GLuint FbLoc  = glGetUniformLocation(Program, "material.fullbright");
         
         local_persist b32 CallOnce = 0;
         
@@ -55,6 +57,7 @@ RenderApplyMaterial(render_material *Mat, GLuint Program)
             glUniform1i(DiffTex, 0);
             glUniform1f(OpLoc, Mat->Opacity);
             glUniform1i(ColLoc, Mat->ColorKey);
+            glUniform1i(FbLoc, Mat->Fullbright);
             
             goto material_done;
         }

@@ -13,6 +13,9 @@ global_variable b32 GlobalKeyPress[0xFE] = {0};
 global_variable s32 GlobalMouseX = 0;
 global_variable s32 GlobalMouseY = 0;
 
+void MeshReleaseAll();
+void TextureReleaseAll();
+
 extern b32 Running;
 
 LRESULT
@@ -78,9 +81,11 @@ WindowInitialize(HINSTANCE Instance)
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
     glEnable(GL_CULL_FACE);
-    glCullFace(GL_FRONT);
+    glCullFace(GL_BACK);
     glEnable(GL_ALPHA_TEST);
     glAlphaFunc(GL_GREATER, 0);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     wglSwapIntervalEXT(0);
 }
@@ -134,6 +139,10 @@ MainWindowUpdate(void)
 internal void
 WindowShutdown(void)
 {
+    MeshReleaseAll();
+    TextureReleaseAll();
+    Win32ReleaseOpenGL();
+    
     ReleaseDC(GlobalWindow, GlobalDeviceContext);
 }
 

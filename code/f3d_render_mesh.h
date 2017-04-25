@@ -2,7 +2,7 @@
 
 #if !defined(F3D_RENDER_MESH_H)
 
-#define F3D_MESH_MAX 128*1024
+#define F3D_MESH_MAX 128
 
 typedef struct
 {
@@ -61,8 +61,27 @@ MeshRegister(char *Name)
     *Mesh = Mesh_;
     
     Mesh->Used = 1;
+    Mesh->Name = (char *)PlatformMemAlloc(strlen(Name)+1);
+    Copy(strlen(Name)+1, Name, Mesh->Name);
     
     return(Mesh);
+}
+
+internal void
+MeshReleaseAll(void)
+{
+    for(s32 Idx=0;
+        Idx < F3D_MESH_MAX;
+        ++Idx)
+    {
+        render_mesh *Mesh = GlobalMeshes + Idx;
+     
+        if(Mesh->Used)
+        {
+            glDeleteBuffers(1, &Mesh->ElemBuffer);
+            glDeleteBuffers(VBO_Count, Mesh->ArrayBuffers);
+        }
+    }
 }
 
 internal void
@@ -76,12 +95,10 @@ MeshBuild(render_mesh *Mesh, b32 GenerateNormals)
     glBindBuffer(GL_ARRAY_BUFFER, Mesh->ArrayBuffers[VBO_UV]);
     glBufferData(GL_ARRAY_BUFFER, Mesh->Vertices.TexCoordsSize, Mesh->Vertices.TexCoords, GL_STATIC_DRAW);
 
-    // NOTE(ZaKlaus): Generate normals
-    
     if(GenerateNormals)
     {
         for(u32 Idx = 0;
-            Idx < Mesh->ElementsSize;
+            Idx < Mesh->ElementsSize/sizeof(u16);
             Idx += 3)
         {
             u16 i0 = Mesh->Elements[Idx];
@@ -108,26 +125,28 @@ MeshBuild(render_mesh *Mesh, b32 GenerateNormals)
             
             // i0
             {
-                Mesh->Vertices.Normals[i0] = normal.x;
-                Mesh->Vertices.Normals[i0+1] = normal.y;
-                Mesh->Vertices.Normals[i0+2] = normal.z;
+                Mesh->Vertices.Normals[i0+0] += normal.x;
+                Mesh->Vertices.Normals[i0+1] += normal.y;
+                Mesh->Vertices.Normals[i0+2] += normal.z;
             }
             
             // i1
             {
-                Mesh->Vertices.Normals[i1] = normal.x;
-                Mesh->Vertices.Normals[i1+1] = normal.y;
-                Mesh->Vertices.Normals[i1+2] = normal.z;
+                Mesh->Vertices.Normals[i1+0] += normal.x;
+                Mesh->Vertices.Normals[i1+1] += normal.y;
+                Mesh->Vertices.Normals[i1+2] += normal.z;
             }
             
             // i2
             {
-                Mesh->Vertices.Normals[i2] = normal.x;
-                Mesh->Vertices.Normals[i2+1] = normal.y;
-                Mesh->Vertices.Normals[i2+2] = normal.z;
+                Mesh->Vertices.Normals[i2+0] += normal.x;
+                Mesh->Vertices.Normals[i2+1] += normal.y;
+                Mesh->Vertices.Normals[i2+2] += normal.z;
             }
+            //TRAP();
         }
     }
+    //TRAP();
     
     glGenBuffers(1, &Mesh->ArrayBuffers[VBO_Normal]);
     glBindBuffer(GL_ARRAY_BUFFER, Mesh->ArrayBuffers[VBO_Normal]);
@@ -177,7 +196,7 @@ MeshDraw(render_mesh *Mesh)
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Mesh->ElemBuffer);
     
-    glDrawElements(GL_QUADS, Mesh->ElementsSize, GL_UNSIGNED_SHORT, (void *)0);
+    glDrawElements(GL_TRIANGLES, Mesh->ElementsSize/sizeof(u16), GL_UNSIGNED_SHORT, (void *)0);
     
     for(s32 Idx = 0;
         Idx < VBO_Count;

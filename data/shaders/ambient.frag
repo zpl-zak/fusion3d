@@ -14,6 +14,7 @@ struct Material
   vec3 diffuse;
   sampler2D difftex;
   int colorkey;
+  int fullbright;
   float opacity;
 };
 
@@ -79,12 +80,17 @@ void main() {
   vec2 uv = uv0;
 
   vec3 n = normalize(normal0);
-  vec3 res = CalcDirLight(light, n, uv);
+  vec3 res = material.diffuse;
 
-  for(int i = 0; i < POINT_LIGHT_COUNT; i++)
+  if(material.fullbright == 0)
   {
-    if(pointLight[i].diffuse.xyz != vec3(0,0,0))
-      res += CalcPointLight(pointLight[i], n, frag0, uv);
+    res = CalcDirLight(light, n, uv);
+
+    for(int i = 0; i < POINT_LIGHT_COUNT; i++)
+    {
+      if(pointLight[i].diffuse.xyz != vec3(0,0,0))
+        res += CalcPointLight(pointLight[i], n, frag0, uv);
+    }
   }
 
   float alpha = 1.0;

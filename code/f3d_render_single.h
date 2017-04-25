@@ -44,9 +44,83 @@ RenderSingleAdd(render_4ds *Render, render_transform Transform, b32 CheckFrustum
     Node->CheckFrustum = CheckFrustum;
     Node->Loaded = 1;
     Node->BBox = Render->BBox;
+#if 0
+    
+    {
+        for(s32 Idx = 0;
+            Idx < Render->MeshCount;
+            ++Idx)
+        {
+            render_4ds_mesh *Mesh = Render->Meshes + Idx;
+            for(s32 Idx2 = 0;
+                Idx2 < Mesh->LODLevel;
+                ++Idx2)
+            {
+                //Render->BBoxSet = 1;
+                render_4ds_lod *LOD = Mesh->LODs + Idx2;
+                
+                aabb BBox = {};
+                
+                glm::vec4 Min, Max;
+                Min.w = Max.w = 1;
+                for(u16 PosIdx = 0;
+                    PosIdx < LOD->VertexCount;
+                    ++PosIdx)
+                {
+                    if(HLOD->Vertices[PosIdx].Pos.X < Min.x)
+                    {
+                        Min.x = Node->Render->Meshes[0].LODs[0].Positions.x
+                    }
+                    
+                    if(HLOD->Vertices[PosIdx].Pos.Y < Min.y)
+                    {
+                        Min.y = HLOD->Vertices[PosIdx].Pos.Y;
+                    }
+                    
+                    if(HLOD->Vertices[PosIdx].Pos.Z < Min.z)
+                    {
+                        Min.z = HLOD->Vertices[PosIdx].Pos.Z;
+                    }
+                    
+                    if(HLOD->Vertices[PosIdx].Pos.X > Max.x)
+                    {
+                        Max.x = HLOD->Vertices[PosIdx].Pos.X;
+                    }
+                    
+                    if(HLOD->Vertices[PosIdx].Pos.Y > Max.y)
+                    {
+                        Max.y = HLOD->Vertices[PosIdx].Pos.Y;
+                    }
+                    
+                    if(HLOD->Vertices[PosIdx].Pos.Z > Max.z)
+                    {
+                        Max.z = HLOD->Vertices[PosIdx].Pos.Z;
+                    }
+                }
+                
+                BBox.Min = Min;
+                BBox.Max = Max;
+                
+                /*if((Render->BBox.Min.x > BBox.Min.x ||
+                    Render->BBox.Min.y > BBox.Min.y ||
+                    Render->BBox.Min.z > BBox.Min.z))*/
+                {
+                    Render->BBox.Min = BBox.Min;
+                }
+                
+                /*if(Render->BBox.Max.x < BBox.Max.x ||
+                   Render->BBox.Max.y < BBox.Max.y ||
+                   Render->BBox.Max.z < BBox.Max.z)*/
+                {
+                    Render->BBox.Max = BBox.Max;
+                }
+            }
+        }
+    }
+    #endif
     
     render_transform_result Tr = Model4DSGetTransform(Render->Meshes, Render);
-        
+    
     Node->LocalTransformMatrix = Tr.Transform;
 }
 
@@ -65,8 +139,8 @@ RenderSingleCull(s32 StartIdx, s32 NumIndices)
             const glm::mat4 M = N->TransformMatrix;
             const glm::mat4 LM = N->LocalTransformMatrix;
             
-            tbbox.Min = M * tbbox.Min;
-            tbbox.Max = M * tbbox.Max;
+            tbbox.Min = LM * M * tbbox.Min;
+            tbbox.Max = LM * M * tbbox.Max;
             N->Visible = FrustumCheckAABB(tbbox);
         }
         else if(N->Loaded)

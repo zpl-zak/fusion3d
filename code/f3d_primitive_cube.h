@@ -6,62 +6,69 @@ global_variable render_mesh *GlobalCube = 0;
 
 global_variable real32 GlobalCubePositions[] =
 {
-    -1.f, -1.f,-1.f,
-    1.f, -1.f, -1.f,
-    1.f, 1.f,  -1.f,
-    -1.f, 1.f, -1.f,
-    
-    -1.f, -1.f, 1.f,
-    1.f, -1.f,  1.f,
-    1.f, 1.f,   1.f,
-    -1.f, 1.f,  1.f
+    // front
+    -1.0, -1.0,  1.0,
+     1.0, -1.0,  1.0,
+     1.0,  1.0,  1.0,
+    -1.0,  1.0,  1.0,
+    // top
+    -1.0,  1.0,  1.0,
+     1.0,  1.0,  1.0,
+     1.0,  1.0, -1.0,
+    -1.0,  1.0, -1.0,
+    // back
+     1.0, -1.0, -1.0,
+    -1.0, -1.0, -1.0,
+    -1.0,  1.0, -1.0,
+     1.0,  1.0, -1.0,
+    // bottom
+    -1.0, -1.0, -1.0,
+     1.0, -1.0, -1.0,
+     1.0, -1.0,  1.0,
+    -1.0, -1.0,  1.0,
+    // left
+    -1.0, -1.0, -1.0,
+    -1.0, -1.0,  1.0,
+    -1.0,  1.0,  1.0,
+    -1.0,  1.0, -1.0,
+    // right
+     1.0, -1.0,  1.0,
+     1.0, -1.0, -1.0,
+     1.0,  1.0, -1.0,
+     1.0,  1.0,  1.0,
 };
 
-global_variable real32 GlobalCubeTexCoords[] =
+global_variable real32 GlobalCubeTexCoords[2*4*6] =
 {
-    1.f, 0.f,
-    0.f, 1.f,
-    0.f, 0.f,
-    1.f, 0.f,
-    0.f, 1.f,
-    0.f, 0.f,
-    1.f, 0.f,
-    0.f, 1.f,
-    0.f, 0.f,
-    1.f, 0.f,
-    0.f, 1.f,
-    0.f, 0.f,
-    1.f, 0.f,
-    0.f, 1.f,
-    0.f, 0.f,
-    1.f, 1.f,
-    1.f, 1.f,
-    1.f, 1.f,
-    1.f, 1.f,
-    1.f, 1.f
+    // front
+    0.0, 0.0,
+    1.0, 0.0,
+    1.0, 1.0,
+    0.0, 1.0,
 };
 
-global_variable real32 GlobalCubeNormals[sizeof(GlobalCubePositions)];
+global_variable real32 GlobalCubeNormals[sizeof(GlobalCubePositions)] = {0};
 
 global_variable u16 GlobalCubeElements[] =
 {
-    // back
-    0, 1, 2, 3,
-    
     // front
-    4, 5, 6, 7,
-    
-    // right
-    0, 4, 7, 3,
-    
-    // left
-    1, 5, 6, 2,
-    
+    0,  1,  2,
+    2,  3,  0,
     // top
-    2, 6, 7, 3,
-    
+    4,  5,  6,
+    6,  7,  4,
+    // back
+    8,  9, 10,
+    10, 11,  8,
     // bottom
-    0, 4, 5, 1
+    12, 13, 14,
+    14, 15, 12,
+    // left
+    16, 17, 18,
+    18, 19, 16,
+    // right
+    20, 21, 22,
+    22, 23, 20,
 };
 
 internal void
@@ -72,8 +79,15 @@ PrimitiveCubeBuild(void)
     GlobalCube->Vertices.PositionsSize = sizeof(GlobalCubePositions);
     GlobalCube->Vertices.Positions = GlobalCubePositions;
     
-    GlobalCube->Vertices.NormalsSize = sizeof(GlobalCubeNormals);
+    GlobalCube->Vertices.NormalsSize = sizeof(GlobalCubePositions);
     GlobalCube->Vertices.Normals = GlobalCubeNormals;
+    
+    for(s32 Idx = 1;
+        Idx < 6;
+        ++Idx)
+    {
+        Copy(2*4*sizeof(real32), &GlobalCubeTexCoords[0], &GlobalCubeTexCoords[Idx*4*2]);
+    }
     
     GlobalCube->Vertices.TexCoordsSize = sizeof(GlobalCubeTexCoords);
     GlobalCube->Vertices.TexCoords = GlobalCubeTexCoords;
@@ -81,14 +95,16 @@ PrimitiveCubeBuild(void)
     GlobalCube->ElementsSize = sizeof(GlobalCubeElements);
     GlobalCube->Elements = GlobalCubeElements;
     
+    //TRAP();
+    
     MeshBuild(GlobalCube, 1);
 }
 
 internal void
 PrimitiveCubeDraw(render_material *Mat,
-                    GLuint Program,
-                    glm::mat4 Transform,
-                    s32 RenderType)
+                  GLuint Program,
+                  glm::mat4 Transform,
+                  s32 RenderType)
 {
     if(!GlobalCube)
     {

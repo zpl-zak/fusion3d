@@ -51,6 +51,22 @@
      return(Texture);
  }
  
+ internal void
+     TextureReleaseAll(void)
+ {
+     for(s32 Idx=0;
+         Idx < F3D_TEXTURE_MAX;
+         ++Idx)
+     {
+         render_texture *Texture = GlobalTextures + Idx;
+         
+         if(Texture->TextureObject)
+         {
+             glDeleteTextures(1, &Texture->TextureObject);
+         }
+     }
+ }
+ 
  // NOTE(ZaKlaus): Call this after you bind the texture!!!
  internal void
      TextureModify(s32 Filtering = GL_LINEAR)

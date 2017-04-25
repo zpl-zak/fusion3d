@@ -29,6 +29,20 @@ ShaderProgramInit(void)
     return(Result);
 }
 
+internal void 
+ShaderProgramReleaseAll(void)
+{
+    for(s32 Idx = 0;
+        Idx < F3D_SHADER_MAX;
+        ++Idx)
+    {
+        if(GlobalShaderPrograms[Idx])
+        {
+            glDeleteProgram(GlobalShaderPrograms[Idx]);
+        }
+    }
+}
+
 internal b32
 ShaderPrintLog(GLuint Object)
 {

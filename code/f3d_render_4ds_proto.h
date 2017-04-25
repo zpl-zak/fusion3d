@@ -15,6 +15,7 @@ typedef struct
     u16 VertexCount;
     
     GLuint Buffers[VBO_Count];
+    v3 *Positions;
     
     u8 FaceGroupCount;
     render_4ds_facegroup *FaceGroups;

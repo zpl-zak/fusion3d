@@ -6,6 +6,8 @@
 
 global_variable b32 Running = 1;
 
+#define CITY_STUFF 0
+
 // NOTE(ZaKlaus): This is an example on how to manipulate our player's camera.
 // to provide a simple free fly mechanism.
 void DEBUGHandleInput(camera *Camera, r32 DeltaTime)
@@ -207,7 +209,7 @@ int CALLBACK
    render_4ds *BalikSena = 0;
    render_4ds *Mesto = 0;
    
-#if 1
+#if CITY_STUFF
    scene *CityScene = SceneRegister("city", "freeride");
    SceneLoad(CityScene);
    
@@ -239,10 +241,12 @@ int CALLBACK
    Model4DSLoad(Mesto);
 #endif   
    
+   r32 changex = 1.f;
+   
    render_light_dir Sun = {};
    Sun.Ambient = {0.};
    Sun.Diffuse = {188/255.f, 152/255.f, 45/255.f};//{0.98,0.76,0.23};//{.1,.1,.1};
-   Sun.Dir = {-.12,-1.,-.3};
+   Sun.Dir = {-.12+changex,-1.,-.3};
    
    camera MainCamera;
    MainCamera.Position.x = 0;
@@ -271,7 +275,9 @@ int CALLBACK
    render_material CubeTest = {};
    CubeTest.Diffuse = {0.2f, 1.2f, 0.34f};
    CubeTest.Ambient = {0.2f, 1.2f, 0.34f};
-   CubeTest.DoubleSided = 1;
+   CubeTest.DoubleSided = 0;
+   CubeTest.Fullbright = 1;
+   CubeTest.Opacity = 0.8; // Udava priehladnost, dajme 20% viditelnost
    
    while(Running) 
    {             
@@ -315,7 +321,7 @@ int CALLBACK
                
                RenderApplyLightPoint(0, &CameraLight, AmbientProgram);
                
-               #if 1
+               #if CITY_STUFF
                offset = sinf((r32)NewTime);
                glm::vec3 BalikPos = glm::vec3(0, 0, 0);
                    
@@ -326,7 +332,7 @@ int CALLBACK
                    
                Model4DSRender(Mesto, AmbientProgram, TransformMatrix, ModelRenderType_Normal, 0);
                               
-               //RenderSingleCull(0, F3D_SINGLE_MAX);
+               RenderSingleCull(0, F3D_SINGLE_MAX);
                
                RenderSingleDraw(0, F3D_SINGLE_MAX, AmbientProgram, ModelRenderType_Normal);
                #endif
@@ -356,6 +362,9 @@ int CALLBACK
                        }
                    }
                }
+               
+               changex += sinf((r32)TimeGet())*30.f;
+               RenderApplyLightDirectional(&Sun, AmbientProgram);
            }
            SwapBuffers(GlobalDeviceContext);
            

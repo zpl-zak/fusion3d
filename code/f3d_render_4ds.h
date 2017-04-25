@@ -162,6 +162,8 @@ Model4DSLoadInternal(LPVOID Param)
                         Positions[PosIdx] = HLOD->Vertices[PosIdx].Pos;
                     }
                     
+                    LOD->Positions = Positions;
+                    
                     if(!Render->BBoxSet)
                     {
                         Render->BBoxSet = 1;
@@ -208,16 +210,16 @@ Model4DSLoadInternal(LPVOID Param)
                         BBox.Min = Min;
                         BBox.Max = Max;
                         
-                        /*if((Render->BBox.Min.x > BBox.Min.x ||
+                        if((Render->BBox.Min.x > BBox.Min.x ||
                             Render->BBox.Min.y > BBox.Min.y ||
-                            Render->BBox.Min.z > BBox.Min.z))*/
+                            Render->BBox.Min.z > BBox.Min.z))
                         {
                             Render->BBox.Min = BBox.Min;
                         }
                         
-                        /*if(Render->BBox.Max.x < BBox.Max.x ||
+                        if(Render->BBox.Max.x < BBox.Max.x ||
                            Render->BBox.Max.y < BBox.Max.y ||
-                           Render->BBox.Max.z < BBox.Max.z)*/
+                           Render->BBox.Max.z < BBox.Max.z)
                         {
                             Render->BBox.Max = BBox.Max;
                         }
@@ -227,7 +229,7 @@ Model4DSLoadInternal(LPVOID Param)
                     glBindBuffer(GL_ARRAY_BUFFER, LOD->Buffers[VBO_Position]);
                     glBufferData(GL_ARRAY_BUFFER, sizeof(v3)*LOD->VertexCount, Positions, GL_STATIC_DRAW);
                     
-                    PlatformMemFree(Positions);
+                    //PlatformMemFree(Positions);
                     
                     v3 *Normals = (v3 *)PlatformMemAlloc(sizeof(v3)*LOD->VertexCount);
                     
@@ -449,7 +451,9 @@ Model4DSRender(render_4ds *Render, GLuint Program, glm::mat4 Transform, s32 Rend
                     
                     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, LOD->FaceGroups[FgIdx].ElementBuffer);
                     
+                    glCullFace(GL_FRONT);
                     glDrawElements(GL_TRIANGLES, LOD->FaceGroups[FgIdx].FaceCount*3, GL_UNSIGNED_SHORT, (void *)0);
+                    glCullFace(GL_BACK);
                     
                     for(s32 Idx = 0;
                         Idx < VBO_Count;
