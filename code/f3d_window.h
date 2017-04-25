@@ -15,6 +15,7 @@ global_variable s32 GlobalMouseY = 0;
 
 void MeshReleaseAll();
 void TextureReleaseAll();
+void ShaderProgramReleaseAll();
 
 extern b32 Running;
 
@@ -141,6 +142,7 @@ WindowShutdown(void)
 {
     MeshReleaseAll();
     TextureReleaseAll();
+    ShaderProgramReleaseAll();
     Win32ReleaseOpenGL();
     
     ReleaseDC(GlobalWindow, GlobalDeviceContext);
