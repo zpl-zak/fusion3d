@@ -2,8 +2,6 @@
 
 #if !defined(F3D_RENDER_H)
 
-typedef void light_pass_func(GLuint program);
-
 enum
 {
     ModelRenderType_Normal,
@@ -28,11 +26,6 @@ typedef struct
 {
     glm::vec4 Min,Max;
 } aabb;
-
-typedef struct
-{
-    
-} render_pass;
 
 #include "f3d_frustum.h"
 
@@ -84,6 +77,15 @@ RenderCheckUniforms(GLuint Program)
     }
 }
 
+enum
+{
+    RenderPass_Depth,
+    RenderPass_Stencil,
+    RenderPass_Color,
+    RenderPass_PostProcess,
+    Num_Of_RenderPasses
+};
+
 #include "f3d_render_material.h"
 #include "f3d_render_mesh.h"
 #include "f3d_render_4ds_proto.h"
@@ -91,7 +93,102 @@ RenderCheckUniforms(GLuint Program)
 #include "f3d_render_octree.h"
 #include "f3d_render_single.h"
 
+internal void
+RenderAddQuery(u8 RenderPass, 
+               render_mesh* Mesh, 
+               render_material *Material, 
+               glm::mat4 RenderTransform,
+               GLuint Shader);
+
 #include "f3d_primitive_cube.h"
+
+typedef struct
+{
+    render_mesh *Mesh;
+    render_material *Material;
+    glm::mat4 RenderTransform;
+    GLuint Shader;
+} render_query;
+
+typedef struct
+{
+    render_query *Begin;
+    render_query *Ptr;
+    u32 Size;
+    u32 Used;
+} render_queue;
+
+global_variable render_queue GlobalRenderPool[Num_Of_RenderPasses] = {};
+
+internal void
+RenderAddQuery(u8 RenderPass, 
+               render_mesh* Mesh, 
+               render_material *Material, 
+               glm::mat4 RenderTransform,
+               GLuint Shader)
+{
+    Assert(RenderPass > -1 && RenderPass < Num_Of_RenderPasses);
+    render_queue *Queue = GlobalRenderPool + RenderPass;
+    
+    if(Queue->Size)
+    {
+        if((Queue->Size - Queue->Used) < 5)
+        {
+            Queue->Size += 10;
+            Queue->Begin = (render_query *)PlatformMemRealloc(Queue->Begin, sizeof(render_query)*Queue->Size);
+        }
+        
+        add_query:
+        
+        render_query *Query = &Queue->Begin[Queue->Used];
+        render_query Query_ = {};
+        *Query = Query_;
+        
+        Query->Mesh = Mesh;
+        Query->Material = Material;
+        Query->RenderTransform = RenderTransform;
+        Query->Shader = Shader;
+        
+        Queue->Used++;
+    }
+    else
+    {
+        Queue->Begin = (render_query *)PlatformMemAlloc(sizeof(render_query)*100);
+        Queue->Size = 100;
+        Queue->Used = 0;
+        
+        goto add_query;
+    }
+}
+
+internal void
+RenderDraw(u8 RenderPass)
+{
+    Assert(RenderPass > -1 && RenderPass < Num_Of_RenderPasses);
+    
+    render_queue *Queue = GlobalRenderPool + RenderPass;
+    
+    if(Queue)
+    {
+        for(u32 Idx = 0;
+            Idx < Queue->Used;
+            Idx++)
+        {
+            render_query *Query = &Queue->Begin[Idx];
+            
+            RenderCheckUniforms(Query->Shader);
+            
+            RenderApplyMaterial(Query->Material, Query->Shader);
+            
+            glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &Query->RenderTransform[0][0]);
+            
+            MeshDraw(Query->Mesh);
+        }
+        
+        Queue->Used = 0;
+        Queue->Ptr = Queue->Begin;
+    }
+}
 
 #define F3D_RENDER_H
 #endif

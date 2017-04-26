@@ -277,7 +277,7 @@ int CALLBACK
    CubeTest.Ambient = {0.2f, 1.2f, 0.34f};
    CubeTest.DoubleSided = 0;
    CubeTest.Fullbright = 1;
-   CubeTest.Opacity = 0.8; // Udava priehladnost, dajme 20% viditelnost
+   CubeTest.Opacity = 0.; // Udava priehladnost, dajme 20% viditelnost
    
    while(Running) 
    {             
@@ -356,12 +356,14 @@ int CALLBACK
                                    render_transform TransformOrig = RenderTransform();
                                    TransformOrig.Pos = glm::vec3(i*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
                                    glm::mat4 Mat = RenderTransformMatrix(TransformOrig);
-                                   PrimitiveCubeDraw(&CubeTest, AmbientProgram, Mat, ModelRenderType_Normal);
+                                   PrimitiveCubeDraw(&CubeTest, AmbientProgram, Mat);
                                }
                            }
                        }
                    }
                }
+               
+               RenderDraw(RenderPass_Color);
                
                changex += sinf((r32)TimeGet())*30.f;
                RenderApplyLightDirectional(&Sun, AmbientProgram);

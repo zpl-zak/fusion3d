@@ -103,27 +103,27 @@ PrimitiveCubeBuild(void)
 internal void
 PrimitiveCubeDraw(render_material *Mat,
                   GLuint Program,
-                  glm::mat4 Transform,
-                  s32 RenderType)
+                  glm::mat4 Transform)
 {
     if(!GlobalCube)
     {
         PrimitiveCubeBuild();
     }
     
+    
+    
+    /*
     RenderCheckUniforms(Program);
     
-    switch(RenderType)
-    {
-        case ModelRenderType_Normal:
-        {
-            glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &Transform[0][0]);
-            
-            RenderApplyMaterial(Mat, Program);
-            
-            MeshDraw(GlobalCube);
-        }break;
-    }
+    glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &Transform[0][0]);
+    
+    RenderApplyMaterial(Mat, Program);
+    
+    MeshDraw(GlobalCube);
+    
+    */
+    
+    RenderAddQuery(RenderPass_Color, GlobalCube, Mat, Transform, Program);
 }
 
 #define F3D_PRIMITIVE_CUBE_H
