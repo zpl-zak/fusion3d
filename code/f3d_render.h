@@ -134,7 +134,7 @@ RenderAddQuery(u8 RenderPass,
     {
         if((Queue->Size - Queue->Used) < 5)
         {
-            Queue->Size += 10;
+            Queue->Size += 100;
             Queue->Begin = (render_query *)PlatformMemRealloc(Queue->Begin, sizeof(render_query)*Queue->Size);
         }
         
@@ -153,8 +153,8 @@ RenderAddQuery(u8 RenderPass,
     }
     else
     {
-        Queue->Begin = (render_query *)PlatformMemAlloc(sizeof(render_query)*100);
-        Queue->Size = 100;
+        Queue->Begin = (render_query *)PlatformMemAlloc(sizeof(render_query)*1000);
+        Queue->Size = 1000;
         Queue->Used = 0;
         
         goto add_query;
