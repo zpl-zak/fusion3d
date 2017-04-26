@@ -277,7 +277,7 @@ int CALLBACK
    CubeTest.Ambient = {0.2f, 1.2f, 0.34f};
    CubeTest.DoubleSided = 0;
    CubeTest.Fullbright = 1;
-   CubeTest.Opacity = 0.; // Udava priehladnost, dajme 20% viditelnost
+   CubeTest.Opacity = 0.;
    
    while(Running) 
    {             
