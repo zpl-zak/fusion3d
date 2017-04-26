@@ -101,6 +101,7 @@ RenderAddQuery(u8 RenderPass,
                GLuint Shader);
 
 #include "f3d_primitive_cube.h"
+#include "f3d_primitive_plane.h"
 
 typedef struct
 {

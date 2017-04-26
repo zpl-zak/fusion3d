@@ -277,7 +277,41 @@ int CALLBACK
    CubeTest.Ambient = {0.2f, 1.2f, 0.34f};
    CubeTest.DoubleSided = 0;
    CubeTest.Fullbright = 1;
-   CubeTest.Opacity = 0.;
+   CubeTest.Opacity = 0.95;
+   
+   render_texture *PlaneTex = TextureRegister("0benz01", "0benz01.bmp", 0);
+   TextureLoad(PlaneTex);
+   
+   render_material RoomTest = {};
+   RoomTest.Diffuse = {0.2f, .12f, 0.34f};
+   RoomTest.Ambient = {0.2f, 1.2f, 0.34f};
+   RoomTest.DoubleSided = 1;
+   RoomTest.Fullbright = 0;
+   RoomTest.DiffTexture = PlaneTex;
+   RoomTest.Opacity = 0.;
+   
+   render_material PlaneTest = {};
+   PlaneTest.Diffuse = {0.2f, 1.2f, 0.34f};
+   PlaneTest.Ambient = {0.2f, 1.2f, 0.34f};
+   PlaneTest.DoubleSided = 0;
+   PlaneTest.DiffTexture = PlaneTex;
+   PlaneTest.Fullbright = 0;
+   PlaneTest.Opacity = 0.;
+   
+   render_light_point FloorLight = {};
+   
+   FloorLight.Ambient = {.3,.3,.3};
+   FloorLight.Diffuse = {.6,.6,.6};
+   FloorLight.Constant = 1.f;
+   FloorLight.Linear = .01f;
+   FloorLight.Quadratic = .045f;
+   FloorLight.Pos = glm::vec3(0,1,0);
+   
+   RenderApplyLightPoint(2, &FloorLight, AmbientProgram);
+   
+   render_transform TransformRoom = RenderTransform();
+   TransformRoom.Scale = glm::vec3(30,30,30);
+   glm::mat4 MatRoom = RenderTransformMatrix(TransformRoom);
    
    while(Running) 
    {             
@@ -292,6 +326,8 @@ int CALLBACK
        }
        
        AmbientProgram = ShaderProgramGet(AmbientProgramID);
+       
+       RenderApplyLightPoint(2, &FloorLight, AmbientProgram);
        
        if(ProgramGotReloaded)
        {
@@ -337,6 +373,14 @@ int CALLBACK
                RenderSingleDraw(0, F3D_SINGLE_MAX, AmbientProgram, ModelRenderType_Normal);
                #endif
                //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, 1);
+
+               PrimitiveCubeDraw(&RoomTest, AmbientProgram, MatRoom);
+               
+               render_transform TransformPlane = RenderTransform();
+               TransformPlane.Pos = glm::vec3(0,0,0);
+               TransformPlane.Scale = glm::vec3(10);
+               glm::mat4 MatPlane = RenderTransformMatrix(TransformPlane);
+               PrimitivePlaneDraw(&PlaneTest, AmbientProgram, MatPlane);
                
                // NOTE(ZaKlaus): Small cube test.
                {
