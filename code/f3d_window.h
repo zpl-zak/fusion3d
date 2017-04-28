@@ -193,6 +193,9 @@ MainWindowUpdate(void)
     window_resize_result ResizeResult = WindowResize(Dim.X, Dim.Y, GlobalWindowArea, 1);
     glViewport(0, 0, GlobalWindowArea.Width, GlobalWindowArea.Height);
     GlobalWindowArea = ResizeResult;
+    
+    // TODO(ZaKlaus): Resize based on window dim changes.
+    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, Dim.X, Dim.Y, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
 }
 
 internal void
