@@ -143,15 +143,17 @@ WindowInitialize(HINSTANCE Instance)
             glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
             glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Depth]);
             
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
             
-            glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_COMPONENT, GlobalFrameTextures[Framebuffer_Depth], 0);
+            glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Depth], 0);
             
             glDrawBuffer(GL_NONE);
+            glReadBuffer(GL_NONE);
         }
     }
     
@@ -264,9 +266,6 @@ WindowBlit(GLuint Program)
     glDrawArrays(GL_TRIANGLES, 0, 6);
     
     glDisableVertexAttribArray(0);
-    
-    glUniform1i(renderType, 0);
-    
     OldProgram = Program;
 }
 

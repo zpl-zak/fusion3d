@@ -57,7 +57,8 @@ RenderTransformMatrix(render_transform Transform)
 
 global_variable GLuint gLastProgram = 0;
 
-global_variable GLuint gMatrix = 0;
+global_variable GLuint gMatrix  = 0;
+global_variable GLuint gLight   = 0;
 global_variable GLuint gMatrixM = 0;
 global_variable GLuint gMatrixV = 0;
 global_variable GLuint gMatrixP = 0;
@@ -72,6 +73,7 @@ RenderCheckUniforms(GLuint Program)
         gMatrixM = glGetUniformLocation(Program, "m");
         gMatrixV = glGetUniformLocation(Program, "v");
         gMatrixP = glGetUniformLocation(Program, "p");
+        gLight   = glGetUniformLocation(Program, "lm");
         gCameraP = glGetUniformLocation(Program, "camP");
         gLastProgram = Program;
     }
@@ -178,8 +180,20 @@ RenderDraw(u8 RenderPass)
     }
     else if(RenderPass == RenderPass_Depth)
     {
+        glViewport(0, 0, 1024, 1024);
         glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
-        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+        glClear(GL_DEPTH_BUFFER_BIT);
+        
+        GLfloat near_plane = 1.0f, far_plane = 7.5f;
+        glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);  
+        
+        glm::mat4 lightView = glm::lookAt(glm::vec3(-2.0f, 4.0f, -1.0f), 
+                                          glm::vec3( 0.0f, 0.0f,  0.0f), 
+                                          glm::vec3( 0.0f, 1.0f,  0.0f));
+        
+        glm::mat4 lsm = lightProjection * lightView;
+        
+        glUniformMatrix4fv(gLight, 1, GL_FALSE, &lsm[0][0]);
         glUniform1i(renderType, 2);
     }
     

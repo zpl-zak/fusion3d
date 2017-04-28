@@ -5,6 +5,7 @@ layout(location = 1) in vec3 normal;
 layout(location = 2) in vec2 uv;
 
 uniform mat4 m;
+uniform mat4 lm;
 
 out vec2 uv0;
 out vec3 normal0;
@@ -46,9 +47,8 @@ void main() {
   }
   else if(renderType == 2)
   {
-      mat4 mvp = camera.projection * camera.view * m;
-      uv0 = (vertex.xy+vec2(1,1))/2.0;
-      gl_Position = mvp * vec4(vertex, 1);
+      uv0 = uv;
+      gl_Position = lm * m * vec4(vertex, 1);
   }
   else
   {
