@@ -6,6 +6,20 @@ global_variable window GlobalWindowArea;
 global_variable HDC GlobalDeviceContext;
 global_variable HWND GlobalWindow;
 
+// NOTE(ZaKlaus): Global buffers..
+
+enum {
+    Framebuffer_Color,
+    Framebuffer_Depth,
+    Num_Of_Framebuffers,
+};
+global_variable GLuint GlobalRenderBuffers[Num_Of_Framebuffers] = {0};
+global_variable GLuint GlobalFrameTextures[Num_Of_Framebuffers] = {0};
+
+global_variable GLuint GlobalScreenArray = 0;
+global_variable GLuint GlobalScreenBuffer = 0;
+
+
 global_variable b32 GlobalKeyDown[0xFE] = {0};
 global_variable b32 GlobalKeyUp[0xFE] = {0};
 global_variable b32 GlobalKeyPress[0xFE] = {0};
@@ -88,6 +102,50 @@ WindowInitialize(HINSTANCE Instance)
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
+    // NOTE(ZaKlaus): Generate global buffers
+    {
+        glGenFramebuffers(Num_Of_Framebuffers, GlobalRenderBuffers); 
+        glGenTextures(Num_Of_Framebuffers, GlobalFrameTextures);
+        
+        // NOTE(ZaKlaus): Color render buffer
+        {
+            glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Color]);   
+            glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Color]);
+            
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, ResDim.X, ResDim.Y, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+            
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+            
+            glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GlobalFrameTextures[Framebuffer_Color], 0);
+            
+            GLenum DrawBuffers[1] = {GL_COLOR_ATTACHMENT0};
+            glDrawBuffers(1, DrawBuffers);
+            
+            static const GLfloat VertexArrayData[] = {
+                -1, -1, 0,
+                 1, -1, 0,
+                -1, 1,  0,
+                -1, 1,  0,
+                 1, -1, 0,
+                 1, 1,  0,
+            };
+            
+            glGenBuffers(1, &GlobalScreenBuffer);
+            glBindBuffer(GL_ARRAY_BUFFER, GlobalScreenBuffer);
+            glBufferData(GL_ARRAY_BUFFER, sizeof(VertexArrayData), VertexArrayData, GL_STATIC_DRAW);
+            
+            
+        }
+        
+        // NOTE(ZaKlaus): Depth render buffer
+        {
+            glBindRenderbuffer(GL_RENDERBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, ResDim.X, ResDim.Y);
+            glFramebufferRenderbuffer(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, GL_RENDERBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
+        }
+    }
+    
     wglSwapIntervalEXT(0);
 }
 
@@ -135,6 +193,63 @@ MainWindowUpdate(void)
     window_resize_result ResizeResult = WindowResize(Dim.X, Dim.Y, GlobalWindowArea, 1);
     glViewport(0, 0, GlobalWindowArea.Width, GlobalWindowArea.Height);
     GlobalWindowArea = ResizeResult;
+}
+
+internal void
+WindowBlit(GLuint Program)
+{
+    glUseProgram(Program);
+    local_persist GLuint OldProgram = 0;    
+    local_persist GLuint postfxB = glGetUniformLocation(Program, "isPostFX");
+    
+    if(OldProgram != Program)
+    {
+        local_persist GLuint renderT = glGetUniformLocation(Program, "renderTexture");
+        postfxB = glGetUniformLocation(Program, "isPostFX");
+        
+        blit_send:
+        {
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Color]);
+            glUniform1i(renderT, 0);
+            
+            glUniform1i(postfxB, 1);
+        }
+        goto blit_end;
+    }
+    
+    goto blit_send;
+    
+    blit_end:
+    
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    window_dim Dim = {0};
+    s32 GlobalWindowWidth = GlobalWindowArea.Width;
+    s32 GlobalWindowHeight = GlobalWindowArea.Height;
+    
+    Dim = WindowGetClientRect(GlobalWindow);
+    window_resize_result ResizeResult = WindowResize(Dim.X, Dim.Y, GlobalWindowArea, 1);
+    glViewport(0, 0, GlobalWindowArea.Width, GlobalWindowArea.Height);
+    GlobalWindowArea = ResizeResult;
+    
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, GlobalScreenBuffer);
+    glVertexAttribPointer(
+        0,
+        3,
+        GL_FLOAT,
+        GL_FALSE,
+        0, (void *)0);
+    
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    
+    glDisableVertexAttribArray(0);
+    
+    glUniform1i(postfxB, 0);
+    
+    OldProgram = Program;
 }
 
 internal void

@@ -25,7 +25,7 @@ global_variable real32 GlobalPlaneTexCoords[] =
 global_variable real32 GlobalPlaneNormals[sizeof(GlobalPlanePositions)] = {0};
 
 global_variable u16 GlobalPlaneElements[] =
-{    
+{
     0, 3, 2,
     2, 1, 0
 };
@@ -58,7 +58,8 @@ PrimitivePlaneDraw(render_material *Mat,
     if(!GlobalPlane)
     {
         PrimitivePlaneBuild();
-    }    
+    }
+    
     RenderAddQuery(RenderPass_Color, GlobalPlane, Mat, Transform, Program);
 }
 

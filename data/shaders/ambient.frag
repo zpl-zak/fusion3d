@@ -41,6 +41,9 @@ struct PointLight
 uniform Material material;
 uniform DirLight light;
 
+uniform sampler2D renderTexture;
+uniform int isPostFX;
+
 #define POINT_LIGHT_COUNT 32
 uniform PointLight pointLight[POINT_LIGHT_COUNT];
 
@@ -50,9 +53,8 @@ vec3 CalcDirLight(in DirLight light, in vec3 normal, in vec2 uv)
 
   float diff = max(dot(normal, ld), 0.0);
 
-  vec3 tex = vec3(texture(material.difftex, uv));
-  vec3 ambient = light.ambient * tex * material.ambient;
-  vec3 diffuse = light.diffuse * diff * tex * material.diffuse;
+  vec3 ambient = light.ambient * material.ambient;
+  vec3 diffuse = light.diffuse * diff * material.diffuse;
 
   return(ambient + diffuse);
 }
@@ -66,9 +68,8 @@ vec3 CalcPointLight(in PointLight light, in vec3 normal, in vec3 frag, in vec2 u
   float dist = length(light.position - frag);
   float atten = 1.0f / (light.constant + light.linear * dist + light.quadratic * (dist * dist));
 
-  vec3 tex = vec3(texture(material.difftex, uv));
-  vec3 ambient = light.ambient * tex * material.ambient;
-  vec3 diffuse = light.diffuse * diff * tex * material.diffuse;
+  vec3 ambient = light.ambient * material.ambient;
+  vec3 diffuse = light.diffuse * diff * material.diffuse;
 
   ambient *= atten;
   diffuse *= atten;
@@ -78,32 +79,40 @@ vec3 CalcPointLight(in PointLight light, in vec3 normal, in vec3 frag, in vec2 u
 
 void main() {
   vec2 uv = uv0;
-
-  vec3 n = normalize(normal0);
-  vec3 res = material.diffuse;
-
-  if(material.fullbright == 0)
-  {
-    res = CalcDirLight(light, n, uv);
-
-    for(int i = 0; i < POINT_LIGHT_COUNT; i++)
-    {
-      if(pointLight[i].diffuse.xyz != vec3(0,0,0))
-        res += CalcPointLight(pointLight[i], n, frag0, uv);
-    }
-  }
-
+  vec3 res = vec3(1);
   float alpha = 1.0;
 
-  res = mix(res, ambColor0, vdist);
-
-  if(material.colorkey == 1)
+  if(isPostFX == 0)
   {
-    alpha = texture(material.difftex, uv).a;
+      vec3 n = normalize(normal0);
+      vec3 tex = vec3(texture(material.difftex, uv));
+      res = material.diffuse * tex;
+
+      if(material.fullbright == 0)
+      {
+        res = CalcDirLight(light, n, uv);
+
+        for(int i = 0; i < POINT_LIGHT_COUNT; i++)
+        {
+          if(pointLight[i].diffuse.xyz != vec3(0,0,0))
+            res += CalcPointLight(pointLight[i], n, frag0, uv);
+        }
+      }
+
+      res = mix(res, ambColor0, vdist);
+
+      if(material.colorkey == 1)
+      {
+        alpha = texture(material.difftex, uv).a;
+      }
+      else
+      {
+        alpha = 1.0 - material.opacity;
+      }
   }
   else
   {
-    alpha = 1.0 - material.opacity;
+      res = texture(renderTexture, uv).xyz;
   }
 
   color = vec4(res, alpha);

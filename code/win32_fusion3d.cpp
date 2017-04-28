@@ -272,15 +272,17 @@ int CALLBACK
    
    MainCamera.AmbColor = {212.f/255.f, 232.f/255.f, 211.f/255.f};
    
+   render_texture *PlaneTex = TextureRegister("0benz01", "0benz01.bmp", 0);
+   TextureLoad(PlaneTex);
+   
    render_material CubeTest = {};
    CubeTest.Diffuse = {0.2f, 1.2f, 0.34f};
    CubeTest.Ambient = {0.2f, 1.2f, 0.34f};
    CubeTest.DoubleSided = 0;
+   CubeTest.DiffTexture = PlaneTex;
    CubeTest.Fullbright = 1;
-   CubeTest.Opacity = 0.95;
+   CubeTest.Opacity = 0.45;
    
-   render_texture *PlaneTex = TextureRegister("0benz01", "0benz01.bmp", 0);
-   TextureLoad(PlaneTex);
    
    render_material RoomTest = {};
    RoomTest.Diffuse = {0.2f, .12f, 0.34f};
@@ -291,11 +293,11 @@ int CALLBACK
    RoomTest.Opacity = 0.;
    
    render_material PlaneTest = {};
-   PlaneTest.Diffuse = {0.2f, 1.2f, 0.34f};
-   PlaneTest.Ambient = {0.2f, 1.2f, 0.34f};
+   PlaneTest.Diffuse = {1};
+   PlaneTest.Ambient = {1};
    PlaneTest.DoubleSided = 0;
    PlaneTest.DiffTexture = PlaneTex;
-   PlaneTest.Fullbright = 0;
+   PlaneTest.Fullbright = 1;
    PlaneTest.Opacity = 0.;
    
    render_light_point FloorLight = {};
@@ -348,6 +350,7 @@ int CALLBACK
                         500.f);
            RenderApplyCamera(AmbientProgram, &MainCamera);
            {    
+               glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Color]);
                glClearColor(MainCamera.AmbColor.x, MainCamera.AmbColor.y, MainCamera.AmbColor.z, 1.f);
                glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
                
@@ -374,7 +377,7 @@ int CALLBACK
                #endif
                //DEBUGRenderOctreeViz(&GlobalWorld, AmbientProgram, 1);
 
-               PrimitiveCubeDraw(&RoomTest, AmbientProgram, MatRoom);
+               // PrimitiveCubeDraw(&RoomTest, AmbientProgram, MatRoom);
                
                render_transform TransformPlane = RenderTransform();
                TransformPlane.Pos = glm::vec3(0,0,0);
@@ -398,7 +401,7 @@ int CALLBACK
                                   k == -CUBE_SIZE || k == CUBE_SIZE)
                                {
                                    render_transform TransformOrig = RenderTransform();
-                                   TransformOrig.Pos = glm::vec3(i*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
+                                   TransformOrig.Pos = glm::vec3((changex*0.12f + i)*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
                                    glm::mat4 Mat = RenderTransformMatrix(TransformOrig);
                                    PrimitiveCubeDraw(&CubeTest, AmbientProgram, Mat);
                                }
@@ -406,11 +409,14 @@ int CALLBACK
                        }
                    }
                }
-               
+               RenderDraw(RenderPass_Depth);               
                RenderDraw(RenderPass_Color);
                
-               changex += sinf((r32)TimeGet())*30.f;
+               changex += sinf((r32)TimeGet())*1.5f;
                RenderApplyLightDirectional(&Sun, AmbientProgram);
+               
+               
+               WindowBlit(AmbientProgram);
            }
            SwapBuffers(GlobalDeviceContext);
            
