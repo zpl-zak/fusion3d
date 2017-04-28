@@ -315,6 +315,18 @@ int CALLBACK
    TransformRoom.Scale = glm::vec3(30,30,30);
    glm::mat4 MatRoom = RenderTransformMatrix(TransformRoom);
    
+   GLfloat near_plane = 0.1f, far_plane = 100;
+   glm::mat4 lightProjection = glm::ortho(-30.0f, 30.0f, -30.0f, 30.0f, near_plane, far_plane);  
+   
+   glm::mat4 lightView = glm::lookAt(glm::vec3(-2.0f, 4.0f, -1.0f), 
+                                     glm::vec3( 0.0f, 0.0f,  0.0f), 
+                                     glm::vec3( 0.0f, 1.0f,  0.0f));  
+   
+   glm::mat4 lightSpaceMatrix = lightProjection * lightView;
+   
+   shadow_generator MainShadow = {};
+   MainShadow.ShadowMatrix = lightSpaceMatrix;
+   
    while(Running) 
    {             
        r64 NewTime = TimeGet();
@@ -399,15 +411,21 @@ int CALLBACK
                                   k == -CUBE_SIZE || k == CUBE_SIZE)
                                {
                                    render_transform TransformOrig = RenderTransform();
-                                   TransformOrig.Pos = glm::vec3((changex*0.12f + i)*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
+                                   TransformOrig.Pos = glm::vec3((0*changex*0.12f + i)*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
                                    glm::mat4 Mat = RenderTransformMatrix(TransformOrig);
                                    PrimitiveCubeDraw(&CubeTest, AmbientProgram, Mat);
+                                   ShadowAddQuery(&MainShadow, GlobalCube, Mat, AmbientProgram);
                                }
                            }
                        }
                    }
                }
                RenderDraw(RenderPass_Depth);               
+               {
+                   ShadowGenerate(&MainShadow, AmbientProgram);
+               }
+               
+               
                RenderDraw(RenderPass_Color);
                
                changex += sinf((r32)TimeGet())*1.5f;

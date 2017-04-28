@@ -113,7 +113,7 @@ void main() {
   }
   else
   {
-      res = vec3(texture(depthTexture, uv).r);
+      res = texture(renderTexture, uv).xyz;
   }
 
   color = vec4(res, alpha);

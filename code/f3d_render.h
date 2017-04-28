@@ -124,15 +124,12 @@ typedef struct
 global_variable render_queue GlobalRenderPool[Num_Of_RenderPasses] = {};
 
 internal void
-RenderAddQuery(u8 RenderPass, 
-               render_mesh* Mesh, 
-               render_material *Material, 
-               glm::mat4 RenderTransform,
-               GLuint Shader)
-{
-    Assert(RenderPass > -1 && RenderPass < Num_Of_RenderPasses);
-    render_queue *Queue = GlobalRenderPool + RenderPass;
-    
+RenderAddQueryInternal(render_queue *Queue,
+                       render_mesh* Mesh, 
+                       render_material *Material, 
+                       glm::mat4 RenderTransform,
+                       GLuint Shader)
+{    
     if(Queue->Size)
     {
         if((Queue->Size - Queue->Used) < 5)
@@ -164,6 +161,20 @@ RenderAddQuery(u8 RenderPass,
     }
 }
 
+
+internal void
+RenderAddQuery(u8 RenderPass, 
+               render_mesh* Mesh, 
+               render_material *Material, 
+               glm::mat4 RenderTransform,
+               GLuint Shader)
+{
+    Assert(RenderPass > -1 && RenderPass < Num_Of_RenderPasses);
+    render_queue *Queue = GlobalRenderPool + RenderPass;
+    
+    RenderAddQueryInternal(Queue, Mesh, Material, RenderTransform, Shader);
+}
+
 internal void
 RenderDraw(u8 RenderPass)
 {
@@ -173,10 +184,32 @@ RenderDraw(u8 RenderPass)
     
     /**/ if(RenderPass == RenderPass_Color)
     {
+        glViewport(0, 0, GlobalWindowArea.Width, GlobalWindowArea.Height);
         glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Color]);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         
         glUniform1i(renderType, 0);
+        
+        if(Queue)
+        {
+            for(u32 Idx = 0;
+                Idx < Queue->Used;
+                Idx++)
+            {
+                render_query *Query = &Queue->Begin[Idx];
+                
+                RenderCheckUniforms(Query->Shader);
+                
+                RenderApplyMaterial(Query->Material, Query->Shader);
+                
+                glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &Query->RenderTransform[0][0]);
+                
+                MeshDraw(Query->Mesh);
+            }
+            
+            Queue->Used = 0;
+            Queue->Ptr = Queue->Begin;
+        }
     }
     else if(RenderPass == RenderPass_Depth)
     {
@@ -196,9 +229,37 @@ RenderDraw(u8 RenderPass)
         glUniformMatrix4fv(gLight, 1, GL_FALSE, &lsm[0][0]);
         glUniform1i(renderType, 2);
     }
-    
-    if(Queue)
+    else
     {
+        InvalidCodePath;   
+    }
+}
+
+typedef struct
+{
+    glm::mat4 ShadowMatrix;
+    render_queue Meshes;
+} shadow_generator;
+
+inline static void
+ShadowAddQuery(shadow_generator *Shadow,
+               render_mesh* Mesh, 
+               glm::mat4 RenderTransform,
+               GLuint Shader)
+{
+    RenderAddQueryInternal(&Shadow->Meshes, Mesh, 0, RenderTransform, Shader);
+}
+
+inline static void
+ShadowGenerate(shadow_generator *Shadow, GLuint Program)
+{
+    glUseProgram(Program);
+    
+    glUniformMatrix4fv(gLight, 1, GL_FALSE, &Shadow->ShadowMatrix[0][0]);
+    
+    if(Shadow)
+    {
+        render_queue *Queue = &Shadow->Meshes;
         for(u32 Idx = 0;
             Idx < Queue->Used;
             Idx++)
@@ -206,8 +267,6 @@ RenderDraw(u8 RenderPass)
             render_query *Query = &Queue->Begin[Idx];
             
             RenderCheckUniforms(Query->Shader);
-            
-            RenderApplyMaterial(Query->Material, Query->Shader);
             
             glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &Query->RenderTransform[0][0]);
             

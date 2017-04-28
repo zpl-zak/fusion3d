@@ -10,7 +10,7 @@ global_variable HWND GlobalWindow;
 
 enum {
     Framebuffer_Depth,
-    Framebuffer_Stencil,
+    Framebuffer_ColorDepth,
     Framebuffer_Color,
     Num_Of_Framebuffers,
 };
@@ -131,7 +131,12 @@ WindowInitialize(HINSTANCE Instance)
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
             
-            glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GlobalFrameTextures[Framebuffer_Color], 0);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Color], 0);
+            
+            glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_ColorDepth]);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, ResDim.X, ResDim.Y, 0, GL_DEPTH_STENCIL, GL_UNSIGNED_INT_24_8, 0);
+            
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_ColorDepth], 0);
             
             GLenum DrawBuffers[1] = {GL_COLOR_ATTACHMENT0};
             glDrawBuffers(1, DrawBuffers);
@@ -245,14 +250,7 @@ WindowBlit(GLuint Program)
     
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    window_dim Dim = {0};
-    s32 GlobalWindowWidth = GlobalWindowArea.Width;
-    s32 GlobalWindowHeight = GlobalWindowArea.Height;
-    
-    Dim = WindowGetClientRect(GlobalWindow);
-    window_resize_result ResizeResult = WindowResize(Dim.X, Dim.Y, GlobalWindowArea, 1);
     glViewport(0, 0, GlobalWindowArea.Width, GlobalWindowArea.Height);
-    GlobalWindowArea = ResizeResult;
     
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, GlobalScreenBuffer);
