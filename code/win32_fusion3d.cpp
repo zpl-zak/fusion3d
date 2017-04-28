@@ -350,9 +350,7 @@ int CALLBACK
                         500.f);
            RenderApplyCamera(AmbientProgram, &MainCamera);
            {    
-               glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Color]);
                glClearColor(MainCamera.AmbColor.x, MainCamera.AmbColor.y, MainCamera.AmbColor.z, 1.f);
-               glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
                
                local_persist r32 offset = 0.f;
                

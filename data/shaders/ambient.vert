@@ -28,13 +28,13 @@ struct Camera
 };
 
 uniform sampler2D renderTexture;
-uniform int isPostFX;
+uniform int renderType;
 
 uniform Camera camera;
 
 void main() {
 
-  if(isPostFX == 0)
+  if(renderType == 0)
   {
       mat4 mvp = camera.projection * camera.view * m;
       gl_Position = mvp * vec4(vertex, 1);
@@ -43,6 +43,12 @@ void main() {
       uv0 = uv;
       vdist = distance(camera.position, (m * vec4(vertex, 1)).xyz) / camera.farPlane;
       normal0 = mat3(transpose(inverse(m))) * normal;
+  }
+  else if(renderType == 2)
+  {
+      mat4 mvp = camera.projection * camera.view * m;
+      uv0 = (vertex.xy+vec2(1,1))/2.0;
+      gl_Position = mvp * vec4(vertex, 1);
   }
   else
   {

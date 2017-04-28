@@ -169,6 +169,20 @@ RenderDraw(u8 RenderPass)
     
     render_queue *Queue = GlobalRenderPool + RenderPass;
     
+    /**/ if(RenderPass == RenderPass_Color)
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Color]);
+        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+        
+        glUniform1i(renderType, 0);
+    }
+    else if(RenderPass == RenderPass_Depth)
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
+        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+        glUniform1i(renderType, 2);
+    }
+    
     if(Queue)
     {
         for(u32 Idx = 0;

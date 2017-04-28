@@ -9,8 +9,9 @@ global_variable HWND GlobalWindow;
 // NOTE(ZaKlaus): Global buffers..
 
 enum {
-    Framebuffer_Color,
     Framebuffer_Depth,
+    Framebuffer_Stencil,
+    Framebuffer_Color,
     Num_Of_Framebuffers,
 };
 global_variable GLuint GlobalRenderBuffers[Num_Of_Framebuffers] = {0};
@@ -102,6 +103,19 @@ WindowInitialize(HINSTANCE Instance)
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
+    static const GLfloat VertexArrayData[] = {
+        -1, -1, 0,
+        1, -1, 0,
+        -1, 1,  0,
+        -1, 1,  0,
+        1, -1, 0,
+        1, 1,  0,
+    };
+    
+    glGenBuffers(1, &GlobalScreenBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, GlobalScreenBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(VertexArrayData), VertexArrayData, GL_STATIC_DRAW);
+    
     // NOTE(ZaKlaus): Generate global buffers
     {
         glGenFramebuffers(Num_Of_Framebuffers, GlobalRenderBuffers); 
@@ -121,28 +135,23 @@ WindowInitialize(HINSTANCE Instance)
             
             GLenum DrawBuffers[1] = {GL_COLOR_ATTACHMENT0};
             glDrawBuffers(1, DrawBuffers);
-            
-            static const GLfloat VertexArrayData[] = {
-                -1, -1, 0,
-                 1, -1, 0,
-                -1, 1,  0,
-                -1, 1,  0,
-                 1, -1, 0,
-                 1, 1,  0,
-            };
-            
-            glGenBuffers(1, &GlobalScreenBuffer);
-            glBindBuffer(GL_ARRAY_BUFFER, GlobalScreenBuffer);
-            glBufferData(GL_ARRAY_BUFFER, sizeof(VertexArrayData), VertexArrayData, GL_STATIC_DRAW);
-            
-            
         }
         
         // NOTE(ZaKlaus): Depth render buffer
+        //if(0)
         {
-            glBindRenderbuffer(GL_RENDERBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, ResDim.X, ResDim.Y);
-            glFramebufferRenderbuffer(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, GL_RENDERBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
+            glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
+            glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Depth]);
+            
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            
+            glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_COMPONENT, GlobalFrameTextures[Framebuffer_Depth], 0);
+            
+            glDrawBuffer(GL_NONE);
         }
     }
     
@@ -198,17 +207,18 @@ MainWindowUpdate(void)
     //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, Dim.X, Dim.Y, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
 }
 
+global_variable GLuint renderType = 0;
+
 internal void
 WindowBlit(GLuint Program)
 {
     glUseProgram(Program);
     local_persist GLuint OldProgram = 0;    
-    local_persist GLuint postfxB = glGetUniformLocation(Program, "isPostFX");
-    
     if(OldProgram != Program)
     {
         local_persist GLuint renderT = glGetUniformLocation(Program, "renderTexture");
-        postfxB = glGetUniformLocation(Program, "isPostFX");
+        local_persist GLuint depthT = glGetUniformLocation(Program, "depthTexture");
+        renderType = glGetUniformLocation(Program, "renderType");
         
         blit_send:
         {
@@ -216,7 +226,11 @@ WindowBlit(GLuint Program)
             glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Color]);
             glUniform1i(renderT, 0);
             
-            glUniform1i(postfxB, 1);
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Depth]);
+            glUniform1i(depthT, 1);
+            
+            glUniform1i(renderType, 1);
         }
         goto blit_end;
     }
@@ -226,6 +240,7 @@ WindowBlit(GLuint Program)
     blit_end:
     
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     window_dim Dim = {0};
@@ -250,7 +265,7 @@ WindowBlit(GLuint Program)
     
     glDisableVertexAttribArray(0);
     
-    glUniform1i(postfxB, 0);
+    glUniform1i(renderType, 0);
     
     OldProgram = Program;
 }

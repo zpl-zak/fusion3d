@@ -123,6 +123,7 @@ PrimitiveCubeDraw(render_material *Mat,
     
     */
     
+    RenderAddQuery(RenderPass_Depth, GlobalCube, Mat, Transform, Program);
     RenderAddQuery(RenderPass_Color, GlobalCube, Mat, Transform, Program);
 }
 

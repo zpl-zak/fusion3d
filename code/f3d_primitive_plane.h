@@ -60,6 +60,7 @@ PrimitivePlaneDraw(render_material *Mat,
         PrimitivePlaneBuild();
     }
     
+    RenderAddQuery(RenderPass_Depth, GlobalPlane, Mat, Transform, Program);
     RenderAddQuery(RenderPass_Color, GlobalPlane, Mat, Transform, Program);
 }
 

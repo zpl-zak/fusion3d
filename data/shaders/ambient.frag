@@ -42,7 +42,8 @@ uniform Material material;
 uniform DirLight light;
 
 uniform sampler2D renderTexture;
-uniform int isPostFX;
+uniform sampler2D depthTexture;
+uniform int renderType;
 
 #define POINT_LIGHT_COUNT 32
 uniform PointLight pointLight[POINT_LIGHT_COUNT];
@@ -82,7 +83,7 @@ void main() {
   vec3 res = vec3(1);
   float alpha = 1.0;
 
-  if(isPostFX == 0)
+  if(renderType == 0)
   {
       vec3 n = normalize(normal0);
       vec3 tex = vec3(texture(material.difftex, uv));

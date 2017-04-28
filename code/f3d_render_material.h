@@ -44,7 +44,7 @@ RenderApplyMaterial(render_material *Mat, GLuint Program)
             glUniform3f(AmbLoc, Mat->Ambient.x, Mat->Ambient.y, Mat->Ambient.z);
             glUniform3f(DiffLoc, Mat->Diffuse.x, Mat->Diffuse.y, Mat->Diffuse.z);
 
-            glActiveTexture(GL_TEXTURE1);
+            glActiveTexture(GL_TEXTURE3);
             if(Mat->DiffTexture && Mat->DiffTexture->TextureObject)
             {
                 glBindTexture(GL_TEXTURE_2D, Mat->DiffTexture->TextureObject);
@@ -54,7 +54,7 @@ RenderApplyMaterial(render_material *Mat, GLuint Program)
                 glBindTexture(GL_TEXTURE_2D, GlobalDefaultTexture->TextureObject);
             }
             
-            glUniform1i(DiffTex, 1);
+            glUniform1i(DiffTex, 3);
             glUniform1f(OpLoc, Mat->Opacity);
             glUniform1i(ColLoc, Mat->ColorKey);
             glUniform1i(FbLoc, Mat->Fullbright);

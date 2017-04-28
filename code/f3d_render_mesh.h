@@ -162,7 +162,7 @@ MeshBuild(render_mesh *Mesh, b32 GenerateNormals)
 
 internal void
 MeshDraw(render_mesh *Mesh)
-{
+{    
     for(s32 Idx = 0;
         Idx < VBO_Count;
         ++Idx)
