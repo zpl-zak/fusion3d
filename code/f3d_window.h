@@ -215,6 +215,7 @@ MainWindowUpdate(void)
 }
 
 global_variable GLuint renderType = 0;
+global_variable GLuint depthT = 0;
 
 internal void
 WindowBlit(GLuint Program)
@@ -224,7 +225,7 @@ WindowBlit(GLuint Program)
     if(OldProgram != Program)
     {
         local_persist GLuint renderT = glGetUniformLocation(Program, "renderTexture");
-        local_persist GLuint depthT = glGetUniformLocation(Program, "depthTexture");
+        GLuint depthT = glGetUniformLocation(Program, "depthTexture");
         renderType = glGetUniformLocation(Program, "renderType");
         
         blit_send:

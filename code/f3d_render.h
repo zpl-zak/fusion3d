@@ -187,7 +187,10 @@ RenderDraw(u8 RenderPass)
         glViewport(0, 0, GlobalWindowArea.Width, GlobalWindowArea.Height);
         glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Color]);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-        
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Depth]);
+        glUniform1i(depthT, 1);
         glUniform1i(renderType, 0);
         
         if(Queue)
