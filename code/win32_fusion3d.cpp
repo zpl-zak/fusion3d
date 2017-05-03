@@ -241,7 +241,7 @@ int CALLBACK
    Model4DSLoad(Mesto);
 #endif   
    
-   r32 changex = 1.f;
+   r32 changex = 0.f;
    
    render_light_dir Sun = {};
    Sun.Ambient = {0.};
@@ -280,8 +280,8 @@ int CALLBACK
    CubeTest.Ambient = {0.2f, 1.2f, 0.34f};
    CubeTest.DoubleSided = 0;
    CubeTest.DiffTexture = PlaneTex;
-   CubeTest.Fullbright = 1;
-   CubeTest.Opacity = 0.45;
+   CubeTest.Fullbright = 0;
+   CubeTest.Opacity = 0.85;
    
    
    render_material RoomTest = {};
@@ -315,18 +315,6 @@ int CALLBACK
    TransformRoom.Scale = glm::vec3(30,30,30);
    glm::mat4 MatRoom = RenderTransformMatrix(TransformRoom);
    
-   GLfloat near_plane = 0.1f, far_plane = 100;
-   glm::mat4 lightProjection = glm::ortho(-30.0f, 30.0f, -30.0f, 30.0f, near_plane, far_plane);  
-   
-   glm::mat4 lightView = glm::lookAt(glm::vec3(-2.0f, 4.0f, -1.0f), 
-                                     glm::vec3( 0.0f, 0.0f,  0.0f), 
-                                     glm::vec3( 0.0f, 1.0f,  0.0f));  
-   
-   glm::mat4 lightSpaceMatrix = lightProjection * lightView;
-   
-   shadow_generator MainShadow = {};
-   MainShadow.ShadowMatrix = lightSpaceMatrix;
-   
    while(Running) 
    {             
        r64 NewTime = TimeGet();
@@ -338,6 +326,20 @@ int CALLBACK
            AssetSyncPack();
            printf("Delta: %f (%f FPS)\n", (r32)DeltaTime * 1000.f, 1.f / (r32)DeltaTime);
        }
+       
+       
+       GLfloat near_plane = 0.021f, far_plane = 100;
+       glm::mat4 lightProjection = glm::ortho(-30.0f, 30.0f, -30.0f, 30.0f, near_plane, far_plane);  
+       
+       glm::mat4 lightView = glm::lookAt(glm::vec3(-2.0f, 6.0f, -1.0f), 
+                                         glm::vec3( 0.0f, 0.0f,  0.0f), 
+                                         glm::vec3( 0.0f, 1.0f,  0.0f));  
+       
+       glm::mat4 lightSpaceMatrix = lightProjection * lightView;
+       
+       shadow_generator MainShadow = {};
+       MainShadow.ShadowMatrix = lightSpaceMatrix;
+       
        
        AmbientProgram = ShaderProgramGet(AmbientProgramID);
        
@@ -390,10 +392,13 @@ int CALLBACK
                // PrimitiveCubeDraw(&RoomTest, AmbientProgram, MatRoom);
                
                render_transform TransformPlane = RenderTransform();
-               TransformPlane.Pos = glm::vec3(0,0,0);
-               TransformPlane.Scale = glm::vec3(10);
+               TransformPlane.Pos = glm::vec3(0,1,0);
+               TransformPlane.Scale = glm::vec3(20);
                glm::mat4 MatPlane = RenderTransformMatrix(TransformPlane);
                PrimitivePlaneDraw(&PlaneTest, AmbientProgram, MatPlane);
+               ShadowAddQuery(&MainShadow, GlobalPlane, MatPlane, AmbientProgram);
+               
+               CubeTest.Opacity = changex * 0.5f + 0.5f;
                
                // NOTE(ZaKlaus): Small cube test.
                {
@@ -411,7 +416,7 @@ int CALLBACK
                                   k == -CUBE_SIZE || k == CUBE_SIZE)
                                {
                                    render_transform TransformOrig = RenderTransform();
-                                   TransformOrig.Pos = glm::vec3((0*changex*0.12f + i)*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
+                                   TransformOrig.Pos = glm::vec3((changex*0.012f + i)*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
                                    glm::mat4 Mat = RenderTransformMatrix(TransformOrig);
                                    PrimitiveCubeDraw(&CubeTest, AmbientProgram, Mat);
                                    ShadowAddQuery(&MainShadow, GlobalCube, Mat, AmbientProgram);
@@ -420,15 +425,16 @@ int CALLBACK
                        }
                    }
                }
+               
                RenderDraw(RenderPass_Depth);               
                {
                    ShadowGenerate(&MainShadow, AmbientProgram);
                }
-               
+               //ShadowDraw(MainShadow);
                
                RenderDraw(RenderPass_Color);
                
-               changex += sinf((r32)TimeGet())*1.5f;
+               changex = sinf((r32)TimeGet());
                RenderApplyLightDirectional(&Sun, AmbientProgram);
                
                

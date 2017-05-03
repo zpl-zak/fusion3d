@@ -63,6 +63,7 @@ global_variable GLuint gMatrixM = 0;
 global_variable GLuint gMatrixV = 0;
 global_variable GLuint gMatrixP = 0;
 global_variable GLuint gCameraP = 0;
+global_variable GLuint gHasShadow = 0;
 
 internal void
 RenderCheckUniforms(GLuint Program)
@@ -75,6 +76,7 @@ RenderCheckUniforms(GLuint Program)
         gMatrixP = glGetUniformLocation(Program, "p");
         gLight   = glGetUniformLocation(Program, "lm");
         gCameraP = glGetUniformLocation(Program, "camP");
+        gHasShadow = glGetUniformLocation(Program, "hasShadow");
         gLastProgram = Program;
     }
 }
@@ -175,6 +177,17 @@ RenderAddQuery(u8 RenderPass,
     RenderAddQueryInternal(Queue, Mesh, Material, RenderTransform, Shader);
 }
 
+typedef struct
+{
+    glm::mat4 ShadowMatrix;
+    render_queue Meshes;
+    b32 Used;
+} shadow_generator;
+
+#define F3D_MAX_SHADOWS 256
+
+global_variable shadow_generator GlobalShadowGeneratorPool[F3D_MAX_SHADOWS] = {};
+
 internal void
 RenderDraw(u8 RenderPass)
 {
@@ -195,23 +208,52 @@ RenderDraw(u8 RenderPass)
         
         if(Queue)
         {
-            for(u32 Idx = 0;
-                Idx < Queue->Used;
-                Idx++)
+            mi Idx = 0;
+            shadow_generator *Shadow = GlobalShadowGeneratorPool;
+            
+            if(Shadow->Used)
             {
-                render_query *Query = &Queue->Begin[Idx];
-                
-                RenderCheckUniforms(Query->Shader);
-                
-                RenderApplyMaterial(Query->Material, Query->Shader);
-                
-                glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &Query->RenderTransform[0][0]);
-                
-                MeshDraw(Query->Mesh);
+                glUniformMatrix4fv(gLight, 1, GL_FALSE, &Shadow->ShadowMatrix[0][0]);
+                glUniform1i(gHasShadow, 1);
             }
+            else
+            {
+                glUniform1i(gHasShadow, 0);
+            }
+            
+            do
+            {
+                for(u32 Idx = 0;
+                    Idx < Queue->Used;
+                    Idx++)
+                {
+                    render_query *Query = &Queue->Begin[Idx];
+                    
+                    RenderCheckUniforms(Query->Shader);
+                    
+                    RenderApplyMaterial(Query->Material, Query->Shader);
+                    
+                    glUniformMatrix4fv(gMatrixM, 1, GL_FALSE, &Query->RenderTransform[0][0]);
+                    
+                    MeshDraw(Query->Mesh);
+                }
+                
+                Shadow = GlobalShadowGeneratorPool + ++Idx;
+            }
+            while(Idx < F3D_MAX_SHADOWS && Shadow->Used);
             
             Queue->Used = 0;
             Queue->Ptr = Queue->Begin;
+            
+            for(ms Idx = 0;
+                Idx < F3D_MAX_SHADOWS;
+                Idx++)
+            {
+                shadow_generator *Shadow = GlobalShadowGeneratorPool + Idx;
+                
+                if(!Shadow->Used) break;
+                Shadow->Used = 0;
+            }
         }
     }
     else if(RenderPass == RenderPass_Depth)
@@ -219,17 +261,6 @@ RenderDraw(u8 RenderPass)
         glViewport(0, 0, 1024, 1024);
         glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
         glClear(GL_DEPTH_BUFFER_BIT);
-        
-        GLfloat near_plane = 1.0f, far_plane = 7.5f;
-        glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);  
-        
-        glm::mat4 lightView = glm::lookAt(glm::vec3(-2.0f, 4.0f, -1.0f), 
-                                          glm::vec3( 0.0f, 0.0f,  0.0f), 
-                                          glm::vec3( 0.0f, 1.0f,  0.0f));
-        
-        glm::mat4 lsm = lightProjection * lightView;
-        
-        glUniformMatrix4fv(gLight, 1, GL_FALSE, &lsm[0][0]);
         glUniform1i(renderType, 2);
     }
     else
@@ -238,13 +269,7 @@ RenderDraw(u8 RenderPass)
     }
 }
 
-typedef struct
-{
-    glm::mat4 ShadowMatrix;
-    render_queue Meshes;
-} shadow_generator;
-
-inline static void
+internal void
 ShadowAddQuery(shadow_generator *Shadow,
                render_mesh* Mesh, 
                glm::mat4 RenderTransform,
@@ -253,7 +278,7 @@ ShadowAddQuery(shadow_generator *Shadow,
     RenderAddQueryInternal(&Shadow->Meshes, Mesh, 0, RenderTransform, Shader);
 }
 
-inline static void
+internal void
 ShadowGenerate(shadow_generator *Shadow, GLuint Program)
 {
     glUseProgram(Program);
@@ -278,6 +303,23 @@ ShadowGenerate(shadow_generator *Shadow, GLuint Program)
         
         Queue->Used = 0;
         Queue->Ptr = Queue->Begin;
+    }
+}
+
+internal void
+ShadowDraw(shadow_generator ShadowGens)
+{
+    for(mi Idx=0;
+        Idx < F3D_MAX_SHADOWS;
+        ++Idx)
+    {
+        shadow_generator *Shadow = GlobalShadowGeneratorPool + Idx;
+        if(!Shadow->Used)
+        {
+            *Shadow = ShadowGens;
+            Shadow->Used = 1;
+            return;
+        }
     }
 }
 

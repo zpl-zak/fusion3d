@@ -10,8 +10,10 @@ uniform mat4 lm;
 out vec2 uv0;
 out vec3 normal0;
 out vec3 frag0;
+out vec4 lfrag0;
 out float vdist;
 out vec3 ambColor0;
+out int hasShadow0;
 
 struct Camera
 {
@@ -30,7 +32,7 @@ struct Camera
 
 uniform sampler2D renderTexture;
 uniform int renderType;
-
+uniform int hasShadow;
 uniform Camera camera;
 
 void main() {
@@ -40,10 +42,12 @@ void main() {
       mat4 mvp = camera.projection * camera.view * m;
       gl_Position = mvp * vec4(vertex, 1);
       frag0 = vec3(m * vec4(vertex, 1));
+      lfrag0 = lm * m * vec4(vertex, 1);
       ambColor0 = camera.ambColor;
       uv0 = uv;
       vdist = distance(camera.position, (m * vec4(vertex, 1)).xyz) / camera.farPlane;
       normal0 = mat3(transpose(inverse(m))) * normal;
+      hasShadow0 = hasShadow;
   }
   else if(renderType == 2)
   {
