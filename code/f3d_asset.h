@@ -169,14 +169,44 @@ AssetRegister(char *Name, char *FilePath, u32 AssetType)
         Assert(!"Max capacity has been reached!");
         return(0);
     }
-    
+
     char Temp[MAX_PATH];
-    b32 InPack = 0;
+    b32 IsLoose = 0;
+    
     asset_pack *PackPtr = 0;
     hformat_pak_file *PakFile;
     hformat_pak *Pak;
+    PakFile = 0;
+    Pak = 0;
+    
     ms FileSize;
+    
+    sprintf(Temp, "%s/%s", GlobalGamePath, FilePath);
+    
+    s32 FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
+    
+    if(FileIndex == -1)
+    {
+        // NOTE(zaklaus): Check the working directory instead:
+        {
+            sprintf(Temp, "%s", FilePath);
+            FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
+            
+            if(FileSize)
+            {
+                IsLoose = 1;
+            }
+        }
+    }
+    else
+    {
+        IsLoose = 1;
+    }
+    
+    if(IsLoose) IOFileClose(FileIndex);
+    
     // NOTE(zaklaus): Check if file is in packs.
+    if(!IsLoose)
     {
         for(s32 Idx = 0;
             Idx < PACK_MAX;
@@ -199,36 +229,13 @@ AssetRegister(char *Name, char *FilePath, u32 AssetType)
                 if(StringsAreEqual((char *)PakFile->FileName, FilePath))
                 {
                     sprintf(Temp, "%s", FilePath);
-                    InPack = 1;
                     PackPtr = Pack;
                     FileSize = PakFile->FileLength;
                     break;
                 }
             }
         }
-    }
-    
-    if(!InPack)
-    {
-        sprintf(Temp, "%s/%s", GlobalGamePath, FilePath);
-        
-        s32 FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
-        
-        if(FileIndex == -1)
-        {
-            // NOTE(zaklaus): Check the working directory instead:
-            {
-                sprintf(Temp, "%s", FilePath);
-                FileIndex = IOFileOpenRead((s8 *)Temp, &FileSize);
-                
-                Assert(FileSize != -1);
-            }
-        }
-        
-        IOFileClose(FileIndex);
-        
-        PakFile = 0;
-        Pak = 0;
+        Assert(PackPtr && "File doesn't exist!");
     }
     
     asset_file Asset = {0};
@@ -238,7 +245,7 @@ AssetRegister(char *Name, char *FilePath, u32 AssetType)
     Copy(strlen(Temp)+1, Temp, Asset.FilePath);
     Asset.Type = AssetType;
     Asset.FileSize = FileSize;
-    Asset.LoadFromPack = InPack;
+    Asset.LoadFromPack = !IsLoose;
     Asset.PakFile = PakFile;
     Asset.Pak = Pak;
     Asset.PackPtr = PackPtr;

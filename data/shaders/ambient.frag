@@ -58,6 +58,11 @@ float CalcShadow(in vec4 lfrag)
     
     float curd = proj.z;
     
+    if(curd > 1.0)
+    {
+        return 0.0;
+    }
+    
     float bias = 0.005; //max(0.05 * (1.0 - dot(normal, ld)), 0.005);
     //float shadow = curd - bias > cd ? 1.0 : 0.0;
     
@@ -139,12 +144,15 @@ void main() {
             alpha = 1.0 - material.opacity;
         }      
         
-        float shadow = CalcShadow(lfrag0);
-        if(shadow>0.0)
+        if(hasShadow==1)
         {
-            float sh = max(1.0 - shadow, 0.4);
-            vec3 outRes = res * sh;
-            res = mix(res, outRes, alpha);
+            float shadow = CalcShadow(lfrag0);
+            if(shadow>0.0)
+            {
+                float sh = max(1.0 - shadow, 0.4);
+                vec3 outRes = res * sh;
+                res = mix(outRes, res, 1.0-alpha);
+            }
         }
     }
     else

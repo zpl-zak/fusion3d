@@ -6,6 +6,8 @@ global_variable window GlobalWindowArea;
 global_variable HDC GlobalDeviceContext;
 global_variable HWND GlobalWindow;
 
+#define F3D_SHADOW_RES 4096
+
 // NOTE(ZaKlaus): Global buffers..
 
 enum {
@@ -148,11 +150,13 @@ WindowInitialize(HINSTANCE Instance)
             glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
             glBindTexture(GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Depth]);
             
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, F3D_SHADOW_RES, F3D_SHADOW_RES, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+            GLfloat borderColor[] = { 1.0, 1.0, 1.0, 1.0 };
+            glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);  
             
             glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, GlobalFrameTextures[Framebuffer_Depth], 0);

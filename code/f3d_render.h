@@ -211,16 +211,6 @@ RenderDraw(u8 RenderPass)
             mi Idx = 0;
             shadow_generator *Shadow = GlobalShadowGeneratorPool;
             
-            if(Shadow->Used)
-            {
-                glUniformMatrix4fv(gLight, 1, GL_FALSE, &Shadow->ShadowMatrix[0][0]);
-                glUniform1i(gHasShadow, 1);
-            }
-            else
-            {
-                glUniform1i(gHasShadow, 0);
-            }
-            
             do
             {
                 for(u32 Idx = 0;
@@ -230,6 +220,16 @@ RenderDraw(u8 RenderPass)
                     render_query *Query = &Queue->Begin[Idx];
                     
                     RenderCheckUniforms(Query->Shader);
+                    
+                    if(Shadow->Used)
+                    {
+                        glUniformMatrix4fv(gLight, 1, GL_FALSE, &Shadow->ShadowMatrix[0][0]);
+                        glUniform1i(gHasShadow, 1);
+                    }
+                    else
+                    {
+                        glUniform1i(gHasShadow, 0);
+                    }
                     
                     RenderApplyMaterial(Query->Material, Query->Shader);
                     
@@ -258,7 +258,7 @@ RenderDraw(u8 RenderPass)
     }
     else if(RenderPass == RenderPass_Depth)
     {
-        glViewport(0, 0, 1024, 1024);
+        glViewport(0, 0, F3D_SHADOW_RES, F3D_SHADOW_RES);
         glBindFramebuffer(GL_FRAMEBUFFER, GlobalRenderBuffers[Framebuffer_Depth]);
         glClear(GL_DEPTH_BUFFER_BIT);
         glUniform1i(renderType, 2);

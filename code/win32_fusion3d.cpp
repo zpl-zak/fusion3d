@@ -184,7 +184,7 @@ int CALLBACK
             int CmdShow)
 {                
    WindowInitialize(Instance);
-   AssetInitialize("D:\\Games\\Mafia");
+   AssetInitialize("W:\\fusion3d\\data");//"D:\\Games\\Mafia");
    
    VShader = ShaderLoad("ambient_vs", "ambient.vert");
    AssetAssignReloadCallbackInternal(VShader, DEBUGReloadShaderSource);
@@ -283,6 +283,13 @@ int CALLBACK
    CubeTest.Fullbright = 0;
    CubeTest.Opacity = 0.85;
    
+   render_material CubeTest2 = {};
+   CubeTest2.Diffuse = {0.2f, 1.2f, 0.34f};
+   CubeTest2.Ambient = {0.2f, 1.2f, 0.34f};
+   CubeTest2.DoubleSided = 0;
+   CubeTest2.DiffTexture = PlaneTex;
+   CubeTest2.Fullbright = 0;
+   CubeTest2.Opacity = 0.0;
    
    render_material RoomTest = {};
    RoomTest.Diffuse = {0.2f, .12f, 0.34f};
@@ -337,9 +344,20 @@ int CALLBACK
        
        glm::mat4 lightSpaceMatrix = lightProjection * lightView;
        
-       shadow_generator MainShadow = {};
+       local_persist shadow_generator MainShadow = {};
        MainShadow.ShadowMatrix = lightSpaceMatrix;
+
+       lightProjection = glm::ortho(-30.0f, 30.0f, -30.0f, 30.0f, near_plane, 100.f);  
        
+       lightView = glm::lookAt(glm::vec3(-2.0f*changex, 6.0f, -1.0f), 
+                                         glm::vec3( 0.0f, 0.0f,  0.0f), 
+                                         glm::vec3( 0.0f, 1.0f,  0.0f));  
+       
+       lightSpaceMatrix = lightProjection * lightView;
+       
+       
+       local_persist shadow_generator OtherShadow = {};
+       OtherShadow.ShadowMatrix = lightSpaceMatrix;
        
        AmbientProgram = ShaderProgramGet(AmbientProgramID);
        
@@ -396,7 +414,6 @@ int CALLBACK
                TransformPlane.Scale = glm::vec3(20);
                glm::mat4 MatPlane = RenderTransformMatrix(TransformPlane);
                PrimitivePlaneDraw(&PlaneTest, AmbientProgram, MatPlane);
-               ShadowAddQuery(&MainShadow, GlobalPlane, MatPlane, AmbientProgram);
                
                CubeTest.Opacity = changex * 0.5f + 0.5f;
                
@@ -418,8 +435,11 @@ int CALLBACK
                                    render_transform TransformOrig = RenderTransform();
                                    TransformOrig.Pos = glm::vec3((changex*0.012f + i)*CUBE_MULT, j*CUBE_MULT, k*CUBE_MULT);
                                    glm::mat4 Mat = RenderTransformMatrix(TransformOrig);
-                                   PrimitiveCubeDraw(&CubeTest, AmbientProgram, Mat);
+                                   PrimitiveCubeDraw(&CubeTest2, AmbientProgram, Mat);
+                                   
                                    ShadowAddQuery(&MainShadow, GlobalCube, Mat, AmbientProgram);
+                                   ShadowAddQuery(&OtherShadow, GlobalCube, Mat, AmbientProgram);
+                                   
                                }
                            }
                        }
@@ -429,8 +449,10 @@ int CALLBACK
                RenderDraw(RenderPass_Depth);               
                {
                    ShadowGenerate(&MainShadow, AmbientProgram);
+                   ShadowGenerate(&OtherShadow, AmbientProgram);
                }
-               //ShadowDraw(MainShadow);
+               ShadowDraw(MainShadow);
+               ShadowDraw(OtherShadow);
                
                RenderDraw(RenderPass_Color);
                
